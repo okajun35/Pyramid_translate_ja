@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 00:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../api/static.rst:4
+msgid ":mod:`pyramid.static`"
+msgstr ""
+
+#: of pyramid.static.static_view:1
+msgid ""
+"An instance of this class is a callable which can act as a :app:`Pyramid`"
+" :term:`view callable`; this view will serve static files from a "
+"directory on disk based on the ``root_dir`` you provide to its "
+"constructor."
+msgstr ""
+
+#: of pyramid.static.static_view:6
+msgid ""
+"The directory may contain subdirectories (recursively); the static view "
+"implementation will descend into these directories as necessary based on "
+"the components of the URL in order to resolve a path into a response."
+msgstr ""
+
+#: of pyramid.static.static_view:11
+msgid ""
+"You may pass an absolute or relative filesystem path or a :term:`asset "
+"specification` representing the directory containing static files as the "
+"``root_dir`` argument to this class' constructor."
+msgstr ""
+
+#: of pyramid.static.static_view:16
+msgid ""
+"If the ``root_dir`` path is relative, and the ``package_name`` argument "
+"is ``None``, ``root_dir`` will be considered relative to the directory in"
+" which the Python file which *calls* ``static`` resides.  If the "
+"``package_name`` name argument is provided, and a relative ``root_dir`` "
+"is provided, the ``root_dir`` will be considered relative to the Python "
+":term:`package` specified by ``package_name`` (a dotted path to a Python "
+"package)."
+msgstr ""
+
+#: of pyramid.static.static_view:24
+msgid ""
+"``cache_max_age`` influences the ``Expires`` and ``Max-Age`` response "
+"headers returned by the view (default is 3600 seconds or one hour)."
+msgstr ""
+
+#: of pyramid.static.static_view:28
+msgid ""
+"``use_subpath`` influences whether ``request.subpath`` will be used as "
+"``PATH_INFO`` when calling the underlying WSGI application which actually"
+" serves the static files.  If it is ``True``, the static application will"
+" consider ``request.subpath`` as ``PATH_INFO`` input.  If it is "
+"``False``, the static application will consider "
+"request.environ[``PATH_INFO``] as ``PATH_INFO`` input. By default, this "
+"is ``False``."
+msgstr ""
+
+#: of pyramid.static.static_view:37
+msgid ""
+"If the ``root_dir`` is relative to a :term:`package`, or is a "
+":term:`asset specification` the :app:`Pyramid` "
+":class:`pyramid.config.Configurator` method can be used to override "
+"assets within the named ``root_dir`` package-relative directory. However,"
+" if the ``root_dir`` is absolute, configuration will not be able to "
+"override the assets it contains."
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster:1
+msgid ""
+"An implementation of :class:`~pyramid.interfaces.ICacheBuster` which uses"
+" a supplied manifest file to map an asset path to a cache-busted version "
+"of the path."
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster:5
+msgid ""
+"The ``manifest_spec`` can be an absolute path or a :term:`asset "
+"specification` pointing to a package-relative file."
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster:8
+msgid ""
+"The manifest file is expected to conform to the following simple JSON "
+"format:"
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster:18
+msgid ""
+"By default, it is a JSON-serialized dictionary where the keys are the "
+"source asset paths used in calls to "
+":meth:`~pyramid.request.Request.static_url`. For example:"
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster:27
+msgid ""
+"The file format and location can be changed by subclassing and overriding"
+" :meth:`.parse_manifest`."
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster:30
+msgid "If a path is not found in the manifest it will pass through unchanged."
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster:32
+msgid ""
+"If ``reload`` is ``True`` then the manifest file will be reloaded when "
+"changed. It is not recommended to leave this enabled in production."
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster:35
+msgid ""
+"If the manifest file cannot be found on disk it will be treated as an "
+"empty mapping unless ``reload`` is ``False``."
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster.exists:1
+msgid "Test whether a path exists.  Returns False for broken symbolic links"
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster.getmtime:1
+msgid "Return the last modification time of a file, reported by os.stat()."
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster.manifest:1
+msgid "The current manifest dictionary."
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster.parse_manifest:1
+msgid ""
+"Parse the ``content`` read from the ``manifest_path`` into a dictionary "
+"mapping."
+msgstr ""
+
+#: of pyramid.static.ManifestCacheBuster.parse_manifest:4
+msgid ""
+"Subclasses may override this method to use something other than "
+"``json.loads`` to load any type of file format and return a conforming "
+"dictionary."
+msgstr ""
+
+#: of pyramid.static.QueryStringCacheBuster:1
+msgid ""
+"An implementation of :class:`~pyramid.interfaces.ICacheBuster` which adds"
+" a token for cache busting in the query string of an asset URL."
+msgstr ""
+
+#: of pyramid.static.QueryStringCacheBuster:4
+#: pyramid.static.QueryStringConstantCacheBuster:7
+msgid ""
+"The optional ``param`` argument determines the name of the parameter "
+"added to the query string and defaults to ``'x'``."
+msgstr ""
+
+#: of pyramid.static.QueryStringCacheBuster:7
+msgid ""
+"To use this class, subclass it and provide a ``tokenize`` method which "
+"accepts ``request, pathspec, kw`` and returns a token."
+msgstr ""
+
+#: of pyramid.static.QueryStringConstantCacheBuster:1
+msgid ""
+"An implementation of :class:`~pyramid.interfaces.ICacheBuster` which adds"
+" an arbitrary token for cache busting in the query string of an asset "
+"URL."
+msgstr ""
+
+#: of pyramid.static.QueryStringConstantCacheBuster:4
+msgid ""
+"The ``token`` parameter is the token string to use for cache busting and "
+"will be the same for every request."
+msgstr ""
+

@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 00:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/view_classes.rst:5
+msgid "09: Organizing Views With View Classes"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:7
+msgid ""
+"Change our view functions to be methods on a view class, then move some "
+"declarations to the class level."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:12
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:14
+msgid ""
+"So far our views have been simple, free-standing functions. Many times "
+"your views are related to one another. They may consist of different ways"
+" to look at or work on the same data, or be a REST API that handles "
+"multiple operations. Grouping these views together as a :ref:`view class "
+"<class_as_view>` makes sense:"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:19
+msgid "Group views."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:21
+msgid "Centralize some repetitive defaults."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:23
+msgid "Share some state and helpers."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:25
+msgid ""
+"In this step we just do the absolute minimum to convert the existing "
+"views to a view class. In a later tutorial step, we'll examine view "
+"classes in depth."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:30
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:32
+msgid "Group related views into a view class."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:34
+msgid "Centralize configuration with class-level ``@view_defaults``."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:38
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:40
+msgid "First we copy the results of the previous step:"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:47
+msgid ""
+"Our ``view_classes/tutorial/views.py`` now has a view class with our two "
+"views:"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:53
+msgid ""
+"Our unit tests in ``view_classes/tutorial/tests.py`` don't run, so let's "
+"modify them to import the view class, and make an instance before getting"
+" a response:"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:60
+msgid "Now run the tests:"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:69
+msgid "Run your Pyramid application with:"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:75
+msgid ""
+"Open http://localhost:6543/ and http://localhost:6543/howdy in your "
+"browser."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:79
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:81
+msgid ""
+"To ease the transition to view classes, we didn't introduce any new "
+"functionality. We simply changed the view functions to methods on a view "
+"class, then updated the tests."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:85
+msgid ""
+"In our ``TutorialViews`` view class, you can see that our two view "
+"classes are logically grouped together as methods on a common class. "
+"Since the two views shared the same template, we could move that to a "
+"``@view_defaults`` decorator at the class level."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:90
+msgid ""
+"The tests needed to change. Obviously we needed to import the view class."
+" But you can also see the pattern in the tests of instantiating the view "
+"class with the dummy request first, then calling the view method being "
+"tested."
+msgstr ""
+
+#: ../../quick_tutorial/view_classes.rst:94
+msgid ":ref:`class_as_view`"
+msgstr ""
+

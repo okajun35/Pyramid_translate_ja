@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 00:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../api/scripting.rst:4
+msgid ":mod:`pyramid.scripting`"
+msgstr ""
+
+#: of pyramid.scripting.get_root:1
+msgid ""
+"Return a tuple composed of ``(root, closer)`` when provided a "
+":term:`router` instance as the ``app`` argument.  The ``root`` returned "
+"is the application root object.  The ``closer`` returned is a callable "
+"(accepting no arguments) that should be called when your scripting "
+"application is finished using the root."
+msgstr ""
+
+#: of pyramid.scripting.get_root:7 pyramid.scripting.prepare:6
+msgid ""
+"``request`` is passed to the :app:`Pyramid` application root factory to "
+"compute the root. If ``request`` is None, a default will be constructed "
+"using the registry's :term:`Request Factory` via the "
+":meth:`pyramid.interfaces.IRequestFactory.blank` method."
+msgstr ""
+
+#: of pyramid.scripting.prepare:1
+msgid ""
+"This function pushes data onto the Pyramid threadlocal stack (request and"
+" registry), making those objects 'current'.  It returns a dictionary "
+"useful for bootstrapping a Pyramid application in a scripting "
+"environment."
+msgstr ""
+
+#: of pyramid.scripting.prepare:11
+msgid ""
+"If ``registry`` is not supplied, the last registry loaded from "
+":attr:`pyramid.config.global_registries` will be used. If you have loaded"
+" more than one :app:`Pyramid` application in the current process, you may"
+" not want to use the last registry loaded, thus you can search the "
+"``global_registries`` and supply the appropriate one based on your own "
+"criteria."
+msgstr ""
+
+#: of pyramid.scripting.prepare:18
+msgid ""
+"The function returns a dictionary composed of ``root``, ``closer``, "
+"``registry``, ``request`` and ``root_factory``.  The ``root`` returned is"
+" the application's root resource object.  The ``closer`` returned is a "
+"callable (accepting no arguments) that should be called when your "
+"scripting application is finished using the root.  ``registry`` is the "
+"resolved registry object. ``request`` is the request object passed or the"
+" constructed request if no request is passed.  ``root_factory`` is the "
+"root factory used to construct the root."
+msgstr ""
+
+#: of pyramid.scripting.prepare:28
+msgid ""
+"This function may be used as a context manager to call the ``closer`` "
+"automatically:"
+msgstr ""
+
+#: of pyramid.scripting.prepare:40
+msgid "Added the ability to use the return value as a context manager."
+msgstr ""
+

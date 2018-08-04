@@ -1,0 +1,2926 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 00:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../api/config.rst:7
+msgid ":mod:`pyramid.config`"
+msgstr ""
+
+#: of pyramid.config.Configurator:1
+msgid ""
+"A Configurator is used to configure a :app:`Pyramid` :term:`application "
+"registry`."
+msgstr ""
+
+#: of pyramid.config.Configurator:4
+msgid ""
+"The Configurator lifecycle can be managed by using a context manager to "
+"automatically handle calling :meth:`pyramid.config.Configurator.begin` "
+"and :meth:`pyramid.config.Configurator.end` as well as "
+":meth:`pyramid.config.Configurator.commit`."
+msgstr ""
+
+#: of pyramid.config.Configurator:15
+msgid ""
+"If the ``registry`` argument is not ``None``, it must be an instance of "
+"the :class:`pyramid.registry.Registry` class representing the registry to"
+" configure.  If ``registry`` is ``None``, the configurator will create a "
+":class:`pyramid.registry.Registry` instance itself; it will also perform "
+"some default configuration that would not otherwise be done.  After its "
+"construction, the configurator may be used to add further configuration "
+"to the registry."
+msgstr ""
+
+#: of pyramid.config.Configurator:23
+msgid ""
+"If ``registry`` is assigned the above-mentioned class instance, all other"
+" constructor arguments are ignored, with the exception of ``package``."
+msgstr ""
+
+#: of pyramid.config.Configurator:27
+msgid ""
+"If the ``package`` argument is passed, it must be a reference to a Python"
+" :term:`package` (e.g. ``sys.modules['thepackage']``) or a :term:`dotted "
+"Python name` to the same.  This value is used as a basis to convert "
+"relative paths passed to various configuration methods, such as methods "
+"which accept a ``renderer`` argument, into absolute paths.  If ``None`` "
+"is passed (the default), the package is assumed to be the Python package "
+"in which the *caller* of the ``Configurator`` constructor lives."
+msgstr ""
+
+#: of pyramid.config.Configurator:35
+msgid ""
+"If the ``root_package`` is passed, it will propagate through the "
+"configuration hierarchy as a way for included packages to locate "
+"resources relative to the package in which the main ``Configurator`` was "
+"created. If ``None`` is passed (the default), the ``root_package`` will "
+"be derived from the ``package`` argument. The ``package`` attribute is "
+"always pointing at the package being included when using "
+":meth:`.include`, whereas the ``root_package`` does not change."
+msgstr ""
+
+#: of pyramid.config.Configurator:43
+msgid ""
+"If the ``settings`` argument is passed, it should be a Python dictionary "
+"representing the :term:`deployment settings` for this application.  These"
+" are later retrievable using the "
+":attr:`pyramid.registry.Registry.settings` attribute (aka "
+"``request.registry.settings``)."
+msgstr ""
+
+#: of pyramid.config.Configurator:49
+msgid ""
+"If the ``root_factory`` argument is passed, it should be an object "
+"representing the default :term:`root factory` for your application or a "
+":term:`dotted Python name` to the same.  If it is ``None``, a default "
+"root factory will be used."
+msgstr ""
+
+#: of pyramid.config.Configurator:54
+msgid ""
+"If ``authentication_policy`` is passed, it should be an instance of an "
+":term:`authentication policy` or a :term:`dotted Python name` to the "
+"same."
+msgstr ""
+
+#: of pyramid.config.Configurator:58
+msgid ""
+"If ``authorization_policy`` is passed, it should be an instance of an "
+":term:`authorization policy` or a :term:`dotted Python name` to the same."
+msgstr ""
+
+#: of pyramid.config.Configurator:62
+msgid ""
+"A ``ConfigurationError`` will be raised when an authorization policy is "
+"supplied without also supplying an authentication policy (authorization "
+"requires authentication)."
+msgstr ""
+
+#: of pyramid.config.Configurator:66
+msgid ""
+"If ``renderers`` is ``None`` (the default), a default set of "
+":term:`renderer` factories is used. Else, it should be a list of tuples "
+"representing a set of renderer factories which should be configured into "
+"this application, and each tuple representing a set of positional values "
+"that should be passed to "
+":meth:`pyramid.config.Configurator.add_renderer`."
+msgstr ""
+
+#: of pyramid.config.Configurator:73
+msgid ""
+"If ``debug_logger`` is not passed, a default debug logger that logs to a "
+"logger will be used (the logger name will be the package name of the "
+"*caller* of this configurator).  If it is passed, it should be an "
+"instance of the :class:`logging.Logger` (PEP 282) standard library class "
+"or a Python logger name.  The debug logger is used by :app:`Pyramid` "
+"itself to log warnings and authorization debugging information."
+msgstr ""
+
+#: of pyramid.config.Configurator:80
+msgid ""
+"If ``locale_negotiator`` is passed, it should be a :term:`locale "
+"negotiator` implementation or a :term:`dotted Python name` to same.  See "
+":ref:`custom_locale_negotiator`."
+msgstr ""
+
+#: of pyramid.config.Configurator:84
+msgid ""
+"If ``request_factory`` is passed, it should be a :term:`request factory` "
+"implementation or a :term:`dotted Python name` to the same. See "
+":ref:`changing_the_request_factory`.  By default it is ``None``, which "
+"means use the default request factory."
+msgstr ""
+
+#: of pyramid.config.Configurator:89
+msgid ""
+"If ``response_factory`` is passed, it should be a :term:`response "
+"factory` implementation or a :term:`dotted Python name` to the same. See "
+":ref:`changing_the_response_factory`.  By default it is ``None``, which "
+"means use the default response factory."
+msgstr ""
+
+#: of pyramid.config.Configurator:94
+msgid ""
+"If ``default_permission`` is passed, it should be a :term:`permission` "
+"string to be used as the default permission for all view configuration "
+"registrations performed against this Configurator.  An example of a "
+"permission string:``'view'``. Adding a default permission makes it "
+"unnecessary to protect each view configuration with an explicit "
+"permission, unless your application policy requires some exception for a "
+"particular view. By default, ``default_permission`` is ``None``, meaning "
+"that view configurations which do not explicitly declare a permission "
+"will always be executable by entirely anonymous users (any authorization "
+"policy in effect is ignored)."
+msgstr ""
+
+#: of pyramid.config.Configurator:108
+#: pyramid.config.Configurator.set_default_permission:31
+msgid "See also :ref:`setting_a_default_permission`."
+msgstr ""
+
+#: of pyramid.config.Configurator:110
+msgid ""
+"If ``session_factory`` is passed, it should be an object which implements"
+" the :term:`session factory` interface.  If a nondefault value is passed,"
+" the ``session_factory`` will be used to create a session object when "
+"``request.session`` is accessed.  Note that the same outcome can be "
+"achieved by calling "
+":meth:`pyramid.config.Configurator.set_session_factory`.  By default, "
+"this argument is ``None``, indicating that no session factory will be "
+"configured (and thus accessing ``request.session`` will throw an error) "
+"unless ``set_session_factory`` is called later during configuration."
+msgstr ""
+
+#: of pyramid.config.Configurator:121
+msgid ""
+"If ``autocommit`` is ``True``, every method called on the configurator "
+"will cause an immediate action, and no configuration conflict detection "
+"will be used. If ``autocommit`` is ``False``, most methods of the "
+"configurator will defer their action until "
+":meth:`pyramid.config.Configurator.commit` is called.  When "
+":meth:`pyramid.config.Configurator.commit` is called, the actions implied"
+" by the called methods will be checked for configuration conflicts unless"
+" ``autocommit`` is ``True``.  If a conflict is detected, a "
+"``ConfigurationConflictError`` will be raised.  Calling "
+":meth:`pyramid.config.Configurator.make_wsgi_app` always implies a final "
+"commit."
+msgstr ""
+
+#: of pyramid.config.Configurator:133
+msgid ""
+"If ``default_view_mapper`` is passed, it will be used as the default "
+":term:`view mapper` factory for view configurations that don't otherwise "
+"specify one (see :class:`pyramid.interfaces.IViewMapperFactory`).  If "
+"``default_view_mapper`` is not passed, a superdefault view mapper will be"
+" used."
+msgstr ""
+
+#: of pyramid.config.Configurator:139
+msgid ""
+"If ``exceptionresponse_view`` is passed, it must be a :term:`view "
+"callable` or ``None``.  If it is a view callable, it will be used as an "
+"exception view callable when an :term:`exception response` is raised. If "
+"``exceptionresponse_view`` is ``None``, no exception response view will "
+"be registered, and all raised exception responses will be bubbled up to "
+"Pyramid's caller.  By default, the "
+"``pyramid.httpexceptions.default_exceptionresponse_view`` function is "
+"used as the ``exceptionresponse_view``."
+msgstr ""
+
+#: of pyramid.config.Configurator:148
+msgid ""
+"If ``route_prefix`` is passed, all routes added with "
+":meth:`pyramid.config.Configurator.add_route` will have the specified "
+"path prepended to their pattern."
+msgstr ""
+
+#: of pyramid.config.Configurator:152
+msgid ""
+"If ``introspection`` is passed, it must be a boolean value.  If it's "
+"``True``, introspection values during actions will be kept for use for "
+"tools like the debug toolbar.  If it's ``False``, introspection values "
+"provided by registrations will be ignored.  By default, it is ``True``."
+msgstr ""
+
+#: of pyramid.config.Configurator:158
+msgid "The ``exceptionresponse_view`` argument."
+msgstr ""
+
+#: of pyramid.config.Configurator:161
+msgid "The ``route_prefix`` argument."
+msgstr ""
+
+#: of pyramid.config.Configurator:164
+msgid "The ``introspection`` argument."
+msgstr ""
+
+#: of pyramid.config.Configurator:167
+msgid "The ``root_package`` argument. The ``response_factory`` argument."
+msgstr ""
+
+#: of pyramid.config.Configurator:171
+msgid ""
+"The ability to use the configurator as a context manager with the "
+"``with``-statement to make threadlocal configuration available for "
+"further configuration with an implicit commit."
+msgstr ""
+
+#: ../../api/config.rst:13
+msgid ":methodcategory:`Controlling Configuration State`"
+msgstr ""
+
+#: of pyramid.config.Configurator.commit:1
+msgid ""
+"Commit any pending configuration actions. If a configuration conflict is "
+"detected in the pending configuration actions, this method will raise a "
+":exc:`ConfigurationConflictError`; within the traceback of this error "
+"will be information about the source of the conflict, usually including "
+"file names and line numbers of the cause of the configuration conflicts."
+msgstr ""
+
+#: of pyramid.config.Configurator.commit:9
+msgid ""
+"You should think very carefully before manually invoking ``commit()``. "
+"Especially not as part of any reusable configuration methods. Normally it"
+" should only be done by an application author at the end of configuration"
+" in order to override certain aspects of an addon."
+msgstr ""
+
+#: of pyramid.config.Configurator.begin:1
+msgid ""
+"Indicate that application or test configuration has begun. This pushes a "
+"dictionary containing the :term:`application registry` implied by "
+"``registry`` attribute of this configurator and the :term:`request` "
+"implied by the ``request`` argument onto the :term:`thread local` stack "
+"consulted by various :mod:`pyramid.threadlocal` API functions."
+msgstr ""
+
+#: of pyramid.config.Configurator.begin:9
+msgid ""
+"If ``request`` is not specified and the registry owned by the "
+"configurator is already pushed as the current threadlocal registry then "
+"this method will keep the current threadlocal request unchanged."
+msgstr ""
+
+#: of pyramid.config.Configurator.begin:13
+msgid ""
+"The current threadlocal request is propagated if the current threadlocal "
+"registry remains unchanged."
+msgstr ""
+
+#: of pyramid.config.Configurator.end:1
+msgid ""
+"Indicate that application or test configuration has ended. This pops the "
+"last value pushed onto the :term:`thread local` stack (usually by the "
+"``begin`` method) and returns that value."
+msgstr ""
+
+#: of pyramid.config.Configurator.include:1
+msgid ""
+"Include a configuration callable, to support imperative application "
+"extensibility."
+msgstr ""
+
+#: of pyramid.config.Configurator.include:4
+msgid ""
+"In versions of :app:`Pyramid` prior to 1.2, this function accepted "
+"``*callables``, but this has been changed to support only a single "
+"callable."
+msgstr ""
+
+#: of pyramid.config.Configurator.include:8
+msgid ""
+"A configuration callable should be a callable that accepts a single "
+"argument named ``config``, which will be an instance of a "
+":term:`Configurator`.  However, be warned that it will not be the same "
+"configurator instance on which you call this method.  The code which runs"
+" as a result of calling the callable should invoke methods on the "
+"configurator passed to it which add configuration state.  The return "
+"value of a callable will be ignored."
+msgstr ""
+
+#: of pyramid.config.Configurator.include:16
+msgid ""
+"Values allowed to be presented via the ``callable`` argument to this "
+"method: any callable Python object or any :term:`dotted Python name` "
+"which resolves to a callable Python object.  It may also be a Python "
+":term:`module`, in which case, the module will be searched for a callable"
+" named ``includeme``, which will be treated as the configuration "
+"callable."
+msgstr ""
+
+#: of pyramid.config.Configurator.include:23
+msgid ""
+"For example, if the ``includeme`` function below lives in a module named "
+"``myapp.myconfig``:"
+msgstr ""
+
+#: of pyramid.config.Configurator.include:38
+msgid "You might cause it to be included within your Pyramid application like so:"
+msgstr ""
+
+#: of pyramid.config.Configurator.include:50
+msgid ""
+"Because the function is named ``includeme``, the function name can also "
+"be omitted from the dotted name reference:"
+msgstr ""
+
+#: of pyramid.config.Configurator.include:62
+msgid ""
+"Included configuration statements will be overridden by local "
+"configuration statements if an included callable causes a configuration "
+"conflict by registering something with the same configuration parameters."
+msgstr ""
+
+#: of pyramid.config.Configurator.include:67
+msgid ""
+"If the ``route_prefix`` is supplied, it must be a string.  Any calls to "
+":meth:`pyramid.config.Configurator.add_route` within the included "
+"callable will have their pattern prefixed with the value of "
+"``route_prefix``. This can be used to help mount a set of routes at a "
+"different location than the included callable's author intended, while "
+"still maintaining the same route names.  For example:"
+msgstr ""
+
+#: of pyramid.config.Configurator.include:86
+msgid ""
+"In the above configuration, the ``show_users`` route will have an "
+"effective route pattern of ``/users/show``, instead of ``/show`` because "
+"the ``route_prefix`` argument will be prepended to the pattern."
+msgstr ""
+
+#: of pyramid.config.Configurator.include:91
+msgid "The ``route_prefix`` parameter."
+msgstr ""
+
+#: of pyramid.config.Configurator.include:94
+msgid ""
+"The included function is wrapped with a call to "
+":meth:`pyramid.config.Configurator.begin` and "
+":meth:`pyramid.config.Configurator.end` while it is executed."
+msgstr ""
+
+#: of pyramid.config.Configurator.make_wsgi_app:1
+msgid ""
+"Commits any pending configuration statements, sends a "
+":class:`pyramid.events.ApplicationCreated` event to all listeners, adds "
+"this configuration's registry to "
+":attr:`pyramid.config.global_registries`, and returns a :app:`Pyramid` "
+"WSGI application representing the committed configuration state."
+msgstr ""
+
+#: of pyramid.config.Configurator.scan:1
+msgid ""
+"Scan a Python package and any of its subpackages for objects marked with "
+":term:`configuration decoration` such as "
+":class:`pyramid.view.view_config`.  Any decorated object found will "
+"influence the current configuration state."
+msgstr ""
+
+#: of pyramid.config.Configurator.scan:6
+msgid ""
+"The ``package`` argument should be a Python :term:`package` or module "
+"object (or a :term:`dotted Python name` which refers to such a package or"
+" module).  If ``package`` is ``None``, the package of the *caller* is "
+"used."
+msgstr ""
+
+#: of pyramid.config.Configurator.scan:11
+msgid ""
+"The ``categories`` argument, if provided, should be the :term:`Venusian` "
+"'scan categories' to use during scanning.  Providing this argument is not"
+" often necessary; specifying scan categories is an extremely advanced "
+"usage.  By default, ``categories`` is ``None`` which will execute *all* "
+"Venusian decorator callbacks including :app:`Pyramid`-related decorators "
+"such as :class:`pyramid.view.view_config`.  See the :term:`Venusian` "
+"documentation for more information about limiting a scan by using an "
+"explicit set of categories."
+msgstr ""
+
+#: of pyramid.config.Configurator.scan:21
+msgid ""
+"The ``onerror`` argument, if provided, should be a Venusian ``onerror`` "
+"callback function.  The onerror function is passed to "
+":meth:`venusian.Scanner.scan` to influence error behavior when an "
+"exception is raised during the scanning process.  See the "
+":term:`Venusian` documentation for more information about ``onerror`` "
+"callbacks."
+msgstr ""
+
+#: of pyramid.config.Configurator.scan:28
+msgid ""
+"The ``ignore`` argument, if provided, should be a Venusian ``ignore`` "
+"value.  Providing an ``ignore`` argument allows the scan to ignore "
+"particular modules, packages, or global objects during a scan. ``ignore``"
+" can be a string or a callable, or a list containing strings or "
+"callables.  The simplest usage of ``ignore`` is to provide a module or "
+"package by providing a full path to its dotted name.  For example: "
+"``config.scan(ignore='my.module.subpackage')`` would ignore the "
+"``my.module.subpackage`` package during a scan, which would prevent the "
+"subpackage and any of its submodules from being imported and scanned.  "
+"See the :term:`Venusian` documentation for more information about the "
+"``ignore`` argument."
+msgstr ""
+
+#: of pyramid.config.Configurator.scan:40
+msgid ""
+"To perform a ``scan``, Pyramid creates a Venusian ``Scanner`` object. The"
+" ``kw`` argument represents a set of keyword arguments to pass to the "
+"Venusian ``Scanner`` object's constructor.  See the :term:`venusian` "
+"documentation (its ``Scanner`` class) for more information about the "
+"constructor.  By default, the only keyword arguments passed to the "
+"Scanner constructor are ``{'config':self}`` where ``self`` is this "
+"configurator object.  This services the requirement of all built-in "
+"Pyramid decorators, but extension systems may require additional "
+"arguments.  Providing this argument is not often necessary; it's an "
+"advanced usage."
+msgstr ""
+
+#: of pyramid.config.Configurator.scan:51
+msgid "The ``**kw`` argument."
+msgstr ""
+
+#: of pyramid.config.Configurator.scan:54
+msgid "The ``ignore`` argument."
+msgstr ""
+
+#: ../../api/config.rst:22
+msgid ":methodcategory:`Adding Routes and Views`"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:1
+msgid ""
+"Add a :term:`route configuration` to the current configuration state, as "
+"well as possibly a :term:`view configuration` to be used to specify a "
+":term:`view callable` that will be invoked when this route matches.  The "
+"arguments to this method are divided into *predicate*, *non-predicate*, "
+"and *view-related* types.  :term:`Route predicate` arguments narrow the "
+"circumstances in which a route will be match a request; non-predicate "
+"arguments are informational."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:10
+#: pyramid.config.Configurator.add_view:9
+msgid "Non-Predicate Arguments"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:12
+#: pyramid.config.Configurator.add_view:275
+msgid "name"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:14
+msgid ""
+"The name of the route, e.g. ``myroute``.  This attribute is required.  It"
+" must be unique among all defined routes in a given application."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:18
+msgid "factory"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:20
+msgid ""
+"A Python object (often a function or a class) or a :term:`dotted Python "
+"name` which refers to the same object that will generate a :app:`Pyramid`"
+" root resource object when this route matches. For example, "
+"``mypackage.resources.MyFactory``.  If this argument is not specified, a "
+"default root factory will be used.  See :ref:`the_resource_tree` for more"
+" information about root factories."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:27
+msgid "traverse"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:29
+msgid ""
+"If you would like to cause the :term:`context` to be something other than"
+" the :term:`root` object when this route matches, you can spell a "
+"traversal pattern as the ``traverse`` argument.  This traversal pattern "
+"will be used as the traversal path: traversal will begin at the root "
+"object implied by this route (either the global root, or the object "
+"returned by the ``factory`` associated with this route)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:38
+msgid ""
+"The syntax of the ``traverse`` argument is the same as it is for "
+"``pattern``. For example, if the ``pattern`` provided to ``add_route`` is"
+" ``articles/{article}/edit``, and the ``traverse`` argument provided to "
+"``add_route`` is ``/{article}``, when a request comes in that causes the "
+"route to match in such a way that the ``article`` match value is ``'1'`` "
+"(when the request URI is ``/articles/1/edit``), the traversal path will "
+"be generated as ``/1``.  This means that the root object's "
+"``__getitem__`` will be called with the name ``'1'`` during the traversal"
+" phase.  If the ``'1'`` object exists, it will become the :term:`context`"
+" of the request. :ref:`traversal_chapter` has more information about "
+"traversal."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:52
+msgid ""
+"If the traversal path contains segment marker names which are not present"
+" in the ``pattern`` argument, a runtime error will occur.  The "
+"``traverse`` pattern should not contain segment markers that do not exist"
+" in the ``pattern`` argument."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:58
+msgid ""
+"A similar combining of routing and traversal is available when a route is"
+" matched which contains a ``*traverse`` remainder marker in its pattern "
+"(see :ref:`using_traverse_in_a_route_pattern`).  The ``traverse`` "
+"argument to add_route allows you to associate route patterns with an "
+"arbitrary traversal path without using a ``*traverse`` remainder marker; "
+"instead you can use other match information."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:67
+msgid ""
+"Note that the ``traverse`` argument to ``add_route`` is ignored when "
+"attached to a route that has a ``*traverse`` remainder marker in its "
+"pattern."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:71
+msgid "pregenerator"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:73
+msgid ""
+"This option should be a callable object that implements the "
+":class:`pyramid.interfaces.IRoutePregenerator` interface.  A "
+":term:`pregenerator` is a callable called by the "
+":meth:`pyramid.request.Request.route_url` function to augment or replace "
+"the arguments it is passed when generating a URL for the route.  This is "
+"a feature not often used directly by applications, it is meant to be "
+"hooked by frameworks that use :app:`Pyramid` as a base."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:82
+msgid "use_global_views"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:84
+msgid ""
+"When a request matches this route, and view lookup cannot find a view "
+"which has a ``route_name`` predicate argument that matches the route, try"
+" to fall back to using a view that otherwise matches the context, "
+"request, and view name (but which does not match the route_name "
+"predicate)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:90
+msgid "static"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:92
+msgid ""
+"If ``static`` is ``True``, this route will never match an incoming "
+"request; it will only be useful for URL generation.  By default, "
+"``static`` is ``False``.  See :ref:`static_route_narr`."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:98
+#: pyramid.config.Configurator.add_view:261
+msgid "accept"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:100
+msgid ""
+"This value represents a match query for one or more mimetypes in the "
+"``Accept`` HTTP request header.  If this value is specified, it must be "
+"in one of the following forms: a mimetype match token in the form "
+"``text/plain``, a wildcard mimetype match token in the form ``text/*`` or"
+" a match-all wildcard mimetype match token in the form ``*/*``.  If any "
+"of the forms matches the ``Accept`` header of the request, or if the "
+"``Accept`` header isn't set at all in the request, this will match the "
+"current route. If this does not match the ``Accept`` header of the "
+"request, route matching continues."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:110
+#: pyramid.config.Configurator.add_view:273
+msgid "Predicate Arguments"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:112
+msgid "pattern"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:114
+msgid ""
+"The pattern of the route e.g. ``ideas/{idea}``.  This argument is "
+"required.  See :ref:`route_pattern_syntax` for information about the "
+"syntax of route patterns.  If the pattern doesn't match the current URL, "
+"route matching continues."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:122
+msgid ""
+"For backwards compatibility purposes (as of :app:`Pyramid` 1.0), a "
+"``path`` keyword argument passed to this function will be used to "
+"represent the pattern value if the ``pattern`` argument is ``None``.  If "
+"both ``path`` and ``pattern`` are passed, ``pattern`` wins."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:128
+#: pyramid.config.Configurator.add_view:376
+msgid "xhr"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:130
+msgid ""
+"This value should be either ``True`` or ``False``.  If this value is "
+"specified and is ``True``, the :term:`request` must possess an "
+"``HTTP_X_REQUESTED_WITH`` (aka ``X-Requested-With``) header for this "
+"route to match.  This is useful for detecting AJAX requests issued from "
+"jQuery, Prototype and other Javascript libraries.  If this predicate "
+"returns ``False``, route matching continues."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:138
+#: pyramid.config.Configurator.add_view:319
+msgid "request_method"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:140
+msgid ""
+"A string representing an HTTP method name, e.g. ``GET``, ``POST``, "
+"``HEAD``, ``DELETE``, ``PUT`` or a tuple of elements containing HTTP "
+"method names.  If this argument is not specified, this route will match "
+"if the request has *any* request method.  If this predicate returns "
+"``False``, route matching continues."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:146
+#: pyramid.config.Configurator.add_view:330
+msgid ""
+"The ability to pass a tuple of items as ``request_method``. Previous "
+"versions allowed only a string."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:150
+#: pyramid.config.Configurator.add_view:405
+msgid "path_info"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:152
+msgid ""
+"This value represents a regular expression pattern that will be tested "
+"against the ``PATH_INFO`` WSGI environment variable.  If the regex "
+"matches, this predicate will return ``True``.  If this predicate returns "
+"``False``, route matching continues."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:158
+#: pyramid.config.Configurator.add_view:334
+msgid "request_param"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:160
+msgid ""
+"This value can be any string.  A view declaration with this argument "
+"ensures that the associated route will only match when the request has a "
+"key in the ``request.params`` dictionary (an HTTP ``GET`` or ``POST`` "
+"variable) that has a name which matches the supplied value.  If the value"
+" supplied as the argument has a ``=`` sign in it, e.g. "
+"``request_param=\"foo=123\"``, then the key (``foo``) must both exist in "
+"the ``request.params`` dictionary, and the value must match the right "
+"hand side of the expression (``123``) for the route to \"match\" the "
+"current request.  If this predicate returns ``False``, route matching "
+"continues."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:172
+#: pyramid.config.Configurator.add_view:386
+msgid "header"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:174
+msgid ""
+"This argument represents an HTTP header name or a header name/value pair."
+"  If the argument contains a ``:`` (colon), it will be considered a "
+"name/value pair (e.g. ``User-Agent:Mozilla/.*`` or ``Host:localhost``).  "
+"If the value contains a colon, the value portion should be a regular "
+"expression.  If the value does not contain a colon, the entire value will"
+" be considered to be the header name (e.g. ``If-Modified-Since``).  If "
+"the value evaluates to a header name only without a value, the header "
+"specified by the name must be present in the request for this predicate "
+"to be true.  If the value evaluates to a header name/value pair, the "
+"header specified by the name must be present in the request *and* the "
+"regular expression specified as the value must match the header value.  "
+"Whether or not the value represents a header name or a header name/value "
+"pair, the case of the header name is not significant.  If this predicate "
+"returns ``False``, route matching continues."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:192
+#: pyramid.config.Configurator.add_view:460
+msgid "effective_principals"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:194
+#: pyramid.config.Configurator.add_view:462
+msgid ""
+"If specified, this value should be a :term:`principal` identifier or a "
+"sequence of principal identifiers.  If the "
+":attr:`pyramid.request.Request.effective_principals` property indicates "
+"that every principal named in the argument list is present in the current"
+" request, this predicate will return True; otherwise it will return "
+"False.  For example: "
+"``effective_principals=pyramid.security.Authenticated`` or "
+"``effective_principals=('fred', 'group:admins')``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:205
+#: pyramid.config.Configurator.add_view:473
+msgid "custom_predicates"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:207
+msgid ""
+"This value should be a sequence of references to custom predicate "
+"callables.  Use custom predicates when no set of predefined predicates "
+"does what you need.  Custom predicates can be combined with predefined "
+"predicates as necessary. Each custom predicate callable should accept two"
+" arguments: ``info`` and ``request`` and should return either ``True`` or"
+" ``False`` after doing arbitrary evaluation of the info and/or the "
+"request.  If all custom and non-custom predicate callables return "
+"``True`` the associated route will be considered viable for a given "
+"request.  If any predicate callable returns ``False``, route matching "
+"continues.  Note that the value ``info`` passed to a custom route "
+"predicate is a dictionary containing matching information; see "
+":ref:`custom_route_predicates` for more information about ``info``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:224
+msgid "predicates"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route:226
+msgid ""
+"Pass a key/value pair here to use a third-party predicate registered via "
+":meth:`pyramid.config.Configurator.add_route_predicate`.  More than one "
+"key/value pair can be used at the same time.  See "
+":ref:`view_and_route_predicates` for more information about third-party "
+"predicates."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:1
+msgid "Add a view used to render static assets such as images and CSS files."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:4
+msgid ""
+"The ``name`` argument is a string representing an application-relative "
+"local URL prefix.  It may alternately be a full URL."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:8
+msgid ""
+"The ``path`` argument is the path on disk where the static files reside."
+"  This can be an absolute path, a package-relative path, or a "
+":term:`asset specification`."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:12
+msgid ""
+"The ``cache_max_age`` keyword argument is input to set the ``Expires`` "
+"and ``Cache-Control`` headers for static assets served. Note that this "
+"argument has no effect when the ``name`` is a *url prefix*.  By default, "
+"this argument is ``None``, meaning that no particular Expires or Cache-"
+"Control headers are set in the response."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:18
+msgid ""
+"The ``permission`` keyword argument is used to specify the "
+":term:`permission` required by a user to execute the static view.  By "
+"default, it is the string "
+":data:`pyramid.security.NO_PERMISSION_REQUIRED`, a special sentinel which"
+" indicates that, even if a :term:`default permission` exists for the "
+"current application, the static view should be renderered to completely "
+"anonymous users.  This default value is permissive because, in most web "
+"apps, static assets seldom need protection from viewing.  If "
+"``permission`` is specified, the security checking will be performed "
+"against the default root factory ACL."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:29
+msgid ""
+"Any other keyword arguments sent to ``add_static_view`` are passed on to "
+":meth:`pyramid.config.Configurator.add_route` (e.g. ``factory``, perhaps "
+"to define a custom factory with a custom ACL for this static view)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:34
+msgid "*Usage*"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:36
+msgid ""
+"The ``add_static_view`` function is typically used in conjunction with "
+"the :meth:`pyramid.request.Request.static_url` method. "
+"``add_static_view`` adds a view which renders a static asset when some "
+"URL is visited; :meth:`pyramid.request.Request.static_url` generates a "
+"URL to that asset."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:42
+msgid ""
+"The ``name`` argument to ``add_static_view`` is usually a simple URL "
+"prefix (e.g. ``'images'``).  When this is the case, the "
+":meth:`pyramid.request.Request.static_url` API will generate a URL which "
+"points to a Pyramid view, which will serve up a set of assets that live "
+"in the package itself. For example:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:52
+msgid ""
+"Code that registers such a view can generate URLs to the view via "
+":meth:`pyramid.request.Request.static_url`:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:59
+msgid ""
+"When ``add_static_view`` is called with a ``name`` argument that "
+"represents a URL prefix, as it is above, subsequent calls to "
+":meth:`pyramid.request.Request.static_url` with paths that start with the"
+" ``path`` argument passed to ``add_static_view`` will generate a URL "
+"something like ``http://<Pyramid app URL>/images/logo.png``, which will "
+"cause the ``logo.png`` file in the ``images`` subdirectory of the "
+"``mypackage`` package to be served."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:67
+msgid ""
+"``add_static_view`` can alternately be used with a ``name`` argument "
+"which is a *URL*, causing static assets to be served from an external "
+"webserver.  This happens when the ``name`` argument is a fully qualified "
+"URL (e.g. starts with ``http://`` or similar).  In this mode, the "
+"``name`` is used as the prefix of the full URL when generating a URL "
+"using :meth:`pyramid.request.Request.static_url`. Furthermore, if a "
+"protocol-relative URL (e.g. ``//example.com/images``) is used as the "
+"``name`` argument, the generated URL will use the protocol of the request"
+" (http or https, respectively)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:77
+msgid "For example, if ``add_static_view`` is called like so:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:83
+msgid ""
+"Subsequently, the URLs generated by "
+":meth:`pyramid.request.Request.static_url` for that static view will be "
+"prefixed with ``http://example.com/images`` (the external webserver "
+"listening on ``example.com`` must be itself configured to respond "
+"properly to such a request.):"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_static_view:93
+msgid "See :ref:`static_assets_section` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:1
+msgid ""
+"Add a :term:`view configuration` to the current configuration state.  "
+"Arguments to ``add_view`` are broken down below into *predicate* "
+"arguments and *non-predicate* arguments.  Predicate arguments narrow the "
+"circumstances in which the view callable will be invoked when a request "
+"is presented to :app:`Pyramid`; non-predicate arguments are "
+"informational."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:11
+msgid "view"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:13
+msgid ""
+"A :term:`view callable` or a :term:`dotted Python name` which refers to a"
+" view callable.  This argument is required unless a ``renderer`` argument"
+" also exists.  If a ``renderer`` argument is passed, and a ``view`` "
+"argument is not provided, the view callable defaults to a callable that "
+"returns an empty dictionary (see :ref:`views_which_use_a_renderer`)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:21
+msgid "permission"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:23
+msgid ""
+"A :term:`permission` that the user must possess in order to invoke the "
+":term:`view callable`.  See :ref:`view_security_section` for more "
+"information about view security and permissions.  This is often a string "
+"like ``view`` or ``edit``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:28
+msgid ""
+"If ``permission`` is omitted, a *default* permission may be used for this"
+" view registration if one was named as the "
+":class:`pyramid.config.Configurator` constructor's ``default_permission``"
+" argument, or if "
+":meth:`pyramid.config.Configurator.set_default_permission` was used prior"
+" to this view registration.  Pass the value "
+":data:`pyramid.security.NO_PERMISSION_REQUIRED` as the permission "
+"argument to explicitly indicate that the view should always be executable"
+" by entirely anonymous users, regardless of the default permission, "
+"bypassing any :term:`authorization policy` that may be in effect."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:40
+msgid "attr"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:42
+msgid "This knob is most useful when the view definition is a class."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:44
+msgid ""
+"The view machinery defaults to using the ``__call__`` method of the "
+":term:`view callable` (or the function itself, if the view callable is a "
+"function) to obtain a response.  The ``attr`` value allows you to vary "
+"the method attribute used to obtain the response.  For example, if your "
+"view was a class, and the class has a method named ``index`` and you "
+"wanted to use this method instead of the class' ``__call__`` method to "
+"return the response, you'd say ``attr=\"index\"`` in the view "
+"configuration for the view."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:54
+msgid "renderer"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:56
+msgid ""
+"This is either a single string term (e.g. ``json``) or a string implying "
+"a path or :term:`asset specification` (e.g. ``templates/views.pt``) "
+"naming a :term:`renderer` implementation.  If the ``renderer`` value does"
+" not contain a dot ``.``, the specified string will be used to look up a "
+"renderer implementation, and that renderer implementation will be used to"
+" construct a response from the view return value.  If the ``renderer`` "
+"value contains a dot (``.``), the specified term will be treated as a "
+"path, and the filename extension of the last element in the path will be "
+"used to look up the renderer implementation, which will be passed the "
+"full path.  The renderer implementation will be used to construct a "
+":term:`response` from the view return value."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:71
+msgid ""
+"Note that if the view itself returns a :term:`response` (see "
+":ref:`the_response`), the specified renderer implementation is never "
+"called."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:75
+msgid ""
+"When the renderer is a path, although a path is usually just a simple "
+"relative pathname (e.g. ``templates/foo.pt``, implying that a template "
+"named \"foo.pt\" is in the \"templates\" directory relative to the "
+"directory of the current :term:`package` of the Configurator), a path can"
+" be absolute, starting with a slash on UNIX or a drive letter prefix on "
+"Windows.  The path can alternately be a :term:`asset specification` in "
+"the form ``some.dotted.package_name:relative/path``, making it possible "
+"to address template assets which live in a separate package."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:87
+msgid ""
+"The ``renderer`` attribute is optional.  If it is not defined, the "
+"\"null\" renderer is assumed (no rendering is performed and the value is "
+"passed back to the upstream :app:`Pyramid` machinery unmodified)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:92
+msgid "http_cache"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:96
+msgid ""
+"When you supply an ``http_cache`` value to a view configuration, the "
+"``Expires`` and ``Cache-Control`` headers of a response generated by the "
+"associated view callable are modified.  The value for ``http_cache`` may "
+"be one of the following:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:101
+msgid ""
+"A nonzero integer.  If it's a nonzero integer, it's treated as a number "
+"of seconds.  This number of seconds will be used to compute the "
+"``Expires`` header and the ``Cache-Control: max-age`` parameter of "
+"responses to requests which call this view. For example: "
+"``http_cache=3600`` instructs the requesting browser to 'cache this "
+"response for an hour, please'."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:108
+msgid ""
+"A ``datetime.timedelta`` instance.  If it's a ``datetime.timedelta`` "
+"instance, it will be converted into a number of seconds, and that number "
+"of seconds will be used to compute the ``Expires`` header and the "
+"``Cache-Control: max-age`` parameter of responses to requests which call "
+"this view. For example: ``http_cache=datetime.timedelta(days=1)`` "
+"instructs the requesting browser to 'cache this response for a day, "
+"please'."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:116
+msgid ""
+"Zero (``0``).  If the value is zero, the ``Cache-Control`` and "
+"``Expires`` headers present in all responses from this view will be "
+"composed such that client browser cache (and any intermediate caches) are"
+" instructed to never cache the response."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:121
+msgid ""
+"A two-tuple.  If it's a two tuple (e.g. ``http_cache=(1, "
+"{'public':True})``), the first value in the tuple may be a nonzero "
+"integer or a ``datetime.timedelta`` instance; in either case this value "
+"will be used as the number of seconds to cache the response.  The second "
+"value in the tuple must be a dictionary.  The values present in the "
+"dictionary will be used as input to the ``Cache-Control`` response "
+"header.  For example: ``http_cache=(3600, {'public':True})`` means 'cache"
+" for an hour, and add ``public`` to the Cache-Control header of the "
+"response'. All keys and values supported by the "
+"``webob.cachecontrol.CacheControl`` interface may be added to the "
+"dictionary.  Supplying ``{'public':True}`` is equivalent to calling "
+"``response.cache_control.public = True``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:135
+msgid ""
+"Providing a non-tuple value as ``http_cache`` is equivalent to calling "
+"``response.cache_expires(value)`` within your view's body."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:138
+msgid ""
+"Providing a two-tuple value as ``http_cache`` is equivalent to calling "
+"``response.cache_expires(value[0], **value[1])`` within your view's body."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:142
+msgid ""
+"If you wish to avoid influencing, the ``Expires`` header, and instead "
+"wish to only influence ``Cache-Control`` headers, pass a tuple as "
+"``http_cache`` with the first element of ``None``, e.g.: ``(None, "
+"{'public':True})``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:147
+msgid ""
+"If you wish to prevent a view that uses ``http_cache`` in its "
+"configuration from having its caching response headers changed by this "
+"machinery, set ``response.cache_control.prevent_auto = True`` before "
+"returning the response from the view.  This effectively disables any HTTP"
+" caching done by ``http_cache`` for that response."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:153
+msgid "require_csrf"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:157
+msgid "A boolean option or ``None``. Default: ``None``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:159
+msgid ""
+"If this option is set to ``True`` then CSRF checks will be enabled for "
+"requests to this view. The required token or header default to "
+"``csrf_token`` and ``X-CSRF-Token``, respectively."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:163
+msgid ""
+"CSRF checks only affect \"unsafe\" methods as defined by RFC2616. By "
+"default, these methods are anything except ``GET``, ``HEAD``, "
+"``OPTIONS``, and ``TRACE``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:167
+msgid ""
+"The defaults here may be overridden by "
+":meth:`pyramid.config.Configurator.set_default_csrf_options`."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:170
+msgid "This feature requires a configured :term:`session factory`."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:172
+msgid ""
+"If this option is set to ``False`` then CSRF checks will be disabled "
+"regardless of the default ``require_csrf`` setting passed to "
+"``set_default_csrf_options``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:176
+msgid "See :ref:`auto_csrf_checking` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:178
+msgid "wrapper"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:180
+msgid ""
+"The :term:`view name` of a different :term:`view configuration` which "
+"will receive the response body of this view as the "
+"``request.wrapped_body`` attribute of its own :term:`request`, and the "
+":term:`response` returned by this view as the "
+"``request.wrapped_response`` attribute of its own request.  Using a "
+"wrapper makes it possible to \"chain\" views together to form a composite"
+" response.  The response of the outermost wrapper view will be returned "
+"to the user. The wrapper view will be found as any view is found: see "
+":ref:`view_lookup`.  The \"best\" wrapper view will be found based on the"
+" lookup ordering: \"under the hood\" this wrapper view is looked up via "
+"``pyramid.view.render_view_to_response(context, request, "
+"'wrapper_viewname')``. The context and request of a wrapper view is the "
+"same context and request of the inner view.  If this attribute is "
+"unspecified, no view wrapping is done."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:197
+msgid "decorator"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:199
+msgid ""
+"A :term:`dotted Python name` to function (or the function itself, or an "
+"iterable of the aforementioned) which will be used to decorate the "
+"registered :term:`view callable`.  The decorator function(s) will be "
+"called with the view callable as a single argument.  The view callable it"
+" is passed will accept ``(context, request)``.  The decorator(s) must "
+"return a replacement view callable which also accepts ``(context, "
+"request)``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:208
+msgid ""
+"If decorator is an iterable, the callables will be combined and used in "
+"the order provided as a decorator. For example::"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:218
+msgid "Is similar to doing::"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:226
+msgid ""
+"Except with the existing benefits of ``decorator=`` (having a common "
+"decorator syntax for all view calling conventions and not having to think"
+" about preserving function attributes such as ``__name__`` and "
+"``__module__`` within decorator logic)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:231
+msgid ""
+"An important distinction is that each decorator will receive a response "
+"object implementing :class:`pyramid.interfaces.IResponse` instead of the "
+"raw value returned from the view callable. All decorators in the chain "
+"must return a response object or raise an exception:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:249
+msgid "Passing an iterable."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:252
+msgid "mapper"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:254
+msgid ""
+"A Python object or :term:`dotted Python name` which refers to a "
+":term:`view mapper`, or ``None``.  By default it is ``None``, which "
+"indicates that the view should use the default view mapper.  This plug-"
+"point is useful for Pyramid extension developers, but it's not very "
+"useful for 'civilians' who are just developing stock Pyramid "
+"applications. Pay no attention to the man behind the curtain."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:263
+msgid ""
+"This value represents a match query for one or more mimetypes in the "
+"``Accept`` HTTP request header.  If this value is specified, it must be "
+"in one of the following forms: a mimetype match token in the form "
+"``text/plain``, a wildcard mimetype match token in the form ``text/*`` or"
+" a match-all wildcard mimetype match token in the form ``*/*``.  If any "
+"of the forms matches the ``Accept`` header of the request, or if the "
+"``Accept`` header isn't set at all in the request, this will match the "
+"current view. If this does not match the ``Accept`` header of the "
+"request, view matching continues."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:277
+msgid ""
+"The :term:`view name`.  Read :ref:`traversal_chapter` to understand the "
+"concept of a view name."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:280
+msgid "context"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:282
+msgid ""
+"An object or a :term:`dotted Python name` referring to an interface or "
+"class object that the :term:`context` must be an instance of, *or* the "
+":term:`interface` that the :term:`context` must provide in order for this"
+" view to be found and called.  This predicate is true when the "
+":term:`context` is an instance of the represented class or if the "
+":term:`context` provides the represented interface; it is otherwise "
+"false.  This argument may also be provided to ``add_view`` as ``for_`` "
+"(an older, still-supported spelling). If the view should *only* match "
+"when handling exceptions, then set the ``exception_only`` to ``True``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:294
+msgid "exception_only"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:298
+msgid ""
+"When this value is ``True``, the ``context`` argument must be a subclass "
+"of ``Exception``. This flag indicates that only an :term:`exception view`"
+" should be created, and that this view should not match if the traversal "
+":term:`context` matches the ``context`` argument. If the ``context`` is a"
+" subclass of ``Exception`` and this value is ``False`` (the default), "
+"then a view will be registered to match the traversal :term:`context` as "
+"well."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:306
+msgid "route_name"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:308
+msgid ""
+"This value must match the ``name`` of a :term:`route configuration` "
+"declaration (see :ref:`urldispatch_chapter`) that must match before this "
+"view will be called."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:312
+msgid "request_type"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:314
+msgid ""
+"This value should be an :term:`interface` that the :term:`request` must "
+"provide in order for this view to be found and called.  This value exists"
+" only for backwards compatibility purposes."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:321
+msgid ""
+"This value can be either a string (such as ``\"GET\"``, ``\"POST\"``, "
+"``\"PUT\"``, ``\"DELETE\"``, ``\"HEAD\"`` or ``\"OPTIONS\"``) "
+"representing an HTTP ``REQUEST_METHOD``, or a tuple containing one or "
+"more of these strings.  A view declaration with this argument ensures "
+"that the view will only be called when the ``method`` attribute of the "
+"request (aka the ``REQUEST_METHOD`` of the WSGI environment) matches a "
+"supplied value.  Note that use of ``GET`` also implies that the view will"
+" respond to ``HEAD`` as of Pyramid 1.4."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:336
+msgid ""
+"This value can be any string or any sequence of strings.  A view "
+"declaration with this argument ensures that the view will only be called "
+"when the :term:`request` has a key in the ``request.params`` dictionary "
+"(an HTTP ``GET`` or ``POST`` variable) that has a name which matches the "
+"supplied value (if the value is a string) or values (if the value is a "
+"tuple).  If any value supplied has a ``=`` sign in it, e.g. "
+"``request_param=\"foo=123\"``, then the key (``foo``) must both exist in "
+"the ``request.params`` dictionary, *and* the value must match the right "
+"hand side of the expression (``123``) for the view to \"match\" the "
+"current request."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:348
+msgid "match_param"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:352
+msgid ""
+"This value can be a string of the format \"key=value\" or a tuple "
+"containing one or more of these strings."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:355
+msgid ""
+"A view declaration with this argument ensures that the view will only be "
+"called when the :term:`request` has key/value pairs in its "
+":term:`matchdict` that equal those supplied in the predicate. e.g. "
+"``match_param=\"action=edit\"`` would require the ``action`` parameter in"
+" the :term:`matchdict` match the right hand side of the expression "
+"(``edit``) for the view to \"match\" the current request."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:363
+msgid ""
+"If the ``match_param`` is a tuple, every key/value pair must match for "
+"the predicate to pass."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:366
+msgid "containment"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:368
+msgid ""
+"This value should be a Python class or :term:`interface` (or a "
+":term:`dotted Python name`) that an object in the :term:`lineage` of the "
+"context must provide in order for this view to be found and called.  The "
+"nodes in your object graph must be \"location-aware\" to use this "
+"feature.  See :ref:`location_aware` for more information about location-"
+"awareness."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:378
+msgid ""
+"This value should be either ``True`` or ``False``.  If this value is "
+"specified and is ``True``, the :term:`request` must possess an "
+"``HTTP_X_REQUESTED_WITH`` (aka ``X-Requested-With``) header that has the "
+"value ``XMLHttpRequest`` for this view to be found and called. This is "
+"useful for detecting AJAX requests issued from jQuery, Prototype and "
+"other Javascript libraries."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:388
+msgid ""
+"This value represents an HTTP header name or a header name/value pair.  "
+"If the value contains a ``:`` (colon), it will be considered a name/value"
+" pair (e.g. ``User-Agent:Mozilla/.*`` or ``Host:localhost``).  The value "
+"portion should be a regular expression.  If the value does not contain a "
+"colon, the entire value will be considered to be the header name (e.g. "
+"``If-Modified-Since``).  If the value evaluates to a header name only "
+"without a value, the header specified by the name must be present in the "
+"request for this predicate to be true.  If the value evaluates to a "
+"header name/value pair, the header specified by the name must be present "
+"in the request *and* the regular expression specified as the value must "
+"match the header value.  Whether or not the value represents a header "
+"name or a header name/value pair, the case of the header name is not "
+"significant."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:407
+msgid ""
+"This value represents a regular expression pattern that will be tested "
+"against the ``PATH_INFO`` WSGI environment variable.  If the regex "
+"matches, this predicate will be ``True``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:412
+msgid "check_csrf"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:414
+msgid ""
+"Use the ``require_csrf`` option or see :ref:`auto_csrf_checking` instead "
+"to have :class:`pyramid.exceptions.BadCSRFToken` exceptions raised."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:419
+msgid ""
+"If specified, this value should be one of ``None``, ``True``, ``False``, "
+"or a string representing the 'check name'.  If the value is ``True`` or a"
+" string, CSRF checking will be performed.  If the value is ``False`` or "
+"``None``, CSRF checking will not be performed."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:424
+msgid ""
+"If the value provided is a string, that string will be used as the 'check"
+" name'.  If the value provided is ``True``, ``csrf_token`` will be used "
+"as the check name."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:428
+msgid ""
+"If CSRF checking is performed, the checked value will be the value of "
+"``request.params[check_name]``. This value will be compared against the "
+"value of ``policy.get_csrf_token()`` (where ``policy`` is an "
+"implementation of :meth:`pyramid.interfaces.ICSRFStoragePolicy`), and the"
+" check will pass if these two values are the same. If the check passes, "
+"the associated view will be permitted to execute. If the check fails, the"
+" associated view will not be permitted to execute."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:438
+msgid ""
+"This feature requires either a :term:`session factory` to have been "
+"configured, or a :term:`CSRF storage policy` other than the default to be"
+" in use."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:444
+msgid "physical_path"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:446
+msgid ""
+"If specified, this value should be a string or a tuple representing the "
+":term:`physical path` of the context found via traversal for this "
+"predicate to match as true.  For example: ``physical_path='/'`` or "
+"``physical_path='/a/b/c'`` or ``physical_path=('', 'a', 'b', 'c')``. This"
+" is not a path prefix match or a regex, it's a whole-path match. It's "
+"useful when you want to always potentially show a view when some object "
+"is traversed to, but you can't be sure about what kind of object it will "
+"be, so you can't use the ``context`` predicate.  The individual path "
+"elements inbetween slash characters or in tuple elements should be the "
+"Unicode representation of the name of the resource and should not be "
+"encoded in any way."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:475
+msgid ""
+"This value should be a sequence of references to custom predicate "
+"callables.  Use custom predicates when no set of predefined predicates do"
+" what you need.  Custom predicates can be combined with predefined "
+"predicates as necessary. Each custom predicate callable should accept two"
+" arguments: ``context`` and ``request`` and should return either ``True``"
+" or ``False`` after doing arbitrary evaluation of the context and/or the "
+"request.  The ``predicates`` argument to this method and the ability to "
+"register third-party view predicates via "
+":meth:`pyramid.config.Configurator.add_view_predicate` obsoletes this "
+"argument, but it is kept around for backwards compatibility."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:490
+msgid "view_options"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view:492
+msgid ""
+"Pass a key/value pair here to use a third-party predicate or set a value "
+"for a view deriver. See "
+":meth:`pyramid.config.Configurator.add_view_predicate` and "
+":meth:`pyramid.config.Configurator.add_view_deriver`. See "
+":ref:`view_and_route_predicates` for more information about third-party "
+"predicates and :ref:`view_derivers` for information about view derivers."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_notfound_view:1
+msgid ""
+"Add a default :term:`Not Found View` to the current configuration state. "
+"The view will be called when Pyramid or application code raises an "
+":exc:`pyramid.httpexceptions.HTTPNotFound` exception (e.g., when a view "
+"cannot be found for the request).  The simplest example is:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_forbidden_view:14
+#: pyramid.config.Configurator.add_notfound_view:13
+msgid ""
+"If ``view`` argument is not provided, the view callable defaults to "
+":func:`~pyramid.httpexceptions.default_exceptionresponse_view`."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_notfound_view:16
+msgid ""
+"All arguments except ``append_slash`` have the same meaning as "
+":meth:`pyramid.config.Configurator.add_view` and each predicate argument "
+"restricts the set of circumstances under which this notfound view will be"
+" invoked.  Unlike :meth:`pyramid.config.Configurator.add_view`, this "
+"method will raise an exception if passed ``name``, ``permission``, "
+"``require_csrf``, ``context``, ``for_``, or ``exception_only`` keyword "
+"arguments. These argument values make no sense in the context of a Not "
+"Found View."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_notfound_view:25
+msgid ""
+"If ``append_slash`` is ``True``, when this Not Found View is invoked, and"
+" the current path info does not end in a slash, the notfound logic will "
+"attempt to find a :term:`route` that matches the request's path info "
+"suffixed with a slash.  If such a route exists, Pyramid will issue a "
+"redirect to the URL implied by the route; if it does not, Pyramid will "
+"return the result of the view callable provided as ``view``, as normal."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_notfound_view:33
+msgid ""
+"If the argument provided as ``append_slash`` is not a boolean but instead"
+" implements :class:`~pyramid.interfaces.IResponse`, the append_slash "
+"logic will behave as if ``append_slash=True`` was passed, but the "
+"provided class will be used as the response class instead of the default "
+":class:`~pyramid.httpexceptions.HTTPFound` response class when a redirect"
+" is performed.  For example:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_notfound_view:45
+msgid ""
+"The above means that a redirect to a slash-appended route will be "
+"attempted, but instead of :class:`~pyramid.httpexceptions.HTTPFound` "
+"being used, :class:`~pyramid.httpexceptions.HTTPMovedPermanently will be "
+"used` for the redirect response if a slash-appended route is found."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_notfound_view:54
+msgid ""
+"The ``append_slash`` argument was modified to allow any object that "
+"implements the ``IResponse`` interface to specify the response class used"
+" when a redirect is performed."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_forbidden_view:31
+#: pyramid.config.Configurator.add_notfound_view:60
+msgid "The view is created using ``exception_only=True``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_forbidden_view:1
+msgid ""
+"Add a forbidden view to the current configuration state.  The view will "
+"be called when Pyramid or application code raises a "
+":exc:`pyramid.httpexceptions.HTTPForbidden` exception and the set of "
+"circumstances implied by the predicates provided are matched.  The "
+"simplest example is:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_forbidden_view:17
+msgid ""
+"All arguments have the same meaning as "
+":meth:`pyramid.config.Configurator.add_view` and each predicate argument "
+"restricts the set of circumstances under which this forbidden view will "
+"be invoked.  Unlike :meth:`pyramid.config.Configurator.add_view`, this "
+"method will raise an exception if passed ``name``, ``permission``, "
+"``require_csrf``, ``context``, ``for_``, or ``exception_only`` keyword "
+"arguments. These argument values make no sense in the context of a "
+"forbidden :term:`exception view`."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_exception_view:1
+msgid ""
+"Add an :term:`exception view` for the specified ``exception`` to the "
+"current configuration state. The view will be called when Pyramid or "
+"application code raises the given exception."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_exception_view:5
+msgid ""
+"This method accepts almost all of the same arguments as "
+":meth:`pyramid.config.Configurator.add_view` except for ``name``, "
+"``permission``, ``for_``, ``require_csrf``, and ``exception_only``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_exception_view:9
+msgid ""
+"By default, this method will set ``context=Exception``, thus registering "
+"for most default Python exceptions. Any subclass of ``Exception`` may be "
+"specified."
+msgstr ""
+
+#: ../../api/config.rst:31
+msgid ":methodcategory:`Adding an Event Subscriber`"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_subscriber:1
+msgid ""
+"Add an event :term:`subscriber` for the event stream implied by the "
+"supplied ``iface`` interface."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_subscriber:4
+msgid ""
+"The ``subscriber`` argument represents a callable object (or a "
+":term:`dotted Python name` which identifies a callable); it will be "
+"called with a single object ``event`` whenever :app:`Pyramid` emits an "
+":term:`event` associated with the ``iface``, which may be an "
+":term:`interface` or a class or a :term:`dotted Python name` to a global "
+"object representing an interface or a class."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_subscriber:11
+msgid ""
+"Using the default ``iface`` value, ``None`` will cause the subscriber to "
+"be registered for all event types. See :ref:`events_chapter` for more "
+"information about events and subscribers."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_subscriber:15
+msgid ""
+"Any number of predicate keyword arguments may be passed in "
+"``**predicates``.  Each predicate named will narrow the set of "
+"circumstances in which the subscriber will be invoked.  Each named "
+"predicate must have been registered via "
+":meth:`pyramid.config.Configurator.add_subscriber_predicate` before it "
+"can be used.  See :ref:`subscriber_predicates` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_subscriber:22
+msgid "The ``**predicates`` argument."
+msgstr ""
+
+#: ../../api/config.rst:35
+msgid ":methodcategory:`Using Security`"
+msgstr ""
+
+#: of pyramid.config.Configurator.set_authentication_policy:1
+msgid ""
+"Override the :app:`Pyramid` :term:`authentication policy` in the current "
+"configuration.  The ``policy`` argument must be an instance of an "
+"authentication policy or a :term:`dotted Python name` that points at an "
+"instance of an authentication policy."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_authentication_policy:8
+msgid ""
+"Using the ``authentication_policy`` argument to the "
+":class:`pyramid.config.Configurator` constructor can be used to achieve "
+"the same purpose."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_authorization_policy:1
+msgid ""
+"Override the :app:`Pyramid` :term:`authorization policy` in the current "
+"configuration.  The ``policy`` argument must be an instance of an "
+"authorization policy or a :term:`dotted Python name` that points at an "
+"instance of an authorization policy."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_authorization_policy:8
+msgid ""
+"Using the ``authorization_policy`` argument to the "
+":class:`pyramid.config.Configurator` constructor can be used to achieve "
+"the same purpose."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_csrf_options:1
+msgid "Set the default CSRF options used by subsequent view registrations."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_csrf_options:3
+msgid ""
+"``require_csrf`` controls whether CSRF checks will be automatically "
+"enabled on each view in the application. This value is used as the "
+"fallback when ``require_csrf`` is left at the default of ``None`` on "
+":meth:`pyramid.config.Configurator.add_view`."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_csrf_options:8
+msgid ""
+"``token`` is the name of the CSRF token used in the body of the request, "
+"accessed via ``request.POST[token]``. Default: ``csrf_token``."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_csrf_options:11
+msgid ""
+"``header`` is the name of the header containing the CSRF token, accessed "
+"via ``request.headers[header]``. Default: ``X-CSRF-Token``."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_csrf_options:14
+msgid ""
+"If ``token`` or ``header`` are set to ``None`` they will not be used for "
+"checking CSRF tokens."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_csrf_options:17
+msgid ""
+"``safe_methods`` is an iterable of HTTP methods which are expected to not"
+" contain side-effects as defined by RFC2616. Safe methods will never be "
+"automatically checked for CSRF tokens. Default: ``('GET', 'HEAD', "
+"'OPTIONS', TRACE')``."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_csrf_options:22
+msgid ""
+"If ``callback`` is set, it must be a callable accepting ``(request)`` and"
+" returning ``True`` if the request should be checked for a valid CSRF "
+"token. This callback allows an application to support alternate "
+"authentication methods that do not rely on cookies which are not subject "
+"to CSRF attacks. For example, if a request is authenticated using the "
+"``Authorization`` header instead of a cookie, this may return ``False`` "
+"for that request so that clients do not need to send the ``X-CSRF-Token``"
+" header. The callback is only tested for non-safe methods as defined by "
+"``safe_methods``."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_csrf_options:34
+msgid "Added the ``callback`` option."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_csrf_storage_policy:1
+msgid "Set the :term:`CSRF storage policy` used by subsequent view registrations."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_csrf_storage_policy:4
+msgid ""
+"``policy`` is a class that implements the "
+":meth:`pyramid.interfaces.ICSRFStoragePolicy` interface and defines how "
+"to generate and persist CSRF tokens."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_permission:1
+msgid ""
+"Set the default permission to be used by all subsequent :term:`view "
+"configuration` registrations.  ``permission`` should be a "
+":term:`permission` string to be used as the default permission.  An "
+"example of a permission string:``'view'``.  Adding a default permission "
+"makes it unnecessary to protect each view configuration with an explicit "
+"permission, unless your application policy requires some exception for a "
+"particular view."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_permission:10
+msgid ""
+"If a default permission is *not* set, views represented by view "
+"configuration registrations which do not explicitly declare a permission "
+"will be executable by entirely anonymous users (any authorization policy "
+"is ignored)."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_permission:15
+msgid ""
+"Later calls to this method override will conflict with earlier calls; "
+"there can be only one default permission active at a time within an "
+"application."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_permission:21
+msgid ""
+"If a default permission is in effect, view configurations meant to create"
+" a truly anonymously accessible view (even :term:`exception view` views) "
+"*must* use the value of the permission importable as "
+":data:`pyramid.security.NO_PERMISSION_REQUIRED`.  When this string is "
+"used as the ``permission`` for a view configuration, the default "
+"permission is ignored, and the view is registered, making it available to"
+" all callers regardless of their credentials."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_default_permission:35
+msgid ""
+"Using the ``default_permission`` argument to the "
+":class:`pyramid.config.Configurator` constructor can be used to achieve "
+"the same purpose."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_permission:1
+msgid ""
+"A configurator directive which registers a free-standing permission "
+"without associating it with a view callable.  This can be used so that "
+"the permission shows up in the introspectable data under the "
+"``permissions`` category (permissions mentioned via ``add_view`` already "
+"end up in there).  For example::"
+msgstr ""
+
+#: ../../api/config.rst:44
+msgid ":methodcategory:`Extending the Request Object`"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_request_method:1
+msgid "Add a property or method to the request object."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_request_method:3
+msgid ""
+"When adding a method to the request, ``callable`` may be any function "
+"that receives the request object as the first parameter. If ``name`` is "
+"``None`` then it will be computed from the name of the ``callable``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_request_method:8
+msgid ""
+"When adding a property to the request, ``callable`` can either be a "
+"callable that accepts the request as its single positional parameter, or "
+"it can be a property descriptor. If ``name`` is ``None``, the name of the"
+" property will be computed from the name of the ``callable``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_request_method:14
+msgid ""
+"If the ``callable`` is a property descriptor a ``ValueError`` will be "
+"raised if ``name`` is ``None`` or ``reify`` is ``True``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_request_method:17
+msgid ""
+"See :meth:`pyramid.request.Request.set_property` for more details on "
+"``property`` vs ``reify``. When ``reify`` is ``True``, the value of "
+"``property`` is assumed to also be ``True``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_request_method:22
+msgid ""
+"In all cases, ``callable`` may also be a :term:`dotted Python name` which"
+" refers to either a callable or a property descriptor."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_request_method:26
+msgid ""
+"If ``callable`` is ``None`` then the method is only used to assist in "
+"conflict detection between different addons requesting the same attribute"
+" on the request object."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_request_method:30
+msgid ""
+"This is the recommended method for extending the request object and "
+"should be used in favor of providing a custom request factory via "
+":meth:`pyramid.config.Configurator.set_request_factory`."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_request_property:1
+msgid "Add a property to the request object."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_request_property:3
+msgid ""
+":meth:`pyramid.config.Configurator.add_request_method` should be used "
+"instead.  (This method was docs-deprecated in 1.4 and issues a real "
+"deprecation warning in 1.5)."
+msgstr ""
+
+#: ../../api/config.rst:49
+msgid ":methodcategory:`Using I18N`"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_translation_dirs:1
+msgid ""
+"Add one or more :term:`translation directory` paths to the current "
+"configuration state.  The ``specs`` argument is a sequence that may "
+"contain absolute directory paths (e.g. ``/usr/share/locale``) or "
+":term:`asset specification` names naming a directory path (e.g. "
+"``some.package:locale``) or a combination of the two."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_translation_dirs:8
+msgid "Example:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_translation_dirs:15
+msgid ""
+"The translation directories are defined as a list in which translations "
+"defined later have precedence over translations defined earlier."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_translation_dirs:19
+msgid ""
+"By default, consecutive calls to ``add_translation_dirs`` will add "
+"directories to the start of the list. This means later calls to "
+"``add_translation_dirs`` will have their translations trumped by earlier "
+"calls. If you explicitly need this call to trump an earlier call then you"
+" may set ``override`` to ``True``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_translation_dirs:25
+msgid ""
+"If multiple specs are provided in a single call to "
+"``add_translation_dirs``, the directories will be inserted in the order "
+"they're provided (earlier items are trumped by later items)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_translation_dirs:31
+msgid ""
+"The ``override`` parameter was added to allow a later call to "
+"``add_translation_dirs`` to override an earlier call, inserting folders "
+"at the beginning of the translation directory list."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_locale_negotiator:1
+msgid ""
+"Set the :term:`locale negotiator` for this application.  The "
+":term:`locale negotiator` is a callable which accepts a :term:`request` "
+"object and which returns a :term:`locale name`.  The ``negotiator`` "
+"argument should be the locale negotiator implementation or a "
+":term:`dotted Python name` which refers to such an implementation."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_locale_negotiator:8
+msgid ""
+"Later calls to this method override earlier calls; there can be only one "
+"locale negotiator active at a time within an application.  See "
+":ref:`activating_translation` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_locale_negotiator:15
+msgid ""
+"Using the ``locale_negotiator`` argument to the "
+":class:`pyramid.config.Configurator` constructor can be used to achieve "
+"the same purpose."
+msgstr ""
+
+#: ../../api/config.rst:54
+msgid ":methodcategory:`Overriding Assets`"
+msgstr ""
+
+#: of pyramid.config.Configurator.override_asset:1
+msgid "Add a :app:`Pyramid` asset override to the current configuration state."
+msgstr ""
+
+#: of pyramid.config.Configurator.override_asset:4
+msgid ""
+"``to_override`` is an :term:`asset specification` to the asset being "
+"overridden."
+msgstr ""
+
+#: of pyramid.config.Configurator.override_asset:7
+msgid ""
+"``override_with`` is an :term:`asset specification` to the asset that is "
+"performing the override. This may also be an absolute path."
+msgstr ""
+
+#: of pyramid.config.Configurator.override_asset:11
+msgid "See :ref:`assets_chapter` for more information about asset overrides."
+msgstr ""
+
+#: ../../api/config.rst:58
+msgid ":methodcategory:`Getting and Adding Settings`"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_settings:1
+msgid "Augment the :term:`deployment settings` with one or more key/value pairs."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_settings:4
+msgid "You may pass a dictionary::"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_settings:8
+msgid "Or a set of key/value pairs::"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_settings:12
+msgid ""
+"This function is useful when you need to test code that accesses the "
+":attr:`pyramid.registry.Registry.settings` API (or the "
+":meth:`pyramid.config.Configurator.get_settings` API) and which uses "
+"values from that API."
+msgstr ""
+
+#: of pyramid.config.Configurator.get_settings:1
+msgid ""
+"Return a :term:`deployment settings` object for the current application."
+"  A deployment settings object is a dictionary-like object that contains "
+"key/value pairs based on the dictionary passed as the ``settings`` "
+"argument to the :class:`pyramid.config.Configurator` constructor."
+msgstr ""
+
+#: of pyramid.config.Configurator.get_settings:7
+msgid "the :attr:`pyramid.registry.Registry.settings` API performs the same duty."
+msgstr ""
+
+#: ../../api/config.rst:63
+msgid ":methodcategory:`Hooking Pyramid Behavior`"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_renderer:1
+msgid ""
+"Add a :app:`Pyramid` :term:`renderer` factory to the current "
+"configuration state."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_renderer:4
+msgid ""
+"The ``name`` argument is the renderer name.  Use ``None`` to represent "
+"the default renderer (a renderer which will be used for all views unless "
+"they name another renderer specifically)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_renderer:8
+msgid ""
+"The ``factory`` argument is Python reference to an implementation of a "
+":term:`renderer` factory or a :term:`dotted Python name` to same."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_resource_url_adapter:3
+msgid ""
+"When you add a traverser as described in :ref:`changing_the_traverser`, "
+"it's convenient to continue to use the "
+":meth:`pyramid.request.Request.resource_url` API.  However, since the way"
+" traversal is done may have been modified, the URLs that ``resource_url``"
+" generates by default may be incorrect when resources are returned by a "
+"custom traverser."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_resource_url_adapter:10
+msgid ""
+"If you've added a traverser, you can change how "
+":meth:`~pyramid.request.Request.resource_url` generates a URL for a "
+"specific type of resource by calling this method."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_resource_url_adapter:14
+msgid ""
+"The ``adapter`` argument represents a class that implements the "
+":class:`~pyramid.interfaces.IResourceURL` interface.  The class "
+"constructor should accept two arguments in its constructor (the resource "
+"and the request) and the resulting instance should provide the attributes"
+" detailed in that interface (``virtual_path`` and ``physical_path``, in "
+"particular)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_resource_url_adapter:21
+msgid ""
+"The ``resource_iface`` argument represents a class or interface that the "
+"resource should possess for this url adapter to be used when "
+":meth:`pyramid.request.Request.resource_url` looks up a resource url "
+"adapter.  If ``resource_iface`` is not passed, or it is passed as "
+"``None``, the url adapter will be used for every type of resource."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_resource_url_adapter:27
+msgid "See :ref:`changing_resource_url` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_response_adapter:1
+msgid ""
+"When an object of type (or interface) ``type_or_iface`` is returned from "
+"a view callable, Pyramid will use the adapter ``adapter`` to convert it "
+"into an object which implements the :class:`pyramid.interfaces.IResponse`"
+" interface.  If ``adapter`` is None, an object returned of type (or "
+"interface) ``type_or_iface`` will itself be used as a response object."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_response_adapter:8
+msgid ""
+"``adapter`` and ``type_or_interface`` may be Python objects or strings "
+"representing dotted names to importable Python global objects."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_response_adapter:12
+msgid "See :ref:`using_iresponse` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_traverser:1
+msgid ""
+"The superdefault :term:`traversal` algorithm that :app:`Pyramid` uses is "
+"explained in :ref:`traversal_algorithm`.  Though it is rarely necessary, "
+"this default algorithm can be swapped out selectively for a different "
+"traversal pattern via configuration.  The section entitled "
+":ref:`changing_the_traverser` details how to create a traverser class."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_traverser:8
+msgid ""
+"For example, to override the superdefault traverser used by Pyramid, you "
+"might do something like this:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_traverser:16
+msgid ""
+"This would cause the Pyramid superdefault traverser to never be used; "
+"instead all traversal would be done using your ``MyCustomTraverser`` "
+"class, no matter which object was returned by the :term:`root factory` of"
+" this application.  Note that we passed no arguments to the ``iface`` "
+"keyword parameter.  The default value of ``iface``, ``None`` represents "
+"that the registered traverser should be used when no other more specific "
+"traverser is available for the object returned by the root factory."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_traverser:25
+msgid ""
+"However, more than one traversal algorithm can be active at the same "
+"time.  The traverser used can depend on the result of the :term:`root "
+"factory`.  For instance, if your root factory returns more than one type "
+"of object conditionally, you could claim that an alternate traverser "
+"adapter should be used against one particular class or interface returned"
+" by that root factory.  When the root factory returned an object that "
+"implemented that class or interface, a custom traverser would be used.  "
+"Otherwise, the default traverser would be used.  The ``iface`` argument "
+"represents the class of the object that the root factory might return or "
+"an :term:`interface` that the object might implement."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_traverser:37
+msgid ""
+"To use a particular traverser only when the root factory returns a "
+"particular class:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_traverser:44
+msgid ""
+"When more than one traverser is active, the \"most specific\" traverser "
+"will be used (the one that matches the class or interface of the value "
+"returned by the root factory most closely)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_traverser:48
+msgid ""
+"Note that either ``adapter`` or ``iface`` can be a :term:`dotted Python "
+"name` or a Python object."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_traverser:51
+msgid "See :ref:`changing_the_traverser` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:3
+msgid ""
+"Add a 'tween factory'.  A :term:`tween` (a contraction of 'between') is a"
+" bit of code that sits between the Pyramid router's main request handling"
+" function and the upstream WSGI component that uses :app:`Pyramid` as its"
+" 'app'.  Tweens are a feature that may be used by Pyramid framework "
+"extensions, to provide, for example, Pyramid-specific view timing "
+"support, bookkeeping code that examines exceptions before they are "
+"returned to the upstream WSGI application, or a variety of other "
+"features.  Tweens behave a bit like :term:`WSGI` 'middleware' but they "
+"have the benefit of running in a context in which they have access to the"
+" Pyramid :term:`application registry` as well as the Pyramid rendering "
+"machinery."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:15
+msgid ""
+"You can view the tween ordering configured into a given Pyramid "
+"application by using the ``ptweens`` command.  See "
+":ref:`displaying_tweens`."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:19
+msgid ""
+"The ``tween_factory`` argument must be a :term:`dotted Python name` to a "
+"global object representing the tween factory."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:22
+msgid ""
+"The ``under`` and ``over`` arguments allow the caller of ``add_tween`` to"
+" provide a hint about where in the tween chain this tween factory should "
+"be placed when an implicit tween chain is used. These hints are only used"
+" when an explicit tween chain is not used (when the ``pyramid.tweens`` "
+"configuration value is not set). Allowable values for ``under`` or "
+"``over`` (or both) are:"
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:29
+msgid "``None`` (the default)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:31
+msgid ""
+"A :term:`dotted Python name` to a tween factory: a string representing "
+"the dotted name of a tween factory added in a call to ``add_tween`` in "
+"the same configuration session."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:35
+msgid ""
+"One of the constants :attr:`pyramid.tweens.MAIN`, "
+":attr:`pyramid.tweens.INGRESS`, or :attr:`pyramid.tweens.EXCVIEW`."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:38
+msgid ""
+"An iterable of any combination of the above. This allows the user to "
+"specify fallbacks if the desired tween is not included, as well as "
+"compatibility with multiple other tweens."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:42
+msgid ""
+"``under`` means 'closer to the main Pyramid application than', ``over`` "
+"means 'closer to the request ingress than'."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:45
+msgid ""
+"For example, calling ``add_tween('myapp.tfactory', "
+"over=pyramid.tweens.MAIN)`` will attempt to place the tween factory "
+"represented by the dotted name ``myapp.tfactory`` directly 'above' (in "
+"``ptweens`` order) the main Pyramid request handler. Likewise, calling "
+"``add_tween('myapp.tfactory', over=pyramid.tweens.MAIN, "
+"under='mypkg.someothertween')`` will attempt to place this tween factory "
+"'above' the main handler but 'below' (a fictional) 'mypkg.someothertween'"
+" tween factory."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:54
+msgid ""
+"If all options for ``under`` (or ``over``) cannot be found in the current"
+" configuration, it is an error. If some options are specified purely for "
+"compatibilty with other tweens, just add a fallback of MAIN or INGRESS. "
+"For example, ``under=('mypkg.someothertween', 'mypkg.someothertween2', "
+"INGRESS)``.  This constraint will require the tween to be located under "
+"both the 'mypkg.someothertween' tween, the 'mypkg.someothertween2' tween,"
+" and INGRESS. If any of these is not in the current configuration, this "
+"constraint will only organize itself based on the tweens that are "
+"present."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:64
+msgid ""
+"Specifying neither ``over`` nor ``under`` is equivalent to specifying "
+"``under=INGRESS``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:67
+msgid ""
+"Implicit tween ordering is obviously only best-effort.  Pyramid will "
+"attempt to present an implicit order of tweens as best it can, but the "
+"only surefire way to get any particular ordering is to use an explicit "
+"tween order.  A user may always override the implicit tween ordering by "
+"using an explicit ``pyramid.tweens`` configuration value setting."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:74
+msgid ""
+"``under``, and ``over`` arguments are ignored when an explicit tween "
+"chain is specified using the ``pyramid.tweens`` configuration value."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_tween:77
+msgid "For more information, see :ref:`registering_tweens`."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route_predicate:1
+msgid ""
+"Adds a route predicate factory.  The view predicate can later be named as"
+" a keyword argument to :meth:`pyramid.config.Configurator.add_route`."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route_predicate:5
+msgid ""
+"``name`` should be the name of the predicate.  It must be a valid Python "
+"identifier (it will be used as a keyword argument to ``add_route``)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route_predicate:9
+#: pyramid.config.Configurator.add_subscriber_predicate:12
+#: pyramid.config.Configurator.add_view_predicate:12
+msgid ""
+"``factory`` should be a :term:`predicate factory` or :term:`dotted Python"
+" name` which refers to a predicate factory."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_route_predicate:12
+#: pyramid.config.Configurator.add_view_predicate:15
+msgid "See :ref:`view_and_route_predicates` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_subscriber_predicate:3
+msgid ""
+"Adds a subscriber predicate factory.  The associated subscriber predicate"
+" can later be named as a keyword argument to "
+":meth:`pyramid.config.Configurator.add_subscriber` in the "
+"``**predicates`` anonymous keyword argument dictionary."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_subscriber_predicate:8
+msgid ""
+"``name`` should be the name of the predicate.  It must be a valid Python "
+"identifier (it will be used as a ``**predicates`` keyword argument to "
+":meth:`~pyramid.config.Configurator.add_subscriber`)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_subscriber_predicate:15
+msgid "See :ref:`subscriber_predicates` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view_predicate:3
+msgid ""
+"Adds a view predicate factory.  The associated view predicate can later "
+"be named as a keyword argument to "
+":meth:`pyramid.config.Configurator.add_view` in the ``predicates`` "
+"anonyous keyword argument dictionary."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view_predicate:8
+msgid ""
+"``name`` should be the name of the predicate.  It must be a valid Python "
+"identifier (it will be used as a keyword argument to ``add_view`` by "
+"others)."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view_deriver:3
+msgid ""
+"Add a :term:`view deriver` to the view pipeline. View derivers are a "
+"feature used by extension authors to wrap views in custom code "
+"controllable by view-specific options."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view_deriver:7
+msgid ""
+"``deriver`` should be a callable conforming to the "
+":class:`pyramid.interfaces.IViewDeriver` interface."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view_deriver:10
+msgid ""
+"``name`` should be the name of the view deriver.  There are no "
+"restrictions on the name of a view deriver. If left unspecified, the name"
+" will be constructed from the name of the ``deriver``."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view_deriver:14
+msgid ""
+"The ``under`` and ``over`` options can be used to control the ordering of"
+" view derivers by providing hints about where in the view pipeline the "
+"deriver is used. Each option may be a string or a list of strings. At "
+"least one view deriver in each, the over and under directions, must exist"
+" to fully satisfy the constraints."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view_deriver:20
+msgid ""
+"``under`` means closer to the user-defined :term:`view callable`, and "
+"``over`` means closer to view pipeline ingress."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view_deriver:23
+msgid ""
+"The default value for ``over`` is ``rendered_view`` and ``under`` is "
+"``decorated_view``. This places the deriver somewhere between the two in "
+"the view pipeline. If the deriver should be placed elsewhere in the "
+"pipeline, such as above ``decorated_view``, then you MUST also specify "
+"``under`` to something earlier in the order, or a "
+"``CyclicDependencyError`` will be raised when trying to sort the "
+"derivers."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_view_deriver:31
+msgid "See :ref:`view_derivers` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_execution_policy:1
+msgid ""
+"Override the :app:`Pyramid` :term:`execution policy` in the current "
+"configuration.  The ``policy`` argument must be an instance of an "
+":class:`pyramid.interfaces.IExecutionPolicy` or a :term:`dotted Python "
+"name` that points at an instance of an execution policy."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_request_factory:1
+msgid ""
+"The object passed as ``factory`` should be an object (or a :term:`dotted "
+"Python name` which refers to an object) which will be used by the "
+":app:`Pyramid` router to create all request objects.  This factory object"
+" must have the same methods and attributes as the "
+":class:`pyramid.request.Request` class (particularly ``__call__``, and "
+"``blank``)."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_request_factory:9
+msgid ""
+"See :meth:`pyramid.config.Configurator.add_request_method` for a less "
+"intrusive way to extend the request objects with custom methods and "
+"properties."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_request_factory:15
+msgid ""
+"Using the ``request_factory`` argument to the "
+":class:`pyramid.config.Configurator` constructor can be used to achieve "
+"the same purpose."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_root_factory:1
+msgid ""
+"Add a :term:`root factory` to the current configuration state.  If the "
+"``factory`` argument is ``None`` a default root factory will be "
+"registered."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_root_factory:7
+msgid ""
+"Using the ``root_factory`` argument to the "
+":class:`pyramid.config.Configurator` constructor can be used to achieve "
+"the same purpose."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_session_factory:1
+msgid ""
+"Configure the application with a :term:`session factory`.  If this method"
+" is called, the ``factory`` argument must be a session factory callable "
+"or a :term:`dotted Python name` to that factory."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_session_factory:7
+msgid ""
+"Using the ``session_factory`` argument to the "
+":class:`pyramid.config.Configurator` constructor can be used to achieve "
+"the same purpose."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_view_mapper:1
+msgid ""
+"Setting a :term:`view mapper` makes it possible to make use of "
+":term:`view callable` objects which implement different call signatures "
+"than the ones supported by :app:`Pyramid` as described in its narrative "
+"documentation."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_view_mapper:6
+msgid ""
+"The ``mapper`` argument should be an object implementing "
+":class:`pyramid.interfaces.IViewMapperFactory` or a :term:`dotted Python "
+"name` to such an object.  The provided ``mapper`` will become the default"
+" view mapper to be used by all subsequent :term:`view configuration` "
+"registrations."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_view_mapper:14
+msgid "See also :ref:`using_a_view_mapper`."
+msgstr ""
+
+#: of pyramid.config.Configurator.set_view_mapper:18
+msgid ""
+"Using the ``default_view_mapper`` argument to the "
+":class:`pyramid.config.Configurator` constructor can be used to achieve "
+"the same purpose."
+msgstr ""
+
+#: ../../api/config.rst:80
+msgid ":methodcategory:`Extension Author APIs`"
+msgstr ""
+
+#: of pyramid.config.Configurator.action:1
+msgid ""
+"Register an action which will be executed when "
+":meth:`pyramid.config.Configurator.commit` is called (or executed "
+"immediately if ``autocommit`` is ``True``)."
+msgstr ""
+
+#: of pyramid.config.Configurator.action:5
+#: pyramid.config.Configurator.add_directive:3
+#: pyramid.config.Configurator.derive_view:7
+msgid ""
+"This method is typically only used by :app:`Pyramid` framework extension "
+"authors, not by :app:`Pyramid` application developers."
+msgstr ""
+
+#: of pyramid.config.Configurator.action:9
+msgid ""
+"The ``discriminator`` uniquely identifies the action.  It must be given, "
+"but it can be ``None``, to indicate that the action never conflicts.  It "
+"must be a hashable value."
+msgstr ""
+
+#: of pyramid.config.Configurator.action:13
+msgid ""
+"The ``callable`` is a callable object which performs the task associated "
+"with the action when the action is executed.  It is optional."
+msgstr ""
+
+#: of pyramid.config.Configurator.action:17
+msgid ""
+"``args`` and ``kw`` are tuple and dict objects respectively, which are "
+"passed to ``callable`` when this action is executed.  Both are optional."
+msgstr ""
+
+#: of pyramid.config.Configurator.action:21
+msgid ""
+"``order`` is a grouping mechanism; an action with a lower order will be "
+"executed before an action with a higher order (has no effect when "
+"autocommit is ``True``)."
+msgstr ""
+
+#: of pyramid.config.Configurator.action:25
+msgid ""
+"``introspectables`` is a sequence of :term:`introspectable` objects (or "
+"the empty sequence if no introspectable objects are associated with this "
+"action).  If this configurator's ``introspection`` attribute is "
+"``False``, these introspectables will be ignored."
+msgstr ""
+
+#: of pyramid.config.Configurator.action:30
+msgid ""
+"``extra`` provides a facility for inserting extra keys and values into an"
+" action dictionary."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_directive:1
+msgid "Add a directive method to the configurator."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_directive:7
+msgid ""
+"Framework extenders can add directive methods to a configurator by "
+"instructing their users to call ``config.add_directive('somename', "
+"'some.callable')``.  This will make ``some.callable`` accessible as "
+"``config.somename``.  ``some.callable`` should be a function which "
+"accepts ``config`` as a first argument, and arbitrary positional and "
+"keyword arguments following.  It should use config.action as necessary to"
+" perform actions.  Directive methods can then be invoked like 'built-in' "
+"directives such as ``add_view``, ``add_route``, etc."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_directive:16
+msgid ""
+"The ``action_wrap`` argument should be ``True`` for directives which "
+"perform ``config.action`` with potentially conflicting discriminators.  "
+"``action_wrap`` will cause the directive to be wrapped in a decorator "
+"which provides more accurate conflict cause information."
+msgstr ""
+
+#: of pyramid.config.Configurator.add_directive:22
+msgid ""
+"``add_directive`` does not participate in conflict detection, and later "
+"calls to ``add_directive`` will override earlier calls."
+msgstr ""
+
+#: of pyramid.config.Configurator.with_package:1
+msgid ""
+"Return a new Configurator instance with the same registry as this "
+"configurator. ``package`` may be an actual Python package object or a "
+":term:`dotted Python name` representing a package."
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:1
+msgid ""
+"Create a :term:`view callable` using the function, instance, or class (or"
+" :term:`dotted Python name` referring to the same) provided as ``view`` "
+"object."
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:10
+msgid ""
+"This is API is useful to framework extenders who create pluggable systems"
+" which need to register 'proxy' view callables for functions, instances, "
+"or classes which meet the requirements of being a :app:`Pyramid` view "
+"callable.  For example, a ``some_other_framework`` function in another "
+"framework may want to allow a user to supply a view callable, but he may "
+"want to wrap the view callable in his own before registering the wrapper "
+"as a :app:`Pyramid` view callable. Because a :app:`Pyramid` view callable"
+" can be any of a number of valid objects, the framework extender will not"
+" know how to call the user-supplied object.  Running it through "
+"``derive_view`` normalizes it to a callable which accepts two arguments: "
+"``context`` and ``request``."
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:24
+msgid "For example:"
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:36
+msgid "The ``view`` object provided should be one of the following:"
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:38
+msgid ""
+"A function or another non-class callable object that accepts a "
+":term:`request` as a single positional argument and which returns a "
+":term:`response` object."
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:42
+msgid ""
+"A function or other non-class callable object that accepts two positional"
+" arguments, ``context, request`` and which returns a :term:`response` "
+"object."
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:46
+msgid ""
+"A class which accepts a single positional argument in its constructor "
+"named ``request``, and which has a ``__call__`` method that accepts no "
+"arguments that returns a :term:`response` object."
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:51
+msgid ""
+"A class which accepts two positional arguments named ``context, "
+"request``, and which has a ``__call__`` method that accepts no arguments "
+"that returns a :term:`response` object."
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:56
+msgid ""
+"A :term:`dotted Python name` which refers to any of the kinds of objects "
+"above."
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:59
+msgid ""
+"This API returns a callable which accepts the arguments ``context, "
+"request`` and which returns the result of calling the provided ``view`` "
+"object."
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:63
+msgid ""
+"The ``attr`` keyword argument is most useful when the view object is a "
+"class.  It names the method that should be used as the callable.  If "
+"``attr`` is not provided, the attribute effectively defaults to "
+"``__call__``.  See :ref:`class_as_view` for more information."
+msgstr ""
+
+#: of pyramid.config.Configurator.derive_view:69
+msgid ""
+"The ``renderer`` keyword argument should be a renderer name. If supplied,"
+" it will cause the returned callable to use a :term:`renderer` to convert"
+" the user-supplied view result to a :term:`response` object.  If a "
+"``renderer`` argument is not supplied, the user-supplied view must itself"
+" return a :term:`response` object."
+msgstr ""
+
+#: ../../api/config.rst:87
+msgid ":methodcategory:`Utility Methods`"
+msgstr ""
+
+#: of pyramid.config.Configurator.absolute_asset_spec:1
+msgid ""
+"Resolve the potentially relative :term:`asset specification` string "
+"passed as ``relative_spec`` into an absolute asset specification string "
+"and return the string. Use the ``package`` of this configurator as the "
+"package to which the asset specification will be considered relative when"
+" generating an absolute asset specification.  If the provided "
+"``relative_spec`` argument is already absolute, or if the "
+"``relative_spec`` is not a string, it is simply returned."
+msgstr ""
+
+#: of pyramid.config.Configurator.maybe_dotted:1
+msgid ""
+"Resolve the :term:`dotted Python name` ``dotted`` to a global Python "
+"object.  If ``dotted`` is not a string, return it without attempting to "
+"do any name resolution.  If ``dotted`` is a relative dotted name (e.g. "
+"``.foo.bar``, consider it relative to the ``package`` argument supplied "
+"to this Configurator's constructor."
+msgstr ""
+
+#: ../../api/config.rst:92
+msgid ":methodcategory:`ZCA-Related APIs`"
+msgstr ""
+
+#: of pyramid.config.Configurator.hook_zca:1
+msgid ""
+"Call :func:`zope.component.getSiteManager.sethook` with the argument "
+":data:`pyramid.threadlocal.get_current_registry`, causing the :term:`Zope"
+" Component Architecture` 'global' APIs such as "
+":func:`zope.component.getSiteManager`, :func:`zope.component.getAdapter` "
+"and others to use the :app:`Pyramid` :term:`application registry` rather "
+"than the Zope 'global' registry."
+msgstr ""
+
+#: of pyramid.config.Configurator.unhook_zca:1
+msgid ""
+"Call :func:`zope.component.getSiteManager.reset` to undo the action of "
+":meth:`pyramid.config.Configurator.hook_zca`."
+msgstr ""
+
+#: of pyramid.config.Configurator.setup_registry:1
+msgid ""
+"When you pass a non-``None`` ``registry`` argument to the "
+":term:`Configurator` constructor, no initial setup is performed against "
+"the registry.  This is because the registry you pass in may have already "
+"been initialized for use under :app:`Pyramid` via a different "
+"configurator.  However, in some circumstances (such as when you want to "
+"use a global registry instead of a registry created as a result of the "
+"Configurator constructor), or when you want to reset the initial setup of"
+" a registry, you *do* want to explicitly initialize the registry "
+"associated with a Configurator for use under :app:`Pyramid`.  Use "
+"``setup_registry`` to do this initialization."
+msgstr ""
+
+#: of pyramid.config.Configurator.setup_registry:12
+msgid ""
+"``setup_registry`` configures settings, a root factory, security "
+"policies, renderers, a debug logger, a locale negotiator, and various "
+"other settings using the configurator's current registry, as per the "
+"descriptions in the Configurator constructor."
+msgstr ""
+
+#: ../../api/config.rst:98
+msgid ":methodcategory:`Testing Helper APIs`"
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_add_renderer:1
+msgid ""
+"Unit/integration testing helper: register a renderer at ``path`` (usually"
+" a relative filename ala ``templates/foo.pt`` or an asset specification) "
+"and return the renderer object. If the ``renderer`` argument is None, a "
+"'dummy' renderer will be used.  This function is useful when testing code"
+" that calls the :func:`pyramid.renderers.render` function or "
+":func:`pyramid.renderers.render_to_response` function or any other "
+"``render_*`` or ``get_*`` API of the :mod:`pyramid.renderers` module."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_add_renderer:11
+msgid ""
+"Note that calling this method for with a ``path`` argument representing a"
+" renderer factory type (e.g. for ``foo.pt`` usually implies the "
+"``chameleon_zpt`` renderer factory) clobbers any existing renderer "
+"factory registered for that type."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_add_renderer:17
+msgid ""
+"This method is also available under the alias ``testing_add_template`` "
+"(an older name for it)."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_add_subscriber:1
+msgid ""
+"Unit/integration testing helper: Registers a :term:`subscriber` which "
+"listens for events of the type ``event_iface``.  This method returns a "
+"list object which is appended to by the subscriber whenever an event is "
+"captured."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_add_subscriber:6
+msgid ""
+"When an event is dispatched that matches the value implied by the "
+"``event_iface`` argument, that event will be appended to the list.  You "
+"can then compare the values in the list to expected event notifications."
+"  This method is useful when testing code that wants to call "
+":meth:`pyramid.registry.Registry.notify`, or "
+":func:`zope.component.event.dispatch`."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_add_subscriber:14
+msgid ""
+"The default value of ``event_iface`` (``None``) implies a subscriber "
+"registered for *any* kind of event."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_resources:1
+msgid ""
+"Unit/integration testing helper: registers a dictionary of "
+":term:`resource` objects that can be resolved via the "
+":func:`pyramid.traversal.find_resource` API."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_resources:5
+msgid ""
+"The :func:`pyramid.traversal.find_resource` API is called with a path as "
+"one of its arguments.  If the dictionary you register when calling this "
+"method contains that path as a string key (e.g. ``/foo/bar`` or "
+"``foo/bar``), the corresponding value will be returned to "
+"``find_resource`` (and thus to your code) when "
+":func:`pyramid.traversal.find_resource` is called with an equivalent path"
+" string or tuple."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_securitypolicy:1
+msgid ""
+"Unit/integration testing helper: Registers a pair of faux :app:`Pyramid` "
+"security policies: a :term:`authentication policy` and a "
+":term:`authorization policy`."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_securitypolicy:5
+msgid ""
+"The behavior of the registered :term:`authorization policy` depends on "
+"the ``permissive`` argument.  If ``permissive`` is true, a permissive "
+":term:`authorization policy` is registered; this policy allows all "
+"access.  If ``permissive`` is false, a nonpermissive :term:`authorization"
+" policy` is registered; this policy denies all access."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_securitypolicy:12
+msgid ""
+"``remember_result``, if provided, should be the result returned by the "
+"``remember`` method of the faux authentication policy.  If it is not "
+"provided (or it is provided, and is ``None``), the default value ``[]`` "
+"(the empty list) will be returned by ``remember``."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_securitypolicy:17
+msgid ""
+"``forget_result``, if provided, should be the result returned by the "
+"``forget`` method of the faux authentication policy.  If it is not "
+"provided (or it is provided, and is ``None``), the default value ``[]`` "
+"(the empty list) will be returned by ``forget``."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_securitypolicy:22
+msgid ""
+"The behavior of the registered :term:`authentication policy` depends on "
+"the values provided for the ``userid`` and ``groupids`` argument.  The "
+"authentication policy will return the userid identifier implied by the "
+"``userid`` argument and the group ids implied by the ``groupids`` "
+"argument when the :attr:`pyramid.request.Request.authenticated_userid` or"
+" :attr:`pyramid.request.Request.effective_principals` APIs are used."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_securitypolicy:31
+msgid ""
+"This function is most useful when testing code that uses the APIs named "
+":meth:`pyramid.request.Request.has_permission`, "
+":attr:`pyramid.request.Request.authenticated_userid`, "
+":attr:`pyramid.request.Request.effective_principals`, and "
+":func:`pyramid.security.principals_allowed_by_permission`."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_securitypolicy:37
+msgid "The ``remember_result`` argument."
+msgstr ""
+
+#: of pyramid.config.Configurator.testing_securitypolicy:40
+msgid "The ``forget_result`` argument."
+msgstr ""
+
+#: ../../api/config.rst:105
+msgid ":methodcategory:`Attributes`"
+msgstr ""
+
+#: ../../api/config.rst:109
+msgid ""
+"A shortcut attribute which points to the "
+":class:`pyramid.registry.Introspectable` class (used during directives to"
+" provide introspection to actions)."
+msgstr ""
+
+#: ../../api/config.rst:117
+msgid ""
+"The :term:`introspector` related to this configuration.  It is an "
+"instance implementing the :class:`pyramid.interfaces.IIntrospector` "
+"interface."
+msgstr ""
+
+#: ../../api/config.rst:125
+msgid ""
+"The :term:`application registry` which holds the configuration associated"
+" with this configurator."
+msgstr ""
+
+#: ../../api/config.rst:130
+msgid ""
+"The set of registries that have been created for :app:`Pyramid` "
+"applications, one for each call to "
+":meth:`pyramid.config.Configurator.make_wsgi_app` in the current process."
+" The object itself supports iteration and has a ``last`` property "
+"containing the last registry loaded."
+msgstr ""
+
+#: ../../api/config.rst:136
+msgid ""
+"The registries contained in this object are stored as weakrefs, thus they"
+" will only exist for the lifetime of the actual applications for which "
+"they are being used."
+msgstr ""
+
+#: of pyramid.config.not_:1
+msgid ""
+"You can invert the meaning of any predicate value by wrapping it in a "
+"call to :class:`pyramid.config.not_`."
+msgstr ""
+
+#: of pyramid.config.not_:15
+msgid ""
+"The above example will ensure that the view is called if the request "
+"method is *not* ``POST``, at least if no other view is more specific."
+msgstr ""
+
+#: of pyramid.config.not_:18
+msgid ""
+"This technique of wrapping a predicate value in ``not_`` can be used "
+"anywhere predicate values are accepted:"
+msgstr ""
+
+#: of pyramid.config.not_:21
+msgid ":meth:`pyramid.config.Configurator.add_view`"
+msgstr ""
+
+#: of pyramid.config.not_:23
+msgid ":meth:`pyramid.config.Configurator.add_route`"
+msgstr ""
+
+#: of pyramid.config.not_:25
+msgid ":meth:`pyramid.config.Configurator.add_subscriber`"
+msgstr ""
+
+#: of pyramid.config.not_:27
+msgid ":meth:`pyramid.view.view_config`"
+msgstr ""
+
+#: of pyramid.config.not_:29
+msgid ":meth:`pyramid.events.subscriber`"
+msgstr ""
+

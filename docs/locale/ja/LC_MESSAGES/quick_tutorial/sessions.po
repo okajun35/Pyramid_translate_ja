@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 00:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/sessions.rst:5
+msgid "17: Transient Data Using Sessions"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:7
+msgid "Store and retrieve non-permanent data in Pyramid sessions."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:11
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:13
+msgid ""
+"When people use your web application, they frequently perform a task that"
+" requires semi-permanent data to be saved. For example, a shopping cart. "
+"This is called a :term:`session`."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:17
+msgid ""
+"Pyramid has basic built-in support for sessions.  Third party packages "
+"such as `pyramid_redis_sessions "
+"<https://github.com/ericrasmussen/pyramid_redis_sessions>`_ provide "
+"richer session support. Or you can create your own custom sessioning "
+"engine. Let's take a look at the :doc:`built-in sessioning support "
+"<../narr/sessions>`."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:25
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:27
+msgid "Make a session factory using a built-in, simple Pyramid sessioning system."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:29
+msgid "Change our code to use a session."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:33
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:35
+msgid "First we copy the results of the ``view_classes`` step:"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:42
+msgid ""
+"Our ``sessions/tutorial/__init__.py`` needs a choice of session factory "
+"to get registered with the :term:`configurator`:"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:48
+msgid ""
+"Our views in ``sessions/tutorial/views.py`` can now use "
+"``request.session``:"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:53
+msgid "The template at ``sessions/tutorial/home.pt`` can display the value:"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:59
+msgid "Make sure the tests still pass:"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:67
+msgid "Run your Pyramid application with:"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:73
+msgid ""
+"Open http://localhost:6543/ and http://localhost:6543/howdy in your "
+"browser. As you reload and switch between those URLs, note that the "
+"counter increases and is *not* specific to the URL."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:77
+msgid ""
+"Restart the application and revisit the page. Note that counter still "
+"increases from where it left off."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:82
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:84
+msgid ""
+"Pyramid's :term:`request` object now has a ``session`` attribute that we "
+"can use in our view code. It acts like a dictionary."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:87
+msgid ""
+"Since all the views are using the same counter, we made the counter a "
+"Python property at the view class level. With this, each reload will "
+"increase the counter displayed in our template."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:91
+msgid ""
+"In web development, \"flash messages\" are notes for the user that need "
+"to appear on a screen after a future web request. For example, when you "
+"add an item using a form ``POST``, the site usually issues a second HTTP "
+"Redirect web request to view the new item. You might want a message to "
+"appear after that second web request saying \"Your item was added.\" You "
+"can't just return it in the web response for the POST, as it will be "
+"tossed out during the second web request."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:98
+msgid ""
+"Flash messages are a technique where messages can be stored between "
+"requests, using sessions, then removed when they finally get displayed."
+msgstr ""
+
+#: ../../quick_tutorial/sessions.rst:102
+msgid ":ref:`sessions_chapter`, :ref:`flash_messages`, and :ref:`session_module`."
+msgstr ""
+

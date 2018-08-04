@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 00:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/databases.rst:5
+msgid "19: Databases Using SQLAlchemy"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:7
+msgid "Store and retrieve data using the SQLAlchemy ORM atop the SQLite database."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:11
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:13
+msgid ""
+"Our Pyramid-based wiki application now needs database-backed storage of "
+"pages. This frequently means an SQL database. The Pyramid community "
+"strongly supports the :ref:`SQLAlchemy <sqla:index_toplevel>` project and"
+" its :ref:`object-relational mapper (ORM) <sqla:ormtutorial_toplevel>` as"
+" a convenient, Pythonic way to interface to databases."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:19
+msgid ""
+"In this step we hook up SQLAlchemy to a SQLite database table, providing "
+"storage and retrieval for the wiki pages in the previous step."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:24
+msgid ""
+"The ``pyramid-cookiecutter-alchemy`` cookiecutter is really helpful for "
+"getting an SQLAlchemy project going, including generation of the console "
+"script. Since we want to see all the decisions, we will forgo convenience"
+" in this tutorial, and wire it up ourselves."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:31
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:33
+msgid "Store pages in SQLite by using SQLAlchemy models."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:35
+msgid "Use SQLAlchemy queries to list/add/view/edit pages."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:37
+msgid ""
+"Provide a database-initialize command by writing a Pyramid *console "
+"script* which can be run from the command line."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:42
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:44
+msgid "We are going to use the forms step as our starting point:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:50
+msgid ""
+"We need to add some dependencies in ``databases/setup.py`` as well as an "
+"\"entry point\" for the command-line script:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:58
+msgid ""
+"We aren't yet doing ``$VENV/bin/pip install -e .`` as we will change it "
+"later."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:61
+msgid ""
+"Our configuration file at ``databases/development.ini`` wires together "
+"some new pieces:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:67
+msgid ""
+"This engine configuration now needs to be read into the application "
+"through changes in ``databases/tutorial/__init__.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:73
+msgid ""
+"Make a command-line script at ``databases/tutorial/initialize_db.py`` to "
+"initialize the database:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:79
+msgid "Since ``setup.py`` changed, we now run it:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:85
+msgid "The script references some models in ``databases/tutorial/models.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:90
+msgid "Let's run this console script, thus producing our database and table:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:119
+msgid ""
+"With our data now driven by SQLAlchemy queries, we need to update our "
+"``databases/tutorial/views.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:125
+msgid ""
+"Our tests in ``databases/tutorial/tests.py`` changed to include "
+"SQLAlchemy bootstrapping:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:131
+msgid "Run the tests in your package using ``py.test``:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:139
+msgid "Run your Pyramid application with:"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:145
+msgid "Open http://localhost:6543/ in a browser."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:149
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:151
+msgid ""
+"Let's start with the dependencies. We made the decision to use "
+"``SQLAlchemy`` to talk to our database. We also, though, installed "
+"``pyramid_tm`` and ``zope.sqlalchemy``. Why?"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:155
+msgid ""
+"Pyramid has a strong orientation towards support for ``transactions``. "
+"Specifically, you can install a transaction manager into your application"
+" either as middleware or a Pyramid \"tween\". Then, just before you "
+"return the response, all transaction-aware parts of your application are "
+"executed."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:160
+msgid ""
+"This means Pyramid view code usually doesn't manage transactions. If your"
+" view code or a template generates an error, the transaction manager "
+"aborts the transaction. This is a very liberating way to write code."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:164
+msgid ""
+"The ``pyramid_tm`` package provides a \"tween\" that is configured in the"
+" ``development.ini`` configuration file. That installs it. We then need a"
+" package that makes SQLAlchemy, and thus the RDBMS transaction manager, "
+"integrate with the Pyramid transaction manager. That's what "
+"``zope.sqlalchemy`` does."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:170
+msgid ""
+"Where do we point at the location on disk for the SQLite file? In the "
+"configuration file. This lets consumers of our package change the "
+"location in a safe (non-code) way. That is, in configuration. This "
+"configuration-oriented approach isn't required in Pyramid; you can still "
+"make such statements in your ``__init__.py`` or some companion module."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:176
+msgid ""
+"The ``initialize_tutorial_db`` is a nice example of framework support. "
+"You point your setup at the location of some ``[console_scripts]``, and "
+"these get generated into your virtual environment's ``bin`` directory. "
+"Our console script follows the pattern of being fed a configuration file "
+"with all the bootstrapping. It then opens SQLAlchemy and creates the root"
+" of the wiki, which also makes the SQLite file. Note the ``with "
+"transaction.manager`` part that puts the work in the scope of a "
+"transaction, as we aren't inside a web request where this is done "
+"automatically."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:185
+msgid ""
+"The ``models.py`` does a little bit of extra work to hook up SQLAlchemy "
+"into the Pyramid transaction manager. It then declares the model for a "
+"``Page``."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:188
+msgid ""
+"Our views have changes primarily around replacing our dummy dictionary-"
+"of-dictionaries data with proper database support: list the rows, add a "
+"row, edit a row, and delete a row."
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:194
+msgid "Extra credit"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:196
+msgid "Why all this code? Why can't I just type two lines and have magic ensue?"
+msgstr ""
+
+#: ../../quick_tutorial/databases.rst:198
+msgid "Give a try at a button that deletes a wiki page."
+msgstr ""
+
