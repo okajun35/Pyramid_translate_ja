@@ -1,0 +1,416 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>What&#39;s New in Pyramid 1.2 &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="copyright" title="著作権" href="copyright.html" />
+    <link rel="next" title="What&#39;s New in Pyramid 1.1" href="whatsnew-1.1.html" />
+    <link rel="prev" title="What&#39;s New in Pyramid 1.3" href="whatsnew-1.3.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="index.html">
+      		<img class="logo" src="_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="whatsnew-1.1.html" title="What&#39;s New in Pyramid 1.1"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="whatsnew-1.3.html" title="What&#39;s New in Pyramid 1.3"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-s-new-in-pyramid-1-2">
+<h1>What's New in Pyramid 1.2<a class="headerlink" href="#what-s-new-in-pyramid-1-2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>This article explains the new features in <span>Pyramid</span> version 1.2 as
+compared to its predecessor, <span>Pyramid</span> 1.1.  It also documents backwards
+incompatibilities between the two versions and deprecations added to Pyramid
+1.2, as well as software dependency changes and notable documentation
+additions.</p>
+<div class="section" id="major-feature-additions">
+<h2>Major Feature Additions<a class="headerlink" href="#major-feature-additions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The major feature additions in Pyramid 1.2 follow.</p>
+<div class="section" id="debug-toolbar">
+<h3>Debug Toolbar<a class="headerlink" href="#debug-toolbar" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>The scaffolding packages that come with Pyramid now include a debug toolbar
+component which can be used to interactively debug an application.  See
+<a class="reference internal" href="narr/project.html#debug-toolbar"><span class="std std-ref">The Debug Toolbar</span></a> for more information.</p>
+</div>
+<div class="section" id="route-prefix-argument-to-include">
+<h3><code class="docutils literal notranslate"><span class="pre">route_prefix</span></code> Argument to include<a class="headerlink" href="#route-prefix-argument-to-include" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>The <a class="reference internal" href="api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> method now accepts a
+<code class="docutils literal notranslate"><span class="pre">route_prefix</span></code> argument.  This argument allows you to compose URL dispatch
+applications together from disparate packages.  See <a class="reference internal" href="narr/urldispatch.html#route-prefix"><span class="std std-ref">Using a Route Prefix to Compose Applications</span></a> for
+more information.</p>
+</div>
+<div class="section" id="tweens">
+<h3>Tweens<a class="headerlink" href="#tweens" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>A <a class="reference internal" href="glossary.html#term-tween"><span class="xref std std-term">tween</span></a> is used to wrap the Pyramid router's primary request handling
+function.  This is a feature that can be used by Pyramid framework extensions,
+to provide, for example, view timing support and can provide a convenient
+place to hang bookkeeping code.  Tweens are a little like <a class="reference internal" href="glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a>
+<a class="reference internal" href="glossary.html#term-middleware"><span class="xref std std-term">middleware</span></a>, but have access to Pyramid functionality such as renderers
+and a full-featured request object.</p>
+<p>To support this feature, a new configurator directive exists named
+<a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_tween" title="pyramid.config.Configurator.add_tween"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_tween()</span></code></a>.  This directive adds a
+&quot;tween&quot;.</p>
+<p>Tweens are further described in <a class="reference internal" href="narr/hooks.html#registering-tweens"><span class="std std-ref">Registering Tweens</span></a>.</p>
+<p>A new paster command now exists: <code class="docutils literal notranslate"><span class="pre">paster</span> <span class="pre">ptweens</span></code>.  This command prints the
+current tween configuration for an application.  See the section entitled
+<a class="reference internal" href="narr/commandline.html#displaying-tweens"><span class="std std-ref">Displaying &quot;Tweens&quot;</span></a> for more info.</p>
+</div>
+<div class="section" id="scaffolding-changes">
+<h3>Scaffolding Changes<a class="headerlink" href="#scaffolding-changes" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>All scaffolds now use the <code class="docutils literal notranslate"><span class="pre">pyramid_tm</span></code> package rather than the
+<code class="docutils literal notranslate"><span class="pre">repoze.tm2</span></code> <a class="reference internal" href="glossary.html#term-middleware"><span class="xref std std-term">middleware</span></a> to manage transaction management.</li>
+<li>The ZODB scaffold now uses the <code class="docutils literal notranslate"><span class="pre">pyramid_zodbconn</span></code> package rather than the
+<code class="docutils literal notranslate"><span class="pre">repoze.zodbconn</span></code> package to provide ZODB integration.</li>
+<li>All scaffolds now use the <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> package rather than the
+<code class="docutils literal notranslate"><span class="pre">WebError</span></code> package to provide interactive debugging features.</li>
+<li>Projects created via a scaffold no longer depend on the <code class="docutils literal notranslate"><span class="pre">WebError</span></code> package
+at all; configuration in the <code class="docutils literal notranslate"><span class="pre">production.ini</span></code> file which used to require
+its <code class="docutils literal notranslate"><span class="pre">error_catcher</span></code> <a class="reference internal" href="glossary.html#term-middleware"><span class="xref std std-term">middleware</span></a> has been removed.  Configuring
+error catching / email sending is now the domain of the <code class="docutils literal notranslate"><span class="pre">pyramid_exclog</span></code>
+package (see <a class="reference external" href="http://docs.pylonsproject.org/projects/pyramid_exclog/dev/">http://docs.pylonsproject.org/projects/pyramid_exclog/dev/</a>).</li>
+<li>All scaffolds now send the <code class="docutils literal notranslate"><span class="pre">cache_max_age</span></code> parameter to the
+<code class="docutils literal notranslate"><span class="pre">add_static_view</span></code> method.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="minor-feature-additions">
+<h2>Minor Feature Additions<a class="headerlink" href="#minor-feature-additions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">[pshell]</span></code> section in an ini configuration file now treats a
+<code class="docutils literal notranslate"><span class="pre">setup</span></code> key as a dotted name that points to a callable that is passed the
+bootstrap environment.  It can mutate the environment as necessary during a
+<code class="docutils literal notranslate"><span class="pre">paster</span> <span class="pre">pshell</span></code> session.  This feature is described in
+<a class="reference internal" href="narr/commandline.html#writing-a-script"><span class="std std-ref">Writing a Script</span></a>.</li>
+<li>A new configuration setting named <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> is now available.
+It is described in <a class="reference internal" href="narr/environment.html#including-packages"><span class="std std-ref">Including Packages</span></a>.</li>
+<li>Added a <a class="reference internal" href="api/security.html#pyramid.security.NO_PERMISSION_REQUIRED" title="pyramid.security.NO_PERMISSION_REQUIRED"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.NO_PERMISSION_REQUIRED</span></code></a> constant for use in
+<code class="docutils literal notranslate"><span class="pre">permission=</span></code> statements to view configuration.  This constant has a
+value of the string <code class="docutils literal notranslate"><span class="pre">__no_permission_required__</span></code>.  This string value was
+previously referred to in documentation; now the documentation uses the
+constant.</li>
+<li>Added a decorator-based way to configure a response adapter:
+<a class="reference internal" href="api/response.html#pyramid.response.response_adapter" title="pyramid.response.response_adapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.response_adapter</span></code></a>.  This decorator has the same
+use as <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_response_adapter" title="pyramid.config.Configurator.add_response_adapter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_response_adapter()</span></code></a> but it's
+declarative.</li>
+<li>The <a class="reference internal" href="api/events.html#pyramid.events.BeforeRender" title="pyramid.events.BeforeRender"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.BeforeRender</span></code></a> event now has an attribute named
+<code class="docutils literal notranslate"><span class="pre">rendering_val</span></code>.  This can be used to introspect the value returned by a
+view in a BeforeRender subscriber.</li>
+<li>The Pyramid debug logger now uses the standard logging configuration
+(usually set up by Paste as part of startup).  This means that output from
+e.g. <code class="docutils literal notranslate"><span class="pre">debug_notfound</span></code>, <code class="docutils literal notranslate"><span class="pre">debug_authorization</span></code>, etc. will go to the
+normal logging channels.  The logger name of the debug logger will be the
+package name of the <em>caller</em> of the Configurator's constructor.</li>
+<li>A new attribute is available on request objects: <code class="docutils literal notranslate"><span class="pre">exc_info</span></code>.  Its value
+will be <code class="docutils literal notranslate"><span class="pre">None</span></code> until an exception is caught by the Pyramid router, after
+which it will be the result of <code class="docutils literal notranslate"><span class="pre">sys.exc_info()</span></code>.</li>
+<li><a class="reference internal" href="api/testing.html#pyramid.testing.DummyRequest" title="pyramid.testing.DummyRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.testing.DummyRequest</span></code></a> now implements the
+<code class="docutils literal notranslate"><span class="pre">add_finished_callback</span></code> and <code class="docutils literal notranslate"><span class="pre">add_response_callback</span></code> methods implemented
+by <a class="reference internal" href="api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a>.</li>
+<li>New methods of the <a class="reference internal" href="api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.config.Configurator</span></code></a> class:
+<a class="reference internal" href="api/config.html#pyramid.config.Configurator.set_authentication_policy" title="pyramid.config.Configurator.set_authentication_policy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_authentication_policy()</span></code></a> and
+<a class="reference internal" href="api/config.html#pyramid.config.Configurator.set_authorization_policy" title="pyramid.config.Configurator.set_authorization_policy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_authorization_policy()</span></code></a>.  These are
+meant to be consumed mostly by add-on authors who wish to offer packages
+which register security policies.</li>
+<li>New Configurator method:
+<a class="reference internal" href="api/config.html#pyramid.config.Configurator.set_root_factory" title="pyramid.config.Configurator.set_root_factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_root_factory()</span></code></a>, which can set the
+root factory after the Configurator has been constructed.</li>
+<li>Pyramid no longer eagerly commits some default configuration statements at
+<a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> construction time, which permits values passed in as
+constructor arguments (e.g. <code class="docutils literal notranslate"><span class="pre">authentication_policy</span></code> and
+<code class="docutils literal notranslate"><span class="pre">authorization_policy</span></code>) to override the same settings obtained via the
+<a class="reference internal" href="api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> method.</li>
+<li>Better Mako rendering exceptions; the template line which caused the error
+is now shown when a Mako rendering raises an exception.</li>
+<li>New request methods: <a class="reference internal" href="api/request.html#pyramid.request.Request.current_route_url" title="pyramid.request.Request.current_route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">current_route_url()</span></code></a>,
+<a class="reference internal" href="api/request.html#pyramid.request.Request.current_route_path" title="pyramid.request.Request.current_route_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">current_route_path()</span></code></a>, and
+<a class="reference internal" href="api/request.html#pyramid.request.Request.static_path" title="pyramid.request.Request.static_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_path()</span></code></a>.</li>
+<li>New functions in the <a class="reference internal" href="api/url.html#module-pyramid.url" title="pyramid.url"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.url</span></code></a> module:
+<a class="reference internal" href="api/url.html#pyramid.url.current_route_path" title="pyramid.url.current_route_path"><code class="xref py py-func docutils literal notranslate"><span class="pre">current_route_path()</span></code></a> and
+<a class="reference internal" href="api/url.html#pyramid.url.static_path" title="pyramid.url.static_path"><code class="xref py py-func docutils literal notranslate"><span class="pre">static_path()</span></code></a>.</li>
+<li>The <a class="reference internal" href="api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.static_url()</span></code></a> API (and its brethren
+<a class="reference internal" href="api/request.html#pyramid.request.Request.static_path" title="pyramid.request.Request.static_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.static_path()</span></code></a>,
+<a class="reference internal" href="api/url.html#pyramid.url.static_url" title="pyramid.url.static_url"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.url.static_url()</span></code></a>, and <a class="reference internal" href="api/url.html#pyramid.url.static_path" title="pyramid.url.static_path"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.url.static_path()</span></code></a>) now
+accept an absolute filename as a &quot;path&quot; argument.  This will generate a URL
+to an asset as long as the filename is in a directory which was previously
+registered as a static view.  Previously, trying to generate a URL to an
+asset using an absolute file path would raise a ValueError.</li>
+<li>The <a class="reference internal" href="api/authentication.html#pyramid.authentication.RemoteUserAuthenticationPolicy" title="pyramid.authentication.RemoteUserAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">RemoteUserAuthenticationPolicy</span></code></a>,
+<a class="reference internal" href="api/authentication.html#pyramid.authentication.AuthTktAuthenticationPolicy" title="pyramid.authentication.AuthTktAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthTktAuthenticationPolicy</span></code></a>, and
+<a class="reference internal" href="api/authentication.html#pyramid.authentication.SessionAuthenticationPolicy" title="pyramid.authentication.SessionAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionAuthenticationPolicy</span></code></a> constructors
+now accept an additional keyword argument named <code class="docutils literal notranslate"><span class="pre">debug</span></code>.  By default,
+this keyword argument is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  When it is <code class="docutils literal notranslate"><span class="pre">True</span></code>, debug information
+will be sent to the Pyramid debug logger (usually on stderr) when the
+<code class="docutils literal notranslate"><span class="pre">authenticated_userid</span></code> or <code class="docutils literal notranslate"><span class="pre">effective_principals</span></code> method is called on
+any of these policies.  The output produced can be useful when trying to
+diagnose authentication-related problems.</li>
+<li>New view predicate: <code class="docutils literal notranslate"><span class="pre">match_param</span></code>.  Example: a view added via
+<code class="docutils literal notranslate"><span class="pre">config.add_view(aview,</span> <span class="pre">match_param='action=edit')</span></code> will be called only
+when the <code class="docutils literal notranslate"><span class="pre">request.matchdict</span></code> has a value inside it named <code class="docutils literal notranslate"><span class="pre">action</span></code> with
+a value of <code class="docutils literal notranslate"><span class="pre">edit</span></code>.</li>
+<li>Support an <code class="docutils literal notranslate"><span class="pre">onerror</span></code> keyword argument to
+<a class="reference internal" href="api/config.html#pyramid.config.Configurator.scan" title="pyramid.config.Configurator.scan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.scan()</span></code></a>.  This argument is passed to
+<a class="reference external" href="https://docs.pylonsproject.org/projects/venusian/en/latest/api.html#venusian.Scanner.scan" title="(in venusian v1.1.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">venusian.Scanner.scan()</span></code></a> to influence error behavior when an exception
+is raised during scanning.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">request_method</span></code> predicate argument to
+<a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> and
+<a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> is now permitted to be a
+tuple of HTTP method names.  Previously it was restricted to being a string
+representing a single HTTP method name.</li>
+<li>Undeprecated <code class="docutils literal notranslate"><span class="pre">pyramid.traversal.find_model</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pyramid.traversal.model_path</span></code>, <code class="docutils literal notranslate"><span class="pre">pyramid.traversal.model_path_tuple</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">pyramid.url.model_url</span></code>, which were all deprecated in Pyramid 1.0.
+There's just not much cost to keeping them around forever as aliases to
+their renamed <code class="docutils literal notranslate"><span class="pre">resource_*</span></code> prefixed functions.</li>
+<li>Undeprecated <code class="docutils literal notranslate"><span class="pre">pyramid.view.bfg_view</span></code>, which was deprecated in Pyramid
+1.0.  This is a low-cost alias to <code class="docutils literal notranslate"><span class="pre">pyramid.view.view_config</span></code> which we'll
+just keep around forever.</li>
+<li>Route pattern replacement marker names can now begin with an underscore.
+See <a class="reference external" href="https://github.com/Pylons/pyramid/issues/276">https://github.com/Pylons/pyramid/issues/276</a>.</li>
+</ul>
+</div>
+<div class="section" id="deprecations">
+<h2>Deprecations<a class="headerlink" href="#deprecations" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>All Pyramid-related <a class="reference internal" href="glossary.html#term-deployment-settings"><span class="xref std std-term">deployment settings</span></a> (e.g. <code class="docutils literal notranslate"><span class="pre">debug_all</span></code>,
+<code class="docutils literal notranslate"><span class="pre">debug_notfound</span></code>) are now meant to be prefixed with the prefix
+<code class="docutils literal notranslate"><span class="pre">pyramid.</span></code>.  For example: <code class="docutils literal notranslate"><span class="pre">debug_all</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">pyramid.debug_all</span></code>.  The
+old non-prefixed settings will continue to work indefinitely but supplying
+them may print a deprecation warning.  All scaffolds and tutorials have
+been changed to use prefixed settings.</li>
+<li>The <a class="reference internal" href="glossary.html#term-deployment-settings"><span class="xref std std-term">deployment settings</span></a> dictionary now raises a deprecation warning
+when you attempt to access its values via <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code> instead of via
+<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="backwards-incompatibilities">
+<h2>Backwards Incompatibilities<a class="headerlink" href="#backwards-incompatibilities" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><p class="first">If a string is passed as the <code class="docutils literal notranslate"><span class="pre">debug_logger</span></code> parameter to a
+<a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a>, that string is considered to be the name of a global
+Python logger rather than a dotted name to an instance of a logger.</p>
+</li>
+<li><p class="first">The <a class="reference internal" href="api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> method now accepts only a
+single <code class="docutils literal notranslate"><span class="pre">callable</span></code> argument.  A <em>sequence</em> of callables used to be
+permitted.  If you are passing more than one <code class="docutils literal notranslate"><span class="pre">callable</span></code> to
+<a class="reference internal" href="api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a>, it will break.  You now must
+now instead make a separate call to the method for each callable.</p>
+</li>
+<li><p class="first">It may be necessary to more strictly order configuration route and view
+statements when using an &quot;autocommitting&quot; <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a>.  In the
+past, it was possible to add a view which named a route name before adding
+a route with that name when you used an autocommitting configurator.  For
+example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">autocommit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;my.pkg.someview&#39;</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;/foo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above will raise an exception when the view attempts to add itself.
+Now you must add the route before adding the view:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">autocommit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;/foo&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;my.pkg.someview&#39;</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This won't effect &quot;normal&quot; users, only people who have legacy BFG codebases
+that used an autommitting configurator and possibly tests that use the
+configurator API (the configurator returned by
+<a class="reference internal" href="api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.setUp()</span></code></a> is an autocommitting configurator).  The
+right way to get around this is to use a default non-autocommitting
+configurator, which does not have these directive ordering requirements:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">()</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;my.pkg.someview&#39;</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;/foo&#39;</span><span class="p">)</span>
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">will</span> <span class="n">work</span> <span class="n">fine</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> directive no longer
+returns a route object.  This change was required to make route vs. view
+configuration processing work properly.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="behavior-differences">
+<h2>Behavior Differences<a class="headerlink" href="#behavior-differences" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>An ETag header is no longer set when serving a static file.  A
+Last-Modified header is set instead.</li>
+<li>Static file serving no longer supports the <code class="docutils literal notranslate"><span class="pre">wsgi.file_wrapper</span></code> extension.</li>
+<li>Instead of returning a <code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code> error when a static file is served
+that cannot be accessed by the Pyramid process' user due to file
+permissions, an IOError (or similar) will be raised.</li>
+</ul>
+</div>
+<div class="section" id="documentation-enhancements">
+<h2>Documentation Enhancements<a class="headerlink" href="#documentation-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Narrative and API documentation which used the <code class="docutils literal notranslate"><span class="pre">route_url</span></code>,
+<code class="docutils literal notranslate"><span class="pre">route_path</span></code>, <code class="docutils literal notranslate"><span class="pre">resource_url</span></code>, <code class="docutils literal notranslate"><span class="pre">static_url</span></code>, and <code class="docutils literal notranslate"><span class="pre">current_route_url</span></code>
+functions in the <a class="reference internal" href="api/url.html#module-pyramid.url" title="pyramid.url"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.url</span></code></a> package have now been changed to use
+eponymous methods of the request instead.</li>
+<li>Added a section entitled <a class="reference internal" href="narr/urldispatch.html#route-prefix"><span class="std std-ref">Using a Route Prefix to Compose Applications</span></a> to the &quot;URL Dispatch&quot;
+narrative documentation chapter.</li>
+<li>Added a new module to the API docs: <a class="reference internal" href="api/tweens.html#module-pyramid.tweens" title="pyramid.tweens"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.tweens</span></code></a>.</li>
+<li>Added a <a class="reference internal" href="narr/hooks.html#registering-tweens"><span class="std std-ref">Registering Tweens</span></a> section to the &quot;Hooks&quot; narrative chapter.</li>
+<li>Added a <a class="reference internal" href="narr/commandline.html#displaying-tweens"><span class="std std-ref">Displaying &quot;Tweens&quot;</span></a> section to the &quot;Command-Line Pyramid&quot;
+narrative chapter.</li>
+<li>Added documentation for <a class="reference internal" href="narr/environment.html#explicit-tween-config"><span class="std std-ref">Explicit Tween Configuration</span></a> and
+<a class="reference internal" href="narr/environment.html#including-packages"><span class="std std-ref">Including Packages</span></a> to the &quot;Environment Variables and <code class="docutils literal notranslate"><span class="pre">.ini</span></code> Files
+Settings&quot; chapter.</li>
+<li>Added a <a class="reference internal" href="narr/logging.html#logging-chapter"><span class="std std-ref">Logging</span></a> chapter to the narrative docs.</li>
+<li>All tutorials now use - The <code class="docutils literal notranslate"><span class="pre">route_url</span></code>, <code class="docutils literal notranslate"><span class="pre">route_path</span></code>,
+<code class="docutils literal notranslate"><span class="pre">resource_url</span></code>, <code class="docutils literal notranslate"><span class="pre">static_url</span></code>, and <code class="docutils literal notranslate"><span class="pre">current_route_url</span></code> methods of the
+<a class="reference internal" href="api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a> rather than the function variants imported
+from <code class="docutils literal notranslate"><span class="pre">pyramid.url</span></code>.</li>
+<li>The ZODB wiki tutorial now uses the <code class="docutils literal notranslate"><span class="pre">pyramid_zodbconn</span></code> package rather
+than the <code class="docutils literal notranslate"><span class="pre">repoze.zodbconn</span></code> package to provide ZODB integration.</li>
+<li>Added <a class="reference internal" href="narr/introduction.html#what-makes-pyramid-unique"><span class="std std-ref">What makes Pyramid unique</span></a> to the Introduction narrative
+chapter.</li>
+</ul>
+</div>
+<div class="section" id="dependency-changes">
+<h2>Dependency Changes<a class="headerlink" href="#dependency-changes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Pyramid now relies on PasteScript &gt;= 1.7.4.  This version contains a
+feature important for allowing flexible logging configuration.</li>
+<li>Pyramid now requires Venusian 1.0a1 or better to support the <code class="docutils literal notranslate"><span class="pre">onerror</span></code>
+keyword argument to <a class="reference internal" href="api/config.html#pyramid.config.Configurator.scan" title="pyramid.config.Configurator.scan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.scan()</span></code></a>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">zope.configuration</span></code> package is no longer a dependency.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What's New in Pyramid 1.2</a><ul>
+<li><a class="reference internal" href="#major-feature-additions">Major Feature Additions</a><ul>
+<li><a class="reference internal" href="#debug-toolbar">Debug Toolbar</a></li>
+<li><a class="reference internal" href="#route-prefix-argument-to-include"><code class="docutils literal notranslate"><span class="pre">route_prefix</span></code> Argument to include</a></li>
+<li><a class="reference internal" href="#tweens">Tweens</a></li>
+<li><a class="reference internal" href="#scaffolding-changes">Scaffolding Changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#minor-feature-additions">Minor Feature Additions</a></li>
+<li><a class="reference internal" href="#deprecations">Deprecations</a></li>
+<li><a class="reference internal" href="#backwards-incompatibilities">Backwards Incompatibilities</a></li>
+<li><a class="reference internal" href="#behavior-differences">Behavior Differences</a></li>
+<li><a class="reference internal" href="#documentation-enhancements">Documentation Enhancements</a></li>
+<li><a class="reference internal" href="#dependency-changes">Dependency Changes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="whatsnew-1.3.html"
+                        title="前の章へ">What's New in Pyramid 1.3</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="whatsnew-1.1.html"
+                        title="次の章へ">What's New in Pyramid 1.1</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/whatsnew-1.2.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="whatsnew-1.1.html" title="What&#39;s New in Pyramid 1.1"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="whatsnew-1.3.html" title="What&#39;s New in Pyramid 1.3"
+             >前へ</a> |</li>
+    	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

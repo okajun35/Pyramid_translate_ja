@@ -1,0 +1,370 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.session &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="pyramid.settings" href="settings.html" />
+    <link rel="prev" title="pyramid.security" href="security.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="pyramid.settings"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="security.html" title="pyramid.security"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyramid.session">
+<span id="pyramid-session"></span><span id="session-module"></span><h1><a class="reference internal" href="#module-pyramid.session" title="pyramid.session"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.session</span></code></a><a class="headerlink" href="#module-pyramid.session" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<dl class="function">
+<dt id="pyramid.session.signed_serialize">
+<code class="descname">signed_serialize</code><span class="sig-paren">(</span><em>data</em>, <em>secret</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/session.html#signed_serialize"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.session.signed_serialize" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Serialize any pickleable structure (<code class="docutils literal notranslate"><span class="pre">data</span></code>) and sign it
+using the <code class="docutils literal notranslate"><span class="pre">secret</span></code> (must be a string).  Return the
+serialization, which includes the signature as its first 40 bytes.
+The <code class="docutils literal notranslate"><span class="pre">signed_deserialize</span></code> method will deserialize such a value.</p>
+<p>This function is useful for creating signed cookies.  For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cookieval</span> <span class="o">=</span> <span class="n">signed_serialize</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span> <span class="s1">&#39;secret&#39;</span><span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s1">&#39;signed_cookie&#39;</span><span class="p">,</span> <span class="n">cookieval</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.session.signed_deserialize">
+<code class="descname">signed_deserialize</code><span class="sig-paren">(</span><em>serialized</em>, <em>secret</em>, <em>hmac=&lt;module 'hmac' from '/usr/lib/python3.6/hmac.py'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/session.html#signed_deserialize"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.session.signed_deserialize" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Deserialize the value returned from <code class="docutils literal notranslate"><span class="pre">signed_serialize</span></code>.  If
+the value cannot be deserialized for any reason, a
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> exception will be raised.</p>
+<p>This function is useful for deserializing a signed cookie value
+created by <code class="docutils literal notranslate"><span class="pre">signed_serialize</span></code>.  For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cookieval</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">cookies</span><span class="p">[</span><span class="s1">&#39;signed_cookie&#39;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">signed_deserialize</span><span class="p">(</span><span class="n">cookieval</span><span class="p">,</span> <span class="s1">&#39;secret&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.session.SignedCookieSessionFactory">
+<code class="descname">SignedCookieSessionFactory</code><span class="sig-paren">(</span><em>secret</em>, <em>cookie_name='session'</em>, <em>max_age=None</em>, <em>path='/'</em>, <em>domain=None</em>, <em>secure=False</em>, <em>httponly=False</em>, <em>set_on_exception=True</em>, <em>timeout=1200</em>, <em>reissue_time=0</em>, <em>hashalg='sha512'</em>, <em>salt='pyramid.session.'</em>, <em>serializer=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/session.html#SignedCookieSessionFactory"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.session.SignedCookieSessionFactory" title="この定義へのパーマリンク">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
+</div>
+<p>Configure a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a> which will provide signed
+cookie-based sessions.  The return value of this
+function is a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a>, which may be provided as
+the <code class="docutils literal notranslate"><span class="pre">session_factory</span></code> argument of a
+<a class="reference internal" href="config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.config.Configurator</span></code></a> constructor, or used
+as the <code class="docutils literal notranslate"><span class="pre">session_factory</span></code> argument of the
+<a class="reference internal" href="config.html#pyramid.config.Configurator.set_session_factory" title="pyramid.config.Configurator.set_session_factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_session_factory()</span></code></a>
+method.</p>
+<p>The session factory returned by this function will create sessions
+which are limited to storing fewer than 4000 bytes of data (as the
+payload must fit into a single cookie).</p>
+<p>Parameters:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">secret</span></code></dt>
+<dd>A string which is used to sign the cookie. The secret should be at
+least as long as the block size of the selected hash algorithm. For
+<code class="docutils literal notranslate"><span class="pre">sha512</span></code> this would mean a 512 bit (64 character) secret.  It should
+be unique within the set of secret values provided to Pyramid for
+its various subsystems (see <a class="reference internal" href="../narr/security.html#admonishment-against-secret-sharing"><span class="std std-ref">Admonishment Against Secret-Sharing</span></a>).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">hashalg</span></code></dt>
+<dd>The HMAC digest algorithm to use for signing. The algorithm must be
+supported by the <a class="reference external" href="https://docs.python.org/3/library/hashlib.html#module-hashlib" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hashlib</span></code></a> library. Default: <code class="docutils literal notranslate"><span class="pre">'sha512'</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">salt</span></code></dt>
+<dd>A namespace to avoid collisions between different uses of a shared
+secret. Reusing a secret for different parts of an application is
+strongly discouraged (see <a class="reference internal" href="../narr/security.html#admonishment-against-secret-sharing"><span class="std std-ref">Admonishment Against Secret-Sharing</span></a>).
+Default: <code class="docutils literal notranslate"><span class="pre">'pyramid.session.'</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cookie_name</span></code></dt>
+<dd>The name of the cookie used for sessioning. Default: <code class="docutils literal notranslate"><span class="pre">'session'</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">max_age</span></code></dt>
+<dd>The maximum age of the cookie used for sessioning (in seconds).
+Default: <code class="docutils literal notranslate"><span class="pre">None</span></code> (browser scope).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">path</span></code></dt>
+<dd>The path used for the session cookie. Default: <code class="docutils literal notranslate"><span class="pre">'/'</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">domain</span></code></dt>
+<dd>The domain used for the session cookie.  Default: <code class="docutils literal notranslate"><span class="pre">None</span></code> (no domain).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">secure</span></code></dt>
+<dd>The 'secure' flag of the session cookie. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">httponly</span></code></dt>
+<dd>Hide the cookie from Javascript by setting the 'HttpOnly' flag of the
+session cookie. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">timeout</span></code></dt>
+<dd>A number of seconds of inactivity before a session times out. If
+<code class="docutils literal notranslate"><span class="pre">None</span></code> then the cookie never expires. This lifetime only applies
+to the <em>value</em> within the cookie. Meaning that if the cookie expires
+due to a lower <code class="docutils literal notranslate"><span class="pre">max_age</span></code>, then this setting has no effect.
+Default: <code class="docutils literal notranslate"><span class="pre">1200</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">reissue_time</span></code></dt>
+<dd><p class="first">The number of seconds that must pass before the cookie is automatically
+reissued as the result of accessing the session. The
+duration is measured as the number of seconds since the last session
+cookie was issued and 'now'.  If this value is <code class="docutils literal notranslate"><span class="pre">0</span></code>, a new cookie
+will be reissued on every request accessing the session. If <code class="docutils literal notranslate"><span class="pre">None</span></code>
+then the cookie's lifetime will never be extended.</p>
+<p>A good rule of thumb: if you want auto-expired cookies based on
+inactivity: set the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> value to 1200 (20 mins) and set the
+<code class="docutils literal notranslate"><span class="pre">reissue_time</span></code> value to perhaps a tenth of the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> value
+(120 or 2 mins).  It's nonsensical to set the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> value lower
+than the <code class="docutils literal notranslate"><span class="pre">reissue_time</span></code> value, as the ticket will never be reissued.
+However, such a configuration is not explicitly prevented.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">set_on_exception</span></code></dt>
+<dd>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, set a session cookie even if an exception occurs
+while rendering a view. Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">serializer</span></code></dt>
+<dd>An object with two methods: <code class="docutils literal notranslate"><span class="pre">loads</span></code> and <code class="docutils literal notranslate"><span class="pre">dumps</span></code>.  The <code class="docutils literal notranslate"><span class="pre">loads</span></code>
+method should accept bytes and return a Python object.  The <code class="docutils literal notranslate"><span class="pre">dumps</span></code>
+method should accept a Python object and return bytes.  A <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>
+should be raised for malformed inputs.  If a serializer is not passed,
+the <a class="reference internal" href="#pyramid.session.PickleSerializer" title="pyramid.session.PickleSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.session.PickleSerializer</span></code></a> serializer will be used.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.session.UnencryptedCookieSessionFactoryConfig">
+<code class="descname">UnencryptedCookieSessionFactoryConfig</code><span class="sig-paren">(</span><em>secret</em>, <em>timeout=1200</em>, <em>cookie_name='session'</em>, <em>cookie_max_age=None</em>, <em>cookie_path='/'</em>, <em>cookie_domain=None</em>, <em>cookie_secure=False</em>, <em>cookie_httponly=False</em>, <em>cookie_on_exception=True</em>, <em>signed_serialize=&lt;function signed_serialize&gt;</em>, <em>signed_deserialize=&lt;function signed_deserialize&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/session.html#UnencryptedCookieSessionFactoryConfig"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.session.UnencryptedCookieSessionFactoryConfig" title="この定義へのパーマリンク">¶</a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified">バージョン 1.5 で非推奨: </span>Use <a class="reference internal" href="#pyramid.session.SignedCookieSessionFactory" title="pyramid.session.SignedCookieSessionFactory"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.session.SignedCookieSessionFactory()</span></code></a> instead.
+Caveat: Cookies generated using <code class="docutils literal notranslate"><span class="pre">SignedCookieSessionFactory</span></code> are not
+compatible with cookies generated using
+<code class="docutils literal notranslate"><span class="pre">UnencryptedCookieSessionFactory</span></code>, so existing user session data
+will be destroyed if you switch to it.</p>
+</div>
+<p>Configure a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a> which will provide unencrypted
+(but signed) cookie-based sessions.  The return value of this
+function is a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a>, which may be provided as
+the <code class="docutils literal notranslate"><span class="pre">session_factory</span></code> argument of a
+<a class="reference internal" href="config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.config.Configurator</span></code></a> constructor, or used
+as the <code class="docutils literal notranslate"><span class="pre">session_factory</span></code> argument of the
+<a class="reference internal" href="config.html#pyramid.config.Configurator.set_session_factory" title="pyramid.config.Configurator.set_session_factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_session_factory()</span></code></a>
+method.</p>
+<p>The session factory returned by this function will create sessions
+which are limited to storing fewer than 4000 bytes of data (as the
+payload must fit into a single cookie).</p>
+<p>Parameters:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">secret</span></code></dt>
+<dd>A string which is used to sign the cookie.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">timeout</span></code></dt>
+<dd>A number of seconds of inactivity before a session times out.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cookie_name</span></code></dt>
+<dd>The name of the cookie used for sessioning.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cookie_max_age</span></code></dt>
+<dd>The maximum age of the cookie used for sessioning (in seconds).
+Default: <code class="docutils literal notranslate"><span class="pre">None</span></code> (browser scope).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cookie_path</span></code></dt>
+<dd>The path used for the session cookie.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cookie_domain</span></code></dt>
+<dd>The domain used for the session cookie.  Default: <code class="docutils literal notranslate"><span class="pre">None</span></code> (no domain).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cookie_secure</span></code></dt>
+<dd>The 'secure' flag of the session cookie.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cookie_httponly</span></code></dt>
+<dd>The 'httpOnly' flag of the session cookie.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cookie_on_exception</span></code></dt>
+<dd>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, set a session cookie even if an exception occurs
+while rendering a view.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">signed_serialize</span></code></dt>
+<dd>A callable which takes more or less arbitrary Python data structure and
+a secret and returns a signed serialization in bytes.
+Default: <code class="docutils literal notranslate"><span class="pre">signed_serialize</span></code> (using pickle).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">signed_deserialize</span></code></dt>
+<dd>A callable which takes a signed and serialized data structure in bytes
+and a secret and returns the original data structure if the signature
+is valid. Default: <code class="docutils literal notranslate"><span class="pre">signed_deserialize</span></code> (using pickle).</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.session.BaseCookieSessionFactory">
+<code class="descname">BaseCookieSessionFactory</code><span class="sig-paren">(</span><em>serializer</em>, <em>cookie_name='session'</em>, <em>max_age=None</em>, <em>path='/'</em>, <em>domain=None</em>, <em>secure=False</em>, <em>httponly=False</em>, <em>timeout=1200</em>, <em>reissue_time=0</em>, <em>set_on_exception=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/session.html#BaseCookieSessionFactory"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.session.BaseCookieSessionFactory" title="この定義へのパーマリンク">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
+</div>
+<p>Configure a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a> which will provide cookie-based
+sessions.  The return value of this function is a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a>,
+which may be provided as the <code class="docutils literal notranslate"><span class="pre">session_factory</span></code> argument of a
+<a class="reference internal" href="config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.config.Configurator</span></code></a> constructor, or used as the
+<code class="docutils literal notranslate"><span class="pre">session_factory</span></code> argument of the
+<a class="reference internal" href="config.html#pyramid.config.Configurator.set_session_factory" title="pyramid.config.Configurator.set_session_factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_session_factory()</span></code></a> method.</p>
+<p>The session factory returned by this function will create sessions
+which are limited to storing fewer than 4000 bytes of data (as the
+payload must fit into a single cookie).</p>
+<p>Parameters:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">serializer</span></code></dt>
+<dd>An object with two methods: <code class="docutils literal notranslate"><span class="pre">loads</span></code> and <code class="docutils literal notranslate"><span class="pre">dumps</span></code>.  The <code class="docutils literal notranslate"><span class="pre">loads</span></code>
+method should accept bytes and return a Python object.  The <code class="docutils literal notranslate"><span class="pre">dumps</span></code>
+method should accept a Python object and return bytes.  A <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>
+should be raised for malformed inputs.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cookie_name</span></code></dt>
+<dd>The name of the cookie used for sessioning. Default: <code class="docutils literal notranslate"><span class="pre">'session'</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">max_age</span></code></dt>
+<dd>The maximum age of the cookie used for sessioning (in seconds).
+Default: <code class="docutils literal notranslate"><span class="pre">None</span></code> (browser scope).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">path</span></code></dt>
+<dd>The path used for the session cookie. Default: <code class="docutils literal notranslate"><span class="pre">'/'</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">domain</span></code></dt>
+<dd>The domain used for the session cookie.  Default: <code class="docutils literal notranslate"><span class="pre">None</span></code> (no domain).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">secure</span></code></dt>
+<dd>The 'secure' flag of the session cookie. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">httponly</span></code></dt>
+<dd>Hide the cookie from Javascript by setting the 'HttpOnly' flag of the
+session cookie. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">timeout</span></code></dt>
+<dd>A number of seconds of inactivity before a session times out. If
+<code class="docutils literal notranslate"><span class="pre">None</span></code> then the cookie never expires. This lifetime only applies
+to the <em>value</em> within the cookie. Meaning that if the cookie expires
+due to a lower <code class="docutils literal notranslate"><span class="pre">max_age</span></code>, then this setting has no effect.
+Default: <code class="docutils literal notranslate"><span class="pre">1200</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">reissue_time</span></code></dt>
+<dd><p class="first">The number of seconds that must pass before the cookie is automatically
+reissued as the result of a request which accesses the session. The
+duration is measured as the number of seconds since the last session
+cookie was issued and 'now'.  If this value is <code class="docutils literal notranslate"><span class="pre">0</span></code>, a new cookie
+will be reissued on every request accessing the session. If <code class="docutils literal notranslate"><span class="pre">None</span></code>
+then the cookie's lifetime will never be extended.</p>
+<p>A good rule of thumb: if you want auto-expired cookies based on
+inactivity: set the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> value to 1200 (20 mins) and set the
+<code class="docutils literal notranslate"><span class="pre">reissue_time</span></code> value to perhaps a tenth of the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> value
+(120 or 2 mins).  It's nonsensical to set the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> value lower
+than the <code class="docutils literal notranslate"><span class="pre">reissue_time</span></code> value, as the ticket will never be reissued.
+However, such a configuration is not explicitly prevented.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">set_on_exception</span></code></dt>
+<dd>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, set a session cookie even if an exception occurs
+while rendering a view. Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>.</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyramid.session.PickleSerializer">
+<em class="property">class </em><code class="descname">PickleSerializer</code><span class="sig-paren">(</span><em>protocol=4</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/session.html#PickleSerializer"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.session.PickleSerializer" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>A serializer that uses the pickle protocol to dump Python
+data to bytes.</p>
+<p>This is the default serializer used by Pyramid.</p>
+<p><code class="docutils literal notranslate"><span class="pre">protocol</span></code> may be specified to control the version of pickle used.
+Defaults to <code class="xref py py-attr docutils literal notranslate"><span class="pre">pickle.HIGHEST_PROTOCOL</span></code>.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="security.html"
+                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.security</span></code></a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="settings.html"
+                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.settings</span></code></a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/session.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="pyramid.settings"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="security.html" title="pyramid.security"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

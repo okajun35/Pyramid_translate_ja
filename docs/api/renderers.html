@@ -1,0 +1,380 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.renderers &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="pyramid.request" href="request.html" />
+    <link rel="prev" title="pyramid.registry" href="registry.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="request.html" title="pyramid.request"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="registry.html" title="pyramid.registry"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyramid.renderers">
+<span id="pyramid-renderers"></span><span id="renderers-module"></span><h1><a class="reference internal" href="#module-pyramid.renderers" title="pyramid.renderers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.renderers</span></code></a><a class="headerlink" href="#module-pyramid.renderers" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<dl class="function">
+<dt id="pyramid.renderers.get_renderer">
+<code class="descname">get_renderer</code><span class="sig-paren">(</span><em>renderer_name</em>, <em>package=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/renderers.html#get_renderer"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.renderers.get_renderer" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return the renderer object for the renderer <code class="docutils literal notranslate"><span class="pre">renderer_name</span></code>.</p>
+<p>You may supply a relative asset spec as <code class="docutils literal notranslate"><span class="pre">renderer_name</span></code>.  If
+the <code class="docutils literal notranslate"><span class="pre">package</span></code> argument is supplied, a relative renderer name
+will be converted to an absolute asset specification by
+combining the package <code class="docutils literal notranslate"><span class="pre">package</span></code> with the relative
+asset specification <code class="docutils literal notranslate"><span class="pre">renderer_name</span></code>.  If <code class="docutils literal notranslate"><span class="pre">package</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>
+(the default), the package name of the <em>caller</em> of this function
+will be used as the package.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.renderers.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>renderer_name</em>, <em>value</em>, <em>request=None</em>, <em>package=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/renderers.html#render"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.renderers.render" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Using the renderer <code class="docutils literal notranslate"><span class="pre">renderer_name</span></code> (a template
+or a static renderer), render the value (or set of values) present
+in <code class="docutils literal notranslate"><span class="pre">value</span></code>. Return the result of the renderer's <code class="docutils literal notranslate"><span class="pre">__call__</span></code>
+method (usually a string or Unicode).</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">renderer_name</span></code> refers to a file on disk, such as when the
+renderer is a template, it's usually best to supply the name as an
+<a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a>
+(e.g. <code class="docutils literal notranslate"><span class="pre">packagename:path/to/template.pt</span></code>).</p>
+<p>You may supply a relative asset spec as <code class="docutils literal notranslate"><span class="pre">renderer_name</span></code>.  If
+the <code class="docutils literal notranslate"><span class="pre">package</span></code> argument is supplied, a relative renderer path
+will be converted to an absolute asset specification by
+combining the package <code class="docutils literal notranslate"><span class="pre">package</span></code> with the relative
+asset specification <code class="docutils literal notranslate"><span class="pre">renderer_name</span></code>.  If <code class="docutils literal notranslate"><span class="pre">package</span></code>
+is <code class="docutils literal notranslate"><span class="pre">None</span></code> (the default), the package name of the <em>caller</em> of
+this function will be used as the package.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> provided will be supplied as the input to the
+renderer.  Usually, for template renderings, this should be a
+dictionary.  For other renderers, this will need to be whatever
+sort of value the renderer expects.</p>
+<p>The 'system' values supplied to the renderer will include a basic set of
+top-level system names, such as <code class="docutils literal notranslate"><span class="pre">request</span></code>, <code class="docutils literal notranslate"><span class="pre">context</span></code>,
+<code class="docutils literal notranslate"><span class="pre">renderer_name</span></code>, and <code class="docutils literal notranslate"><span class="pre">view</span></code>.  See <a class="reference internal" href="../narr/templates.html#renderer-system-values"><span class="std std-ref">System Values Used During Rendering</span></a> for
+the full list.  If <a class="reference internal" href="../glossary.html#term-renderer-globals"><span class="xref std std-term">renderer globals</span></a> have been specified, these
+will also be used to augment the value.</p>
+<p>Supply a <code class="docutils literal notranslate"><span class="pre">request</span></code> parameter in order to provide the renderer
+with the most correct 'system' values (<code class="docutils literal notranslate"><span class="pre">request</span></code> and <code class="docutils literal notranslate"><span class="pre">context</span></code>
+in particular).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.renderers.render_to_response">
+<code class="descname">render_to_response</code><span class="sig-paren">(</span><em>renderer_name</em>, <em>value</em>, <em>request=None</em>, <em>package=None</em>, <em>response=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/renderers.html#render_to_response"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.renderers.render_to_response" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Using the renderer <code class="docutils literal notranslate"><span class="pre">renderer_name</span></code> (a template
+or a static renderer), render the value (or set of values) using
+the result of the renderer's <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method (usually a string
+or Unicode) as the response body.</p>
+<p>If the renderer name refers to a file on disk (such as when the
+renderer is a template), it's usually best to supply the name as a
+<a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a>.</p>
+<p>You may supply a relative asset spec as <code class="docutils literal notranslate"><span class="pre">renderer_name</span></code>.  If
+the <code class="docutils literal notranslate"><span class="pre">package</span></code> argument is supplied, a relative renderer name
+will be converted to an absolute asset specification by
+combining the package <code class="docutils literal notranslate"><span class="pre">package</span></code> with the relative
+asset specification <code class="docutils literal notranslate"><span class="pre">renderer_name</span></code>.  If you do
+not supply a <code class="docutils literal notranslate"><span class="pre">package</span></code> (or <code class="docutils literal notranslate"><span class="pre">package</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>) the package
+name of the <em>caller</em> of this function will be used as the package.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> provided will be supplied as the input to the
+renderer.  Usually, for template renderings, this should be a
+dictionary.  For other renderers, this will need to be whatever
+sort of value the renderer expects.</p>
+<p>The 'system' values supplied to the renderer will include a basic set of
+top-level system names, such as <code class="docutils literal notranslate"><span class="pre">request</span></code>, <code class="docutils literal notranslate"><span class="pre">context</span></code>,
+<code class="docutils literal notranslate"><span class="pre">renderer_name</span></code>, and <code class="docutils literal notranslate"><span class="pre">view</span></code>.  See <a class="reference internal" href="../narr/templates.html#renderer-system-values"><span class="std std-ref">System Values Used During Rendering</span></a> for
+the full list.  If <a class="reference internal" href="../glossary.html#term-renderer-globals"><span class="xref std std-term">renderer globals</span></a> have been specified, these
+will also be used to argument the value.</p>
+<p>Supply a <code class="docutils literal notranslate"><span class="pre">request</span></code> parameter in order to provide the renderer
+with the most correct 'system' values (<code class="docutils literal notranslate"><span class="pre">request</span></code> and <code class="docutils literal notranslate"><span class="pre">context</span></code>
+in particular). Keep in mind that any changes made to <code class="docutils literal notranslate"><span class="pre">request.response</span></code>
+prior to calling this function will not be reflected in the resulting
+response object. A new response object will be created for each call
+unless one is passed as the <code class="docutils literal notranslate"><span class="pre">response</span></code> argument.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.6 で変更: </span>In previous versions, any changes made to <code class="docutils literal notranslate"><span class="pre">request.response</span></code> outside
+of this function call would affect the returned response. This is no
+longer the case. If you wish to send in a pre-initialized response
+then you may pass one in the <code class="docutils literal notranslate"><span class="pre">response</span></code> argument.</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyramid.renderers.JSON">
+<em class="property">class </em><code class="descname">JSON</code><span class="sig-paren">(</span><em>serializer=&lt;function dumps&gt;</em>, <em>adapters=()</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/renderers.html#JSON"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.renderers.JSON" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Renderer that returns a JSON-encoded string.</p>
+<p>Configure a custom JSON renderer using the
+<a class="reference internal" href="config.html#pyramid.config.Configurator.add_renderer" title="pyramid.config.Configurator.add_renderer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_renderer()</span></code></a> API at application
+startup time:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">add_renderer</span><span class="p">(</span><span class="s1">&#39;myjson&#39;</span><span class="p">,</span> <span class="n">JSON</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Once this renderer is registered as above, you can use
+<code class="docutils literal notranslate"><span class="pre">myjson</span></code> as the <code class="docutils literal notranslate"><span class="pre">renderer=</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> or
+<a class="reference internal" href="config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.view</span> <span class="kn">import</span> <span class="n">view_config</span>
+
+<span class="nd">@view_config</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;myjson&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">myview</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;greeting&#39;</span><span class="p">:</span><span class="s1">&#39;Hello world&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Custom objects can be serialized using the renderer by either
+implementing the <code class="docutils literal notranslate"><span class="pre">__json__</span></code> magic method, or by registering
+adapters with the renderer.  See
+<a class="reference internal" href="../narr/renderers.html#json-serializing-custom-objects"><span class="std std-ref">Serializing Custom Objects</span></a> for more information.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">The default serializer uses <code class="docutils literal notranslate"><span class="pre">json.JSONEncoder</span></code>. A different
+serializer can be specified via the <code class="docutils literal notranslate"><span class="pre">serializer</span></code> argument.  Custom
+serializers should accept the object, a callback <code class="docutils literal notranslate"><span class="pre">default</span></code>, and any
+extra <code class="docutils literal notranslate"><span class="pre">kw</span></code> keyword arguments passed during renderer construction.
+This feature isn't widely used but it can be used to replace the
+stock JSON serializer with, say, simplejson.  If all you want to
+do, however, is serialize custom objects, you should use the method
+explained in <a class="reference internal" href="../narr/renderers.html#json-serializing-custom-objects"><span class="std std-ref">Serializing Custom Objects</span></a> instead
+of replacing the serializer.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 1.4 で追加: </span>Prior to this version, there was no public API for supplying options
+to the underlying serializer without defining a custom renderer.</p>
+</div>
+<dl class="method">
+<dt id="pyramid.renderers.JSON.add_adapter">
+<code class="descname">add_adapter</code><span class="sig-paren">(</span><em>type_or_iface</em>, <em>adapter</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/renderers.html#JSON.add_adapter"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.renderers.JSON.add_adapter" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>When an object of the type (or interface) <code class="docutils literal notranslate"><span class="pre">type_or_iface</span></code> fails
+to automatically encode using the serializer, the renderer will use
+the adapter <code class="docutils literal notranslate"><span class="pre">adapter</span></code> to convert it into a JSON-serializable
+object.  The adapter must accept two arguments: the object and the
+currently active request.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">foo_adapter</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">x</span>
+
+<span class="n">renderer</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">add_adapter</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="n">foo_adapter</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When you've done this, the JSON renderer will be able to serialize
+instances of the <code class="docutils literal notranslate"><span class="pre">Foo</span></code> class when they're encountered in your view
+results.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyramid.renderers.JSONP">
+<em class="property">class </em><code class="descname">JSONP</code><span class="sig-paren">(</span><em>param_name='callback'</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/renderers.html#JSONP"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.renderers.JSONP" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/JSONP">JSONP</a> renderer factory helper
+which implements a hybrid json/jsonp renderer.  JSONP is useful for
+making cross-domain AJAX requests.</p>
+<p>Configure a JSONP renderer using the
+<a class="reference internal" href="config.html#pyramid.config.Configurator.add_renderer" title="pyramid.config.Configurator.add_renderer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_renderer()</span></code></a> API at application
+startup time:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">add_renderer</span><span class="p">(</span><span class="s1">&#39;jsonp&#39;</span><span class="p">,</span> <span class="n">JSONP</span><span class="p">(</span><span class="n">param_name</span><span class="o">=</span><span class="s1">&#39;callback&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The class' constructor also accepts arbitrary keyword arguments.  All
+keyword arguments except <code class="docutils literal notranslate"><span class="pre">param_name</span></code> are passed to the <code class="docutils literal notranslate"><span class="pre">json.dumps</span></code>
+function as its keyword arguments.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">add_renderer</span><span class="p">(</span><span class="s1">&#39;jsonp&#39;</span><span class="p">,</span> <span class="n">JSONP</span><span class="p">(</span><span class="n">param_name</span><span class="o">=</span><span class="s1">&#39;callback&#39;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.4 で変更: </span>The ability of this class to accept a <code class="docutils literal notranslate"><span class="pre">**kw</span></code> in its constructor.</p>
+</div>
+<p>The arguments passed to this class' constructor mean the same thing as
+the arguments passed to <a class="reference internal" href="#pyramid.renderers.JSON" title="pyramid.renderers.JSON"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.renderers.JSON</span></code></a> (including
+<code class="docutils literal notranslate"><span class="pre">serializer</span></code> and <code class="docutils literal notranslate"><span class="pre">adapters</span></code>).</p>
+<p>Once this renderer is registered via
+<a class="reference internal" href="config.html#pyramid.config.Configurator.add_renderer" title="pyramid.config.Configurator.add_renderer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_renderer()</span></code></a> as above, you can use
+<code class="docutils literal notranslate"><span class="pre">jsonp</span></code> as the <code class="docutils literal notranslate"><span class="pre">renderer=</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> or
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view`()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.view</span> <span class="kn">import</span> <span class="n">view_config</span>
+
+<span class="nd">@view_config</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;jsonp&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">myview</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;greeting&#39;</span><span class="p">:</span><span class="s1">&#39;Hello world&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>When a view is called that uses the JSONP renderer:</p>
+<ul class="simple">
+<li>If there is a parameter in the request's HTTP query string that matches
+the <code class="docutils literal notranslate"><span class="pre">param_name</span></code> of the registered JSONP renderer (by default,
+<code class="docutils literal notranslate"><span class="pre">callback</span></code>), the renderer will return a JSONP response.</li>
+<li>If there is no callback parameter in the request's query string, the
+renderer will return a 'plain' JSON response.</li>
+</ul>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 1.1 で追加.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also <a class="reference internal" href="../narr/renderers.html#jsonp-renderer"><span class="std std-ref">JSONP Renderer</span></a>.</p>
+</div>
+<dl class="method">
+<dt id="pyramid.renderers.JSONP.add_adapter">
+<code class="descname">add_adapter</code><span class="sig-paren">(</span><em>type_or_iface</em>, <em>adapter</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.renderers.JSONP.add_adapter" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>When an object of the type (or interface) <code class="docutils literal notranslate"><span class="pre">type_or_iface</span></code> fails
+to automatically encode using the serializer, the renderer will use
+the adapter <code class="docutils literal notranslate"><span class="pre">adapter</span></code> to convert it into a JSON-serializable
+object.  The adapter must accept two arguments: the object and the
+currently active request.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">foo_adapter</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">x</span>
+
+<span class="n">renderer</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">add_adapter</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="n">foo_adapter</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When you've done this, the JSON renderer will be able to serialize
+instances of the <code class="docutils literal notranslate"><span class="pre">Foo</span></code> class when they're encountered in your view
+results.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.renderers.null_renderer">
+<code class="descname">null_renderer</code><a class="headerlink" href="#pyramid.renderers.null_renderer" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>An object that can be used in advanced integration cases as input to the
+view configuration <code class="docutils literal notranslate"><span class="pre">renderer=</span></code> argument.  When the null renderer is used
+as a view renderer argument, Pyramid avoids converting the view callable
+result into a Response object.  This is useful if you want to reuse the
+view configuration and lookup machinery outside the context of its use by
+the Pyramid router.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="registry.html"
+                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.registry</span></code></a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="request.html"
+                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.request</span></code></a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/renderers.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="request.html" title="pyramid.request"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="registry.html" title="pyramid.registry"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

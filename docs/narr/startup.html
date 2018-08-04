@@ -1,0 +1,421 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Startup &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="Request Processing" href="router.html" />
+    <link rel="prev" title="Creating a Pyramid Project" href="project.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="router.html" title="Request Processing"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="project.html" title="Creating a Pyramid Project"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="startup">
+<span id="startup-chapter"></span><h1>Startup<a class="headerlink" href="#startup" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>When you cause a <span>Pyramid</span> application to start up in a console window,
+you'll see something much like this show up on the console:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini
+Starting server in PID <span class="m">16305</span>.
+Serving on http://localhost:6543
+Serving on http://localhost:6543
+</pre></div>
+</div>
+<p>This chapter explains what happens between the time you press the &quot;Return&quot; key
+on your keyboard after typing <code class="docutils literal notranslate"><span class="pre">pserve</span> <span class="pre">development.ini</span></code> and the time the lines
+<code class="docutils literal notranslate"><span class="pre">Serving</span> <span class="pre">on</span> <span class="pre">http://localhost:6543</span></code> are output to your console.</p>
+<div class="section" id="the-startup-process">
+<span id="index-0"></span><h2>The Startup Process<a class="headerlink" href="#the-startup-process" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>The easiest and best-documented way to start and serve a <span>Pyramid</span>
+application is to use the <code class="docutils literal notranslate"><span class="pre">pserve</span></code> command against a <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a>
+<code class="docutils literal notranslate"><span class="pre">.ini</span></code> file.  This uses the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file to infer settings and starts a
+server listening on a port.  For the purposes of this discussion, we'll assume
+that you are using this command to run your <span>Pyramid</span> application.</p>
+<p>Here's a high-level time-ordered overview of what happens when you press
+<code class="docutils literal notranslate"><span class="pre">return</span></code> after running <code class="docutils literal notranslate"><span class="pre">pserve</span> <span class="pre">development.ini</span></code>.</p>
+<ol class="arabic">
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">pserve</span></code> command is invoked under your shell with the argument
+<code class="docutils literal notranslate"><span class="pre">development.ini</span></code>.  As a result, Pyramid recognizes that it is meant to
+begin to run and serve an application using the information contained
+within the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pserve</span></code> passes the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> path to <a class="reference internal" href="../glossary.html#term-plaster"><span class="xref std std-term">plaster</span></a> which
+finds an available configuration loader that recognizes the <code class="docutils literal notranslate"><span class="pre">ini</span></code> format.</p>
+</li>
+<li><p class="first"><a class="reference internal" href="../glossary.html#term-plaster"><span class="xref std std-term">plaster</span></a> finds the <code class="docutils literal notranslate"><span class="pre">plaster_pastedeploy</span></code> library which binds
+the <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> library and returns a parser that can understand
+the format.</p>
+</li>
+<li><p class="first">The <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> finds a section named either <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code>,
+<code class="docutils literal notranslate"><span class="pre">[pipeline:main]</span></code>, or <code class="docutils literal notranslate"><span class="pre">[composite:main]</span></code> in the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file.  This
+section represents the configuration of a <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> application that will
+be served.  If you're using a simple application (e.g., <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code>), the
+application's <code class="docutils literal notranslate"><span class="pre">paste.app_factory</span></code> <a class="reference internal" href="../glossary.html#term-entry-point"><span class="xref std std-term">entry point</span></a> will be named on the
+<code class="docutils literal notranslate"><span class="pre">use=</span></code> line within the section's configuration.  If instead of a simple
+application, you're using a WSGI <a class="reference internal" href="../glossary.html#term-pipeline"><span class="xref std std-term">pipeline</span></a> (e.g., a
+<code class="docutils literal notranslate"><span class="pre">[pipeline:main]</span></code> section), the application named on the &quot;last&quot; element
+will refer to your <span>Pyramid</span> application.  If instead of a simple
+application or a pipeline, you're using a &quot;composite&quot; (e.g.,
+<code class="docutils literal notranslate"><span class="pre">[composite:main]</span></code>), refer to the documentation for that particular
+composite to understand how to make it refer to your <span>Pyramid</span>
+application.  In most cases, a Pyramid application built from a cookiecutter
+will have a single <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section in it, and this will be the
+application served.</p>
+</li>
+<li><p class="first">The framework finds all <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> related configuration in the <code class="docutils literal notranslate"><span class="pre">.ini</span></code>
+file and uses it to configure the Python standard library logging system for
+this application.  See <a class="reference internal" href="logging.html#logging-config"><span class="std std-ref">Logging Configuration</span></a> for more information.</p>
+</li>
+<li><p class="first">The application's <em>constructor</em> named by the entry point referenced on the
+<code class="docutils literal notranslate"><span class="pre">use=</span></code> line of the section representing your <span>Pyramid</span> application is
+passed the key/value parameters mentioned within the section in which it's
+defined.  The constructor is meant to return a <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> instance,
+which is a <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> application.</p>
+<p>For <span>Pyramid</span> applications, the constructor will be a function named
+<code class="docutils literal notranslate"><span class="pre">main</span></code> in the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file within the <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a> in which
+your application lives.  If this function succeeds, it will return a
+<span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> instance.  Here's the contents of an example
+<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> module:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">global_config</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; This function returns a Pyramid WSGI application.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;pyramid_jinja2&#39;</span><span class="p">)</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">add_static_view</span><span class="p">(</span><span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="n">cache_max_age</span><span class="o">=</span><span class="mi">3600</span><span class="p">)</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that the constructor function accepts a <code class="docutils literal notranslate"><span class="pre">global_config</span></code> argument,
+which is a dictionary of key/value pairs mentioned in the <code class="docutils literal notranslate"><span class="pre">[DEFAULT]</span></code>
+section of an <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file (if <a class="reference internal" href="paste.html#defaults-section-of-pastedeploy-file"><span class="std std-ref">[DEFAULT]</span></a> is present).  It also accepts a
+<code class="docutils literal notranslate"><span class="pre">**settings</span></code> argument, which collects another set of arbitrary key/value
+pairs.  The arbitrary key/value pairs received by this function in
+<code class="docutils literal notranslate"><span class="pre">**settings</span></code> will be composed of all the key/value pairs that are present
+in the <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section (except for the <code class="docutils literal notranslate"><span class="pre">use=</span></code> setting) when this
+function is called when you run <code class="docutils literal notranslate"><span class="pre">pserve</span></code>.</p>
+<p>Our generated <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file looks like so:</p>
+<div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">###</span>
+<span class="c1"># app configuration</span>
+<span class="c1"># https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/environment.html</span>
+<span class="c1">###</span>
+
+<span class="k">[app:main]</span>
+<span class="na">use</span> <span class="o">=</span> <span class="s">egg:myproject</span>
+
+<span class="na">pyramid.reload_templates</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">pyramid.debug_authorization</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">pyramid.debug_notfound</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">pyramid.debug_routematch</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">pyramid.default_locale_name</span> <span class="o">=</span> <span class="s">en</span>
+<span class="na">pyramid.includes</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    pyramid_debugtoolbar</span>
+
+<span class="c1"># By default, the toolbar only appears for clients from IP addresses</span>
+<span class="c1"># &#39;127.0.0.1&#39; and &#39;::1&#39;.</span>
+<span class="c1"># debugtoolbar.hosts = 127.0.0.1 ::1</span>
+
+<span class="c1">###</span>
+<span class="c1"># wsgi server configuration</span>
+<span class="c1">###</span>
+
+<span class="k">[server:main]</span>
+<span class="na">use</span> <span class="o">=</span> <span class="s">egg:waitress#main</span>
+<span class="na">listen</span> <span class="o">=</span> <span class="s">localhost:6543</span>
+
+<span class="c1">###</span>
+<span class="c1"># logging configuration</span>
+<span class="c1"># https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/logging.html</span>
+<span class="c1">###</span>
+
+<span class="k">[loggers]</span>
+<span class="na">keys</span> <span class="o">=</span> <span class="s">root, myproject</span>
+
+<span class="k">[handlers]</span>
+<span class="na">keys</span> <span class="o">=</span> <span class="s">console</span>
+
+<span class="k">[formatters]</span>
+<span class="na">keys</span> <span class="o">=</span> <span class="s">generic</span>
+
+<span class="k">[logger_root]</span>
+<span class="na">level</span> <span class="o">=</span> <span class="s">INFO</span>
+<span class="na">handlers</span> <span class="o">=</span> <span class="s">console</span>
+
+<span class="k">[logger_myproject]</span>
+<span class="na">level</span> <span class="o">=</span> <span class="s">DEBUG</span>
+<span class="na">handlers</span> <span class="o">=</span>
+<span class="na">qualname</span> <span class="o">=</span> <span class="s">myproject</span>
+
+<span class="k">[handler_console]</span>
+<span class="na">class</span> <span class="o">=</span> <span class="s">StreamHandler</span>
+<span class="na">args</span> <span class="o">=</span> <span class="s">(sys.stderr,)</span>
+<span class="na">level</span> <span class="o">=</span> <span class="s">NOTSET</span>
+<span class="na">formatter</span> <span class="o">=</span> <span class="s">generic</span>
+
+<span class="k">[formatter_generic]</span>
+<span class="na">format</span> <span class="o">=</span> <span class="s">%(asctime)s %(levelname)-5.5s [%(name)s:%(lineno)s][%(threadName)s] %(message)s</span>
+</pre></div>
+</td></tr></table></div>
+<p>In this case, the <code class="docutils literal notranslate"><span class="pre">myproject.__init__:main</span></code> function referred to by the
+entry point URI <code class="docutils literal notranslate"><span class="pre">egg:myproject</span></code> (see <a class="reference internal" href="project.html#myproject-ini"><span class="std std-ref">development.ini</span></a> for more
+information about entry point URIs, and how they relate to callables) will
+receive the key/value pairs <code class="docutils literal notranslate"><span class="pre">{pyramid.reload_templates</span> <span class="pre">=</span> <span class="pre">true,</span>
+<span class="pre">pyramid.debug_authorization</span> <span class="pre">=</span> <span class="pre">false,</span> <span class="pre">pyramid.debug_notfound</span> <span class="pre">=</span> <span class="pre">false,</span>
+<span class="pre">pyramid.debug_routematch</span> <span class="pre">=</span> <span class="pre">false,</span> <span class="pre">pyramid.default_locale_name</span> <span class="pre">=</span> <span class="pre">en,</span> <span class="pre">and</span>
+<span class="pre">pyramid.includes</span> <span class="pre">=</span> <span class="pre">pyramid_debugtoolbar}</span></code>.  See <a class="reference internal" href="environment.html#environment-chapter"><span class="std std-ref">Environment Variables and .ini File Settings</span></a>
+for the meanings of these keys.</p>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">main</span></code> function first constructs a
+<a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> instance, passing the <code class="docutils literal notranslate"><span class="pre">settings</span></code>
+dictionary captured via the <code class="docutils literal notranslate"><span class="pre">**settings</span></code> kwarg as its <code class="docutils literal notranslate"><span class="pre">settings</span></code>
+argument.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">settings</span></code> dictionary contains all the options in the <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code>
+section of our .ini file except the <code class="docutils literal notranslate"><span class="pre">use</span></code> option (which is internal to
+PasteDeploy) such as <code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pyramid.debug_authorization</span></code>, etc.</p>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">main</span></code> function then calls various methods on the instance of the
+class <a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> created in the previous step.
+The intent of calling these methods is to populate an <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application
+registry</span></a>, which represents the <span>Pyramid</span> configuration related to the
+application.</p>
+</li>
+<li><p class="first">The <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">make_wsgi_app()</span></code></a> method is called. The
+result is a <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> instance.  The router is associated with the
+<a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> implied by the configurator previously
+populated by other methods run against the Configurator.  The router is a
+WSGI application.</p>
+</li>
+<li><p class="first">An <a class="reference internal" href="../api/events.html#pyramid.events.ApplicationCreated" title="pyramid.events.ApplicationCreated"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationCreated</span></code></a> event is emitted (see
+<a class="reference internal" href="events.html#events-chapter"><span class="std std-ref">Using Events</span></a> for more information about events).</p>
+</li>
+<li><p class="first">Assuming there were no errors, the <code class="docutils literal notranslate"><span class="pre">main</span></code> function in <code class="docutils literal notranslate"><span class="pre">myproject</span></code>
+returns the router instance created by
+<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.make_wsgi_app()</span></code></a> back to <code class="docutils literal notranslate"><span class="pre">pserve</span></code>.  As
+far as <code class="docutils literal notranslate"><span class="pre">pserve</span></code> is concerned, it is &quot;just another WSGI application&quot;.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pserve</span></code> starts the WSGI <em>server</em> defined within the <code class="docutils literal notranslate"><span class="pre">[server:main]</span></code>
+section.  In our case, this is the Waitress server (<code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">=</span>
+<span class="pre">egg:waitress#main</span></code>), and it will listen on all interfaces on port 6543
+for both IPv4 and IPv6 (<code class="docutils literal notranslate"><span class="pre">listen</span> <span class="pre">=</span> <span class="pre">localhost:6543</span></code>). The server
+code itself is what prints <code class="docutils literal notranslate"><span class="pre">Serving</span> <span class="pre">on</span> <span class="pre">http://localhost:6543</span></code>. The server
+serves the application, and the application is running, waiting to receive requests.</p>
+</li>
+</ol>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">Logging configuration is described in the <a class="reference internal" href="logging.html#logging-chapter"><span class="std std-ref">Logging</span></a> chapter.
+There, in <a class="reference internal" href="logging.html#request-logging-with-pastes-translogger"><span class="std std-ref">Request Logging with Paste's TransLogger</span></a>, you will also find
+an example of how to configure <a class="reference internal" href="../glossary.html#term-middleware"><span class="xref std std-term">middleware</span></a> to add pre-packaged
+functionality to your application.</p>
+</div>
+</div>
+<div class="section" id="deployment-settings">
+<span id="index-1"></span><span id="id1"></span><h2>Deployment Settings<a class="headerlink" href="#deployment-settings" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Note that an augmented version of the values passed as <code class="docutils literal notranslate"><span class="pre">**settings</span></code> to the
+<a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> constructor will be available in
+<span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> code as <code class="docutils literal notranslate"><span class="pre">request.registry.settings</span></code>. You
+can create objects you wish to access later from view code, and put them into
+the dictionary you pass to the configurator as <code class="docutils literal notranslate"><span class="pre">settings</span></code>.  They will then be
+present in the <code class="docutils literal notranslate"><span class="pre">request.registry.settings</span></code> dictionary at application runtime.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Startup</a><ul>
+<li><a class="reference internal" href="#the-startup-process">The Startup Process</a></li>
+<li><a class="reference internal" href="#deployment-settings">Deployment Settings</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="project.html"
+                        title="前の章へ">Creating a <span>Pyramid</span> Project</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="router.html"
+                        title="次の章へ">Request Processing</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/narr/startup.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="router.html" title="Request Processing"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="project.html" title="Creating a Pyramid Project"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

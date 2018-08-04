@@ -1,0 +1,660 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pyramid Web Framework(The Pyramid Web Framework) &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="copyright" title="著作権" href="copyright.html" />
+    <link rel="next" title="Quick Tour of Pyramid" href="quick_tour.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="#">
+      		<img class="logo" src="_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="quick_tour.html" title="Quick Tour of Pyramid"
+             accesskey="N">次へ</a> |</li>
+    	<li><a href="#">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-pyramid-web-framework">
+<span id="index"></span><h1>Pyramid Web Framework(The Pyramid Web Framework)<a class="headerlink" href="#the-pyramid-web-framework" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><span>Pyramid</span> は、小さく、速く、堅実 (down-to-earth) な Python ウェブ&quot;アプリケーション開発フレームワークです。 Pyramid は Pylons プロジェクトの一部として開発されています。 <a class="reference external" href="http://repoze.org/license.html">BSD-like なライセンス</a> の下でライセンスされています。</p>
+<p>最も単純なPyramidアプリケーションは以下の様になります:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wsgiref.simple_server</span> <span class="k">import</span> <span class="n">make_server</span>
+<span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="k">import</span> <span class="n">Configurator</span>
+<span class="kn">from</span> <span class="nn">pyramid.response</span> <span class="k">import</span> <span class="n">Response</span>
+
+
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%(name)s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">request</span><span class="o">.</span><span class="n">matchdict</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Configurator</span><span class="p">()</span> <span class="k">as</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/hello/</span><span class="si">{name}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+        <span class="n">app</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">make_server</span><span class="p">(</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><span>Pyramid</span> をインストールしてアプリケーションを起動した後で、ブラウザで <code class="docutils literal notranslate"><span class="pre">http://localhost:8080/hello/world``_</span> <span class="pre">を訪れれば、``Hello,</span> <span class="pre">world!</span></code> というテキストが見えるはずです。このアプリケーションの仕組みの完全な説明は <a class="reference internal" href="narr/firstapp.html#firstapp-chapter"><span class="std std-ref">Creating Your First Pyramid Application</span></a>  を参照してください。</p>
+<div class="section" id="getting-started">
+<span id="id1"></span><h2>入門(Getting Started)<a class="headerlink" href="#getting-started" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Pyramidを初めて使用する場合の素早い習得のためにいくつかのリソースが用意されています</p>
+<div class="toctree-wrapper compound">
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="quick_tour.html"><span class="doc">Quick Tour of Pyramid</span></a> はピラミッドの主要機能の概要を少し詳しく説明します。</li>
+<li>学習用の例はありますか？ 公式の <a class="reference internal" href="#html-tutorials"><span class="std std-ref">チュートリアル（Tutorials）</span></a> コミュニティから寄稿された <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-tutorials/en/latest/index.html#pyramid-tutorials" title="(in Pyramid Tutorials v0.1)"><span class="xref std std-ref">Pyramid Tutorials</span></a> と <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-cookbook/en/latest/index.html#pyramid-cookbook" title="(in Pyramid Community Cookbook v0.2)"><span class="xref std std-ref">Pyramid Community Cookbook</span></a> をご覧ください。</li>
+<li>Pyramidのセットアップに関しては、<a class="reference internal" href="narr/install.html#installing-chapter"><span class="std std-ref">Installing Pyramid</span></a> をご覧ください。</li>
+<li>助けが必要な場合は <a class="reference internal" href="#support-and-development"><span class="std std-ref">Support and Development</span></a> をご覧ください。</li>
+</ul>
+</div>
+<div class="section" id="tutorials">
+<span id="html-tutorials"></span><h2>チュートリアル（Tutorials）<a class="headerlink" href="#tutorials" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>公式チュートリアルでは、クイックツアーとその中で使用されてコードを用いて <span>Pyramid</span> の機能の概要、  <span>Pyramid</span> を使用してさまざまな種類のアプリケーションを構築する方法、  <span>Pyramid</span> アプリケーションをさまざまなプラットフォームにデブロイする方法について説明します。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_tutorial/index.html">Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/wiki2/index.html">SQLAlchemy + URL dispatch wiki tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/wiki/index.html">ZODB + Traversal Wiki Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/modwsgi/index.html">Running a <span>Pyramid</span> Application under <code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="support-and-development">
+<span id="id2"></span><h2>サポートと開発について<a class="headerlink" href="#support-and-development" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://trypyramid.com/resources.html">Pyramid website</a> サイトは <span>Pyramid</span>  の Webフレームワークリソースの主要なエントリポイントで、サポートおよび開発に関する情報を提供します。</p>
+<p>バグレポートに関しては <a class="reference external" href="https://github.com/Pylons/pyramid/issues">issue tracker</a> を使用してください。</p>
+<p>ドキュメント内で答えが見つからなかった質問に関しては <a class="reference external" href="https://groups.google.com/forum/#!forum/pylons-discuss">Pylons-discuss maillist</a> に連絡するか <a class="reference external" href="https://webchat.freenode.net/?channels=pyramid">#pyramid IRC channel</a> に接続してください。</p>
+<p><a class="reference external" href="https://github.com/Pylons/pyramid/">Pyramid GitHub repository</a> リポジトリを介して、  <span>Pyramid</span> のタグ付きバージョンとトランクバージョンを参照してチェックアウトします 。 <code class="docutils literal notranslate"><span class="pre">git</span></code> でトランクをチェックアウトするには、次のいずれかのコマンドを使います：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># If you have SSH keys configured on GitHub:
+git clone git@github.com:Pylons/pyramid.git
+
+# Otherwise, HTTPS will work, using your GitHub login:
+git clone https://github.com/Pylons/pyramid.git
+</pre></div>
+</div>
+<p>To find out how to become a contributor to <span>Pyramid</span>, please see <a class="reference external" href="https://pylonsproject.org/community-how-to-contribute.html">How to Contribute Source Code and Documentation</a>.</p>
+</div>
+<div class="section" id="narrative-documentation">
+<span id="html-narrative-documentation"></span><h2>マニュアル(Narrative Documentation)<a class="headerlink" href="#narrative-documentation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><span>Pyramid</span> を使用する方法について説明した、章形式のマニュアル(Narrative documentation) です。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="narr/introduction.html"><span>Pyramid</span> Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/introduction.html#why-pyramid">Why Pyramid?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/introduction.html#what-makes-pyramid-unique">What makes Pyramid unique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/introduction.html#what-is-the-pylons-project">What Is The Pylons Project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/introduction.html#pyramid-and-other-web-frameworks"><span>Pyramid</span> and Other Web Frameworks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/install.html">Installing <span>Pyramid</span></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/install.html#before-you-install-pyramid">Before You Install Pyramid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/install.html#requirements-for-installing-packages">Requirements for Installing Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/install.html#installing-pyramid-on-a-unix-system">Installing <span>Pyramid</span> on a UNIX System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/install.html#installing-pyramid-on-a-windows-system">Installing <span>Pyramid</span> on a Windows System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/install.html#what-gets-installed">What Gets Installed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/firstapp.html">Creating Your First <span>Pyramid</span> Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/firstapp.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/firstapp.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/configuration.html">Application Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/configuration.html#imperative-configuration">Imperative Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/configuration.html#declarative-configuration">Declarative Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/configuration.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/project.html">Creating a <span>Pyramid</span> Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#pyramid-cookiecutters"><span>Pyramid</span> cookiecutters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#creating-the-project">Creating the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#installing-your-newly-created-project-for-development">Installing your Newly Created Project for Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#running-the-tests-for-your-application">Running the Tests for Your Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#running-the-project-application">Running the Project Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#viewing-the-application">Viewing the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#the-project-structure">The Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#the-myproject-project">The <code class="docutils literal notranslate"><span class="pre">myproject</span></code> <code class="docutils literal notranslate"><span class="pre">Project</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#the-myproject-package">The <code class="docutils literal notranslate"><span class="pre">myproject</span></code> <code class="docutils literal notranslate"><span class="pre">Package</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#modifying-package-structure">Modifying Package Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#using-the-interactive-shell">Using the Interactive Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#what-is-this-pserve-thing">What Is This <code class="docutils literal notranslate"><span class="pre">pserve</span></code> Thing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#using-an-alternate-wsgi-server">Using an Alternate WSGI Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/project.html#automatically-reloading-your-code">Automatically Reloading Your Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/startup.html">Startup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/startup.html#the-startup-process">The Startup Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/startup.html#deployment-settings">Deployment Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/router.html">Request Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="narr/urldispatch.html">URL Dispatch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#high-level-operational-overview">High-Level Operational Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#route-configuration">Route Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#route-matching">Route Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#routing-examples">Routing Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#matching-the-root-url">Matching the Root URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#generating-route-urls">Generating Route URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#static-routes">Static Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#external-routes">External Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#redirecting-to-slash-appended-routes">Redirecting to Slash-Appended Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#debugging-route-matching">Debugging Route Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#using-a-route-prefix-to-compose-applications">Using a Route Prefix to Compose Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#custom-route-predicates">Custom Route Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#route-factories">Route Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#using-pyramid-security-with-url-dispatch">Using <span>Pyramid</span> Security with URL Dispatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#route-view-callable-registration-and-lookup-details">Route View Callable Registration and Lookup Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/urldispatch.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/views.html">Views</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#view-callables">View Callables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#defining-a-view-callable-as-a-function">Defining a View Callable as a Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#defining-a-view-callable-as-a-class">Defining a View Callable as a Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#view-callable-responses">View Callable Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#using-special-exceptions-in-view-callables">Using Special Exceptions in View Callables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#custom-exception-views">Custom Exception Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#using-a-view-callable-to-do-an-http-redirect">Using a View Callable to do an HTTP Redirect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#handling-form-submissions-in-view-callables-unicode-and-character-set-issues">Handling Form Submissions in View Callables (Unicode and Character Set Issues)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#alternate-view-callable-argument-calling-conventions">Alternate View Callable Argument/Calling Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#passing-configuration-variables-to-a-view">Passing Configuration Variables to a View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/views.html#pylons-1-0-style-controller-dispatch">Pylons-1.0-Style &quot;Controller&quot; Dispatch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/renderers.html">Renderers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/renderers.html#writing-view-callables-which-use-a-renderer">Writing View Callables Which Use a Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/renderers.html#built-in-renderers">Built-in Renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/renderers.html#varying-attributes-of-rendered-responses">Varying Attributes of Rendered Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/renderers.html#adding-and-changing-renderers">Adding and Changing Renderers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/renderers.html#overriding-a-renderer-at-runtime">Overriding a Renderer at Runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/templates.html">Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/templates.html#using-templates-directly">Using Templates Directly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/templates.html#system-values-used-during-rendering">System Values Used During Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/templates.html#templates-used-as-renderers-via-configuration">Templates Used as Renderers via Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/templates.html#debugging-templates">Debugging Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/templates.html#automatically-reloading-templates">Automatically Reloading Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/templates.html#available-add-on-template-system-bindings">Available Add-On Template System Bindings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/viewconfig.html">View Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/viewconfig.html#mapping-a-resource-or-url-pattern-to-a-view-callable">Mapping a Resource or URL Pattern to a View Callable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/viewconfig.html#view-defaults-class-decorator"><code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code> Class Decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/viewconfig.html#influencing-http-caching">Influencing HTTP Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/viewconfig.html#debugging-view-configuration">Debugging View Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/assets.html">Static Assets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/assets.html#understanding-asset-specifications">Understanding Asset Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/assets.html#serving-static-assets">Serving Static Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/assets.html#cache-busting">Cache Busting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/assets.html#advanced-serving-static-assets-using-a-view-callable">Advanced: Serving Static Assets Using a View Callable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/assets.html#overriding-assets">Overriding Assets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/webob.html">Request and Response Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/webob.html#request">Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/webob.html#response">Response</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/sessions.html">Sessions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/sessions.html#using-the-default-session-factory">Using the Default Session Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/sessions.html#using-a-session-object">Using a Session Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/sessions.html#using-alternate-session-factories">Using Alternate Session Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/sessions.html#creating-your-own-session-factory">Creating Your Own Session Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/sessions.html#flash-messages">Flash Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/events.html">Using Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/events.html#configuring-an-event-listener-imperatively">Configuring an Event Listener Imperatively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/events.html#configuring-an-event-listener-using-a-decorator">Configuring an Event Listener Using a Decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/events.html#an-example">An Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/events.html#creating-your-own-events">Creating Your Own Events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/environment.html">Environment Variables and <code class="docutils literal notranslate"><span class="pre">.ini</span></code> File Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#reloading-templates">Reloading Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#reloading-assets">Reloading Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#debugging-authorization">Debugging Authorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#debugging-not-found-errors">Debugging Not Found Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#debugging-route-matching">Debugging Route Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#preventing-http-caching">Preventing HTTP Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#preventing-cache-busting">Preventing Cache Busting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#debugging-all">Debugging All</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#reloading-all">Reloading All</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#default-locale-name">Default Locale Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#including-packages">Including Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#explicit-tween-configuration">Explicit Tween Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#understanding-the-distinction-between-reload-templates-and-reload-assets">Understanding the Distinction Between <code class="docutils literal notranslate"><span class="pre">reload_templates</span></code> and <code class="docutils literal notranslate"><span class="pre">reload_assets</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/environment.html#adding-a-custom-setting">Adding a Custom Setting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/logging.html">Logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/logging.html#logging-configuration">Logging Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/logging.html#sending-logging-messages">Sending Logging Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/logging.html#filtering-log-messages">Filtering log messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/logging.html#advanced-configuration">Advanced Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/logging.html#logging-exceptions">Logging Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/logging.html#request-logging-with-paste-s-translogger">Request Logging with Paste's TransLogger</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/paste.html">PasteDeploy Configuration Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/paste.html#pastedeploy">PasteDeploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/paste.html#alternative-configuration-file-formats">Alternative Configuration File Formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/commandline.html">Command-Line Pyramid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/commandline.html#displaying-matching-views-for-a-given-url">Displaying Matching Views for a Given URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/commandline.html#the-interactive-shell">The Interactive Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/commandline.html#displaying-all-application-routes">Displaying All Application Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/commandline.html#displaying-tweens">Displaying &quot;Tweens&quot;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/commandline.html#invoking-a-request">Invoking a Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/commandline.html#using-custom-arguments-to-python-when-running-p-scripts">Using Custom Arguments to Python when Running <code class="docutils literal notranslate"><span class="pre">p*</span></code> Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/commandline.html#showing-all-installed-distributions-and-their-versions">Showing All Installed Distributions and Their Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/commandline.html#writing-a-script">Writing a Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/commandline.html#making-your-script-into-a-console-script">Making Your Script into a Console Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/i18n.html">Internationalization and Localization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#creating-a-translation-string">Creating a Translation String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#working-with-gettext-translation-files">Working with <code class="docutils literal notranslate"><span class="pre">gettext</span></code> Translation Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#using-a-localizer">Using a Localizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#obtaining-the-locale-name-for-a-request">Obtaining the Locale Name for a Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#performing-date-formatting-and-currency-formatting">Performing Date Formatting and Currency Formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#chameleon-template-support-for-translation-strings">Chameleon Template Support for Translation Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#mako-pyramid-i18n-support">Mako Pyramid i18n Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#jinja2-pyramid-i18n-support">Jinja2 Pyramid i18n Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#localization-related-deployment-settings">Localization-Related Deployment Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#detecting-available-languages">&quot;Detecting&quot; Available Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#activating-translation">Activating Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/i18n.html#locale-negotiators">Locale Negotiators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/vhosting.html">Virtual Hosting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/vhosting.html#hosting-an-application-under-a-url-prefix">Hosting an Application Under a URL Prefix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/vhosting.html#virtual-root-support">Virtual Root Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/vhosting.html#further-documentation-and-examples">Further Documentation and Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/testing.html">Unit, Integration, and Functional Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/testing.html#test-set-up-and-tear-down">Test Set Up and Tear Down</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/testing.html#using-the-configurator-and-pyramid-testing-apis-in-unit-tests">Using the <code class="docutils literal notranslate"><span class="pre">Configurator</span></code> and <code class="docutils literal notranslate"><span class="pre">pyramid.testing</span></code> APIs in Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/testing.html#creating-integration-tests">Creating Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/testing.html#creating-functional-tests">Creating Functional Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#defining-a-resource-tree">Defining a Resource Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#location-aware-resources">Location-Aware Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#generating-the-url-of-a-resource">Generating the URL of a Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#generating-the-path-to-a-resource">Generating the Path To a Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#finding-a-resource-by-path">Finding a Resource by Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#obtaining-the-lineage-of-a-resource">Obtaining the Lineage of a Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#determining-if-a-resource-is-in-the-lineage-of-another-resource">Determining if a Resource is in the Lineage of Another Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#finding-the-root-resource">Finding the Root Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#resources-which-implement-interfaces">Resources Which Implement Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#finding-a-resource-with-a-class-or-interface-in-lineage">Finding a Resource with a Class or Interface in Lineage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/resources.html#pyramid-api-functions-that-act-against-resources"><span>Pyramid</span> API Functions That Act Against Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/hellotraversal.html">Hello Traversal World</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/hellotraversal.html#example-requests">Example requests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/muchadoabouttraversal.html">Much Ado About Traversal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/muchadoabouttraversal.html#url-dispatch">URL Dispatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/muchadoabouttraversal.html#historical-refresher">Historical Refresher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/muchadoabouttraversal.html#traversal-a-k-a-resource-location">Traversal (a.k.a., Resource Location)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/muchadoabouttraversal.html#what-is-a-resource">What Is a &quot;Resource&quot;?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/muchadoabouttraversal.html#view-lookup">View Lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/muchadoabouttraversal.html#use-cases">Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/traversal.html">Traversal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/traversal.html#traversal-details">Traversal Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/traversal.html#the-resource-tree">The Resource Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/traversal.html#the-traversal-algorithm">The Traversal Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/traversal.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/security.html">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#enabling-an-authorization-policy">Enabling an Authorization Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#protecting-views-with-permissions">Protecting Views with Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#assigning-acls-to-your-resource-objects">Assigning ACLs to Your Resource Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#elements-of-an-acl">Elements of an ACL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#special-principal-names">Special Principal Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#special-permissions">Special Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#special-aces">Special ACEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#acl-inheritance-and-location-awareness">ACL Inheritance and Location-Awareness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#changing-the-forbidden-view">Changing the Forbidden View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#debugging-view-authorization-failures">Debugging View Authorization Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#debugging-imperative-authorization-failures">Debugging Imperative Authorization Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#extending-default-authentication-policies">Extending Default Authentication Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#creating-your-own-authentication-policy">Creating Your Own Authentication Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#creating-your-own-authorization-policy">Creating Your Own Authorization Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#admonishment-against-secret-sharing">Admonishment Against Secret-Sharing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/security.html#preventing-cross-site-request-forgery-attacks">Preventing Cross-Site Request Forgery Attacks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/hybrid.html">Combining Traversal and URL Dispatch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/hybrid.html#a-review-of-non-hybrid-applications">A Review of Non-Hybrid Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hybrid.html#hybrid-applications">Hybrid Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hybrid.html#generating-hybrid-urls">Generating Hybrid URLs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/subrequest.html">Invoking a Subrequest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/subrequest.html#subrequests-with-tweens">Subrequests with Tweens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/subrequest.html#invoking-an-exception-view">Invoking an Exception View</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/hooks.html">Using Hooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#changing-the-not-found-view">Changing the Not Found View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#changing-the-forbidden-view">Changing the Forbidden View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#changing-the-request-factory">Changing the Request Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#adding-methods-or-properties-to-a-request-object">Adding Methods or Properties to a Request Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#changing-the-response-factory">Changing the Response Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#using-the-before-render-event">Using the Before Render Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#using-response-callbacks">Using Response Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#using-finished-callbacks">Using Finished Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#changing-the-traverser">Changing the Traverser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#changing-how-pyramid-request-request-resource-url-generates-a-url">Changing How <code class="docutils literal notranslate"><span class="pre">pyramid.request.Request.resource_url()</span></code> Generates a URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#changing-how-pyramid-treats-view-responses">Changing How Pyramid Treats View Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#using-a-view-mapper">Using a View Mapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#registering-configuration-decorators">Registering Configuration Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#registering-tweens">Registering Tweens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#adding-a-third-party-view-route-or-subscriber-predicate">Adding a Third Party View, Route, or Subscriber Predicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/hooks.html#view-derivers">View Derivers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/introspector.html">Pyramid Configuration Introspection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/introspector.html#using-the-introspector">Using the Introspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/introspector.html#introspectable-objects">Introspectable Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/introspector.html#pyramid-introspection-categories">Pyramid Introspection Categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/introspector.html#introspection-in-the-toolbar">Introspection in the Toolbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/introspector.html#disabling-introspection">Disabling Introspection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/extending.html">Extending an Existing <span>Pyramid</span> Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/extending.html#the-difference-between-extensible-and-pluggable-applications">The Difference Between &quot;Extensible&quot; and &quot;Pluggable&quot; Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/extending.html#rules-for-building-an-extensible-application">Rules for Building an Extensible Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/extending.html#extending-an-existing-application">Extending an Existing Application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/advconfig.html">Advanced Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/advconfig.html#conflict-detection">Conflict Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/advconfig.html#including-configuration-from-external-sources">Including Configuration from External Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/advconfig.html#two-phase-configuration">Two-Phase Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/advconfig.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/extconfig.html">Extending Pyramid Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/extconfig.html#adding-methods-to-the-configurator-via-add-directive">Adding Methods to the Configurator via <code class="docutils literal notranslate"><span class="pre">add_directive</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/extconfig.html#using-config-action-in-a-directive">Using <code class="docutils literal notranslate"><span class="pre">config.action</span></code> in a Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/extconfig.html#ordering-actions">Ordering Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/extconfig.html#adding-configuration-introspection">Adding Configuration Introspection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/cookiecutters.html">Pyramid cookiecutters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="narr/scaffolding.html">Creating Pyramid Scaffolds</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/scaffolding.html#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/scaffolding.html#supporting-older-pyramid-versions">Supporting Older Pyramid Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/scaffolding.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/upgrading.html">Upgrading Pyramid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/upgrading.html#deprecation-and-removal-policy">Deprecation and removal policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/upgrading.html#consulting-the-change-history">Consulting the change history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/upgrading.html#testing-your-application-under-a-new-pyramid-release">Testing your application under a new Pyramid release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/upgrading.html#my-application-doesn-t-have-any-tests-or-has-few-tests">My application doesn't have any tests or has few tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/upgrading.html#upgrading-to-the-very-latest-pyramid-release">Upgrading to the very latest Pyramid release</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/threadlocals.html">Thread Locals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/threadlocals.html#why-and-how-pyramid-uses-thread-local-variables">Why and How <span>Pyramid</span> Uses Thread Local Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="narr/threadlocals.html#why-you-shouldn-t-abuse-thread-locals">Why You Shouldn't Abuse Thread Locals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="narr/zca.html">Using the Zope Component Architecture in <span>Pyramid</span></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="narr/zca.html#using-the-zca-global-api-in-a-pyramid-application">Using the ZCA global API in a <span>Pyramid</span> application</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="api-documentation">
+<h2>API Documentation<a class="headerlink" href="#api-documentation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><span>Pyramid</span> で公開されているすべての公開APIに関しての包括的なリファレンス資料：</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/authentication.html"><code class="docutils literal notranslate"><span class="pre">pyramid.authentication</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/authorization.html"><code class="docutils literal notranslate"><span class="pre">pyramid.authorization</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/compat.html"><code class="docutils literal notranslate"><span class="pre">pyramid.compat</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/config.html"><code class="docutils literal notranslate"><span class="pre">pyramid.config</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/csrf.html"><code class="docutils literal notranslate"><span class="pre">pyramid.csrf</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/decorator.html"><code class="docutils literal notranslate"><span class="pre">pyramid.decorator</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/events.html"><code class="docutils literal notranslate"><span class="pre">pyramid.events</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html"><code class="docutils literal notranslate"><span class="pre">pyramid.exceptions</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/httpexceptions.html"><code class="docutils literal notranslate"><span class="pre">pyramid.httpexceptions</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/i18n.html"><code class="docutils literal notranslate"><span class="pre">pyramid.i18n</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/interfaces.html"><code class="docutils literal notranslate"><span class="pre">pyramid.interfaces</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/location.html"><code class="docutils literal notranslate"><span class="pre">pyramid.location</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/paster.html"><code class="docutils literal notranslate"><span class="pre">pyramid.paster</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/path.html"><code class="docutils literal notranslate"><span class="pre">pyramid.path</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/registry.html"><code class="docutils literal notranslate"><span class="pre">pyramid.registry</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/renderers.html"><code class="docutils literal notranslate"><span class="pre">pyramid.renderers</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/request.html"><code class="docutils literal notranslate"><span class="pre">pyramid.request</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/response.html"><code class="docutils literal notranslate"><span class="pre">pyramid.response</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/scaffolds.html"><code class="docutils literal notranslate"><span class="pre">pyramid.scaffolds</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/scripting.html"><code class="docutils literal notranslate"><span class="pre">pyramid.scripting</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/security.html"><code class="docutils literal notranslate"><span class="pre">pyramid.security</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/session.html"><code class="docutils literal notranslate"><span class="pre">pyramid.session</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/settings.html"><code class="docutils literal notranslate"><span class="pre">pyramid.settings</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/static.html"><code class="docutils literal notranslate"><span class="pre">pyramid.static</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/testing.html"><code class="docutils literal notranslate"><span class="pre">pyramid.testing</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/threadlocal.html"><code class="docutils literal notranslate"><span class="pre">pyramid.threadlocal</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/traversal.html"><code class="docutils literal notranslate"><span class="pre">pyramid.traversal</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/tweens.html"><code class="docutils literal notranslate"><span class="pre">pyramid.tweens</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/url.html"><code class="docutils literal notranslate"><span class="pre">pyramid.url</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/view.html"><code class="docutils literal notranslate"><span class="pre">pyramid.view</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/viewderivers.html"><code class="docutils literal notranslate"><span class="pre">pyramid.viewderivers</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/wsgi.html"><code class="docutils literal notranslate"><span class="pre">pyramid.wsgi</span></code></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="p-scripts-documentation">
+<h2><code class="docutils literal notranslate"><span class="pre">p*``スクリプトのドキュメント(</span> <span class="pre">``p*</span></code> Scripts Documentation )<a class="headerlink" href="#p-scripts-documentation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">p*</span></code> スクリプトは <span>Pyramid</span> に含まれています。&quot;</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pscripts/index.html"><code class="docutils literal notranslate"><span class="pre">p*</span></code> Scripts Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pscripts/pcreate.html">pcreate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pscripts/pdistreport.html">pdistreport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pscripts/prequest.html">prequest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pscripts/proutes.html">proutes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pscripts/pserve.html">pserve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pscripts/pshell.html">pshell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pscripts/ptweens.html">ptweens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pscripts/pviews.html">pviews</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="change-history">
+<h2>Change History<a class="headerlink" href="#change-history" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew-1.9.html">What's New in Pyramid 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew-1.8.html">What's New in Pyramid 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew-1.7.html">What's New in Pyramid 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew-1.6.html">What's New in Pyramid 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew-1.5.html">What's New in Pyramid 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew-1.4.html">What's New in Pyramid 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew-1.3.html">What's New in Pyramid 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew-1.2.html">What's New in Pyramid 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew-1.1.html">What's New in Pyramid 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew-1.0.html">What's New in Pyramid 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html"><span>Pyramid</span> Change History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html#repoze-bfg-change-history-previous-name-for-pyramid"><code class="docutils literal notranslate"><span class="pre">repoze.bfg</span></code> Change History (previous name for Pyramid)</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="design-documents">
+<h2>Design Documents<a class="headerlink" href="#design-documents" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="designdefense.html">Defending Pyramid's Design</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="copyright-trademarks-and-attributions">
+<h2>Copyright, Trademarks, and Attributions<a class="headerlink" href="#copyright-trademarks-and-attributions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright, Trademarks, and Attributions</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="typographical-conventions-and-style-guide">
+<h2>Typographical Conventions and Style Guide<a class="headerlink" href="#typographical-conventions-and-style-guide" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="typographical-conventions.html">Typographical Conventions</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="index-and-glossary">
+<h2>Index and Glossary<a class="headerlink" href="#index-and-glossary" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="glossary.html#glossary"><span class="std std-ref">Glossary</span></a></li>
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pyramid Web Framework(The Pyramid Web Framework)</a><ul>
+<li><a class="reference internal" href="#getting-started">入門(Getting Started)</a></li>
+<li><a class="reference internal" href="#tutorials">チュートリアル（Tutorials）</a></li>
+<li><a class="reference internal" href="#support-and-development">サポートと開発について</a></li>
+<li><a class="reference internal" href="#narrative-documentation">マニュアル(Narrative Documentation)</a></li>
+<li><a class="reference internal" href="#api-documentation">API Documentation</a></li>
+<li><a class="reference internal" href="#p-scripts-documentation"><code class="docutils literal notranslate"><span class="pre">p*``スクリプトのドキュメント(</span> <span class="pre">``p*</span></code> Scripts Documentation )</a></li>
+<li><a class="reference internal" href="#change-history">Change History</a></li>
+<li><a class="reference internal" href="#design-documents">Design Documents</a></li>
+<li><a class="reference internal" href="#copyright-trademarks-and-attributions">Copyright, Trademarks, and Attributions</a></li>
+<li><a class="reference internal" href="#typographical-conventions-and-style-guide">Typographical Conventions and Style Guide</a></li>
+<li><a class="reference internal" href="#index-and-glossary">Index and Glossary</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="quick_tour.html"
+                        title="次の章へ">Quick Tour of Pyramid</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="quick_tour.html" title="Quick Tour of Pyramid"
+             >次へ</a> |</li>
+    	<li><a href="#">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

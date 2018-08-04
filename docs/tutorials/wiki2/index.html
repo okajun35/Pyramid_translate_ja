@@ -1,0 +1,221 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SQLAlchemy + URL dispatch wiki tutorial &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="copyright" title="著作権" href="../../copyright.html" />
+    <link rel="next" title="Background" href="background.html" />
+    <link rel="prev" title="21: Protecting Resources With Authorization" href="../../quick_tutorial/authorization.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../../index.html">
+      		<img class="logo" src="../../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="background.html" title="Background"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="../../quick_tutorial/authorization.html" title="21: Protecting Resources With Authorization"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sqlalchemy-url-dispatch-wiki-tutorial">
+<span id="bfg-sql-wiki-tutorial"></span><h1>SQLAlchemy + URL dispatch wiki tutorial<a class="headerlink" href="#sqlalchemy-url-dispatch-wiki-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>This tutorial introduces an <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> and <a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>-based
+<span>Pyramid</span> application to a developer familiar with Python.  When finished, the developer will have created a basic wiki
+application with authentication and authorization.</p>
+<p>For cut and paste purposes, the source code for all stages of this
+tutorial can be browsed on GitHub at <a class="reference external" href="https://github.com/Pylons/pyramid/">GitHub</a> for a specific branch or version under <code class="docutils literal notranslate"><span class="pre">docs/tutorials/wiki2/src</span></code>,
+which corresponds to the same location if you have Pyramid sources.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="design.html#overall">Overall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#wiki-views">Wiki Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#security">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#before-you-begin">Before you begin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-sqlite3-and-its-development-packages">Install SQLite3 and its development packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-cookiecutter">Install cookiecutter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#generate-a-pyramid-project-from-a-cookiecutter">Generate a Pyramid project from a cookiecutter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#change-directory-into-your-newly-created-project">Change directory into your newly created project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#set-and-use-a-venv-environment-variable">Set and use a <code class="docutils literal notranslate"><span class="pre">VENV</span></code> environment variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-a-virtual-environment">Create a virtual environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#upgrade-packaging-tools-in-the-virtual-environment">Upgrade packaging tools in the virtual environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-project-in-development-mode">Installing the project in development mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#run-the-tests">Run the tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#expose-test-coverage-information">Expose test coverage information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#test-and-coverage-cookiecutter-defaults">Test and coverage cookiecutter defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#initializing-the-database">Initializing the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#start-the-application">Start the application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#visit-the-application-in-a-browser">Visit the application in a browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#decisions-the-alchemy-cookiecutter-has-made-for-you">Decisions the <code class="docutils literal notranslate"><span class="pre">alchemy</span></code> cookiecutter has made for you</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basiclayout.html">Basic Layout</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basiclayout.html#application-configuration-with-init-py">Application configuration with <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="basiclayout.html#route-declarations">Route declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basiclayout.html#view-declarations-via-the-views-package">View declarations via the <code class="docutils literal notranslate"><span class="pre">views</span></code> package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basiclayout.html#content-models-with-the-models-package">Content models with the <code class="docutils literal notranslate"><span class="pre">models</span></code> package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="definingmodels.html">Defining the Domain Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="definingmodels.html#declaring-dependencies-in-our-setup-py-file">Declaring dependencies in our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingmodels.html#running-pip-install-e">Running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingmodels.html#remove-mymodel-py">Remove <code class="docutils literal notranslate"><span class="pre">mymodel.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingmodels.html#add-user-py">Add <code class="docutils literal notranslate"><span class="pre">user.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingmodels.html#add-page-py">Add <code class="docutils literal notranslate"><span class="pre">page.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingmodels.html#edit-models-init-py">Edit <code class="docutils literal notranslate"><span class="pre">models/__init__.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingmodels.html#edit-scripts-initializedb-py">Edit <code class="docutils literal notranslate"><span class="pre">scripts/initializedb.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingmodels.html#installing-the-project-and-re-initializing-the-database">Installing the project and re-initializing the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingmodels.html#view-the-application-in-a-browser">View the application in a browser</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="definingviews.html">Defining Views</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="definingviews.html#adding-the-docutils-dependency">Adding the <code class="docutils literal notranslate"><span class="pre">docutils</span></code> dependency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingviews.html#static-assets">Static assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingviews.html#adding-routes-to-routes-py">Adding routes to <code class="docutils literal notranslate"><span class="pre">routes.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingviews.html#adding-view-functions-in-views-default-py">Adding view functions in <code class="docutils literal notranslate"><span class="pre">views/default.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingviews.html#adding-templates">Adding templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definingviews.html#viewing-the-application-in-a-browser">Viewing the application in a browser</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">Adding authentication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html#authenticating-requests">Authenticating requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html#login-logout">Login, logout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html#viewing-the-application-in-a-browser">Viewing the application in a browser</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authorization.html">Adding authorization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html#add-user-principals">Add user principals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html#add-the-authorization-policy">Add the authorization policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html#add-resources-and-acls">Add resources and ACLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html#add-view-permissions">Add view permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authorization.html#viewing-the-application-in-a-browser">Viewing the application in a browser</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Adding Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#test-the-views">Test the views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#functional-tests">Functional tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#view-the-results-of-all-our-edits-to-tests-subpackage">View the results of all our edits to <code class="docutils literal notranslate"><span class="pre">tests</span></code> subpackage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#running-the-tests">Running the tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distributing.html">Distributing Your Application</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="../../quick_tutorial/authorization.html"
+                        title="前の章へ">21: Protecting Resources With Authorization</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="background.html"
+                        title="次の章へ">Background</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/tutorials/wiki2/index.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="background.html" title="Background"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="../../quick_tutorial/authorization.html" title="21: Protecting Resources With Authorization"
+             >前へ</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.encode &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../copyright.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../../index.html">
+      		<img class="logo" src="../../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyramid.encode</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pyramid.compat</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">text_type</span><span class="p">,</span>
+    <span class="n">binary_type</span><span class="p">,</span>
+    <span class="n">is_nonstr_iter</span><span class="p">,</span>
+    <span class="n">url_quote</span> <span class="k">as</span> <span class="n">_url_quote</span><span class="p">,</span>
+    <span class="n">url_quote_plus</span> <span class="k">as</span> <span class="n">_quote_plus</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">url_quote</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span> <span class="c1"># bw compat api</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="vm">__class__</span>
+    <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">text_type</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">binary_type</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_url_quote</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="n">safe</span><span class="p">)</span>
+
+<span class="c1"># bw compat api (dnr)</span>
+<span class="k">def</span> <span class="nf">quote_plus</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="vm">__class__</span>
+    <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="n">text_type</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">binary_type</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_quote_plus</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="n">safe</span><span class="p">)</span>
+
+<div class="viewcode-block" id="urlencode"><a class="viewcode-back" href="../../api/url.html#pyramid.url.urlencode">[docs]</a><span class="k">def</span> <span class="nf">urlencode</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">doseq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quote_via</span><span class="o">=</span><span class="n">quote_plus</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An alternate implementation of Python&#39;s stdlib</span>
+<span class="sd">    :func:`urllib.parse.urlencode` function which accepts unicode keys and</span>
+<span class="sd">    values within the ``query`` dict/sequence; all Unicode keys and values are</span>
+<span class="sd">    first converted to UTF-8 before being used to compose the query string.</span>
+
+<span class="sd">    The value of ``query`` must be a sequence of two-tuples</span>
+<span class="sd">    representing key/value pairs *or* an object (often a dictionary)</span>
+<span class="sd">    with an ``.items()`` method that returns a sequence of two-tuples</span>
+<span class="sd">    representing key/value pairs.</span>
+
+<span class="sd">    For minimal calling convention backwards compatibility, this</span>
+<span class="sd">    version of urlencode accepts *but ignores* a second argument</span>
+<span class="sd">    conventionally named ``doseq``.  The Python stdlib version behaves</span>
+<span class="sd">    differently when ``doseq`` is False and when a sequence is</span>
+<span class="sd">    presented as one of the values.  This version always behaves in</span>
+<span class="sd">    the ``doseq=True`` mode, no matter what the value of the second</span>
+<span class="sd">    argument.</span>
+
+<span class="sd">    Both the key and value are encoded using the ``quote_via`` function which</span>
+<span class="sd">    by default is using a similar algorithm to :func:`urllib.parse.quote_plus`</span>
+<span class="sd">    which converts spaces into &#39;+&#39; characters and &#39;/&#39; into &#39;%2F&#39;.</span>
+
+<span class="sd">    .. versionchanged:: 1.5</span>
+<span class="sd">       In a key/value pair, if the value is ``None`` then it will be</span>
+<span class="sd">       dropped from the resulting output.</span>
+
+<span class="sd">    .. versionchanged:: 1.9</span>
+<span class="sd">       Added the ``quote_via`` argument to allow alternate quoting algorithms</span>
+<span class="sd">       to be used.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># presumed to be a dictionary</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">quote_via</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">is_nonstr_iter</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">quote_via</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+                <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&amp;&#39;</span>
+        <span class="k">elif</span> <span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">=&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">quote_via</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;&amp;&#39;</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      Last updated on Aug 01, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+    </div>
+  </body>
+</html>

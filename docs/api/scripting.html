@@ -1,0 +1,188 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.scripting &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="pyramid.security" href="security.html" />
+    <link rel="prev" title="pyramid.scaffolds" href="scaffolds.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="security.html" title="pyramid.security"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="scaffolds.html" title="pyramid.scaffolds"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyramid.scripting">
+<span id="pyramid-scripting"></span><span id="scripting-module"></span><h1><a class="reference internal" href="#module-pyramid.scripting" title="pyramid.scripting"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.scripting</span></code></a><a class="headerlink" href="#module-pyramid.scripting" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<dl class="function">
+<dt id="pyramid.scripting.get_root">
+<code class="descname">get_root</code><span class="sig-paren">(</span><em>app</em>, <em>request=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/scripting.html#get_root"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.scripting.get_root" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return a tuple composed of <code class="docutils literal notranslate"><span class="pre">(root,</span> <span class="pre">closer)</span></code> when provided a
+<a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> instance as the <code class="docutils literal notranslate"><span class="pre">app</span></code> argument.  The <code class="docutils literal notranslate"><span class="pre">root</span></code>
+returned is the application root object.  The <code class="docutils literal notranslate"><span class="pre">closer</span></code> returned
+is a callable (accepting no arguments) that should be called when
+your scripting application is finished using the root.</p>
+<p><code class="docutils literal notranslate"><span class="pre">request</span></code> is passed to the <span>Pyramid</span> application root
+factory to compute the root. If <code class="docutils literal notranslate"><span class="pre">request</span></code> is None, a default
+will be constructed using the registry's <a class="reference internal" href="../glossary.html#term-request-factory"><span class="xref std std-term">Request Factory</span></a>
+via the <a class="reference internal" href="interfaces.html#pyramid.interfaces.IRequestFactory.blank" title="pyramid.interfaces.IRequestFactory.blank"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.interfaces.IRequestFactory.blank()</span></code></a> method.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.scripting.prepare">
+<code class="descname">prepare</code><span class="sig-paren">(</span><em>request=None</em>, <em>registry=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/scripting.html#prepare"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.scripting.prepare" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>This function pushes data onto the Pyramid threadlocal stack
+(request and registry), making those objects 'current'.  It
+returns a dictionary useful for bootstrapping a Pyramid
+application in a scripting environment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">request</span></code> is passed to the <span>Pyramid</span> application root
+factory to compute the root. If <code class="docutils literal notranslate"><span class="pre">request</span></code> is None, a default
+will be constructed using the registry's <a class="reference internal" href="../glossary.html#term-request-factory"><span class="xref std std-term">Request Factory</span></a>
+via the <a class="reference internal" href="interfaces.html#pyramid.interfaces.IRequestFactory.blank" title="pyramid.interfaces.IRequestFactory.blank"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.interfaces.IRequestFactory.blank()</span></code></a> method.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">registry</span></code> is not supplied, the last registry loaded from
+<a class="reference internal" href="config.html#pyramid.config.global_registries" title="pyramid.config.global_registries"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyramid.config.global_registries</span></code></a> will be used. If you
+have loaded more than one <span>Pyramid</span> application in the
+current process, you may not want to use the last registry
+loaded, thus you can search the <code class="docutils literal notranslate"><span class="pre">global_registries</span></code> and supply
+the appropriate one based on your own criteria.</p>
+<p>The function returns a dictionary composed of <code class="docutils literal notranslate"><span class="pre">root</span></code>,
+<code class="docutils literal notranslate"><span class="pre">closer</span></code>, <code class="docutils literal notranslate"><span class="pre">registry</span></code>, <code class="docutils literal notranslate"><span class="pre">request</span></code> and <code class="docutils literal notranslate"><span class="pre">root_factory</span></code>.  The
+<code class="docutils literal notranslate"><span class="pre">root</span></code> returned is the application's root resource object.  The
+<code class="docutils literal notranslate"><span class="pre">closer</span></code> returned is a callable (accepting no arguments) that
+should be called when your scripting application is finished
+using the root.  <code class="docutils literal notranslate"><span class="pre">registry</span></code> is the resolved registry object.
+<code class="docutils literal notranslate"><span class="pre">request</span></code> is the request object passed or the constructed request
+if no request is passed.  <code class="docutils literal notranslate"><span class="pre">root_factory</span></code> is the root factory used
+to construct the root.</p>
+<p>This function may be used as a context manager to call the <code class="docutils literal notranslate"><span class="pre">closer</span></code>
+automatically:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">registry</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">registry</span>
+<span class="k">with</span> <span class="n">prepare</span><span class="p">(</span><span class="n">registry</span><span class="p">)</span> <span class="k">as</span> <span class="n">env</span><span class="p">:</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">env</span><span class="p">[</span><span class="s1">&#39;request&#39;</span><span class="p">]</span>
+    <span class="c1"># ...</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.8 で変更: </span>Added the ability to use the return value as a context manager.</p>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="scaffolds.html"
+                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.scaffolds</span></code></a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="security.html"
+                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.security</span></code></a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/scripting.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="security.html" title="pyramid.security"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="scaffolds.html" title="pyramid.scaffolds"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

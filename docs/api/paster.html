@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.paster &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="pyramid.path" href="path.html" />
+    <link rel="prev" title="pyramid.location" href="location.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="path.html" title="pyramid.path"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="location.html" title="pyramid.location"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyramid.paster">
+<span id="pyramid-paster"></span><span id="paster-module"></span><h1><a class="reference internal" href="#module-pyramid.paster" title="pyramid.paster"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.paster</span></code></a><a class="headerlink" href="#module-pyramid.paster" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<dl class="function">
+<dt id="pyramid.paster.bootstrap">
+<code class="descname">bootstrap</code><span class="sig-paren">(</span><em>config_uri</em>, <em>request=None</em>, <em>options=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/paster.html#bootstrap"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.paster.bootstrap" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Load a WSGI application from the PasteDeploy config file specified
+by <code class="docutils literal notranslate"><span class="pre">config_uri</span></code>. The environment will be configured as if it is
+currently serving <code class="docutils literal notranslate"><span class="pre">request</span></code>, leaving a natural environment in place
+to write scripts that can generate URLs and utilize renderers.</p>
+<p>This function returns a dictionary with <code class="docutils literal notranslate"><span class="pre">app</span></code>, <code class="docutils literal notranslate"><span class="pre">root</span></code>, <code class="docutils literal notranslate"><span class="pre">closer</span></code>,
+<code class="docutils literal notranslate"><span class="pre">request</span></code>, and <code class="docutils literal notranslate"><span class="pre">registry</span></code> keys.  <code class="docutils literal notranslate"><span class="pre">app</span></code> is the WSGI app loaded
+(based on the <code class="docutils literal notranslate"><span class="pre">config_uri</span></code>), <code class="docutils literal notranslate"><span class="pre">root</span></code> is the traversal root resource
+of the Pyramid application, and <code class="docutils literal notranslate"><span class="pre">closer</span></code> is a parameterless callback
+that may be called when your script is complete (it pops a threadlocal
+stack).</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Most operations within <span>Pyramid</span> expect to be invoked within the
+context of a WSGI request, thus it's important when loading your
+application to anchor it when executing scripts and other code that is
+not normally invoked during active WSGI requests.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">For a complex config file containing multiple <span>Pyramid</span>
+applications, this function will setup the environment under the context
+of the last-loaded <span>Pyramid</span> application. You may load a specific
+application yourself by using the lower-level functions
+<a class="reference internal" href="#pyramid.paster.get_app" title="pyramid.paster.get_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.paster.get_app()</span></code></a> and <a class="reference internal" href="scripting.html#pyramid.scripting.prepare" title="pyramid.scripting.prepare"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.scripting.prepare()</span></code></a> in
+conjunction with <a class="reference internal" href="config.html#pyramid.config.global_registries" title="pyramid.config.global_registries"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyramid.config.global_registries</span></code></a>.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">config_uri</span></code> -- specifies the PasteDeploy config file to use for the
+interactive shell. The format is <code class="docutils literal notranslate"><span class="pre">inifile#name</span></code>. If the name is left
+off, <code class="docutils literal notranslate"><span class="pre">main</span></code> will be assumed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">request</span></code> -- specified to anchor the script to a given set of WSGI
+parameters. For example, most people would want to specify the host,
+scheme and port such that their script will generate URLs in relation
+to those parameters. A request with default parameters is constructed
+for you if none is provided. You can mutate the request's <code class="docutils literal notranslate"><span class="pre">environ</span></code>
+later to setup a specific host/port/scheme/etc.</p>
+<p><code class="docutils literal notranslate"><span class="pre">options</span></code> Is passed to get_app for use as variable assignments like 
+{'http_port': 8080} and then use %(http_port)s in the
+config file.</p>
+<p>This function may be used as a context manager to call the <code class="docutils literal notranslate"><span class="pre">closer</span></code>
+automatically:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">bootstrap</span><span class="p">(</span><span class="s1">&#39;development.ini&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">env</span><span class="p">:</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">env</span><span class="p">[</span><span class="s1">&#39;request&#39;</span><span class="p">]</span>
+    <span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="../narr/commandline.html#writing-a-script"><span class="std std-ref">Writing a Script</span></a> for more information about how to use this
+function.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.8 で変更: </span>Added the ability to use the return value as a context manager.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.paster.get_app">
+<code class="descname">get_app</code><span class="sig-paren">(</span><em>config_uri</em>, <em>name=None</em>, <em>options=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/paster.html#get_app"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.paster.get_app" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return the WSGI application named <code class="docutils literal notranslate"><span class="pre">name</span></code> in the PasteDeploy
+config file specified by <code class="docutils literal notranslate"><span class="pre">config_uri</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">options</span></code>, if passed, should be a dictionary used as variable assignments
+like <code class="docutils literal notranslate"><span class="pre">{'http_port':</span> <span class="pre">8080}</span></code>.  This is useful if e.g. <code class="docutils literal notranslate"><span class="pre">%(http_port)s</span></code> is
+used in the config file.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">name</span></code> is None, this will attempt to parse the name from
+the <code class="docutils literal notranslate"><span class="pre">config_uri</span></code> string expecting the format <code class="docutils literal notranslate"><span class="pre">inifile#name</span></code>.
+If no name is found, the name will default to &quot;main&quot;.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.paster.get_appsettings">
+<code class="descname">get_appsettings</code><span class="sig-paren">(</span><em>config_uri</em>, <em>name=None</em>, <em>options=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/paster.html#get_appsettings"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.paster.get_appsettings" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return a dictionary representing the key/value pairs in an <code class="docutils literal notranslate"><span class="pre">app</span></code>
+section within the file represented by <code class="docutils literal notranslate"><span class="pre">config_uri</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">options</span></code>, if passed, should be a dictionary used as variable assignments
+like <code class="docutils literal notranslate"><span class="pre">{'http_port':</span> <span class="pre">8080}</span></code>.  This is useful if e.g. <code class="docutils literal notranslate"><span class="pre">%(http_port)s</span></code> is
+used in the config file.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">name</span></code> is None, this will attempt to parse the name from
+the <code class="docutils literal notranslate"><span class="pre">config_uri</span></code> string expecting the format <code class="docutils literal notranslate"><span class="pre">inifile#name</span></code>.
+If no name is found, the name will default to &quot;main&quot;.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.paster.setup_logging">
+<code class="descname">setup_logging</code><span class="sig-paren">(</span><em>config_uri</em>, <em>global_conf=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/paster.html#setup_logging"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.paster.setup_logging" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Set up Python logging with the filename specified via <code class="docutils literal notranslate"><span class="pre">config_uri</span></code>
+(a string in the form <code class="docutils literal notranslate"><span class="pre">filename#sectionname</span></code>).</p>
+<p>Extra defaults can optionally be specified as a dict in <code class="docutils literal notranslate"><span class="pre">global_conf</span></code>.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="location.html"
+                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.location</span></code></a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="path.html"
+                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.path</span></code></a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/paster.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="path.html" title="pyramid.path"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="location.html" title="pyramid.location"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

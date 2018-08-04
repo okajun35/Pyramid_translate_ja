@@ -1,0 +1,866 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.view &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../copyright.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../../index.html">
+      		<img class="logo" src="../../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyramid.view</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">venusian</span>
+
+<span class="kn">from</span> <span class="nn">zope.interface</span> <span class="k">import</span> <span class="n">providedBy</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.interfaces</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">IRoutesMapper</span><span class="p">,</span>
+    <span class="n">IMultiView</span><span class="p">,</span>
+    <span class="n">ISecuredView</span><span class="p">,</span>
+    <span class="n">IView</span><span class="p">,</span>
+    <span class="n">IViewClassifier</span><span class="p">,</span>
+    <span class="n">IRequest</span><span class="p">,</span>
+    <span class="n">IExceptionViewClassifier</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.compat</span> <span class="k">import</span> <span class="n">decode_path_info</span>
+<span class="kn">from</span> <span class="nn">pyramid.compat</span> <span class="k">import</span> <span class="n">reraise</span> <span class="k">as</span> <span class="n">reraise_</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.exceptions</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">ConfigurationError</span><span class="p">,</span>
+    <span class="n">PredicateMismatch</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.httpexceptions</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">HTTPFound</span><span class="p">,</span>
+    <span class="n">HTTPNotFound</span><span class="p">,</span>
+    <span class="n">default_exceptionresponse_view</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.threadlocal</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">get_current_registry</span><span class="p">,</span>
+    <span class="n">manager</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.util</span> <span class="k">import</span> <span class="n">hide_attrs</span>
+
+<span class="n">_marker</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+
+<div class="viewcode-block" id="render_view_to_response"><a class="viewcode-back" href="../../api/view.html#pyramid.request.render_view_to_response">[docs]</a><span class="k">def</span> <span class="nf">render_view_to_response</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">secure</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Call the :term:`view callable` configured with a :term:`view</span>
+<span class="sd">    configuration` that matches the :term:`view name` ``name``</span>
+<span class="sd">    registered against the specified ``context`` and ``request`` and</span>
+<span class="sd">    return a :term:`response` object.  This function will return</span>
+<span class="sd">    ``None`` if a corresponding :term:`view callable` cannot be found</span>
+<span class="sd">    (when no :term:`view configuration` matches the combination of</span>
+<span class="sd">    ``name`` / ``context`` / and ``request``).</span>
+
+<span class="sd">    If `secure`` is ``True``, and the :term:`view callable` found is</span>
+<span class="sd">    protected by a permission, the permission will be checked before calling</span>
+<span class="sd">    the view function.  If the permission check disallows view execution</span>
+<span class="sd">    (based on the current :term:`authorization policy`), a</span>
+<span class="sd">    :exc:`pyramid.httpexceptions.HTTPForbidden` exception will be raised.</span>
+<span class="sd">    The exception&#39;s ``args`` attribute explains why the view access was</span>
+<span class="sd">    disallowed.</span>
+
+<span class="sd">    If ``secure`` is ``False``, no permission checking is done.&quot;&quot;&quot;</span>
+
+    <span class="n">registry</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;registry&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">registry</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">registry</span> <span class="o">=</span> <span class="n">get_current_registry</span><span class="p">()</span>
+
+    <span class="n">context_iface</span> <span class="o">=</span> <span class="n">providedBy</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="c1"># We explicitly pass in the interfaces provided by the request as</span>
+    <span class="c1"># request_iface to _call_view; we don&#39;t want _call_view to use</span>
+    <span class="c1"># request.request_iface, because render_view_to_response and friends are</span>
+    <span class="c1"># pretty much limited to finding views that are not views associated with</span>
+    <span class="c1"># routes, and the only thing request.request_iface is used for is to find</span>
+    <span class="c1"># route-based views.  The render_view_to_response API is (and always has</span>
+    <span class="c1"># been) a stepchild API reserved for use of those who actually use</span>
+    <span class="c1"># traversal.  Doing this fixes an infinite recursion bug introduced in</span>
+    <span class="c1"># Pyramid 1.6a1, and causes the render_view* APIs to behave as they did in</span>
+    <span class="c1"># 1.5 and previous. We should probably provide some sort of different API</span>
+    <span class="c1"># that would allow people to find views for routes.  See</span>
+    <span class="c1"># https://github.com/Pylons/pyramid/issues/1643 for more info.</span>
+    <span class="n">request_iface</span> <span class="o">=</span> <span class="n">providedBy</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">_call_view</span><span class="p">(</span>
+        <span class="n">registry</span><span class="p">,</span>
+        <span class="n">request</span><span class="p">,</span>
+        <span class="n">context</span><span class="p">,</span>
+        <span class="n">context_iface</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">secure</span><span class="o">=</span><span class="n">secure</span><span class="p">,</span>
+        <span class="n">request_iface</span><span class="o">=</span><span class="n">request_iface</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">response</span> <span class="c1"># NB: might be None</span></div>
+
+
+<div class="viewcode-block" id="render_view_to_iterable"><a class="viewcode-back" href="../../api/view.html#pyramid.request.render_view_to_iterable">[docs]</a><span class="k">def</span> <span class="nf">render_view_to_iterable</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">secure</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Call the :term:`view callable` configured with a :term:`view</span>
+<span class="sd">    configuration` that matches the :term:`view name` ``name``</span>
+<span class="sd">    registered against the specified ``context`` and ``request`` and</span>
+<span class="sd">    return an iterable object which represents the body of a response.</span>
+<span class="sd">    This function will return ``None`` if a corresponding :term:`view</span>
+<span class="sd">    callable` cannot be found (when no :term:`view configuration`</span>
+<span class="sd">    matches the combination of ``name`` / ``context`` / and</span>
+<span class="sd">    ``request``).  Additionally, this function will raise a</span>
+<span class="sd">    :exc:`ValueError` if a view function is found and called but the</span>
+<span class="sd">    view function&#39;s result does not have an ``app_iter`` attribute.</span>
+
+<span class="sd">    You can usually get the bytestring representation of the return value of</span>
+<span class="sd">    this function by calling ``b&#39;&#39;.join(iterable)``, or just use</span>
+<span class="sd">    :func:`pyramid.view.render_view` instead.</span>
+
+<span class="sd">    If ``secure`` is ``True``, and the view is protected by a permission, the</span>
+<span class="sd">    permission will be checked before the view function is invoked.  If the</span>
+<span class="sd">    permission check disallows view execution (based on the current</span>
+<span class="sd">    :term:`authentication policy`), a</span>
+<span class="sd">    :exc:`pyramid.httpexceptions.HTTPForbidden` exception will be raised; its</span>
+<span class="sd">    ``args`` attribute explains why the view access was disallowed.</span>
+
+<span class="sd">    If ``secure`` is ``False``, no permission checking is</span>
+<span class="sd">    done.&quot;&quot;&quot;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">render_view_to_response</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">secure</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">app_iter</span></div>
+
+<div class="viewcode-block" id="render_view"><a class="viewcode-back" href="../../api/view.html#pyramid.request.render_view">[docs]</a><span class="k">def</span> <span class="nf">render_view</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">secure</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Call the :term:`view callable` configured with a :term:`view</span>
+<span class="sd">    configuration` that matches the :term:`view name` ``name``</span>
+<span class="sd">    registered against the specified ``context`` and ``request``</span>
+<span class="sd">    and unwind the view response&#39;s ``app_iter`` (see</span>
+<span class="sd">    :ref:`the_response`) into a single bytestring.  This function will</span>
+<span class="sd">    return ``None`` if a corresponding :term:`view callable` cannot be</span>
+<span class="sd">    found (when no :term:`view configuration` matches the combination</span>
+<span class="sd">    of ``name`` / ``context`` / and ``request``).  Additionally, this</span>
+<span class="sd">    function will raise a :exc:`ValueError` if a view function is</span>
+<span class="sd">    found and called but the view function&#39;s result does not have an</span>
+<span class="sd">    ``app_iter`` attribute. This function will return ``None`` if a</span>
+<span class="sd">    corresponding view cannot be found.</span>
+
+<span class="sd">    If ``secure`` is ``True``, and the view is protected by a permission, the</span>
+<span class="sd">    permission will be checked before the view is invoked.  If the permission</span>
+<span class="sd">    check disallows view execution (based on the current :term:`authorization</span>
+<span class="sd">    policy`), a :exc:`pyramid.httpexceptions.HTTPForbidden` exception will be</span>
+<span class="sd">    raised; its ``args`` attribute explains why the view access was</span>
+<span class="sd">    disallowed.</span>
+
+<span class="sd">    If ``secure`` is ``False``, no permission checking is done.&quot;&quot;&quot;</span>
+    <span class="n">iterable</span> <span class="o">=</span> <span class="n">render_view_to_iterable</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">secure</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">iterable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="view_config"><a class="viewcode-back" href="../../api/view.html#pyramid.request.view_config">[docs]</a><span class="k">class</span> <span class="nc">view_config</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A function, class or method :term:`decorator` which allows a</span>
+<span class="sd">    developer to create view registrations nearer to a :term:`view</span>
+<span class="sd">    callable` definition than use :term:`imperative</span>
+<span class="sd">    configuration` to do the same.</span>
+
+<span class="sd">    For example, this code in a module ``views.py``::</span>
+
+<span class="sd">      from resources import MyResource</span>
+
+<span class="sd">      @view_config(name=&#39;my_view&#39;, context=MyResource, permission=&#39;read&#39;,</span>
+<span class="sd">                   route_name=&#39;site1&#39;)</span>
+<span class="sd">      def my_view(context, request):</span>
+<span class="sd">          return &#39;OK&#39;</span>
+
+<span class="sd">    Might replace the following call to the</span>
+<span class="sd">    :meth:`pyramid.config.Configurator.add_view` method::</span>
+
+<span class="sd">       import views</span>
+<span class="sd">       from resources import MyResource</span>
+<span class="sd">       config.add_view(views.my_view, context=MyResource, name=&#39;my_view&#39;,</span>
+<span class="sd">                       permission=&#39;read&#39;, route_name=&#39;site1&#39;)</span>
+
+<span class="sd">    .. note: :class:`pyramid.view.view_config` is also importable, for</span>
+<span class="sd">             backwards compatibility purposes, as the name</span>
+<span class="sd">             :class:`pyramid.view.bfg_view`.</span>
+
+<span class="sd">    :class:`pyramid.view.view_config` supports the following keyword</span>
+<span class="sd">    arguments: ``context``, ``exception``, ``permission``, ``name``,</span>
+<span class="sd">    ``request_type``, ``route_name``, ``request_method``, ``request_param``,</span>
+<span class="sd">    ``containment``, ``xhr``, ``accept``, ``header``, ``path_info``,</span>
+<span class="sd">    ``custom_predicates``, ``decorator``, ``mapper``, ``http_cache``,</span>
+<span class="sd">    ``require_csrf``, ``match_param``, ``check_csrf``, ``physical_path``, and</span>
+<span class="sd">    ``view_options``.</span>
+
+<span class="sd">    The meanings of these arguments are the same as the arguments passed to</span>
+<span class="sd">    :meth:`pyramid.config.Configurator.add_view`.  If any argument is left</span>
+<span class="sd">    out, its default will be the equivalent ``add_view`` default.</span>
+
+<span class="sd">    Two additional keyword arguments which will be passed to the</span>
+<span class="sd">    :term:`venusian` ``attach`` function are ``_depth`` and ``_category``.</span>
+
+<span class="sd">    ``_depth`` is provided for people who wish to reuse this class from another</span>
+<span class="sd">    decorator. The default value is ``0`` and should be specified relative to</span>
+<span class="sd">    the ``view_config`` invocation. It will be passed in to the</span>
+<span class="sd">    :term:`venusian` ``attach`` function as the depth of the callstack when</span>
+<span class="sd">    Venusian checks if the decorator is being used in a class or module</span>
+<span class="sd">    context. It&#39;s not often used, but it can be useful in this circumstance.</span>
+
+<span class="sd">    ``_category`` sets the decorator category name. It can be useful in</span>
+<span class="sd">    combination with the ``category`` argument of ``scan`` to control which</span>
+<span class="sd">    views should be processed.</span>
+
+<span class="sd">    See the :py:func:`venusian.attach` function in Venusian for more</span>
+<span class="sd">    information about the ``_depth`` and ``_category`` arguments.</span>
+<span class="sd">    </span>
+<span class="sd">    .. seealso::</span>
+<span class="sd">    </span>
+<span class="sd">        See also :ref:`mapping_views_using_a_decorator_section` for</span>
+<span class="sd">        details about using :class:`pyramid.view.view_config`.</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">    </span>
+<span class="sd">        ``view_config`` will work ONLY on module top level members</span>
+<span class="sd">        because of the limitation of ``venusian.Scanner.scan``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">venusian</span> <span class="o">=</span> <span class="n">venusian</span> <span class="c1"># for testing injection</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;for_&#39;</span> <span class="ow">in</span> <span class="n">settings</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;context&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;context&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;for_&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wrapped</span><span class="p">):</span>
+        <span class="n">settings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">depth</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_depth&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">category</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_category&#39;</span><span class="p">,</span> <span class="s1">&#39;pyramid&#39;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ob</span><span class="p">):</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">with_package</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">module</span><span class="p">)</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">view</span><span class="o">=</span><span class="n">ob</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">)</span>
+
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">venusian</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">wrapped</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">category</span><span class="p">,</span>
+                                    <span class="n">depth</span><span class="o">=</span><span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">scope</span> <span class="o">==</span> <span class="s1">&#39;class&#39;</span><span class="p">:</span>
+            <span class="c1"># if the decorator was attached to a method in a class, or</span>
+            <span class="c1"># otherwise executed at class scope, we need to set an</span>
+            <span class="c1"># &#39;attr&#39; into the settings if one isn&#39;t already in there</span>
+            <span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;attr&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wrapped</span><span class="o">.</span><span class="vm">__name__</span>
+
+        <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">codeinfo</span> <span class="c1"># fbo &quot;action_method&quot;</span>
+        <span class="k">return</span> <span class="n">wrapped</span></div>
+
+<span class="n">bfg_view</span> <span class="o">=</span> <span class="n">view_config</span> <span class="c1"># bw compat (forever)</span>
+
+<div class="viewcode-block" id="view_defaults"><a class="viewcode-back" href="../../api/view.html#pyramid.request.view_defaults">[docs]</a><span class="k">class</span> <span class="nc">view_defaults</span><span class="p">(</span><span class="n">view_config</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A class :term:`decorator` which, when applied to a class, will</span>
+<span class="sd">    provide defaults for all view configurations that use the class.  This</span>
+<span class="sd">    decorator accepts all the arguments accepted by</span>
+<span class="sd">    :meth:`pyramid.view.view_config`, and each has the same meaning.</span>
+
+<span class="sd">    See :ref:`view_defaults` for more information.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wrapped</span><span class="p">):</span>
+        <span class="n">wrapped</span><span class="o">.</span><span class="n">__view_defaults__</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">wrapped</span></div>
+
+<span class="k">class</span> <span class="nc">AppendSlashNotFoundViewFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; There can only be one :term:`Not Found view` in any</span>
+<span class="sd">    :app:`Pyramid` application.  Even if you use</span>
+<span class="sd">    :func:`pyramid.view.append_slash_notfound_view` as the Not</span>
+<span class="sd">    Found view, :app:`Pyramid` still must generate a ``404 Not</span>
+<span class="sd">    Found`` response when it cannot redirect to a slash-appended URL;</span>
+<span class="sd">    this not found response will be visible to site users.</span>
+
+<span class="sd">    If you don&#39;t care what this 404 response looks like, and you only</span>
+<span class="sd">    need redirections to slash-appended route URLs, you may use the</span>
+<span class="sd">    :func:`pyramid.view.append_slash_notfound_view` object as the</span>
+<span class="sd">    Not Found view.  However, if you wish to use a *custom* notfound</span>
+<span class="sd">    view callable when a URL cannot be redirected to a slash-appended</span>
+<span class="sd">    URL, you may wish to use an instance of this class as the Not</span>
+<span class="sd">    Found view, supplying a :term:`view callable` to be used as the</span>
+<span class="sd">    custom notfound view as the first argument to its constructor.</span>
+<span class="sd">    For instance:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">       from pyramid.httpexceptions import HTTPNotFound</span>
+<span class="sd">       from pyramid.view import AppendSlashNotFoundViewFactory</span>
+
+<span class="sd">       def notfound_view(context, request): return HTTPNotFound(&#39;nope&#39;)</span>
+
+<span class="sd">       custom_append_slash = AppendSlashNotFoundViewFactory(notfound_view)</span>
+<span class="sd">       config.add_view(custom_append_slash, context=HTTPNotFound)</span>
+
+<span class="sd">    The ``notfound_view`` supplied must adhere to the two-argument</span>
+<span class="sd">    view callable calling convention of ``(context, request)``</span>
+<span class="sd">    (``context`` will be the exception object).</span>
+
+<span class="sd">    .. deprecated:: 1.3</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notfound_view</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">redirect_class</span><span class="o">=</span><span class="n">HTTPFound</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">notfound_view</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">notfound_view</span> <span class="o">=</span> <span class="n">default_exceptionresponse_view</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notfound_view</span> <span class="o">=</span> <span class="n">notfound_view</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redirect_class</span> <span class="o">=</span> <span class="n">redirect_class</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">decode_path_info</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PATH_INFO&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="n">registry</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">registry</span>
+        <span class="n">mapper</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">queryUtility</span><span class="p">(</span><span class="n">IRoutesMapper</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mapper</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">):</span>
+            <span class="n">slashpath</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+            <span class="k">for</span> <span class="n">route</span> <span class="ow">in</span> <span class="n">mapper</span><span class="o">.</span><span class="n">get_routes</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">route</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">slashpath</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">qs</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">query_string</span>
+                    <span class="k">if</span> <span class="n">qs</span><span class="p">:</span>
+                        <span class="n">qs</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">qs</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">redirect_class</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">qs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">notfound_view</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+
+<span class="n">append_slash_notfound_view</span> <span class="o">=</span> <span class="n">AppendSlashNotFoundViewFactory</span><span class="p">()</span>
+<span class="n">append_slash_notfound_view</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">For behavior like Django&#39;s ``APPEND_SLASH=True``, use this view as the</span>
+<span class="s2">:term:`Not Found view` in your application.</span>
+
+<span class="s2">When this view is the Not Found view (indicating that no view was found), and</span>
+<span class="s2">any routes have been defined in the configuration of your application, if the</span>
+<span class="s2">value of the ``PATH_INFO`` WSGI environment variable does not already end in</span>
+<span class="s2">a slash, and if the value of ``PATH_INFO`` *plus* a slash matches any route&#39;s</span>
+<span class="s2">path, do an HTTP redirect to the slash-appended PATH_INFO.  Note that this</span>
+<span class="s2">will *lose* ``POST`` data information (turning it into a GET), so you</span>
+<span class="s2">shouldn&#39;t rely on this to redirect POST requests.  Note also that static</span>
+<span class="s2">routes are not considered when attempting to find a matching route.</span>
+
+<span class="s2">Use the :meth:`pyramid.config.Configurator.add_view` method to configure this</span>
+<span class="s2">view as the Not Found view::</span>
+
+<span class="s2">  from pyramid.httpexceptions import HTTPNotFound</span>
+<span class="s2">  from pyramid.view import append_slash_notfound_view</span>
+<span class="s2">  config.add_view(append_slash_notfound_view, context=HTTPNotFound)</span>
+
+<span class="s2">.. deprecated:: 1.3</span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="notfound_view_config"><a class="viewcode-back" href="../../api/view.html#pyramid.request.notfound_view_config">[docs]</a><span class="k">class</span> <span class="nc">notfound_view_config</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. versionadded:: 1.3</span>
+
+<span class="sd">    An analogue of :class:`pyramid.view.view_config` which registers a</span>
+<span class="sd">    :term:`Not Found View` using</span>
+<span class="sd">    :meth:`pyramid.config.Configurator.add_notfound_view`.</span>
+
+<span class="sd">    The ``notfound_view_config`` constructor accepts most of the same arguments</span>
+<span class="sd">    as the constructor of :class:`pyramid.view.view_config`.  It can be used</span>
+<span class="sd">    in the same places, and behaves in largely the same way, except it always</span>
+<span class="sd">    registers a not found exception view instead of a &#39;normal&#39; view.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        from pyramid.view import notfound_view_config</span>
+<span class="sd">        from pyramid.response import Response</span>
+
+<span class="sd">        @notfound_view_config()</span>
+<span class="sd">        def notfound(request):</span>
+<span class="sd">            return Response(&#39;Not found!&#39;, status=&#39;404 Not Found&#39;)</span>
+
+<span class="sd">    All arguments except ``append_slash`` have the same meaning as</span>
+<span class="sd">    :meth:`pyramid.view.view_config` and each predicate</span>
+<span class="sd">    argument restricts the set of circumstances under which this notfound</span>
+<span class="sd">    view will be invoked.</span>
+
+<span class="sd">    If ``append_slash`` is ``True``, when the Not Found View is invoked, and</span>
+<span class="sd">    the current path info does not end in a slash, the notfound logic will</span>
+<span class="sd">    attempt to find a :term:`route` that matches the request&#39;s path info</span>
+<span class="sd">    suffixed with a slash.  If such a route exists, Pyramid will issue a</span>
+<span class="sd">    redirect to the URL implied by the route; if it does not, Pyramid will</span>
+<span class="sd">    return the result of the view callable provided as ``view``, as normal.</span>
+
+<span class="sd">    If the argument provided as ``append_slash`` is not a boolean but</span>
+<span class="sd">    instead implements :class:`~pyramid.interfaces.IResponse`, the</span>
+<span class="sd">    append_slash logic will behave as if ``append_slash=True`` was passed,</span>
+<span class="sd">    but the provided class will be used as the response class instead of</span>
+<span class="sd">    the default :class:`~pyramid.httpexceptions.HTTPFound` response class</span>
+<span class="sd">    when a redirect is performed.  For example:</span>
+
+<span class="sd">      .. code-block:: python</span>
+
+<span class="sd">        from pyramid.httpexceptions import (</span>
+<span class="sd">            HTTPMovedPermanently,</span>
+<span class="sd">            HTTPNotFound</span>
+<span class="sd">            )</span>
+
+<span class="sd">        @notfound_view_config(append_slash=HTTPMovedPermanently)</span>
+<span class="sd">        def aview(request):</span>
+<span class="sd">            return HTTPNotFound(&#39;not found&#39;)</span>
+
+<span class="sd">    The above means that a redirect to a slash-appended route will be</span>
+<span class="sd">    attempted, but instead of :class:`~pyramid.httpexceptions.HTTPFound`</span>
+<span class="sd">    being used, :class:`~pyramid.httpexceptions.HTTPMovedPermanently will</span>
+<span class="sd">    be used` for the redirect response if a slash-appended route is found.</span>
+
+<span class="sd">    See :ref:`changing_the_notfound_view` for detailed usage information.</span>
+
+<span class="sd">    .. versionchanged:: 1.9.1</span>
+<span class="sd">       Added the ``_depth`` and ``_category`` arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">venusian</span> <span class="o">=</span> <span class="n">venusian</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wrapped</span><span class="p">):</span>
+        <span class="n">settings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">depth</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_depth&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">category</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_category&#39;</span><span class="p">,</span> <span class="s1">&#39;pyramid&#39;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ob</span><span class="p">):</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">with_package</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">module</span><span class="p">)</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">add_notfound_view</span><span class="p">(</span><span class="n">view</span><span class="o">=</span><span class="n">ob</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">)</span>
+
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">venusian</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">wrapped</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">category</span><span class="p">,</span>
+                                    <span class="n">depth</span><span class="o">=</span><span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">scope</span> <span class="o">==</span> <span class="s1">&#39;class&#39;</span><span class="p">:</span>
+            <span class="c1"># if the decorator was attached to a method in a class, or</span>
+            <span class="c1"># otherwise executed at class scope, we need to set an</span>
+            <span class="c1"># &#39;attr&#39; into the settings if one isn&#39;t already in there</span>
+            <span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;attr&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wrapped</span><span class="o">.</span><span class="vm">__name__</span>
+
+        <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">codeinfo</span> <span class="c1"># fbo &quot;action_method&quot;</span>
+        <span class="k">return</span> <span class="n">wrapped</span></div>
+
+<div class="viewcode-block" id="forbidden_view_config"><a class="viewcode-back" href="../../api/view.html#pyramid.request.forbidden_view_config">[docs]</a><span class="k">class</span> <span class="nc">forbidden_view_config</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. versionadded:: 1.3</span>
+
+<span class="sd">    An analogue of :class:`pyramid.view.view_config` which registers a</span>
+<span class="sd">    :term:`forbidden view` using</span>
+<span class="sd">    :meth:`pyramid.config.Configurator.add_forbidden_view`.</span>
+
+<span class="sd">    The forbidden_view_config constructor accepts most of the same arguments</span>
+<span class="sd">    as the constructor of :class:`pyramid.view.view_config`.  It can be used</span>
+<span class="sd">    in the same places, and behaves in largely the same way, except it always</span>
+<span class="sd">    registers a forbidden exception view instead of a &#39;normal&#39; view.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        from pyramid.view import forbidden_view_config</span>
+<span class="sd">        from pyramid.response import Response</span>
+
+<span class="sd">        @forbidden_view_config()</span>
+<span class="sd">        def forbidden(request):</span>
+<span class="sd">            return Response(&#39;You are not allowed&#39;, status=&#39;403 Forbidden&#39;)</span>
+
+<span class="sd">    All arguments passed to this function have the same meaning as</span>
+<span class="sd">    :meth:`pyramid.view.view_config` and each predicate argument restricts</span>
+<span class="sd">    the set of circumstances under which this notfound view will be invoked.</span>
+
+<span class="sd">    See :ref:`changing_the_forbidden_view` for detailed usage information.</span>
+
+<span class="sd">    .. versionchanged:: 1.9.1</span>
+<span class="sd">       Added the ``_depth`` and ``_category`` arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">venusian</span> <span class="o">=</span> <span class="n">venusian</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wrapped</span><span class="p">):</span>
+        <span class="n">settings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">depth</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_depth&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">category</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_category&#39;</span><span class="p">,</span> <span class="s1">&#39;pyramid&#39;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ob</span><span class="p">):</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">with_package</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">module</span><span class="p">)</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">add_forbidden_view</span><span class="p">(</span><span class="n">view</span><span class="o">=</span><span class="n">ob</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">)</span>
+
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">venusian</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">wrapped</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">category</span><span class="p">,</span>
+                                    <span class="n">depth</span><span class="o">=</span><span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">scope</span> <span class="o">==</span> <span class="s1">&#39;class&#39;</span><span class="p">:</span>
+            <span class="c1"># if the decorator was attached to a method in a class, or</span>
+            <span class="c1"># otherwise executed at class scope, we need to set an</span>
+            <span class="c1"># &#39;attr&#39; into the settings if one isn&#39;t already in there</span>
+            <span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;attr&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wrapped</span><span class="o">.</span><span class="vm">__name__</span>
+
+        <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">codeinfo</span> <span class="c1"># fbo &quot;action_method&quot;</span>
+        <span class="k">return</span> <span class="n">wrapped</span></div>
+
+<div class="viewcode-block" id="exception_view_config"><a class="viewcode-back" href="../../api/view.html#pyramid.request.exception_view_config">[docs]</a><span class="k">class</span> <span class="nc">exception_view_config</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. versionadded:: 1.8</span>
+
+<span class="sd">    An analogue of :class:`pyramid.view.view_config` which registers an</span>
+<span class="sd">    :term:`exception view` using</span>
+<span class="sd">    :meth:`pyramid.config.Configurator.add_exception_view`.</span>
+
+<span class="sd">    The ``exception_view_config`` constructor requires an exception context,</span>
+<span class="sd">    and additionally accepts most of the same arguments as the constructor of</span>
+<span class="sd">    :class:`pyramid.view.view_config`.  It can be used in the same places,</span>
+<span class="sd">    and behaves in largely the same way, except it always registers an</span>
+<span class="sd">    exception view instead of a &quot;normal&quot; view that dispatches on the request</span>
+<span class="sd">    :term:`context`.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">    .. code-block:: python</span>
+
+<span class="sd">        from pyramid.view import exception_view_config</span>
+<span class="sd">        from pyramid.response import Response</span>
+
+<span class="sd">        @exception_view_config(ValueError, renderer=&#39;json&#39;)</span>
+<span class="sd">        def error_view(request):</span>
+<span class="sd">            return {&#39;error&#39;: str(request.exception)}</span>
+
+<span class="sd">    All arguments passed to this function have the same meaning as</span>
+<span class="sd">    :meth:`pyramid.view.view_config`, and each predicate argument restricts</span>
+<span class="sd">    the set of circumstances under which this exception view will be invoked.</span>
+
+<span class="sd">    .. versionchanged:: 1.9.1</span>
+<span class="sd">       Added the ``_depth`` and ``_category`` arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">venusian</span> <span class="o">=</span> <span class="n">venusian</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;context&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">settings</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">exception</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;context&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exception</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span><span class="s1">&#39;unknown positional arguments&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wrapped</span><span class="p">):</span>
+        <span class="n">settings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">depth</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_depth&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">category</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_category&#39;</span><span class="p">,</span> <span class="s1">&#39;pyramid&#39;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ob</span><span class="p">):</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">with_package</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">module</span><span class="p">)</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">add_exception_view</span><span class="p">(</span><span class="n">view</span><span class="o">=</span><span class="n">ob</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">)</span>
+
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">venusian</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">wrapped</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">category</span><span class="p">,</span>
+                                    <span class="n">depth</span><span class="o">=</span><span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">scope</span> <span class="o">==</span> <span class="s1">&#39;class&#39;</span><span class="p">:</span>
+            <span class="c1"># if the decorator was attached to a method in a class, or</span>
+            <span class="c1"># otherwise executed at class scope, we need to set an</span>
+            <span class="c1"># &#39;attr&#39; in the settings if one isn&#39;t already in there</span>
+            <span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;attr&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wrapped</span><span class="o">.</span><span class="vm">__name__</span>
+
+        <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">codeinfo</span> <span class="c1"># fbo &quot;action_method&quot;</span>
+        <span class="k">return</span> <span class="n">wrapped</span></div>
+
+<span class="k">def</span> <span class="nf">_find_views</span><span class="p">(</span>
+    <span class="n">registry</span><span class="p">,</span>
+    <span class="n">request_iface</span><span class="p">,</span>
+    <span class="n">context_iface</span><span class="p">,</span>
+    <span class="n">view_name</span><span class="p">,</span>
+    <span class="n">view_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">view_classifier</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+    <span class="k">if</span> <span class="n">view_types</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">view_types</span> <span class="o">=</span> <span class="p">(</span><span class="n">IView</span><span class="p">,</span> <span class="n">ISecuredView</span><span class="p">,</span> <span class="n">IMultiView</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">view_classifier</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">view_classifier</span> <span class="o">=</span> <span class="n">IViewClassifier</span>
+    <span class="n">registered</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">adapters</span><span class="o">.</span><span class="n">registered</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">_view_lookup_cache</span>
+    <span class="n">views</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">request_iface</span><span class="p">,</span> <span class="n">context_iface</span><span class="p">,</span> <span class="n">view_name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">views</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">views</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">req_type</span><span class="p">,</span> <span class="n">ctx_type</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span>
+            <span class="n">request_iface</span><span class="o">.</span><span class="n">__sro__</span><span class="p">,</span> <span class="n">context_iface</span><span class="o">.</span><span class="n">__sro__</span>
+        <span class="p">):</span>
+            <span class="n">source_ifaces</span> <span class="o">=</span> <span class="p">(</span><span class="n">view_classifier</span><span class="p">,</span> <span class="n">req_type</span><span class="p">,</span> <span class="n">ctx_type</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">view_type</span> <span class="ow">in</span> <span class="n">view_types</span><span class="p">:</span>
+                <span class="n">view_callable</span> <span class="o">=</span> <span class="n">registered</span><span class="p">(</span>
+                    <span class="n">source_ifaces</span><span class="p">,</span>
+                    <span class="n">view_type</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">view_name</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">view_callable</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">views</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">view_callable</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">views</span><span class="p">:</span>
+            <span class="c1"># do not cache view lookup misses.  rationale: dont allow cache to</span>
+            <span class="c1"># grow without bound if somebody tries to hit the site with many</span>
+            <span class="c1"># missing URLs.  we could use an LRU cache instead, but then</span>
+            <span class="c1"># purposeful misses by an attacker would just blow out the cache</span>
+            <span class="c1"># anyway. downside: misses will almost always consume more CPU than</span>
+            <span class="c1"># hits in steady state.</span>
+            <span class="k">with</span> <span class="n">registry</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+                <span class="n">cache</span><span class="p">[(</span><span class="n">request_iface</span><span class="p">,</span> <span class="n">context_iface</span><span class="p">,</span> <span class="n">view_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">views</span>
+
+    <span class="k">return</span> <span class="n">views</span>
+
+<span class="k">def</span> <span class="nf">_call_view</span><span class="p">(</span>
+    <span class="n">registry</span><span class="p">,</span>
+    <span class="n">request</span><span class="p">,</span>
+    <span class="n">context</span><span class="p">,</span>
+    <span class="n">context_iface</span><span class="p">,</span>
+    <span class="n">view_name</span><span class="p">,</span>
+    <span class="n">view_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">view_classifier</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">secure</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">request_iface</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+    <span class="k">if</span> <span class="n">request_iface</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">request_iface</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;request_iface&#39;</span><span class="p">,</span> <span class="n">IRequest</span><span class="p">)</span>
+    <span class="n">view_callables</span> <span class="o">=</span> <span class="n">_find_views</span><span class="p">(</span>
+        <span class="n">registry</span><span class="p">,</span>
+        <span class="n">request_iface</span><span class="p">,</span>
+        <span class="n">context_iface</span><span class="p">,</span>
+        <span class="n">view_name</span><span class="p">,</span>
+        <span class="n">view_types</span><span class="o">=</span><span class="n">view_types</span><span class="p">,</span>
+        <span class="n">view_classifier</span><span class="o">=</span><span class="n">view_classifier</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">pme</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">for</span> <span class="n">view_callable</span> <span class="ow">in</span> <span class="n">view_callables</span><span class="p">:</span>
+        <span class="c1"># look for views that meet the predicate criteria</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">secure</span><span class="p">:</span>
+                <span class="c1"># the view will have a __call_permissive__ attribute if it&#39;s</span>
+                <span class="c1"># secured; otherwise it won&#39;t.</span>
+                <span class="n">view_callable</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span>
+                    <span class="n">view_callable</span><span class="p">,</span>
+                    <span class="s1">&#39;__call_permissive__&#39;</span><span class="p">,</span>
+                    <span class="n">view_callable</span>
+                    <span class="p">)</span>
+
+            <span class="c1"># if this view is secured, it will raise a Forbidden</span>
+            <span class="c1"># appropriately if the executing user does not have the proper</span>
+            <span class="c1"># permission</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">view_callable</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="n">PredicateMismatch</span> <span class="k">as</span> <span class="n">_pme</span><span class="p">:</span>
+            <span class="n">pme</span> <span class="o">=</span> <span class="n">_pme</span>
+
+    <span class="k">if</span> <span class="n">pme</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">pme</span>
+
+    <span class="k">return</span> <span class="n">response</span>
+
+<span class="k">class</span> <span class="nc">ViewMethodsMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Request methods mixin for BaseRequest having to do with executing</span>
+<span class="sd">    views &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">invoke_exception_view</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">exc_info</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">request</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">secure</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">reraise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Executes an exception view related to the request it&#39;s called upon.</span>
+<span class="sd">        The arguments it takes are these:</span>
+
+<span class="sd">        ``exc_info``</span>
+
+<span class="sd">            If provided, should be a 3-tuple in the form provided by</span>
+<span class="sd">            ``sys.exc_info()``.  If not provided,</span>
+<span class="sd">            ``sys.exc_info()`` will be called to obtain the current</span>
+<span class="sd">            interpreter exception information.  Default: ``None``.</span>
+
+<span class="sd">        ``request``</span>
+
+<span class="sd">            If the request to be used is not the same one as the instance that</span>
+<span class="sd">            this method is called upon, it may be passed here.  Default:</span>
+<span class="sd">            ``None``.</span>
+
+<span class="sd">        ``secure``</span>
+
+<span class="sd">            If the exception view should not be rendered if the current user</span>
+<span class="sd">            does not have the appropriate permission, this should be ``True``.</span>
+<span class="sd">            Default: ``True``.</span>
+
+<span class="sd">        ``reraise``</span>
+
+<span class="sd">            A boolean indicating whether the original error should be reraised</span>
+<span class="sd">            if a :term:`response` object could not be created. If ``False``</span>
+<span class="sd">            then an :class:`pyramid.httpexceptions.HTTPNotFound`` exception</span>
+<span class="sd">            will be raised. Default: ``False``.</span>
+
+<span class="sd">        If a response is generated then ``request.exception`` and</span>
+<span class="sd">        ``request.exc_info`` will be left at the values used to render the</span>
+<span class="sd">        response. Otherwise the previous values for ``request.exception`` and</span>
+<span class="sd">        ``request.exc_info`` will be restored.</span>
+
+<span class="sd">        .. versionadded:: 1.7</span>
+
+<span class="sd">        .. versionchanged:: 1.9</span>
+<span class="sd">           The ``request.exception`` and ``request.exc_info`` properties will</span>
+<span class="sd">           reflect the exception used to render the response where previously</span>
+<span class="sd">           they were reset to the values prior to invoking the method.</span>
+
+<span class="sd">           Also added the ``reraise`` argument.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="n">registry</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;registry&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">registry</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">registry</span> <span class="o">=</span> <span class="n">get_current_registry</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">registry</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unable to retrieve registry&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">exc_info</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">exc_info</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()</span>
+
+        <span class="n">exc</span> <span class="o">=</span> <span class="n">exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">attrs</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="vm">__dict__</span>
+        <span class="n">context_iface</span> <span class="o">=</span> <span class="n">providedBy</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+
+        <span class="c1"># clear old generated request.response, if any; it may</span>
+        <span class="c1"># have been mutated by the view, and its state is not</span>
+        <span class="c1"># sane (e.g. caching headers)</span>
+        <span class="k">with</span> <span class="n">hide_attrs</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;response&#39;</span><span class="p">,</span> <span class="s1">&#39;exc_info&#39;</span><span class="p">,</span> <span class="s1">&#39;exception&#39;</span><span class="p">):</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;exception&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exc</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;exc_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exc_info</span>
+            <span class="c1"># we use .get instead of .__getitem__ below due to</span>
+            <span class="c1"># https://github.com/Pylons/pyramid/issues/700</span>
+            <span class="n">request_iface</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;request_iface&#39;</span><span class="p">,</span> <span class="n">IRequest</span><span class="p">)</span>
+
+            <span class="n">manager</span><span class="o">.</span><span class="n">push</span><span class="p">({</span><span class="s1">&#39;request&#39;</span><span class="p">:</span> <span class="n">request</span><span class="p">,</span> <span class="s1">&#39;registry&#39;</span><span class="p">:</span> <span class="n">registry</span><span class="p">})</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">_call_view</span><span class="p">(</span>
+                    <span class="n">registry</span><span class="p">,</span>
+                    <span class="n">request</span><span class="p">,</span>
+                    <span class="n">exc</span><span class="p">,</span>
+                    <span class="n">context_iface</span><span class="p">,</span>
+                    <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                    <span class="n">view_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">view_classifier</span><span class="o">=</span><span class="n">IExceptionViewClassifier</span><span class="p">,</span>
+                    <span class="n">secure</span><span class="o">=</span><span class="n">secure</span><span class="p">,</span>
+                    <span class="n">request_iface</span><span class="o">=</span><span class="n">request_iface</span><span class="o">.</span><span class="n">combined</span><span class="p">,</span>
+                    <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">reraise</span><span class="p">:</span>
+                    <span class="n">reraise_</span><span class="p">(</span><span class="o">*</span><span class="n">exc_info</span><span class="p">)</span>
+                <span class="k">raise</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="n">manager</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">reraise</span><span class="p">:</span>
+                <span class="n">reraise_</span><span class="p">(</span><span class="o">*</span><span class="n">exc_info</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">HTTPNotFound</span>
+
+        <span class="c1"># successful response, overwrite exception/exc_info</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;exception&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exc</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;exc_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exc_info</span>
+        <span class="k">return</span> <span class="n">response</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      Last updated on Aug 01, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+    </div>
+  </body>
+</html>

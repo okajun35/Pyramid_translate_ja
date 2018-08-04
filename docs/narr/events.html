@@ -1,0 +1,362 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Using Events &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="Environment Variables and .ini File Settings" href="environment.html" />
+    <link rel="prev" title="Sessions" href="sessions.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="environment.html" title="Environment Variables and .ini File Settings"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="sessions.html" title="Sessions"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-events">
+<span id="events-chapter"></span><span id="index-0"></span><h1>Using Events<a class="headerlink" href="#using-events" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>An <em>event</em> is an object broadcast by the <span>Pyramid</span> framework at
+interesting points during the lifetime of an application.  You don't need to
+use events in order to create most <span>Pyramid</span> applications, but they can be
+useful when you want to perform slightly advanced operations.  For example,
+subscribing to an event can allow you to run some code as the result of every
+new request.</p>
+<p>Events in <span>Pyramid</span> are always broadcast by the framework. However, they
+only become useful when you register a <em>subscriber</em>.  A subscriber is a
+function that accepts a single argument named <cite>event</cite>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mysubscriber</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>The above is a subscriber that simply prints the event to the console when it's
+called.</p>
+<p>The mere existence of a subscriber function, however, is not sufficient to
+arrange for it to be called.  To arrange for the subscriber to be called,
+you'll need to use the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_subscriber" title="pyramid.config.Configurator.add_subscriber"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_subscriber()</span></code></a>
+method or you'll need to use the <a class="reference internal" href="../api/events.html#pyramid.events.subscriber" title="pyramid.events.subscriber"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.events.subscriber()</span></code></a> decorator to
+decorate a function found via a <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a>.</p>
+<div class="section" id="configuring-an-event-listener-imperatively">
+<h2>Configuring an Event Listener Imperatively<a class="headerlink" href="#configuring-an-event-listener-imperatively" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>You can imperatively configure a subscriber function to be called for some
+event type via the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_subscriber" title="pyramid.config.Configurator.add_subscriber"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_subscriber()</span></code></a> method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">NewRequest</span>
+
+<span class="kn">from</span> <span class="nn">subscribers</span> <span class="kn">import</span> <span class="n">mysubscriber</span>
+
+<span class="c1"># &quot;config&quot; below is assumed to be an instance of a</span>
+<span class="c1"># pyramid.config.Configurator object</span>
+
+<span class="n">config</span><span class="o">.</span><span class="n">add_subscriber</span><span class="p">(</span><span class="n">mysubscriber</span><span class="p">,</span> <span class="n">NewRequest</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>The first argument to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_subscriber" title="pyramid.config.Configurator.add_subscriber"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_subscriber()</span></code></a> is
+the subscriber function (or a <a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted Python name</span></a> which refers to a
+subscriber callable); the second argument is the event type.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a>.</p>
+</div>
+</div>
+<div class="section" id="configuring-an-event-listener-using-a-decorator">
+<h2>Configuring an Event Listener Using a Decorator<a class="headerlink" href="#configuring-an-event-listener-using-a-decorator" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>You can configure a subscriber function to be called for some event type via
+the <a class="reference internal" href="../api/events.html#pyramid.events.subscriber" title="pyramid.events.subscriber"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.events.subscriber()</span></code></a> function.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">NewRequest</span>
+<span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">subscriber</span>
+
+<span class="nd">@subscriber</span><span class="p">(</span><span class="n">NewRequest</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">mysubscriber</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="n">event</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</td></tr></table></div>
+<p>When the <a class="reference internal" href="../api/events.html#pyramid.events.subscriber" title="pyramid.events.subscriber"><code class="xref py py-func docutils literal notranslate"><span class="pre">subscriber()</span></code></a> decorator is used, a <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a>
+must be performed against the package containing the decorated function for the
+decorator to have any effect.</p>
+<p>Either of the above registration examples implies that every time the
+<span>Pyramid</span> framework emits an event object that supplies an
+<a class="reference internal" href="../api/events.html#pyramid.events.NewRequest" title="pyramid.events.NewRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.NewRequest</span></code></a> interface, the <code class="docutils literal notranslate"><span class="pre">mysubscriber</span></code> function
+will be called with an <em>event</em> object.</p>
+<p>As you can see, a subscription is made in terms of a <em>class</em> (such as
+<a class="reference internal" href="../api/events.html#pyramid.events.NewResponse" title="pyramid.events.NewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.NewResponse</span></code></a>).  The event object sent to a subscriber
+will always be an object that possesses an <a class="reference internal" href="../glossary.html#term-interface"><span class="xref std std-term">interface</span></a>.  For
+<a class="reference internal" href="../api/events.html#pyramid.events.NewResponse" title="pyramid.events.NewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.NewResponse</span></code></a>, that interface is
+<a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.INewResponse" title="pyramid.interfaces.INewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.INewResponse</span></code></a>. The interface documentation provides
+information about available attributes and methods of the event objects.</p>
+<p>The return value of a subscriber function is ignored.  Subscribers to the same
+event type are not guaranteed to be called in any particular order relative to
+each other.</p>
+<p>All the concrete <span>Pyramid</span> event types are documented in the
+<a class="reference internal" href="../api/events.html#events-module"><span class="std std-ref">pyramid.events</span></a> API documentation.</p>
+</div>
+<div class="section" id="an-example">
+<h2>An Example<a class="headerlink" href="#an-example" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>If you create event listener functions in a <code class="docutils literal notranslate"><span class="pre">subscribers.py</span></code> file in your
+application like so:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handle_new_request</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">handle_new_response</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;response&#39;</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>You may configure these functions to be called at the appropriate times by
+adding the following code to your application's configuration startup:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config is an instance of pyramid.config.Configurator</span>
+
+<span class="n">config</span><span class="o">.</span><span class="n">add_subscriber</span><span class="p">(</span><span class="s1">&#39;myproject.subscribers.handle_new_request&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;pyramid.events.NewRequest&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">add_subscriber</span><span class="p">(</span><span class="s1">&#39;myproject.subscribers.handle_new_response&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;pyramid.events.NewResponse&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Either mechanism causes the functions in <code class="docutils literal notranslate"><span class="pre">subscribers.py</span></code> to be registered as
+event subscribers.  Under this configuration, when the application is run, each
+time a new request or response is detected, a message will be printed to the
+console.</p>
+<p>Each of our subscriber functions accepts an <code class="docutils literal notranslate"><span class="pre">event</span></code> object and prints an
+attribute of the event object.  This begs the question: how can we know which
+attributes a particular event has?</p>
+<p>We know that <a class="reference internal" href="../api/events.html#pyramid.events.NewRequest" title="pyramid.events.NewRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.NewRequest</span></code></a> event objects have a
+<code class="docutils literal notranslate"><span class="pre">request</span></code> attribute, which is a <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object, because the interface
+defined at <a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.INewRequest" title="pyramid.interfaces.INewRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.INewRequest</span></code></a> says it must. Likewise, we
+know that <code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.NewResponse</span></code> events have a <code class="docutils literal notranslate"><span class="pre">response</span></code>
+attribute, which is a response object constructed by your application, because
+the interface defined at <a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.INewResponse" title="pyramid.interfaces.INewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.INewResponse</span></code></a> says it must
+(<a class="reference internal" href="../api/events.html#pyramid.events.NewResponse" title="pyramid.events.NewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.NewResponse</span></code></a> objects also have a <code class="docutils literal notranslate"><span class="pre">request</span></code>).</p>
+</div>
+<div class="section" id="creating-your-own-events">
+<span id="custom-events"></span><h2>Creating Your Own Events<a class="headerlink" href="#creating-your-own-events" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>In addition to using the events that the Pyramid framework creates, you can
+create your own events for use in your application. This can be useful to
+decouple parts of your application.</p>
+<p>For example, suppose your application has to do many things when a new document
+is created. Rather than putting all this logic in the view that creates the
+document, you can create the document in your view and then fire a custom
+event. Subscribers to the custom event can take other actions, such as indexing
+the document, sending email, or sending a message to a remote system.</p>
+<p>An event is simply an object. There are no required attributes or method for
+your custom events. In general, your events should keep track of the
+information that subscribers will need. Here are some example custom event
+classes:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DocCreated</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doc</span> <span class="o">=</span> <span class="n">doc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">request</span>
+
+<span class="k">class</span> <span class="nc">UserEvent</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
+
+<span class="k">class</span> <span class="nc">UserLoggedIn</span><span class="p">(</span><span class="n">UserEvent</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</td></tr></table></div>
+<p>Some Pyramid applications choose to define custom events classes in an
+<code class="docutils literal notranslate"><span class="pre">events</span></code> module.</p>
+<p>You can subscribe to custom events in the same way that you subscribe to
+Pyramid events—either imperatively or with a decorator. You can also use custom
+events with <a class="reference internal" href="hooks.html#subscriber-predicates"><span class="std std-ref">subscriber predicates</span></a>. Here's an
+example of subscribing to a custom event with a decorator:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">subscriber</span>
+<span class="kn">from</span> <span class="nn">.events</span> <span class="kn">import</span> <span class="n">DocCreated</span>
+<span class="kn">from</span> <span class="nn">.index</span> <span class="kn">import</span> <span class="n">index_doc</span>
+
+<span class="nd">@subscriber</span><span class="p">(</span><span class="n">DocCreated</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index_doc</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="c1"># index the document using our application&#39;s index_doc function</span>
+    <span class="n">index_doc</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">doc</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>The above example assumes that the application defines a <code class="docutils literal notranslate"><span class="pre">DocCreated</span></code> event
+class and an <code class="docutils literal notranslate"><span class="pre">index_doc</span></code> function.</p>
+<p>To fire your custom events use the <a class="reference internal" href="../api/registry.html#pyramid.registry.Registry.notify" title="pyramid.registry.Registry.notify"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.registry.Registry.notify()</span></code></a>
+method, which is most often accessed as <code class="docutils literal notranslate"><span class="pre">request.registry.notify</span></code>. For
+example:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.events</span> <span class="kn">import</span> <span class="n">DocCreated</span>
+
+<span class="k">def</span> <span class="nf">new_doc_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">MyDoc</span><span class="p">()</span>
+    <span class="n">event</span> <span class="o">=</span> <span class="n">DocCreated</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;document&#39;</span><span class="p">:</span> <span class="n">doc</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>This example view will notify all subscribers to the custom <code class="docutils literal notranslate"><span class="pre">DocCreated</span></code>
+event.</p>
+<p>Note that when you fire an event, all subscribers are run synchronously so it's
+generally not a good idea to create event handlers that may take a long time to
+run. Although event handlers could be used as a central place to spawn tasks on
+your own message queues.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using Events</a><ul>
+<li><a class="reference internal" href="#configuring-an-event-listener-imperatively">Configuring an Event Listener Imperatively</a></li>
+<li><a class="reference internal" href="#configuring-an-event-listener-using-a-decorator">Configuring an Event Listener Using a Decorator</a></li>
+<li><a class="reference internal" href="#an-example">An Example</a></li>
+<li><a class="reference internal" href="#creating-your-own-events">Creating Your Own Events</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="sessions.html"
+                        title="前の章へ">Sessions</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="environment.html"
+                        title="次の章へ">Environment Variables and <code class="docutils literal notranslate"><span class="pre">.ini</span></code> File Settings</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/narr/events.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="environment.html" title="Environment Variables and .ini File Settings"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="sessions.html" title="Sessions"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

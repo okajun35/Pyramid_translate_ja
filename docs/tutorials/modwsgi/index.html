@@ -1,0 +1,252 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Running a Pyramid Application under mod_wsgi &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="copyright" title="著作権" href="../../copyright.html" />
+    <link rel="next" title="Pyramid Introduction" href="../../narr/introduction.html" />
+    <link rel="prev" title="Distributing Your Application" href="../wiki/distributing.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../../index.html">
+      		<img class="logo" src="../../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="../../narr/introduction.html" title="Pyramid Introduction"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="../wiki/distributing.html" title="Distributing Your Application"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="running-a-pyramid-application-under-mod-wsgi">
+<span id="modwsgi-tutorial"></span><h1>Running a <span>Pyramid</span> Application under <code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code><a class="headerlink" href="#running-a-pyramid-application-under-mod-wsgi" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference internal" href="../../glossary.html#term-mod-wsgi"><span class="xref std std-term">mod_wsgi</span></a> is an Apache module developed by Graham Dumpleton.
+It allows <a class="reference internal" href="../../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> programs to be served using the Apache web
+server.</p>
+<p>This guide will outline broad steps that can be used to get a <span>Pyramid</span>
+application running under Apache via <code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code>.  This particular tutorial
+was developed under Apple's Mac OS X platform (Snow Leopard, on a 32-bit
+Mac), but the instructions should be largely the same for all systems, delta
+specific path information for commands and files.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Unfortunately these instructions almost certainly won't work for
+deploying a <span>Pyramid</span> application on a Windows system using
+<code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code>.  If you have experience with <span>Pyramid</span> and <code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code>
+on Windows systems, please help us document this experience by submitting
+documentation to the <a class="reference external" href="https://groups.google.com/forum/#!forum/pylons-devel">Pylons-devel maillist</a>.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">The tutorial assumes you have Apache already installed on your
+system.  If you do not, install Apache 2.X for your platform in
+whatever manner makes sense.</p>
+</li>
+<li><p class="first">It is also assumed that you have satisfied the
+<a class="reference internal" href="../../narr/install.html#requirements-for-installing-packages"><span class="std std-ref">Requirements for Installing Packages</span></a>.</p>
+</li>
+<li><p class="first">Once you have Apache installed, install <code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code>.  Use the
+(excellent) <a class="reference external" href="https://code.google.com/archive/p/modwsgi/wikis/InstallationInstructions.wiki">installation instructions</a>
+for your platform into your system's Apache installation.</p>
+</li>
+<li><p class="first">Create a <span>Pyramid</span> application. For this tutorial we'll use the
+<code class="docutils literal notranslate"><span class="pre">starter</span></code> <a class="reference internal" href="../../glossary.html#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a>. See <a class="reference internal" href="../../narr/project.html#project-narr"><span class="std std-ref">Creating a Pyramid Project</span></a> for more
+in-depth information about creating a new project.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
+$ cookiecutter gh:Pylons/pyramid-cookiecutter-starter --checkout <span class="m">1</span>.9-branch
+</pre></div>
+</div>
+<p>If prompted for the first item, accept the default <code class="docutils literal notranslate"><span class="pre">yes</span></code> by hitting return.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>You&#39;ve cloned ~/.cookiecutters/pyramid-cookiecutter-starter before.
+Is it okay to delete and re-clone it? [yes]: yes
+project_name [Pyramid Scaffold]: myproject
+repo_name [myproject]: myproject
+Select template_language:
+1 - jinja2
+2 - chameleon
+3 - mako
+Choose from 1, 2, 3 [1]: 1
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a <a class="reference internal" href="../../glossary.html#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a> which we'll use to install our
+application. It is important to use the same base Python interpreter
+that was used to build <code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code>. For example, if <code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code> was
+built against the system Python 3.x, then your project should use a
+virtual environment created from that same system Python 3.x.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> myproject
+$ python3 -m venv env
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install your <span>Pyramid</span> application and its dependencies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ env/bin/pip install -e .
+</pre></div>
+</div>
+</li>
+<li><p class="first">Within the project directory (<code class="docutils literal notranslate"><span class="pre">~/myproject</span></code>), create a script
+named <code class="docutils literal notranslate"><span class="pre">pyramid.wsgi</span></code>.  Give it these contents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.paster</span> <span class="kn">import</span> <span class="n">get_app</span><span class="p">,</span> <span class="n">setup_logging</span>
+<span class="n">ini_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/chrism/myproject/production.ini&#39;</span>
+<span class="n">setup_logging</span><span class="p">(</span><span class="n">ini_path</span><span class="p">)</span>
+<span class="n">application</span> <span class="o">=</span> <span class="n">get_app</span><span class="p">(</span><span class="n">ini_path</span><span class="p">,</span> <span class="s1">&#39;main&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first argument to <a class="reference internal" href="../../api/paster.html#pyramid.paster.get_app" title="pyramid.paster.get_app"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.get_app()</span></code></a> is the project
+configuration file name.  It's best to use the <code class="docutils literal notranslate"><span class="pre">production.ini</span></code> file
+provided by your cookiecutter, as it contains settings appropriate for
+production.  The second is the name of the section within the <code class="docutils literal notranslate"><span class="pre">.ini</span></code>
+file that should be loaded by <code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code>.  The assignment to the name
+<code class="docutils literal notranslate"><span class="pre">application</span></code> is important: mod_wsgi requires finding such an
+assignment when it opens the file.</p>
+<p>The call to <a class="reference internal" href="../../api/paster.html#pyramid.paster.setup_logging" title="pyramid.paster.setup_logging"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.setup_logging()</span></code></a> initializes the standard
+library's <cite>logging</cite> module to allow logging within your application.
+See <a class="reference internal" href="../../narr/logging.html#logging-config"><span class="std std-ref">Logging Configuration</span></a>.</p>
+<p>There is no need to make the <code class="docutils literal notranslate"><span class="pre">pyramid.wsgi</span></code> script executable.
+However, you'll need to make sure that <em>two</em> users have access to change
+into the <code class="docutils literal notranslate"><span class="pre">~/myproject</span></code> directory: your current user (mine is
+<code class="docutils literal notranslate"><span class="pre">chrism</span></code> and the user that Apache will run as often named <code class="docutils literal notranslate"><span class="pre">apache</span></code> or
+<code class="docutils literal notranslate"><span class="pre">httpd</span></code>).  Make sure both of these users can &quot;cd&quot; into that directory.</p>
+</li>
+<li><p class="first">Edit your Apache configuration and add some stuff.  I happened to
+create a file named <code class="docutils literal notranslate"><span class="pre">/etc/apache2/other/modwsgi.conf</span></code> on my own
+system while installing Apache, so this stuff went in there.</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="c"># Use only 1 Python sub-interpreter.  Multiple sub-interpreters</span>
+<span class="c"># play badly with C extensions.  See</span>
+<span class="c"># http://stackoverflow.com/a/10558360/209039</span>
+<span class="nb">WSGIApplicationGroup</span> %{GLOBAL}
+<span class="nb">WSGIPassAuthorization</span> <span class="k">On</span>
+<span class="nb">WSGIDaemonProcess</span> pyramid <span class="k">user</span>=chrism <span class="k">group</span>=staff threads=4 \
+   python-path=/Users/chrism/myproject/env/lib/python3.5/site-packages
+<span class="nb">WSGIScriptAlias</span> <span class="sx">/myapp</span> <span class="sx">/Users/chrism/myproject/pyramid.wsgi</span>
+
+<span class="nt">&lt;Directory</span> <span class="s">/Users/chrism/myproject</span><span class="nt">&gt;</span>
+  <span class="nb">WSGIProcessGroup</span> pyramid
+  <span class="nb">Require</span> <span class="k">all</span> granted
+<span class="nt">&lt;/Directory&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart Apache</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo /usr/sbin/apachectl restart
+</pre></div>
+</div>
+</li>
+<li><p class="first">Visit <code class="docutils literal notranslate"><span class="pre">http://localhost/myapp</span></code> in a browser.  You should see the
+sample application rendered in your browser.</p>
+</li>
+</ol>
+<p><a class="reference internal" href="../../glossary.html#term-mod-wsgi"><span class="xref std std-term">mod_wsgi</span></a> has many knobs and a great variety of deployment modes. This
+is just one representation of how you might use it to serve up a <span>Pyramid</span>
+application.  See the <a class="reference external" href="https://modwsgi.readthedocs.io/en/develop/configuration.html">mod_wsgi configuration documentation</a>
+for more in-depth configuration information.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="../wiki/distributing.html"
+                        title="前の章へ">Distributing Your Application</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="../../narr/introduction.html"
+                        title="次の章へ"><span>Pyramid</span> Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/tutorials/modwsgi/index.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="../../narr/introduction.html" title="Pyramid Introduction"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="../wiki/distributing.html" title="Distributing Your Application"
+             >前へ</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.authorization &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="pyramid.compat" href="compat.html" />
+    <link rel="prev" title="pyramid.authentication" href="authentication.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="compat.html" title="pyramid.compat"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="authentication.html" title="pyramid.authentication"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyramid.authorization">
+<span id="pyramid-authorization"></span><span id="authorization-module"></span><h1><a class="reference internal" href="#module-pyramid.authorization" title="pyramid.authorization"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.authorization</span></code></a><a class="headerlink" href="#module-pyramid.authorization" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<dl class="class">
+<dt id="pyramid.authorization.ACLAuthorizationPolicy">
+<em class="property">class </em><code class="descname">ACLAuthorizationPolicy</code><a class="reference internal" href="../_modules/pyramid/authorization.html#ACLAuthorizationPolicy"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authorization.ACLAuthorizationPolicy" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>An <a class="reference internal" href="../glossary.html#term-authorization-policy"><span class="xref std std-term">authorization policy</span></a> which consults an <a class="reference internal" href="../glossary.html#term-acl"><span class="xref std std-term">ACL</span></a>
+object attached to a <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> to determine authorization
+information about a <a class="reference internal" href="../glossary.html#term-principal"><span class="xref std std-term">principal</span></a> or multiple principals.
+If the context is part of a <a class="reference internal" href="../glossary.html#term-lineage"><span class="xref std std-term">lineage</span></a>, the context's parents
+are consulted for ACL information too.  The following is true
+about this security policy.</p>
+<ul>
+<li><p class="first">When checking whether the 'current' user is permitted (via the
+<code class="docutils literal notranslate"><span class="pre">permits</span></code> method), the security policy consults the
+<code class="docutils literal notranslate"><span class="pre">context</span></code> for an ACL first.  If no ACL exists on the context,
+or one does exist but the ACL does not explicitly allow or deny
+access for any of the effective principals, consult the
+context's parent ACL, and so on, until the lineage is exhausted
+or we determine that the policy permits or denies.</p>
+<p>During this processing, if any <a class="reference internal" href="security.html#pyramid.security.Deny" title="pyramid.security.Deny"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Deny</span></code></a>
+ACE is found matching any principal in <code class="docutils literal notranslate"><span class="pre">principals</span></code>, stop
+processing by returning an
+<a class="reference internal" href="security.html#pyramid.security.ACLDenied" title="pyramid.security.ACLDenied"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.security.ACLDenied</span></code></a> instance (equals
+<code class="docutils literal notranslate"><span class="pre">False</span></code>) immediately.  If any
+<a class="reference internal" href="security.html#pyramid.security.Allow" title="pyramid.security.Allow"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Allow</span></code></a> ACE is found matching any
+principal, stop processing by returning an
+<a class="reference internal" href="security.html#pyramid.security.ACLAllowed" title="pyramid.security.ACLAllowed"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.security.ACLAllowed</span></code></a> instance (equals
+<code class="docutils literal notranslate"><span class="pre">True</span></code>) immediately.  If we exhaust the context's
+<a class="reference internal" href="../glossary.html#term-lineage"><span class="xref std std-term">lineage</span></a>, and no ACE has explicitly permitted or denied
+access, return an instance of
+<a class="reference internal" href="security.html#pyramid.security.ACLDenied" title="pyramid.security.ACLDenied"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.security.ACLDenied</span></code></a> (equals <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</li>
+<li><p class="first">When computing principals allowed by a permission via the
+<a class="reference internal" href="security.html#pyramid.security.principals_allowed_by_permission" title="pyramid.security.principals_allowed_by_permission"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.security.principals_allowed_by_permission()</span></code></a>
+method, we compute the set of principals that are explicitly
+granted the <code class="docutils literal notranslate"><span class="pre">permission</span></code> in the provided <code class="docutils literal notranslate"><span class="pre">context</span></code>.  We do
+this by walking 'up' the object graph <em>from the root</em> to the
+context.  During this walking process, if we find an explicit
+<a class="reference internal" href="security.html#pyramid.security.Allow" title="pyramid.security.Allow"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Allow</span></code></a> ACE for a principal that
+matches the <code class="docutils literal notranslate"><span class="pre">permission</span></code>, the principal is included in the
+allow list.  However, if later in the walking process that
+principal is mentioned in any <a class="reference internal" href="security.html#pyramid.security.Deny" title="pyramid.security.Deny"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Deny</span></code></a>
+ACE for the permission, the principal is removed from the allow
+list.  If a <a class="reference internal" href="security.html#pyramid.security.Deny" title="pyramid.security.Deny"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Deny</span></code></a> to the principal
+<a class="reference internal" href="security.html#pyramid.security.Everyone" title="pyramid.security.Everyone"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Everyone</span></code></a> is encountered during the
+walking process that matches the <code class="docutils literal notranslate"><span class="pre">permission</span></code>, the allow list
+is cleared for all principals encountered in previous ACLs.  The
+walking process ends after we've processed the any ACL directly
+attached to <code class="docutils literal notranslate"><span class="pre">context</span></code>; a set of principals is returned.</p>
+</li>
+</ul>
+<p>Objects of this class implement the
+<a class="reference internal" href="interfaces.html#pyramid.interfaces.IAuthorizationPolicy" title="pyramid.interfaces.IAuthorizationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IAuthorizationPolicy</span></code></a> interface.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="authentication.html"
+                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.authentication</span></code></a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="compat.html"
+                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.compat</span></code></a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/authorization.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="compat.html" title="pyramid.compat"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="authentication.html" title="pyramid.authentication"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

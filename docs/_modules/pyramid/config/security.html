@@ -1,0 +1,372 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.config.security &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../../../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../../../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../../../index.html">
+      		<img class="logo" src="../../../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../config.html" accesskey="U">pyramid.config</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyramid.config.security</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">zope.interface</span> <span class="k">import</span> <span class="n">implementer</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.interfaces</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">IAuthorizationPolicy</span><span class="p">,</span>
+    <span class="n">IAuthenticationPolicy</span><span class="p">,</span>
+    <span class="n">ICSRFStoragePolicy</span><span class="p">,</span>
+    <span class="n">IDefaultCSRFOptions</span><span class="p">,</span>
+    <span class="n">IDefaultPermission</span><span class="p">,</span>
+    <span class="n">PHASE1_CONFIG</span><span class="p">,</span>
+    <span class="n">PHASE2_CONFIG</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.csrf</span> <span class="k">import</span> <span class="n">LegacySessionCSRFStoragePolicy</span>
+<span class="kn">from</span> <span class="nn">pyramid.exceptions</span> <span class="k">import</span> <span class="n">ConfigurationError</span>
+<span class="kn">from</span> <span class="nn">pyramid.util</span> <span class="k">import</span> <span class="n">action_method</span>
+<span class="kn">from</span> <span class="nn">pyramid.util</span> <span class="k">import</span> <span class="n">as_sorted_tuple</span>
+
+
+<span class="k">class</span> <span class="nc">SecurityConfiguratorMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">add_default_security</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_csrf_storage_policy</span><span class="p">(</span><span class="n">LegacySessionCSRFStoragePolicy</span><span class="p">())</span>
+
+    <span class="nd">@action_method</span>
+    <span class="k">def</span> <span class="nf">set_authentication_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Override the :app:`Pyramid` :term:`authentication policy` in the</span>
+<span class="sd">        current configuration.  The ``policy`` argument must be an instance</span>
+<span class="sd">        of an authentication policy or a :term:`dotted Python name`</span>
+<span class="sd">        that points at an instance of an authentication policy.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">           Using the ``authentication_policy`` argument to the</span>
+<span class="sd">           :class:`pyramid.config.Configurator` constructor can be used to</span>
+<span class="sd">           achieve the same purpose.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_authentication_policy</span><span class="p">(</span><span class="n">policy</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">queryUtility</span><span class="p">(</span><span class="n">IAuthorizationPolicy</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span>
+                    <span class="s1">&#39;Cannot configure an authentication policy without &#39;</span>
+                    <span class="s1">&#39;also configuring an authorization policy &#39;</span>
+                    <span class="s1">&#39;(use the set_authorization_policy method)&#39;</span><span class="p">)</span>
+        <span class="n">intr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">introspectable</span><span class="p">(</span><span class="s1">&#39;authentication policy&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">object_description</span><span class="p">(</span><span class="n">policy</span><span class="p">),</span>
+                                   <span class="s1">&#39;authentication policy&#39;</span><span class="p">)</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;policy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">policy</span>
+        <span class="c1"># authentication policy used by view config (phase 3)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">IAuthenticationPolicy</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">PHASE2_CONFIG</span><span class="p">,</span>
+                    <span class="n">introspectables</span><span class="o">=</span><span class="p">(</span><span class="n">intr</span><span class="p">,))</span>
+
+    <span class="k">def</span> <span class="nf">_set_authentication_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">):</span>
+        <span class="n">policy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maybe_dotted</span><span class="p">(</span><span class="n">policy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">registerUtility</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span> <span class="n">IAuthenticationPolicy</span><span class="p">)</span>
+
+    <span class="nd">@action_method</span>
+    <span class="k">def</span> <span class="nf">set_authorization_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Override the :app:`Pyramid` :term:`authorization policy` in the</span>
+<span class="sd">        current configuration.  The ``policy`` argument must be an instance</span>
+<span class="sd">        of an authorization policy or a :term:`dotted Python name` that points</span>
+<span class="sd">        at an instance of an authorization policy.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">           Using the ``authorization_policy`` argument to the</span>
+<span class="sd">           :class:`pyramid.config.Configurator` constructor can be used to</span>
+<span class="sd">           achieve the same purpose.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_authorization_policy</span><span class="p">(</span><span class="n">policy</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">ensure</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">autocommit</span><span class="p">:</span>
+                <span class="k">return</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">queryUtility</span><span class="p">(</span><span class="n">IAuthenticationPolicy</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span>
+                    <span class="s1">&#39;Cannot configure an authorization policy without &#39;</span>
+                    <span class="s1">&#39;also configuring an authentication policy &#39;</span>
+                    <span class="s1">&#39;(use the set_authorization_policy method)&#39;</span><span class="p">)</span>
+
+        <span class="n">intr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">introspectable</span><span class="p">(</span><span class="s1">&#39;authorization policy&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">object_description</span><span class="p">(</span><span class="n">policy</span><span class="p">),</span>
+                                   <span class="s1">&#39;authorization policy&#39;</span><span class="p">)</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;policy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">policy</span>
+        <span class="c1"># authorization policy used by view config (phase 3) and</span>
+        <span class="c1"># authentication policy (phase 2)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">IAuthorizationPolicy</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">PHASE1_CONFIG</span><span class="p">,</span>
+                    <span class="n">introspectables</span><span class="o">=</span><span class="p">(</span><span class="n">intr</span><span class="p">,))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">ensure</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_set_authorization_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">):</span>
+        <span class="n">policy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maybe_dotted</span><span class="p">(</span><span class="n">policy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">registerUtility</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span> <span class="n">IAuthorizationPolicy</span><span class="p">)</span>
+
+    <span class="nd">@action_method</span>
+    <span class="k">def</span> <span class="nf">set_default_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">permission</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the default permission to be used by all subsequent</span>
+<span class="sd">        :term:`view configuration` registrations.  ``permission``</span>
+<span class="sd">        should be a :term:`permission` string to be used as the</span>
+<span class="sd">        default permission.  An example of a permission</span>
+<span class="sd">        string:``&#39;view&#39;``.  Adding a default permission makes it</span>
+<span class="sd">        unnecessary to protect each view configuration with an</span>
+<span class="sd">        explicit permission, unless your application policy requires</span>
+<span class="sd">        some exception for a particular view.</span>
+
+<span class="sd">        If a default permission is *not* set, views represented by</span>
+<span class="sd">        view configuration registrations which do not explicitly</span>
+<span class="sd">        declare a permission will be executable by entirely anonymous</span>
+<span class="sd">        users (any authorization policy is ignored).</span>
+
+<span class="sd">        Later calls to this method override will conflict with earlier calls;</span>
+<span class="sd">        there can be only one default permission active at a time within an</span>
+<span class="sd">        application.</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">          If a default permission is in effect, view configurations meant to</span>
+<span class="sd">          create a truly anonymously accessible view (even :term:`exception</span>
+<span class="sd">          view` views) *must* use the value of the permission importable as</span>
+<span class="sd">          :data:`pyramid.security.NO_PERMISSION_REQUIRED`.  When this string</span>
+<span class="sd">          is used as the ``permission`` for a view configuration, the default</span>
+<span class="sd">          permission is ignored, and the view is registered, making it</span>
+<span class="sd">          available to all callers regardless of their credentials.</span>
+
+<span class="sd">        .. seealso::</span>
+
+<span class="sd">            See also :ref:`setting_a_default_permission`.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">           Using the ``default_permission`` argument to the</span>
+<span class="sd">           :class:`pyramid.config.Configurator` constructor can be used to</span>
+<span class="sd">           achieve the same purpose.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">registerUtility</span><span class="p">(</span><span class="n">permission</span><span class="p">,</span> <span class="n">IDefaultPermission</span><span class="p">)</span>
+        <span class="n">intr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">introspectable</span><span class="p">(</span><span class="s1">&#39;default permission&#39;</span><span class="p">,</span>
+                                   <span class="kc">None</span><span class="p">,</span>
+                                   <span class="n">permission</span><span class="p">,</span>
+                                   <span class="s1">&#39;default permission&#39;</span><span class="p">)</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">permission</span>
+        <span class="n">perm_intr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">introspectable</span><span class="p">(</span><span class="s1">&#39;permissions&#39;</span><span class="p">,</span>
+                                        <span class="n">permission</span><span class="p">,</span>
+                                        <span class="n">permission</span><span class="p">,</span>
+                                        <span class="s1">&#39;permission&#39;</span><span class="p">)</span>
+        <span class="n">perm_intr</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">permission</span>
+        <span class="c1"># default permission used during view registration (phase 3)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">IDefaultPermission</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">PHASE1_CONFIG</span><span class="p">,</span>
+                    <span class="n">introspectables</span><span class="o">=</span><span class="p">(</span><span class="n">intr</span><span class="p">,</span> <span class="n">perm_intr</span><span class="p">,))</span>
+
+    <span class="k">def</span> <span class="nf">add_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">permission_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A configurator directive which registers a free-standing</span>
+<span class="sd">        permission without associating it with a view callable.  This can be</span>
+<span class="sd">        used so that the permission shows up in the introspectable data under</span>
+<span class="sd">        the ``permissions`` category (permissions mentioned via ``add_view``</span>
+<span class="sd">        already end up in there).  For example::</span>
+
+<span class="sd">          config = Configurator()</span>
+<span class="sd">          config.add_permission(&#39;view&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">intr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">introspectable</span><span class="p">(</span>
+            <span class="s1">&#39;permissions&#39;</span><span class="p">,</span>
+            <span class="n">permission_name</span><span class="p">,</span>
+            <span class="n">permission_name</span><span class="p">,</span>
+            <span class="s1">&#39;permission&#39;</span>
+            <span class="p">)</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">permission_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">introspectables</span><span class="o">=</span><span class="p">(</span><span class="n">intr</span><span class="p">,))</span>
+
+    <span class="nd">@action_method</span>
+    <span class="k">def</span> <span class="nf">set_default_csrf_options</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">require_csrf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">token</span><span class="o">=</span><span class="s1">&#39;csrf_token&#39;</span><span class="p">,</span>
+        <span class="n">header</span><span class="o">=</span><span class="s1">&#39;X-CSRF-Token&#39;</span><span class="p">,</span>
+        <span class="n">safe_methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;HEAD&#39;</span><span class="p">,</span> <span class="s1">&#39;OPTIONS&#39;</span><span class="p">,</span> <span class="s1">&#39;TRACE&#39;</span><span class="p">),</span>
+        <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the default CSRF options used by subsequent view registrations.</span>
+
+<span class="sd">        ``require_csrf`` controls whether CSRF checks will be automatically</span>
+<span class="sd">        enabled on each view in the application. This value is used as the</span>
+<span class="sd">        fallback when ``require_csrf`` is left at the default of ``None`` on</span>
+<span class="sd">        :meth:`pyramid.config.Configurator.add_view`.</span>
+
+<span class="sd">        ``token`` is the name of the CSRF token used in the body of the</span>
+<span class="sd">        request, accessed via ``request.POST[token]``. Default: ``csrf_token``.</span>
+
+<span class="sd">        ``header`` is the name of the header containing the CSRF token,</span>
+<span class="sd">        accessed via ``request.headers[header]``. Default: ``X-CSRF-Token``.</span>
+
+<span class="sd">        If ``token`` or ``header`` are set to ``None`` they will not be used</span>
+<span class="sd">        for checking CSRF tokens.</span>
+
+<span class="sd">        ``safe_methods`` is an iterable of HTTP methods which are expected to</span>
+<span class="sd">        not contain side-effects as defined by RFC2616. Safe methods will</span>
+<span class="sd">        never be automatically checked for CSRF tokens.</span>
+<span class="sd">        Default: ``(&#39;GET&#39;, &#39;HEAD&#39;, &#39;OPTIONS&#39;, TRACE&#39;)``.</span>
+
+<span class="sd">        If ``callback`` is set, it must be a callable accepting ``(request)``</span>
+<span class="sd">        and returning ``True`` if the request should be checked for a valid</span>
+<span class="sd">        CSRF token. This callback allows an application to support</span>
+<span class="sd">        alternate authentication methods that do not rely on cookies which</span>
+<span class="sd">        are not subject to CSRF attacks. For example, if a request is</span>
+<span class="sd">        authenticated using the ``Authorization`` header instead of a cookie,</span>
+<span class="sd">        this may return ``False`` for that request so that clients do not</span>
+<span class="sd">        need to send the ``X-CSRF-Token`` header. The callback is only tested</span>
+<span class="sd">        for non-safe methods as defined by ``safe_methods``.</span>
+
+<span class="sd">        .. versionadded:: 1.7</span>
+
+<span class="sd">        .. versionchanged:: 1.8</span>
+<span class="sd">           Added the ``callback`` option.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="n">DefaultCSRFOptions</span><span class="p">(</span>
+            <span class="n">require_csrf</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">safe_methods</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">registerUtility</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">IDefaultCSRFOptions</span><span class="p">)</span>
+        <span class="n">intr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">introspectable</span><span class="p">(</span><span class="s1">&#39;default csrf view options&#39;</span><span class="p">,</span>
+                                   <span class="kc">None</span><span class="p">,</span>
+                                   <span class="n">options</span><span class="p">,</span>
+                                   <span class="s1">&#39;default csrf view options&#39;</span><span class="p">)</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;require_csrf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">require_csrf</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">token</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;header&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">header</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;safe_methods&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">as_sorted_tuple</span><span class="p">(</span><span class="n">safe_methods</span><span class="p">)</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">callback</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">IDefaultCSRFOptions</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">PHASE1_CONFIG</span><span class="p">,</span>
+                    <span class="n">introspectables</span><span class="o">=</span><span class="p">(</span><span class="n">intr</span><span class="p">,))</span>
+
+    <span class="nd">@action_method</span>
+    <span class="k">def</span> <span class="nf">set_csrf_storage_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the :term:`CSRF storage policy` used by subsequent view</span>
+<span class="sd">        registrations.</span>
+
+<span class="sd">        ``policy`` is a class that implements the</span>
+<span class="sd">        :meth:`pyramid.interfaces.ICSRFStoragePolicy` interface and defines</span>
+<span class="sd">        how to generate and persist CSRF tokens.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">registerUtility</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span> <span class="n">ICSRFStoragePolicy</span><span class="p">)</span>
+        <span class="n">intr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">introspectable</span><span class="p">(</span><span class="s1">&#39;csrf storage policy&#39;</span><span class="p">,</span>
+                                   <span class="kc">None</span><span class="p">,</span>
+                                   <span class="n">policy</span><span class="p">,</span>
+                                   <span class="s1">&#39;csrf storage policy&#39;</span><span class="p">)</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;policy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">policy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">ICSRFStoragePolicy</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="n">introspectables</span><span class="o">=</span><span class="p">(</span><span class="n">intr</span><span class="p">,))</span>
+
+
+<span class="nd">@implementer</span><span class="p">(</span><span class="n">IDefaultCSRFOptions</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">DefaultCSRFOptions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">require_csrf</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">safe_methods</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require_csrf</span> <span class="o">=</span> <span class="n">require_csrf</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="n">token</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">header</span> <span class="o">=</span> <span class="n">header</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">safe_methods</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">safe_methods</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../config.html" >pyramid.config</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      Last updated on Aug 01, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+    </div>
+  </body>
+</html>

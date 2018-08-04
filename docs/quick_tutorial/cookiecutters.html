@@ -1,0 +1,211 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>プレリュード:cookiecutterによるプロジェクトのクイック起動(Prelude: Quick Project Startup with Cookiecutters) &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="01：シングルファイルWebアプリケーション(01: Single-File Web Applications)" href="hello_world.html" />
+    <link rel="prev" title="チュートリアルのアプローチ(Tutorial Approach)" href="tutorial_approach.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="hello_world.html" title="01：シングルファイルWebアプリケーション(01: Single-File Web Applications)"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="tutorial_approach.html" title="チュートリアルのアプローチ(Tutorial Approach)"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="prelude-quick-project-startup-with-cookiecutters">
+<span id="qtut-cookiecutters"></span><h1>プレリュード:cookiecutterによるプロジェクトのクイック起動(Prelude: Quick Project Startup with Cookiecutters)<a class="headerlink" href="#prelude-quick-project-startup-with-cookiecutters" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>プロジェクトを開始するプロセスを簡単にするためPylonsプロジェクトでは、プロジェクトテンプレートからサンプル <span>Pyramid</span> プロジェクトを生成する <a class="reference internal" href="../glossary.html#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a> を提供しています。これらのcookiecuttersは <span>Pyramid</span> とその依存関係をインストールします。<span>Pyramid</span> を使用したWebアプリケーション開発の多くのトピックについてはまだ説明しますが、この機能について知っておくとよいでしょう。このプレリュードは「cookiecutter」を操作して、 <span>Pyramid</span> Webアプリケーションを取得する方法を示します。</p>
+<div class="section" id="objectives">
+<h2>目標(Objectives)<a class="headerlink" href="#objectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>新しいプロジェクトを作成するにはcookiecutterを使用します。</li>
+<li><span>Pyramid</span> アプリケーションを起動してWebブラウザで参照してください</li>
+</ul>
+</div>
+<div class="section" id="steps">
+<h2>手順（Steps）<a class="headerlink" href="#steps" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">仮想環境にcookiecutterをインストールします。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$VENV</span>/bin/pip install cookiecutter
+</pre></div>
+</div>
+</li>
+<li><p class="first">「cookiecutter pyramid-cookiecutter-starter」を使用して現在のディレクトリに <span>Pyramid</span> プロジェクトを作成してから次のコマンドのためにプロンプトに値を入力してみましょう。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/cookiecutter gh:Pylons/pyramid-cookiecutter-starter --checkout <span class="m">1</span>.9-branch
+</pre></div>
+</div>
+<p>最初の項目の入力を求められたら、「yesre」と入力して「return」 キーを押してデフォルト設定を指定してください。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>You&#39;ve cloned ~/.cookiecutters/pyramid-cookiecutter-starter before.
+Is it okay to delete and re-clone it? [yes]: yes
+project_name [Pyramid Scaffold]: cc_starter
+repo_name [cc_starter]: cc_starter
+Select template_language:
+1 - jinja2
+2 - chameleon
+3 - mako
+Choose from 1, 2, 3 [1]: 1
+</pre></div>
+</div>
+</li>
+<li><p class="first">に以下のコマンドを実行します。&quot;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change directory into your newly created project.</span>
+$ <span class="nb">cd</span> cc_starter
+<span class="c1"># Create a new virtual environment...</span>
+$ python3 -m venv env
+<span class="c1"># ...where we upgrade packaging tools...</span>
+$ env/bin/pip install --upgrade pip setuptools
+<span class="c1"># ...and into which we install our project.</span>
+$ env/bin/pip install -e .
+</pre></div>
+</div>
+</li>
+<li><p class="first">Pyramidのpserveコマンドをプロジェクトの（生成された）設定ファイルで指定して、アプリケーションを起動します:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ env/bin/pserve development.ini --reload
+</pre></div>
+</div>
+<p>起動時に、「pserve」にいくつかのログが出力されます。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting subprocess with file monitor
+Starting server in PID 73732.
+Serving on http://localhost:6543
+Serving on http://localhost:6543
+</pre></div>
+</div>
+</li>
+<li><p class="first">ブラウザでhttp：// localhost：6543 /を開きます。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="analysis">
+<h2>分析(Analysis)<a class="headerlink" href="#analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>CookieCutterを使用すると最初から作業を始めるのではなく作業中の <span>Pyramid</span> アプリケーションを含むPythonプロジェクトを簡単に取得できます。Pylonsプロジェクトは <a class="reference external" href="https://github.com/Pylons?q=pyramid-cookiecutter">いくつかのcookiecutters</a> を提供しています。</p>
+<p>「pserve」は <span>Pyramid</span> はコードから動作の詳細を分離するアプリケーションランナーです。 <span>Pyramid</span> をインストールすると、「pserve」とよばれる小さなコマンド・プログラム が「bin」ディレクトリに書き込まれます。このプログラムは実行可能なPythonモジュールです。これには設定ファイル（この場合はdevelopment.ini）が渡されます。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">プレリュード:cookiecutterによるプロジェクトのクイック起動(Prelude: Quick Project Startup with Cookiecutters)</a><ul>
+<li><a class="reference internal" href="#objectives">目標(Objectives)</a></li>
+<li><a class="reference internal" href="#steps">手順（Steps）</a></li>
+<li><a class="reference internal" href="#analysis">分析(Analysis)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="tutorial_approach.html"
+                        title="前の章へ">チュートリアルのアプローチ(Tutorial Approach)</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="hello_world.html"
+                        title="次の章へ">01：シングルファイルWebアプリケーション(01: Single-File Web Applications)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/quick_tutorial/cookiecutters.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="hello_world.html" title="01：シングルファイルWebアプリケーション(01: Single-File Web Applications)"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="tutorial_approach.html" title="チュートリアルのアプローチ(Tutorial Approach)"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>

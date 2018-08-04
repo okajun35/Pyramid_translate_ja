@@ -1,0 +1,214 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>What&#39;s New in Pyramid 1.9 &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="copyright" title="著作権" href="copyright.html" />
+    <link rel="next" title="What&#39;s New in Pyramid 1.8" href="whatsnew-1.8.html" />
+    <link rel="prev" title="pviews" href="pscripts/pviews.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="index.html">
+      		<img class="logo" src="_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="whatsnew-1.8.html" title="What&#39;s New in Pyramid 1.8"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="pscripts/pviews.html" title="pviews"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-s-new-in-pyramid-1-9">
+<h1>What's New in Pyramid 1.9<a class="headerlink" href="#what-s-new-in-pyramid-1-9" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>This article explains the new features in <span>Pyramid</span> version 1.9 as compared to its predecessor, <span>Pyramid</span> 1.8. It also documents backwards incompatibilities between the two versions and deprecations added to <span>Pyramid</span> 1.9, as well as software dependency changes and notable documentation additions.</p>
+<div class="section" id="bug-fix-releases">
+<h2>Bug Fix Releases<a class="headerlink" href="#bug-fix-releases" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Pyramid 1.9 was released on 2017-06-26.</p>
+<p>The following bug fix releases were made since then. Bug fix releases also include documentation improvements and other minor feature changes.</p>
+<ul class="simple">
+<li><a class="reference internal" href="changes.html#changes-1-9-1"><span class="std std-ref">1.9.1 (2017-07-13)</span></a></li>
+<li><a class="reference internal" href="changes.html#changes-1-9-2"><span class="std std-ref">1.9.2 (2018-04-23)</span></a></li>
+</ul>
+</div>
+<div class="section" id="major-feature-additions">
+<h2>Major Feature Additions<a class="headerlink" href="#major-feature-additions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><p class="first">The file format used by all <code class="docutils literal notranslate"><span class="pre">p*</span></code> command line scripts such as <code class="docutils literal notranslate"><span class="pre">pserve</span></code> and <code class="docutils literal notranslate"><span class="pre">pshell</span></code>, as well as the <a class="reference internal" href="api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.bootstrap()</span></code></a> function is now replaceable thanks to a new dependency on <a class="reference external" href="https://docs.pylonsproject.org/projects/plaster/en/latest/">plaster</a>.</p>
+<p>For now, Pyramid is still shipping with integrated support for the PasteDeploy INI format by depending on the <a class="reference external" href="https://github.com/Pylons/plaster_pastedeploy">plaster_pastedeploy</a> binding library. This may change in the future so it is recommended for applications to start depending on the appropriate plaster binding for their needs.</p>
+<p>See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2985">https://github.com/Pylons/pyramid/pull/2985</a></p>
+</li>
+<li><p class="first">Added an <a class="reference internal" href="glossary.html#term-execution-policy"><span class="xref std std-term">execution policy</span></a> hook to the request pipeline. An execution policy has the ability to control creation and execution of the request objects before they enter the rest of the pipeline. This means for a single request environ the policy may create more than one request object.</p>
+<p>The execution policy can be replaced using the new <a class="reference internal" href="api/config.html#pyramid.config.Configurator.set_execution_policy" title="pyramid.config.Configurator.set_execution_policy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_execution_policy()</span></code></a> config directive.</p>
+<p>The first library to use this feature is <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-retry/en/latest/">pyramid_retry</a>.</p>
+<p>Pyramid's default <a class="reference internal" href="glossary.html#term-execution-policy"><span class="xref std std-term">execution policy</span></a> will attempt to handle and render uncaught exceptions. This is a subtle, but fundamental, change indicating that an <a class="reference internal" href="glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a> may expect to be called outside of the default <code class="docutils literal notranslate"><span class="pre">EXCVIEW</span></code> tween. There are various predicates available to assist in defining valid exception views for various parts of the pipeline. For example, <code class="docutils literal notranslate"><span class="pre">pyramid_tm</span></code> defines the <code class="docutils literal notranslate"><span class="pre">tm_active=True</span></code> predicate which can be applied to exception views that require access to the default transaction. In general this means that exception views may be expected to cover more possible error conditions, including when exceptions occur from tweens that are placed <strong>OVER</strong> the <code class="docutils literal notranslate"><span class="pre">EXCVIEW</span></code> tween. If necessary, when provided a <code class="docutils literal notranslate"><span class="pre">response</span></code> object, you may inspect  <code class="docutils literal notranslate"><span class="pre">request.exception</span></code> or <code class="docutils literal notranslate"><span class="pre">request.exc_info</span></code> to determine if the response was generated as the result of an exception.
+See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2964">https://github.com/Pylons/pyramid/pull/2964</a></p>
+</li>
+<li><p class="first">CSRF support has been refactored out of sessions and into its own independent API in the <a class="reference internal" href="api/csrf.html#module-pyramid.csrf" title="pyramid.csrf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.csrf</span></code></a> module. It supports a pluggable <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.ICSRFStoragePolicy" title="pyramid.interfaces.ICSRFStoragePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.ICSRFStoragePolicy</span></code></a> which can be used to define your own mechanism for generating and validating CSRF tokens. By default, Pyramid continues to use the <a class="reference internal" href="api/csrf.html#pyramid.csrf.LegacySessionCSRFStoragePolicy" title="pyramid.csrf.LegacySessionCSRFStoragePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.csrf.LegacySessionCSRFStoragePolicy</span></code></a> that uses the <code class="docutils literal notranslate"><span class="pre">request.session.get_csrf_token</span></code> and <code class="docutils literal notranslate"><span class="pre">request.session.new_csrf_token</span></code> APIs under the hood to preserve compatibility with older Pyramid applications. Two new policies are shipped as well, <a class="reference internal" href="api/csrf.html#pyramid.csrf.SessionCSRFStoragePolicy" title="pyramid.csrf.SessionCSRFStoragePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.csrf.SessionCSRFStoragePolicy</span></code></a> and <a class="reference internal" href="api/csrf.html#pyramid.csrf.CookieCSRFStoragePolicy" title="pyramid.csrf.CookieCSRFStoragePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.csrf.CookieCSRFStoragePolicy</span></code></a> which will store the CSRF tokens in the session and in a standalone cookie, respectively. The storage policy can be changed by using the new <a class="reference internal" href="api/config.html#pyramid.config.Configurator.set_csrf_storage_policy" title="pyramid.config.Configurator.set_csrf_storage_policy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_csrf_storage_policy()</span></code></a> config directive.</p>
+<p>CSRF tokens should be used via the new <a class="reference internal" href="api/csrf.html#pyramid.csrf.get_csrf_token" title="pyramid.csrf.get_csrf_token"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.csrf.get_csrf_token()</span></code></a>, <a class="reference internal" href="api/csrf.html#pyramid.csrf.new_csrf_token" title="pyramid.csrf.new_csrf_token"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.csrf.new_csrf_token()</span></code></a> and <a class="reference internal" href="api/csrf.html#pyramid.csrf.check_csrf_token" title="pyramid.csrf.check_csrf_token"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.csrf.check_csrf_token()</span></code></a> APIs in order to continue working if the storage policy is changed. Also, the <a class="reference internal" href="api/csrf.html#pyramid.csrf.get_csrf_token" title="pyramid.csrf.get_csrf_token"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.csrf.get_csrf_token()</span></code></a> function is now injected into templates to be used conveniently in UI code.</p>
+<p>See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2854">https://github.com/Pylons/pyramid/pull/2854</a> and <a class="reference external" href="https://github.com/Pylons/pyramid/pull/3019">https://github.com/Pylons/pyramid/pull/3019</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="minor-feature-additions">
+<h2>Minor Feature Additions<a class="headerlink" href="#minor-feature-additions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Support an <code class="docutils literal notranslate"><span class="pre">open_url</span></code> config setting in the <code class="docutils literal notranslate"><span class="pre">pserve</span></code> section of the config file. This url is used to open a web browser when <code class="docutils literal notranslate"><span class="pre">pserve</span> <span class="pre">--browser</span></code> is invoked. When this setting is unavailable the <code class="docutils literal notranslate"><span class="pre">pserve</span></code> script will attempt to guess the port the server is using from the <code class="docutils literal notranslate"><span class="pre">server:&lt;server_name&gt;</span></code> section of the config file but there is no requirement that the server is being run in this format so it may fail. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2984">https://github.com/Pylons/pyramid/pull/2984</a></li>
+<li>The <a class="reference internal" href="api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.config.Configurator</span></code></a> can now be used as a context manager which will automatically push/pop threadlocals (similar to <a class="reference internal" href="api/config.html#pyramid.config.Configurator.begin" title="pyramid.config.Configurator.begin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.begin()</span></code></a> and <a class="reference internal" href="api/config.html#pyramid.config.Configurator.end" title="pyramid.config.Configurator.end"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.end()</span></code></a>). It will also automatically perform a <a class="reference internal" href="api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.commit()</span></code></a> at the end and thus it is only recommended to be used at the top-level of your app. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2874">https://github.com/Pylons/pyramid/pull/2874</a></li>
+<li>The threadlocals are now available inside any function invoked via <a class="reference internal" href="api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a>. This means the only config-time code that cannot rely on threadlocals is code executed from non-actions inside the main. This can be alleviated by invoking <a class="reference internal" href="api/config.html#pyramid.config.Configurator.begin" title="pyramid.config.Configurator.begin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.begin()</span></code></a> and <a class="reference internal" href="api/config.html#pyramid.config.Configurator.end" title="pyramid.config.Configurator.end"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.end()</span></code></a> appropriately or using the new context manager feature of the configurator. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2989">https://github.com/Pylons/pyramid/pull/2989</a></li>
+<li>The threadlocals are now available inside exception views invoked via <a class="reference internal" href="api/request.html#pyramid.request.Request.invoke_exception_view" title="pyramid.request.Request.invoke_exception_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.invoke_exception_view()</span></code></a> even when the <code class="docutils literal notranslate"><span class="pre">request</span></code> argument is overridden. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/3060">https://github.com/Pylons/pyramid/pull/3060</a></li>
+<li>When unsupported predicates are supplied to <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a>, <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> and <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_subscriber" title="pyramid.config.Configurator.add_subscriber"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_subscriber()</span></code></a> a much more helpful error message is output with a guess as to which predicate was intended. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/3054">https://github.com/Pylons/pyramid/pull/3054</a></li>
+<li>Normalize the permission results to a proper class hierarchy. <a class="reference internal" href="api/security.html#pyramid.security.ACLAllowed" title="pyramid.security.ACLAllowed"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.security.ACLAllowed</span></code></a> is now a subclass of <a class="reference internal" href="api/security.html#pyramid.security.Allowed" title="pyramid.security.Allowed"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.security.Allowed</span></code></a> and <a class="reference internal" href="api/security.html#pyramid.security.ACLDenied" title="pyramid.security.ACLDenied"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.security.ACLDenied</span></code></a> is now a subclass of <a class="reference internal" href="api/security.html#pyramid.security.Denied" title="pyramid.security.Denied"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.security.Denied</span></code></a>. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/3084">https://github.com/Pylons/pyramid/pull/3084</a></li>
+<li>Add a <code class="docutils literal notranslate"><span class="pre">quote_via</span></code> argument to <code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.encode.urlencode()</span></code> to follow the stdlib's version and enable custom quoting functions. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/3088">https://github.com/Pylons/pyramid/pull/3088</a></li>
+<li>Support <cite>_query=None</cite> and <cite>_anchor=None</cite> in <a class="reference internal" href="api/request.html#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_url()</span></code></a> as well as <code class="docutils literal notranslate"><span class="pre">query=None</span></code> and <code class="docutils literal notranslate"><span class="pre">anchor=None</span></code> in <a class="reference internal" href="api/request.html#pyramid.request.Request.resource_url" title="pyramid.request.Request.resource_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.resource_url()</span></code></a>. Previously this would cause an <cite>?</cite> and a <cite>#</cite>, respectively, in the url with nothing after it. Now the unnecessary parts are dropped from the generated URL. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/3034">https://github.com/Pylons/pyramid/pull/3034</a></li>
+</ul>
+</div>
+<div class="section" id="deprecations">
+<h2>Deprecations<a class="headerlink" href="#deprecations" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><p class="first">Pyramid currently depends on <code class="docutils literal notranslate"><span class="pre">plaster_pastedeploy</span></code> to simplify the transition to <code class="docutils literal notranslate"><span class="pre">plaster</span></code> by maintaining integrated support for INI files. This dependency on <code class="docutils literal notranslate"><span class="pre">plaster_pastedeploy</span></code> should be considered subject to Pyramid's deprecation policy and may be removed in the future. Applications should depend on the appropriate plaster binding to satisfy their needs.</p>
+</li>
+<li><p class="first">Retrieving CSRF token from the session has been deprecated in favor of equivalent methods in the <a class="reference internal" href="api/csrf.html#module-pyramid.csrf" title="pyramid.csrf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.csrf</span></code></a> module. The CSRF methods (<code class="docutils literal notranslate"><span class="pre">ISession.get_csrf_token</span></code> and <code class="docutils literal notranslate"><span class="pre">ISession.new_csrf_token</span></code>) are no longer required on the <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.ISession" title="pyramid.interfaces.ISession"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.ISession</span></code></a> interface except when using the default <a class="reference internal" href="api/csrf.html#pyramid.csrf.LegacySessionCSRFStoragePolicy" title="pyramid.csrf.LegacySessionCSRFStoragePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.csrf.LegacySessionCSRFStoragePolicy</span></code></a>.</p>
+<p>Also, <code class="docutils literal notranslate"><span class="pre">pyramid.session.check_csrf_token</span></code> is now located at <a class="reference internal" href="api/csrf.html#pyramid.csrf.check_csrf_token" title="pyramid.csrf.check_csrf_token"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.csrf.check_csrf_token()</span></code></a> and <code class="docutils literal notranslate"><span class="pre">pyramid.session.check_csrf_origin</span></code> is moved to <a class="reference internal" href="api/csrf.html#pyramid.csrf.check_csrf_origin" title="pyramid.csrf.check_csrf_origin"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.csrf.check_csrf_origin()</span></code></a>.</p>
+<p>See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2854">https://github.com/Pylons/pyramid/pull/2854</a> and <a class="reference external" href="https://github.com/Pylons/pyramid/pull/3019">https://github.com/Pylons/pyramid/pull/3019</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="backward-incompatibilities">
+<h2>Backward Incompatibilities<a class="headerlink" href="#backward-incompatibilities" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">request.exception</span></code> and <code class="docutils literal notranslate"><span class="pre">request.exc_info</span></code> will only be set if the response was generated by the EXCVIEW tween. This is to avoid any confusion where a response was generated elsewhere in the pipeline and not in direct relation to the original exception. If anyone upstream wants to catch and render responses for exceptions they should set <code class="docutils literal notranslate"><span class="pre">request.exception</span></code> and <code class="docutils literal notranslate"><span class="pre">request.exc_info</span></code> themselves to indicate the exception that was squashed when generating the response.</p>
+<p>Similar behavior occurs with <a class="reference internal" href="api/request.html#pyramid.request.Request.invoke_exception_view" title="pyramid.request.Request.invoke_exception_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.invoke_exception_view()</span></code></a> in which the exception properties are set to reflect the exception if a response is successfully generated by the method.</p>
+<p>This is a very minor incompatibility. Most tweens right now would give priority to the raised exception and ignore <code class="docutils literal notranslate"><span class="pre">request.exception</span></code>. This change just improves and clarifies that bookkeeping by trying to be more clear about the relationship between the response and its squashed exception. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/3029">https://github.com/Pylons/pyramid/pull/3029</a> and <a class="reference external" href="https://github.com/Pylons/pyramid/pull/3031">https://github.com/Pylons/pyramid/pull/3031</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="documentation-enhancements">
+<h2>Documentation Enhancements<a class="headerlink" href="#documentation-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Added the <a class="reference internal" href="glossary.html#term-execution-policy"><span class="xref std std-term">execution policy</span></a> to the routing diagram in <a class="reference internal" href="narr/router.html#router-chapter"><span class="std std-ref">Request Processing</span></a>. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2993">https://github.com/Pylons/pyramid/pull/2993</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What's New in Pyramid 1.9</a><ul>
+<li><a class="reference internal" href="#bug-fix-releases">Bug Fix Releases</a></li>
+<li><a class="reference internal" href="#major-feature-additions">Major Feature Additions</a></li>
+<li><a class="reference internal" href="#minor-feature-additions">Minor Feature Additions</a></li>
+<li><a class="reference internal" href="#deprecations">Deprecations</a></li>
+<li><a class="reference internal" href="#backward-incompatibilities">Backward Incompatibilities</a></li>
+<li><a class="reference internal" href="#documentation-enhancements">Documentation Enhancements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="pscripts/pviews.html"
+                        title="前の章へ">pviews</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="whatsnew-1.8.html"
+                        title="次の章へ">What's New in Pyramid 1.8</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/whatsnew-1.9.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="whatsnew-1.8.html" title="What&#39;s New in Pyramid 1.8"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="pscripts/pviews.html" title="pviews"
+             >前へ</a> |</li>
+    	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 8月 04, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+    </div>
+  </body>
+</html>
