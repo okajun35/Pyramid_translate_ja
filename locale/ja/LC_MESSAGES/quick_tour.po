@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../quick_tour.rst:6
 msgid "Quick Tour of Pyramid"
-msgstr ""
+msgstr "Pyramidのクイックツアー(Quick Tour of Pyramid)"
 
 #: ../../quick_tour.rst:8
 msgid ""
@@ -29,6 +29,10 @@ msgid ""
 " Python web frameworks, or a pro in a hurry. For more detailed treatment "
 "of each topic, give the :ref:`quick_tutorial` a try."
 msgstr ""
+"Pyramidは小さなものから始まり大きなものに仕上げます。このPyramidのクイックツア"
+"ーは、PythonのWebフレームワークを初めて使う人とプロで急いでいる方たちに向けて"
+"Pyramidを評価したい人のためのものです。各トピックの詳細については、ピラミッド"
+"の :ref:`quick_tutorial` を試してみてください。"
 
 #: ../../quick_tour.rst:13
 msgid ""
@@ -38,10 +42,13 @@ msgid ""
 "you have downloaded the source code, you will find the tour in the same "
 "location."
 msgstr ""
+"このツアーでサンプルコードをカットアンドペーストしたい場合は、Pyramidのリポジ"
+"トリにあるソースコードを \"docs/quick_tour\" <https://github.com/Pylons/pyramid/>` "
+"ディレクトリで参照できます。ソースコードをダウンロードした場合は、同じ場所にクイックツアーがあります。"
 
 #: ../../quick_tour.rst:16
 msgid "Installation"
-msgstr ""
+msgstr "インストール(Installation)"
 
 #: ../../quick_tour.rst:18
 msgid ""
@@ -55,6 +62,15 @@ msgid ""
 "<https://packaging.python.org/en/latest/projects/#pip>`_, and `setuptools"
 " <https://packaging.python.org/en/latest/projects/#easy-install>`_."
 msgstr ""
+"標準のPython環境設定を済ませたら、Pyramidを使い始めるのは簡単です。残念ながら"
+"「標準」はPythonではあまり単純ではありません。このクイックツアーでは、"
+"<https://www.python.org/downloads/>`_, `venv "
+"<https://packaging.python.org/en/latest/projects/#venv>`_ (or `virtualenv"
+" は Python 2.7用 "
+"<https://packaging.python.org/en/latest/projects/#virtualenv>`_), `pip "
+"<https://packaging.python.org/en/latest/projects/#pip>`_, and `setuptools"
+" <https://packaging.python.org/en/latest/projects/#easy-install>`_."
+" を意味します。"
 
 #: ../../quick_tour.rst:26
 msgid ""
@@ -62,14 +78,16 @@ msgid ""
 " scripts, and packages installed in our virtual environment, we'll set an"
 " environment variable, too."
 msgstr ""
+"ちょっとしたタイピングをのぞいて仮想環境にインストールされたモジュール、スクリプト、"
+"パッケージを確実に使用するためには環境変数も設定します。"
 
 #: ../../quick_tour.rst:30
 msgid "As an example, for Python 3.6+ on Linux:"
-msgstr ""
+msgstr "例えばLinux環境のPyrthon3.6以降のバージョンでは以下のようになります:"
 
 #: ../../quick_tour.rst:43
 msgid "For Windows:"
-msgstr ""
+msgstr "Windowsでは:"
 
 #: ../../quick_tour.rst:56
 msgid ""
@@ -78,6 +96,9 @@ msgid ""
 "production support for Python 3 in October 2011.) Also for simplicity, "
 "the remaining examples will show only UNIX commands."
 msgstr ""
+"もちろんPyramidはこの「クイックツアー」の例と同様、Python2.7以降でも正しく動作します。"
+"簡単にするためにPython3を公開しています(Pyramidは2011年10月にPython3をサポートを"
+"開始しました)。例を簡単にするために残りの例ではUNIXコマンドのみを表示します。"
 
 #: ../../quick_tour.rst:61
 msgid ""
@@ -87,52 +108,67 @@ msgid ""
 "bin/activate, then pip <venv-bin-pip-vs-source-bin-activate>`, and "
 ":ref:`Installing Pyramid on a Windows System <installing_windows>`."
 msgstr ""
+":ref:`Quick Tutorial section on Requirements "
+"<qtut_requirements>`, :ref:`installing_unix`, :ref:`Before You Install "
+"<installing_chapter>`, :ref:`Why use $VENV/bin/pip instead of source "
+"bin/activate, then pip <venv-bin-pip-vs-source-bin-activate>`, そして "
+":ref:`Installing Pyramid on a Windows System <installing_windows>` を参照してください。"
 
 #: ../../quick_tour.rst:70
 msgid "Hello World"
-msgstr ""
+msgstr "ハローワールド(Hello World)"
 
 #: ../../quick_tour.rst:72
 msgid ""
 "Microframeworks have shown that learning starts best from a very small "
 "first step. Here's a tiny application in Pyramid:"
 msgstr ""
+"マイクロフレームワークスはとても小さな第一歩からの学習が最も効果的なスタート"
+"であることを示しています。Pyramidには小さなアプリケーションがあります："
 
 #: ../../quick_tour.rst:79
 msgid "This simple example is easy to run. Save this as ``app.py`` and run it:"
-msgstr ""
+msgstr "この簡単な例は簡単に実行できます。これを保存してapp.pyを実行します"
 
 #: ../../quick_tour.rst:85
 msgid ""
 "Next open http://localhost:6543/ in a browser, and you will see the "
 "``Hello World!`` message."
 msgstr ""
+"次に http://localhost:6543/ をブラウザで開くと「Hello World!」の"
+"メッセージが表示されます。"
 
 #: ../../quick_tour.rst:88
 msgid ""
 "New to Python web programming? If so, some lines in the module merit "
 "explanation:"
 msgstr ""
+"PythonWebプログラミングの新機能 ？ それならばモジュール内のいくつかの行に説明があります："
 
 #: ../../quick_tour.rst:91
 msgid ""
 "*Line 10*. ``if __name__ == '__main__':`` is Python's way of saying "
 "\"Start here when running from the command line\"."
 msgstr ""
+"*10行目* 「 ``if __name__ == '__main__':`` 」は Pythonが「コマンド"
+"ラインから実行される際はここからスタートします」。"
 
 #: ../../quick_tour.rst:94
 msgid ""
 "*Lines 11-13*. Use Pyramid's :term:`configurator` in a :term:`context "
 "manager` to connect :term:`view` code to a particular URL :term:`route`."
 msgstr ""
+"*Lines 11-13*  :term:`context manager` でPyramidの :term:`configurator` を"
+"使用して、 :term:`view` コードを特定のURL :term:`route` に接続します。"
 
 #: ../../quick_tour.rst:97
 msgid "*Lines 6-7*. Implement the view code that generates the :term:`response`."
-msgstr ""
+msgstr "*6から7行目* :term:`response` を生成するビューのコードを生成します。"
 
 #: ../../quick_tour.rst:99
 msgid "*Lines 14-16*. Publish a :term:`WSGI` app using an HTTP server."
-msgstr ""
+msgstr "*14行目から16行目* HTTPサーバを使用して  :term:`WSGI` アプリケーション"
+"を公開します。"
 
 #: ../../quick_tour.rst:101
 msgid ""
@@ -141,6 +177,9 @@ msgid ""
 "parts via :doc:`../narr/configuration` is a central idea in Pyramid, one "
 "that we will revisit regurlarly in this *Quick Tour*."
 msgstr ""
+"この例に示すように、 the :term:`configurator` はPyramidでの開発において中心"
+"的な役割を果たします。アプリケーション構成を使って疎結合 :doc:`../narr/configuration` から アプリケーシ"
+"ョンをビルドすることに関してはこのクイックツアーで再考する予定のピラミッドの中心的なアイデアです。"
 
 #: ../../quick_tour.rst:106
 msgid ""
@@ -148,10 +187,13 @@ msgid ""
 ":ref:`firstapp_chapter`, and :ref:`Todo List Application in One File "
 "<cookbook:single-file-tutorial>`."
 msgstr ""
+":ref:`Quick Tutorial Hello World <qtut_hello_world>`, "
+":ref:`firstapp_chapter`, と :ref:`Todo List Application in One File "
+"<cookbook:single-file-tutorial>` を参照してください。"
 
 #: ../../quick_tour.rst:113
 msgid "Handling web requests and responses"
-msgstr ""
+msgstr "Webリクエストとレスポンスの処理(Handling web requests and responses)"
 
 #: ../../quick_tour.rst:115
 msgid ""
@@ -159,6 +201,9 @@ msgid ""
 "critical part of a web application, web developers need a robust, mature "
 "set of software for web requests."
 msgstr ""
+"Web用に開発するとはWebレスポンスを処理することを意味します。"
+"これはWebアプリケーションの重要な部分であるため、Web開発者はWebレスポンスのため"
+"の堅牢で成熟したソフトウェアを必要とします。"
 
 #: ../../quick_tour.rst:119
 msgid ""
@@ -169,10 +214,16 @@ msgid ""
 "example above, Pyramid hands ``hello_world`` a ``request`` that is "
 ":ref:`based on WebOb <webob_chapter>`."
 msgstr ""
+"Pyramidは、PythonWeb開発の既存の世界（仮想環境、パッケージ、cookiecutters、"
+"Python3を最初に採用したものの1つなど）に常にうまく収まっています。"
+"ピラミッドは要求と応答の処理のために、よく評価されている :term:`WebOb` ライブ"
+"ラリに目を向けました。上記の例では、ピラミッドの手の　``request`` された"
+" ``hello_world`` は :ref:`based on WebOb <webob_chapter>` によります。"
+
 
 #: ../../quick_tour.rst:125
 msgid "Let's see some features of requests and responses in action:"
-msgstr ""
+msgstr "実際にリクエストとレスポンスのいくつかの機能を見てみましょう："
 
 #: ../../quick_tour.rst:131
 msgid ""
@@ -180,20 +231,27 @@ msgid ""
 "Also if you visited http://localhost:6543/?name=alice in a browser, the "
 "name is included in the body of the response:"
 msgstr ""
+"このPyramidのビューでは、request.url から訪問したURLを取得します。また、"
+"ブラウザで http://localhost:6543/？name = alice にアクセスした場合は"
+"その名前はレスポンスの本文に含まれます："
 
 #: ../../quick_tour.rst:139
 msgid "Finally we set the response's content type, and return the Response."
-msgstr ""
+msgstr "最後にレスポンスのコンテンツタイプを設定してレスポンスを返却します。"
 
 #: ../../quick_tour.rst:141
 msgid ""
 "See also: :ref:`Quick Tutorial Request and Response "
 "<qtut_request_response>` and :ref:`webob_chapter`."
 msgstr ""
+":ref:`Quick Tutorial Request and Response "
+"<qtut_request_response>` と :ref:`webob_chapter`"
+" を参照してください。"
+
 
 #: ../../quick_tour.rst:147
 msgid "Views"
-msgstr ""
+msgstr "ビュー(Views)"
 
 #: ../../quick_tour.rst:149
 msgid ""
@@ -201,26 +259,28 @@ msgid ""
 "Pyramid views are the primary way to accept web requests and return "
 "responses."
 msgstr ""
+"上記の例では、関数 ``hello_world`` は「ビュー」です。Pyramidのビューでは"
+"Webレスポンスを受け入れてリクエストを返す主要な方法があります。"
 
 #: ../../quick_tour.rst:152
 msgid "So far our examples place everything in one file:"
-msgstr ""
+msgstr "これまでの例ではすべてを1つのファイルに格納しています。"
 
 #: ../../quick_tour.rst:154
 msgid "the view function"
-msgstr ""
+msgstr "ビュー関数"
 
 #: ../../quick_tour.rst:156
 msgid "its registration with the configurator"
-msgstr ""
+msgstr "コンフィギュレーターへの登録"
 
 #: ../../quick_tour.rst:158
 msgid "the route to map it to an URL"
-msgstr ""
+msgstr "URLにマップするルート"
 
 #: ../../quick_tour.rst:160
 msgid "the WSGI application launcher"
-msgstr ""
+msgstr "WSGIアプリケーションランチャー"
 
 #: ../../quick_tour.rst:162
 msgid ""
@@ -228,10 +288,12 @@ msgid ""
 "``app.py`` to scan that module, looking for decorators that set up the "
 "views."
 msgstr ""
+"ビューを自分の  ``views.py`` モジュールに移動して"
+" ``app.py`` がそのモジュールをスキャンして、ビューを設定するデコレータを模索してみましょう。"
 
 #: ../../quick_tour.rst:165
 msgid "First our revised ``app.py``:"
-msgstr ""
+msgstr "最初に ``app.py``　のリバース:"
 
 #: ../../quick_tour.rst:171
 msgid ""
@@ -239,12 +301,18 @@ msgid ""
 "and their registrations (via decorators) are now in a module "
 "``views.py``, which is scanned via ``config.scan('views')``."
 msgstr ""
+"ルートを追加しましたがビューのコードも削除しました。ビューと現在の
+" ``config.scan('views')`` でスキャンされて"
+"モジュール ``views.py``　でレジスト"　"（デコレータを介して）されます。
+
 
 #: ../../quick_tour.rst:175
 msgid ""
 "We now have a ``views.py`` module that is focused on handling requests "
 "and responses:"
 msgstr ""
+"views.pyリクエストとレスポンスの処理に焦点を当てたモジュールが用意されました。"
+"
 
 #: ../../quick_tour.rst:182
 msgid ""
@@ -253,6 +321,11 @@ msgid ""
 "The ``hello_view`` (available at the URL ``/howdy``) has a link to the "
 "``redirect_view``, which issues a redirect to the final view."
 msgstr ""
+"我々は4つのビューを持っていてそれぞれが別のビューにつながっています。"
+"http://localhost:6543/ で起動した場合、あなたは次のビューへのリンク"
+"を持つレスポンスを得ます。 ``hello_view`` （URL　 ``/howdy``　で入手可能y）"
+" ``redirect_view`` へのリンクを持っていて、最終的なビューへのリダイレクトを発行します。"
+
 
 #: ../../quick_tour.rst:187
 msgid ""
@@ -264,12 +337,23 @@ msgid ""
 "Both approaches result in the same final configuration, thus usually it "
 "is simply a matter of taste."
 msgstr ""
+"前の方では ``config.add_view``  をビューを構成する方法の1つとして見てきました。"
+"このセクションでは ``@view_config`` をご紹介します。Pyramidの設定は前の例のような"
+"  ``config.add_view``  を :term:`imperative configuration` でサポートしています。"
+"Python :term:`decorator` がビューの上の行に配置される"
+" :term:`declarative configuration` を使用す"
+"ることもできます。どちらの方法も最終的には同じ構成になります。"
+"したがって、通常は単にテイストの問題です。"
 
 #: ../../quick_tour.rst:194
 msgid ""
 "See also: :ref:`Quick Tutorial Views <qtut_views>`, :doc:`../narr/views`,"
 " :doc:`../narr/viewconfig`, and :ref:`debugging_view_configuration`."
 msgstr ""
+":ref:`Quick Tutorial Views <qtut_views>`, :doc:`../narr/views`,"
+" :doc:`../narr/viewconfig`, と :ref:`debugging_view_configuration` "
+"を参照してください。"
+
 
 #: ../../quick_tour.rst:200
 msgid "Routing"
