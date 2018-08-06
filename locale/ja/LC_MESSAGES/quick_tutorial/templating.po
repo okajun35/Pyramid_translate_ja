@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../quick_tutorial/templating.rst:5
 msgid "08: HTML Generation With Templating"
-msgstr ""
+msgstr "08：テンプレートを使ったHTML生成(08: HTML Generation With Templating)"
 
 #: ../../quick_tutorial/templating.rst:7
 msgid ""
@@ -28,10 +28,13 @@ msgid ""
 "pass data into a templating system. In this step we look at the basics of"
 " using HTML templates in Pyramid."
 msgstr ""
+"ほとんどのWebフレームワークはプログラミングコードにHTMLを埋め込んでいません。"
+"代わりにデータをテンプレートシステムに渡します。このステップではPyramidでHTML"
+"テンプレートを使用する際の基本を見ていきます。
 
 #: ../../quick_tutorial/templating.rst:13
 msgid "Background"
-msgstr ""
+msgstr "背景(Background)"
 
 #: ../../quick_tutorial/templating.rst:15
 msgid ""
@@ -39,6 +42,8 @@ msgid ""
 "body with HTML. You usually won't embed an HTML string directly in "
 "Python, but instead will use a templating language."
 msgstr ""
+"ああ、私たちは独自の「レスポンス」を作成してレスポンスボディにHTMLを埋めこみ"
+"ました。通常はPythonに直接HTML文字列を埋め込むのではなく、テンプレート言語を使用します。"
 
 #: ../../quick_tutorial/templating.rst:19
 msgid ""
@@ -48,6 +53,10 @@ msgid ""
 "languages. As of Pyramid 1.5a2, Pyramid doesn't even bundle a template "
 "language!"
 msgstr ""
+"Pyramidは特定のデータベースシステムやフォームライブラリなどを強制しません。"
+"交換可能性を奨励します。これは幸運なことにテンプレートにも当てはまります。"
+"開発者はテンプレート言語についての強い見解を持っています。"
+"Pyramid1.5a2以降、Pyramidはテンプレート言語をバンドルしていません。"
 
 #: ../../quick_tutorial/templating.rst:24
 msgid ""
@@ -56,88 +65,99 @@ msgid ""
 "<https://github.com/Pylons/pyramid_chameleon>`_ to your project, then "
 "change your views to use templating."
 msgstr ""
+"しかしながら、テンプレート言語は Jinja2、Mako、Chameleonと強い結びつきがあります。"
+"このステップでは、`pyramid_chameleon <https://github.com/Pylons/pyramid_chameleon>`_ "
+"をプロジェクトに追加する方法を見たあとでテンプレートを使用するようにビューを変更します。"
 
 #: ../../quick_tutorial/templating.rst:31
 msgid "Objectives"
-msgstr ""
+msgstr "目標(Objectives)"
 
 #: ../../quick_tutorial/templating.rst:33
 msgid "Enable the ``pyramid_chameleon`` Pyramid add-on."
-msgstr ""
+msgstr "Pyramidアドオンの ``pyramid_chameleon`` を有効にします。"
 
 #: ../../quick_tutorial/templating.rst:35
 msgid "Generate HTML from template files."
-msgstr ""
+msgstr "テンプレートファイルからHTMLを生成します。"
 
 #: ../../quick_tutorial/templating.rst:37
 msgid "Connect the templates as \"renderers\" for view code."
-msgstr ""
+msgstr "テンプレートをビューコードの「レンダラー」として接続します。"
 
 #: ../../quick_tutorial/templating.rst:39
 msgid "Change the view code to simply return data."
-msgstr ""
+msgstr "シンプルなデータを返すようにビューコードを変更します。"
 
 #: ../../quick_tutorial/templating.rst:43
 msgid "Steps"
-msgstr ""
+msgstr "手順（Steps）"
 
 #: ../../quick_tutorial/templating.rst:45
 msgid ""
 "Let's begin by using the previous package as a starting point for a new "
 "project:"
 msgstr ""
+"前回のパッケージを新しいプロジェクトの出発点として使うことから始めましょう:"
 
 #: ../../quick_tutorial/templating.rst:52
 msgid ""
 "This step depends on ``pyramid_chameleon``, so add it as a dependency in "
 "``templating/setup.py``:"
 msgstr ""
+"この手順は ``pyramid_chameleon`` に依存するので、``templating/setup.py`` の"
+"依存関係として追加してください:"
 
 #: ../../quick_tutorial/templating.rst:58
 msgid "Now we can activate the development-mode distribution:"
 msgstr ""
+"これで、開発モードを有効にできます:"
 
 #: ../../quick_tutorial/templating.rst:64
 msgid ""
-"We need to connect ``pyramid_chameleon`` as a renderer by making a call "
+"We need to connectas a renderer by making a call "
 "in the setup of ``templating/tutorial/__init__.py``:"
 msgstr ""
+"以下 ``templating/tutorial/__init__.py`` の設定として"
+"呼び出してレンダラーとして接続する必要があります:"
 
 #: ../../quick_tutorial/templating.rst:70
 msgid "Our ``templating/tutorial/views.py`` no longer has HTML in it:"
-msgstr ""
+msgstr "``templating/tutorial/views.py`` はもはやHTMLを持っていません:"
 
 #: ../../quick_tutorial/templating.rst:75
 msgid "Instead we have ``templating/tutorial/home.pt`` as a template:"
-msgstr ""
+msgstr "代わりに ``templating/tutorial/home.pt`` をテンプレートとして持っています："
 
 #: ../../quick_tutorial/templating.rst:80
 msgid ""
 "For convenience, change ``templating/development.ini`` to reload "
 "templates automatically with ``pyramid.reload_templates``:"
 msgstr ""
+"便宜上 ``templating/development.ini`` テンプレートを"
+" ``pyramid.reload_templates`` で自動的にリロードするには、次のように変更します:"
 
 #: ../../quick_tutorial/templating.rst:86
 msgid "Our unit tests in ``templating/tutorial/tests.py`` can focus on data:"
-msgstr ""
+msgstr "``templating/tutorial/tests.py`` のユニットテストはデータに焦点を当てます："
 
 #: ../../quick_tutorial/templating.rst:91
 msgid "Now run the tests:"
-msgstr ""
+msgstr "今度はテストを実行します:"
 
 #: ../../quick_tutorial/templating.rst:99
 msgid "Run your Pyramid application with:"
-msgstr ""
+msgstr "Pyramidアプリケーションを以下のように実行します:"
 
 #: ../../quick_tutorial/templating.rst:105
 msgid ""
 "Open http://localhost:6543/ and http://localhost:6543/howdy in your "
 "browser."
-msgstr ""
+msgstr "ブラウザでhttp://localhost:6543/ と http://localhost:6543/howdy　を開いてください。"
 
 #: ../../quick_tutorial/templating.rst:109
 msgid "Analysis"
-msgstr ""
+msgstr "分析(Analysis)"
 
 #: ../../quick_tutorial/templating.rst:111
 msgid ""
@@ -147,16 +167,24 @@ msgid ""
 "supplied to our template. Note that we used the same template for both "
 "views."
 msgstr ""
+"良いように見えます。Pythonコードに焦点を当てています。"
+" ``@view_config`` デコレータは、テンプレートファイルを指す :term:`renderer` "
+"を指定します。ビューはシンプルにデータを返却してテンプレートに供給されます。"
+"両方のビューで同じテンプレートを使用したことに注意してください。"
 
 #: ../../quick_tutorial/templating.rst:116
 msgid ""
 "Note the effect on testing. We can focus on having a data-oriented "
 "contract with our view code."
 msgstr ""
+"テストへの影響に注目してください。ビューコードとデータ"
+"指向の契約を結ぶことに重点を置けます。"
 
 #: ../../quick_tutorial/templating.rst:119
 msgid ""
 ":ref:`templates_chapter`, :ref:`debugging_templates`, and "
 ":ref:`available_template_system_bindings`."
 msgstr ""
-
+"":ref:`templates_chapter`, :ref:`debugging_templates`, と "
+":ref:`available_template_system_bindings`"
+"
