@@ -20,17 +20,19 @@ msgstr ""
 
 #: ../../quick_tutorial/view_classes.rst:5
 msgid "09: Organizing Views With View Classes"
-msgstr ""
+msgstr "09：ビュークラスによるビューの整理(09: Organizing Views With View Classes)"
 
 #: ../../quick_tutorial/view_classes.rst:7
 msgid ""
 "Change our view functions to be methods on a view class, then move some "
 "declarations to the class level."
 msgstr ""
+"ビュー・ファンクションをビュー・クラスのメソッドに変更し、宣言のいくつかを"
+"クラスレベルに移動します。"
 
 #: ../../quick_tutorial/view_classes.rst:12
 msgid "Background"
-msgstr ""
+msgstr "背景(Background)"
 
 #: ../../quick_tutorial/view_classes.rst:14
 msgid ""
@@ -40,18 +42,22 @@ msgid ""
 "multiple operations. Grouping these views together as a :ref:`view class "
 "<class_as_view>` makes sense:"
 msgstr ""
+"これまでのビューは単純で独立した関数でした。多くの場合、ビューはお互いに関連して"
+"います。同じデータを表示または操作するさまざまな方法やまたは複数の操作を処理する"
+"REST APIで構成されている場合があります。これらのビューを"
+" :ref:`view class <class_as_view>` としてグループ化することは意味があります"
 
 #: ../../quick_tutorial/view_classes.rst:19
 msgid "Group views."
-msgstr ""
+msgstr "グループビュー。"
 
 #: ../../quick_tutorial/view_classes.rst:21
 msgid "Centralize some repetitive defaults."
-msgstr ""
+msgstr "反復的なデフォルトをまとめる。"
 
 #: ../../quick_tutorial/view_classes.rst:23
 msgid "Share some state and helpers."
-msgstr ""
+msgstr "ステートやヘルパーを共有する。"
 
 #: ../../quick_tutorial/view_classes.rst:25
 msgid ""
@@ -59,32 +65,34 @@ msgid ""
 "views to a view class. In a later tutorial step, we'll examine view "
 "classes in depth."
 msgstr ""
+"このステップでは既存のビューをビュー・クラスに変換するために必要最小限の変更を"
+"行います。後のチュートリアルのステップではビュークラスについて熟慮します。"
 
 #: ../../quick_tutorial/view_classes.rst:30
 msgid "Objectives"
-msgstr ""
+msgstr "目標(Objectives)"
 
 #: ../../quick_tutorial/view_classes.rst:32
 msgid "Group related views into a view class."
-msgstr ""
+msgstr "関連するビューをビュー・クラスにグループ化します。"
 
 #: ../../quick_tutorial/view_classes.rst:34
 msgid "Centralize configuration with class-level ``@view_defaults``."
-msgstr ""
+msgstr "クラスレベル ``@view_defaults`` で構成をまとめします。"
 
 #: ../../quick_tutorial/view_classes.rst:38
 msgid "Steps"
-msgstr ""
+msgstr "手順(Steps)"
 
 #: ../../quick_tutorial/view_classes.rst:40
 msgid "First we copy the results of the previous step:"
-msgstr ""
+msgstr "最初に前の手順の結果をコピーします:"
 
 #: ../../quick_tutorial/view_classes.rst:47
 msgid ""
 "Our ``view_classes/tutorial/views.py`` now has a view class with our two "
 "views:"
-msgstr ""
+msgstr "``view_classes/tutorial/views.py`` のビュークラスにはは2つのビューがあります:"
 
 #: ../../quick_tutorial/view_classes.rst:53
 msgid ""
@@ -92,24 +100,27 @@ msgid ""
 "modify them to import the view class, and make an instance before getting"
 " a response:"
 msgstr ""
+"``view_classes/tutorial/tests.py`` のユニットテストはy実行されないので、"
+"ビュークラスをインポートするように変更してレスポンスを取得する前にインスタンスを作成しましょう:"
 
 #: ../../quick_tutorial/view_classes.rst:60
 msgid "Now run the tests:"
-msgstr ""
+msgstr "テストを実行します:"
 
 #: ../../quick_tutorial/view_classes.rst:69
 msgid "Run your Pyramid application with:"
-msgstr ""
+msgstr "Pyramidアプリケーションを以下のように実行します:"
 
 #: ../../quick_tutorial/view_classes.rst:75
 msgid ""
 "Open http://localhost:6543/ and http://localhost:6543/howdy in your "
 "browser."
-msgstr ""
+msgstr "ブラウザで http://localhost:6543/ と http://localhost:6543/howdy"
+" を開きます。"
 
 #: ../../quick_tutorial/view_classes.rst:79
 msgid "Analysis"
-msgstr ""
+msgstr "分析(Analysis)"
 
 #: ../../quick_tutorial/view_classes.rst:81
 msgid ""
@@ -117,6 +128,9 @@ msgid ""
 "functionality. We simply changed the view functions to methods on a view "
 "class, then updated the tests."
 msgstr ""
+"ビュークラスへの移行を簡単にしたかったので新しい機能は導入してません。"
+"ビュー関数をビュークラスのメソッドに変更してテストを更新しました。"
+
 
 #: ../../quick_tutorial/view_classes.rst:85
 msgid ""
@@ -125,6 +139,10 @@ msgid ""
 "Since the two views shared the same template, we could move that to a "
 "``@view_defaults`` decorator at the class level."
 msgstr ""
+" ``TutorialViews`` ビュークラスでは、2つのビュークラスが共通のクラスの"
+"メソッドとして論理的にグループ化されていることがわかります。"
+"2つのビューは同じテンプレートを共有しているため、"
+" ``@view_defaults``  デコレータのクラスレベルに移動できます。"
 
 #: ../../quick_tutorial/view_classes.rst:90
 msgid ""
@@ -133,6 +151,9 @@ msgid ""
 "class with the dummy request first, then calling the view method being "
 "tested."
 msgstr ""
+"テストを変更する必要がありました。明らかにビュークラスをインポートする必要が"
+"ありました。しかしながら最初にダミーリクエストでビュークラスをインスタンス化"
+"して、次にテストされているビューメソッドを呼び出すテストでパターンを見れます。"
 
 #: ../../quick_tutorial/view_classes.rst:94
 msgid ":ref:`class_as_view`"
