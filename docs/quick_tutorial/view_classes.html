@@ -244,10 +244,7 @@ $ <span class="nv">$VENV</span>/bin/pip install -e .
 <div class="section" id="analysis">
 <h2>分析(Analysis)<a class="headerlink" href="#analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ビュークラスへの移行を簡単にしたかったので新しい機能は導入してません。ビュー関数をビュークラスのメソッドに変更してテストを更新しました。</p>
-<p>In our <code class="docutils literal notranslate"><span class="pre">TutorialViews</span></code> view class, you can see that our two view classes are
-logically grouped together as methods on a common class. Since the two views
-shared the same template, we could move that to a <code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code> decorator
-at the class level.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TutorialViews</span></code> ビュークラスでは、2つのビュークラスが共通のクラスのメソッドとして論理的にグループ化されていることがわかります。2つのビューは同じテンプレートを共有しているため、 <code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code>  デコレータのクラスレベルに移動できます。</p>
 <p>テストを変更する必要がありました。明らかにビュークラスをインポートする必要がありました。しかしながら最初にダミーリクエストでビュークラスをインスタンス化して、次にテストされているビューメソッドを呼び出すテストでパターンを見れます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
