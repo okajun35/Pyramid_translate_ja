@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>10: Handling Web Requests and Responses &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>10：Webリクエストとレスポンスの処理(10: Handling Web Requests and Responses) &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="../_static/documentation_options.js"></script>
@@ -69,38 +69,31 @@
           <div class="body" role="main">
             
   <div class="section" id="handling-web-requests-and-responses">
-<span id="qtut-request-response"></span><h1>10: Handling Web Requests and Responses<a class="headerlink" href="#handling-web-requests-and-responses" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Web applications handle incoming requests and return outgoing responses.
-Pyramid makes working with requests and responses convenient and reliable.</p>
+<span id="qtut-request-response"></span><h1>10：Webリクエストとレスポンスの処理(10: Handling Web Requests and Responses)<a class="headerlink" href="#handling-web-requests-and-responses" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Webアプリケーションは受信したリクエストを処理してレスポンスを返します。Pyramidはリクエストとレスポンスを便利で信頼できるものにします</p>
 <div class="section" id="objectives">
-<h2>Objectives<a class="headerlink" href="#objectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>目的(Objectives)<a class="headerlink" href="#objectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>Learn the background on Pyramid's choices for requests and responses.</li>
-<li>Grab data out of the request.</li>
-<li>Change information in the response headers.</li>
+<li>Pyramidnのリクエストリクエストとレスポンスの選択についての背景を学びます。</li>
+<li>リクエストからデータを取得します。</li>
+<li>レスポンスヘッダーの情報を変更します。</li>
 </ul>
 </div>
 <div class="section" id="background">
-<h2>Background<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Developing for the web means processing web requests. As this is a critical
-part of a web application, web developers need a robust, mature set of software
-for web requests and returning web responses.</p>
-<p>Pyramid has always fit nicely into the existing world of Python web development
-(virtual environments, packaging, cookiecutters, first to embrace Python 3, and
-so on). Pyramid turned to the well-regarded <a class="reference internal" href="../glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> Python library for
-request and response handling. In our example above, Pyramid hands
-<code class="docutils literal notranslate"><span class="pre">hello_world</span></code> a <code class="docutils literal notranslate"><span class="pre">request</span></code> that is <a class="reference internal" href="../narr/webob.html#webob-chapter"><span class="std std-ref">based on WebOb</span></a>.</p>
+<h2>背景(Background)<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Web開発とはWebのリクエストを処理することをです。これはWebアプリケーションの重要な部分であるため、Web開発者はWebリクエストとWebレスポンスを返すための堅牢で成熟したソフトウェアセットが必要です。</p>
+<p>PyramidはPythonのWeb開発の世界（仮想環境、パッケージジング、Cookiecutter、Python3系を最初に採用するなど）に上手に適合しています。Pyramidはリクエストとレスポンスの処理のために評価がよいPythonライブラリの <a class="reference internal" href="../glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> に目を向けました。前回の例の <code class="docutils literal notranslate"><span class="pre">request</span></code> の <code class="docutils literal notranslate"><span class="pre">hello_world</span></code>　についてはPyramidの <a class="reference internal" href="../narr/webob.html#webob-chapter"><span class="std std-ref">based on WebOb</span></a> に基づきます。</p>
 </div>
 <div class="section" id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>手順(Steps)<a class="headerlink" href="#steps" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">First we copy the results of the <code class="docutils literal notranslate"><span class="pre">view_classes</span></code> step:</p>
+<li><p class="first">最初に、<code class="docutils literal notranslate"><span class="pre">view_classes</span></code> での結果をコピーします:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ..<span class="p">;</span> cp -r view_classes request_response<span class="p">;</span> <span class="nb">cd</span> request_response
 $ <span class="nv">$VENV</span>/bin/pip install -e .
 </pre></div>
 </div>
 </li>
-<li><p class="first">Simplify the routes in <code class="docutils literal notranslate"><span class="pre">request_response/tutorial/__init__.py</span></code>:</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">request_response/tutorial/__init__.py</span></code> でルートを簡略化します:</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -121,7 +114,7 @@ $ <span class="nv">$VENV</span>/bin/pip install -e .
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">We only need one view in <code class="docutils literal notranslate"><span class="pre">request_response/tutorial/views.py</span></code>:</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">request_response/tutorial/views.py</span></code> のビューが必要です:</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -168,7 +161,7 @@ $ <span class="nv">$VENV</span>/bin/pip install -e .
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Update the tests in <code class="docutils literal notranslate"><span class="pre">request_response/tutorial/tests.py</span></code>:</p>
+<li><p class="first"><cite>request_response/tutorial/tests.py`</cite> のテストを更新します:</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -279,45 +272,38 @@ $ <span class="nv">$VENV</span>/bin/pip install -e .
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Now run the tests:</p>
+<li><p class="first">テストを実行します:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test tutorial/tests.py -q
 .....
 <span class="m">5</span> passed in <span class="m">0</span>.30 seconds
 </pre></div>
 </div>
 </li>
-<li><p class="first">Run your Pyramid application with:</p>
+<li><p class="first">Pyramidアプリケーションを以下のように実行します:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini --reload
 </pre></div>
 </div>
 </li>
-<li><p class="first">Open <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> in your browser. You will be redirected to
-<a class="reference external" href="http://localhost:6543/plain">http://localhost:6543/plain</a>.</p>
+<li><p class="first">ブラウザで <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> を開きます。 <a class="reference external" href="http://localhost:6543/plain">http://localhost:6543/plain</a> にリダイレクトされます。</p>
 </li>
-<li><p class="first">Open <a class="reference external" href="http://localhost:6543/plain?name=alice">http://localhost:6543/plain?name=alice</a> in your browser.</p>
+<li><p class="first">ブラウザで <a class="reference external" href="http://localhost:6543/plain?name=alice">http://localhost:6543/plain?name=alice</a> を開きます。</p>
 </li>
 </ol>
 </div>
 <div class="section" id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In this view class, we have two routes and two views, with the first leading to
-the second by an HTTP redirect. Pyramid can <a class="reference internal" href="../narr/views.html#http-redirect"><span class="std std-ref">generate redirects</span></a> by returning a special object from a view or raising a special
-exception.</p>
-<p>In this Pyramid view, we get the URL being visited from <code class="docutils literal notranslate"><span class="pre">request.url</span></code>. Also,
-if you visited <a class="reference external" href="http://localhost:6543/plain?name=alice">http://localhost:6543/plain?name=alice</a>, the name is included in
-the body of the response:</p>
+<h2>分析(Analysis)<a class="headerlink" href="#analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>今回のビュークラスでは2つのルートと2つのビューがあり、最初の方はHTTPリダイレクトで2番目のビューにつながります。Pyramidはビューから特別なオブジェクトを返すか、特別な例外を発生させることによって、 <a class="reference internal" href="../narr/views.html#http-redirect"><span class="std std-ref">generate redirects</span></a> を生成できます。</p>
+<p>今回のPyramidのビューは、<code class="docutils literal notranslate"><span class="pre">request.url</span></code>　からアクセスしたURLを取得します。また、<a class="reference external" href="http://localhost:6543/plain?name=alice">http://localhost:6543/plain?name=alice</a> にアクセスした場合は、nameはレスポンスボディに含まれます:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>URL http://localhost:6543/plain?name=alice with name: alice
 </pre></div>
 </div>
-<p>Finally, we set the response's content type and body, then return the response.</p>
-<p>We updated the unit and functional tests to prove that our code does the
-redirection, but also handles sending and not sending <code class="docutils literal notranslate"><span class="pre">/plain?name</span></code>.</p>
+<p>最後にレスポンスのコンテンツタイプとボディを設定してレスポンスを返します。</p>
+<p>ユニットと機能テストを更新して、コードがリダイレクトを行うことを証明しましたが、 /plain?name は送信した/されなかったのでしょうか？</p>
 </div>
 <div class="section" id="extra-credit">
-<h2>Extra credit<a class="headerlink" href="#extra-credit" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>エクストラクレジット(Extra credit)<a class="headerlink" href="#extra-credit" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="arabic simple">
-<li>Could we also <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">HTTPFound(location='/plain')</span></code> instead of returning
-it?  If so, what's the difference?</li>
+<li>ルーティングを返すのではなく <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">HTTPFound(location='/plain')</span></code> でもできますか？もしそうなら、違いは何ですか？</li>
 </ol>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
@@ -335,12 +321,12 @@ it?  If so, what's the difference?</li>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">10: Handling Web Requests and Responses</a><ul>
-<li><a class="reference internal" href="#objectives">Objectives</a></li>
-<li><a class="reference internal" href="#background">Background</a></li>
-<li><a class="reference internal" href="#steps">Steps</a></li>
-<li><a class="reference internal" href="#analysis">Analysis</a></li>
-<li><a class="reference internal" href="#extra-credit">Extra credit</a></li>
+<li><a class="reference internal" href="#">10：Webリクエストとレスポンスの処理(10: Handling Web Requests and Responses)</a><ul>
+<li><a class="reference internal" href="#objectives">目的(Objectives)</a></li>
+<li><a class="reference internal" href="#background">背景(Background)</a></li>
+<li><a class="reference internal" href="#steps">手順(Steps)</a></li>
+<li><a class="reference internal" href="#analysis">分析(Analysis)</a></li>
+<li><a class="reference internal" href="#extra-credit">エクストラクレジット(Extra credit)</a></li>
 </ul>
 </li>
 </ul>
@@ -395,7 +381,7 @@ it?  If so, what's the difference?</li>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 07, 2018
+      最終更新: 8月 09, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
     </div>
   </body>
