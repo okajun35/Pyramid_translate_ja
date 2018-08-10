@@ -20,17 +20,19 @@ msgstr ""
 
 #: ../../quick_tutorial/routing.rst:5
 msgid "11: Dispatching URLs To Views With Routing"
-msgstr ""
+msgstr "11：ルーティングによるビューへのURLのディスパッチ(11: Dispatching URLs To Views With Routing)"
 
 #: ../../quick_tutorial/routing.rst:7
 msgid ""
 "Routing matches incoming URL patterns to view code. Pyramid's routing has"
 " a number of useful features."
 msgstr ""
+"ルーティングは受信したURLパターンをビューコードに一致させます。Pyramidの"
+"ルーティングには多くの便利な機能があります。"
 
 #: ../../quick_tutorial/routing.rst:12
 msgid "Background"
-msgstr ""
+msgstr "背景(Background)"
 
 #: ../../quick_tutorial/routing.rst:14
 msgid ""
@@ -38,20 +40,25 @@ msgid ""
 "saw some Pyramid machinery for requests and views. Let's look at features"
 " that help in routing."
 msgstr ""
+"Webアプリケーションの作成は、通常は洗練されたURL設計を意味します。"
+"私たちはリクエストとビューのためにPyramidの機能のいくつかを見ただけです。"
+"ルーティングに役立つ機能を見てみましょう。"
 
 #: ../../quick_tutorial/routing.rst:18
 msgid "Previously we saw the basics of routing URLs to views in Pyramid."
-msgstr ""
+msgstr "前回はPyramidのビューへのURLのルーティングの基本を見ていました。"
 
 #: ../../quick_tutorial/routing.rst:20
 msgid ""
 "Your project's \"setup\" code registers a route name to be used when "
 "matching part of the URL"
 msgstr ""
+"プロジェクトの「設定」コードはURLの一部と一致するときに使用されるルート"
+"名を登録します"
 
 #: ../../quick_tutorial/routing.rst:23
 msgid "Elsewhere a view is configured to be called for that route name."
-msgstr ""
+msgstr "そのルート名に対してビューが呼び出されるように設定されています。"
 
 #: ../../quick_tutorial/routing.rst:27
 msgid ""
@@ -65,64 +72,77 @@ msgid ""
 "<http://static.repoze.org/casts/videotags.html>`_ if you're interested in"
 " doing so."
 msgstr ""
+"なぜ2回設定するのですか？他のPythonWebフレームワークを使用すると、"
+"ルートを作成して1つのステップでビューに関連付けできます。"
+":ref:`routes_need_ordering` に示すように 、"
+"複数のルートが同じURLパターンに一致する可能性があります。"
+"推測を支援する方法を提供するのではなくPyramidでは順序を明示できます。"
+"Pyramidはこの問題を回避するための設備も提供しています。"
+"ピラミッドで暗黙のルート順序を使用するシステムを構築することは比較的簡単です。"
+"暗黙のルートに興味があるなら、`The Groundhog series of screencasts "
+"<http://static.repoze.org/casts/videotags.html>`_ 　を見てください。"
+
 
 #: ../../quick_tutorial/routing.rst:39
 msgid "Objectives"
-msgstr ""
+msgstr "目的(Objectives)"
 
 #: ../../quick_tutorial/routing.rst:41
 msgid "Define a route that extracts part of the URL into a Python dictionary."
-msgstr ""
+msgstr "URLの一部をPythonの辞書型に抽出するルートを定義します。"
 
 #: ../../quick_tutorial/routing.rst:43
 msgid "Use that dictionary data in a view."
-msgstr ""
+msgstr "辞書型のデータをビューで使用します。"
 
 #: ../../quick_tutorial/routing.rst:47
 msgid "Steps"
-msgstr ""
+msgstr "手順(steps)"
 
 #: ../../quick_tutorial/routing.rst:49
 msgid "First we copy the results of the ``view_classes`` step:"
-msgstr ""
+msgstr "最初に ``view_classes`` の手順の結果をコピーします。"
 
 #: ../../quick_tutorial/routing.rst:56
 msgid ""
-"Our ``routing/tutorial/__init__.py`` needs a route with a replacement "
+"Our  ``view_classes`` needs a route with a replacement "
 "pattern:"
 msgstr ""
+" ``view_classes`` はルートの置換パターンを必要とします:"
 
 #: ../../quick_tutorial/routing.rst:62
 msgid "We just need one view in ``routing/tutorial/views.py``:"
 msgstr ""
+"``routing/tutorial/views.py`` の中でただ一つのビューしか必要としません:"
 
 #: ../../quick_tutorial/routing.rst:67
 msgid "We just need one view in ``routing/tutorial/home.pt``:"
 msgstr ""
+"``routing/tutorial/home.pt`` の中でただ一つのビューしか必要としません:"
 
 #: ../../quick_tutorial/routing.rst:73
 msgid "Update ``routing/tutorial/tests.py``:"
-msgstr ""
+msgstr "``routing/tutorial/tests.py`` を更新します:"
 
 #: ../../quick_tutorial/routing.rst:78
 msgid "Now run the tests:"
-msgstr ""
+msgstr "テスト実行します:"
 
 #: ../../quick_tutorial/routing.rst:86
 msgid "Run your Pyramid application with:"
-msgstr ""
+msgstr "Pyramidアプリケーションを以下のように実行します:"
 
 #: ../../quick_tutorial/routing.rst:92
 msgid "Open http://localhost:6543/howdy/amy/smith in your browser."
-msgstr ""
+msgstr "ブラウザで　http://localhost:6543/howdy/amy/smith　を開きます。"
 
 #: ../../quick_tutorial/routing.rst:96
 msgid "Analysis"
-msgstr ""
+msgstr "分析(Analysis)"
 
 #: ../../quick_tutorial/routing.rst:98
 msgid "In ``__init__.py`` we see an important change in our route declaration:"
-msgstr ""
+msgstr "``__init__.py`` ではルートの宣言での重要な変更を参照してください:"
 
 #: ../../quick_tutorial/routing.rst:104
 msgid ""
@@ -131,6 +151,9 @@ msgid ""
 "will assign ``amy`` to ``first`` and ``smith`` to ``last``. We can then "
 "use this data in our view:"
 msgstr ""
+"これにより、 :term:`configurator` に URLに「置換パターン」があることが伝えられます。"
+"`amy`` が``first`` に ``smith`` が ``last`` に割り当てられてURLが"
+" `/howdy/amy/smith` になります。このデータをビューで使用できます。"
 
 #: ../../quick_tutorial/routing.rst:113
 msgid ""
@@ -139,16 +162,20 @@ msgid ""
 "This information can then be used anywhere in Pyramid that has access to "
 "the request."
 msgstr ""
+"``request.matchdict`` 　は　ルート宣言の 「置換パターン」と一致する"
+"URLからの値を含みます。この情報はPyramid内のリクエストにアクセスできる箇所"
+"のどこでも使用できます。"
 
 #: ../../quick_tutorial/routing.rst:118
 msgid "Extra credit"
-msgstr ""
+msgstr "エクストラクレジット(Extra credit)"
 
 #: ../../quick_tutorial/routing.rst:120
 msgid ""
 "What happens if you to go the URL http://localhost:6543/howdy? Is this "
 "the result that you expected?"
 msgstr ""
+"http://localhost:6543/howdy というURLに行くとどうなりますか？これは期待した結果でしょうか？"
 
 #: ../../quick_tutorial/routing.rst:123
 msgid ""
