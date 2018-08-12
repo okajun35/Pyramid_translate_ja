@@ -20,21 +20,23 @@ msgstr ""
 
 #: ../../quick_tutorial/more_view_classes.rst:5
 msgid "15: More With View Classes"
-msgstr ""
+msgstr "15: View Classesの詳細(15: More With View Classes)"
 
 #: ../../quick_tutorial/more_view_classes.rst:7
 msgid "Group views into a class, sharing configuration, state, and logic."
-msgstr ""
+msgstr "ビューをクラスにグループ化し、構成、状態、およびロジックを共有します。"
 
 #: ../../quick_tutorial/more_view_classes.rst:11
 msgid "Background"
-msgstr ""
+msgstr "背景(Background)"
 
 #: ../../quick_tutorial/more_view_classes.rst:13
 msgid ""
 "As part of its mission to help build more ambitious web applications, "
 "Pyramid provides many more features for views and view classes."
 msgstr ""
+"より挑戦的なWebアプリケーションの構築を支援するという使命の一環として、"
+"Pyramidではビューやビュークラスにさらに多くの機能を提供しています。"
 
 #: ../../quick_tutorial/more_view_classes.rst:16
 msgid ""
@@ -44,6 +46,10 @@ msgid ""
 "``@view_config`` to register the class methods with the "
 ":term:`configurator` as a view."
 msgstr ""
+"PyramidのドキュメントではビューをPythonの「呼び出し可能」として説明しています。"
+"この呼び出し可能関数は、関数、aを持つオブジェクト ``__call__`` 、またはPythonクラスです。"
+"この最後のケースで``@view_config`` はクラスのメソッドを装飾して"
+"して、 :term:`configurator` をビューとしてクラスメソッドを登録できます。"
 
 #: ../../quick_tutorial/more_view_classes.rst:21
 msgid ""
@@ -52,18 +58,23 @@ msgid ""
 "or a REST API that handles multiple operations. Grouping these together "
 "as a :ref:`view class <class_as_view>` makes sense:"
 msgstr ""
+"当初はビューは単純で自由な関数でした。多くの場合、同じデータを"
+"表示または操作するさまざまな方法や複数の操作を処理するREST APIなど、"
+"さまざまなビューが関連しています。"
+"これらをまとめて :ref:`view class <class_as_view>` としてまとめると意味があります。"
+
 
 #: ../../quick_tutorial/more_view_classes.rst:26
 msgid "Group views."
-msgstr ""
+msgstr "グループビュー。"
 
 #: ../../quick_tutorial/more_view_classes.rst:28
 msgid "Centralize some repetitive defaults."
-msgstr ""
+msgstr "いくつかの繰り返しのデフォルトを一元化する。"
 
 #: ../../quick_tutorial/more_view_classes.rst:30
 msgid "Share some state and helpers."
-msgstr ""
+msgstr "ステートやヘルパーを共有します。"
 
 #: ../../quick_tutorial/more_view_classes.rst:32
 msgid ""
@@ -72,90 +83,108 @@ msgid ""
 " as the request method, the form parameters, and so on. These predicates "
 "provide many axes of flexibility."
 msgstr ""
+"Pyramidビューにはリクエストメソッド、フォームパラメータなどの要素に基づいて、"
+"リクエストに一致するビューを決定する "
+":ref:`view predicates <view_configuration_parameters>` があります。"
+"これらのpredicatesは多くの柔軟性の軸を提供します。"
 
 #: ../../quick_tutorial/more_view_classes.rst:37
 msgid ""
 "The following shows a simple example with four operations: view a home "
 "page which leads to a form, save a change, and press the delete button."
 msgstr ""
+"次の4つの操作の簡単な例を示します。フォームにつながるホームページを表示して、"
+"変更を保存して削除ボタンを押します。"
 
 #: ../../quick_tutorial/more_view_classes.rst:42
 msgid "Objectives"
-msgstr ""
+msgstr "目的(Objectives)"
 
 #: ../../quick_tutorial/more_view_classes.rst:44
 msgid "Group related views into a view class."
-msgstr ""
+msgstr "関連するビューをビュークラスにグループ化します。"
 
 #: ../../quick_tutorial/more_view_classes.rst:46
 msgid "Centralize configuration with class-level ``@view_defaults``."
-msgstr ""
+msgstr "クラスレベル ``@view_defaults`` で構成を一元化します。"
 
 #: ../../quick_tutorial/more_view_classes.rst:48
 msgid "Dispatch one route/URL to multiple views based on request data."
-msgstr ""
+msgstr "リクエストデータに基づいて、1つのルート/URLを複数のビューにディスパッチします。"
 
 #: ../../quick_tutorial/more_view_classes.rst:50
 msgid "Share states and logic between views and templates via the view class."
-msgstr ""
+msgstr "ビュークラスをかいしてビューとテンプレート間の状態とロジックを共有します。"
 
 #: ../../quick_tutorial/more_view_classes.rst:54
 msgid "Steps"
-msgstr ""
+msgstr "手順(Steps)"
 
 #: ../../quick_tutorial/more_view_classes.rst:56
 msgid "First we copy the results of the previous step:"
-msgstr ""
+msgstr "最初に前の手順の結果をコピーします:"
 
 #: ../../quick_tutorial/more_view_classes.rst:63
 msgid ""
 "Our route in ``more_view_classes/tutorial/__init__.py`` needs some "
 "replacement patterns:"
 msgstr ""
+"``more_view_classes/tutorial/__init__.py`` のルートにはいく"
+"つかの置換パターンが必要です:"
 
 #: ../../quick_tutorial/more_view_classes.rst:69
 msgid ""
 "Our ``more_view_classes/tutorial/views.py`` now has a view class with "
 "several views:"
 msgstr ""
+"``more_view_classes/tutorial/views.py`` にはいくつかのビューを持つビュー"
+"クラスが追加されました:"
 
 #: ../../quick_tutorial/more_view_classes.rst:75
 msgid ""
 "Our primary view needs a template at "
 "``more_view_classes/tutorial/home.pt``:"
 msgstr ""
+"メインビューにはテンプレート ``more_view_classes/tutorial/home.pt`` が必要です："
+
 
 #: ../../quick_tutorial/more_view_classes.rst:80
 msgid ""
 "Ditto for our other view from the previous section at "
 "``more_view_classes/tutorial/hello.pt``:"
 msgstr ""
+"``more_view_classes/tutorial/hello.pt`` の前のセクションの他のビューについては:"
 
 #: ../../quick_tutorial/more_view_classes.rst:86
 msgid ""
 "We have an edit view that also needs a template at "
 "``more_view_classes/tutorial/edit.pt``:"
 msgstr ""
+"編集ビューもあります。このビューにはテンプレート "
+"``more_view_classes/tutorial/edit.pt`` が必要です:"
 
 #: ../../quick_tutorial/more_view_classes.rst:92
 msgid ""
 "And finally the delete view's template at "
 "``more_view_classes/tutorial/delete.pt``:"
 msgstr ""
+"最後に、ビューのテンプレート "
+"``more_view_classes/tutorial/delete.pt`` を削除します:"
 
 #: ../../quick_tutorial/more_view_classes.rst:98
 msgid ""
 "Our tests in ``more_view_classes/tutorial/tests.py`` fail, so let's "
 "modify them:"
 msgstr ""
+"``more_view_classes/tutorial/tests.py``　のテストが失敗したので、修正しましょう:"
 
 #: ../../quick_tutorial/more_view_classes.rst:104
 msgid "Now run the tests:"
-msgstr ""
+msgstr "テストを実行します:"
 
 #: ../../quick_tutorial/more_view_classes.rst:112
 msgid "Run your Pyramid application with:"
-msgstr ""
+msgstr "Pyramidアプリケーションを以下のように実行します:"
 
 #: ../../quick_tutorial/more_view_classes.rst:118
 msgid ""
@@ -163,22 +192,28 @@ msgid ""
 "``Save`` and ``Delete`` buttons, and watch the output in the console "
 "window."
 msgstr ""
+"ブラウザで http://localhost:6543/howdy/jane/doe　を開いてみます。"
+"「Save」ボタンと「Delete」ボタンをクリックしてコンソールウィンドウで"
+"出力を確認します。"
 
 #: ../../quick_tutorial/more_view_classes.rst:123
 msgid "Analysis"
-msgstr ""
+msgstr "分析(Analysis)"
 
 #: ../../quick_tutorial/more_view_classes.rst:125
 msgid ""
 "As you can see, the four views are logically grouped together. "
 "Specifically:"
 msgstr ""
+"ご覧のとおり4つのビューは論理的にグループ化されています。具体的には以下の通りです:"
 
 #: ../../quick_tutorial/more_view_classes.rst:127
 msgid ""
 "We have a ``home`` view available at http://localhost:6543/ with a "
 "clickable link to the ``hello`` view."
 msgstr ""
+"http://localhost:6543/ にある ``home`` ビューを ``hello`` ビューへの"
+"クリック可能なリンクと共に利用できます。"
 
 #: ../../quick_tutorial/more_view_classes.rst:130
 msgid ""
@@ -186,32 +221,40 @@ msgid ""
 "is mapped to the ``hello`` route that we centrally set using the optional"
 " ``@view_defaults``."
 msgstr ""
+"``/howdy/jane/doe`` に行くと2番目のビューが返却されます。 "
+"このURLは、オプションの ``@view_defaults`` を使用して一元に設定する"
+" ``hello`` ルートにマップされます。"
 
 #: ../../quick_tutorial/more_view_classes.rst:134
 msgid ""
 "The third view is returned when the form is submitted with a ``POST`` "
 "method. This rule is specified in the ``@view_config`` for that view."
 msgstr ""
+"``POST`` メソッドを使用してフォームを送信すると3番目のビューが返却されます。"
+" このルールは、そのビューの ``@view_config`` で指定されています。"
 
 #: ../../quick_tutorial/more_view_classes.rst:137
 msgid ""
 "The fourth view is returned when clicking on a button such as ``<input "
 "type=\"submit\" name=\"form.delete\" value=\"Delete\"/>``."
 msgstr ""
+"``<input type=\"submit\" name=\"form.delete\" value=\"Delete\"/>`` "
+"のようなボタンをクリックすると、4番目のビューが返却されます。
 
 #: ../../quick_tutorial/more_view_classes.rst:140
 msgid ""
 "In this step we show, using the following information as criteria, how to"
 " decide which view to use:"
 msgstr ""
+"このステップでは以下の情報を基準として、、どのビューを使用するかを決定する方法を説明します。"
 
 #: ../../quick_tutorial/more_view_classes.rst:143
 msgid "Method of the HTTP request (``GET``, ``POST``, etc.)"
-msgstr ""
+msgstr "HTTPリクエスト(``GET``, ``POST``,など) の方法"
 
 #: ../../quick_tutorial/more_view_classes.rst:145
 msgid "Parameter information in the request (submitted form field names)"
-msgstr ""
+msgstr "リクエスト（送信されたフォームフィールド名）内のパラメータ情報"
 
 #: ../../quick_tutorial/more_view_classes.rst:147
 msgid ""
@@ -219,47 +262,57 @@ msgid ""
 " ``@view_defaults``, then in one view, override that default just for "
 "that one view. Finally, we put this commonality between views to work in "
 "the view class by sharing:"
-msgstr ""
+msgstr "
+"また、 ``@view_defaults``　を使用してビュー構成の一部をクラスレベルに一元化させて、"
+"あるビューでそのビューのデフォルトをオーバーライドします。 "
+"最後にこの共通性をビュー間で共有することによってビュークラス内で機能させます。
 
 #: ../../quick_tutorial/more_view_classes.rst:152
 msgid "State assigned in ``TutorialViews.__init__``"
-msgstr ""
+msgstr "``TutorialViews.__init__``　内に割り当てられたステート"
 
 #: ../../quick_tutorial/more_view_classes.rst:154
 msgid "A computed value"
-msgstr ""
+msgstr "計算した値"
 
 #: ../../quick_tutorial/more_view_classes.rst:156
 msgid ""
 "These are then available both in the view methods and in the templates "
 "(e.g., ``${view.view_name}`` and ``${view.full_name}``)."
-msgstr ""
+msgstr "
+"これらは、ビューメソッドとテンプレート"
+"（たとえば、``${view.view_name}`` と ``${view.full_name}``）の両方で使用できます 。"
 
 #: ../../quick_tutorial/more_view_classes.rst:159
 msgid ""
 "As a note, we made a switch in our templates on how we generate URLs. We "
 "previously hardcoded the URLs, such as:"
 msgstr ""
+"テンプレートとしてURLの生成方法を変更しました。"
+"以前は以下ののようなURLをハードコードしていました。"
 
 #: ../../quick_tutorial/more_view_classes.rst:166
 msgid "In ``home.pt`` we switched to:"
-msgstr ""
+msgstr "``home.pt`` では以下のように切り替えました:"
 
 #: ../../quick_tutorial/more_view_classes.rst:173
 msgid ""
 "Pyramid has rich facilities to help generate URLs in a flexible, non-"
 "error prone fashion."
 msgstr ""
+"Pyramidには、柔軟でエラーのない方法でURLを生成するための豊富な機能があります。"
 
 #: ../../quick_tutorial/more_view_classes.rst:177
 msgid "Extra credit"
-msgstr ""
+msgstr "エクストラクレジット(Extra credit)"
 
 #: ../../quick_tutorial/more_view_classes.rst:179
 msgid ""
 "Why could our template do ``${view.full_name}`` and not have to do "
 "``${view.full_name()}``?"
 msgstr ""
+"テンプレートが ``${view.full_name}`` を行い、``${view.full_name()}`` を"
+"実行する必要がないのはなぜですか？"
 
 #: ../../quick_tutorial/more_view_classes.rst:182
 msgid ""
@@ -267,6 +320,8 @@ msgid ""
 " does the ``edit`` view configuration not catch the ``POST`` used by "
 "``delete``?"
 msgstr ""
+"「編集」ビューと「削除」ビューはどちらも「POST」リクエストを受信します。"
+" 「編集」ビューの設定で「削除」で使用されたPOSTが検出されないのはなぜですか？
 
 #: ../../quick_tutorial/more_view_classes.rst:186
 msgid ""
@@ -275,16 +330,20 @@ msgid ""
 "Does Pyramid provide something that will cache the initial computation on"
 " a property?"
 msgstr ""
+"「full_name」にPythonの ``@property`` を使用しました。"
+"テンプレートやビューコードでこれを何度も参照すると毎回これを再計算します。"
+"Pyramidはプロパティの初期計算をキャッシュするものを提供していますか？"
 
 #: ../../quick_tutorial/more_view_classes.rst:191
 msgid "Can you associate more than one route with the same view?"
-msgstr ""
+msgstr "同じビューに複数のルートを関連付けできますか？"
 
 #: ../../quick_tutorial/more_view_classes.rst:193
 msgid ""
 "There is also a ``request.route_path`` API. How does this differ from "
 "``request.route_url``?"
 msgstr ""
+"``request.route_path`` があります。 これは ``request.route_url`` とどう違うのですか？"
 
 #: ../../quick_tutorial/more_view_classes.rst:196
 msgid ""

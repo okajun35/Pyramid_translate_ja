@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>15: More With View Classes &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>15: View Classesの詳細(15: More With View Classes) &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="../_static/documentation_options.js"></script>
@@ -18,7 +18,7 @@
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="next" title="16: Collecting Application Info With Logging" href="logging.html" />
-    <link rel="prev" title="14: AJAX Development With JSON Renderers" href="json.html" />
+    <link rel="prev" title="14: JSONレンダラーを使ったAJAX開発(14: AJAX Development With JSON Renderers)" href="json.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -56,7 +56,7 @@
           <a href="logging.html" title="16: Collecting Application Info With Logging"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="json.html" title="14: AJAX Development With JSON Renderers"
+          <a href="json.html" title="14: JSONレンダラーを使ったAJAX開発(14: AJAX Development With JSON Renderers)"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</a> &#187;</li> 
@@ -69,51 +69,40 @@
           <div class="body" role="main">
             
   <div class="section" id="more-with-view-classes">
-<span id="qtut-more-view-classes"></span><h1>15: More With View Classes<a class="headerlink" href="#more-with-view-classes" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Group views into a class, sharing configuration, state, and logic.</p>
+<span id="qtut-more-view-classes"></span><h1>15: View Classesの詳細(15: More With View Classes)<a class="headerlink" href="#more-with-view-classes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ビューをクラスにグループ化し、構成、状態、およびロジックを共有します。</p>
 <div class="section" id="background">
-<h2>Background<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>As part of its mission to help build more ambitious web applications, Pyramid
-provides many more features for views and view classes.</p>
-<p>The Pyramid documentation discusses views as a Python &quot;callable&quot;. This callable
-can be a function, an object with a <code class="docutils literal notranslate"><span class="pre">__call__</span></code>, or a Python class. In this
-last case, methods on the class can be decorated with <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> to
-register the class methods with the <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> as a view.</p>
-<p>At first, our views were simple, free-standing functions. Many times your views
-are related: different ways to look at or work on the same data, or a REST API
-that handles multiple operations. Grouping these together as a <a class="reference internal" href="../narr/views.html#class-as-view"><span class="std std-ref">view class</span></a> makes sense:</p>
+<h2>背景(Background)<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>より挑戦的なWebアプリケーションの構築を支援するという使命の一環として、Pyramidではビューやビュークラスにさらに多くの機能を提供しています。</p>
+<p>PyramidのドキュメントではビューをPythonの「呼び出し可能」として説明しています。この呼び出し可能関数は、関数、aを持つオブジェクト <code class="docutils literal notranslate"><span class="pre">__call__</span></code> 、またはPythonクラスです。この最後のケースで``&#64;view_config`` はクラスのメソッドを装飾してして、 <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> をビューとしてクラスメソッドを登録できます。</p>
+<p>当初はビューは単純で自由な関数でした。多くの場合、同じデータを表示または操作するさまざまな方法や複数の操作を処理するREST APIなど、さまざまなビューが関連しています。これらをまとめて <a class="reference internal" href="../narr/views.html#class-as-view"><span class="std std-ref">view class</span></a> としてまとめると意味があります。</p>
 <ul class="simple">
-<li>Group views.</li>
-<li>Centralize some repetitive defaults.</li>
-<li>Share some state and helpers.</li>
+<li>グループビュー。</li>
+<li>いくつかの繰り返しのデフォルトを一元化する。</li>
+<li>ステートやヘルパーを共有します。</li>
 </ul>
-<p>Pyramid views have <a class="reference internal" href="../narr/viewconfig.html#view-configuration-parameters"><span class="std std-ref">view predicates</span></a> that
-determine which view is matched to a request, based on factors such as the
-request method, the form parameters, and so on. These predicates provide many
-axes of flexibility.</p>
-<p>The following shows a simple example with four operations: view a home page
-which leads to a form, save a change, and press the delete button.</p>
+<p>Pyramidビューにはリクエストメソッド、フォームパラメータなどの要素に基づいて、リクエストに一致するビューを決定する <a class="reference internal" href="../narr/viewconfig.html#view-configuration-parameters"><span class="std std-ref">view predicates</span></a> があります。これらのpredicatesは多くの柔軟性の軸を提供します。</p>
+<p>次の4つの操作の簡単な例を示します。フォームにつながるホームページを表示して、変更を保存して削除ボタンを押します。</p>
 </div>
 <div class="section" id="objectives">
-<h2>Objectives<a class="headerlink" href="#objectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>目的(Objectives)<a class="headerlink" href="#objectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>Group related views into a view class.</li>
-<li>Centralize configuration with class-level <code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code>.</li>
-<li>Dispatch one route/URL to multiple views based on request data.</li>
-<li>Share states and logic between views and templates via the view class.</li>
+<li>関連するビューをビュークラスにグループ化します。</li>
+<li>クラスレベル <code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code> で構成を一元化します。</li>
+<li>リクエストデータに基づいて、1つのルート/URLを複数のビューにディスパッチします。</li>
+<li>ビュークラスをかいしてビューとテンプレート間の状態とロジックを共有します。</li>
 </ul>
 </div>
 <div class="section" id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>手順(Steps)<a class="headerlink" href="#steps" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">First we copy the results of the previous step:</p>
+<li><p class="first">最初に前の手順の結果をコピーします:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ..<span class="p">;</span> cp -r templating more_view_classes<span class="p">;</span> <span class="nb">cd</span> more_view_classes
 $ <span class="nv">$VENV</span>/bin/pip install -e .
 </pre></div>
 </div>
 </li>
-<li><p class="first">Our route in <code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/__init__.py</span></code> needs some
-replacement patterns:</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/__init__.py</span></code> のルートにはいくつかの置換パターンが必要です:</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -136,8 +125,7 @@ replacement patterns:</p>
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Our <code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/views.py</span></code> now has a view class with
-several views:</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/views.py</span></code> にはいくつかのビューを持つビュークラスが追加されました:</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -218,7 +206,7 @@ several views:</p>
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Our primary view needs a template at <code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/home.pt</span></code>:</p>
+<li><p class="first">メインビューにはテンプレート <code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/home.pt</span></code> が必要です：</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -234,8 +222,7 @@ several views:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Ditto for our other view from the previous section at
-<code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/hello.pt</span></code>:</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/hello.pt</span></code> の前のセクションの他のビューについては:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -255,8 +242,7 @@ several views:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">We have an edit view that also needs a template at
-<code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/edit.pt</span></code>:</p>
+<li><p class="first">編集ビューもあります。このビューにはテンプレート <code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/edit.pt</span></code> が必要です:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -270,8 +256,7 @@ several views:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">And finally the delete view's template at
-<code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/delete.pt</span></code>:</p>
+<li><p class="first">最後に、ビューのテンプレート <code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/delete.pt</span></code> を削除します:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -284,8 +269,7 @@ several views:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Our tests in <code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/tests.py</span></code> fail, so let's modify
-them:</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">more_view_classes/tutorial/tests.py</span></code>　のテストが失敗したので、修正しましょう:</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -350,81 +334,61 @@ them:</p>
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Now run the tests:</p>
+<li><p class="first">テストを実行します:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test tutorial/tests.py -q
 ..
 <span class="m">2</span> passed in <span class="m">0</span>.40 seconds
 </pre></div>
 </div>
 </li>
-<li><p class="first">Run your Pyramid application with:</p>
+<li><p class="first">Pyramidアプリケーションを以下のように実行します:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini --reload
 </pre></div>
 </div>
 </li>
-<li><p class="first">Open <a class="reference external" href="http://localhost:6543/howdy/jane/doe">http://localhost:6543/howdy/jane/doe</a> in your browser. Click the
-<code class="docutils literal notranslate"><span class="pre">Save</span></code> and <code class="docutils literal notranslate"><span class="pre">Delete</span></code> buttons, and watch the output in the console window.</p>
+<li><p class="first">ブラウザで <a class="reference external" href="http://localhost:6543/howdy/jane/doe">http://localhost:6543/howdy/jane/doe</a>　を開いてみます。「Save」ボタンと「Delete」ボタンをクリックしてコンソールウィンドウで出力を確認します。</p>
 </li>
 </ol>
 </div>
 <div class="section" id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>As you can see, the four views are logically grouped together. Specifically:</p>
+<h2>分析(Analysis)<a class="headerlink" href="#analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ご覧のとおり4つのビューは論理的にグループ化されています。具体的には以下の通りです:</p>
 <ul class="simple">
-<li>We have a <code class="docutils literal notranslate"><span class="pre">home</span></code> view available at <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> with a clickable
-link to the <code class="docutils literal notranslate"><span class="pre">hello</span></code> view.</li>
-<li>The second view is returned when you go to <code class="docutils literal notranslate"><span class="pre">/howdy/jane/doe</span></code>. This URL is
-mapped to the <code class="docutils literal notranslate"><span class="pre">hello</span></code> route that we centrally set using the optional
-<code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code>.</li>
-<li>The third view is returned when the form is submitted with a <code class="docutils literal notranslate"><span class="pre">POST</span></code> method.
-This rule is specified in the <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> for that view.</li>
-<li>The fourth view is returned when clicking on a button such as <code class="docutils literal notranslate"><span class="pre">&lt;input</span>
-<span class="pre">type=&quot;submit&quot;</span> <span class="pre">name=&quot;form.delete&quot;</span> <span class="pre">value=&quot;Delete&quot;/&gt;</span></code>.</li>
+<li><a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> にある <code class="docutils literal notranslate"><span class="pre">home</span></code> ビューを <code class="docutils literal notranslate"><span class="pre">hello</span></code> ビューへのクリック可能なリンクと共に利用できます。</li>
+<li><code class="docutils literal notranslate"><span class="pre">/howdy/jane/doe</span></code> に行くと2番目のビューが返却されます。 このURLは、オプションの <code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code> を使用して一元に設定する <code class="docutils literal notranslate"><span class="pre">hello</span></code> ルートにマップされます。</li>
+<li><code class="docutils literal notranslate"><span class="pre">POST</span></code> メソッドを使用してフォームを送信すると3番目のビューが返却されます。 このルールは、そのビューの <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> で指定されています。</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;submit&quot;</span> <span class="pre">name=&quot;form.delete&quot;</span> <span class="pre">value=&quot;Delete&quot;/&gt;</span></code> のようなボタンをクリックすると、4番目のビューが返却されます</li>
 </ul>
-<p>In this step we show, using the following information as criteria, how to
-decide which view to use:</p>
+<p>このステップでは以下の情報を基準として、、どのビューを使用するかを決定する方法を説明します。</p>
 <ul class="simple">
-<li>Method of the HTTP request (<code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>, etc.)</li>
-<li>Parameter information in the request (submitted form field names)</li>
+<li>HTTPリクエスト(<code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>,など) の方法</li>
+<li>リクエスト（送信されたフォームフィールド名）内のパラメータ情報</li>
 </ul>
-<p>We also centralize part of the view configuration to the class level with
-<code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code>, then in one view, override that default just for that one
-view. Finally, we put this commonality between views to work in the view class
-by sharing:</p>
+<p>また、 <code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code>　を使用してビュー構成の一部をクラスレベルに一元化させて、あるビューでそのビューのデフォルトをオーバーライドします。 最後にこの共通性をビュー間で共有することによってビュークラス内で機能させます</p>
 <ul class="simple">
-<li>State assigned in <code class="docutils literal notranslate"><span class="pre">TutorialViews.__init__</span></code></li>
-<li>A computed value</li>
+<li><code class="docutils literal notranslate"><span class="pre">TutorialViews.__init__</span></code>　内に割り当てられたステート</li>
+<li>計算した値</li>
 </ul>
-<p>These are then available both in the view methods and in the templates (e.g.,
-<code class="docutils literal notranslate"><span class="pre">${view.view_name}</span></code> and <code class="docutils literal notranslate"><span class="pre">${view.full_name}</span></code>).</p>
-<p>As a note, we made a switch in our templates on how we generate URLs. We
-previously hardcoded the URLs, such as:</p>
+<p>これらは、ビューメソッドとテンプレート（たとえば、<code class="docutils literal notranslate"><span class="pre">${view.view_name}</span></code> と <code class="docutils literal notranslate"><span class="pre">${view.full_name}</span></code>）の両方で使用できます 。</p>
+<p>テンプレートとしてURLの生成方法を変更しました。以前は以下ののようなURLをハードコードしていました。</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/howdy/jane/doe&quot;</span><span class="p">&gt;</span>Howdy<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>In <code class="docutils literal notranslate"><span class="pre">home.pt</span></code> we switched to:</p>
+<p><code class="docutils literal notranslate"><span class="pre">home.pt</span></code> では以下のように切り替えました:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;${request.route_url(&#39;hello&#39;, first=&#39;jane&#39;,</span>
 <span class="s">      last=&#39;doe&#39;)}&quot;</span><span class="nt">&gt;</span>form<span class="nt">&lt;/a&gt;</span>
 </pre></div>
 </div>
-<p>Pyramid has rich facilities to help generate URLs in a flexible, non-error
-prone fashion.</p>
+<p>Pyramidには、柔軟でエラーのない方法でURLを生成するための豊富な機能があります。</p>
 </div>
 <div class="section" id="extra-credit">
-<h2>Extra credit<a class="headerlink" href="#extra-credit" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>エクストラクレジット(Extra credit)<a class="headerlink" href="#extra-credit" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="arabic simple">
-<li>Why could our template do <code class="docutils literal notranslate"><span class="pre">${view.full_name}</span></code> and not have to do
-<code class="docutils literal notranslate"><span class="pre">${view.full_name()}</span></code>?</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">edit</span></code> and <code class="docutils literal notranslate"><span class="pre">delete</span></code> views are both receive <code class="docutils literal notranslate"><span class="pre">POST</span></code> requests. Why
-does the <code class="docutils literal notranslate"><span class="pre">edit</span></code> view configuration not catch the <code class="docutils literal notranslate"><span class="pre">POST</span></code> used by
-<code class="docutils literal notranslate"><span class="pre">delete</span></code>?</li>
-<li>We used Python <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> on <code class="docutils literal notranslate"><span class="pre">full_name</span></code>. If we reference this many
-times in a template or view code, it would re-compute this every time. Does
-Pyramid provide something that will cache the initial computation on a
-property?</li>
-<li>Can you associate more than one route with the same view?</li>
-<li>There is also a <code class="docutils literal notranslate"><span class="pre">request.route_path</span></code> API. How does this differ from
-<code class="docutils literal notranslate"><span class="pre">request.route_url</span></code>?</li>
+<li>テンプレートが <code class="docutils literal notranslate"><span class="pre">${view.full_name}</span></code> を行い、<code class="docutils literal notranslate"><span class="pre">${view.full_name()}</span></code> を実行する必要がないのはなぜですか？</li>
+<li>「編集」ビューと「削除」ビューはどちらも「POST」リクエストを受信します。 「編集」ビューの設定で「削除」で使用されたPOSTが検出されないのはなぜですか</li>
+<li>「full_name」にPythonの <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> を使用しました。テンプレートやビューコードでこれを何度も参照すると毎回これを再計算します。Pyramidはプロパティの初期計算をキャッシュするものを提供していますか？</li>
+<li>同じビューに複数のルートを関連付けできますか？</li>
+<li><code class="docutils literal notranslate"><span class="pre">request.route_path</span></code> があります。 これは <code class="docutils literal notranslate"><span class="pre">request.route_url</span></code> とどう違うのですか？</li>
 </ol>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
@@ -442,19 +406,19 @@ URL Dispatch</a></p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">15: More With View Classes</a><ul>
-<li><a class="reference internal" href="#background">Background</a></li>
-<li><a class="reference internal" href="#objectives">Objectives</a></li>
-<li><a class="reference internal" href="#steps">Steps</a></li>
-<li><a class="reference internal" href="#analysis">Analysis</a></li>
-<li><a class="reference internal" href="#extra-credit">Extra credit</a></li>
+<li><a class="reference internal" href="#">15: View Classesの詳細(15: More With View Classes)</a><ul>
+<li><a class="reference internal" href="#background">背景(Background)</a></li>
+<li><a class="reference internal" href="#objectives">目的(Objectives)</a></li>
+<li><a class="reference internal" href="#steps">手順(Steps)</a></li>
+<li><a class="reference internal" href="#analysis">分析(Analysis)</a></li>
+<li><a class="reference internal" href="#extra-credit">エクストラクレジット(Extra credit)</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="json.html"
-                        title="前の章へ">14: AJAX Development With JSON Renderers</a></p>
+                        title="前の章へ">14: JSONレンダラーを使ったAJAX開発(14: AJAX Development With JSON Renderers)</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="logging.html"
                         title="次の章へ">16: Collecting Application Info With Logging</a></p>
@@ -494,7 +458,7 @@ URL Dispatch</a></p>
           <a href="logging.html" title="16: Collecting Application Info With Logging"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="json.html" title="14: AJAX Development With JSON Renderers"
+          <a href="json.html" title="14: JSONレンダラーを使ったAJAX開発(14: AJAX Development With JSON Renderers)"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</a> &#187;</li> 
@@ -502,7 +466,7 @@ URL Dispatch</a></p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 10, 2018
+      最終更新: 8月 12, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
     </div>
   </body>
