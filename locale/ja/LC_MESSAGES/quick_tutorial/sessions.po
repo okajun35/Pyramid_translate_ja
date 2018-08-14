@@ -20,15 +20,15 @@ msgstr ""
 
 #: ../../quick_tutorial/sessions.rst:5
 msgid "17: Transient Data Using Sessions"
-msgstr ""
+msgstr "17: セッションを使用したトランジェントデータ(17: Transient Data Using Sessions)"
 
 #: ../../quick_tutorial/sessions.rst:7
 msgid "Store and retrieve non-permanent data in Pyramid sessions."
-msgstr ""
+msgstr "Pyramidのセッションで非永続データを取得して保存します。"
 
 #: ../../quick_tutorial/sessions.rst:11
 msgid "Background"
-msgstr ""
+msgstr "背景(Background)"
 
 #: ../../quick_tutorial/sessions.rst:13
 msgid ""
@@ -36,6 +36,9 @@ msgid ""
 " requires semi-permanent data to be saved. For example, a shopping cart. "
 "This is called a :term:`session`."
 msgstr ""
+"Webアプリケーションを使用する人は、半永久的なデータを保存する必要があるタスクを"
+"頻繁に実行します。たとえば、ショッピングカートです。これは :term:`session` と呼ばれます。"
+
 
 #: ../../quick_tutorial/sessions.rst:17
 msgid ""
@@ -46,50 +49,59 @@ msgid ""
 "engine. Let's take a look at the :doc:`built-in sessioning support "
 "<../narr/sessions>`."
 msgstr ""
+"Pyramidniはセッションのための基本的な組み込みサポートがあります。"
+"`pyramid_redis_sessions <https://github.com/ericrasmussen/pyramid_redis_sessions>`_ "
+"などのサードパーティ製パッケージはセッションのより豊富なサポートを提供します 。"
+"または独自のカスタムセッションエンジンを作成できます。"
+":doc:`built-in sessioning support <../narr/sessions>` を参照してみてください。"
 
 #: ../../quick_tutorial/sessions.rst:25
 msgid "Objectives"
-msgstr ""
+msgstr "目的(Objectives)"
 
 #: ../../quick_tutorial/sessions.rst:27
 msgid "Make a session factory using a built-in, simple Pyramid sessioning system."
-msgstr ""
+msgstr "組み込みのシンプルなPyramidセッションシステムを使用して、セッションファクトリを作成します。"
 
 #: ../../quick_tutorial/sessions.rst:29
 msgid "Change our code to use a session."
-msgstr ""
+msgstr "セッションを使用するようにコードを修正します。"
 
 #: ../../quick_tutorial/sessions.rst:33
 msgid "Steps"
-msgstr ""
+msgstr "手順(Steps)"
 
 #: ../../quick_tutorial/sessions.rst:35
 msgid "First we copy the results of the ``view_classes`` step:"
-msgstr ""
+msgstr "最初に ``view_classes`` での結果をコピーします:"
 
 #: ../../quick_tutorial/sessions.rst:42
 msgid ""
 "Our ``sessions/tutorial/__init__.py`` needs a choice of session factory "
 "to get registered with the :term:`configurator`:"
 msgstr ""
+"``sessions/tutorial/__init__.py`` は :term:`configurator` に登録するため"
+"のセッションファクトリを選択する必要があります:"
 
 #: ../../quick_tutorial/sessions.rst:48
 msgid ""
 "Our views in ``sessions/tutorial/views.py`` can now use "
 "``request.session``:"
 msgstr ""
+"``sessions/tutorial/views.py``　のビューでは　``request.session``　を使用できます:"
 
 #: ../../quick_tutorial/sessions.rst:53
 msgid "The template at ``sessions/tutorial/home.pt`` can display the value:"
 msgstr ""
+"``sessions/tutorial/home.pt`` のテンプレートでは値を表示できます:"
 
 #: ../../quick_tutorial/sessions.rst:59
 msgid "Make sure the tests still pass:"
-msgstr ""
+msgstr "テストも実行できるようにします:"
 
 #: ../../quick_tutorial/sessions.rst:67
 msgid "Run your Pyramid application with:"
-msgstr ""
+msgstr "Pyramidアプリケーションを以下のように実行します:"
 
 #: ../../quick_tutorial/sessions.rst:73
 msgid ""
@@ -97,22 +109,29 @@ msgid ""
 "browser. As you reload and switch between those URLs, note that the "
 "counter increases and is *not* specific to the URL."
 msgstr ""
+"http://localhost:6543/ と http://localhost:6543/howdy をブラウザで開きます。"
+"リロードしてURL間を切り替えるとカウンタが増加します。"
+"カウンタがURLに固有のものではないことに注意してください。"
 
 #: ../../quick_tutorial/sessions.rst:77
 msgid ""
 "Restart the application and revisit the page. Note that counter still "
 "increases from where it left off."
 msgstr ""
+"アプリケーションを再起動してページに再度アクセスしてください。"
+"カウンタが中断していた値から増加する点に注目してください。"
 
 #: ../../quick_tutorial/sessions.rst:82
 msgid "Analysis"
-msgstr ""
+msgstr "分析(Analysis)"
 
 #: ../../quick_tutorial/sessions.rst:84
 msgid ""
 "Pyramid's :term:`request` object now has a ``session`` attribute that we "
 "can use in our view code. It acts like a dictionary."
 msgstr ""
+"Pyramidの :term:`request` オブジェクトに、ビューコードで使用できる ``session`` "
+"アトリビュートが追加されました。  ``session`` アトリビュートは辞書型のように機能します。"
 
 #: ../../quick_tutorial/sessions.rst:87
 msgid ""
@@ -120,6 +139,9 @@ msgid ""
 "Python property at the view class level. With this, each reload will "
 "increase the counter displayed in our template."
 msgstr ""
+"すべてのビューが同じカウンタを使用しているので、カウンタをビュークラスのレベルで"
+"Pythonプロパティにしました。 これにより各ビューでのリロードによってテン"
+"プレートに表示されるカウンタが増加します。"
 
 #: ../../quick_tutorial/sessions.rst:91
 msgid ""
@@ -131,14 +153,25 @@ msgid ""
 "can't just return it in the web response for the POST, as it will be "
 "tossed out during the second web request."
 msgstr ""
+"ウェブ開発での「flashメッセージ」は未来のウェブリクエストの後に画面に表示する必"
+"要のあるユーザのためのメモである。 " 
+"たとえばフォームの　 ``POST`` を使用してアイテムを追加する場合は"
+"通常のWebサイトでは新しいアイテムを表示するために2番目のHTTPリダイレク"
+"トWebリクエストを発行します。"
+"2番目のウェブリクエストで「あなたの商品が追加されました」とメッセージが表示"
+"されることがあります。 POSTのWebレスポンスで返すことはできません。"
+"これは2回目のWebリクエストで捨てられるからです。"
 
 #: ../../quick_tutorial/sessions.rst:98
 msgid ""
 "Flash messages are a technique where messages can be stored between "
 "requests, using sessions, then removed when they finally get displayed."
 msgstr ""
+"flashメッセージはセッションを使用してリクエスト間でメッセージを保存します。"
+"その後に表示されたときにメッセージを削除して途中でメッセージを取り出せるよう"
+"にするテクニックです。"
 
 #: ../../quick_tutorial/sessions.rst:102
 msgid ":ref:`sessions_chapter`, :ref:`flash_messages`, and :ref:`session_module`."
-msgstr ""
+msgstr ":ref:`sessions_chapter`, :ref:`flash_messages`, と :ref:`session_module` 。"
 
