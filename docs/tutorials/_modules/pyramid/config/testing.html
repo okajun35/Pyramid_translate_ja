@@ -1,0 +1,274 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.config.testing &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../../../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../../../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../../../index.html">
+      		<img class="logo" src="../../../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../config.html" accesskey="U">pyramid.config</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyramid.config.testing</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">zope.interface</span> <span class="k">import</span> <span class="n">Interface</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.interfaces</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">ITraverser</span><span class="p">,</span>
+    <span class="n">IAuthorizationPolicy</span><span class="p">,</span>
+    <span class="n">IAuthenticationPolicy</span><span class="p">,</span>
+    <span class="n">IRendererFactory</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.renderers</span> <span class="k">import</span> <span class="n">RendererHelper</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.traversal</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">decode_path_info</span><span class="p">,</span>
+    <span class="n">split_path_info</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.util</span> <span class="k">import</span> <span class="n">action_method</span>
+
+<span class="k">class</span> <span class="nc">TestingConfiguratorMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># testing API</span>
+    <span class="k">def</span> <span class="nf">testing_securitypolicy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">groupids</span><span class="o">=</span><span class="p">(),</span>
+                               <span class="n">permissive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">remember_result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                               <span class="n">forget_result</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Unit/integration testing helper: Registers a pair of faux</span>
+<span class="sd">        :app:`Pyramid` security policies: a :term:`authentication</span>
+<span class="sd">        policy` and a :term:`authorization policy`.</span>
+
+<span class="sd">        The behavior of the registered :term:`authorization policy`</span>
+<span class="sd">        depends on the ``permissive`` argument.  If ``permissive`` is</span>
+<span class="sd">        true, a permissive :term:`authorization policy` is registered;</span>
+<span class="sd">        this policy allows all access.  If ``permissive`` is false, a</span>
+<span class="sd">        nonpermissive :term:`authorization policy` is registered; this</span>
+<span class="sd">        policy denies all access.</span>
+
+<span class="sd">        ``remember_result``, if provided, should be the result returned by</span>
+<span class="sd">        the ``remember`` method of the faux authentication policy.  If it is</span>
+<span class="sd">        not provided (or it is provided, and is ``None``), the default value</span>
+<span class="sd">        ``[]`` (the empty list) will be returned by ``remember``.</span>
+
+<span class="sd">        ``forget_result``, if provided, should be the result returned by</span>
+<span class="sd">        the ``forget`` method of the faux authentication policy.  If it is</span>
+<span class="sd">        not provided (or it is provided, and is ``None``), the default value</span>
+<span class="sd">        ``[]`` (the empty list) will be returned by ``forget``.</span>
+
+<span class="sd">        The behavior of the registered :term:`authentication policy`</span>
+<span class="sd">        depends on the values provided for the ``userid`` and</span>
+<span class="sd">        ``groupids`` argument.  The authentication policy will return</span>
+<span class="sd">        the userid identifier implied by the ``userid`` argument and</span>
+<span class="sd">        the group ids implied by the ``groupids`` argument when the</span>
+<span class="sd">        :attr:`pyramid.request.Request.authenticated_userid` or</span>
+<span class="sd">        :attr:`pyramid.request.Request.effective_principals` APIs are</span>
+<span class="sd">        used.</span>
+
+<span class="sd">        This function is most useful when testing code that uses</span>
+<span class="sd">        the APIs named :meth:`pyramid.request.Request.has_permission`,</span>
+<span class="sd">        :attr:`pyramid.request.Request.authenticated_userid`,</span>
+<span class="sd">        :attr:`pyramid.request.Request.effective_principals`, and</span>
+<span class="sd">        :func:`pyramid.security.principals_allowed_by_permission`.</span>
+
+<span class="sd">        .. versionadded:: 1.4</span>
+<span class="sd">           The ``remember_result`` argument.</span>
+
+<span class="sd">        .. versionadded:: 1.4</span>
+<span class="sd">           The ``forget_result`` argument.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">pyramid.testing</span> <span class="k">import</span> <span class="n">DummySecurityPolicy</span>
+        <span class="n">policy</span> <span class="o">=</span> <span class="n">DummySecurityPolicy</span><span class="p">(</span>
+            <span class="n">userid</span><span class="p">,</span> <span class="n">groupids</span><span class="p">,</span> <span class="n">permissive</span><span class="p">,</span> <span class="n">remember_result</span><span class="p">,</span> <span class="n">forget_result</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">registerUtility</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span> <span class="n">IAuthorizationPolicy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">registerUtility</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span> <span class="n">IAuthenticationPolicy</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">policy</span>
+
+    <span class="k">def</span> <span class="nf">testing_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resources</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Unit/integration testing helper: registers a dictionary of</span>
+<span class="sd">        :term:`resource` objects that can be resolved via the</span>
+<span class="sd">        :func:`pyramid.traversal.find_resource` API.</span>
+
+<span class="sd">        The :func:`pyramid.traversal.find_resource` API is called with</span>
+<span class="sd">        a path as one of its arguments.  If the dictionary you</span>
+<span class="sd">        register when calling this method contains that path as a</span>
+<span class="sd">        string key (e.g. ``/foo/bar`` or ``foo/bar``), the</span>
+<span class="sd">        corresponding value will be returned to ``find_resource`` (and</span>
+<span class="sd">        thus to your code) when</span>
+<span class="sd">        :func:`pyramid.traversal.find_resource` is called with an</span>
+<span class="sd">        equivalent path string or tuple.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">class</span> <span class="nc">DummyTraverserFactory</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">context</span>
+
+            <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">decode_path_info</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PATH_INFO&#39;</span><span class="p">])</span>
+                <span class="n">ob</span> <span class="o">=</span> <span class="n">resources</span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
+                <span class="n">traversed</span> <span class="o">=</span> <span class="n">split_path_info</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;context&#39;</span><span class="p">:</span><span class="n">ob</span><span class="p">,</span> <span class="s1">&#39;view_name&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;subpath&#39;</span><span class="p">:(),</span>
+                        <span class="s1">&#39;traversed&#39;</span><span class="p">:</span><span class="n">traversed</span><span class="p">,</span> <span class="s1">&#39;virtual_root&#39;</span><span class="p">:</span><span class="n">ob</span><span class="p">,</span>
+                        <span class="s1">&#39;virtual_root_path&#39;</span><span class="p">:(),</span> <span class="s1">&#39;root&#39;</span><span class="p">:</span><span class="n">ob</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">registerAdapter</span><span class="p">(</span><span class="n">DummyTraverserFactory</span><span class="p">,</span> <span class="p">(</span><span class="n">Interface</span><span class="p">,),</span>
+                                      <span class="n">ITraverser</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">resources</span>
+
+    <span class="n">testing_models</span> <span class="o">=</span> <span class="n">testing_resources</span> <span class="c1"># b/w compat</span>
+
+    <span class="nd">@action_method</span>
+    <span class="k">def</span> <span class="nf">testing_add_subscriber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_iface</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Unit/integration testing helper: Registers a</span>
+<span class="sd">        :term:`subscriber` which listens for events of the type</span>
+<span class="sd">        ``event_iface``.  This method returns a list object which is</span>
+<span class="sd">        appended to by the subscriber whenever an event is captured.</span>
+
+<span class="sd">        When an event is dispatched that matches the value implied by</span>
+<span class="sd">        the ``event_iface`` argument, that event will be appended to</span>
+<span class="sd">        the list.  You can then compare the values in the list to</span>
+<span class="sd">        expected event notifications.  This method is useful when</span>
+<span class="sd">        testing code that wants to call</span>
+<span class="sd">        :meth:`pyramid.registry.Registry.notify`,</span>
+<span class="sd">        or :func:`zope.component.event.dispatch`.</span>
+
+<span class="sd">        The default value of ``event_iface`` (``None``) implies a</span>
+<span class="sd">        subscriber registered for *any* kind of event.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">event_iface</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maybe_dotted</span><span class="p">(</span><span class="n">event_iface</span><span class="p">)</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">def</span> <span class="nf">subscriber</span><span class="p">(</span><span class="o">*</span><span class="n">event</span><span class="p">):</span>
+            <span class="n">L</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_subscriber</span><span class="p">(</span><span class="n">subscriber</span><span class="p">,</span> <span class="n">event_iface</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">L</span>
+
+    <span class="k">def</span> <span class="nf">testing_add_renderer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Unit/integration testing helper: register a renderer at</span>
+<span class="sd">        ``path`` (usually a relative filename ala ``templates/foo.pt``</span>
+<span class="sd">        or an asset specification) and return the renderer object.</span>
+<span class="sd">        If the ``renderer`` argument is None, a &#39;dummy&#39; renderer will</span>
+<span class="sd">        be used.  This function is useful when testing code that calls</span>
+<span class="sd">        the :func:`pyramid.renderers.render` function or</span>
+<span class="sd">        :func:`pyramid.renderers.render_to_response` function or</span>
+<span class="sd">        any other ``render_*`` or ``get_*`` API of the</span>
+<span class="sd">        :mod:`pyramid.renderers` module.</span>
+
+<span class="sd">        Note that calling this method for with a ``path`` argument</span>
+<span class="sd">        representing a renderer factory type (e.g. for ``foo.pt``</span>
+<span class="sd">        usually implies the ``chameleon_zpt`` renderer factory)</span>
+<span class="sd">        clobbers any existing renderer factory registered for that</span>
+<span class="sd">        type.</span>
+
+<span class="sd">        .. note:: This method is also available under the alias</span>
+<span class="sd">           ``testing_add_template`` (an older name for it).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">pyramid.testing</span> <span class="k">import</span> <span class="n">DummyRendererFactory</span>
+        <span class="n">helper</span> <span class="o">=</span> <span class="n">RendererHelper</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">registry</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">)</span>
+        <span class="n">factory</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">queryUtility</span><span class="p">(</span><span class="n">IRendererFactory</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">helper</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">factory</span><span class="p">,</span> <span class="n">DummyRendererFactory</span><span class="p">):</span>
+            <span class="n">factory</span> <span class="o">=</span> <span class="n">DummyRendererFactory</span><span class="p">(</span><span class="n">helper</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">factory</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">registerUtility</span><span class="p">(</span><span class="n">factory</span><span class="p">,</span> <span class="n">IRendererFactory</span><span class="p">,</span>
+                                          <span class="n">name</span><span class="o">=</span><span class="n">helper</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+
+        <span class="kn">from</span> <span class="nn">pyramid.testing</span> <span class="k">import</span> <span class="n">DummyTemplateRenderer</span>
+        <span class="k">if</span> <span class="n">renderer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">renderer</span> <span class="o">=</span> <span class="n">DummyTemplateRenderer</span><span class="p">()</span>
+        <span class="n">factory</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">renderer</span>
+
+    <span class="n">testing_add_template</span> <span class="o">=</span> <span class="n">testing_add_renderer</span>
+
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../config.html" >pyramid.config</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      Last updated on Aug 01, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+    </div>
+  </body>
+</html>

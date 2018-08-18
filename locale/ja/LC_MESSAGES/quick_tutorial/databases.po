@@ -20,15 +20,15 @@ msgstr ""
 
 #: ../../quick_tutorial/databases.rst:5
 msgid "19: Databases Using SQLAlchemy"
-msgstr ""
+msgstr "19: SQLAlchemyを使用したデータベース(19: Databases Using SQLAlchemy)"
 
 #: ../../quick_tutorial/databases.rst:7
 msgid "Store and retrieve data using the SQLAlchemy ORM atop the SQLite database."
-msgstr ""
+msgstr "SQLAlchemy ORMを使用してSQLiteデータベース上のデータを格納および取得します。"
 
 #: ../../quick_tutorial/databases.rst:11
 msgid "Background"
-msgstr ""
+msgstr "背景(Background)"
 
 #: ../../quick_tutorial/databases.rst:13
 msgid ""
@@ -38,12 +38,20 @@ msgid ""
 " its :ref:`object-relational mapper (ORM) <sqla:ormtutorial_toplevel>` as"
 " a convenient, Pythonic way to interface to databases."
 msgstr ""
+"Pyramidベースのwikiアプリケーションでデータベースに基づいたページの格納が"
+"必要になりました。これはSQLデータベースのことを意味します。Pyramidコミュニ"
+"ティは、:ref:`SQLAlchemy <sqla:index_toplevel>` プロジェクトと"
+"その :ref:`object-relational mapper (ORM) <sqla:ormtutorial_toplevel>` "
+"をパイソニックなデータベースへのインタフェースとして強くサポートしています。"
+
 
 #: ../../quick_tutorial/databases.rst:19
 msgid ""
 "In this step we hook up SQLAlchemy to a SQLite database table, providing "
 "storage and retrieval for the wiki pages in the previous step."
 msgstr ""
+"今回のステップではSQLAlchemyをSQLiteデータベーステーブルに接続して、"
+"前回の手順でwikiページの格納と検索を行います。"
 
 #: ../../quick_tutorial/databases.rst:24
 msgid ""
@@ -52,102 +60,119 @@ msgid ""
 "script. Since we want to see all the decisions, we will forgo convenience"
 " in this tutorial, and wire it up ourselves."
 msgstr ""
+" ``pyramid-cookiecutter-alchemy`` cookiecutterは"
+"コンソールスクリプトでSQLAlchemyを含むプロジェクトの生成するのに本当に便利です。"
+"すべての設定を見たいのでチュートリアルでは利便性を失いますが自分自身で設定していきます。"
 
 #: ../../quick_tutorial/databases.rst:31
 msgid "Objectives"
-msgstr ""
+msgstr "目的(Objectives)"
 
 #: ../../quick_tutorial/databases.rst:33
 msgid "Store pages in SQLite by using SQLAlchemy models."
-msgstr ""
+msgstr "SQLAlchemyのモデルを使用してSQLiteにページを格納します。"
 
 #: ../../quick_tutorial/databases.rst:35
 msgid "Use SQLAlchemy queries to list/add/view/edit pages."
-msgstr ""
+msgstr "SQLAlchemyのクエリを使用してページの一覧・追加・表示・編集を行います。"
 
 #: ../../quick_tutorial/databases.rst:37
 msgid ""
 "Provide a database-initialize command by writing a Pyramid *console "
 "script* which can be run from the command line."
 msgstr ""
+"コマンドラインから実行できるPyramidコンソールスクリプトを作成して、"
+"database-initializeコマンドを提供します"
 
 #: ../../quick_tutorial/databases.rst:42
 msgid "Steps"
-msgstr ""
+msgstr "手順(Steps)"
 
 #: ../../quick_tutorial/databases.rst:44
 msgid "We are going to use the forms step as our starting point:"
-msgstr ""
+msgstr "フォ―ムを出発点にして使用します:"
 
 #: ../../quick_tutorial/databases.rst:50
 msgid ""
 "We need to add some dependencies in ``databases/setup.py`` as well as an "
 "\"entry point\" for the command-line script:"
 msgstr ""
+"依存関係を追加する ``databases/setup.py``  とともに「エントリポイント」のコマンド"
+"ラインスクリプトを追加する必要があります:"
 
 #: ../../quick_tutorial/databases.rst:58
 msgid ""
 "We aren't yet doing ``$VENV/bin/pip install -e .`` as we will change it "
 "later."
 msgstr ""
+"後で変更するために、``$VENV/bin/pip install -e .``　はここでは行いません。"
+
 
 #: ../../quick_tutorial/databases.rst:61
 msgid ""
 "Our configuration file at ``databases/development.ini`` wires together "
 "some new pieces:"
 msgstr ""
+"設定ファイル（ ``databases/development.ini`` ）は一緒にいくつかの部品をつなぎます："
 
 #: ../../quick_tutorial/databases.rst:67
 msgid ""
 "This engine configuration now needs to be read into the application "
 "through changes in ``databases/tutorial/__init__.py``:"
 msgstr ""
+"エンジンの設定  ``databases/tutorial/__init__.py``　)は以下の変更を"
+"とおしてアプリケーションに読み込む必要があります:"
 
 #: ../../quick_tutorial/databases.rst:73
 msgid ""
 "Make a command-line script at ``databases/tutorial/initialize_db.py`` to "
 "initialize the database:"
 msgstr ""
+"以下のコマンドラインスクリプト( ``databases/tutorial/initialize_db.py`` )"
+"を使用して、データベースを初期化します:"
 
 #: ../../quick_tutorial/databases.rst:79
 msgid "Since ``setup.py`` changed, we now run it:"
-msgstr ""
+msgstr "``setup.py`` は変更されるので実行します:"
 
 #: ../../quick_tutorial/databases.rst:85
 msgid "The script references some models in ``databases/tutorial/models.py``:"
-msgstr ""
+msgstr "スクリプトは、以下のモデル(  ``databases/tutorial/models.py`` )を参照しています:"
 
 #: ../../quick_tutorial/databases.rst:90
 msgid "Let's run this console script, thus producing our database and table:"
-msgstr ""
+msgstr "コンソールスクリプトを実行してデータベースとテーブルを生成しましょう:"
 
 #: ../../quick_tutorial/databases.rst:119
 msgid ""
 "With our data now driven by SQLAlchemy queries, we need to update our "
 "``databases/tutorial/views.py``:"
 msgstr ""
+"データがSQLAlchemyクエリによって駆動されたので、以下のファイル"
+"（ ``databases/tutorial/views.py`` ）を更新する必要があります:"
 
 #: ../../quick_tutorial/databases.rst:125
 msgid ""
 "Our tests in ``databases/tutorial/tests.py`` changed to include "
 "SQLAlchemy bootstrapping:"
 msgstr ""
+"``databases/tutorial/tests.py`` のテストにはSQLAlchemyのブートストラップが含まれています:"
 
 #: ../../quick_tutorial/databases.rst:131
 msgid "Run the tests in your package using ``py.test``:"
-msgstr ""
+msgstr "``py.test`` パッケージを使用してテストを実行します:"
 
 #: ../../quick_tutorial/databases.rst:139
 msgid "Run your Pyramid application with:"
-msgstr ""
+msgstr "Pyramidアプリケーションを実行します:"
 
 #: ../../quick_tutorial/databases.rst:145
 msgid "Open http://localhost:6543/ in a browser."
-msgstr ""
+msgstr "ブラウザで http://localhost:6543/  を開きます。"
 
 #: ../../quick_tutorial/databases.rst:149
 msgid "Analysis"
-msgstr ""
+msgstr "分析(Analysis)"
 
 #: ../../quick_tutorial/databases.rst:151
 msgid ""
@@ -155,6 +180,10 @@ msgid ""
 "``SQLAlchemy`` to talk to our database. We also, though, installed "
 "``pyramid_tm`` and ``zope.sqlalchemy``. Why?"
 msgstr ""
+"依存関係についてから始めましょう。 ``SQLAlchemy`` を使用してデータベース"
+"と会話することにしました。同時に ``pyramid_tm`` と ``zope.sqlalchemy`` も"
+"インストールしました。どうして？
+"
 
 #: ../../quick_tutorial/databases.rst:155
 msgid ""
@@ -164,6 +193,11 @@ msgid ""
 "return the response, all transaction-aware parts of your application are "
 "executed."
 msgstr ""
+"Pyramid は、トランザクションのサポートに関して強い志向を持っています。"
+"具体的にはアプリケーションにミドルウェアまたはPyramid \"tween\" として"
+"トランザクションマネージャをインストールができます。"
+"次にレスポンスを返す直前に、アプリケーションのすべてのトランザクションの"
+"対応する部分が実行されます。"
 
 #: ../../quick_tutorial/databases.rst:160
 msgid ""
@@ -171,6 +205,10 @@ msgid ""
 " view code or a template generates an error, the transaction manager "
 "aborts the transaction. This is a very liberating way to write code."
 msgstr ""
+"これはPyramidのビューのコードは通常トランザクションを管理しないことを意味しています。"
+"ビューのコードまたはテンプレートでエラーが発生した場合は"
+"トランザクションマネージャはトランザクションを中止します。"
+"これはコードを書くための非常に解放的な方法です。"
 
 #: ../../quick_tutorial/databases.rst:164
 msgid ""
@@ -180,6 +218,11 @@ msgid ""
 "integrate with the Pyramid transaction manager. That's what "
 "``zope.sqlalchemy`` does."
 msgstr ""
+"``pyramid_tm`` パッケージは構成ファイル ``development.ini``  で構成された"
+"「 \"tween\" 」を提供します。\"tween\" をインストールします。"
+"次にSQLAlchemyつまりはRDBMSトランザクションマネージャを"
+"Pyramidのトランザクションマネージャと統合するパッケージが必要です。"
+"これが ``zope.sqlalchemy`` の役割です。"
 
 #: ../../quick_tutorial/databases.rst:170
 msgid ""
@@ -189,6 +232,12 @@ msgid ""
 "configuration-oriented approach isn't required in Pyramid; you can still "
 "make such statements in your ``__init__.py`` or some companion module."
 msgstr ""
+"SQLiteファイルはディスク内のどこにありますでしょうか？"
+"設定ファイル内にあります。"
+"これによりコンシューマーはパッケージを安全な（コードではない）方法で"
+"場所を変更できます。すなわ設定のことです。"
+"この構成指向のアプローチはPyramidでは必須ではありません。"
+" ``__init__.py`` や他のコンパニオンモジュールでもこの​​ようなステートメントを作成できます。"
 
 #: ../../quick_tutorial/databases.rst:176
 msgid ""
@@ -202,6 +251,15 @@ msgid ""
 "transaction, as we aren't inside a web request where this is done "
 "automatically."
 msgstr ""
+"``initialize_tutorial_db`` はフレームワークをサポートする好例です。"
+"いくつかの ``[console_scripts]`` の場所の設定に関しては仮想環境"
+"の ``bin`` ディレクトリに生成されます。コンソールスクリプトは"
+"すべてのブートストラップを含む設定ファイルが入力されるパターンに従います。"
+"次にSQLAlchemyを開き、SQLiteファイルを作成するwikiのルートを作成します。"
+"トランザクションのスコープ内に作業を置く ``with transaction.manager`` の"
+"パーツに注意してください。"
+"これはトランザクションが自動的に行われるWebリクエスト内にないためです。"
+
 
 #: ../../quick_tutorial/databases.rst:185
 msgid ""
@@ -209,6 +267,8 @@ msgid ""
 "into the Pyramid transaction manager. It then declares the model for a "
 "``Page``."
 msgstr ""
+"``models.py`` はSQLAlchemyをPyramidのトランザクションマネージャーに"
+"接続するために少し追加作業を行います。その後、``Page``　モデルを宣言します。"
 
 #: ../../quick_tutorial/databases.rst:188
 msgid ""
@@ -216,16 +276,18 @@ msgid ""
 "of-dictionaries data with proper database support: list the rows, add a "
 "row, edit a row, and delete a row."
 msgstr ""
+"ビューではダミー辞書データを適切なデータベースサポート"
+"（行の一覧表示、行の追加、行の編集、および行の削除）に置き換えるところ主な変更です。"
 
 #: ../../quick_tutorial/databases.rst:194
 msgid "Extra credit"
-msgstr ""
+msgstr "エクストラクレジット(Extra credit)"
 
 #: ../../quick_tutorial/databases.rst:196
 msgid "Why all this code? Why can't I just type two lines and have magic ensue?"
-msgstr ""
+msgstr "なぜこのコードはすべて？ なぜ2行を入力して魔法を続けられないのですか？"
 
 #: ../../quick_tutorial/databases.rst:198
 msgid "Give a try at a button that deletes a wiki page."
-msgstr ""
+msgstr "Wikiページを作成するボタンの実装にチャレンジしてみてください。"
 

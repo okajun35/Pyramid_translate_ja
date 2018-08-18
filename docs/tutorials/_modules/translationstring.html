@@ -1,0 +1,510 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>translationstring &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for translationstring</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">gettext</span> <span class="k">import</span> <span class="n">NullTranslations</span>
+<span class="kn">from</span> <span class="nn">translationstring.compat</span> <span class="k">import</span> <span class="n">text_type</span>
+<span class="kn">from</span> <span class="nn">translationstring.compat</span> <span class="k">import</span> <span class="n">string_types</span>
+<span class="kn">from</span> <span class="nn">translationstring.compat</span> <span class="k">import</span> <span class="n">PY3</span>
+
+<span class="n">NAME_RE</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[a-zA-Z][-a-zA-Z0-9_]*&quot;</span>
+
+<span class="n">_interp_regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?&lt;!\$)(\$(?:(</span><span class="si">%(n)s</span><span class="s1">)|{(</span><span class="si">%(n)s</span><span class="s1">)}))&#39;</span>
+    <span class="o">%</span> <span class="p">({</span><span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="n">NAME_RE</span><span class="p">}))</span>
+
+<span class="n">CONTEXT_MASK</span> <span class="o">=</span> <span class="n">text_type</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="se">\x04</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TranslationString"><a class="viewcode-back" href="../api/i18n.html#pyramid.i18n.TranslationString">[docs]</a><span class="k">class</span> <span class="nc">TranslationString</span><span class="p">(</span><span class="n">text_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The constructor for a :term:`translation string`.  A translation</span>
+<span class="sd">    string is a Unicode-like object that has some extra metadata.</span>
+
+<span class="sd">    This constructor accepts one required argument named ``msgid``.</span>
+<span class="sd">    ``msgid`` must be the :term:`message identifier` for the</span>
+<span class="sd">    translation string.  It must be a ``unicode`` object or a ``str``</span>
+<span class="sd">    object encoded in the default system encoding.</span>
+
+<span class="sd">    Optional keyword arguments to this object&#39;s constructor include</span>
+<span class="sd">    ``domain``, ``default``, and ``mapping``.</span>
+
+<span class="sd">    ``domain`` represents the :term:`translation domain`.  By default,</span>
+<span class="sd">    the translation domain is ``None``, indicating that this</span>
+<span class="sd">    translation string is associated with the default translation</span>
+<span class="sd">    domain (usually ``messages``).</span>
+
+<span class="sd">    ``default`` represents an explicit *default text* for this</span>
+<span class="sd">    translation string.  Default text appears when the translation</span>
+<span class="sd">    string cannot be translated.  Usually, the ``msgid`` of a</span>
+<span class="sd">    translation string serves double duty as its default text.</span>
+<span class="sd">    However, using this option you can provide a different default</span>
+<span class="sd">    text for this translation string.  This feature is useful when the</span>
+<span class="sd">    default of a translation string is too complicated or too long to</span>
+<span class="sd">    be used as a message identifier. If ``default`` is provided, it</span>
+<span class="sd">    must be a ``unicode`` object or a ``str`` object encoded in the</span>
+<span class="sd">    default system encoding (usually means ASCII).  If ``default`` is</span>
+<span class="sd">    ``None`` (its default value), the ``msgid`` value used by this</span>
+<span class="sd">    translation string will be assumed to be the value of ``default``.</span>
+
+<span class="sd">    ``mapping``, if supplied, must be a dictionary-like object which</span>
+<span class="sd">    represents the replacement values for any :term:`translation</span>
+<span class="sd">    string` *replacement marker* instances found within the ``msgid``</span>
+<span class="sd">    (or ``default``) value of this translation string.</span>
+
+<span class="sd">    ``context`` represents the :term:`translation context`.  By default,</span>
+<span class="sd">    the translation context is ``None``.</span>
+
+<span class="sd">    After a translation string is constructed, it behaves like most</span>
+<span class="sd">    other ``unicode`` objects; its ``msgid`` value will be displayed</span>
+<span class="sd">    when it is treated like a ``unicode`` object.  Only when its</span>
+<span class="sd">    ``ugettext`` method is called will it be translated.</span>
+
+<span class="sd">    Its default value is available as the ``default`` attribute of the</span>
+<span class="sd">    object, its :term:`translation domain` is available as the</span>
+<span class="sd">    ``domain`` attribute, and the ``mapping`` is available as the</span>
+<span class="sd">    ``mapping`` attribute.  The object otherwise behaves much like a</span>
+<span class="sd">    Unicode string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;domain&#39;</span><span class="p">,</span> <span class="s1">&#39;context&#39;</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="s1">&#39;mapping&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msgid</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="c1"># NB: this function should never never lose the *original</span>
+        <span class="c1"># identity* of a non-``None`` but empty ``default`` value</span>
+        <span class="c1"># provided to it.  See the comment in ChameleonTranslate.</span>
+
+        <span class="bp">self</span> <span class="o">=</span> <span class="n">text_type</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msgid</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msgid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+            <span class="n">domain</span> <span class="o">=</span> <span class="n">domain</span> <span class="ow">or</span> <span class="n">msgid</span><span class="o">.</span><span class="n">domain</span> <span class="ow">and</span> <span class="n">msgid</span><span class="o">.</span><span class="n">domain</span><span class="p">[:]</span>
+            <span class="n">context</span> <span class="o">=</span> <span class="n">context</span> <span class="ow">or</span> <span class="n">msgid</span><span class="o">.</span><span class="n">context</span> <span class="ow">and</span> <span class="n">msgid</span><span class="o">.</span><span class="n">context</span><span class="p">[:]</span>
+            <span class="n">default</span> <span class="o">=</span> <span class="n">default</span> <span class="ow">or</span> <span class="n">msgid</span><span class="o">.</span><span class="n">default</span> <span class="ow">and</span> <span class="n">msgid</span><span class="o">.</span><span class="n">default</span><span class="p">[:]</span>
+            <span class="n">mapping</span> <span class="o">=</span> <span class="n">mapping</span> <span class="ow">or</span> <span class="n">msgid</span><span class="o">.</span><span class="n">mapping</span> <span class="ow">and</span> <span class="n">msgid</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">msgid</span> <span class="o">=</span> <span class="n">text_type</span><span class="p">(</span><span class="n">msgid</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="o">=</span> <span class="n">domain</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">context</span>
+        <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">default</span> <span class="o">=</span> <span class="n">text_type</span><span class="p">(</span><span class="n">msgid</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="n">default</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">mapping</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__mod__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new TranslationString instance with an updated mapping.</span>
+<span class="sd">        This makes it possible to use the standard python %-style string</span>
+<span class="sd">        formatting with translatable strings. Only dictionary</span>
+<span class="sd">        arguments are supported.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Can only interpolate translationstring &#39;</span>
+                    <span class="s1">&#39;with dictionaries.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">:</span>
+            <span class="n">mapping</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">mapping</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mapping</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">TranslationString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="n">mapping</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">translated</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Interpolate the value ``translated`` which is assumed to</span>
+<span class="sd">        be a Unicode object containing zero or more *replacement</span>
+<span class="sd">        markers* (``$foo`` or ``${bar}``) using the ``mapping``</span>
+<span class="sd">        dictionary attached to this instance.  If the ``mapping``</span>
+<span class="sd">        dictionary is empty or ``None``, no interpolation is</span>
+<span class="sd">        performed.</span>
+
+<span class="sd">        If ``translated`` is ``None``, interpolation will be performed</span>
+<span class="sd">        against the ``default`` value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">translated</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">translated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span>
+
+        <span class="c1"># NB: this function should never never lose the *original</span>
+        <span class="c1"># identity* of a non-``None`` but empty ``default`` value it</span>
+        <span class="c1"># is provided.  If (translated == default) , it should return the</span>
+        <span class="c1"># *original* default, not a derivation.  See the comment below in</span>
+        <span class="c1"># ChameleonTranslate.</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="ow">and</span> <span class="n">translated</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">replace</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
+                <span class="n">whole</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">text_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">param1</span> <span class="ow">or</span> <span class="n">param2</span><span class="p">,</span> <span class="n">whole</span><span class="p">))</span>
+            <span class="n">translated</span> <span class="o">=</span> <span class="n">_interp_regex</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">replace</span><span class="p">,</span> <span class="n">translated</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">translated</span>
+
+    <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getstate__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">text_type</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span></div>
+
+<div class="viewcode-block" id="TranslationStringFactory"><a class="viewcode-back" href="../api/i18n.html#pyramid.i18n.TranslationStringFactory">[docs]</a><span class="k">def</span> <span class="nf">TranslationStringFactory</span><span class="p">(</span><span class="n">factory_domain</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Create a factory which will generate translation strings</span>
+<span class="sd">    without requiring that each call to the factory be passed a</span>
+<span class="sd">    ``domain`` value.  A single argument is passed to this class&#39;</span>
+<span class="sd">    constructor: ``domain``.  This value will be used as the</span>
+<span class="sd">    ``domain`` values of :class:`translationstring.TranslationString`</span>
+<span class="sd">    objects generated by the ``__call__`` of this class.  The</span>
+<span class="sd">    ``msgid``, ``mapping``, and ``default`` values provided to the</span>
+<span class="sd">    ``__call__`` method of an instance of this class have the meaning</span>
+<span class="sd">    as described by the constructor of the</span>
+<span class="sd">    :class:`translationstring.TranslationString`&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">msgid</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Provided a msgid (Unicode object or :term:`translation</span>
+<span class="sd">        string`) and optionally a mapping object, and a *default</span>
+<span class="sd">        value*, return a :term:`translation string` object.&quot;&quot;&quot;</span>
+
+        <span class="c1"># if we are passing in a TranslationString as the msgid, then</span>
+        <span class="c1"># use its domain</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msgid</span><span class="p">,</span> <span class="n">TranslationString</span><span class="p">):</span>
+            <span class="n">domain</span> <span class="o">=</span> <span class="n">msgid</span><span class="o">.</span><span class="n">domain</span> <span class="ow">or</span> <span class="n">factory_domain</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">domain</span> <span class="o">=</span> <span class="n">factory_domain</span>
+
+        <span class="k">return</span> <span class="n">TranslationString</span><span class="p">(</span><span class="n">msgid</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">,</span>
+                                 <span class="n">mapping</span><span class="o">=</span><span class="n">mapping</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">create</span></div>
+
+<span class="k">def</span> <span class="nf">ChameleonTranslate</span><span class="p">(</span><span class="n">translator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    When necessary, use the result of calling this function as a</span>
+<span class="sd">    Chameleon template &#39;translate&#39; function (e.g. the ``translate``</span>
+<span class="sd">    argument to the ``chameleon.zpt.template.PageTemplate``</span>
+<span class="sd">    constructor) to allow our translation machinery to drive template</span>
+<span class="sd">    translation.  A single required argument ``translator`` is</span>
+<span class="sd">    passsed.  The ``translator`` provided should be a callable which</span>
+<span class="sd">    accepts a single argument ``translation_string`` ( a</span>
+<span class="sd">    :class:`translationstring.TranslationString` instance) which</span>
+<span class="sd">    returns a ``unicode`` object as a translation.  ``translator`` may</span>
+<span class="sd">    also optionally be ``None``, in which case no translation is</span>
+<span class="sd">    performed (the ``msgid`` or ``default`` value is returned</span>
+<span class="sd">    untranslated).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">msgid</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">target_language</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="c1"># NB: note that both TranslationString._init__ and</span>
+        <span class="c1"># TranslationString.interpolate are careful to never lose the</span>
+        <span class="c1"># *identity* of an empty but non-``None`` ``default`` value we</span>
+        <span class="c1"># provide to them.  For example, neither of those functions</span>
+        <span class="c1"># are permitted to run an empty but non-``None`` ``default``</span>
+        <span class="c1"># through ``unicode`` and throw the original default value</span>
+        <span class="c1"># away afterwards.</span>
+
+        <span class="c1"># This has a dubious cause: for Chameleon API reasons we must</span>
+        <span class="c1"># ensure that, after translation, if ( (translated == msgid)</span>
+        <span class="c1"># and (not default) and (default is not None) ) that we return</span>
+        <span class="c1"># the ``default`` value provided to us *unmodified*, because</span>
+        <span class="c1"># Chameleon uses it as a sentinel (it compares the return</span>
+        <span class="c1"># value of this function by identity to what it passed in as</span>
+        <span class="c1"># ``default``; this marker is a</span>
+        <span class="c1"># chameleon.core.i18n.StringMarker instance, a subclass of str</span>
+        <span class="c1"># that == &#39;&#39;).  This is, of course, totally absurd, because</span>
+        <span class="c1"># Chameleon *also* wants us to use ``default`` as the input to</span>
+        <span class="c1"># a translation string in some cases, and maintaining the</span>
+        <span class="c1"># identity of this object through translation operations isn&#39;t</span>
+        <span class="c1"># a contract it spells out in its docs.</span>
+
+        <span class="c1"># Chameleon&#39;s use of ``default`` to represent both a sentinel</span>
+        <span class="c1"># and input to a translation string is a Chameleon i18n</span>
+        <span class="c1"># extensibility design bug.  Until we overhaul its hook point</span>
+        <span class="c1"># for translation extensibility, we need to appease it by</span>
+        <span class="c1"># preserving ``default`` in the aforementioned case.  So we</span>
+        <span class="c1"># spray these indignant comments all over this module. ;-)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msgid</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">msgid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">msgid</span> <span class="o">=</span> <span class="n">text_type</span><span class="p">(</span><span class="n">msgid</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">msgid</span>
+
+        <span class="n">tstring</span> <span class="o">=</span> <span class="n">msgid</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">tstring</span><span class="p">,</span> <span class="s1">&#39;interpolate&#39;</span><span class="p">):</span>
+            <span class="n">tstring</span> <span class="o">=</span> <span class="n">TranslationString</span><span class="p">(</span><span class="n">msgid</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">default</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">translator</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">tstring</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">translator</span><span class="p">(</span><span class="n">tstring</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">return</span> <span class="n">translate</span>
+
+<span class="k">def</span> <span class="nf">ugettext_policy</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">tstring</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A translator policy function which unconditionally uses the</span>
+<span class="sd">    ``ugettext`` API on the translations object.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">PY3</span><span class="p">:</span> <span class="c1"># pragma: no cover</span>
+        <span class="n">_gettext</span> <span class="o">=</span> <span class="n">translations</span><span class="o">.</span><span class="n">gettext</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># pragma: no cover</span>
+        <span class="n">_gettext</span> <span class="o">=</span> <span class="n">translations</span><span class="o">.</span><span class="n">ugettext</span>
+
+    <span class="k">if</span> <span class="n">context</span><span class="p">:</span>
+	<span class="c1"># Workaround for http://bugs.python.org/issue2504?</span>
+        <span class="n">msgid</span> <span class="o">=</span> <span class="n">CONTEXT_MASK</span> <span class="o">%</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">tstring</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msgid</span> <span class="o">=</span> <span class="n">tstring</span>
+
+    <span class="n">translated</span> <span class="o">=</span> <span class="n">_gettext</span><span class="p">(</span><span class="n">msgid</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tstring</span> <span class="k">if</span> <span class="n">translated</span> <span class="o">==</span> <span class="n">msgid</span> <span class="k">else</span> <span class="n">translated</span>
+
+<span class="k">def</span> <span class="nf">dugettext_policy</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">tstring</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A translator policy function which assumes the use of a</span>
+<span class="sd">    :class:`babel.support.Translations` translations object, which</span>
+<span class="sd">    supports the dugettext API; fall back to ugettext.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">domain</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">default_domain</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="s1">&#39;domain&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;messages&#39;</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">tstring</span><span class="p">,</span> <span class="s1">&#39;domain&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">default_domain</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="n">context</span> <span class="ow">or</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">tstring</span><span class="p">,</span> <span class="s1">&#39;context&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">context</span><span class="p">:</span>
+	<span class="c1"># Workaround for http://bugs.python.org/issue2504?</span>
+        <span class="n">msgid</span> <span class="o">=</span> <span class="n">CONTEXT_MASK</span> <span class="o">%</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">tstring</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msgid</span> <span class="o">=</span> <span class="n">tstring</span>
+
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="s1">&#39;dugettext&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">translated</span> <span class="o">=</span> <span class="n">translations</span><span class="o">.</span><span class="n">dugettext</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">msgid</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">PY3</span><span class="p">:</span> <span class="c1"># pragma: no cover</span>
+            <span class="n">_gettext</span> <span class="o">=</span> <span class="n">translations</span><span class="o">.</span><span class="n">gettext</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># pragma: no cover</span>
+            <span class="n">_gettext</span> <span class="o">=</span> <span class="n">translations</span><span class="o">.</span><span class="n">ugettext</span>
+
+        <span class="n">translated</span> <span class="o">=</span> <span class="n">_gettext</span><span class="p">(</span><span class="n">msgid</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tstring</span> <span class="k">if</span> <span class="n">translated</span> <span class="o">==</span> <span class="n">msgid</span> <span class="k">else</span> <span class="n">translated</span>
+
+<span class="k">def</span> <span class="nf">Translator</span><span class="p">(</span><span class="n">translations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">policy</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a translator object based on the ``translations`` and</span>
+<span class="sd">    ``policy`` provided.  ``translations`` should be an object</span>
+<span class="sd">    supporting *at least* the Python :class:`gettext.NullTranslations`</span>
+<span class="sd">    API but ideally the :class:`babel.support.Translations` API, which</span>
+<span class="sd">    has support for domain lookups like dugettext.</span>
+
+<span class="sd">    ``policy`` should be a callable which accepts three arguments:</span>
+<span class="sd">    ``translations``, ``tstring`` and ``domain``.  It must perform the</span>
+<span class="sd">    actual translation lookup.  If ``policy`` is ``None``, the</span>
+<span class="sd">    :func:`translationstring.dugettext_policy` policy will be used.</span>
+
+<span class="sd">    The callable returned accepts three arguments: ``tstring``</span>
+<span class="sd">    (required), ``domain`` (optional) and ``mapping`` (optional).</span>
+<span class="sd">    When called, it will translate the ``tstring`` translation string</span>
+<span class="sd">    to a ``unicode`` object using the ``translations`` provided.  If</span>
+<span class="sd">    ``translations`` is ``None``, the result of interpolation of the</span>
+<span class="sd">    default value is returned.  The optional ``domain`` argument can</span>
+<span class="sd">    be used to specify or override the domain of the ``tstring``</span>
+<span class="sd">    (useful when ``tstring`` is a normal string rather than a</span>
+<span class="sd">    translation string).  The optional ``mapping`` argument can</span>
+<span class="sd">    specify or override the ``tstring`` interpolation mapping, useful</span>
+<span class="sd">    when the ``tstring`` argument is a simple string instead of a</span>
+<span class="sd">    translation string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">policy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">policy</span> <span class="o">=</span> <span class="n">dugettext_policy</span>
+    <span class="k">def</span> <span class="nf">translator</span><span class="p">(</span><span class="n">tstring</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">tstring</span><span class="p">,</span> <span class="s1">&#39;interpolate&#39;</span><span class="p">):</span>
+            <span class="n">tstring</span> <span class="o">=</span> <span class="n">TranslationString</span><span class="p">(</span><span class="n">tstring</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="n">mapping</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">mapping</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">tstring</span><span class="o">.</span><span class="n">mapping</span><span class="p">:</span>
+                <span class="n">new_mapping</span> <span class="o">=</span> <span class="n">tstring</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="n">new_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">new_mapping</span> <span class="o">=</span> <span class="n">mapping</span>
+            <span class="n">tstring</span> <span class="o">=</span> <span class="n">TranslationString</span><span class="p">(</span><span class="n">tstring</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="n">new_mapping</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+        <span class="n">translated</span> <span class="o">=</span> <span class="n">tstring</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="n">domain</span> <span class="ow">or</span> <span class="n">tstring</span><span class="o">.</span><span class="n">domain</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">context</span> <span class="ow">or</span> <span class="n">tstring</span><span class="o">.</span><span class="n">context</span>
+        <span class="k">if</span> <span class="n">translations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">translated</span> <span class="o">=</span> <span class="n">policy</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">tstring</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">translated</span> <span class="o">==</span> <span class="n">tstring</span><span class="p">:</span>
+            <span class="n">translated</span> <span class="o">=</span> <span class="n">tstring</span><span class="o">.</span><span class="n">default</span>
+        <span class="k">if</span> <span class="n">translated</span> <span class="ow">and</span> <span class="s1">&#39;$&#39;</span> <span class="ow">in</span> <span class="n">translated</span> <span class="ow">and</span> <span class="n">tstring</span><span class="o">.</span><span class="n">mapping</span><span class="p">:</span>
+            <span class="n">translated</span> <span class="o">=</span> <span class="n">tstring</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">translated</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">translated</span>
+    <span class="k">return</span> <span class="n">translator</span>
+
+<span class="k">def</span> <span class="nf">ungettext_policy</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A pluralizer policy function which unconditionally uses the</span>
+<span class="sd">    ``ungettext`` API on the translations object.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">PY3</span><span class="p">:</span> <span class="c1"># pragma: no cover</span>
+        <span class="n">_gettext</span> <span class="o">=</span> <span class="n">translations</span><span class="o">.</span><span class="n">ngettext</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># pragma: no cover</span>
+        <span class="n">_gettext</span> <span class="o">=</span> <span class="n">translations</span><span class="o">.</span><span class="n">ungettext</span>
+
+    <span class="k">if</span> <span class="n">context</span><span class="p">:</span>
+	<span class="c1"># Workaround for http://bugs.python.org/issue2504?</span>
+        <span class="n">msgid</span> <span class="o">=</span> <span class="n">CONTEXT_MASK</span> <span class="o">%</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">singular</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msgid</span> <span class="o">=</span> <span class="n">singular</span>
+
+    <span class="n">translated</span> <span class="o">=</span> <span class="n">_gettext</span><span class="p">(</span><span class="n">msgid</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">singular</span> <span class="k">if</span> <span class="n">translated</span> <span class="o">==</span> <span class="n">msgid</span> <span class="k">else</span> <span class="n">translated</span>
+
+<span class="k">def</span> <span class="nf">dungettext_policy</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A pluralizer policy function which assumes the use of the</span>
+<span class="sd">    :class:`babel.support.Translations` class, which supports the</span>
+<span class="sd">    dungettext API; falls back to ungettext.&quot;&quot;&quot;</span>
+
+    <span class="n">default_domain</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="s1">&#39;domain&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;messages&#39;</span>
+    <span class="n">domain</span> <span class="o">=</span> <span class="n">domain</span> <span class="ow">or</span> <span class="n">default_domain</span>
+    <span class="k">if</span> <span class="n">context</span><span class="p">:</span>
+	<span class="c1"># Workaround for http://bugs.python.org/issue2504?</span>
+        <span class="n">msgid</span> <span class="o">=</span> <span class="n">CONTEXT_MASK</span> <span class="o">%</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">singular</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msgid</span> <span class="o">=</span> <span class="n">singular</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="s1">&#39;dungettext&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">translated</span> <span class="o">=</span> <span class="n">translations</span><span class="o">.</span><span class="n">dungettext</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">msgid</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">PY3</span><span class="p">:</span> <span class="c1"># pragma: no cover</span>
+            <span class="n">_gettext</span> <span class="o">=</span> <span class="n">translations</span><span class="o">.</span><span class="n">ngettext</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># pragma: no cover</span>
+            <span class="n">_gettext</span> <span class="o">=</span> <span class="n">translations</span><span class="o">.</span><span class="n">ungettext</span>
+
+        <span class="n">translated</span> <span class="o">=</span> <span class="n">_gettext</span><span class="p">(</span><span class="n">msgid</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">singular</span> <span class="k">if</span> <span class="n">translated</span> <span class="o">==</span> <span class="n">msgid</span> <span class="k">else</span> <span class="n">translated</span>
+
+<span class="k">def</span> <span class="nf">Pluralizer</span><span class="p">(</span><span class="n">translations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">policy</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a pluralizer object based on the ``translations`` and</span>
+<span class="sd">    ``policy`` provided.  ``translations`` should be an object</span>
+<span class="sd">    supporting *at least* the Python :class:`gettext.NullTranslations`</span>
+<span class="sd">    API but ideally the :class:`babel.support.Translations` API, which</span>
+<span class="sd">    has support for domain lookups like dugettext.</span>
+
+<span class="sd">    ``policy`` should be a callable which accepts five arguments:</span>
+<span class="sd">    ``translations``, ``singular`` and ``plural``, ``n`` and</span>
+<span class="sd">    ``domain``.  It must perform the actual pluralization lookup.  If</span>
+<span class="sd">    ``policy`` is ``None``, the</span>
+<span class="sd">    :func:`translationstring.dungettext_policy` policy will be used.</span>
+
+<span class="sd">    The object returned will be a callable which has the following</span>
+<span class="sd">    signature::</span>
+
+<span class="sd">        def pluralizer(singular, plural, n, domain=None, mapping=None):</span>
+<span class="sd">            ...</span>
+
+<span class="sd">    The ``singular`` and ``plural`` objects passed may be translation</span>
+<span class="sd">    strings or unicode strings.  ``n`` represents the number of</span>
+<span class="sd">    elements.  ``domain`` is the translation domain to use to do the</span>
+<span class="sd">    pluralization, and ``mapping`` is the interpolation mapping that</span>
+<span class="sd">    should be used on the result.  Note that if the objects passed are</span>
+<span class="sd">    translation strings, their domains and mappings are ignored.  The</span>
+<span class="sd">    domain and mapping arguments must be used instead.  If the ``domain`` is</span>
+<span class="sd">    not supplied, a default domain is used (usually ``messages``).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">policy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">policy</span> <span class="o">=</span> <span class="n">dungettext_policy</span>
+    <span class="k">if</span> <span class="n">translations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">translations</span> <span class="o">=</span> <span class="n">NullTranslations</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">pluralizer</span><span class="p">(</span><span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Pluralize this object &quot;&quot;&quot;</span>
+        <span class="n">translated</span> <span class="o">=</span> <span class="n">text_type</span><span class="p">(</span>
+            <span class="n">policy</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">context</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">translated</span> <span class="ow">and</span> <span class="s1">&#39;$&#39;</span> <span class="ow">in</span> <span class="n">translated</span> <span class="ow">and</span> <span class="n">mapping</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TranslationString</span><span class="p">(</span><span class="n">translated</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="n">mapping</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">translated</span>
+    <span class="k">return</span> <span class="n">pluralizer</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      Last updated on Aug 01, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+    </div>
+  </body>
+</html>

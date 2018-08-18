@@ -20,13 +20,14 @@ msgstr ""
 
 #: ../../quick_tutorial/authentication.rst:5
 msgid "20: Logins with authentication"
-msgstr ""
+msgstr "20: 認証付きログイン(20: Logins with authentication)"
 
 #: ../../quick_tutorial/authentication.rst:7
 msgid ""
 "Login views that authenticate a username and password against a list of "
 "users."
 msgstr ""
+"ユーザのリストに対してユーザ名とパスワードを認証するログイン用のビュー。"
 
 #: ../../quick_tutorial/authentication.rst:11
 msgid "Background"
@@ -40,40 +41,47 @@ msgid ""
 " is, logging in and logging out, using Pyramid's rich facilities for "
 "pluggable user storage."
 msgstr ""
+"ほとんどのWebアプリケーションにはWebブラウザ経由でコンテンツを"
+"追加/編集/削除できるURLがあります。アプリケーションに"
+" :ref:`security <security_chapter>` を追加す"
+"る時です。こ最初のステップでログイン機能を導入します。"
+"プラグイン可能なユーザストレージにPyramidの豊富な機能を使用して、ログインしてログアウトします。"
 
 #: ../../quick_tutorial/authentication.rst:18
 msgid ""
 "In the next step we will introduce protection of resources with "
 "authorization security statements."
 msgstr ""
+"次のステップでは、認証セキュリティーステートメントによる"
+"リソースの保護について紹介します。"
 
 #: ../../quick_tutorial/authentication.rst:23
 msgid "Objectives"
-msgstr ""
+msgstr "目的(Objectives)"
 
 #: ../../quick_tutorial/authentication.rst:25
 msgid "Introduce the Pyramid concepts of authentication."
-msgstr ""
+msgstr "Pyramidの認証の概念を紹介します。"
 
 #: ../../quick_tutorial/authentication.rst:27
 msgid "Create login and logout views."
-msgstr ""
+msgstr "ログイン、ログアウトのビューを作成します。"
 
 #: ../../quick_tutorial/authentication.rst:30
 msgid "Steps"
-msgstr ""
+msgstr "手順(Steps)"
 
 #: ../../quick_tutorial/authentication.rst:32
 msgid "We are going to use the view classes step as our starting point:"
-msgstr ""
+msgstr "ビューのクラスを出発点として使用します"
 
 #: ../../quick_tutorial/authentication.rst:38
 msgid "Add ``bcrypt`` as a dependency in ``authentication/setup.py``:"
-msgstr ""
+msgstr "依存関係として ``authentication/setup.py`` に  ``bcrypt`` を追加します:" 
 
 #: ../../quick_tutorial/authentication.rst:45
 msgid "We can now install our project in development mode:"
-msgstr ""
+msgstr "プロジェクトを開発者モードでインストールできました:"
 
 #: ../../quick_tutorial/authentication.rst:51
 msgid ""
@@ -81,60 +89,67 @@ msgid ""
 "configuration file as ``tutorial.secret`` instead of putting it in the "
 "code:"
 msgstr ""
+"セキュリティハッシュをコードに入れるのではなく、設定ファイル "
+"``authentication/development.ini`` の  ``tutorial.secret`` に記載します:"
 
 #: ../../quick_tutorial/authentication.rst:58
 msgid ""
 "Get authentication (and for now, authorization policies) and login route "
 "into the :term:`configurator` in ``authentication/tutorial/__init__.py``:"
 msgstr ""
+"認証（および今のところ認証ポリシー）を取得して、ログインするには "
+"``authentication/tutorial/__init__.py`` の :term:`configurator` で以下のようにします:"
 
 #: ../../quick_tutorial/authentication.rst:64
 msgid ""
 "Create an ``authentication/tutorial/security.py`` module that can find "
 "our user information by providing an *authentication policy callback*:"
 msgstr ""
+"「認証ポリシーコールバック」を提供することによって。ユーザー情報を見つけられる"
+" ``authentication/tutorial/security.py``  モジュールを作成します:"
+
 
 #: ../../quick_tutorial/authentication.rst:70
 msgid "Update the views in ``authentication/tutorial/views.py``:"
-msgstr ""
+msgstr "``authentication/tutorial/views.py`` のビューを更新します:"
 
 #: ../../quick_tutorial/authentication.rst:75
 msgid "Add a login template at ``authentication/tutorial/login.pt``:"
-msgstr ""
+msgstr "ログイン用のテンプレート ``authentication/tutorial/login.pt`` を追加します:"
 
 #: ../../quick_tutorial/authentication.rst:81
 msgid "Provide a login/logout box in ``authentication/tutorial/home.pt``:"
-msgstr ""
+msgstr "ログイン、ログアウトのボックスを提供する``authentication/tutorial/home.pt``を追加します:"
 
 #: ../../quick_tutorial/authentication.rst:87
 msgid "Run your Pyramid application with:"
-msgstr ""
+msgstr "Pythonアプリケーションを以下のように実行します:"
 
 #: ../../quick_tutorial/authentication.rst:93
 msgid "Open http://localhost:6543/ in a browser."
-msgstr ""
+msgstr "http://localhost:6543/  をブラウザで開きます:"
 
 #: ../../quick_tutorial/authentication.rst:95
 msgid "Click the \"Log In\" link."
-msgstr ""
+msgstr "リンク「Log In」をクリックしてください。"
 
 #: ../../quick_tutorial/authentication.rst:97
 msgid ""
 "Submit the login form with the username ``editor`` and the password "
 "``editor``."
-msgstr ""
+msgstr " usernameとpasswordともに ``editor`` と入力してサブミットしてください。 "
 
 #: ../../quick_tutorial/authentication.rst:100
 msgid "Note that the \"Log In\" link has changed to \"Logout\"."
-msgstr ""
+msgstr "リンク「Log In」が「Logout」に変更されることに注意してください。"
 
 #: ../../quick_tutorial/authentication.rst:102
 msgid "Click the \"Logout\" link."
-msgstr ""
+msgstr "リンク「Logout」をクリックしてください。"
 
 #: ../../quick_tutorial/authentication.rst:105
 msgid "Analysis"
-msgstr ""
+msgstr "分析(Analysis)"
 
 #: ../../quick_tutorial/authentication.rst:107
 msgid ""
@@ -146,6 +161,13 @@ msgid ""
 "at a time, we provide a system that identifies users and lets them log "
 "out."
 msgstr ""
+"多くのWebフレームワークとは異なり、Pyramidには、ビルトインですが認証と認可"
+"用のオプションのセキュリティモデルがふくまれています。"
+"このセキュリティシステムは柔軟で多くのニーズをサポートするのが目的です。"
+"セキュリティのモデルでは、認証（あなたが誰か）と承認（何が許可されているか）"
+"は単なるプラグインではなく分離されています。"
+"一度に1つの手順を学ぶためにユーザーを識別してログアウトするシステムを提供しています"
+
 
 #: ../../quick_tutorial/authentication.rst:114
 msgid ""
@@ -154,6 +176,9 @@ msgid ""
 "enabled it in our configuration and provided a ticket-signing secret in "
 "our INI file."
 msgstr ""
+"例では、バンドルされた :ref:`AuthTktAuthenticationPolicy <authentication_module>` "
+"ポリシーを使用することを選択しました。設定で有効にして、"
+"INIファイルにチケット署名の秘密を提供しました。"
 
 #: ../../quick_tutorial/authentication.rst:118
 msgid ""
@@ -162,6 +187,11 @@ msgid ""
 "processed the submitted username and password against the \"groupfinder\""
 " callable that we registered in the configuration."
 msgstr ""
+"ビューのクラスはログインビューを成長させました。"
+" ``GET`` リクエストで到達したときにログインフォームを返しました。"
+"  ``POST`` 経由で到達したとき、が設定に登録した 「groupfinder」は"
+"呼び出し可能なファイルに対して、送信されたユーザー名とパスワードを処理しました。"
+
 
 #: ../../quick_tutorial/authentication.rst:123
 msgid ""
@@ -170,6 +200,10 @@ msgid ""
 "password in plain text. This is considered to be a \"best practice\" for "
 "security."
 msgstr ""
+"``hash_password`` 関数はパスワードをプレーンテキストで保存するのではなく、"
+" ``bcrypt`` をかいしてユーザーのパスワードに 一方向のSALTハッシュアルゴリ"
+"ズムを使用します。これはセキュリティの「ベストプラクティス」とみなされます。"
+
 
 #: ../../quick_tutorial/authentication.rst:128
 msgid ""
@@ -177,6 +211,10 @@ msgid ""
 "system. Just make sure that the library uses an algorithm approved for "
 "storing passwords securely."
 msgstr ""
+"システム上で問題がある場合は、``bcrypt`` の代替ライブラリがあります。"
+"ライブラリが安全にパスワードを格納するために"
+"承認されたアルゴリズムを使用していることを確認してください。"
+
 
 #: ../../quick_tutorial/authentication.rst:132
 msgid ""
@@ -185,6 +223,9 @@ msgid ""
 "the hashed values are equivalent, then the user is authenticated, else "
 "authentication fails."
 msgstr ""
+"``check_password`` 関数はサブミットされたパスワードとデータベースに"
+"格納されているユーザーのパスワードの2つのハッシュ値を比較します。"
+"ハッシュされた値が同等である場合は認証されます。そうでない場合は認証は失敗します。"
 
 #: ../../quick_tutorial/authentication.rst:137
 msgid ""
@@ -193,28 +234,38 @@ msgid ""
 "can then choose to show a login link to anonymous visitors or a logout "
 "link to logged-in users."
 msgstr ""
+"テンプレートでは、ビュークラスから ``logged_in`` の値を取得しました。"
+"これを使用してログインしているユーザーがあれば計算します。"
+"テンプレートでは匿名の訪問者へのログインリンクや、"
+"ログインしているユーザーへのログアウトリンクを表示できます。"
+
 
 #: ../../quick_tutorial/authentication.rst:144
 msgid "Extra credit"
-msgstr ""
+msgstr "エクストラクレジット(Extra credit)"
 
 #: ../../quick_tutorial/authentication.rst:146
 msgid "What is the difference between a user and a principal?"
-msgstr ""
+msgstr "ユーザーとプリンシパルの違いは何ですか？"
 
 #: ../../quick_tutorial/authentication.rst:148
 msgid "Can I use a database behind my ``groupfinder`` to look up principals?"
-msgstr ""
+msgstr "データベースを使用して、``groupfinder``　でプリンシパルを検索できますか？"
 
 #: ../../quick_tutorial/authentication.rst:150
 msgid ""
 "Once I am logged in, does any user-centric information get jammed onto "
 "each request? Use ``import pdb; pdb.set_trace()`` to answer this."
 msgstr ""
+"ログインすると、ユーザー中心の情報は各リクエストに格納されるのでしょうか？"
+"この疑問に答えるために　``import pdb; pdb.set_trace()``　を使用します。"
 
 #: ../../quick_tutorial/authentication.rst:153
 msgid ""
 "See also :ref:`security_chapter`, :ref:`AuthTktAuthenticationPolicy "
 "<authentication_module>`, `bcrypt <https://pypi.org/project/bcrypt/>`_"
 msgstr ""
+":ref:`security_chapter`, :ref:`AuthTktAuthenticationPolicy "
+"<authentication_module>`, `bcrypt <https://pypi.org/project/bcrypt/>`_"
+" を参照してください。"
 

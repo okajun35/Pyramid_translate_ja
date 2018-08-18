@@ -1,0 +1,740 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>http.cookies &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../copyright.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../../index.html">
+      		<img class="logo" src="../../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for http.cookies</h1><div class="highlight"><pre>
+<span></span><span class="c1">####</span>
+<span class="c1"># Copyright 2000 by Timothy O&#39;Malley &lt;timo@alum.mit.edu&gt;</span>
+<span class="c1">#</span>
+<span class="c1">#                All Rights Reserved</span>
+<span class="c1">#</span>
+<span class="c1"># Permission to use, copy, modify, and distribute this software</span>
+<span class="c1"># and its documentation for any purpose and without fee is hereby</span>
+<span class="c1"># granted, provided that the above copyright notice appear in all</span>
+<span class="c1"># copies and that both that copyright notice and this permission</span>
+<span class="c1"># notice appear in supporting documentation, and that the name of</span>
+<span class="c1"># Timothy O&#39;Malley  not be used in advertising or publicity</span>
+<span class="c1"># pertaining to distribution of the software without specific, written</span>
+<span class="c1"># prior permission.</span>
+<span class="c1">#</span>
+<span class="c1"># Timothy O&#39;Malley DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS</span>
+<span class="c1"># SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY</span>
+<span class="c1"># AND FITNESS, IN NO EVENT SHALL Timothy O&#39;Malley BE LIABLE FOR</span>
+<span class="c1"># ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES</span>
+<span class="c1"># WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,</span>
+<span class="c1"># WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS</span>
+<span class="c1"># ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR</span>
+<span class="c1"># PERFORMANCE OF THIS SOFTWARE.</span>
+<span class="c1">#</span>
+<span class="c1">####</span>
+<span class="c1">#</span>
+<span class="c1"># Id: Cookie.py,v 2.29 2000/08/23 05:28:49 timo Exp</span>
+<span class="c1">#   by Timothy O&#39;Malley &lt;timo@alum.mit.edu&gt;</span>
+<span class="c1">#</span>
+<span class="c1">#  Cookie.py is a Python module for the handling of HTTP</span>
+<span class="c1">#  cookies as a Python dictionary.  See RFC 2109 for more</span>
+<span class="c1">#  information on cookies.</span>
+<span class="c1">#</span>
+<span class="c1">#  The original idea to treat Cookies as a dictionary came from</span>
+<span class="c1">#  Dave Mitchell (davem@magnet.com) in 1995, when he released the</span>
+<span class="c1">#  first version of nscookie.py.</span>
+<span class="c1">#</span>
+<span class="c1">####</span>
+
+<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Here&#39;s a sample session to show how to use this module.</span>
+<span class="sd">At the moment, this is the only documentation.</span>
+
+<span class="sd">The Basics</span>
+<span class="sd">----------</span>
+
+<span class="sd">Importing is easy...</span>
+
+<span class="sd">   &gt;&gt;&gt; from http import cookies</span>
+
+<span class="sd">Most of the time you start by creating a cookie.</span>
+
+<span class="sd">   &gt;&gt;&gt; C = cookies.SimpleCookie()</span>
+
+<span class="sd">Once you&#39;ve created your Cookie, you can add values just as if it were</span>
+<span class="sd">a dictionary.</span>
+
+<span class="sd">   &gt;&gt;&gt; C = cookies.SimpleCookie()</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;fig&quot;] = &quot;newton&quot;</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;sugar&quot;] = &quot;wafer&quot;</span>
+<span class="sd">   &gt;&gt;&gt; C.output()</span>
+<span class="sd">   &#39;Set-Cookie: fig=newton\r\nSet-Cookie: sugar=wafer&#39;</span>
+
+<span class="sd">Notice that the printable representation of a Cookie is the</span>
+<span class="sd">appropriate format for a Set-Cookie: header.  This is the</span>
+<span class="sd">default behavior.  You can change the header and printed</span>
+<span class="sd">attributes by using the .output() function</span>
+
+<span class="sd">   &gt;&gt;&gt; C = cookies.SimpleCookie()</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;rocky&quot;] = &quot;road&quot;</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;rocky&quot;][&quot;path&quot;] = &quot;/cookie&quot;</span>
+<span class="sd">   &gt;&gt;&gt; print(C.output(header=&quot;Cookie:&quot;))</span>
+<span class="sd">   Cookie: rocky=road; Path=/cookie</span>
+<span class="sd">   &gt;&gt;&gt; print(C.output(attrs=[], header=&quot;Cookie:&quot;))</span>
+<span class="sd">   Cookie: rocky=road</span>
+
+<span class="sd">The load() method of a Cookie extracts cookies from a string.  In a</span>
+<span class="sd">CGI script, you would use this method to extract the cookies from the</span>
+<span class="sd">HTTP_COOKIE environment variable.</span>
+
+<span class="sd">   &gt;&gt;&gt; C = cookies.SimpleCookie()</span>
+<span class="sd">   &gt;&gt;&gt; C.load(&quot;chips=ahoy; vienna=finger&quot;)</span>
+<span class="sd">   &gt;&gt;&gt; C.output()</span>
+<span class="sd">   &#39;Set-Cookie: chips=ahoy\r\nSet-Cookie: vienna=finger&#39;</span>
+
+<span class="sd">The load() method is darn-tootin smart about identifying cookies</span>
+<span class="sd">within a string.  Escaped quotation marks, nested semicolons, and other</span>
+<span class="sd">such trickeries do not confuse it.</span>
+
+<span class="sd">   &gt;&gt;&gt; C = cookies.SimpleCookie()</span>
+<span class="sd">   &gt;&gt;&gt; C.load(&#39;keebler=&quot;E=everybody; L=\\&quot;Loves\\&quot;; fudge=\\012;&quot;;&#39;)</span>
+<span class="sd">   &gt;&gt;&gt; print(C)</span>
+<span class="sd">   Set-Cookie: keebler=&quot;E=everybody; L=\&quot;Loves\&quot;; fudge=\012;&quot;</span>
+
+<span class="sd">Each element of the Cookie also supports all of the RFC 2109</span>
+<span class="sd">Cookie attributes.  Here&#39;s an example which sets the Path</span>
+<span class="sd">attribute.</span>
+
+<span class="sd">   &gt;&gt;&gt; C = cookies.SimpleCookie()</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;oreo&quot;] = &quot;doublestuff&quot;</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;oreo&quot;][&quot;path&quot;] = &quot;/&quot;</span>
+<span class="sd">   &gt;&gt;&gt; print(C)</span>
+<span class="sd">   Set-Cookie: oreo=doublestuff; Path=/</span>
+
+<span class="sd">Each dictionary element has a &#39;value&#39; attribute, which gives you</span>
+<span class="sd">back the value associated with the key.</span>
+
+<span class="sd">   &gt;&gt;&gt; C = cookies.SimpleCookie()</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;twix&quot;] = &quot;none for you&quot;</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;twix&quot;].value</span>
+<span class="sd">   &#39;none for you&#39;</span>
+
+<span class="sd">The SimpleCookie expects that all values should be standard strings.</span>
+<span class="sd">Just to be sure, SimpleCookie invokes the str() builtin to convert</span>
+<span class="sd">the value to a string, when the values are set dictionary-style.</span>
+
+<span class="sd">   &gt;&gt;&gt; C = cookies.SimpleCookie()</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;number&quot;] = 7</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;string&quot;] = &quot;seven&quot;</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;number&quot;].value</span>
+<span class="sd">   &#39;7&#39;</span>
+<span class="sd">   &gt;&gt;&gt; C[&quot;string&quot;].value</span>
+<span class="sd">   &#39;seven&#39;</span>
+<span class="sd">   &gt;&gt;&gt; C.output()</span>
+<span class="sd">   &#39;Set-Cookie: number=7\r\nSet-Cookie: string=seven&#39;</span>
+
+<span class="sd">Finis.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">#</span>
+<span class="c1"># Import our required modules</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CookieError&quot;</span><span class="p">,</span> <span class="s2">&quot;BaseCookie&quot;</span><span class="p">,</span> <span class="s2">&quot;SimpleCookie&quot;</span><span class="p">]</span>
+
+<span class="n">_nulljoin</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span>
+<span class="n">_semispacejoin</span> <span class="o">=</span> <span class="s1">&#39;; &#39;</span><span class="o">.</span><span class="n">join</span>
+<span class="n">_spacejoin</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span>
+
+<span class="k">def</span> <span class="nf">_warn_deprecated_setter</span><span class="p">(</span><span class="n">setter</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">warnings</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;The .</span><span class="si">%s</span><span class="s1"> setter is deprecated. The attribute will be read-only in &#39;</span>
+           <span class="s1">&#39;future releases. Please use the set() method instead.&#39;</span> <span class="o">%</span> <span class="n">setter</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1"># Define an exception visible to External modules</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">CookieError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="c1"># These quoting routines conform to the RFC2109 specification, which in</span>
+<span class="c1"># turn references the character definitions from RFC2068.  They provide</span>
+<span class="c1"># a two-way quoting algorithm.  Any non-text character is translated</span>
+<span class="c1"># into a 4 character sequence: a forward-slash followed by the</span>
+<span class="c1"># three-digit octal equivalent of the character.  Any &#39;\&#39; or &#39;&quot;&#39; is</span>
+<span class="c1"># quoted with a preceding &#39;\&#39; slash.</span>
+<span class="c1"># Because of the way browsers really handle cookies (as opposed to what</span>
+<span class="c1"># the RFC says) we also encode &quot;,&quot; and &quot;;&quot;.</span>
+<span class="c1">#</span>
+<span class="c1"># These are taken from RFC2068 and RFC2109.</span>
+<span class="c1">#       _LegalChars       is the list of chars which don&#39;t require &quot;&#39;s</span>
+<span class="c1">#       _Translator       hash-table for fast quoting</span>
+<span class="c1">#</span>
+<span class="n">_LegalChars</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span> <span class="o">+</span> <span class="s2">&quot;!#$%&amp;&#39;*+-.^_`|~:&quot;</span>
+<span class="n">_UnescapedChars</span> <span class="o">=</span> <span class="n">_LegalChars</span> <span class="o">+</span> <span class="s1">&#39; ()/&lt;=&gt;?@[]</span><span class="si">{}</span><span class="s1">&#39;</span>
+
+<span class="n">_Translator</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="si">%03o</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">n</span>
+               <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">_UnescapedChars</span><span class="p">))}</span>
+<span class="n">_Translator</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+    <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">):</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&quot;&#39;</span><span class="p">,</span>
+    <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">):</span> <span class="s1">&#39;</span><span class="se">\\\\</span><span class="s1">&#39;</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="n">_is_legal_key</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%s</span><span class="s1">]+&#39;</span> <span class="o">%</span> <span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">_LegalChars</span><span class="p">))</span><span class="o">.</span><span class="n">fullmatch</span>
+
+<span class="k">def</span> <span class="nf">_quote</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Quote a string for use in a cookie header.</span>
+
+<span class="sd">    If the string does not need to be double-quoted, then just return the</span>
+<span class="sd">    string.  Otherwise, surround the string in doublequotes and quote</span>
+<span class="sd">    (with a \) special characters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">str</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">_is_legal_key</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">_Translator</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span>
+
+
+<span class="n">_OctalPatt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">[0-3][0-7][0-7]&quot;</span><span class="p">)</span>
+<span class="n">_QuotePatt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[</span><span class="se">\\</span><span class="s2">].&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_unquote</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="c1"># If there aren&#39;t any doublequotes,</span>
+    <span class="c1"># then there can&#39;t be any special characters.  See RFC 2109.</span>
+    <span class="k">if</span> <span class="nb">str</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&quot;&#39;</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span>
+
+    <span class="c1"># We have to assume that we must decode this string.</span>
+    <span class="c1"># Down to work.</span>
+
+    <span class="c1"># Remove the &quot;s</span>
+    <span class="nb">str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Check for special sequences.  Examples:</span>
+    <span class="c1">#    \012 --&gt; \n</span>
+    <span class="c1">#    \&quot;   --&gt; &quot;</span>
+    <span class="c1">#</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">o_match</span> <span class="o">=</span> <span class="n">_OctalPatt</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">q_match</span> <span class="o">=</span> <span class="n">_QuotePatt</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">o_match</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">q_match</span><span class="p">:</span>              <span class="c1"># Neither matched</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">:])</span>
+            <span class="k">break</span>
+        <span class="c1"># else:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">o_match</span><span class="p">:</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">o_match</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">q_match</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">q_match</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">q_match</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">o_match</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">):</span>     <span class="c1"># QuotePatt matched</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">k</span><span class="p">])</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>                                      <span class="c1"># OctalPatt matched</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">4</span><span class="p">],</span> <span class="mi">8</span><span class="p">)))</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">4</span>
+    <span class="k">return</span> <span class="n">_nulljoin</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="c1"># The _getdate() routine is used to set the expiration time in the cookie&#39;s HTTP</span>
+<span class="c1"># header.  By default, _getdate() returns the current time in the appropriate</span>
+<span class="c1"># &quot;expires&quot; format for a Set-Cookie header.  The one optional argument is an</span>
+<span class="c1"># offset from now, in seconds.  For example, an offset of -3600 means &quot;one hour</span>
+<span class="c1"># ago&quot;.  The offset may be a floating point number.</span>
+<span class="c1">#</span>
+
+<span class="n">_weekdayname</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tue&#39;</span><span class="p">,</span> <span class="s1">&#39;Wed&#39;</span><span class="p">,</span> <span class="s1">&#39;Thu&#39;</span><span class="p">,</span> <span class="s1">&#39;Fri&#39;</span><span class="p">,</span> <span class="s1">&#39;Sat&#39;</span><span class="p">,</span> <span class="s1">&#39;Sun&#39;</span><span class="p">]</span>
+
+<span class="n">_monthname</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span>
+              <span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Jul&#39;</span><span class="p">,</span> <span class="s1">&#39;Aug&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">,</span> <span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">,</span> <span class="s1">&#39;Dec&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">_getdate</span><span class="p">(</span><span class="n">future</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">weekdayname</span><span class="o">=</span><span class="n">_weekdayname</span><span class="p">,</span> <span class="n">monthname</span><span class="o">=</span><span class="n">_monthname</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">gmtime</span><span class="p">,</span> <span class="n">time</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">hh</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">ss</span><span class="p">,</span> <span class="n">wd</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">gmtime</span><span class="p">(</span><span class="n">now</span> <span class="o">+</span> <span class="n">future</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, </span><span class="si">%02d</span><span class="s2"> </span><span class="si">%3s</span><span class="s2"> </span><span class="si">%4d</span><span class="s2"> </span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2"> GMT&quot;</span> <span class="o">%</span> \
+           <span class="p">(</span><span class="n">weekdayname</span><span class="p">[</span><span class="n">wd</span><span class="p">],</span> <span class="n">day</span><span class="p">,</span> <span class="n">monthname</span><span class="p">[</span><span class="n">month</span><span class="p">],</span> <span class="n">year</span><span class="p">,</span> <span class="n">hh</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">ss</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Morsel</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A class to hold ONE (key, value) pair.</span>
+
+<span class="sd">    In a cookie, each such pair may have several attributes, so this class is</span>
+<span class="sd">    used to keep the attributes associated with the appropriate key,value pair.</span>
+<span class="sd">    This class also includes a coded_value attribute, which is used to hold</span>
+<span class="sd">    the network representation of the value.  This is most useful when Python</span>
+<span class="sd">    objects are pickled for network transit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># RFC 2109 lists these attributes as reserved:</span>
+    <span class="c1">#   path       comment         domain</span>
+    <span class="c1">#   max-age    secure      version</span>
+    <span class="c1">#</span>
+    <span class="c1"># For historical reasons, these attributes are also reserved:</span>
+    <span class="c1">#   expires</span>
+    <span class="c1">#</span>
+    <span class="c1"># This is an extension from Microsoft:</span>
+    <span class="c1">#   httponly</span>
+    <span class="c1">#</span>
+    <span class="c1"># This dictionary provides a mapping from the lowercase</span>
+    <span class="c1"># variant on the left to the appropriate traditional</span>
+    <span class="c1"># formatting on the right.</span>
+    <span class="n">_reserved</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;expires&quot;</span>  <span class="p">:</span> <span class="s2">&quot;expires&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;path&quot;</span>     <span class="p">:</span> <span class="s2">&quot;Path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;comment&quot;</span>  <span class="p">:</span> <span class="s2">&quot;Comment&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;domain&quot;</span>   <span class="p">:</span> <span class="s2">&quot;Domain&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;max-age&quot;</span>  <span class="p">:</span> <span class="s2">&quot;Max-Age&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;secure&quot;</span>   <span class="p">:</span> <span class="s2">&quot;Secure&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;httponly&quot;</span> <span class="p">:</span> <span class="s2">&quot;HttpOnly&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span>  <span class="p">:</span> <span class="s2">&quot;Version&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">_flags</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;secure&#39;</span><span class="p">,</span> <span class="s1">&#39;httponly&#39;</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Set defaults</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coded_value</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Set default attributes</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span><span class="p">:</span>
+            <span class="nb">dict</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_key</span>
+
+    <span class="nd">@key</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">_warn_deprecated_setter</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_key</span> <span class="o">=</span> <span class="n">key</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+
+    <span class="nd">@value</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">_warn_deprecated_setter</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">coded_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coded_value</span>
+
+    <span class="nd">@coded_value</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">coded_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coded_value</span><span class="p">):</span>
+        <span class="n">_warn_deprecated_setter</span><span class="p">(</span><span class="s1">&#39;coded_value&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coded_value</span> <span class="o">=</span> <span class="n">coded_value</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">K</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CookieError</span><span class="p">(</span><span class="s2">&quot;Invalid attribute </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">K</span><span class="p">,))</span>
+        <span class="nb">dict</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setdefault</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CookieError</span><span class="p">(</span><span class="s2">&quot;Invalid attribute </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,))</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">morsel</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">morsel</span><span class="p">,</span> <span class="n">Morsel</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">NotImplemented</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">morsel</span><span class="p">)</span> <span class="ow">and</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">==</span> <span class="n">morsel</span><span class="o">.</span><span class="n">_value</span> <span class="ow">and</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_key</span> <span class="o">==</span> <span class="n">morsel</span><span class="o">.</span><span class="n">_key</span> <span class="ow">and</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_coded_value</span> <span class="o">==</span> <span class="n">morsel</span><span class="o">.</span><span class="n">_coded_value</span><span class="p">)</span>
+
+    <span class="fm">__ne__</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__ne__</span>
+
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">morsel</span> <span class="o">=</span> <span class="n">Morsel</span><span class="p">()</span>
+        <span class="nb">dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">morsel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">morsel</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">morsel</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">CookieError</span><span class="p">(</span><span class="s2">&quot;Invalid attribute </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,))</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="nb">dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">isReservedKey</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">K</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span>
+
+    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">coded_val</span><span class="p">,</span> <span class="n">LegalChars</span><span class="o">=</span><span class="n">_LegalChars</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">LegalChars</span> <span class="o">!=</span> <span class="n">_LegalChars</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">warnings</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s1">&#39;LegalChars parameter is deprecated, ignored and will &#39;</span>
+                <span class="s1">&#39;be removed in future versions.&#39;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span>
+                <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CookieError</span><span class="p">(</span><span class="s1">&#39;Attempt to set a reserved key </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_legal_key</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">CookieError</span><span class="p">(</span><span class="s1">&#39;Illegal key </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,))</span>
+
+        <span class="c1"># It&#39;s a good key, so save it.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_key</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coded_value</span> <span class="o">=</span> <span class="n">coded_val</span>
+
+    <span class="k">def</span> <span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">,</span>
+            <span class="s1">&#39;coded_value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coded_value</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_key</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coded_value</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;coded_value&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s2">&quot;Set-Cookie:&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OutputString</span><span class="p">(</span><span class="n">attrs</span><span class="p">))</span>
+
+    <span class="fm">__str__</span> <span class="o">=</span> <span class="n">output</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">OutputString</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">js_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># Print javascript</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        &lt;script type=&quot;text/javascript&quot;&gt;</span>
+<span class="s2">        &lt;!-- begin hiding</span>
+<span class="s2">        document.cookie = </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s2">;</span>
+<span class="s2">        // end hiding --&gt;</span>
+<span class="s2">        &lt;/script&gt;</span>
+<span class="s2">        &quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">OutputString</span><span class="p">(</span><span class="n">attrs</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\&quot;&#39;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">OutputString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># Build up our result</span>
+        <span class="c1">#</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">append</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">append</span>
+
+        <span class="c1"># First, the key=value pair</span>
+        <span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coded_value</span><span class="p">))</span>
+
+        <span class="c1"># Now add any defined attributes</span>
+        <span class="k">if</span> <span class="n">attrs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">attrs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">attrs</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;expires&quot;</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">_getdate</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;max-age&quot;</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">=</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flags</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+                    <span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_reserved</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">value</span><span class="p">))</span>
+
+        <span class="c1"># Return the result</span>
+        <span class="k">return</span> <span class="n">_semispacejoin</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+
+<span class="c1">#</span>
+<span class="c1"># Pattern for finding cookie</span>
+<span class="c1">#</span>
+<span class="c1"># This used to be strict parsing based on the RFC2109 and RFC2068</span>
+<span class="c1"># specifications.  I have since discovered that MSIE 3.0x doesn&#39;t</span>
+<span class="c1"># follow the character rules outlined in those specs.  As a</span>
+<span class="c1"># result, the parsing rules here are less strict.</span>
+<span class="c1">#</span>
+
+<span class="n">_LegalKeyChars</span>  <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\w\d!#%&amp;&#39;~_`&gt;&lt;@,:/\$\*\+\-\.\^\|\)\(\?\}\{\=&quot;</span>
+<span class="n">_LegalValueChars</span> <span class="o">=</span> <span class="n">_LegalKeyChars</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\[\]&#39;</span>
+<span class="n">_CookiePattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    \s*                            # Optional whitespace at start of cookie</span>
+<span class="s2">    (?P&lt;key&gt;                       # Start of group &#39;key&#39;</span>
+<span class="s2">    [&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">_LegalKeyChars</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;]+?   # Any word of at least one letter</span>
+<span class="s2">    )                              # End of group &#39;key&#39;</span>
+<span class="s2">    (                              # Optional group: there may not be a value.</span>
+<span class="s2">    \s*=\s*                          # Equal Sign</span>
+<span class="s2">    (?P&lt;val&gt;                         # Start of group &#39;val&#39;</span>
+<span class="s2">    &quot;(?:[^\\&quot;]|\\.)*&quot;                  # Any doublequoted string</span>
+<span class="s2">    |                                  # or</span>
+<span class="s2">    \w</span><span class="si">{3}</span><span class="s2">,\s[\w\d\s-]{9,11}\s[\d:]</span><span class="si">{8}</span><span class="s2">\sGMT  # Special case for &quot;expires&quot; attr</span>
+<span class="s2">    |                                  # or</span>
+<span class="s2">    [&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">_LegalValueChars</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;]*      # Any word or empty string</span>
+<span class="s2">    )                                # End of group &#39;val&#39;</span>
+<span class="s2">    )?                             # End of optional value group</span>
+<span class="s2">    \s*                            # Any number of spaces.</span>
+<span class="s2">    (\s+|;|$)                      # Ending either at space, semicolon, or EOS.</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">ASCII</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span><span class="p">)</span>    <span class="c1"># re.ASCII may be removed if safe.</span>
+
+
+<span class="c1"># At long last, here is the cookie class.  Using this class is almost just like</span>
+<span class="c1"># using a dictionary.  See this module&#39;s docstring for example usage.</span>
+<span class="c1">#</span>
+<span class="k">class</span> <span class="nc">BaseCookie</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A container class for a set of Morsels.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">value_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;real_value, coded_value = value_decode(STRING)</span>
+<span class="sd">        Called prior to setting a cookie&#39;s value from the network</span>
+<span class="sd">        representation.  The VALUE is the value read from HTTP</span>
+<span class="sd">        header.</span>
+<span class="sd">        Override this function to modify the behavior of cookies.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">val</span><span class="p">,</span> <span class="n">val</span>
+
+    <span class="k">def</span> <span class="nf">value_encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;real_value, coded_value = value_encode(VALUE)</span>
+<span class="sd">        Called prior to setting a cookie&#39;s value from the dictionary</span>
+<span class="sd">        representation.  The VALUE is the value being assigned.</span>
+<span class="sd">        Override this function to modify the behavior of cookies.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">strval</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">strval</span><span class="p">,</span> <span class="n">strval</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">input</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">real_value</span><span class="p">,</span> <span class="n">coded_value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Private method for setting a cookie&#39;s value&quot;&quot;&quot;</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Morsel</span><span class="p">())</span>
+        <span class="n">M</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">real_value</span><span class="p">,</span> <span class="n">coded_value</span><span class="p">)</span>
+        <span class="nb">dict</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Dictionary style assignment.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Morsel</span><span class="p">):</span>
+            <span class="c1"># allow assignment of constructed Morsels (e.g. for pickling)</span>
+            <span class="nb">dict</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rval</span><span class="p">,</span> <span class="n">cval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_encode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">rval</span><span class="p">,</span> <span class="n">cval</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s2">&quot;Set-Cookie:&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\015\012</span><span class="s2">&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a string suitable for HTTP.&quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">attrs</span><span class="p">,</span> <span class="n">header</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+    <span class="fm">__str__</span> <span class="o">=</span> <span class="n">output</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">value</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">_spacejoin</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">js_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a string suitable for JavaScript.&quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">js_output</span><span class="p">(</span><span class="n">attrs</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">_nulljoin</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rawdata</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Load cookies from a string (presumably HTTP_COOKIE) or</span>
+<span class="sd">        from a dictionary.  Loading cookies from a dictionary &#39;d&#39;</span>
+<span class="sd">        is equivalent to calling:</span>
+<span class="sd">            map(Cookie.__setitem__, d.keys(), d.values())</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rawdata</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__parse_string</span><span class="p">(</span><span class="n">rawdata</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># self.update() wouldn&#39;t call our custom __setitem__</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">rawdata</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">__parse_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">patt</span><span class="o">=</span><span class="n">_CookiePattern</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>                 <span class="c1"># Our starting point</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>          <span class="c1"># Length of string</span>
+        <span class="n">parsed_items</span> <span class="o">=</span> <span class="p">[]</span>     <span class="c1"># Parsed (type, key, value) triples</span>
+        <span class="n">morsel_seen</span> <span class="o">=</span> <span class="kc">False</span>   <span class="c1"># A key=value pair was previously encountered</span>
+
+        <span class="n">TYPE_ATTRIBUTE</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">TYPE_KEYVALUE</span> <span class="o">=</span> <span class="mi">2</span>
+
+        <span class="c1"># We first parse the whole cookie string and reject it if it&#39;s</span>
+        <span class="c1"># syntactically invalid (this helps avoid some classes of injection</span>
+        <span class="c1"># attacks).</span>
+        <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="c1"># Start looking for a cookie</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="n">patt</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+                <span class="c1"># No more cookies</span>
+                <span class="k">break</span>
+
+            <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">),</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;val&quot;</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;$&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">morsel_seen</span><span class="p">:</span>
+                    <span class="c1"># We ignore attributes which pertain to the cookie</span>
+                    <span class="c1"># mechanism as a whole, such as &quot;$Version&quot;.</span>
+                    <span class="c1"># See RFC 2965. (Does anyone care?)</span>
+                    <span class="k">continue</span>
+                <span class="n">parsed_items</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">TYPE_ATTRIBUTE</span><span class="p">,</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">Morsel</span><span class="o">.</span><span class="n">_reserved</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">morsel_seen</span><span class="p">:</span>
+                    <span class="c1"># Invalid cookie string</span>
+                    <span class="k">return</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">Morsel</span><span class="o">.</span><span class="n">_flags</span><span class="p">:</span>
+                        <span class="n">parsed_items</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">TYPE_ATTRIBUTE</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Invalid cookie string</span>
+                        <span class="k">return</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">parsed_items</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">TYPE_ATTRIBUTE</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">_unquote</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+            <span class="k">elif</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">parsed_items</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">TYPE_KEYVALUE</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_decode</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+                <span class="n">morsel_seen</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Invalid cookie string</span>
+                <span class="k">return</span>
+
+        <span class="c1"># The cookie string is valid, apply it.</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="kc">None</span>         <span class="c1"># current morsel</span>
+        <span class="k">for</span> <span class="n">tp</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">parsed_items</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">tp</span> <span class="o">==</span> <span class="n">TYPE_ATTRIBUTE</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="n">M</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="n">M</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="n">tp</span> <span class="o">==</span> <span class="n">TYPE_KEYVALUE</span>
+                <span class="n">rval</span><span class="p">,</span> <span class="n">cval</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">rval</span><span class="p">,</span> <span class="n">cval</span><span class="p">)</span>
+                <span class="n">M</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="SimpleCookie"><a class="viewcode-back" href="../../api/compat.html#pyramid.compat.SimpleCookie">[docs]</a><span class="k">class</span> <span class="nc">SimpleCookie</span><span class="p">(</span><span class="n">BaseCookie</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SimpleCookie supports strings as cookie values.  When setting</span>
+<span class="sd">    the value using the dictionary assignment notation, SimpleCookie</span>
+<span class="sd">    calls the builtin str() to convert the value to a string.  Values</span>
+<span class="sd">    received from HTTP are kept as strings.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">value_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_unquote</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">val</span>
+
+    <span class="k">def</span> <span class="nf">value_encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="n">strval</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">strval</span><span class="p">,</span> <span class="n">_quote</span><span class="p">(</span><span class="n">strval</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      Last updated on Aug 01, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+    </div>
+  </body>
+</html>

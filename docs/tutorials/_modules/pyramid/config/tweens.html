@@ -1,0 +1,302 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.config.tweens &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../../../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../../../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../../../index.html">
+      		<img class="logo" src="../../../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../config.html" accesskey="U">pyramid.config</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyramid.config.tweens</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">zope.interface</span> <span class="k">import</span> <span class="n">implementer</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.interfaces</span> <span class="k">import</span> <span class="n">ITweens</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.compat</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">string_types</span><span class="p">,</span>
+    <span class="n">is_nonstr_iter</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.exceptions</span> <span class="k">import</span> <span class="n">ConfigurationError</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.tweens</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">MAIN</span><span class="p">,</span>
+    <span class="n">INGRESS</span><span class="p">,</span>
+    <span class="n">EXCVIEW</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.config.util</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">action_method</span><span class="p">,</span>
+    <span class="n">TopologicalSorter</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyramid.util</span> <span class="k">import</span> <span class="n">is_string_or_iterable</span>
+
+<span class="k">class</span> <span class="nc">TweensConfiguratorMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_tween</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tween_factory</span><span class="p">,</span> <span class="n">under</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">over</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. versionadded:: 1.2</span>
+
+<span class="sd">        Add a &#39;tween factory&#39;.  A :term:`tween` (a contraction of &#39;between&#39;)</span>
+<span class="sd">        is a bit of code that sits between the Pyramid router&#39;s main request</span>
+<span class="sd">        handling function and the upstream WSGI component that uses</span>
+<span class="sd">        :app:`Pyramid` as its &#39;app&#39;.  Tweens are a feature that may be used</span>
+<span class="sd">        by Pyramid framework extensions, to provide, for example,</span>
+<span class="sd">        Pyramid-specific view timing support, bookkeeping code that examines</span>
+<span class="sd">        exceptions before they are returned to the upstream WSGI application,</span>
+<span class="sd">        or a variety of other features.  Tweens behave a bit like</span>
+<span class="sd">        :term:`WSGI` &#39;middleware&#39; but they have the benefit of running in a</span>
+<span class="sd">        context in which they have access to the Pyramid :term:`application</span>
+<span class="sd">        registry` as well as the Pyramid rendering machinery.</span>
+
+<span class="sd">        .. note:: You can view the tween ordering configured into a given</span>
+<span class="sd">                  Pyramid application by using the ``ptweens``</span>
+<span class="sd">                  command.  See :ref:`displaying_tweens`.</span>
+
+<span class="sd">        The ``tween_factory`` argument must be a :term:`dotted Python name`</span>
+<span class="sd">        to a global object representing the tween factory.</span>
+
+<span class="sd">        The ``under`` and ``over`` arguments allow the caller of</span>
+<span class="sd">        ``add_tween`` to provide a hint about where in the tween chain this</span>
+<span class="sd">        tween factory should be placed when an implicit tween chain is used.</span>
+<span class="sd">        These hints are only used when an explicit tween chain is not used</span>
+<span class="sd">        (when the ``pyramid.tweens`` configuration value is not set).</span>
+<span class="sd">        Allowable values for ``under`` or ``over`` (or both) are:</span>
+
+<span class="sd">        - ``None`` (the default).</span>
+
+<span class="sd">        - A :term:`dotted Python name` to a tween factory: a string</span>
+<span class="sd">          representing the dotted name of a tween factory added in a call to</span>
+<span class="sd">          ``add_tween`` in the same configuration session.</span>
+
+<span class="sd">        - One of the constants :attr:`pyramid.tweens.MAIN`,</span>
+<span class="sd">          :attr:`pyramid.tweens.INGRESS`, or :attr:`pyramid.tweens.EXCVIEW`.</span>
+
+<span class="sd">        - An iterable of any combination of the above. This allows the user</span>
+<span class="sd">          to specify fallbacks if the desired tween is not included, as well</span>
+<span class="sd">          as compatibility with multiple other tweens.</span>
+<span class="sd">        </span>
+<span class="sd">        ``under`` means &#39;closer to the main Pyramid application than&#39;,</span>
+<span class="sd">        ``over`` means &#39;closer to the request ingress than&#39;.</span>
+
+<span class="sd">        For example, calling ``add_tween(&#39;myapp.tfactory&#39;,</span>
+<span class="sd">        over=pyramid.tweens.MAIN)`` will attempt to place the tween factory</span>
+<span class="sd">        represented by the dotted name ``myapp.tfactory`` directly &#39;above&#39;</span>
+<span class="sd">        (in ``ptweens`` order) the main Pyramid request handler.</span>
+<span class="sd">        Likewise, calling ``add_tween(&#39;myapp.tfactory&#39;,</span>
+<span class="sd">        over=pyramid.tweens.MAIN, under=&#39;mypkg.someothertween&#39;)`` will</span>
+<span class="sd">        attempt to place this tween factory &#39;above&#39; the main handler but</span>
+<span class="sd">        &#39;below&#39; (a fictional) &#39;mypkg.someothertween&#39; tween factory.</span>
+
+<span class="sd">        If all options for ``under`` (or ``over``) cannot be found in the</span>
+<span class="sd">        current configuration, it is an error. If some options are specified</span>
+<span class="sd">        purely for compatibilty with other tweens, just add a fallback of</span>
+<span class="sd">        MAIN or INGRESS. For example, ``under=(&#39;mypkg.someothertween&#39;,</span>
+<span class="sd">        &#39;mypkg.someothertween2&#39;, INGRESS)``.  This constraint will require</span>
+<span class="sd">        the tween to be located under both the &#39;mypkg.someothertween&#39; tween,</span>
+<span class="sd">        the &#39;mypkg.someothertween2&#39; tween, and INGRESS. If any of these is</span>
+<span class="sd">        not in the current configuration, this constraint will only organize</span>
+<span class="sd">        itself based on the tweens that are present.</span>
+
+<span class="sd">        Specifying neither ``over`` nor ``under`` is equivalent to specifying</span>
+<span class="sd">        ``under=INGRESS``.</span>
+
+<span class="sd">        Implicit tween ordering is obviously only best-effort.  Pyramid will</span>
+<span class="sd">        attempt to present an implicit order of tweens as best it can, but</span>
+<span class="sd">        the only surefire way to get any particular ordering is to use an</span>
+<span class="sd">        explicit tween order.  A user may always override the implicit tween</span>
+<span class="sd">        ordering by using an explicit ``pyramid.tweens`` configuration value</span>
+<span class="sd">        setting.</span>
+
+<span class="sd">        ``under``, and ``over`` arguments are ignored when an explicit tween</span>
+<span class="sd">        chain is specified using the ``pyramid.tweens`` configuration value.</span>
+
+<span class="sd">        For more information, see :ref:`registering_tweens`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_tween</span><span class="p">(</span><span class="n">tween_factory</span><span class="p">,</span> <span class="n">under</span><span class="o">=</span><span class="n">under</span><span class="p">,</span> <span class="n">over</span><span class="o">=</span><span class="n">over</span><span class="p">,</span>
+                               <span class="n">explicit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_default_tweens</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_tween</span><span class="p">(</span><span class="n">EXCVIEW</span><span class="p">)</span>
+
+    <span class="nd">@action_method</span>
+    <span class="k">def</span> <span class="nf">_add_tween</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tween_factory</span><span class="p">,</span> <span class="n">under</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">over</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">explicit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tween_factory</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span>
+                <span class="s1">&#39;The &quot;tween_factory&quot; argument to add_tween must be a &#39;</span>
+                <span class="s1">&#39;dotted name to a globally importable object, not </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span>
+                <span class="n">tween_factory</span><span class="p">)</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="n">tween_factory</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="n">MAIN</span><span class="p">,</span> <span class="n">INGRESS</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> is a reserved tween name&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="n">tween_factory</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maybe_dotted</span><span class="p">(</span><span class="n">tween_factory</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;over&#39;</span><span class="p">,</span> <span class="n">over</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;under&#39;</span><span class="p">,</span> <span class="n">under</span><span class="p">)]:</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">is_string_or_iterable</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span>
+                        <span class="s1">&#39;&quot;</span><span class="si">%s</span><span class="s1">&quot; must be a string or iterable, not </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">over</span> <span class="ow">is</span> <span class="n">INGRESS</span> <span class="ow">or</span> <span class="n">is_nonstr_iter</span><span class="p">(</span><span class="n">over</span><span class="p">)</span> <span class="ow">and</span> <span class="n">INGRESS</span> <span class="ow">in</span> <span class="n">over</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> cannot be over INGRESS&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">under</span> <span class="ow">is</span> <span class="n">MAIN</span> <span class="ow">or</span> <span class="n">is_nonstr_iter</span><span class="p">(</span><span class="n">under</span><span class="p">)</span> <span class="ow">and</span> <span class="n">MAIN</span> <span class="ow">in</span> <span class="n">under</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> cannot be under MAIN&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="n">registry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span>
+        <span class="n">introspectables</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">tweens</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">queryUtility</span><span class="p">(</span><span class="n">ITweens</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tweens</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tweens</span> <span class="o">=</span> <span class="n">Tweens</span><span class="p">()</span>
+            <span class="n">registry</span><span class="o">.</span><span class="n">registerUtility</span><span class="p">(</span><span class="n">tweens</span><span class="p">,</span> <span class="n">ITweens</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">explicit</span><span class="p">:</span>
+                <span class="n">tweens</span><span class="o">.</span><span class="n">add_explicit</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">tween_factory</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tweens</span><span class="o">.</span><span class="n">add_implicit</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">tween_factory</span><span class="p">,</span> <span class="n">under</span><span class="o">=</span><span class="n">under</span><span class="p">,</span> <span class="n">over</span><span class="o">=</span><span class="n">over</span><span class="p">)</span>
+
+        <span class="n">discriminator</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;tween&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">explicit</span><span class="p">)</span>
+        <span class="n">tween_type</span> <span class="o">=</span> <span class="n">explicit</span> <span class="ow">and</span> <span class="s1">&#39;explicit&#39;</span> <span class="ow">or</span> <span class="s1">&#39;implicit&#39;</span>
+
+        <span class="n">intr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">introspectable</span><span class="p">(</span><span class="s1">&#39;tweens&#39;</span><span class="p">,</span>
+                                   <span class="n">discriminator</span><span class="p">,</span>
+                                   <span class="n">name</span><span class="p">,</span>
+                                   <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> tween&#39;</span> <span class="o">%</span> <span class="n">tween_type</span><span class="p">)</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;factory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tween_factory</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tween_type</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;under&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">under</span>
+        <span class="n">intr</span><span class="p">[</span><span class="s1">&#39;over&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">over</span>
+        <span class="n">introspectables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">intr</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">discriminator</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="n">introspectables</span><span class="o">=</span><span class="n">introspectables</span><span class="p">)</span>
+
+<span class="nd">@implementer</span><span class="p">(</span><span class="n">ITweens</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Tweens</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sorter</span> <span class="o">=</span> <span class="n">TopologicalSorter</span><span class="p">(</span>
+            <span class="n">default_before</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">default_after</span><span class="o">=</span><span class="n">INGRESS</span><span class="p">,</span>
+            <span class="n">first</span><span class="o">=</span><span class="n">INGRESS</span><span class="p">,</span>
+            <span class="n">last</span><span class="o">=</span><span class="n">MAIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explicit</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">add_explicit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">factory</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explicit</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">factory</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">add_implicit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">factory</span><span class="p">,</span> <span class="n">under</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">over</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sorter</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">factory</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="n">under</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="n">over</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">implicit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sorter</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="n">registry</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">explicit</span><span class="p">:</span>
+            <span class="n">use</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">explicit</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">use</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">implicit</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">factory</span> <span class="ow">in</span> <span class="n">use</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">handler</span> <span class="o">=</span> <span class="n">factory</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">registry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">handler</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    	<li><a href="../../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../config.html" >pyramid.config</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      Last updated on Aug 01, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+    </div>
+  </body>
+</html>
