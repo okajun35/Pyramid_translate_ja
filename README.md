@@ -16,4 +16,4 @@ Python フレームワークの[Pyramid](https://github.com/Pylons/pyramid)　
 
 [Narrative Documentation](https://okajun35.github.io/Pyramid_translate_ja/#narrative-documentation)を翻訳中
 
-Narrative Documentationに関しては、https://github.com/pylonsproject-jp/pyramid　から一部翻訳されたドキュメントを一部流用させてもらっています。
+Narrative Documentationに関しては、https://github.com/pylonsproject-jp/pyramid から一部翻訳されたドキュメントを一部流用させてもらっています。
