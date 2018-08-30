@@ -74,7 +74,7 @@
 <div class="section" id="background">
 <h2>背景(Background)<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>モダンなWebアプリケーションはフォームを広く扱っています。しかしながら開発者はフレームワークがフォームについてどのように手助けすべきかについて幅広い哲学を持っています。そのためPyramidは特定のフォームライブラリを直接はバンドルしません。代わりにPyramidで使いやすい様々なフォームライブラリがあります。</p>
-<p><a class="reference external" href="https://docs.pylonsproject.org/projects/deform/en/latest/index.html#overview" title="(in deform v2.0.6.dev0)"><span class="xref std std-ref">Deform</span></a> はこのようなライブラリの1つです。このステップではDeformによるフォームの作成を紹介します。これはスキーマとバリテーションのための  <a class="reference external" href="https://docs.pylonsproject.org/projects/colander/en/latest/index.html#overview" title="(in colander v1.4)"><span class="xref std std-ref">Colander</span></a> も提供します。</p>
+<p><a class="reference external" href="https://docs.pylonsproject.org/projects/deform/en/latest/index.html#overview" title="(in deform v2.0.7.dev0)"><span class="xref std std-ref">Deform</span></a> はこのようなライブラリの1つです。このステップではDeformによるフォームの作成を紹介します。これはスキーマとバリテーションのための  <a class="reference external" href="https://docs.pylonsproject.org/projects/colander/en/latest/index.html#overview" title="(in colander v1.4)"><span class="xref std std-ref">Colander</span></a> も提供します。</p>
 </div>
 <div class="section" id="objectives">
 <h2>目的(Objectives)<a class="headerlink" href="#objectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -597,7 +597,7 @@
 <h2>分析(Analysis)<a class="headerlink" href="#analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>この手順は静的アセットのアセットの仕様の有用性を示すのに役立ちます。公開する必要のある静的アセットを持つDeformという外部パッケージがあります。ディスク上のどこにあるのかを知る必要はありません。パッケージを指してパッケージ内のパスを指します。</p>
 <p>ディレクトリをURLで利用できるようにするには、 <code class="docutils literal notranslate"><span class="pre">add_static_view</span></code> の呼び出しをインクルードします。 Pyramid固有のパッケージの場合はPyramidはパッケージのコンシューマにとって不要なものにするファシリティ (<code class="docutils literal notranslate"><span class="pre">config.include()</span></code>) を提供します。 （DeformはPyramid特有のものではありません。）</p>
-<p>フォームにはちょうど言及した静的CSSとJavaScriptが必要な豊富なウィジェットがあります。 Deformには <a class="reference external" href="https://docs.pylonsproject.org/projects/deform/en/latest/glossary.html#term-resource-registry" title="(in deform v2.0.6.dev0)"><span class="xref std std-term">resource registry</span></a> がありウィジェットが必要なJavaScriptとCSSを指定できます。 <code class="docutils literal notranslate"><span class="pre">wikipage_addedit.pt</span></code> テンプレートは必要なリソースを含むマークアップを生成するために、データがどのように反復処理をおこなったかを示しています。</p>
+<p>フォームにはちょうど言及した静的CSSとJavaScriptが必要な豊富なウィジェットがあります。 Deformには <a class="reference external" href="https://docs.pylonsproject.org/projects/deform/en/latest/glossary.html#term-resource-registry" title="(in deform v2.0.7.dev0)"><span class="xref std std-term">resource registry</span></a> がありウィジェットが必要なJavaScriptとCSSを指定できます。 <code class="docutils literal notranslate"><span class="pre">wikipage_addedit.pt</span></code> テンプレートは必要なリソースを含むマークアップを生成するために、データがどのように反復処理をおこなったかを示しています。</p>
 <p>追加と編集のビューは、<em>self-posting forms</em> 呼ばれるパターンを使用します。フォームを <code class="docutils literal notranslate"><span class="pre">POST</span></code> するのに使用されているのと同じURLを使用してフォームを <code class="docutils literal notranslate"><span class="pre">GET</span></code> します。ルート、ビュー、およびテンプレートは、初回でもボタンをクリックした場合も、同じURLです</p>
 <p>ビューの内部では、<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">'submit'</span> <span class="pre">in</span> <span class="pre">self.request.params:</span></code> を実行すると、このフォームが特定のボタン <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">name=&quot;submit&quot;&gt;</span></code> をクリックした <code class="docutils literal notranslate"><span class="pre">POST</span></code> かどうかを確認します。</p>
 <p>フォームコントローラは、典型的なパターンに従います:</p>
@@ -685,7 +685,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 24, 2018
+      最終更新: 8月 31, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
     </div>
   </body>
