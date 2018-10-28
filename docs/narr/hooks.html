@@ -9,11 +9,12 @@
     <title>Using Hooks &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
@@ -186,7 +187,7 @@ environment setting is true or false.</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">When a Not Found View callable accepts an argument list as described in
-<a class="reference internal" href="views.html#request-and-context-view-definitions"><span class="std std-ref">callableビューの引数/呼び出し規約を変更するAlternate View Callable Argument/Calling Conventions</span></a>, the <code class="docutils literal notranslate"><span class="pre">context</span></code> passed as the
+<a class="reference internal" href="views.html#request-and-context-view-definitions"><span class="std std-ref">Alternate View Callable Argument/Calling Conventions</span></a>, the <code class="docutils literal notranslate"><span class="pre">context</span></code> passed as the
 first argument to the view callable will be the
 <a class="reference internal" href="../api/httpexceptions.html#pyramid.httpexceptions.HTTPNotFound" title="pyramid.httpexceptions.HTTPNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HTTPNotFound</span></code></a> exception instance.  If
 available, the resource context will still be available as
@@ -921,7 +922,7 @@ until activated by a <a class="reference internal" href="../glossary.html#term-s
 <div class="section" id="using-a-view-mapper">
 <span id="index-11"></span><span id="id7"></span><h2>Using a View Mapper<a class="headerlink" href="#using-a-view-mapper" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The default calling conventions for view callables are documented in the
-<a class="reference internal" href="views.html#views-chapter"><span class="std std-ref">ビュー(Views)</span></a> chapter.  You can change the way users define view
+<a class="reference internal" href="views.html#views-chapter"><span class="std std-ref">Views</span></a> chapter.  You can change the way users define view
 callables by employing a <a class="reference internal" href="../glossary.html#term-view-mapper"><span class="xref std std-term">view mapper</span></a>.</p>
 <p>A view mapper is an object that accepts a set of keyword arguments and which
 returns a callable.  The returned callable is called with the <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view
@@ -1721,7 +1722,7 @@ for a particular event type registration.</p>
 <p><span class="versionmodified">バージョン 1.7 で追加.</span></p>
 </div>
 <p>Every URL processed by <span>Pyramid</span> is matched against a custom view
-pipeline. See <a class="reference internal" href="router.html#router-chapter"><span class="std std-ref">リクエスト処理(Request Processing)</span></a> for how this works. The view pipeline
+pipeline. See <a class="reference internal" href="router.html#router-chapter"><span class="std std-ref">Request Processing</span></a> for how this works. The view pipeline
 itself is built from the user-supplied <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>, which is then
 composed with <a class="reference internal" href="../glossary.html#term-view-deriver"><span class="xref std std-term">view derivers</span></a>. A view deriver is a
 composable element of the view pipeline which is used to wrap a view with
@@ -1909,7 +1910,7 @@ beginning of the view pipeline.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">目次</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Using Hooks</a><ul>
 <li><a class="reference internal" href="#changing-the-not-found-view">Changing the Not Found View</a></li>
@@ -1999,8 +2000,8 @@ beginning of the view pipeline.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>

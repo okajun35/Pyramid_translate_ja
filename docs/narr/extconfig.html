@@ -9,16 +9,17 @@
     <title>Extending Pyramid Configuration &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="next" title="Pyramid cookiecutters" href="cookiecutters.html" />
-    <link rel="prev" title="高度な設定(Advanced Configuration)" href="advconfig.html" />
+    <link rel="prev" title="Advanced Configuration" href="advconfig.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -56,7 +57,7 @@
           <a href="cookiecutters.html" title="Pyramid cookiecutters"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="advconfig.html" title="高度な設定(Advanced Configuration)"
+          <a href="advconfig.html" title="Advanced Configuration"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -120,7 +121,7 @@ of the Configurator:</p>
 </td></tr></table></div>
 <p>A call to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_directive" title="pyramid.config.Configurator.add_directive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_directive()</span></code></a> is often &quot;hidden&quot;
 within an <code class="docutils literal notranslate"><span class="pre">includeme</span></code> function within a &quot;frameworky&quot; package meant to be
-included as per <a class="reference internal" href="advconfig.html#including-configuration"><span class="std std-ref">外部ソースからの設定インクルード(Including Configuration from External Sources)</span></a> via
+included as per <a class="reference internal" href="advconfig.html#including-configuration"><span class="std std-ref">Including Configuration from External Sources</span></a> via
 <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">include()</span></code></a>.  For example, if you put this
 code in a package named <code class="docutils literal notranslate"><span class="pre">pyramid_subscriberhelpers</span></code>:</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -185,11 +186,11 @@ closure function named <code class="docutils literal notranslate"><span class="p
 <p>When the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.action" title="pyramid.config.Configurator.action"><code class="xref py py-meth docutils literal notranslate"><span class="pre">action()</span></code></a> method is called, it
 appends an action to the list of pending configuration actions.  All pending
 actions with the same discriminator value are potentially in conflict with one
-another (see <a class="reference internal" href="advconfig.html#conflict-detection"><span class="std std-ref">衝突検知(Conflict Detection)</span></a>).  When the
+another (see <a class="reference internal" href="advconfig.html#conflict-detection"><span class="std std-ref">Conflict Detection</span></a>).  When the
 <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commit()</span></code></a> method of the Configurator is
 called (either explicitly or as the result of calling
 <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">make_wsgi_app()</span></code></a>), conflicting actions are
-potentially automatically resolved as per <a class="reference internal" href="advconfig.html#automatic-conflict-resolution"><span class="std std-ref">自動的な衝突の解決(Automatic Conflict Resolution)</span></a>.
+potentially automatically resolved as per <a class="reference internal" href="advconfig.html#automatic-conflict-resolution"><span class="std std-ref">Automatic Conflict Resolution</span></a>.
 If a conflict cannot be automatically resolved, a
 <code class="xref py py-exc docutils literal notranslate"><span class="pre">pyramid.exceptions.ConfigurationConflictError</span></code> is raised and application
 startup is prevented.</p>
@@ -543,7 +544,7 @@ route to which it relates and vice versa.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">目次</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Extending Pyramid Configuration</a><ul>
 <li><a class="reference internal" href="#adding-methods-to-the-configurator-via-add-directive">Adding Methods to the Configurator via <code class="docutils literal notranslate"><span class="pre">add_directive</span></code></a></li>
@@ -563,7 +564,7 @@ route to which it relates and vice versa.</p>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="advconfig.html"
-                        title="前の章へ">高度な設定(Advanced Configuration)</a></p>
+                        title="前の章へ">Advanced Configuration</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="cookiecutters.html"
                         title="次の章へ">Pyramid cookiecutters</a></p>
@@ -603,15 +604,15 @@ route to which it relates and vice versa.</p>
           <a href="cookiecutters.html" title="Pyramid cookiecutters"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="advconfig.html" title="高度な設定(Advanced Configuration)"
+          <a href="advconfig.html" title="Advanced Configuration"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>

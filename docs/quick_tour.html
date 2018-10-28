@@ -6,19 +6,20 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Pyramidのクイックツアー(Quick Tour of Pyramid) &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>Quick Tour of Pyramid &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="copyright" title="著作権" href="copyright.html" />
     <link rel="next" title="Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)" href="quick_tutorial/index.html" />
-    <link rel="prev" title="Pyramid Web Framework(The Pyramid Web Framework)" href="index.html" />
+    <link rel="prev" title="The Pyramid Web Framework" href="index.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -56,7 +57,7 @@
           <a href="quick_tutorial/index.html" title="Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Pyramid Web Framework(The Pyramid Web Framework)"
+          <a href="index.html" title="The Pyramid Web Framework"
              accesskey="P">前へ</a> |</li>
     	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -68,14 +69,23 @@
           <div class="body" role="main">
             
   <div class="section" id="quick-tour-of-pyramid">
-<span id="quick-tour"></span><h1>Pyramidのクイックツアー(Quick Tour of Pyramid)<a class="headerlink" href="#quick-tour-of-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Pyramidは小さなものから始まり大きなものに仕上げます。このPyramidのクイックツアーは、PythonのWebフレームワークを初めて使う人とプロで急いでいる方たちに向けてPyramidを評価したい人のためのものです。各トピックの詳細については、ピラミッドの <a class="reference internal" href="quick_tutorial/index.html#quick-tutorial"><span class="std std-ref">Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</span></a> を試してみてください。</p>
-<p>このツアーでサンプルコードをカットアンドペーストしたい場合は、Pyramidのリポジトリにあるソースコードを &quot;docs/quick_tour&quot; &lt;<a class="reference external" href="https://github.com/Pylons/pyramid/">https://github.com/Pylons/pyramid/</a>&gt;` ディレクトリで参照できます。ソースコードをダウンロードした場合は、同じ場所にクイックツアーがあります。</p>
+<span id="quick-tour"></span><h1>Quick Tour of Pyramid<a class="headerlink" href="#quick-tour-of-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Pyramid lets you start small and finish big.  This <em>Quick Tour</em> of Pyramid is
+for those who want to evaluate Pyramid, whether you are new to Python web
+frameworks, or a pro in a hurry. For more detailed treatment of each topic,
+give the <a class="reference internal" href="quick_tutorial/index.html#quick-tutorial"><span class="std std-ref">Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</span></a> a try.</p>
+<p>If you would prefer to cut and paste the example code in this tour you may browse the source code located in the <cite>Pyramid repository in the directory &quot;docs/quick_tour&quot; &lt;https://github.com/Pylons/pyramid/&gt;</cite>. If you have downloaded the source code, you will find the tour in the same location.</p>
 <div class="section" id="installation">
-<h2>インストール(Installation)<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>標準のPython環境設定を済ませたら、Pyramidを使い始めるのは簡単です。残念ながら「標準」はPythonではあまり単純ではありません。このクイックツアーでは、&lt;<a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>&gt;`_, <a class="reference external" href="https://packaging.python.org/en/latest/projects/#venv">venv</a> (or <a class="reference external" href="https://packaging.python.org/en/latest/projects/#virtualenv">virtualenv は Python 2.7用</a>), <a class="reference external" href="https://packaging.python.org/en/latest/projects/#pip">pip</a>, and <a class="reference external" href="https://packaging.python.org/en/latest/projects/#easy-install">setuptools</a>. を意味します。</p>
-<p>ちょっとしたタイピングをのぞいて仮想環境にインストールされたモジュール、スクリプト、パッケージを確実に使用するためには環境変数も設定します。</p>
-<p>例えばLinux環境のPyrthon3.6以降のバージョンでは以下のようになります:</p>
+<h2>Installation<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Once you have a standard Python environment setup, getting started with Pyramid
+is a breeze. Unfortunately &quot;standard&quot; is not so simple in Python. For this
+Quick Tour, it means <a class="reference external" href="https://www.python.org/downloads/">Python</a>, <a class="reference external" href="https://packaging.python.org/en/latest/projects/#venv">venv</a> (or <a class="reference external" href="https://packaging.python.org/en/latest/projects/#virtualenv">virtualenv for
+Python 2.7</a>),
+<a class="reference external" href="https://packaging.python.org/en/latest/projects/#pip">pip</a>, and <a class="reference external" href="https://packaging.python.org/en/latest/projects/#easy-install">setuptools</a>.</p>
+<p>To save a little bit of typing and to be certain that we use the modules,
+scripts, and packages installed in our virtual environment, we'll set an
+environment variable, too.</p>
+<p>As an example, for Python 3.6+ on Linux:</p>
 <pre class="literal-block">
 # set an environment variable to where you want your virtual environment
 $ export VENV=~/env
@@ -86,7 +96,7 @@ $ $VENV/bin/pip install pyramid
 # or for a specific released version
 $ $VENV/bin/pip install &quot;pyramid==1.9.2&quot;
 </pre>
-<p>Windowsでは:</p>
+<p>For Windows:</p>
 <pre class="literal-block">
 # set an environment variable to where you want your virtual environment
 c:\&gt; set VENV=c:\env
@@ -97,15 +107,23 @@ c:\&gt; %VENV%\Scripts\pip install pyramid
 # or for a specific released version
 c:\&gt; %VENV%\Scripts\pip install &quot;pyramid==1.9.2&quot;
 </pre>
-<p>もちろんPyramidはこの「クイックツアー」の例と同様、Python2.7以降でも正しく動作します。簡単にするためにPython3を公開しています(Pyramidは2011年10月にPython3をサポートを開始しました)。例を簡単にするために残りの例ではUNIXコマンドのみを表示します。</p>
+<p>Of course Pyramid runs fine on Python 2.7+, as do the examples in this <em>Quick
+Tour</em>. We're showing Python 3 for simplicity. (Pyramid had production support
+for Python 3 in October 2011.) Also for simplicity, the remaining examples will
+show only UNIX commands.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last"><a class="reference internal" href="quick_tutorial/requirements.html#qtut-requirements"><span class="std std-ref">Quick Tutorial section on Requirements</span></a>, <a class="reference internal" href="narr/install.html#installing-unix"><span class="std std-ref">Installing Pyramid on a UNIX System</span></a>, <a class="reference internal" href="narr/install.html#installing-chapter"><span class="std std-ref">Before You Install</span></a>, <a class="reference internal" href="narr/install.html#venv-bin-pip-vs-source-bin-activate"><span class="std std-ref">Why use $VENV/bin/pip instead of source bin/activate, then pip</span></a>, そして <a class="reference internal" href="narr/install.html#installing-windows"><span class="std std-ref">Installing Pyramid on a Windows System</span></a> を参照してください。</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/requirements.html#qtut-requirements"><span class="std std-ref">Quick Tutorial section on Requirements</span></a>,
+<a class="reference internal" href="narr/install.html#installing-unix"><span class="std std-ref">Installing Pyramid on a UNIX System</span></a>, <a class="reference internal" href="narr/install.html#installing-chapter"><span class="std std-ref">Before You Install</span></a>,
+<a class="reference internal" href="narr/install.html#venv-bin-pip-vs-source-bin-activate"><span class="std std-ref">Why use $VENV/bin/pip instead of source bin/activate, then pip</span></a>, and
+<a class="reference internal" href="narr/install.html#installing-windows"><span class="std std-ref">Installing Pyramid on a Windows System</span></a>.</p>
 </div>
 </div>
 <div class="section" id="hello-world">
-<h2>ハローワールド(Hello World)<a class="headerlink" href="#hello-world" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>マイクロフレームワークスはとても小さな第一歩からの学習が最も効果的なスタートであることを示しています。Pyramidには小さなアプリケーションがあります：</p>
+<h2>Hello World<a class="headerlink" href="#hello-world" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Microframeworks have shown that learning starts best from a very small first
+step. Here's a tiny application in Pyramid:</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -139,29 +157,44 @@ c:\&gt; %VENV%\Scripts\pip install &quot;pyramid==1.9.2&quot;
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>この簡単な例は簡単に実行できます。これを保存してapp.pyを実行します</p>
+<p>This simple example is easy to run. Save this as <code class="docutils literal notranslate"><span class="pre">app.py</span></code> and run it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/python ./app.py
 </pre></div>
 </div>
-<p>次に <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> をブラウザで開くと「Hello World!」のメッセージが表示されます。</p>
-<p>PythonWebプログラミングの新機能 ？ それならばモジュール内のいくつかの行に説明があります：</p>
+<p>Next open <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> in a browser, and you will see the <code class="docutils literal notranslate"><span class="pre">Hello</span>
+<span class="pre">World!</span></code> message.</p>
+<p>New to Python web programming? If so, some lines in the module merit
+explanation:</p>
 <ol class="arabic simple">
-<li><em>10行目</em> 「 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code> 」は Pythonが「コマンドラインから実行される際はここからスタートします」。</li>
-<li><em>Lines 11-13</em>  <a class="reference internal" href="glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> でPyramidの <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> を使用して、 <a class="reference internal" href="glossary.html#term-view"><span class="xref std std-term">view</span></a> コードを特定のURL <a class="reference internal" href="glossary.html#term-route"><span class="xref std std-term">route</span></a> に接続します。</li>
-<li><em>6から7行目</em> <a class="reference internal" href="glossary.html#term-response"><span class="xref std std-term">response</span></a> を生成するビューのコードを生成します。</li>
-<li><em>14行目から16行目</em> HTTPサーバを使用して  <a class="reference internal" href="glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> アプリケーションを公開します。</li>
+<li><em>Line 10</em>. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code> is Python's way of saying &quot;Start
+here when running from the command line&quot;.</li>
+<li><em>Lines 11-13</em>. Use Pyramid's <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> in a <a class="reference internal" href="glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> to connect <a class="reference internal" href="glossary.html#term-view"><span class="xref std std-term">view</span></a>
+code to a particular URL <a class="reference internal" href="glossary.html#term-route"><span class="xref std std-term">route</span></a>.</li>
+<li><em>Lines 6-7</em>. Implement the view code that generates the <a class="reference internal" href="glossary.html#term-response"><span class="xref std std-term">response</span></a>.</li>
+<li><em>Lines 14-16</em>. Publish a <a class="reference internal" href="glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> app using an HTTP server.</li>
 </ol>
-<p>この例に示すように、 the <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> はPyramidでの開発において中心的な役割を果たします。アプリケーション構成を使って疎結合 <a class="reference internal" href="narr/configuration.html"><span class="doc">Application Configuration</span></a> から アプリケーションをビルドすることに関してはこのクイックツアーで再考する予定のピラミッドの中心的なアイデアです。</p>
+<p>As shown in this example, the <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> plays a central role in
+Pyramid development. Building an application from loosely-coupled parts via
+<a class="reference internal" href="narr/configuration.html"><span class="doc">Application Configuration</span></a> is a central idea in Pyramid, one that we will
+revisit regurlarly in this <em>Quick Tour</em>.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last"><a class="reference internal" href="quick_tutorial/hello_world.html#qtut-hello-world"><span class="std std-ref">Quick Tutorial Hello World</span></a>, <a class="reference internal" href="narr/firstapp.html#firstapp-chapter"><span class="std std-ref">Creating Your First Pyramid Application</span></a>, と <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-cookbook/en/latest/sample_applications/single_file_tasks.html#single-file-tutorial" title="(in Pyramid Community Cookbook v0.2)"><span class="xref std std-ref">Todo List Application in One File</span></a> を参照してください。</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/hello_world.html#qtut-hello-world"><span class="std std-ref">Quick Tutorial Hello World</span></a>,
+<a class="reference internal" href="narr/firstapp.html#firstapp-chapter"><span class="std std-ref">Creating Your First Pyramid Application</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-cookbook/en/latest/sample_applications/single_file_tasks.html#single-file-tutorial" title="(in Pyramid Community Cookbook v0.2)"><span class="xref std std-ref">Todo List Application in One File</span></a>.</p>
 </div>
 </div>
 <div class="section" id="handling-web-requests-and-responses">
-<h2>Webリクエストとレスポンスの処理(Handling web requests and responses)<a class="headerlink" href="#handling-web-requests-and-responses" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Web用に開発するとはWebレスポンスを処理することを意味します。これはWebアプリケーションの重要な部分であるため、Web開発者はWebレスポンスのための堅牢で成熟したソフトウェアを必要とします。</p>
-<p>Pyramidは、PythonWeb開発の既存の世界（仮想環境、パッケージ、cookiecutters、Python3を最初に採用したものの1つなど）に常にうまく収まっています。ピラミッドは要求と応答の処理のために、よく評価されている <a class="reference internal" href="glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> ライブラリに目を向けました。上記の例では、ピラミッドの手の　<code class="docutils literal notranslate"><span class="pre">request</span></code> された <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> は <a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">based on WebOb</span></a> によります。</p>
-<p>実際にリクエストとレスポンスのいくつかの機能を見てみましょう：</p>
+<h2>Handling web requests and responses<a class="headerlink" href="#handling-web-requests-and-responses" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Developing for the web means processing web requests. As this is a critical
+part of a web application, web developers need a robust, mature set of software
+for web requests.</p>
+<p>Pyramid has always fit nicely into the existing world of Python web development
+(virtual environments, packaging, cookiecutters, one of the first to embrace
+Python 3, etc.). Pyramid turned to the well-regarded <a class="reference internal" href="glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> Python
+library for request and response handling. In our example above, Pyramid hands
+<code class="docutils literal notranslate"><span class="pre">hello_world</span></code> a <code class="docutils literal notranslate"><span class="pre">request</span></code> that is <a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">based on WebOb</span></a>.</p>
+<p>Let's see some features of requests and responses in action:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="c1"># Some parameters from a request such as /?name=lisa</span>
     <span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">url</span>
@@ -174,28 +207,34 @@ c:\&gt; %VENV%\Scripts\pip install &quot;pyramid==1.9.2&quot;
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>このPyramidのビューでは、request.url から訪問したURLを取得します。また、ブラウザで <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a>？name = alice にアクセスした場合はその名前はレスポンスの本文に含まれます：</p>
+<p>In this Pyramid view, we get the URL being visited from <code class="docutils literal notranslate"><span class="pre">request.url</span></code>. Also
+if you visited <a class="reference external" href="http://localhost:6543/?name=alice">http://localhost:6543/?name=alice</a> in a browser, the name is
+included in the body of the response:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>URL http://localhost:6543/?name=alice with name: alice
 </pre></div>
 </div>
-<p>最後にレスポンスのコンテンツタイプを設定してレスポンスを返却します。</p>
+<p>Finally we set the response's content type, and return the Response.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last"><a class="reference internal" href="quick_tutorial/request_response.html#qtut-request-response"><span class="std std-ref">Quick Tutorial Request and Response</span></a> と <a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">Request and Response Objects</span></a> を参照してください。</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/request_response.html#qtut-request-response"><span class="std std-ref">Quick Tutorial Request and Response</span></a> and
+<a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">Request and Response Objects</span></a>.</p>
 </div>
 </div>
 <div class="section" id="views">
-<h2>ビュー(Views)<a class="headerlink" href="#views" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>上記の例では、関数 <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> は「ビュー」です。PyramidのビューではWebレスポンスを受け入れてリクエストを返す主要な方法があります。</p>
-<p>これまでの例ではすべてを1つのファイルに格納しています。</p>
+<h2>Views<a class="headerlink" href="#views" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>For the examples above, the <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> function is a &quot;view&quot;. In Pyramid
+views are the primary way to accept web requests and return responses.</p>
+<p>So far our examples place everything in one file:</p>
 <ul class="simple">
-<li>ビュー関数</li>
-<li>コンフィギュレーターへの登録</li>
-<li>URLにマップするルート</li>
-<li>WSGIアプリケーションランチャー</li>
+<li>the view function</li>
+<li>its registration with the configurator</li>
+<li>the route to map it to an URL</li>
+<li>the WSGI application launcher</li>
 </ul>
-<p>ビューを自分の  <code class="docutils literal notranslate"><span class="pre">views.py</span></code> モジュールに移動して <code class="docutils literal notranslate"><span class="pre">app.py</span></code> がそのモジュールをスキャンして、ビューを設定するデコレータを模索してみましょう。</p>
-<p>最初に <code class="docutils literal notranslate"><span class="pre">app.py</span></code>　のリバース:</p>
+<p>Let's move the views out to their own <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module and change the
+<code class="docutils literal notranslate"><span class="pre">app.py</span></code> to scan that module, looking for decorators that set up the views.</p>
+<p>First our revised <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -223,8 +262,11 @@ c:\&gt; %VENV%\Scripts\pip install &quot;pyramid==1.9.2&quot;
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>ルートを追加しましたがビューのコードも削除しました。ビューと現在 <code class="docutils literal notranslate"><span class="pre">config.scan('views')</span></code> でスキャンされてモジュール <code class="docutils literal notranslate"><span class="pre">views.py</span></code>　でレジスト&quot;　&quot;（デコレータを介して）されます</p>
-<p>views.pyリクエストとレスポンスの処理に焦点を当てたモジュールが用意されました。</p>
+<p>We added some more routes, but we also removed the view code. Our views and
+their registrations (via decorators) are now in a module <code class="docutils literal notranslate"><span class="pre">views.py</span></code>, which is
+scanned via <code class="docutils literal notranslate"><span class="pre">config.scan('views')</span></code>.</p>
+<p>We now have a <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module that is focused on handling requests and
+responses:</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -290,11 +332,21 @@ c:\&gt; %VENV%\Scripts\pip install &quot;pyramid==1.9.2&quot;
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>我々は4つのビューを持っていてそれぞれが別のビューにつながっています。<a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> で起動した場合、あなたは次のビューへのリンクを持つレスポンスを得ます。 <code class="docutils literal notranslate"><span class="pre">hello_view</span></code> （URL　 <code class="docutils literal notranslate"><span class="pre">/howdy</span></code>　で入手可能y） <code class="docutils literal notranslate"><span class="pre">redirect_view</span></code> へのリンクを持っていて、最終的なビューへのリダイレクトを発行します。</p>
-<p>以前は <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code>  をビューを構成する方法の1つとして見てきました。このセクションでは <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> をご紹介します。Pyramidの設定は前の例のような  <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code>  を <a class="reference internal" href="glossary.html#term-imperative-configuration"><span class="xref std std-term">imperative configuration</span></a> でサポートしています。Python <a class="reference internal" href="glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> がビューの上の行に配置される <a class="reference internal" href="glossary.html#term-declarative-configuration"><span class="xref std std-term">declarative configuration</span></a> を使用することもできます。どちらの方法も最終的には同じ構成になります。したがって、通常は単にテイストの問題です。</p>
+<p>We have four views, each leading to the other. If you start at
+<a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a>, you get a response with a link to the next view. The
+<code class="docutils literal notranslate"><span class="pre">hello_view</span></code> (available at the URL <code class="docutils literal notranslate"><span class="pre">/howdy</span></code>) has a link to the
+<code class="docutils literal notranslate"><span class="pre">redirect_view</span></code>, which issues a redirect to the final view.</p>
+<p>Earlier we saw <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code> as one way to configure a view. This section
+introduces <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code>. Pyramid's configuration supports <a class="reference internal" href="glossary.html#term-imperative-configuration"><span class="xref std std-term">imperative
+configuration</span></a>, such as the <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code> in the previous example. You
+can also use <a class="reference internal" href="glossary.html#term-declarative-configuration"><span class="xref std std-term">declarative configuration</span></a> in which a Python
+<a class="reference internal" href="glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> is placed on the line above the view. Both approaches result
+in the same final configuration, thus usually it is simply a matter of taste.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last"><a class="reference internal" href="quick_tutorial/views.html#qtut-views"><span class="std std-ref">Quick Tutorial Views</span></a>, <a class="reference internal" href="narr/views.html"><span class="doc">ビュー(Views)</span></a>, <a class="reference internal" href="narr/viewconfig.html"><span class="doc">View Configuration</span></a>, と <a class="reference internal" href="narr/viewconfig.html#debugging-view-configuration"><span class="std std-ref">Debugging View Configuration</span></a> を参照してください。</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/views.html#qtut-views"><span class="std std-ref">Quick Tutorial Views</span></a>, <a class="reference internal" href="narr/views.html"><span class="doc">Views</span></a>,
+<a class="reference internal" href="narr/viewconfig.html"><span class="doc">View Configuration</span></a>, and <a class="reference internal" href="narr/viewconfig.html#debugging-view-configuration"><span class="std std-ref">Debugging View Configuration</span></a>.</p>
 </div>
 </div>
 <div class="section" id="routing">
@@ -339,7 +391,7 @@ then be used in your view.</p>
 <p class="first admonition-title">参考</p>
 <p class="last">See also:
 <a class="reference internal" href="quick_tutorial/routing.html#qtut-routing"><span class="std std-ref">Quick Tutorial Routing</span></a>, <a class="reference internal" href="narr/urldispatch.html"><span class="doc">URL Dispatch</span></a>,
-<a class="reference internal" href="narr/urldispatch.html#debug-routematch-section"><span class="std std-ref">Debugging Route Matching</span></a>, and <a class="reference internal" href="narr/router.html"><span class="doc">リクエスト処理(Request Processing)</span></a>.</p>
+<a class="reference internal" href="narr/urldispatch.html#debug-routematch-section"><span class="std std-ref">Debugging Route Matching</span></a>, and <a class="reference internal" href="narr/router.html"><span class="doc">Request Processing</span></a>.</p>
 </div>
 </div>
 <div class="section" id="templating">
@@ -629,7 +681,7 @@ data such as <code class="docutils literal notranslate"><span class="pre">reques
 <p class="last">See also:
 <a class="reference internal" href="quick_tutorial/view_classes.html#qtut-view-classes"><span class="std std-ref">Quick Tutorial View Classes</span></a>, <a class="reference internal" href="quick_tutorial/more_view_classes.html#qtut-more-view-classes"><span class="std std-ref">Quick
 Tutorial More View Classes</span></a>, and
-<a class="reference internal" href="narr/views.html#class-as-view"><span class="std std-ref">callableビューをクラスとして定義する(Defining a View Callable as a Class)</span></a>.</p>
+<a class="reference internal" href="narr/views.html#class-as-view"><span class="std std-ref">Defining a View Callable as a Class</span></a>.</p>
 </div>
 </div>
 <div class="section" id="quick-project-startup-with-cookiecutters">
@@ -855,7 +907,7 @@ the relevant <code class="docutils literal notranslate"><span class="pre">.ini</
 <p class="first admonition-title">参考</p>
 <p class="last">See also:
 <a class="reference internal" href="quick_tutorial/debugtoolbar.html#qtut-debugtoolbar"><span class="std std-ref">Quick Tutorial pyramid_debugtoolbar</span></a> and
-<a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-debugtoolbar/en/latest/index.html#overview" title="(in pyramid_debugtoolbar v4.4)"><span class="xref std std-ref">pyramid_debugtoolbar</span></a></p>
+<a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-debugtoolbar/en/latest/index.html#overview" title="(in pyramid_debugtoolbar v4.5)"><span class="xref std std-ref">pyramid_debugtoolbar</span></a></p>
 </div>
 </div>
 <div class="section" id="unit-tests-and-py-test">
@@ -1183,7 +1235,7 @@ system, can then easily get at the data thanks to SQLAlchemy:</p>
 <p class="first admonition-title">参考</p>
 <p class="last">See also:
 <a class="reference internal" href="quick_tutorial/databases.html#qtut-databases"><span class="std std-ref">Quick Tutorial Databases</span></a>, <a class="reference external" href="http://www.sqlalchemy.org/">SQLAlchemy</a>, <a class="reference internal" href="narr/commandline.html#making-a-console-script"><span class="std std-ref">Making Your Script into a Console Script</span></a>,
-<a class="reference internal" href="tutorials/wiki2/index.html#bfg-sql-wiki-tutorial"><span class="std std-ref">SQLAlchemy + URL dispatch wiki tutorial</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-tm/en/latest/index.html#overview" title="(in pyramid_tm v2.2)"><span class="xref std std-ref">Application Transactions with
+<a class="reference internal" href="tutorials/wiki2/index.html#bfg-sql-wiki-tutorial"><span class="std std-ref">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-tm/en/latest/index.html#overview" title="(in pyramid_tm v2.2.1)"><span class="xref std std-ref">Application Transactions with
 pyramid_tm</span></a>.</p>
 </div>
 </div>
@@ -1232,7 +1284,7 @@ mode</span></a> for gaining Deform features on custom forms.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
 <p class="last">See also:
-<a class="reference internal" href="quick_tutorial/forms.html#qtut-forms"><span class="std std-ref">Quick Tutorial Forms</span></a>, <a class="reference external" href="https://docs.pylonsproject.org/projects/deform/en/latest/index.html#overview" title="(in deform v2.0.7.dev0)"><span class="xref std std-ref">Deform</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/colander/en/latest/index.html#overview" title="(in colander v1.4)"><span class="xref std std-ref">Colander</span></a>.</p>
+<a class="reference internal" href="quick_tutorial/forms.html#qtut-forms"><span class="std std-ref">Quick Tutorial Forms</span></a>, <a class="reference external" href="https://docs.pylonsproject.org/projects/deform/en/latest/index.html#overview" title="(in deform v2.0.7.dev0)"><span class="xref std std-ref">Deform</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/colander/en/latest/index.html#overview" title="(in colander v1.5.1)"><span class="xref std std-ref">Colander</span></a>.</p>
 </div>
 </div>
 <div class="section" id="conclusion">
@@ -1249,13 +1301,13 @@ Pyramid developer docs.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Pyramidのクイックツアー(Quick Tour of Pyramid)</a><ul>
-<li><a class="reference internal" href="#installation">インストール(Installation)</a></li>
-<li><a class="reference internal" href="#hello-world">ハローワールド(Hello World)</a></li>
-<li><a class="reference internal" href="#handling-web-requests-and-responses">Webリクエストとレスポンスの処理(Handling web requests and responses)</a></li>
-<li><a class="reference internal" href="#views">ビュー(Views)</a></li>
+<li><a class="reference internal" href="#">Quick Tour of Pyramid</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#hello-world">Hello World</a></li>
+<li><a class="reference internal" href="#handling-web-requests-and-responses">Handling web requests and responses</a></li>
+<li><a class="reference internal" href="#views">Views</a></li>
 <li><a class="reference internal" href="#routing">Routing</a></li>
 <li><a class="reference internal" href="#templating">Templating</a></li>
 <li><a class="reference internal" href="#templating-with-jinja2">Templating with Jinja2</a></li>
@@ -1278,7 +1330,7 @@ Pyramid developer docs.</p>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="index.html"
-                        title="前の章へ">Pyramid Web Framework(The Pyramid Web Framework)</a></p>
+                        title="前の章へ">The Pyramid Web Framework</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="quick_tutorial/index.html"
                         title="次の章へ">Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</a></p>
@@ -1318,15 +1370,15 @@ Pyramid developer docs.</p>
           <a href="quick_tutorial/index.html" title="Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Pyramid Web Framework(The Pyramid Web Framework)"
+          <a href="index.html" title="The Pyramid Web Framework"
              >前へ</a> |</li>
     	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>

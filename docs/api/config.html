@@ -9,11 +9,12 @@
     <title>pyramid.config &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
@@ -654,7 +655,7 @@ will return False.  For example:
 <p>custom_predicates</p>
 <blockquote>
 <div><div class="deprecated">
-<p><span class="versionmodified">バージョン 1.5 で非推奨: </span>This value should be a sequence of references to custom
+<p><span class="versionmodified">バージョン 1.5 で撤廃: </span>This value should be a sequence of references to custom
 predicate callables.  Use custom predicates when no set of
 predefined predicates does what you need.  Custom predicates
 can be combined with predefined predicates as necessary.
@@ -833,7 +834,7 @@ passed the full path.  The renderer implementation will be
 used to construct a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> from the view return
 value.</p>
 <p>Note that if the view itself returns a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> (see
-<a class="reference internal" href="../narr/views.html#the-response"><span class="std std-ref">callableビューレスポンス(View Callable Responses)</span></a>), the specified renderer implementation
+<a class="reference internal" href="../narr/views.html#the-response"><span class="std std-ref">View Callable Responses</span></a>), the specified renderer implementation
 is never called.</p>
 <p>When the renderer is a path, although a path is usually just
 a simple relative pathname (e.g. <code class="docutils literal notranslate"><span class="pre">templates/foo.pt</span></code>,
@@ -1148,7 +1149,7 @@ variable.  If the regex matches, this predicate will be
 <p>check_csrf</p>
 <blockquote>
 <div><div class="deprecated">
-<p><span class="versionmodified">バージョン 1.7 で非推奨: </span>Use the <code class="docutils literal notranslate"><span class="pre">require_csrf</span></code> option or see <a class="reference internal" href="../narr/security.html#auto-csrf-checking"><span class="std std-ref">Checking CSRF Tokens Automatically</span></a>
+<p><span class="versionmodified">バージョン 1.7 で撤廃: </span>Use the <code class="docutils literal notranslate"><span class="pre">require_csrf</span></code> option or see <a class="reference internal" href="../narr/security.html#auto-csrf-checking"><span class="std std-ref">Checking CSRF Tokens Automatically</span></a>
 instead to have <a class="reference internal" href="exceptions.html#pyramid.exceptions.BadCSRFToken" title="pyramid.exceptions.BadCSRFToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.exceptions.BadCSRFToken</span></code></a>
 exceptions raised.</p>
 </div>
@@ -1209,7 +1210,7 @@ will return False.  For example:
 <p>custom_predicates</p>
 <blockquote>
 <div><div class="deprecated">
-<p><span class="versionmodified">バージョン 1.5 で非推奨: </span>This value should be a sequence of references to custom
+<p><span class="versionmodified">バージョン 1.5 で撤廃: </span>This value should be a sequence of references to custom
 predicate callables.  Use custom predicates when no set of
 predefined predicates do what you need.  Custom predicates
 can be combined with predefined predicates as necessary.
@@ -1551,7 +1552,7 @@ factory via
 <code class="descname">set_request_property</code><span class="sig-paren">(</span><em>callable</em>, <em>name=None</em>, <em>reify=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.config.Configurator.set_request_property" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>Add a property to the request object.</p>
 <div class="deprecated">
-<p><span class="versionmodified">バージョン 1.5 で非推奨: </span><a class="reference internal" href="#pyramid.config.Configurator.add_request_method" title="pyramid.config.Configurator.add_request_method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_request_method()</span></code></a> should be
+<p><span class="versionmodified">バージョン 1.5 で撤廃: </span><a class="reference internal" href="#pyramid.config.Configurator.add_request_method" title="pyramid.config.Configurator.add_request_method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_request_method()</span></code></a> should be
 used instead.  (This method was docs-deprecated in 1.4 and
 issues a real deprecation warning in 1.5).</p>
 </div>
@@ -2148,7 +2149,7 @@ the provided <code class="docutils literal notranslate"><span class="pre">view</
 object is a class.  It names the method that should be used as
 the callable.  If <code class="docutils literal notranslate"><span class="pre">attr</span></code> is not provided, the attribute
 effectively defaults to <code class="docutils literal notranslate"><span class="pre">__call__</span></code>.  See
-<a class="reference internal" href="../narr/views.html#class-as-view"><span class="std std-ref">callableビューをクラスとして定義する(Defining a View Callable as a Class)</span></a> for more information.</p>
+<a class="reference internal" href="../narr/views.html#class-as-view"><span class="std std-ref">Defining a View Callable as a Class</span></a> for more information.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">renderer</span></code> keyword argument should be a renderer
 name. If supplied, it will cause the returned callable to use
 a <a class="reference internal" href="../glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> to convert the user-supplied view result to
@@ -2490,8 +2491,8 @@ anywhere predicate values are accepted:</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>

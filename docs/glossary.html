@@ -9,11 +9,12 @@
     <title>Glossary &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="copyright" title="著作権" href="copyright.html" />
@@ -195,9 +196,9 @@ application.  The most common configurator is an instance of the
 <dd>Pyramid attempts to resolve ambiguous configuration statements made by
 application developers via automatic conflict resolution.  Automatic
 conflict resolution is described in
-<a class="reference internal" href="narr/advconfig.html#automatic-conflict-resolution"><span class="std std-ref">自動的な衝突の解決(Automatic Conflict Resolution)</span></a>.  If Pyramid cannot resolve
+<a class="reference internal" href="narr/advconfig.html#automatic-conflict-resolution"><span class="std std-ref">Automatic Conflict Resolution</span></a>.  If Pyramid cannot resolve
 ambiguous configuration statements, it is possible to manually resolve
-them as described in <a class="reference internal" href="narr/advconfig.html#manually-resolving-conflicts"><span class="std std-ref">手作業による問題解決(Manually Resolving Conflicts))</span></a>.</dd>
+them as described in <a class="reference internal" href="narr/advconfig.html#manually-resolving-conflicts"><span class="std std-ref">Manually Resolving Conflicts</span></a>.</dd>
 <dt id="term-console-script">console script</dt>
 <dd>A script written to the <code class="docutils literal notranslate"><span class="pre">bin</span></code> (on UNIX, or <code class="docutils literal notranslate"><span class="pre">Scripts</span></code> on Windows)
 directory of a Python installation or <a class="reference internal" href="#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a> as the
@@ -333,7 +334,7 @@ being caught by an <a class="reference internal" href="#term-exception-view"><sp
 <dt id="term-exception-view">Exception view</dt>
 <dd>An exception view is a <a class="reference internal" href="#term-view-callable"><span class="xref std std-term">view callable</span></a> which may be
 invoked by <span>Pyramid</span> when an exception is raised during
-request processing.  See <a class="reference internal" href="narr/views.html#exception-views"><span class="std std-ref">カスタム例外ビュー(Custom Exception Views)</span></a> for more
+request processing.  See <a class="reference internal" href="narr/views.html#exception-views"><span class="std std-ref">Custom Exception Views</span></a> for more
 information.</dd>
 <dt id="term-execution-policy">execution policy</dt>
 <dd>A policy which wraps the <a class="reference internal" href="#term-router"><span class="xref std std-term">router</span></a> by creating the request object
@@ -378,7 +379,7 @@ These can be used to generate responses with various status codes when
 raised or returned from a <a class="reference internal" href="#term-view-callable"><span class="xref std std-term">view callable</span></a>.</p>
 <div class="last admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="narr/views.html#http-exceptions"><span class="std std-ref">HTTPの例外(HTTP Exceptions)</span></a>.</p>
+<p class="last">See also <a class="reference internal" href="narr/views.html#http-exceptions"><span class="std std-ref">HTTP Exceptions</span></a>.</p>
 </div>
 </dd>
 <dt id="term-immutable">immutable</dt>
@@ -640,7 +641,7 @@ topical, practical uses of Pyramid:
 <dt id="term-pyramid-debugtoolbar">pyramid_debugtoolbar</dt>
 <dd>A Pyramid add-on which displays a helpful debug toolbar &quot;on top of&quot; HTML
 pages rendered by your application, displaying request, routing, and
-database information.  <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-debugtoolbar/en/latest/api.html#module-pyramid_debugtoolbar" title="(in pyramid_debugtoolbar v4.4)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code></a> is configured into
+database information.  <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-debugtoolbar/en/latest/api.html#module-pyramid_debugtoolbar" title="(in pyramid_debugtoolbar v4.5)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code></a> is configured into
 the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> of all applications which use a Pyramid
 <a class="reference internal" href="#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a>.  For more information, see
 <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid_debugtoolbar/en/latest/">https://docs.pylonsproject.org/projects/pyramid_debugtoolbar/en/latest/</a>.</dd>
@@ -826,7 +827,7 @@ ordered set of route patterns.  See <a class="reference internal" href="narr/url
 application and helps users to quickly get started writing larger
 applications.  Scaffolds are usually used via the <code class="docutils literal notranslate"><span class="pre">pcreate</span></code> command.</p>
 <div class="deprecated">
-<p><span class="versionmodified">バージョン 1.8 で非推奨.</span></p>
+<p><span class="versionmodified">バージョン 1.8 で撤廃.</span></p>
 </div>
 <div class="last admonition seealso">
 <p class="first admonition-title">参考</p>
@@ -992,7 +993,7 @@ callable which accepts a pair of arguments: <code class="docutils literal notran
 traversal-based applications in which a <a class="reference internal" href="#term-context"><span class="xref std std-term">context</span></a> is always
 very important.  A view callable is the primary mechanism by
 which a developer writes user interface code within
-<span>Pyramid</span>.  See <a class="reference internal" href="narr/views.html#views-chapter"><span class="std std-ref">ビュー(Views)</span></a> for more information
+<span>Pyramid</span>.  See <a class="reference internal" href="narr/views.html#views-chapter"><span class="std std-ref">Views</span></a> for more information
 about <span>Pyramid</span> view callables.</dd>
 <dt id="term-view-configuration">view configuration</dt>
 <dd>View configuration is the act of associating a <a class="reference internal" href="#term-view-callable"><span class="xref std std-term">view callable</span></a>
@@ -1136,8 +1137,8 @@ templating language.</dd>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>

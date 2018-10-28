@@ -9,11 +9,12 @@
     <title>Defining the Domain Model &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
@@ -59,7 +60,7 @@
           <a href="basiclayout.html" title="Basic Layout"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">SQLAlchemy + URL dispatch wiki tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -308,12 +309,12 @@ only a sample and we're not going to use it.</p>
 </td></tr></table></div>
 <p>This is a very basic model for a user who can authenticate with our wiki.</p>
 <p>We discussed briefly in the previous chapter that our models will inherit from
-an SQLAlchemy <a class="reference external" href="http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html#sqlalchemy.ext.declarative.declarative_base" title="(in SQLAlchemy v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.declarative_base()</span></code></a>. This will
+an SQLAlchemy <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html#sqlalchemy.ext.declarative.declarative_base" title="(in SQLAlchemy v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.declarative_base()</span></code></a>. This will
 attach the model to our schema.</p>
 <p>As you can see, our <code class="docutils literal notranslate"><span class="pre">User</span></code> class has a class-level attribute
 <code class="docutils literal notranslate"><span class="pre">__tablename__</span></code> which equals the string <code class="docutils literal notranslate"><span class="pre">users</span></code>. Our <code class="docutils literal notranslate"><span class="pre">User</span></code> class will
 also have class-level attributes named <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">password_hash</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">role</span></code> (all instances of <a class="reference external" href="http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Column" title="(in SQLAlchemy v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.schema.Column</span></code></a>). These will
+and <code class="docutils literal notranslate"><span class="pre">role</span></code> (all instances of <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Column" title="(in SQLAlchemy v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.schema.Column</span></code></a>). These will
 map to columns in the <code class="docutils literal notranslate"><span class="pre">users</span></code> table. The <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute will be the primary
 key in the table. The <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute will be a text column, each value of
 which needs to be unique within the column. The <code class="docutils literal notranslate"><span class="pre">password_hash</span></code> is a nullable
@@ -759,7 +760,7 @@ your console that ends with this exception:</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">目次</a></h3>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Defining the Domain Model</a><ul>
 <li><a class="reference internal" href="#declaring-dependencies-in-our-setup-py-file">Declaring dependencies in our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file</a></li>
@@ -820,13 +821,13 @@ your console that ends with this exception:</p>
           <a href="basiclayout.html" title="Basic Layout"
              >前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >SQLAlchemy + URL dispatch wiki tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>

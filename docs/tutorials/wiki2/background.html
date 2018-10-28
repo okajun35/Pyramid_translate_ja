@@ -6,19 +6,20 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Background &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>Background(背景) &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
-    <link rel="next" title="Design" href="design.html" />
-    <link rel="prev" title="SQLAlchemy + URL dispatch wiki tutorial" href="index.html" />
+    <link rel="next" title="Design(デザイン)" href="design.html" />
+    <link rel="prev" title="SQLAlchemy + URL dispatch wiki tutorial(翻訳中)" href="index.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -53,13 +54,13 @@
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="design.html" title="Design"
+          <a href="design.html" title="Design(デザイン)"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="SQLAlchemy + URL dispatch wiki tutorial"
+          <a href="index.html" title="SQLAlchemy + URL dispatch wiki tutorial(翻訳中)"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">SQLAlchemy + URL dispatch wiki tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -69,21 +70,14 @@
           <div class="body" role="main">
             
   <div class="section" id="background">
-<span id="wiki2-background"></span><h1>Background<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>This version of the <span>Pyramid</span> wiki tutorial presents a
-<span>Pyramid</span> application that uses technologies which will be
-familiar to someone with SQL database experience.  It uses
-<a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> as a persistence mechanism and <a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> to map
-URLs to code.  It can also be followed by people without any prior
-Python web framework experience.</p>
-<p>To code along with this tutorial, the developer will need a UNIX
-machine with development tools (Mac OS X with XCode, any Linux or BSD
-variant, etc.) <em>or</em> a Windows system of any kind.</p>
+<span id="wiki2-background"></span><h1>Background(背景)<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このバージョンの <span>Pyramid</span> wikiチュートリアルでは、SQLデータベースの経験を持つ人になじみがあるテクノロジーを使用する <span>Pyramid</span> アプリケーションを紹介します。<a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> と　<a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> を使用してURLをコードにマッピングします。PythonのWebフレームワークの経験がない人も対象とします。</p>
+<p>チュートリアルのコードを作成するには、開発ツールを持っているUNIX（MacOS X なら XCode、LinuxまたはBSDの亜種など）または Windowsマシンが必要です。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">This tutorial runs on both Python 2 and 3 without modification.</p>
+<p class="last">このチュートリアルはPython 2とPython 3の両方で修正なしに動作します。</p>
 </div>
-<p>Have fun!</p>
+<p>楽しんでね！</p>
 </div>
 
 
@@ -94,10 +88,10 @@ variant, etc.) <em>or</em> a Windows system of any kind.</p>
         <div class="sphinxsidebarwrapper">
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="index.html"
-                        title="前の章へ">SQLAlchemy + URL dispatch wiki tutorial</a></p>
+                        title="前の章へ">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="design.html"
-                        title="次の章へ">Design</a></p>
+                        title="次の章へ">Design(デザイン)</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -131,19 +125,19 @@ variant, etc.) <em>or</em> a Windows system of any kind.</p>
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="design.html" title="Design"
+          <a href="design.html" title="Design(デザイン)"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="SQLAlchemy + URL dispatch wiki tutorial"
+          <a href="index.html" title="SQLAlchemy + URL dispatch wiki tutorial(翻訳中)"
              >前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >SQLAlchemy + URL dispatch wiki tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>

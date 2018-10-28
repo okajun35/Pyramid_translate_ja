@@ -9,11 +9,12 @@
     <title>Defending Pyramid&#39;s Design &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="copyright" title="著作権" href="copyright.html" />
@@ -698,7 +699,7 @@ the web.</p>
 <span id="apps-are-extensible"></span><h2>Pyramid Applications Are Extensible; I Don't Believe in Application Extensibility<a class="headerlink" href="#pyramid-applications-are-extensible-i-don-t-believe-in-application-extensibility" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Any <span>Pyramid</span> application written obeying certain constraints is
 <em>extensible</em>. This feature is discussed in the <span>Pyramid</span> documentation
-chapters named <a class="reference internal" href="narr/extending.html#extending-chapter"><span class="std std-ref">Extending an Existing Pyramid Application</span></a> and <a class="reference internal" href="narr/advconfig.html#advconfig-narr"><span class="std std-ref">高度な設定(Advanced Configuration)</span></a>. It is made
+chapters named <a class="reference internal" href="narr/extending.html#extending-chapter"><span class="std std-ref">Extending an Existing Pyramid Application</span></a> and <a class="reference internal" href="narr/advconfig.html#advconfig-narr"><span class="std std-ref">Advanced Configuration</span></a>. It is made
 possible by the use of the <a class="reference internal" href="glossary.html#term-zope-component-architecture"><span class="xref std std-term">Zope Component Architecture</span></a> within
 <span>Pyramid</span>.</p>
 <p>&quot;Extensible&quot; in this context means:</p>
@@ -849,12 +850,12 @@ creating a more Zope3-like environment without much effort.</p>
 </div>
 </div>
 <div class="section" id="pyramid-uses-its-own-http-exception-class-hierarchy-rather-than-webob-exc">
-<span id="http-exception-hierarchy"></span><h2>Pyramid uses its own HTTP exception class hierarchy rather than <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/exceptions.html#module-webob.exc" title="(in WebOb v1.8.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">webob.exc</span></code></a><a class="headerlink" href="#pyramid-uses-its-own-http-exception-class-hierarchy-rather-than-webob-exc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="http-exception-hierarchy"></span><h2>Pyramid uses its own HTTP exception class hierarchy rather than <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/exceptions.html#module-webob.exc" title="(in WebOb v1.8.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">webob.exc</span></code></a><a class="headerlink" href="#pyramid-uses-its-own-http-exception-class-hierarchy-rather-than-webob-exc" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.1 で追加.</span></p>
 </div>
 <p>The HTTP exception classes defined in <a class="reference internal" href="api/httpexceptions.html#module-pyramid.httpexceptions" title="pyramid.httpexceptions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.httpexceptions</span></code></a> are very
-much like the ones defined in <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/exceptions.html#module-webob.exc" title="(in WebOb v1.8.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">webob.exc</span></code></a>, (e.g.,
+much like the ones defined in <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/exceptions.html#module-webob.exc" title="(in WebOb v1.8.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">webob.exc</span></code></a>, (e.g.,
 <a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPNotFound" title="pyramid.httpexceptions.HTTPNotFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPNotFound</span></code></a> or
 <a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPForbidden" title="pyramid.httpexceptions.HTTPForbidden"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPForbidden</span></code></a>).  They have the same names and
 largely the same behavior, and all have a very similar implementation, but not
@@ -863,14 +864,14 @@ the same identity.  Here's why they have a separate identity.</p>
 <li>Making them separate allows the HTTP exception classes to subclass
 <a class="reference internal" href="api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a>.  This speeds up response generation
 slightly due to the way the Pyramid router works.  The same speed up could be
-gained by monkeypatching <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/response.html#webob.response.Response" title="(in WebOb v1.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">webob.response.Response</span></code></a>, but it's usually
+gained by monkeypatching <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/response.html#webob.response.Response" title="(in WebOb v1.8.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">webob.response.Response</span></code></a>, but it's usually
 the case that monkeypatching turns out to be evil and wrong.</li>
 <li>Making them separate allows them to provide alternate <code class="docutils literal notranslate"><span class="pre">__call__</span></code> logic,
 which also speeds up response generation.</li>
 <li>Making them separate allows the exception classes to provide for the proper
 value of <code class="docutils literal notranslate"><span class="pre">RequestClass</span></code> (<a class="reference internal" href="api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a>).</li>
 <li>Making them separate gives us freedom from thinking about backwards
-compatibility code present in <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/exceptions.html#module-webob.exc" title="(in WebOb v1.8.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">webob.exc</span></code></a> related to Python 2.4, which
+compatibility code present in <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/exceptions.html#module-webob.exc" title="(in WebOb v1.8.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">webob.exc</span></code></a> related to Python 2.4, which
 we no longer support in Pyramid 1.1+.</li>
 <li>We change the behavior of two classes
 (<a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPNotFound" title="pyramid.httpexceptions.HTTPNotFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPNotFound</span></code></a> and
@@ -1658,7 +1659,7 @@ here.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Defending Pyramid's Design</a><ul>
 <li><a class="reference internal" href="#pyramid-provides-more-than-one-way-to-do-it">Pyramid Provides More Than One Way to Do It</a></li>
@@ -1756,8 +1757,8 @@ here.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>

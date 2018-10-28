@@ -9,11 +9,12 @@
     <title>Basic Layout &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
@@ -59,7 +60,7 @@
           <a href="installation.html" title="Installation"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">SQLAlchemy + URL dispatch wiki tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -389,7 +390,7 @@ support objects like indices and constraints.</p>
 </pre></div>
 </td></tr></table></div>
 <p>Next we create a <code class="docutils literal notranslate"><span class="pre">metadata</span></code> object from the class
-<a class="reference external" href="http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.MetaData" title="(in SQLAlchemy v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.schema.MetaData</span></code></a>, using <code class="docutils literal notranslate"><span class="pre">NAMING_CONVENTION</span></code> as the value
+<a class="reference external" href="https://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.MetaData" title="(in SQLAlchemy v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.schema.MetaData</span></code></a>, using <code class="docutils literal notranslate"><span class="pre">NAMING_CONVENTION</span></code> as the value
 for the <code class="docutils literal notranslate"><span class="pre">naming_convention</span></code> argument.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">MetaData</span></code> object represents the table and other schema definitions for a
 single database. We also need to create a declarative <code class="docutils literal notranslate"><span class="pre">Base</span></code> object to use as
@@ -633,17 +634,17 @@ inherit from the <code class="docutils literal notranslate"><span class="pre">Ba
 Python, code is only executed if it is imported, and so to attach the
 <code class="docutils literal notranslate"><span class="pre">models</span></code> table defined in <code class="docutils literal notranslate"><span class="pre">mymodel.py</span></code> to the <code class="docutils literal notranslate"><span class="pre">metadata</span></code>, we must import
 it. If we skip this step, then later, when we run
-<a class="reference external" href="http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.MetaData.create_all" title="(in SQLAlchemy v1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sqlalchemy.schema.MetaData.create_all()</span></code></a>, the table will not be created
+<a class="reference external" href="https://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.MetaData.create_all" title="(in SQLAlchemy v1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sqlalchemy.schema.MetaData.create_all()</span></code></a>, the table will not be created
 because the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> object does not know about it!</p>
 <p>Another important reason to import all of the models is that, when defining
 relationships between models, they must all exist in order for SQLAlchemy to
 find and build those internal mappings. This is why, after importing all the
 models, we explicitly execute the function
-<a class="reference external" href="http://docs.sqlalchemy.org/en/latest/orm/mapping_api.html#sqlalchemy.orm.configure_mappers" title="(in SQLAlchemy v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.orm.configure_mappers()</span></code></a>, once we are sure all the models have
+<a class="reference external" href="https://docs.sqlalchemy.org/en/latest/orm/mapping_api.html#sqlalchemy.orm.configure_mappers" title="(in SQLAlchemy v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.orm.configure_mappers()</span></code></a>, once we are sure all the models have
 been defined and before we start creating connections.</p>
 <p>Next we define several functions for connecting to our database. The first and
 lowest level is the <code class="docutils literal notranslate"><span class="pre">get_engine</span></code> function. This creates an <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a>
-database engine using <a class="reference external" href="http://docs.sqlalchemy.org/en/latest/core/engines.html#sqlalchemy.engine_from_config" title="(in SQLAlchemy v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.engine_from_config()</span></code></a> from the
+database engine using <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/core/engines.html#sqlalchemy.engine_from_config" title="(in SQLAlchemy v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.engine_from_config()</span></code></a> from the
 <code class="docutils literal notranslate"><span class="pre">sqlalchemy.</span></code>-prefixed settings in the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file's
 <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section. This setting is a URI (something like <code class="docutils literal notranslate"><span class="pre">sqlite://</span></code>).</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>15
@@ -653,7 +654,7 @@ database engine using <a class="reference external" href="http://docs.sqlalchemy
 </td></tr></table></div>
 <p>The function <code class="docutils literal notranslate"><span class="pre">get_session_factory</span></code> accepts an <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> database
 engine, and creates a <code class="docutils literal notranslate"><span class="pre">session_factory</span></code> from the <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> class
-<a class="reference external" href="http://docs.sqlalchemy.org/en/latest/orm/session_api.html#sqlalchemy.orm.session.sessionmaker" title="(in SQLAlchemy v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.orm.session.sessionmaker</span></code></a>. This <code class="docutils literal notranslate"><span class="pre">session_factory</span></code> is then
+<a class="reference external" href="https://docs.sqlalchemy.org/en/latest/orm/session_api.html#sqlalchemy.orm.session.sessionmaker" title="(in SQLAlchemy v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.orm.session.sessionmaker</span></code></a>. This <code class="docutils literal notranslate"><span class="pre">session_factory</span></code> is then
 used for creating sessions bound to the database engine.</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>19
 20
@@ -792,7 +793,7 @@ not required for this tutorial, and will be removed in the next step.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">目次</a></h3>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Basic Layout</a><ul>
 <li><a class="reference internal" href="#application-configuration-with-init-py">Application configuration with <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></a></li>
@@ -848,13 +849,13 @@ not required for this tutorial, and will be removed in the next step.</p>
           <a href="installation.html" title="Installation"
              >前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >SQLAlchemy + URL dispatch wiki tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>

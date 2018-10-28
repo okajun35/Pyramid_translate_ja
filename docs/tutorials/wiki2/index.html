@@ -6,18 +6,19 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>SQLAlchemy + URL dispatch wiki tutorial &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>SQLAlchemy + URL dispatch wiki tutorial(翻訳中) &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
-    <link rel="next" title="Background" href="background.html" />
+    <link rel="next" title="Background(背景)" href="background.html" />
     <link rel="prev" title="21: 承認によるリソースの保護(21: Protecting Resources With Authorization)" href="../../quick_tutorial/authorization.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
@@ -53,7 +54,7 @@
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="background.html" title="Background"
+          <a href="background.html" title="Background(背景)"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="../../quick_tutorial/authorization.html" title="21: 承認によるリソースの保護(21: Protecting Resources With Authorization)"
@@ -68,22 +69,18 @@
           <div class="body" role="main">
             
   <div class="section" id="sqlalchemy-url-dispatch-wiki-tutorial">
-<span id="bfg-sql-wiki-tutorial"></span><h1>SQLAlchemy + URL dispatch wiki tutorial<a class="headerlink" href="#sqlalchemy-url-dispatch-wiki-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>This tutorial introduces an <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> and <a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>-based
-<span>Pyramid</span> application to a developer familiar with Python.  When finished, the developer will have created a basic wiki
-application with authentication and authorization.</p>
-<p>For cut and paste purposes, the source code for all stages of this
-tutorial can be browsed on GitHub at <a class="reference external" href="https://github.com/Pylons/pyramid/">GitHub</a> for a specific branch or version under <code class="docutils literal notranslate"><span class="pre">docs/tutorials/wiki2/src</span></code>,
-which corresponds to the same location if you have Pyramid sources.</p>
+<span id="bfg-sql-wiki-tutorial"></span><h1>SQLAlchemy + URL dispatch wiki tutorial(翻訳中)<a class="headerlink" href="#sqlalchemy-url-dispatch-wiki-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このチュートリアルでは、 <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> と <a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> ベースの <span>Pyramid</span> アプリケーションをPythonに慣れ親しんだ開発者に紹介します。チュートリアルを終えると、開発者は認証と承認を含む基本的なwikiアプリケーションを作成します。</p>
+<p>コピペできるように、チュートリアルのすべての段階のソースコードをGitHubの特定のブランチまたはバージョンで <cite>GitHub &lt;https://github.com/Pylons/pyramid/&gt;</cite> の「docs/tutorials/wiki2/src」でブラウズできます。Pyramidのソースがある場合は同じ場所に対応しています。</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
-<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design.html#overall">Overall</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html#models">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html#wiki-views">Wiki Views</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html#security">Security</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html#summary">Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background(背景)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design(デザイン)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="design.html#overall">Overall(全体)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#models">Models(モデル)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#wiki-views">Wiki Views(Wikiビュー)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#security">Security(セキュリティ)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#summary">Summary(サマリー)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
@@ -170,7 +167,7 @@ which corresponds to the same location if you have Pyramid sources.</p>
                         title="前の章へ">21: 承認によるリソースの保護(21: Protecting Resources With Authorization)</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="background.html"
-                        title="次の章へ">Background</a></p>
+                        title="次の章へ">Background(背景)</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -204,7 +201,7 @@ which corresponds to the same location if you have Pyramid sources.</p>
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="background.html" title="Background"
+          <a href="background.html" title="Background(背景)"
              >次へ</a> |</li>
         <li class="right" >
           <a href="../../quick_tutorial/authorization.html" title="21: 承認によるリソースの保護(21: Protecting Resources With Authorization)"
@@ -214,8 +211,8 @@ which corresponds to the same location if you have Pyramid sources.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>

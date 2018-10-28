@@ -9,11 +9,12 @@
     <title>What&#39;s New in Pyramid 1.1 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="copyright" title="著作権" href="copyright.html" />
@@ -561,12 +562,12 @@ the perspective of the downstream application (for example, <code class="docutil
 will now never possess a trailing slash).</p>
 </li>
 <li><p class="first">Previously, <a class="reference internal" href="api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a> inherited from
-<a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/request.html#webob.request.Request" title="(in WebOb v1.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">webob.request.Request</span></code></a> and implemented <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code>,
+<a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/request.html#webob.request.Request" title="(in WebOb v1.8.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">webob.request.Request</span></code></a> and implemented <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code>,
 <code class="docutils literal notranslate"><span class="pre">__setattr__</span></code> and <code class="docutils literal notranslate"><span class="pre">__delattr__</span></code> itself in order to override &quot;adhoc
 attr&quot; WebOb behavior where attributes of the request are stored in the
 environ.  Now, <a class="reference internal" href="api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a> inherits from (the more
-recent) <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/request.html#webob.request.BaseRequest" title="(in WebOb v1.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">webob.request.BaseRequest</span></code></a> instead of
-<a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/request.html#webob.request.Request" title="(in WebOb v1.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">webob.request.Request</span></code></a>, which provides the same behavior.
+recent) <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/request.html#webob.request.BaseRequest" title="(in WebOb v1.8.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">webob.request.BaseRequest</span></code></a> instead of
+<a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/request.html#webob.request.Request" title="(in WebOb v1.8.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">webob.request.Request</span></code></a>, which provides the same behavior.
 <a class="reference internal" href="api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a> no longer implements its own
 <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code>, <code class="docutils literal notranslate"><span class="pre">__setattr__</span></code> or <code class="docutils literal notranslate"><span class="pre">__delattr__</span></code> as a result.</p>
 </li>
@@ -672,7 +673,7 @@ releases.)</li>
 <li>Added a section entitled <a class="reference internal" href="narr/commandline.html#writing-a-script"><span class="std std-ref">Writing a Script</span></a> to the &quot;Command-Line
 Pyramid&quot; chapter.</li>
 <li>The <a class="reference internal" href="tutorials/wiki/index.html#bfg-wiki-tutorial"><span class="std std-ref">ZODB + Traversal Wiki Tutorial</span></a> was updated slightly.</li>
-<li>The <a class="reference internal" href="tutorials/wiki2/index.html#bfg-sql-wiki-tutorial"><span class="std std-ref">SQLAlchemy + URL dispatch wiki tutorial</span></a> was updated slightly.</li>
+<li>The <a class="reference internal" href="tutorials/wiki2/index.html#bfg-sql-wiki-tutorial"><span class="std std-ref">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</span></a> was updated slightly.</li>
 <li>Made <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.IAuthenticationPolicy" title="pyramid.interfaces.IAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IAuthenticationPolicy</span></code></a> and
 <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.IAuthorizationPolicy" title="pyramid.interfaces.IAuthorizationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IAuthorizationPolicy</span></code></a> public interfaces, and
 they are now referred to within the <a class="reference internal" href="api/authentication.html#module-pyramid.authentication" title="pyramid.authentication"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.authentication</span></code></a> and
@@ -690,7 +691,7 @@ chapter in the narrative documentation section entitled
 <li>Added a section to the &quot;URL Dispatch&quot; narrative chapter regarding the new
 &quot;static&quot; route feature entitled <a class="reference internal" href="narr/urldispatch.html#static-route-narr"><span class="std std-ref">Static Routes</span></a>.</li>
 <li>Added API docs for <a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.exception_response" title="pyramid.httpexceptions.exception_response"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.httpexceptions.exception_response()</span></code></a>.</li>
-<li>Added <a class="reference internal" href="narr/views.html#http-exceptions"><span class="std std-ref">HTTPの例外(HTTP Exceptions)</span></a> section to Views narrative chapter including a
+<li>Added <a class="reference internal" href="narr/views.html#http-exceptions"><span class="std std-ref">HTTP Exceptions</span></a> section to Views narrative chapter including a
 description of <a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.exception_response" title="pyramid.httpexceptions.exception_response"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.httpexceptions.exception_response()</span></code></a>.</li>
 <li>Added API docs for
 <a class="reference internal" href="api/authentication.html#pyramid.authentication.SessionAuthenticationPolicy" title="pyramid.authentication.SessionAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.authentication.SessionAuthenticationPolicy</span></code></a>.</li>
@@ -704,7 +705,7 @@ description of <a class="reference internal" href="api/httpexceptions.html#pyram
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">目次</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">What's New in Pyramid 1.1</a><ul>
 <li><a class="reference internal" href="#terminology-changes">Terminology Changes</a></li>
@@ -775,8 +776,8 @@ description of <a class="reference internal" href="api/httpexceptions.html#pyram
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 8月 31, 2018
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4 で生成しました。
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
 </html>
