@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/templating.rst:5
+msgid "08: HTML Generation With Templating"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:7
+msgid ""
+"Most web frameworks don't embed HTML in programming code. Instead, they "
+"pass data into a templating system. In this step we look at the basics of"
+" using HTML templates in Pyramid."
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:13
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:15
+msgid ""
+"Ouch. We have been making our own ``Response`` and filling the response "
+"body with HTML. You usually won't embed an HTML string directly in "
+"Python, but instead will use a templating language."
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:19
+msgid ""
+"Pyramid doesn't mandate a particular database system, form library, and "
+"so on. It encourages replaceability. This applies equally to templating, "
+"which is fortunate: developers have strong views about template "
+"languages. As of Pyramid 1.5a2, Pyramid doesn't even bundle a template "
+"language!"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:24
+msgid ""
+"It does, however, have strong ties to Jinja2, Mako, and Chameleon. In "
+"this step we see how to add `pyramid_chameleon "
+"<https://github.com/Pylons/pyramid_chameleon>`_ to your project, then "
+"change your views to use templating."
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:31
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:33
+msgid "Enable the ``pyramid_chameleon`` Pyramid add-on."
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:35
+msgid "Generate HTML from template files."
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:37
+msgid "Connect the templates as \"renderers\" for view code."
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:39
+msgid "Change the view code to simply return data."
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:43
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:45
+msgid ""
+"Let's begin by using the previous package as a starting point for a new "
+"project:"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:52
+msgid ""
+"This step depends on ``pyramid_chameleon``, so add it as a dependency in "
+"``templating/setup.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:58
+msgid "Now we can activate the development-mode distribution:"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:64
+msgid ""
+"We need to connect ``pyramid_chameleon`` as a renderer by making a call "
+"in the setup of ``templating/tutorial/__init__.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:70
+msgid "Our ``templating/tutorial/views.py`` no longer has HTML in it:"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:75
+msgid "Instead we have ``templating/tutorial/home.pt`` as a template:"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:80
+msgid ""
+"For convenience, change ``templating/development.ini`` to reload "
+"templates automatically with ``pyramid.reload_templates``:"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:86
+msgid "Our unit tests in ``templating/tutorial/tests.py`` can focus on data:"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:91
+msgid "Now run the tests:"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:99
+msgid "Run your Pyramid application with:"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:105
+msgid ""
+"Open http://localhost:6543/ and http://localhost:6543/howdy in your "
+"browser."
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:109
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:111
+msgid ""
+"Ahh, that looks better. We have a view that is focused on Python code. "
+"Our ``@view_config`` decorator specifies a :term:`renderer` that points "
+"to our template file. Our view then simply returns data which is then "
+"supplied to our template. Note that we used the same template for both "
+"views."
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:116
+msgid ""
+"Note the effect on testing. We can focus on having a data-oriented "
+"contract with our view code."
+msgstr ""
+
+#: ../../quick_tutorial/templating.rst:119
+msgid ""
+":ref:`templates_chapter`, :ref:`debugging_templates`, and "
+":ref:`available_template_system_bindings`."
+msgstr ""
+

@@ -1,0 +1,392 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Creating Your First Pyramid Application &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="Application Configuration" href="configuration.html" />
+    <link rel="prev" title="Installing Pyramid" href="install.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="configuration.html" title="Application Configuration"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installing Pyramid"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="creating-your-first-pyramid-application">
+<span id="firstapp-chapter"></span><span id="index-0"></span><h1>Creating Your First <span>Pyramid</span> Application<a class="headerlink" href="#creating-your-first-pyramid-application" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>In this chapter, we will walk through the creation of a tiny <span>Pyramid</span>
+application.  After we're finished creating the application, we'll explain in
+more detail how it works. It assumes you already have <span>Pyramid</span> installed.
+If you do not, head over to the <a class="reference internal" href="install.html#installing-chapter"><span class="std std-ref">Installing Pyramid</span></a> section.</p>
+<div class="section" id="hello-world">
+<span id="helloworld-imperative"></span><h2>Hello World<a class="headerlink" href="#hello-world" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Here's one of the very simplest <span>Pyramid</span> applications:</p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wsgiref.simple_server</span> <span class="k">import</span> <span class="n">make_server</span>
+<span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="k">import</span> <span class="n">Configurator</span>
+<span class="kn">from</span> <span class="nn">pyramid.response</span> <span class="k">import</span> <span class="n">Response</span>
+
+
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%(name)s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">request</span><span class="o">.</span><span class="n">matchdict</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Configurator</span><span class="p">()</span> <span class="k">as</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/hello/</span><span class="si">{name}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+        <span class="n">app</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">make_server</span><span class="p">(</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>When this code is inserted into a Python script named <code class="docutils literal notranslate"><span class="pre">helloworld.py</span></code> and
+executed by a Python interpreter which has the <span>Pyramid</span> software
+installed, an HTTP server is started on TCP port 8080.</p>
+<p>On UNIX:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/python helloworld.py
+</pre></div>
+</div>
+<p>On Windows:</p>
+<div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\&gt;</span> <span class="nv">%VENV%</span>\Scripts\python helloworld.py
+</pre></div>
+</div>
+<p>This command will not return and nothing will be printed to the console. When
+port 8080 is visited by a browser on the URL <code class="docutils literal notranslate"><span class="pre">/hello/world</span></code>, the server will
+simply serve up the text &quot;Hello world!&quot;.  If your application is running on
+your local system, using <a class="reference external" href="http://localhost:8080/hello/world">http://localhost:8080/hello/world</a> in a browser
+will show this result.</p>
+<p>Each time you visit a URL served by the application in a browser, a logging
+line will be emitted to the console displaying the hostname, the date, the
+request method and path, and some additional information.  This output is done
+by the wsgiref server we've used to serve this application.  It logs an &quot;access
+log&quot; in Apache combined logging format to the console.</p>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> (or <code class="docutils literal notranslate"><span class="pre">Ctrl-Break</span></code> on Windows) to stop the application.</p>
+<p>Now that we have a rudimentary understanding of what the application does,
+let's examine it piece by piece.</p>
+<div class="section" id="imports">
+<h3>Imports<a class="headerlink" href="#imports" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>The above <code class="docutils literal notranslate"><span class="pre">helloworld.py</span></code> script uses the following set of import statements:</p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wsgiref.simple_server</span> <span class="k">import</span> <span class="n">make_server</span>
+<span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="k">import</span> <span class="n">Configurator</span>
+<span class="kn">from</span> <span class="nn">pyramid.response</span> <span class="k">import</span> <span class="n">Response</span>
+</pre></div>
+</td></tr></table></div>
+<p>The script imports the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> class from the
+<a class="reference internal" href="../api/config.html#module-pyramid.config" title="pyramid.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.config</span></code></a> module.  An instance of the
+<a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> class is later used to configure your
+<span>Pyramid</span> application.</p>
+<p>Like many other Python web frameworks, <span>Pyramid</span> uses the <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a>
+protocol to connect an application and a web server together.  The
+<a class="reference external" href="https://docs.python.org/3/library/wsgiref.html#module-wsgiref" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">wsgiref</span></code></a> server is used in this example as a WSGI server for convenience,
+as it is shipped within the Python standard library.</p>
+<p>The script also imports the <a class="reference internal" href="../api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> class for later
+use.  An instance of this class will be used to create a web response.</p>
+</div>
+<div class="section" id="view-callable-declarations">
+<h3>View Callable Declarations<a class="headerlink" href="#view-callable-declarations" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>The above script, beneath its set of imports, defines a function named
+<code class="docutils literal notranslate"><span class="pre">hello_world</span></code>.</p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%(name)s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">request</span><span class="o">.</span><span class="n">matchdict</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>The function accepts a single argument (<code class="docutils literal notranslate"><span class="pre">request</span></code>) and it returns an instance
+of the <a class="reference internal" href="../api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> class.  The single argument to the
+class' constructor is a string computed from parameters matched from the URL.
+This value becomes the body of the response.</p>
+<p>This function is known as a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>.  A view callable accepts a
+single argument, <code class="docutils literal notranslate"><span class="pre">request</span></code>.  It is expected to return a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a>
+object.  A view callable doesn't need to be a function; it can be represented
+via another type of object, like a class or an instance, but for our purposes
+here, a function serves us well.</p>
+<p>A view callable is always called with a <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  A request
+object is a representation of an HTTP request sent to <span>Pyramid</span> via the
+active <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> server.</p>
+<p>A view callable is required to return a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> object because a
+response object has all the information necessary to formulate an actual HTTP
+response; this object is then converted to text by the <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> server
+which called Pyramid and it is sent back to the requesting browser.  To return
+a response, each view callable creates an instance of the
+<a class="reference internal" href="../api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a> class.  In the <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> function, a
+string is passed as the body to the response.</p>
+</div>
+<div class="section" id="application-configuration">
+<span id="helloworld-imperative-appconfig"></span><span id="index-1"></span><h3>Application Configuration<a class="headerlink" href="#application-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>In the above script, the following code represents the <em>configuration</em> of this
+simple application. The application is configured using the previously defined
+imports and function definitions, placed within the confines of an <code class="docutils literal notranslate"><span class="pre">if</span></code>
+statement:</p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Configurator</span><span class="p">()</span> <span class="k">as</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/hello/</span><span class="si">{name}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+        <span class="n">app</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">make_server</span><span class="p">(</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>Let's break this down piece by piece.</p>
+</div>
+<div class="section" id="configurator-construction">
+<h3>Configurator Construction<a class="headerlink" href="#configurator-construction" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Configurator</span><span class="p">()</span> <span class="k">as</span> <span class="n">config</span><span class="p">:</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code> line in the code sample above represents a
+Python idiom: the code inside this if clause is not invoked unless the script
+containing this code is run directly from the operating system command line.
+For example, if the file named <code class="docutils literal notranslate"><span class="pre">helloworld.py</span></code> contains the entire script
+body, the code within the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement will only be invoked when <code class="docutils literal notranslate"><span class="pre">python</span>
+<span class="pre">helloworld.py</span></code> is executed from the command line.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">if</span></code> clause is necessary—or at least best practice—because code in
+a Python <code class="docutils literal notranslate"><span class="pre">.py</span></code> file may be eventually imported via the Python <code class="docutils literal notranslate"><span class="pre">import</span></code>
+statement by another <code class="docutils literal notranslate"><span class="pre">.py</span></code> file.  <code class="docutils literal notranslate"><span class="pre">.py</span></code> files that are imported by other
+<code class="docutils literal notranslate"><span class="pre">.py</span></code> files are referred to as <em>modules</em>.  By using the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span>
+<span class="pre">'__main__':</span></code> idiom, the script above is indicating that it does not want the
+code within the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to execute if this module is imported from
+another; the code within the <code class="docutils literal notranslate"><span class="pre">if</span></code> block should only be run during a direct
+script execution.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">Configurator()</span> <span class="pre">as</span> <span class="pre">config:</span></code> line above creates an instance of the
+<a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> class using a <a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a>.  The resulting <code class="docutils literal notranslate"><span class="pre">config</span></code> object
+represents an API which the script uses to configure this particular
+<span>Pyramid</span> application.  Methods called on the Configurator will cause
+registrations to be made in an <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> associated with the
+application.</p>
+</div>
+<div class="section" id="adding-configuration">
+<span id="id1"></span><h3>Adding Configuration<a class="headerlink" href="#adding-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/hello/</span><span class="si">{name}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>The first line above calls the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a>
+method, which registers a <a class="reference internal" href="../glossary.html#term-route"><span class="xref std std-term">route</span></a> to match any URL path that begins with
+<code class="docutils literal notranslate"><span class="pre">/hello/</span></code> followed by a string.</p>
+<p>The second line registers the <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> function as a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view
+callable</span></a> and makes sure that it will be called when the <code class="docutils literal notranslate"><span class="pre">hello</span></code> route is
+matched.</p>
+</div>
+<div class="section" id="wsgi-application-creation">
+<span id="index-2"></span><h3>WSGI Application Creation<a class="headerlink" href="#wsgi-application-creation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>13</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">app</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>After configuring views and ending configuration, the script creates a WSGI
+<em>application</em> via the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.make_wsgi_app()</span></code></a> method.
+A call to <code class="docutils literal notranslate"><span class="pre">make_wsgi_app</span></code> implies that all configuration is finished
+(meaning all method calls to the configurator, which sets up views and various
+other configuration settings, have been performed).  The <code class="docutils literal notranslate"><span class="pre">make_wsgi_app</span></code>
+method returns a <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> application object that can be used by any WSGI
+server to present an application to a requestor. <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> is a protocol
+that allows servers to talk to Python applications.  We don't discuss
+<a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> in any depth within this book, but you can learn more about it by
+reading its <a class="reference external" href="https://wsgi.readthedocs.io/en/latest/">documentation</a>.</p>
+<p>The <span>Pyramid</span> application object, in particular, is an instance of a class
+representing a <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a>.  It has a reference to the
+<a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> which resulted from method calls to the
+configurator used to configure it.  The <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> consults the registry to
+obey the policy choices made by a single application.  These policy choices
+were informed by method calls to the <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> made earlier; in our
+case, the only policy choices made were implied by calls to its <code class="docutils literal notranslate"><span class="pre">add_view</span></code>
+and <code class="docutils literal notranslate"><span class="pre">add_route</span></code> methods.</p>
+</div>
+<div class="section" id="wsgi-application-serving">
+<h3>WSGI Application Serving<a class="headerlink" href="#wsgi-application-serving" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="n">server</span> <span class="o">=</span> <span class="n">make_server</span><span class="p">(</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>Finally, we actually serve the application to requestors by starting up a WSGI
+server.  We happen to use the <a class="reference external" href="https://docs.python.org/3/library/wsgiref.html#module-wsgiref" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">wsgiref</span></code></a> <code class="docutils literal notranslate"><span class="pre">make_server</span></code> server maker for
+this purpose.  We pass in as the first argument <code class="docutils literal notranslate"><span class="pre">'0.0.0.0'</span></code>, which means
+&quot;listen on all TCP interfaces&quot;.  By default, the HTTP server listens only on
+the <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> interface, which is problematic if you're running the server
+on a remote system and you wish to access it with a web browser from a local
+system.  We also specify a TCP port number to listen on, which is 8080, passing
+it as the second argument.  The final argument is the <code class="docutils literal notranslate"><span class="pre">app</span></code> object (a
+<a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a>), which is the application we wish to serve.  Finally, we call
+the server's <code class="docutils literal notranslate"><span class="pre">serve_forever</span></code> method, which starts the main loop in which it
+will wait for requests from the outside world.</p>
+<p>When this line is invoked, it causes the server to start listening on TCP port
+8080.  The server will serve requests forever, or at least until we stop it by
+killing the process which runs it (usually by pressing <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Ctrl-Break</span></code> in the terminal we used to start it).</p>
+</div>
+<div class="section" id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Our hello world application is one of the simplest possible <span>Pyramid</span>
+applications, configured &quot;imperatively&quot;.  We can see that it's configured
+imperatively because the full power of Python is available to us as we perform
+configuration tasks.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>For more information about the API of a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> object, see
+<a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> .</p>
+<p>For more information about <a class="reference internal" href="../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a>, see
+<a class="reference internal" href="viewconfig.html#view-config-chapter"><span class="std std-ref">View Configuration</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Creating Your First <span>Pyramid</span> Application</a><ul>
+<li><a class="reference internal" href="#hello-world">Hello World</a><ul>
+<li><a class="reference internal" href="#imports">Imports</a></li>
+<li><a class="reference internal" href="#view-callable-declarations">View Callable Declarations</a></li>
+<li><a class="reference internal" href="#application-configuration">Application Configuration</a></li>
+<li><a class="reference internal" href="#configurator-construction">Configurator Construction</a></li>
+<li><a class="reference internal" href="#adding-configuration">Adding Configuration</a></li>
+<li><a class="reference internal" href="#wsgi-application-creation">WSGI Application Creation</a></li>
+<li><a class="reference internal" href="#wsgi-application-serving">WSGI Application Serving</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="install.html"
+                        title="前の章へ">Installing <span>Pyramid</span></a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="configuration.html"
+                        title="次の章へ">Application Configuration</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/narr/firstapp.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="configuration.html" title="Application Configuration"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installing Pyramid"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
+    </div>
+  </body>
+</html>

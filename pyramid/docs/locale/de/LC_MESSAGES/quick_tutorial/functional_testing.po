@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/functional_testing.rst:5
+msgid "06: Functional Testing with WebTest"
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:7
+msgid "Write end-to-end full-stack testing using ``webtest``."
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:11
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:13
+msgid ""
+"Unit tests are a common and popular approach to test-driven development "
+"(TDD). In web applications, though, the templating and entire apparatus "
+"of a web site are important parts of the delivered quality. We'd like a "
+"way to test these."
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:17
+msgid ""
+"`WebTest <https://docs.pylonsproject.org/projects/webtest/en/latest/>`_ "
+"is a Python package that does functional testing. With WebTest you can "
+"write tests which simulate a full HTTP request against a WSGI "
+"application, then test the information in the response. For speed "
+"purposes, WebTest skips the setup/teardown of an actual HTTP server, "
+"providing tests that run fast enough to be part of TDD."
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:26
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:28
+msgid "Write a test which checks the contents of the returned HTML."
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:32
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:34
+msgid ""
+"First we copy the results of the previous step, as well as install the "
+"``webtest`` package:"
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:43
+msgid ""
+"Let's extend ``functional_testing/tutorial/tests.py`` to include a "
+"functional test:"
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:49
+msgid ""
+"Be sure this file is not executable, or ``pytest`` may not include your "
+"tests."
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:52
+msgid "Now run the tests:"
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:62
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:64
+msgid ""
+"We now have the end-to-end testing we were looking for. WebTest lets us "
+"simply extend our existing ``pytest``-based test approach with functional"
+" tests that are reported in the same output. These new tests not only "
+"cover our templating, but they didn't dramatically increase the execution"
+" time of our tests."
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:71
+msgid "Extra credit"
+msgstr ""
+
+#: ../../quick_tutorial/functional_testing.rst:73
+msgid "Why do our functional tests use ``b''``?"
+msgstr ""
+

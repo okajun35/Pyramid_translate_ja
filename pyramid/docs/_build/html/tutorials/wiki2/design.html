@@ -1,0 +1,305 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Design(デザイン) &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="copyright" title="著作権" href="../../copyright.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Background(背景)" href="background.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../../index.html">
+      		<img class="logo" src="../../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="background.html" title="Background(背景)"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="design">
+<span id="wiki2-design"></span><h1>Design(デザイン)<a class="headerlink" href="#design" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>以下でチュートリアルの行ううえ変更を理解するのに役立つ、Wikiアプリケーションの設計の概要を簡単に説明します。</p>
+<div class="section" id="overall">
+<h2>Overall(全体)<a class="headerlink" href="#overall" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>wikiテキストに <a class="reference internal" href="../../glossary.html#term-restructuredtext"><span class="xref std std-term">reStructuredText</span></a> マークアップを使用することを選択します。reStructuredTextからHTMLへの変換は、広く使われている「docutils」Pythonモジュールによって提供されています。このモジュールをプロジェクトの「setup.py」の依存関係リストに追加します。</p>
+</div>
+<div class="section" id="models">
+<h2>Models(モデル)<a class="headerlink" href="#models" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>wikiのデータを保持するためにSQLiteをしようします。そしてデータベースのアクセスには <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> を使用します。</p>
+<p>データベースないテーブルを2つ定義します:</p>
+<ul class="simple">
+<li>「users」テーブル。「id」,「name」, 「password_hash」および、各wiki userの「role」があります。</li>
+<li>「pages」テーブル。wikiページの要素を保存します。4つのカラムがあります。「id」, 「name」, 「data」 、「creator_id」。</li>
+</ul>
+<p>「pages」テーブルのカラムで 各wikiページを作成したユーザー間では、1 対多の関係が「users」と「pages」の「creator_id」にあります。</p>
+<p>「/PageName」 のURL は、対応する名前を「pages」テーブル内からを探します</p>
+<p>wikiにページを追加するには、新しいrow(行)が作成されてテキストが「data」に格納されます。</p>
+<p>「This is front page」というテキストを含む「FrontPage」ページは、ストレージが初期化されたときに作成されて、wikiのホームページとして使用されます。</p>
+</div>
+<div class="section" id="wiki-views">
+<h2>Wiki Views(Wikiビュー)<a class="headerlink" href="#wiki-views" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>通常の操作である、wikiページの追加、編集するビュー。表示するビューに加えて、wikiフロントページのビューを処理する3つのビューがあります。表示用に1つ、wikiページの追加と編集の両方に2つのテンプレートが使用されます。</p>
+<p>バージョン1.5からは、<span>Pyramid</span> はテンプレートシステムと一緒に出荷されなくなりました。このチュートリアルでは、 <a class="reference internal" href="../../glossary.html#term-jinja2"><span class="xref std std-term">Jinja2</span></a> を使用します。Jinja2はDjangoのテンプレートに基づいて作成された、Pythonのためのモダンでデザイナーに優しいテンプレート言語です。</p>
+</div>
+<div class="section" id="security">
+<h2>Security(セキュリティ)<a class="headerlink" href="#security" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>最終的にはアプリケーションにセキュリティを追加する予定です。これを行うには非常に簡単なロールベースのセキュリティモデルを使用します。システム内の各ユーザーに1つの役割カテゴリを割り当てます。</p>
+<dl class="docutils">
+<dt>「basic」</dt>
+<dd>コンテンツを表示して新しいページを作成できる認証済みのユーザー。また「basic」ユーザーは自分が作成したページだけでなく、他のユーザーによって作成されたページも編集できます。</dd>
+<dt>「editor」</dt>
+<dd>システム内のコンテンツ作成および編集可能な認証済みのユーザー。</dd>
+</dl>
+<p>これを達成するには、 <a class="reference internal" href="../../glossary.html#term-userid"><span class="xref std std-term">userid</span></a> とロール(役割)によってユーザーを識別できる認証ポリシーを定義する必要があります。次に、適切な <a class="reference internal" href="../../glossary.html#term-acl"><span class="xref std std-term">ACL</span></a> を含むページ <a class="reference internal" href="../../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> を定義する必要があります:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="43%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">アクション</th>
+<th class="head">支配者</th>
+<th class="head">許可</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>許可</td>
+<td>全員</td>
+<td>ビュー</td>
+</tr>
+<tr class="row-odd"><td>許可</td>
+<td>basicグループ</td>
+<td>作成</td>
+</tr>
+<tr class="row-even"><td>許可</td>
+<td>editorsグループ</td>
+<td>編集</td>
+</tr>
+<tr class="row-odd"><td>許可</td>
+<td>&lt;ページの作成者&gt;</td>
+<td>編集</td>
+</tr>
+</tbody>
+</table>
+<p>各要求が処理されるときにセキュリティポリシーをアサートするために、アクセス許可の宣言がビューに追加されます。</p>
+<p>アプリケーションのセキュリティ側にはログインとログアウトを処理するための2つの追加のビューと、無効なアクセス試行と未処理のURLの処理に関する2つの例外ビューがあります。</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary(サマリー)<a class="headerlink" href="#summary" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>各ビューに関連付けられているURL、アクション、テンプレート、および権限は、以下の表を見てください:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="27%" />
+<col width="15%" />
+<col width="19%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">URL</th>
+<th class="head">アクション</th>
+<th class="head">ビュー</th>
+<th class="head">テンプレート</th>
+<th class="head">許可</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/</td>
+<td>/FrontPage にリダイレクト</td>
+<td>view_wiki</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>/PageName</td>
+<td>既存のページを表示する <a class="footnote-reference" href="#id5" id="id1">[2]</a></td>
+<td>view_page
+<a class="footnote-reference" href="#id4" id="id2">[1]</a></td>
+<td>view.jinja2</td>
+<td>ビュー</td>
+</tr>
+<tr class="row-even"><td>/PageName/edit_page</td>
+<td><p class="first">既存のコンテンツを含む編集フォームを表示します。</p>
+<p class="last">フォームでサブミットされたら、/PageNameにリダイレクトします</p>
+</td>
+<td>edit_page</td>
+<td>edit.jinja2</td>
+<td>編集</td>
+</tr>
+<tr class="row-odd"><td>/add_page/PageName</td>
+<td><p class="first">ストレージに「PageName」を作成してコンテンツなして編集フォームを表示します。</p>
+<p class="last">フォームでサブミットされたら、/PageNameにリダイレクトします</p>
+</td>
+<td>add_page</td>
+<td>edit.jinja2</td>
+<td>作成</td>
+</tr>
+<tr class="row-even"><td>/login</td>
+<td><p class="first">ログインフォームの表示、禁止 <a class="footnote-reference" href="#id6" id="id3">[3]</a></p>
+<p>フォームがサブミットされた場合は認証されます。</p>
+<ul class="last simple">
+<li>認証が成功すると、アクセスしたページにリダイレクトされます</li>
+<li>認証が失敗すると、ログインフォームに「login failed」メッセージが表示される。</li>
+</ul>
+</td>
+<td>login</td>
+<td>login.jinja2</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>/logout</td>
+<td>/FrontPage にリダイレクト</td>
+<td>logout</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>This is the default view for a Page context when there is no view name.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>Pyramid will return a default 404 Not Found page if the page <code class="docutils literal notranslate"><span class="pre">PageName</span></code>
+does not exist yet.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><code class="docutils literal notranslate"><span class="pre">pyramid.exceptions.Forbidden</span></code> is reached when a user tries to invoke
+a view that is not authorized by the authorization policy.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Design(デザイン)</a><ul>
+<li><a class="reference internal" href="#overall">Overall(全体)</a></li>
+<li><a class="reference internal" href="#models">Models(モデル)</a></li>
+<li><a class="reference internal" href="#wiki-views">Wiki Views(Wikiビュー)</a></li>
+<li><a class="reference internal" href="#security">Security(セキュリティ)</a></li>
+<li><a class="reference internal" href="#summary">Summary(サマリー)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="background.html"
+                        title="前の章へ">Background(背景)</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="installation.html"
+                        title="次の章へ">Installation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/tutorials/wiki2/design.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="background.html" title="Background(背景)"
+             >前へ</a> |</li>
+    	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
+    </div>
+  </body>
+</html>

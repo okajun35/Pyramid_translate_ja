@@ -1,0 +1,1857 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.request &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="pyramid.response" href="response.html" />
+    <link rel="prev" title="pyramid.renderers" href="renderers.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="response.html" title="pyramid.response"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="renderers.html" title="pyramid.renderers"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyramid.request">
+<span id="pyramid-request"></span><span id="request-module"></span><h1><a class="reference internal" href="#module-pyramid.request" title="pyramid.request"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.request</span></code></a><a class="headerlink" href="#module-pyramid.request" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<dl class="class">
+<dt id="pyramid.request.Request">
+<em class="property">class </em><code class="descname">Request</code><span class="sig-paren">(</span><em>environ</em>, <em>charset=None</em>, <em>unicode_errors=None</em>, <em>decode_param_names=None</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/request.html#Request"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.request.Request" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>A subclass of the <a class="reference internal" href="../glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> Request class.  An instance of
+this class is created by the <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> and is provided to a
+view callable (and to other subsystems) as the <code class="docutils literal notranslate"><span class="pre">request</span></code>
+argument.</p>
+<p>The documentation below (save for the <code class="docutils literal notranslate"><span class="pre">add_response_callback</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_finished_callback</span></code> methods, which are defined in this subclass
+itself, and the attributes <code class="docutils literal notranslate"><span class="pre">context</span></code>, <code class="docutils literal notranslate"><span class="pre">registry</span></code>, <code class="docutils literal notranslate"><span class="pre">root</span></code>,
+<code class="docutils literal notranslate"><span class="pre">subpath</span></code>, <code class="docutils literal notranslate"><span class="pre">traversed</span></code>, <code class="docutils literal notranslate"><span class="pre">view_name</span></code>, <code class="docutils literal notranslate"><span class="pre">virtual_root</span></code> , and
+<code class="docutils literal notranslate"><span class="pre">virtual_root_path</span></code>, each of which is added to the request by the
+<a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> at request ingress time) are autogenerated from the WebOb
+source code used when this documentation was generated.</p>
+<p>Due to technical constraints, we can't yet display the WebOb
+version number from which this documentation is autogenerated, but
+it will be the 'prevailing WebOb version' at the time of the
+release of this <span>Pyramid</span> version.  See
+<a class="reference external" href="https://webob.org/">https://webob.org/</a> for further information.</p>
+<dl class="attribute">
+<dt id="pyramid.request.Request.context">
+<code class="descname">context</code><a class="headerlink" href="#pyramid.request.Request.context" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> will be available as the <code class="docutils literal notranslate"><span class="pre">context</span></code>
+attribute of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  It will be the context
+object implied by the current request.  See
+<a class="reference internal" href="../narr/traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a> for information about context objects.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.registry">
+<code class="descname">registry</code><a class="headerlink" href="#pyramid.request.Request.registry" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> will be available as the
+<code class="docutils literal notranslate"><span class="pre">registry</span></code> attribute of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  See
+<a class="reference internal" href="../narr/zca.html#zca-chapter"><span class="std std-ref">Using the Zope Component Architecture in Pyramid</span></a> for more information about the application
+registry.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.root">
+<code class="descname">root</code><a class="headerlink" href="#pyramid.request.Request.root" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The <a class="reference internal" href="../glossary.html#term-root"><span class="xref std std-term">root</span></a> object will be available as the <code class="docutils literal notranslate"><span class="pre">root</span></code>
+attribute of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  It will be the resource
+object at which traversal started (the root).  See
+<a class="reference internal" href="../narr/traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a> for information about root objects.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.subpath">
+<code class="descname">subpath</code><a class="headerlink" href="#pyramid.request.Request.subpath" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The traversal <a class="reference internal" href="../glossary.html#term-subpath"><span class="xref std std-term">subpath</span></a> will be available as the
+<code class="docutils literal notranslate"><span class="pre">subpath</span></code> attribute of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  It will
+be a sequence containing zero or more elements (which will be
+Unicode objects).  See <a class="reference internal" href="../narr/traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a> for information
+about the subpath.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.traversed">
+<code class="descname">traversed</code><a class="headerlink" href="#pyramid.request.Request.traversed" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The &quot;traversal path&quot; will be available as the <code class="docutils literal notranslate"><span class="pre">traversed</span></code>
+attribute of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  It will be a sequence
+representing the ordered set of names that were used to
+traverse to the <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a>, not including the view name or
+subpath.  If there is a virtual root associated with the
+request, the virtual root path is included within the traversal
+path.  See <a class="reference internal" href="../narr/traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a> for more information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.view_name">
+<code class="descname">view_name</code><a class="headerlink" href="#pyramid.request.Request.view_name" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> will be available as the <code class="docutils literal notranslate"><span class="pre">view_name</span></code>
+attribute of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  It will be a single
+string (possibly the empty string if we're rendering a default
+view).  See <a class="reference internal" href="../narr/traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a> for information about view
+names.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.virtual_root">
+<code class="descname">virtual_root</code><a class="headerlink" href="#pyramid.request.Request.virtual_root" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The <a class="reference internal" href="../glossary.html#term-virtual-root"><span class="xref std std-term">virtual root</span></a> will be available as the
+<code class="docutils literal notranslate"><span class="pre">virtual_root</span></code> attribute of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  It
+will be the virtual root object implied by the current request.
+See <a class="reference internal" href="../narr/vhosting.html#vhosting-chapter"><span class="std std-ref">Virtual Hosting</span></a> for more information about virtual
+roots.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.virtual_root_path">
+<code class="descname">virtual_root_path</code><a class="headerlink" href="#pyramid.request.Request.virtual_root_path" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The  <a class="reference internal" href="../glossary.html#term-virtual-root"><span class="xref std std-term">virtual  root</span></a>  <em>path</em>  will be  available  as  the
+<code class="docutils literal notranslate"><span class="pre">virtual_root_path</span></code> attribute  of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.
+It will  be a  sequence representing the  ordered set  of names
+that were  used to  traverse to the  virtual root  object.  See
+<a class="reference internal" href="../narr/vhosting.html#vhosting-chapter"><span class="std std-ref">Virtual Hosting</span></a>  for  more  information  about  virtual
+roots.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.exception">
+<code class="descname">exception</code><a class="headerlink" href="#pyramid.request.Request.exception" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>If an exception was raised by a <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> or a
+<a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>, or at various other points where
+<span>Pyramid</span> executes user-defined code during the
+processing of a request, the exception object which was caught
+will be available as the <code class="docutils literal notranslate"><span class="pre">exception</span></code> attribute of the request
+within a <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a>, a <a class="reference internal" href="../glossary.html#term-response-callback"><span class="xref std std-term">response callback</span></a> or a
+<a class="reference internal" href="../glossary.html#term-finished-callback"><span class="xref std std-term">finished callback</span></a>.  If no exception occurred, the value
+of <code class="docutils literal notranslate"><span class="pre">request.exception</span></code> will be <code class="docutils literal notranslate"><span class="pre">None</span></code> within response and
+finished callbacks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.exc_info">
+<code class="descname">exc_info</code><a class="headerlink" href="#pyramid.request.Request.exc_info" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>If an exception was raised by a <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> or a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view
+callable</span></a>, or at various other points where <span>Pyramid</span> executes
+user-defined code during the processing of a request, result of
+<code class="docutils literal notranslate"><span class="pre">sys.exc_info()</span></code> will be available as the <code class="docutils literal notranslate"><span class="pre">exc_info</span></code> attribute of
+the request within a <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a>, a <a class="reference internal" href="../glossary.html#term-response-callback"><span class="xref std std-term">response callback</span></a>
+or a <a class="reference internal" href="../glossary.html#term-finished-callback"><span class="xref std std-term">finished callback</span></a>.  If no exception occurred, the value of
+<code class="docutils literal notranslate"><span class="pre">request.exc_info</span></code> will be <code class="docutils literal notranslate"><span class="pre">None</span></code> within response and finished
+callbacks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.response">
+<code class="descname">response</code><a class="reference internal" href="../_modules/pyramid/request.html#Request.response"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.request.Request.response" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>This attribute is actually a &quot;reified&quot; property which returns an
+instance of the <a class="reference internal" href="response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> class.  The response
+object returned does not exist until this attribute is accessed.  Once
+it is accessed, subsequent accesses to this request object will return
+the same <a class="reference internal" href="response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a> object.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">request.response</span></code> API can is used by renderers.  A render obtains
+the response object it will return from a view that uses that renderer
+by accessing <code class="docutils literal notranslate"><span class="pre">request.response</span></code>.  Therefore, it's possible to use the
+<code class="docutils literal notranslate"><span class="pre">request.response</span></code> API to set up a response object with &quot;the right&quot;
+attributes (e.g. by calling <code class="docutils literal notranslate"><span class="pre">request.response.set_cookie(...)</span></code> or
+<code class="docutils literal notranslate"><span class="pre">request.response.content_type</span> <span class="pre">=</span> <span class="pre">'text/plain'</span></code>, etc) within a view
+that uses a renderer.  For example, within a view that uses a
+<a class="reference internal" href="../glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">response</span>
+<span class="n">response</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s1">&#39;mycookie&#39;</span><span class="p">,</span> <span class="s1">&#39;mine, all mine!&#39;</span><span class="p">)</span>
+<span class="k">return</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span><span class="s1">&#39;Value that will be used by the renderer&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Mutations to this response object will be preserved in the response sent
+to the client after rendering.  For more information about using
+<code class="docutils literal notranslate"><span class="pre">request.response</span></code> in conjunction with a renderer, see
+<a class="reference internal" href="../narr/renderers.html#request-response-attr"><span class="std std-ref">Varying Attributes of Rendered Responses</span></a>.</p>
+<p>Non-renderer code can also make use of request.response instead of
+creating a response &quot;by hand&quot;.  For example, in view code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">response</span>
+<span class="n">response</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;Hello!&#39;</span>
+<span class="n">response</span><span class="o">.</span><span class="n">content_type</span> <span class="o">=</span> <span class="s1">&#39;text/plain&#39;</span>
+<span class="k">return</span> <span class="n">response</span>
+</pre></div>
+</div>
+<p>Note that the response in this circumstance is not &quot;global&quot;; it still
+must be returned from the view code if a renderer is not used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.session">
+<code class="descname">session</code><a class="reference internal" href="../_modules/pyramid/request.html#Request.session"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.request.Request.session" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>If a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a> has been configured, this attribute
+will represent the current user's <a class="reference internal" href="../glossary.html#term-session"><span class="xref std std-term">session</span></a> object.  If a
+session factory <em>has not</em> been configured, requesting the
+<code class="docutils literal notranslate"><span class="pre">request.session</span></code> attribute will cause a
+<a class="reference internal" href="exceptions.html#pyramid.exceptions.ConfigurationError" title="pyramid.exceptions.ConfigurationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.exceptions.ConfigurationError</span></code></a> to be raised.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.matchdict">
+<code class="descname">matchdict</code><a class="headerlink" href="#pyramid.request.Request.matchdict" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>If a <a class="reference internal" href="../glossary.html#term-route"><span class="xref std std-term">route</span></a> has matched during this request, this attribute will
+be a dictionary containing the values matched by the URL pattern
+associated with the route.  If a route has not matched during this
+request, the value of this attribute will be <code class="docutils literal notranslate"><span class="pre">None</span></code>. See
+<a class="reference internal" href="../narr/urldispatch.html#matchdict"><span class="std std-ref">The Matchdict</span></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.matched_route">
+<code class="descname">matched_route</code><a class="headerlink" href="#pyramid.request.Request.matched_route" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>If a <a class="reference internal" href="../glossary.html#term-route"><span class="xref std std-term">route</span></a> has matched during this request, this attribute will
+be an object representing the route matched by the URL pattern
+associated with the route.  If a route has not matched during this
+request, the value of this attribute will be <code class="docutils literal notranslate"><span class="pre">None</span></code>. See
+<a class="reference internal" href="../narr/urldispatch.html#matched-route"><span class="std std-ref">The Matched Route</span></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.authenticated_userid">
+<code class="descname">authenticated_userid</code><a class="headerlink" href="#pyramid.request.Request.authenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
+</div>
+<p>A property which returns the <a class="reference internal" href="../glossary.html#term-userid"><span class="xref std std-term">userid</span></a> of the currently
+authenticated user or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no <a class="reference internal" href="../glossary.html#term-authentication-policy"><span class="xref std std-term">authentication
+policy</span></a> in effect or there is no currently authenticated user.  This
+differs from <a class="reference internal" href="#pyramid.request.Request.unauthenticated_userid" title="pyramid.request.Request.unauthenticated_userid"><code class="xref py py-attr docutils literal notranslate"><span class="pre">unauthenticated_userid</span></code></a>,
+because the effective authentication policy will have ensured that a
+record associated with the <a class="reference internal" href="../glossary.html#term-userid"><span class="xref std std-term">userid</span></a> exists in persistent storage;
+if it has not, this value will be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.unauthenticated_userid">
+<code class="descname">unauthenticated_userid</code><a class="headerlink" href="#pyramid.request.Request.unauthenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
+</div>
+<p>A property which returns a value which represents the <em>claimed</em> (not
+verified) <a class="reference internal" href="../glossary.html#term-userid"><span class="xref std std-term">userid</span></a> of the credentials present in the
+request. <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no <a class="reference internal" href="../glossary.html#term-authentication-policy"><span class="xref std std-term">authentication policy</span></a> in effect
+or there is no user data associated with the current request.  This
+differs from <a class="reference internal" href="#pyramid.request.Request.authenticated_userid" title="pyramid.request.Request.authenticated_userid"><code class="xref py py-attr docutils literal notranslate"><span class="pre">authenticated_userid</span></code></a>,
+because the effective authentication policy will not ensure that a
+record associated with the <a class="reference internal" href="../glossary.html#term-userid"><span class="xref std std-term">userid</span></a> exists in persistent storage.
+Even if the <a class="reference internal" href="../glossary.html#term-userid"><span class="xref std std-term">userid</span></a> does not exist in persistent storage, this
+value will be the value of the <a class="reference internal" href="../glossary.html#term-userid"><span class="xref std std-term">userid</span></a> <em>claimed</em> by the request
+data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.effective_principals">
+<code class="descname">effective_principals</code><a class="headerlink" href="#pyramid.request.Request.effective_principals" title="この定義へのパーマリンク">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
+</div>
+<p>A property which returns the list of 'effective' <a class="reference internal" href="../glossary.html#term-principal"><span class="xref std std-term">principal</span></a>
+identifiers for this request.  This list typically includes the
+<a class="reference internal" href="../glossary.html#term-userid"><span class="xref std std-term">userid</span></a> of the currently authenticated user if a user is
+currently authenticated, but this depends on the
+<a class="reference internal" href="../glossary.html#term-authentication-policy"><span class="xref std std-term">authentication policy</span></a> in effect.  If no <a class="reference internal" href="../glossary.html#term-authentication-policy"><span class="xref std std-term">authentication
+policy</span></a> is in effect, this will return a sequence containing only the
+<a class="reference internal" href="security.html#pyramid.security.Everyone" title="pyramid.security.Everyone"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyramid.security.Everyone</span></code></a> principal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.invoke_subrequest">
+<code class="descname">invoke_subrequest</code><span class="sig-paren">(</span><em>request</em>, <em>use_tweens=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.invoke_subrequest" title="この定義へのパーマリンク">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified">バージョン 1.4a1 で追加.</span></p>
+</div>
+<p>Obtain a response object from the Pyramid application based on
+information in the <code class="docutils literal notranslate"><span class="pre">request</span></code> object provided.  The <code class="docutils literal notranslate"><span class="pre">request</span></code> object
+must be an object that implements the Pyramid request interface (such
+as a <a class="reference internal" href="#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a> instance).  If <code class="docutils literal notranslate"><span class="pre">use_tweens</span></code> is
+<code class="docutils literal notranslate"><span class="pre">True</span></code>, the request will be sent to the <a class="reference internal" href="../glossary.html#term-tween"><span class="xref std std-term">tween</span></a> in the tween
+stack closest to the request ingress.  If <code class="docutils literal notranslate"><span class="pre">use_tweens</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>,
+the request will be sent to the main router handler, and no tweens will
+be invoked.</p>
+<p>This function also:</p>
+<ul class="simple">
+<li>manages the threadlocal stack (so that
+<a class="reference internal" href="threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a> and
+<a class="reference internal" href="threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_registry()</span></code></a> work during a
+request)</li>
+<li>Adds a <code class="docutils literal notranslate"><span class="pre">registry</span></code> attribute (the current Pyramid registry) and a
+<code class="docutils literal notranslate"><span class="pre">invoke_subrequest</span></code> attribute (a callable) to the request object it's
+handed.</li>
+<li>sets request extensions (such as those added via
+<a class="reference internal" href="config.html#pyramid.config.Configurator.add_request_method" title="pyramid.config.Configurator.add_request_method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_request_method()</span></code></a> or
+<a class="reference internal" href="config.html#pyramid.config.Configurator.set_request_property" title="pyramid.config.Configurator.set_request_property"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_request_property()</span></code></a>) on the
+request it's passed.</li>
+<li>causes a <a class="reference internal" href="events.html#pyramid.events.NewRequest" title="pyramid.events.NewRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewRequest</span></code></a> event to be sent at the
+beginning of request processing.</li>
+<li>causes a <a class="reference internal" href="events.html#pyramid.events.ContextFound" title="pyramid.events.ContextFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextFound</span></code></a> event to be sent
+when a context resource is found.</li>
+<li>Ensures that the user implied by the request passed has the necessary
+authorization to invoke view callable before calling it.</li>
+<li>Calls any <a class="reference internal" href="../glossary.html#term-response-callback"><span class="xref std std-term">response callback</span></a> functions defined within the
+request's lifetime if a response is obtained from the Pyramid
+application.</li>
+<li>causes a <a class="reference internal" href="events.html#pyramid.events.NewResponse" title="pyramid.events.NewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewResponse</span></code></a> event to be sent if a
+response is obtained.</li>
+<li>Calls any <a class="reference internal" href="../glossary.html#term-finished-callback"><span class="xref std std-term">finished callback</span></a> functions defined within the
+request's lifetime.</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">invoke_subrequest</span></code> isn't <em>actually</em> a method of the Request object;
+it's a callable added when the Pyramid router is invoked, or when a
+subrequest is invoked.  This means that it's not available for use on a
+request provided by e.g. the <code class="docutils literal notranslate"><span class="pre">pshell</span></code> environment.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also <a class="reference internal" href="../narr/subrequest.html#subrequest-chapter"><span class="std std-ref">Invoking a Subrequest</span></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.invoke_exception_view">
+<code class="descname">invoke_exception_view</code><span class="sig-paren">(</span><em>exc_info=None</em>, <em>request=None</em>, <em>secure=True</em>, <em>reraise=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.invoke_exception_view" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Executes an exception view related to the request it's called upon.
+The arguments it takes are these:</p>
+<p><code class="docutils literal notranslate"><span class="pre">exc_info</span></code></p>
+<blockquote>
+<div>If provided, should be a 3-tuple in the form provided by
+<code class="docutils literal notranslate"><span class="pre">sys.exc_info()</span></code>.  If not provided,
+<code class="docutils literal notranslate"><span class="pre">sys.exc_info()</span></code> will be called to obtain the current
+interpreter exception information.  Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">request</span></code></p>
+<blockquote>
+<div>If the request to be used is not the same one as the instance that
+this method is called upon, it may be passed here.  Default:
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">secure</span></code></p>
+<blockquote>
+<div>If the exception view should not be rendered if the current user
+does not have the appropriate permission, this should be <code class="docutils literal notranslate"><span class="pre">True</span></code>.
+Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>.</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">reraise</span></code></p>
+<blockquote>
+<div>A boolean indicating whether the original error should be reraised
+if a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> object could not be created. If <code class="docutils literal notranslate"><span class="pre">False</span></code>
+then an <code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.httpexceptions.HTTPNotFound`</span></code> exception
+will be raised. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</div></blockquote>
+<p>If a response is generated then <code class="docutils literal notranslate"><span class="pre">request.exception</span></code> and
+<code class="docutils literal notranslate"><span class="pre">request.exc_info</span></code> will be left at the values used to render the
+response. Otherwise the previous values for <code class="docutils literal notranslate"><span class="pre">request.exception</span></code> and
+<code class="docutils literal notranslate"><span class="pre">request.exc_info</span></code> will be restored.</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 1.7 で追加.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.9 で変更: </span>The <code class="docutils literal notranslate"><span class="pre">request.exception</span></code> and <code class="docutils literal notranslate"><span class="pre">request.exc_info</span></code> properties will
+reflect the exception used to render the response where previously
+they were reset to the values prior to invoking the method.</p>
+<p>Also added the <code class="docutils literal notranslate"><span class="pre">reraise</span></code> argument.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.has_permission">
+<code class="descname">has_permission</code><span class="sig-paren">(</span><em>permission</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.has_permission" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Given a permission and an optional context, returns an instance of
+<a class="reference internal" href="security.html#pyramid.security.Allowed" title="pyramid.security.Allowed"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Allowed</span></code></a> if the permission is granted to this
+request with the provided context, or the context already associated
+with the request.  Otherwise, returns an instance of
+<a class="reference internal" href="security.html#pyramid.security.Denied" title="pyramid.security.Denied"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Denied</span></code></a>.  This method delegates to the current
+authentication and authorization policies.  Returns
+<a class="reference internal" href="security.html#pyramid.security.Allowed" title="pyramid.security.Allowed"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Allowed</span></code></a> unconditionally if no authentication
+policy has been registered for this request.  If <code class="docutils literal notranslate"><span class="pre">context</span></code> is not
+supplied or is supplied as <code class="docutils literal notranslate"><span class="pre">None</span></code>, the context used is the
+<code class="docutils literal notranslate"><span class="pre">request.context</span></code> attribute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">パラメータ:</th><td class="field-body"><ul class="first simple">
+<li><strong>permission</strong> (<em>unicode</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) -- Does this request have the given permission?</li>
+<li><strong>context</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><em>object</em></a>) -- A resource object or <code class="docutils literal notranslate"><span class="pre">None</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">戻り値:</th><td class="field-body"><p class="first last">Either <a class="reference internal" href="security.html#pyramid.security.Allowed" title="pyramid.security.Allowed"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.security.Allowed</span></code></a> or
+<a class="reference internal" href="security.html#pyramid.security.Denied" title="pyramid.security.Denied"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.security.Denied</span></code></a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.add_response_callback">
+<code class="descname">add_response_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.add_response_callback" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Add a callback to the set of callbacks to be called by the
+<a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> at a point after a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> object is
+successfully created.  <span>Pyramid</span> does not have a
+global response object: this functionality allows an
+application to register an action to be performed against the
+response once one is created.</p>
+<p>A 'callback' is a callable which accepts two positional
+parameters: <code class="docutils literal notranslate"><span class="pre">request</span></code> and <code class="docutils literal notranslate"><span class="pre">response</span></code>.  For example:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cache_callback</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+    <span class="s1">&#39;Set the cache_control max_age for the response&#39;</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">cache_control</span><span class="o">.</span><span class="n">max_age</span> <span class="o">=</span> <span class="mi">360</span>
+<span class="n">request</span><span class="o">.</span><span class="n">add_response_callback</span><span class="p">(</span><span class="n">cache_callback</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Response callbacks are called in the order they're added
+(first-to-most-recently-added).  No response callback is
+called if an exception happens in application code, or if the
+response object returned by <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> code is invalid.</p>
+<p>All response callbacks are called <em>after</em> the tweens and
+<em>before</em> the <a class="reference internal" href="events.html#pyramid.events.NewResponse" title="pyramid.events.NewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.NewResponse</span></code></a> event is sent.</p>
+<p>Errors raised by callbacks are not handled specially.  They
+will be propagated to the caller of the <span>Pyramid</span>
+router application.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also <a class="reference internal" href="../narr/hooks.html#using-response-callbacks"><span class="std std-ref">Using Response Callbacks</span></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.add_finished_callback">
+<code class="descname">add_finished_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.add_finished_callback" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Add a callback to the set of callbacks to be called
+unconditionally by the <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> at the very end of
+request processing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">callback</span></code> is a callable which accepts a single positional
+parameter: <code class="docutils literal notranslate"><span class="pre">request</span></code>.  For example:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">transaction</span>
+
+<span class="k">def</span> <span class="nf">commit_callback</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;commit or abort the transaction associated with request&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">transaction</span><span class="o">.</span><span class="n">abort</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">transaction</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">request</span><span class="o">.</span><span class="n">add_finished_callback</span><span class="p">(</span><span class="n">commit_callback</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Finished callbacks are called in the order they're added (
+first- to most-recently- added).  Finished callbacks (unlike
+response callbacks) are <em>always</em> called, even if an exception
+happens in application code that prevents a response from
+being generated.</p>
+<p>The set of finished callbacks associated with a request are
+called <em>very late</em> in the processing of that request; they are
+essentially the last thing called by the <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a>. They
+are called after response processing has already occurred in a
+top-level <code class="docutils literal notranslate"><span class="pre">finally:</span></code> block within the router request
+processing code.  As a result, mutations performed to the
+<code class="docutils literal notranslate"><span class="pre">request</span></code> provided to a finished callback will have no
+meaningful effect, because response processing will have
+already occurred, and the request's scope will expire almost
+immediately after all finished callbacks have been processed.</p>
+<p>Errors raised by finished callbacks are not handled specially.
+They will be propagated to the caller of the <span>Pyramid</span>
+router application.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also <a class="reference internal" href="../narr/hooks.html#using-finished-callbacks"><span class="std std-ref">Using Finished Callbacks</span></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.route_url">
+<code class="descname">route_url</code><span class="sig-paren">(</span><em>route_name</em>, <em>*elements</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.route_url" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Generates a fully qualified URL for a named <span>Pyramid</span>
+<a class="reference internal" href="../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a>.</p>
+<p>Use the route's <code class="docutils literal notranslate"><span class="pre">name</span></code> as the first positional argument.
+Additional positional arguments (<code class="docutils literal notranslate"><span class="pre">*elements</span></code>) are appended to the
+URL as path segments after it is generated.</p>
+<p>Use keyword arguments to supply values which match any dynamic
+path elements in the route definition.  Raises a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a>
+exception if the URL cannot be generated for any reason (not
+enough arguments, for example).</p>
+<p>For example, if you've defined a route named &quot;foobar&quot; with the path
+<code class="docutils literal notranslate"><span class="pre">{foo}/{bar}/*traverse</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span>
+                   <span class="n">foo</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>             <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="ne">KeyError</span> <span class="n">exception</span><span class="o">&gt;</span>
+<span class="n">request</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span>
+                   <span class="n">foo</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
+                   <span class="n">bar</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>             <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="ne">KeyError</span> <span class="n">exception</span><span class="o">&gt;</span>
+<span class="n">request</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span>
+                   <span class="n">foo</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
+                   <span class="n">bar</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">,</span>
+                   <span class="n">traverse</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">))</span>  <span class="o">=&gt;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">e</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">b</span>
+<span class="n">request</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span>
+                   <span class="n">foo</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
+                   <span class="n">bar</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">,</span>
+                   <span class="n">traverse</span><span class="o">=</span><span class="s1">&#39;/a/b&#39;</span><span class="p">)</span>     <span class="o">=&gt;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">e</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">b</span>
+</pre></div>
+</div>
+<p>Values replacing <code class="docutils literal notranslate"><span class="pre">:segment</span></code> arguments can be passed as strings
+or Unicode objects.  They will be encoded to UTF-8 and URL-quoted
+before being placed into the generated URL.</p>
+<p>Values replacing <code class="docutils literal notranslate"><span class="pre">*remainder</span></code> arguments can be passed as strings
+<em>or</em> tuples of Unicode/string values.  If a tuple is passed as a
+<code class="docutils literal notranslate"><span class="pre">*remainder</span></code> replacement value, its values are URL-quoted and
+encoded to UTF-8.  The resulting strings are joined with slashes
+and rendered into the URL.  If a string is passed as a
+<code class="docutils literal notranslate"><span class="pre">*remainder</span></code> replacement value, it is tacked on to the URL
+after being URL-quoted-except-for-embedded-slashes.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">_query</span></code> is provided, it will be used to compose a query string
+that will be tacked on to the end of the URL.  The value of <code class="docutils literal notranslate"><span class="pre">_query</span></code>
+may be a sequence of two-tuples <em>or</em> a data structure with an
+<code class="docutils literal notranslate"><span class="pre">.items()</span></code> method that returns a sequence of two-tuples
+(presumably a dictionary). This data structure will be turned into
+a query string per the documentation of the
+<a class="reference internal" href="url.html#pyramid.url.urlencode" title="pyramid.url.urlencode"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.url.urlencode()</span></code></a> function.  This will produce a query
+string in the <code class="docutils literal notranslate"><span class="pre">x-www-form-urlencoded</span></code> format.  A
+non-<code class="docutils literal notranslate"><span class="pre">x-www-form-urlencoded</span></code> query string may be used by passing a
+<em>string</em> value as <code class="docutils literal notranslate"><span class="pre">_query</span></code> in which case it will be URL-quoted
+(e.g. query=&quot;foo bar&quot; will become &quot;foo%20bar&quot;).  However, the result
+will not need to be in <code class="docutils literal notranslate"><span class="pre">k=v</span></code> form as required by
+<code class="docutils literal notranslate"><span class="pre">x-www-form-urlencoded</span></code>.  After the query data is turned into a query
+string, a leading <code class="docutils literal notranslate"><span class="pre">?</span></code> is prepended, and the resulting string is
+appended to the generated URL.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Python data structures that are passed as <code class="docutils literal notranslate"><span class="pre">_query</span></code> which are
+sequences or dictionaries are turned into a string under the same
+rules as when run through <code class="xref py py-func docutils literal notranslate"><span class="pre">urllib.urlencode()</span></code> with the <code class="docutils literal notranslate"><span class="pre">doseq</span></code>
+argument equal to <code class="docutils literal notranslate"><span class="pre">True</span></code>.  This means that sequences can be passed
+as values, and a k=v pair will be placed into the query string for
+each value.</p>
+</div>
+<p>If a keyword argument <code class="docutils literal notranslate"><span class="pre">_anchor</span></code> is present, its string
+representation will be quoted per <span class="target" id="index-0"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc3986.html#section-3.5"><strong>RFC 3986#section-3.5</strong></a> and used as
+a named anchor in the generated URL
+(e.g. if <code class="docutils literal notranslate"><span class="pre">_anchor</span></code> is passed as <code class="docutils literal notranslate"><span class="pre">foo</span></code> and the route URL is
+<code class="docutils literal notranslate"><span class="pre">http://example.com/route/url</span></code>, the resulting generated URL will
+be <code class="docutils literal notranslate"><span class="pre">http://example.com/route/url#foo</span></code>).</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">If <code class="docutils literal notranslate"><span class="pre">_anchor</span></code> is passed as a string, it should be UTF-8 encoded. If
+<code class="docutils literal notranslate"><span class="pre">_anchor</span></code> is passed as a Unicode object, it will be converted to
+UTF-8 before being appended to the URL.</p>
+</div>
+<p>If both <code class="docutils literal notranslate"><span class="pre">_anchor</span></code> and <code class="docutils literal notranslate"><span class="pre">_query</span></code> are specified, the anchor
+element will always follow the query element,
+e.g. <code class="docutils literal notranslate"><span class="pre">http://example.com?foo=1#bar</span></code>.</p>
+<p>If any of the keyword arguments <code class="docutils literal notranslate"><span class="pre">_scheme</span></code>, <code class="docutils literal notranslate"><span class="pre">_host</span></code>, or <code class="docutils literal notranslate"><span class="pre">_port</span></code>
+is passed and is non-<code class="docutils literal notranslate"><span class="pre">None</span></code>, the provided value will replace the
+named portion in the generated URL.  For example, if you pass
+<code class="docutils literal notranslate"><span class="pre">_host='foo.com'</span></code>, and the URL that would have been generated
+without the host replacement is <code class="docutils literal notranslate"><span class="pre">http://example.com/a</span></code>, the result
+will be <code class="docutils literal notranslate"><span class="pre">http://foo.com/a</span></code>.</p>
+<p>Note that if <code class="docutils literal notranslate"><span class="pre">_scheme</span></code> is passed as <code class="docutils literal notranslate"><span class="pre">https</span></code>, and <code class="docutils literal notranslate"><span class="pre">_port</span></code> is not
+passed, the <code class="docutils literal notranslate"><span class="pre">_port</span></code> value is assumed to have been passed as
+<code class="docutils literal notranslate"><span class="pre">443</span></code>.  Likewise, if <code class="docutils literal notranslate"><span class="pre">_scheme</span></code> is passed as <code class="docutils literal notranslate"><span class="pre">http</span></code> and
+<code class="docutils literal notranslate"><span class="pre">_port</span></code> is not passed, the <code class="docutils literal notranslate"><span class="pre">_port</span></code> value is assumed to have been
+passed as <code class="docutils literal notranslate"><span class="pre">80</span></code>. To avoid this behavior, always explicitly pass
+<code class="docutils literal notranslate"><span class="pre">_port</span></code> whenever you pass <code class="docutils literal notranslate"><span class="pre">_scheme</span></code>.</p>
+<p>If a keyword <code class="docutils literal notranslate"><span class="pre">_app_url</span></code> is present, it will be used as the
+protocol/hostname/port/leading path prefix of the generated URL.
+For example, using an <code class="docutils literal notranslate"><span class="pre">_app_url</span></code> of
+<code class="docutils literal notranslate"><span class="pre">http://example.com:8080/foo</span></code> would cause the URL
+<code class="docutils literal notranslate"><span class="pre">http://example.com:8080/foo/fleeb/flub</span></code> to be returned from
+this function if the expansion of the route pattern associated
+with the <code class="docutils literal notranslate"><span class="pre">route_name</span></code> expanded to <code class="docutils literal notranslate"><span class="pre">/fleeb/flub</span></code>.  If
+<code class="docutils literal notranslate"><span class="pre">_app_url</span></code> is not specified, the result of
+<code class="docutils literal notranslate"><span class="pre">request.application_url</span></code> will be used as the prefix (the
+default).</p>
+<p>If both <code class="docutils literal notranslate"><span class="pre">_app_url</span></code> and any of <code class="docutils literal notranslate"><span class="pre">_scheme</span></code>, <code class="docutils literal notranslate"><span class="pre">_host</span></code>, or <code class="docutils literal notranslate"><span class="pre">_port</span></code>
+are passed, <code class="docutils literal notranslate"><span class="pre">_app_url</span></code> takes precedence and any values passed for
+<code class="docutils literal notranslate"><span class="pre">_scheme</span></code>, <code class="docutils literal notranslate"><span class="pre">_host</span></code>, and <code class="docutils literal notranslate"><span class="pre">_port</span></code> will be ignored.</p>
+<p>This function raises a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> if the URL cannot be
+generated due to missing replacement names.  Extra replacement
+names are ignored.</p>
+<p>If the route object which matches the <code class="docutils literal notranslate"><span class="pre">route_name</span></code> argument has
+a <a class="reference internal" href="../glossary.html#term-pregenerator"><span class="xref std std-term">pregenerator</span></a>, the <code class="docutils literal notranslate"><span class="pre">*elements</span></code> and <code class="docutils literal notranslate"><span class="pre">**kw</span></code>
+arguments passed to this function might be augmented or changed.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.5 で変更: </span>Allow the <code class="docutils literal notranslate"><span class="pre">_query</span></code> option to be a string to enable alternative
+encodings.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">_anchor</span></code> option will be escaped instead of using
+its raw string representation.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.9 で変更: </span>If <code class="docutils literal notranslate"><span class="pre">_query</span></code> or <code class="docutils literal notranslate"><span class="pre">_anchor</span></code> are falsey (such as <code class="docutils literal notranslate"><span class="pre">None</span></code> or an
+empty string) they will not be included in the generated url.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.route_path">
+<code class="descname">route_path</code><span class="sig-paren">(</span><em>route_name</em>, <em>*elements</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.route_path" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Generates a path (aka a 'relative URL', a URL minus the host, scheme,
+and port) for a named <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a>.</p>
+<p>This function accepts the same argument as
+<a class="reference internal" href="#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_url()</span></code></a> and performs the same duty.
+It just omits the host, port, and scheme information in the return
+value; only the script_name, path, query parameters, and anchor data
+are present in the returned string.</p>
+<p>For example, if you've defined a route named 'foobar' with the path
+<code class="docutils literal notranslate"><span class="pre">/{foo}/{bar}</span></code>, this call to <code class="docutils literal notranslate"><span class="pre">route_path</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">route_path</span><span class="p">(</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span> <span class="n">foo</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Will return the string <code class="docutils literal notranslate"><span class="pre">/1/2</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Calling <code class="docutils literal notranslate"><span class="pre">request.route_path('route')</span></code> is the same as calling
+<code class="docutils literal notranslate"><span class="pre">request.route_url('route',</span> <span class="pre">_app_url=request.script_name)</span></code>.
+<a class="reference internal" href="#pyramid.request.Request.route_path" title="pyramid.request.Request.route_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_path()</span></code></a> is, in fact,
+implemented in terms of <a class="reference internal" href="#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_url()</span></code></a>
+in just this way. As a result, any <code class="docutils literal notranslate"><span class="pre">_app_url</span></code> passed within the
+<code class="docutils literal notranslate"><span class="pre">**kw</span></code> values to <code class="docutils literal notranslate"><span class="pre">route_path</span></code> will be ignored.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.current_route_url">
+<code class="descname">current_route_url</code><span class="sig-paren">(</span><em>*elements</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.current_route_url" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Generates a fully qualified URL for a named <span>Pyramid</span>
+<a class="reference internal" href="../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a> based on the 'current route'.</p>
+<p>This function supplements
+<a class="reference internal" href="#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_url()</span></code></a>. It presents an easy way to
+generate a URL for the 'current route' (defined as the route which
+matched when the request was generated).</p>
+<p>The arguments to this method have the same meaning as those with the
+same names passed to <a class="reference internal" href="#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_url()</span></code></a>.  It
+also understands an extra argument which <code class="docutils literal notranslate"><span class="pre">route_url</span></code> does not named
+<code class="docutils literal notranslate"><span class="pre">_route_name</span></code>.</p>
+<p>The route name used to generate a URL is taken from either the
+<code class="docutils literal notranslate"><span class="pre">_route_name</span></code> keyword argument or the name of the route which is
+currently associated with the request if <code class="docutils literal notranslate"><span class="pre">_route_name</span></code> was not
+passed.  Keys and values from the current request <a class="reference internal" href="../glossary.html#term-matchdict"><span class="xref std std-term">matchdict</span></a>
+are combined with the <code class="docutils literal notranslate"><span class="pre">kw</span></code> arguments to form a set of defaults
+named <code class="docutils literal notranslate"><span class="pre">newkw</span></code>.  Then <code class="docutils literal notranslate"><span class="pre">request.route_url(route_name,</span> <span class="pre">*elements,</span>
+<span class="pre">**newkw)</span></code> is called, returning a URL.</p>
+<p>Examples follow.</p>
+<p>If the 'current route' has the route pattern <code class="docutils literal notranslate"><span class="pre">/foo/{page}</span></code> and the
+current url path is <code class="docutils literal notranslate"><span class="pre">/foo/1</span></code> , the matchdict will be
+<code class="docutils literal notranslate"><span class="pre">{'page':'1'}</span></code>.  The result of <code class="docutils literal notranslate"><span class="pre">request.current_route_url()</span></code> in
+this situation will be <code class="docutils literal notranslate"><span class="pre">/foo/1</span></code>.</p>
+<p>If the 'current route' has the route pattern <code class="docutils literal notranslate"><span class="pre">/foo/{page}</span></code> and the
+current url path is <code class="docutils literal notranslate"><span class="pre">/foo/1</span></code>, the matchdict will be
+<code class="docutils literal notranslate"><span class="pre">{'page':'1'}</span></code>.  The result of
+<code class="docutils literal notranslate"><span class="pre">request.current_route_url(page='2')</span></code> in this situation will be
+<code class="docutils literal notranslate"><span class="pre">/foo/2</span></code>.</p>
+<p>Usage of the <code class="docutils literal notranslate"><span class="pre">_route_name</span></code> keyword argument: if our routing table
+defines routes <code class="docutils literal notranslate"><span class="pre">/foo/{action}</span></code> named 'foo' and
+<code class="docutils literal notranslate"><span class="pre">/foo/{action}/{page}</span></code> named <code class="docutils literal notranslate"><span class="pre">fooaction</span></code>, and the current url
+pattern is <code class="docutils literal notranslate"><span class="pre">/foo/view</span></code> (which has matched the <code class="docutils literal notranslate"><span class="pre">/foo/{action}</span></code>
+route), we may want to use the matchdict args to generate a URL to
+the <code class="docutils literal notranslate"><span class="pre">fooaction</span></code> route.  In this scenario,
+<code class="docutils literal notranslate"><span class="pre">request.current_route_url(_route_name='fooaction',</span> <span class="pre">page='5')</span></code>
+Will return string like: <code class="docutils literal notranslate"><span class="pre">/foo/view/5</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.current_route_path">
+<code class="descname">current_route_path</code><span class="sig-paren">(</span><em>*elements</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.current_route_path" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Generates a path (aka a 'relative URL', a URL minus the host, scheme,
+and port) for the <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a> matched
+by the current request.</p>
+<p>This function accepts the same argument as
+<a class="reference internal" href="#pyramid.request.Request.current_route_url" title="pyramid.request.Request.current_route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.current_route_url()</span></code></a> and performs the
+same duty.  It just omits the host, port, and scheme information in
+the return value; only the script_name, path, query parameters, and
+anchor data are present in the returned string.</p>
+<p>For example, if the route matched by the current request has the
+pattern <code class="docutils literal notranslate"><span class="pre">/{foo}/{bar}</span></code>, this call to <code class="docutils literal notranslate"><span class="pre">current_route_path</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">current_route_path</span><span class="p">(</span><span class="n">foo</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Will return the string <code class="docutils literal notranslate"><span class="pre">/1/2</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Calling <code class="docutils literal notranslate"><span class="pre">request.current_route_path('route')</span></code> is the same
+as calling <code class="docutils literal notranslate"><span class="pre">request.current_route_url('route',</span>
+<span class="pre">_app_url=request.script_name)</span></code>.
+<a class="reference internal" href="#pyramid.request.Request.current_route_path" title="pyramid.request.Request.current_route_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.current_route_path()</span></code></a> is, in fact,
+implemented in terms of
+<a class="reference internal" href="#pyramid.request.Request.current_route_url" title="pyramid.request.Request.current_route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.current_route_url()</span></code></a> in just this
+way. As a result, any <code class="docutils literal notranslate"><span class="pre">_app_url</span></code> passed within the <code class="docutils literal notranslate"><span class="pre">**kw</span></code>
+values to <code class="docutils literal notranslate"><span class="pre">current_route_path</span></code> will be ignored.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.static_url">
+<code class="descname">static_url</code><span class="sig-paren">(</span><em>path</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.static_url" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Generates a fully qualified URL for a static <a class="reference internal" href="../glossary.html#term-asset"><span class="xref std std-term">asset</span></a>.
+The asset must live within a location defined via the
+<a class="reference internal" href="config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_static_view()</span></code></a>
+<a class="reference internal" href="../glossary.html#term-configuration-declaration"><span class="xref std std-term">configuration declaration</span></a> (see <a class="reference internal" href="../narr/assets.html#static-assets-section"><span class="std std-ref">Serving Static Assets</span></a>).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">static_url</span><span class="p">(</span><span class="s1">&#39;mypackage:static/foo.css&#39;</span><span class="p">)</span> <span class="o">=&gt;</span>
+
+                        <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">static</span><span class="o">/</span><span class="n">foo</span><span class="o">.</span><span class="n">css</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">path</span></code> argument points at a file or directory on disk which
+a URL should be generated for.  The <code class="docutils literal notranslate"><span class="pre">path</span></code> may be either a
+relative path (e.g. <code class="docutils literal notranslate"><span class="pre">static/foo.css</span></code>) or an absolute path (e.g.
+<code class="docutils literal notranslate"><span class="pre">/abspath/to/static/foo.css</span></code>) or a <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a>
+(e.g. <code class="docutils literal notranslate"><span class="pre">mypackage:static/foo.css</span></code>).</p>
+<p>The purpose of the <code class="docutils literal notranslate"><span class="pre">**kw</span></code> argument is the same as the purpose of
+the <a class="reference internal" href="#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_url()</span></code></a> <code class="docutils literal notranslate"><span class="pre">**kw</span></code> argument.  See
+the documentation for that function to understand the arguments which
+you can provide to it.  However, typically, you don't need to pass
+anything as <code class="docutils literal notranslate"><span class="pre">*kw</span></code> when generating a static asset URL.</p>
+<p>This function raises a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if a static view
+definition cannot be found which matches the path specification.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.static_path">
+<code class="descname">static_path</code><span class="sig-paren">(</span><em>path</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.static_path" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Generates a path (aka a 'relative URL', a URL minus the host, scheme,
+and port) for a static resource.</p>
+<p>This function accepts the same argument as
+<a class="reference internal" href="#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.static_url()</span></code></a> and performs the
+same duty.  It just omits the host, port, and scheme information in
+the return value; only the script_name, path, query parameters, and
+anchor data are present in the returned string.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">static_path</span><span class="p">(</span><span class="s1">&#39;mypackage:static/foo.css&#39;</span><span class="p">)</span> <span class="o">=&gt;</span>
+
+                        <span class="o">/</span><span class="n">static</span><span class="o">/</span><span class="n">foo</span><span class="o">.</span><span class="n">css</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Calling <code class="docutils literal notranslate"><span class="pre">request.static_path(apath)</span></code> is the same as calling
+<code class="docutils literal notranslate"><span class="pre">request.static_url(apath,</span> <span class="pre">_app_url=request.script_name)</span></code>.
+<a class="reference internal" href="#pyramid.request.Request.static_path" title="pyramid.request.Request.static_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.static_path()</span></code></a> is, in fact, implemented
+in terms of <a class="reference internal" href="#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.static_url()</span></code></a> in just this
+way. As a result, any <code class="docutils literal notranslate"><span class="pre">_app_url</span></code> passed within the <code class="docutils literal notranslate"><span class="pre">**kw</span></code> values
+to <code class="docutils literal notranslate"><span class="pre">static_path</span></code> will be ignored.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.resource_url">
+<code class="descname">resource_url</code><span class="sig-paren">(</span><em>resource</em>, <em>*elements</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.resource_url" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Generate a string representing the absolute URL of the
+<a class="reference internal" href="../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> object based on the <code class="docutils literal notranslate"><span class="pre">wsgi.url_scheme</span></code>,
+<code class="docutils literal notranslate"><span class="pre">HTTP_HOST</span></code> or <code class="docutils literal notranslate"><span class="pre">SERVER_NAME</span></code> in the request, plus any
+<code class="docutils literal notranslate"><span class="pre">SCRIPT_NAME</span></code>.  The overall result of this method is always a
+UTF-8 encoded string.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>request.resource_url(resource) =&gt;
+
+                           http://example.com/
+
+request.resource_url(resource, &#39;a.html&#39;) =&gt;
+
+                           http://example.com/a.html
+
+request.resource_url(resource, &#39;a.html&#39;, query={&#39;q&#39;:&#39;1&#39;}) =&gt;
+
+                           http://example.com/a.html?q=1
+
+request.resource_url(resource, &#39;a.html&#39;, anchor=&#39;abc&#39;) =&gt;
+
+                           http://example.com/a.html#abc
+
+request.resource_url(resource, app_url=&#39;&#39;) =&gt;
+
+                           /
+</pre></div>
+</div>
+<p>Any positional arguments passed in as <code class="docutils literal notranslate"><span class="pre">elements</span></code> must be strings
+Unicode objects, or integer objects.  These will be joined by slashes
+and appended to the generated resource URL.  Each of the elements
+passed in is URL-quoted before being appended; if any element is
+Unicode, it will converted to a UTF-8 bytestring before being
+URL-quoted. If any element is an integer, it will be converted to its
+string representation before being URL-quoted.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">if no <code class="docutils literal notranslate"><span class="pre">elements</span></code> arguments are specified, the resource
+URL will end with a trailing slash.  If any
+<code class="docutils literal notranslate"><span class="pre">elements</span></code> are used, the generated URL will <em>not</em>
+end in a trailing slash.</p>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">query</span></code> is provided, it will be used to compose a query string
+that will be tacked on to the end of the URL.  The value of <code class="docutils literal notranslate"><span class="pre">query</span></code>
+may be a sequence of two-tuples <em>or</em> a data structure with an
+<code class="docutils literal notranslate"><span class="pre">.items()</span></code> method that returns a sequence of two-tuples
+(presumably a dictionary). This data structure will be turned into
+a query string per the documentation of the
+<a class="reference internal" href="url.html#pyramid.url.urlencode" title="pyramid.url.urlencode"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.url.urlencode()</span></code></a> function.  This will produce a query
+string in the <code class="docutils literal notranslate"><span class="pre">x-www-form-urlencoded</span></code> format.  A
+non-<code class="docutils literal notranslate"><span class="pre">x-www-form-urlencoded</span></code> query string may be used by passing a
+<em>string</em> value as <code class="docutils literal notranslate"><span class="pre">query</span></code> in which case it will be URL-quoted
+(e.g. query=&quot;foo bar&quot; will become &quot;foo%20bar&quot;).  However, the result
+will not need to be in <code class="docutils literal notranslate"><span class="pre">k=v</span></code> form as required by
+<code class="docutils literal notranslate"><span class="pre">x-www-form-urlencoded</span></code>.  After the query data is turned into a query
+string, a leading <code class="docutils literal notranslate"><span class="pre">?</span></code> is prepended, and the resulting string is
+appended to the generated URL.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Python data structures that are passed as <code class="docutils literal notranslate"><span class="pre">query</span></code> which are
+sequences or dictionaries are turned into a string under the same
+rules as when run through <code class="xref py py-func docutils literal notranslate"><span class="pre">urllib.urlencode()</span></code> with the <code class="docutils literal notranslate"><span class="pre">doseq</span></code>
+argument equal to <code class="docutils literal notranslate"><span class="pre">True</span></code>.  This means that sequences can be passed
+as values, and a k=v pair will be placed into the query string for
+each value.</p>
+</div>
+<p>If a keyword argument <code class="docutils literal notranslate"><span class="pre">anchor</span></code> is present, its string
+representation will be used as a named anchor in the generated URL
+(e.g. if <code class="docutils literal notranslate"><span class="pre">anchor</span></code> is passed as <code class="docutils literal notranslate"><span class="pre">foo</span></code> and the resource URL is
+<code class="docutils literal notranslate"><span class="pre">http://example.com/resource/url</span></code>, the resulting generated URL will
+be <code class="docutils literal notranslate"><span class="pre">http://example.com/resource/url#foo</span></code>).</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">If <code class="docutils literal notranslate"><span class="pre">anchor</span></code> is passed as a string, it should be UTF-8 encoded. If
+<code class="docutils literal notranslate"><span class="pre">anchor</span></code> is passed as a Unicode object, it will be converted to
+UTF-8 before being appended to the URL.</p>
+</div>
+<p>If both <code class="docutils literal notranslate"><span class="pre">anchor</span></code> and <code class="docutils literal notranslate"><span class="pre">query</span></code> are specified, the anchor element
+will always follow the query element,
+e.g. <code class="docutils literal notranslate"><span class="pre">http://example.com?foo=1#bar</span></code>.</p>
+<p>If any of the keyword arguments <code class="docutils literal notranslate"><span class="pre">scheme</span></code>, <code class="docutils literal notranslate"><span class="pre">host</span></code>, or <code class="docutils literal notranslate"><span class="pre">port</span></code> is
+passed and is non-<code class="docutils literal notranslate"><span class="pre">None</span></code>, the provided value will replace the named
+portion in the generated URL.  For example, if you pass
+<code class="docutils literal notranslate"><span class="pre">host='foo.com'</span></code>, and the URL that would have been generated
+without the host replacement is <code class="docutils literal notranslate"><span class="pre">http://example.com/a</span></code>, the result
+will be <code class="docutils literal notranslate"><span class="pre">http://foo.com/a</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">scheme</span></code> is passed as <code class="docutils literal notranslate"><span class="pre">https</span></code>, and an explicit <code class="docutils literal notranslate"><span class="pre">port</span></code> is not
+passed, the <code class="docutils literal notranslate"><span class="pre">port</span></code> value is assumed to have been passed as <code class="docutils literal notranslate"><span class="pre">443</span></code>.
+Likewise, if <code class="docutils literal notranslate"><span class="pre">scheme</span></code> is passed as <code class="docutils literal notranslate"><span class="pre">http</span></code> and <code class="docutils literal notranslate"><span class="pre">port</span></code> is not
+passed, the <code class="docutils literal notranslate"><span class="pre">port</span></code> value is assumed to have been passed as
+<code class="docutils literal notranslate"><span class="pre">80</span></code>. To avoid this behavior, always explicitly pass <code class="docutils literal notranslate"><span class="pre">port</span></code>
+whenever you pass <code class="docutils literal notranslate"><span class="pre">scheme</span></code>.</p>
+<p>If a keyword argument <code class="docutils literal notranslate"><span class="pre">app_url</span></code> is passed and is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it
+should be a string that will be used as the port/hostname/initial
+path portion of the generated URL instead of the default request
+application URL.  For example, if <code class="docutils literal notranslate"><span class="pre">app_url='http://foo'</span></code>, then the
+resulting url of a resource that has a path of <code class="docutils literal notranslate"><span class="pre">/baz/bar</span></code> will be
+<code class="docutils literal notranslate"><span class="pre">http://foo/baz/bar</span></code>.  If you want to generate completely relative
+URLs with no leading scheme, host, port, or initial path, you can
+pass <code class="docutils literal notranslate"><span class="pre">app_url=''</span></code>.  Passing <code class="docutils literal notranslate"><span class="pre">app_url=''</span></code> when the resource path is
+<code class="docutils literal notranslate"><span class="pre">/baz/bar</span></code> will return <code class="docutils literal notranslate"><span class="pre">/baz/bar</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">app_url</span></code> is passed and any of <code class="docutils literal notranslate"><span class="pre">scheme</span></code>, <code class="docutils literal notranslate"><span class="pre">port</span></code>, or <code class="docutils literal notranslate"><span class="pre">host</span></code>
+are also passed, <code class="docutils literal notranslate"><span class="pre">app_url</span></code> will take precedence and the values
+passed for <code class="docutils literal notranslate"><span class="pre">scheme</span></code>, <code class="docutils literal notranslate"><span class="pre">host</span></code>, and/or <code class="docutils literal notranslate"><span class="pre">port</span></code> will be ignored.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">resource</span></code> passed in has a <code class="docutils literal notranslate"><span class="pre">__resource_url__</span></code> method, it
+will be used to generate the URL (scheme, host, port, path) for the
+base resource which is operated upon by this function.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also <a class="reference internal" href="../narr/resources.html#overriding-resource-url-generation"><span class="std std-ref">Overriding Resource URL Generation</span></a>.</p>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">route_name</span></code> is passed, this function will delegate its URL
+production to the <code class="docutils literal notranslate"><span class="pre">route_url</span></code> function.  Calling
+<code class="docutils literal notranslate"><span class="pre">resource_url(someresource,</span> <span class="pre">'element1',</span> <span class="pre">'element2',</span> <span class="pre">query={'a':1},</span>
+<span class="pre">route_name='blogentry')</span></code> is roughly equivalent to doing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">traversal_path</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">resource_path</span><span class="p">(</span><span class="n">someobject</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span>
+          <span class="s1">&#39;blogentry&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;element1&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;element2&#39;</span><span class="p">,</span>
+          <span class="n">_query</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="s1">&#39;1&#39;</span><span class="p">},</span>
+          <span class="n">traverse</span><span class="o">=</span><span class="n">traversal_path</span><span class="p">,</span>
+          <span class="p">)</span>
+</pre></div>
+</div>
+<p>It is only sensible to pass <code class="docutils literal notranslate"><span class="pre">route_name</span></code> if the route being named has
+a <code class="docutils literal notranslate"><span class="pre">*remainder</span></code> stararg value such as <code class="docutils literal notranslate"><span class="pre">*traverse</span></code>.  The remainder
+value will be ignored in the output otherwise.</p>
+<p>By default, the resource path value will be passed as the name
+<code class="docutils literal notranslate"><span class="pre">traverse</span></code> when <code class="docutils literal notranslate"><span class="pre">route_url</span></code> is called.  You can influence this by
+passing a different <code class="docutils literal notranslate"><span class="pre">route_remainder_name</span></code> value if the route has a
+different <code class="docutils literal notranslate"><span class="pre">*stararg</span></code> value at its end.  For example if the route
+pattern you want to replace has a <code class="docutils literal notranslate"><span class="pre">*subpath</span></code> stararg ala
+<code class="docutils literal notranslate"><span class="pre">/foo*subpath</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">resource_url</span><span class="p">(</span>
+               <span class="n">resource</span><span class="p">,</span>
+               <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;myroute&#39;</span><span class="p">,</span>
+               <span class="n">route_remainder_name</span><span class="o">=</span><span class="s1">&#39;subpath&#39;</span>
+               <span class="p">)</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">route_name</span></code> is passed, it is also permissible to pass
+<code class="docutils literal notranslate"><span class="pre">route_kw</span></code>, which will passed as additional keyword arguments to
+<code class="docutils literal notranslate"><span class="pre">route_url</span></code>.  Saying <code class="docutils literal notranslate"><span class="pre">resource_url(someresource,</span> <span class="pre">'element1',</span>
+<span class="pre">'element2',</span> <span class="pre">route_name='blogentry',</span> <span class="pre">route_kw={'id':'4'},</span>
+<span class="pre">_query={'a':'1'})</span></code> is roughly equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">traversal_path</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">resource_path_tuple</span><span class="p">(</span><span class="n">someobject</span><span class="p">)</span>
+<span class="n">kw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;_query&#39;</span><span class="p">:{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="s1">&#39;1&#39;</span><span class="p">},</span> <span class="s1">&#39;traverse&#39;</span><span class="p">:</span><span class="n">traversal_path</span><span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span>
+          <span class="s1">&#39;blogentry&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;element1&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;element2&#39;</span><span class="p">,</span>
+          <span class="o">**</span><span class="n">kw</span><span class="p">,</span>
+          <span class="p">)</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">route_kw</span></code> or <code class="docutils literal notranslate"><span class="pre">route_remainder_name</span></code> is passed, but
+<code class="docutils literal notranslate"><span class="pre">route_name</span></code> is not passed, both <code class="docutils literal notranslate"><span class="pre">route_kw</span></code> and
+<code class="docutils literal notranslate"><span class="pre">route_remainder_name</span></code> will be ignored.  If <code class="docutils literal notranslate"><span class="pre">route_name</span></code>
+is passed, the <code class="docutils literal notranslate"><span class="pre">__resource_url__</span></code> method of the resource passed is
+ignored unconditionally.  This feature is incompatible with
+resources which generate their own URLs.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">If the <a class="reference internal" href="../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> used is the result of a <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>, it
+must be <a class="reference internal" href="../glossary.html#term-location"><span class="xref std std-term">location</span></a>-aware.  The resource can also be the context
+of a <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>; contexts found this way do not need to be
+location-aware.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">If a 'virtual root path' is present in the request environment (the
+value of the WSGI environ key <code class="docutils literal notranslate"><span class="pre">HTTP_X_VHM_ROOT</span></code>), and the resource
+was obtained via <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>, the URL path will not include the
+virtual root prefix (it will be stripped off the left hand side of
+the generated URL).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">For backwards compatibility purposes, this method is also
+aliased as the <code class="docutils literal notranslate"><span class="pre">model_url</span></code> method of request.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.3 で変更: </span>Added the <code class="docutils literal notranslate"><span class="pre">app_url</span></code> keyword argument.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.5 で変更: </span>Allow the <code class="docutils literal notranslate"><span class="pre">query</span></code> option to be a string to enable alternative
+encodings.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">anchor</span></code> option will be escaped instead of using
+its raw string representation.</p>
+<p>Added the <code class="docutils literal notranslate"><span class="pre">route_name</span></code>, <code class="docutils literal notranslate"><span class="pre">route_kw</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">route_remainder_name</span></code> keyword arguments.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.9 で変更: </span>If <code class="docutils literal notranslate"><span class="pre">query</span></code> or <code class="docutils literal notranslate"><span class="pre">anchor</span></code> are falsey (such as <code class="docutils literal notranslate"><span class="pre">None</span></code> or an
+empty string) they will not be included in the generated url.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.resource_path">
+<code class="descname">resource_path</code><span class="sig-paren">(</span><em>resource</em>, <em>*elements</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.resource_path" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Generates a path (aka a 'relative URL', a URL minus the host, scheme,
+and port) for a <a class="reference internal" href="../glossary.html#term-resource"><span class="xref std std-term">resource</span></a>.</p>
+<p>This function accepts the same argument as
+<a class="reference internal" href="#pyramid.request.Request.resource_url" title="pyramid.request.Request.resource_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.resource_url()</span></code></a> and performs the same
+duty.  It just omits the host, port, and scheme information in the
+return value; only the script_name, path, query parameters, and
+anchor data are present in the returned string.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Calling <code class="docutils literal notranslate"><span class="pre">request.resource_path(resource)</span></code> is the same as calling
+<code class="docutils literal notranslate"><span class="pre">request.resource_path(resource,</span> <span class="pre">app_url=request.script_name)</span></code>.
+<a class="reference internal" href="#pyramid.request.Request.resource_path" title="pyramid.request.Request.resource_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.resource_path()</span></code></a> is, in fact,
+implemented in terms of
+<a class="reference internal" href="#pyramid.request.Request.resource_url" title="pyramid.request.Request.resource_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.resource_url()</span></code></a> in just this way. As
+a result, any <code class="docutils literal notranslate"><span class="pre">app_url</span></code> passed within the <code class="docutils literal notranslate"><span class="pre">**kw</span></code> values to
+<code class="docutils literal notranslate"><span class="pre">route_path</span></code> will be ignored.  <code class="docutils literal notranslate"><span class="pre">scheme</span></code>, <code class="docutils literal notranslate"><span class="pre">host</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">port</span></code> are also ignored.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.json_body">
+<code class="descname">json_body</code><a class="headerlink" href="#pyramid.request.Request.json_body" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>This property will return the JSON-decoded variant of the request
+body.  If the request body is not well-formed JSON, or there is no
+body associated with this request, this property will raise an
+exception.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also <a class="reference internal" href="../narr/webob.html#request-json-body"><span class="std std-ref">Dealing with a JSON-Encoded Request Body</span></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.set_property">
+<code class="descname">set_property</code><span class="sig-paren">(</span><em>callable</em>, <em>name=None</em>, <em>reify=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.set_property" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Add a callable or a property descriptor to the request instance.</p>
+<p>Properties, unlike attributes, are lazily evaluated by executing
+an underlying callable when accessed. They can be useful for
+adding features to an object without any cost if those features
+go unused.</p>
+<p>A property may also be reified via the
+<a class="reference internal" href="decorator.html#pyramid.decorator.reify" title="pyramid.decorator.reify"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.decorator.reify</span></code></a> decorator by setting
+<code class="docutils literal notranslate"><span class="pre">reify=True</span></code>, allowing the result of the evaluation to be
+cached. Thus the value of the property is only computed once for
+the lifetime of the object.</p>
+<p><code class="docutils literal notranslate"><span class="pre">callable</span></code> can either be a callable that accepts the request as
+its single positional parameter, or it can be a property
+descriptor.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">callable</span></code> is a property descriptor a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>
+will be raised if <code class="docutils literal notranslate"><span class="pre">name</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> or <code class="docutils literal notranslate"><span class="pre">reify</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">name</span></code> is None, the name of the property will be computed
+from the name of the <code class="docutils literal notranslate"><span class="pre">callable</span></code>.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_connect</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">dbsession</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+        <span class="c1"># since version 1.5, request.exception is no</span>
+        <span class="c1"># longer eagerly cleared</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">add_finished_callback</span><span class="p">(</span><span class="n">cleanup</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">conn</span>
+
+<span class="nd">@subscriber</span><span class="p">(</span><span class="n">NewRequest</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">new_request</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">request</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="n">_connect</span><span class="p">,</span> <span class="s1">&#39;db&#39;</span><span class="p">,</span> <span class="n">reify</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>The subscriber doesn't actually connect to the database, it just
+provides the API which, when accessed via <code class="docutils literal notranslate"><span class="pre">request.db</span></code>, will
+create the connection. Thanks to reify, only one connection is
+made per-request even if <code class="docutils literal notranslate"><span class="pre">request.db</span></code> is accessed many times.</p>
+<p>This pattern provides a way to augment the <code class="docutils literal notranslate"><span class="pre">request</span></code> object
+without having to subclass it, which can be useful for extension
+authors.</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 1.3 で追加.</span></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.localizer">
+<code class="descname">localizer</code><a class="headerlink" href="#pyramid.request.Request.localizer" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>A <a class="reference internal" href="../glossary.html#term-localizer"><span class="xref std std-term">localizer</span></a> which will use the current locale name to
+translate values.</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.locale_name">
+<code class="descname">locale_name</code><a class="headerlink" href="#pyramid.request.Request.locale_name" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The locale name of the current request as computed by the
+<a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale negotiator</span></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.GET">
+<code class="descname">GET</code><a class="headerlink" href="#pyramid.request.Request.GET" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return a MultiDict containing all the variables from the
+QUERY_STRING.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.POST">
+<code class="descname">POST</code><a class="headerlink" href="#pyramid.request.Request.POST" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return a MultiDict containing all the variables from a form
+request. Returns an empty dict-like object for non-form requests.</p>
+<p>Form requests are typically POST requests, however any other
+requests with an appropriate Content-Type are also supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.ResponseClass">
+<code class="descname">ResponseClass</code><a class="headerlink" href="#pyramid.request.Request.ResponseClass" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><a class="reference internal" href="response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> のエイリアス</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.accept">
+<code class="descname">accept</code><a class="headerlink" href="#pyramid.request.Request.accept" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Property representing the <code class="docutils literal notranslate"><span class="pre">Accept</span></code> header.</p>
+<p>(<span class="target" id="index-1"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc7231.html#section-5.3.2"><strong>RFC 7231, section 5.3.2</strong></a>)</p>
+<p>The header value in the request environ is parsed and a new object
+representing the header is created every time we <em>get</em> the value of the
+property. (<em>set</em> and <em>del</em> change the header value in the request
+environ, and do not involve parsing.)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.accept_charset">
+<code class="descname">accept_charset</code><a class="headerlink" href="#pyramid.request.Request.accept_charset" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Property representing the <code class="docutils literal notranslate"><span class="pre">Accept-Charset</span></code> header.</p>
+<p>(<span class="target" id="index-2"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc7231.html#section-5.3.3"><strong>RFC 7231, section 5.3.3</strong></a>)</p>
+<p>The header value in the request environ is parsed and a new object
+representing the header is created every time we <em>get</em> the value of the
+property. (<em>set</em> and <em>del</em> change the header value in the request
+environ, and do not involve parsing.)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.accept_encoding">
+<code class="descname">accept_encoding</code><a class="headerlink" href="#pyramid.request.Request.accept_encoding" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Property representing the <code class="docutils literal notranslate"><span class="pre">Accept-Encoding</span></code> header.</p>
+<p>(<span class="target" id="index-3"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc7231.html#section-5.3.4"><strong>RFC 7231, section 5.3.4</strong></a>)</p>
+<p>The header value in the request environ is parsed and a new object
+representing the header is created every time we <em>get</em> the value of the
+property. (<em>set</em> and <em>del</em> change the header value in the request
+environ, and do not involve parsing.)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.accept_language">
+<code class="descname">accept_language</code><a class="headerlink" href="#pyramid.request.Request.accept_language" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Property representing the <code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code> header.</p>
+<p>(<span class="target" id="index-4"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc7231.html#section-5.3.5"><strong>RFC 7231, section 5.3.5</strong></a>)</p>
+<p>The header value in the request environ is parsed and a new object
+representing the header is created every time we <em>get</em> the value of the
+property. (<em>set</em> and <em>del</em> change the header value in the request
+environ, and do not involve parsing.)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.application_url">
+<code class="descname">application_url</code><a class="headerlink" href="#pyramid.request.Request.application_url" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The URL including SCRIPT_NAME (no PATH_INFO or query string)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.as_bytes">
+<code class="descname">as_bytes</code><span class="sig-paren">(</span><em>skip_body=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.as_bytes" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return HTTP bytes representing this request.
+If skip_body is True, exclude the body.
+If skip_body is an integer larger than one, skip body
+only if its length is bigger than that number.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.authorization">
+<code class="descname">authorization</code><a class="headerlink" href="#pyramid.request.Request.authorization" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8">HTTP spec section 14.8</a>).  Converts it using <code class="docutils literal notranslate"><span class="pre">parse_auth</span></code> and <code class="docutils literal notranslate"><span class="pre">serialize_auth</span></code>.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyramid.request.Request.blank">
+<em class="property">classmethod </em><code class="descname">blank</code><span class="sig-paren">(</span><em>path</em>, <em>environ=None</em>, <em>base_url=None</em>, <em>headers=None</em>, <em>POST=None</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.blank" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Create a blank request environ (and Request wrapper) with the
+given path (path should be urlencoded), and any keys from
+environ.</p>
+<p>The path will become path_info, with any query string split
+off and used.</p>
+<p>All necessary keys will be added to the environ, but the
+values you pass in will take precedence.  If you pass in
+base_url then wsgi.url_scheme, HTTP_HOST, and SCRIPT_NAME will
+be filled in from that value.</p>
+<p>Any extra keyword will be passed to <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.body">
+<code class="descname">body</code><a class="headerlink" href="#pyramid.request.Request.body" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return the content of the request body.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.body_file">
+<code class="descname">body_file</code><a class="headerlink" href="#pyramid.request.Request.body_file" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Input stream of the request (wsgi.input).
+Setting this property resets the content_length and seekable flag
+(unlike setting req.body_file_raw).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.body_file_raw">
+<code class="descname">body_file_raw</code><a class="headerlink" href="#pyramid.request.Request.body_file_raw" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">wsgi.input</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.body_file_seekable">
+<code class="descname">body_file_seekable</code><a class="headerlink" href="#pyramid.request.Request.body_file_seekable" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Get the body of the request (wsgi.input) as a seekable file-like
+object. Middleware and routing applications should use this
+attribute over .body_file.</p>
+<p>If you access this value, CONTENT_LENGTH will also be updated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.cache_control">
+<code class="descname">cache_control</code><a class="headerlink" href="#pyramid.request.Request.cache_control" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Get/set/modify the Cache-Control header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">HTTP spec section 14.9</a>)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.call_application">
+<code class="descname">call_application</code><span class="sig-paren">(</span><em>application</em>, <em>catch_exc_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.call_application" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Call the given WSGI application, returning <code class="docutils literal notranslate"><span class="pre">(status_string,</span>
+<span class="pre">headerlist,</span> <span class="pre">app_iter)</span></code></p>
+<p>Be sure to call <code class="docutils literal notranslate"><span class="pre">app_iter.close()</span></code> if it's there.</p>
+<p>If catch_exc_info is true, then returns <code class="docutils literal notranslate"><span class="pre">(status_string,</span>
+<span class="pre">headerlist,</span> <span class="pre">app_iter,</span> <span class="pre">exc_info)</span></code>, where the fourth item may
+be None, but won't be if there was an exception.  If you don't
+do this and there was an exception, the exception will be
+raised directly.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.client_addr">
+<code class="descname">client_addr</code><a class="headerlink" href="#pyramid.request.Request.client_addr" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The effective client IP address as a string.  If the
+<code class="docutils literal notranslate"><span class="pre">HTTP_X_FORWARDED_FOR</span></code> header exists in the WSGI environ, this
+attribute returns the client IP address present in that header
+(e.g. if the header value is <code class="docutils literal notranslate"><span class="pre">192.168.1.1,</span> <span class="pre">192.168.1.2</span></code>, the value
+will be <code class="docutils literal notranslate"><span class="pre">192.168.1.1</span></code>). If no <code class="docutils literal notranslate"><span class="pre">HTTP_X_FORWARDED_FOR</span></code> header is
+present in the environ at all, this attribute will return the value
+of the <code class="docutils literal notranslate"><span class="pre">REMOTE_ADDR</span></code> header.  If the <code class="docutils literal notranslate"><span class="pre">REMOTE_ADDR</span></code> header is
+unset, this attribute will return the value <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">It is possible for user agents to put someone else's IP or just
+any string in <code class="docutils literal notranslate"><span class="pre">HTTP_X_FORWARDED_FOR</span></code> as it is a normal HTTP
+header. Forward proxies can also provide incorrect values (private
+IP addresses etc).  You cannot &quot;blindly&quot; trust the result of this
+method to provide you with valid data unless you're certain that
+<code class="docutils literal notranslate"><span class="pre">HTTP_X_FORWARDED_FOR</span></code> has the correct values.  The WSGI server
+must be behind a trusted proxy for this to be true.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.content_length">
+<code class="descname">content_length</code><a class="headerlink" href="#pyramid.request.Request.content_length" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">Content-Length</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13">HTTP spec section 14.13</a>).  Converts it using int.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.content_type">
+<code class="descname">content_type</code><a class="headerlink" href="#pyramid.request.Request.content_type" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return the content type, but leaving off any parameters (like
+charset, but also things like the type in <code class="docutils literal notranslate"><span class="pre">application/atom+xml;</span>
+<span class="pre">type=entry</span></code>)</p>
+<p>If you set this property, you can include parameters, or if
+you don't include any parameters in the value then existing
+parameters will be preserved.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.cookies">
+<code class="descname">cookies</code><a class="headerlink" href="#pyramid.request.Request.cookies" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return a dictionary of cookies as found in the request.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.copy" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Copy the request and environment object.</p>
+<p>This only does a shallow copy, except of wsgi.input</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.copy_body">
+<code class="descname">copy_body</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.copy_body" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Copies the body, in cases where it might be shared with another request
+object and that is not desired.</p>
+<p>This copies the body either into a BytesIO object (through setting
+req.body) or a temporary file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.copy_get">
+<code class="descname">copy_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.copy_get" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Copies the request and environment object, but turning this request
+into a GET along the way.  If this was a POST request (or any other
+verb) then it becomes GET, and the request body is thrown away.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.date">
+<code class="descname">date</code><a class="headerlink" href="#pyramid.request.Request.date" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">Date</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8">HTTP spec section 14.8</a>).  Converts it using HTTP date.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.domain">
+<code class="descname">domain</code><a class="headerlink" href="#pyramid.request.Request.domain" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Returns the domain portion of the host value.  Equivalent to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">domain</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">host</span>
+<span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="n">domain</span> <span class="ow">and</span> <span class="n">domain</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;]&#39;</span><span class="p">:</span> <span class="c1"># Check for ] because of IPv6</span>
+    <span class="n">domain</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This will be equivalent to the domain portion of the <code class="docutils literal notranslate"><span class="pre">HTTP_HOST</span></code>
+value in the environment if it exists, or the <code class="docutils literal notranslate"><span class="pre">SERVER_NAME</span></code> value in
+the environment if it doesn't.  For example, if the environment
+contains an <code class="docutils literal notranslate"><span class="pre">HTTP_HOST</span></code> value of <code class="docutils literal notranslate"><span class="pre">foo.example.com:8000</span></code>,
+<code class="docutils literal notranslate"><span class="pre">request.domain</span></code> will return <code class="docutils literal notranslate"><span class="pre">foo.example.com</span></code>.</p>
+<p>Note that this value cannot be <em>set</em> on the request.  To set the host
+value use <code class="xref py py-meth docutils literal notranslate"><span class="pre">webob.request.Request.host()</span></code> instead.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyramid.request.Request.from_bytes">
+<em class="property">classmethod </em><code class="descname">from_bytes</code><span class="sig-paren">(</span><em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.from_bytes" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Create a request from HTTP bytes data. If the bytes contain
+extra data after the request, raise a ValueError.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyramid.request.Request.from_file">
+<em class="property">classmethod </em><code class="descname">from_file</code><span class="sig-paren">(</span><em>fp</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.from_file" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Read a request from a file-like object (it must implement
+<code class="docutils literal notranslate"><span class="pre">.read(size)</span></code> and <code class="docutils literal notranslate"><span class="pre">.readline()</span></code>).</p>
+<p>It will read up to the end of the request, not the end of the
+file (unless the request is a POST or PUT and has no
+Content-Length, in that case, the entire file is read).</p>
+<p>This reads the request as represented by <code class="docutils literal notranslate"><span class="pre">str(req)</span></code>; it may
+not read every valid HTTP request properly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.get_response">
+<code class="descname">get_response</code><span class="sig-paren">(</span><em>application=None</em>, <em>catch_exc_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.get_response" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Like <code class="docutils literal notranslate"><span class="pre">.call_application(application)</span></code>, except returns a
+response object with <code class="docutils literal notranslate"><span class="pre">.status</span></code>, <code class="docutils literal notranslate"><span class="pre">.headers</span></code>, and <code class="docutils literal notranslate"><span class="pre">.body</span></code>
+attributes.</p>
+<p>This will use <code class="docutils literal notranslate"><span class="pre">self.ResponseClass</span></code> to figure out the class
+of the response object to return.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">application</span></code> is not given, this will send the request to
+<code class="docutils literal notranslate"><span class="pre">self.make_default_send_app()</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.headers">
+<code class="descname">headers</code><a class="headerlink" href="#pyramid.request.Request.headers" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>All the request headers as a case-insensitive dictionary-like
+object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.host">
+<code class="descname">host</code><a class="headerlink" href="#pyramid.request.Request.host" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Host name provided in HTTP_HOST, with fall-back to SERVER_NAME</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.host_port">
+<code class="descname">host_port</code><a class="headerlink" href="#pyramid.request.Request.host_port" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The effective server port number as a string.  If the <code class="docutils literal notranslate"><span class="pre">HTTP_HOST</span></code>
+header exists in the WSGI environ, this attribute returns the port
+number present in that header. If the <code class="docutils literal notranslate"><span class="pre">HTTP_HOST</span></code> header exists but
+contains no explicit port number: if the WSGI url scheme is &quot;https&quot; ,
+this attribute returns &quot;443&quot;, if the WSGI url scheme is &quot;http&quot;, this
+attribute returns &quot;80&quot; .  If no <code class="docutils literal notranslate"><span class="pre">HTTP_HOST</span></code> header is present in
+the environ at all, this attribute will return the value of the
+<code class="docutils literal notranslate"><span class="pre">SERVER_PORT</span></code> header (which is guaranteed to be present).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.host_url">
+<code class="descname">host_url</code><a class="headerlink" href="#pyramid.request.Request.host_url" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The URL through the host (no path)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.http_version">
+<code class="descname">http_version</code><a class="headerlink" href="#pyramid.request.Request.http_version" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">SERVER_PROTOCOL</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.if_match">
+<code class="descname">if_match</code><a class="headerlink" href="#pyramid.request.Request.if_match" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">If-Match</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.24">HTTP spec section 14.24</a>).  Converts it as a Etag.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.if_modified_since">
+<code class="descname">if_modified_since</code><a class="headerlink" href="#pyramid.request.Request.if_modified_since" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">If-Modified-Since</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.25">HTTP spec section 14.25</a>).  Converts it using HTTP date.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.if_none_match">
+<code class="descname">if_none_match</code><a class="headerlink" href="#pyramid.request.Request.if_none_match" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">If-None-Match</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.26">HTTP spec section 14.26</a>).  Converts it as a Etag.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.if_range">
+<code class="descname">if_range</code><a class="headerlink" href="#pyramid.request.Request.if_range" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">If-Range</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.27">HTTP spec section 14.27</a>).  Converts it using IfRange object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.if_unmodified_since">
+<code class="descname">if_unmodified_since</code><a class="headerlink" href="#pyramid.request.Request.if_unmodified_since" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">If-Unmodified-Since</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.28">HTTP spec section 14.28</a>).  Converts it using HTTP date.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.is_body_readable">
+<code class="descname">is_body_readable</code><a class="headerlink" href="#pyramid.request.Request.is_body_readable" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>webob.is_body_readable is a flag that tells us that we can read the
+input stream even though CONTENT_LENGTH is missing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.is_body_seekable">
+<code class="descname">is_body_seekable</code><a class="headerlink" href="#pyramid.request.Request.is_body_seekable" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">webob.is_body_seekable</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.is_response">
+<code class="descname">is_response</code><span class="sig-paren">(</span><em>ob</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/request.html#Request.is_response"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.request.Request.is_response" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the object passed as <code class="docutils literal notranslate"><span class="pre">ob</span></code> is a valid
+response object, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.is_xhr">
+<code class="descname">is_xhr</code><a class="headerlink" href="#pyramid.request.Request.is_xhr" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Is X-Requested-With header present and equal to <code class="docutils literal notranslate"><span class="pre">XMLHttpRequest</span></code>?</p>
+<p>Note: this isn't set by every XMLHttpRequest request, it is
+only set if you are using a Javascript library that sets it
+(or you set the header yourself manually).  Currently
+Prototype and jQuery are known to set this header.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.json">
+<code class="descname">json</code><a class="headerlink" href="#pyramid.request.Request.json" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Access the body of the request as JSON</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">json_body</code></dt>
+<dd><p>Access the body of the request as JSON</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">localizer</code></dt>
+<dd><p>Convenience property to return a localizer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.make_body_seekable">
+<code class="descname">make_body_seekable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.make_body_seekable" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>This forces <code class="docutils literal notranslate"><span class="pre">environ['wsgi.input']</span></code> to be seekable.
+That means that, the content is copied into a BytesIO or temporary
+file and flagged as seekable, so that it will not be unnecessarily
+copied again.</p>
+<p>After calling this method the .body_file is always seeked to the
+start of file and .content_length is not None.</p>
+<p>The choice to copy to BytesIO is made from
+<code class="docutils literal notranslate"><span class="pre">self.request_body_tempfile_limit</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.make_tempfile">
+<code class="descname">make_tempfile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.make_tempfile" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Create a tempfile to store big request body.
+This API is not stable yet. A 'size' argument might be added.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.max_forwards">
+<code class="descname">max_forwards</code><a class="headerlink" href="#pyramid.request.Request.max_forwards" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">Max-Forwards</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.31">HTTP spec section 14.31</a>).  Converts it using int.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.method">
+<code class="descname">method</code><a class="headerlink" href="#pyramid.request.Request.method" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">REQUEST_METHOD</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.params">
+<code class="descname">params</code><a class="headerlink" href="#pyramid.request.Request.params" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>A dictionary-like object containing both the parameters from
+the query string and request body.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.path">
+<code class="descname">path</code><a class="headerlink" href="#pyramid.request.Request.path" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The path of the request, without host or query string</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.path_info">
+<code class="descname">path_info</code><a class="headerlink" href="#pyramid.request.Request.path_info" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.path_info_peek">
+<code class="descname">path_info_peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.path_info_peek" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Returns the next segment on PATH_INFO, or None if there is no
+next segment.  Doesn't modify the environment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.path_info_pop">
+<code class="descname">path_info_pop</code><span class="sig-paren">(</span><em>pattern=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.path_info_pop" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>'Pops' off the next segment of PATH_INFO, pushing it onto
+SCRIPT_NAME, and returning the popped segment.  Returns None if
+there is nothing left on PATH_INFO.</p>
+<p>Does not return <code class="docutils literal notranslate"><span class="pre">''</span></code> when there's an empty segment (like
+<code class="docutils literal notranslate"><span class="pre">/path//path</span></code>); these segments are just ignored.</p>
+<p>Optional <code class="docutils literal notranslate"><span class="pre">pattern</span></code> argument is a regexp to match the return value
+before returning. If there is no match, no changes are made to the
+request and None is returned.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.path_qs">
+<code class="descname">path_qs</code><a class="headerlink" href="#pyramid.request.Request.path_qs" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The path of the request, without host but with query string</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.path_url">
+<code class="descname">path_url</code><a class="headerlink" href="#pyramid.request.Request.path_url" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The URL including SCRIPT_NAME and PATH_INFO, but not QUERY_STRING</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.pragma">
+<code class="descname">pragma</code><a class="headerlink" href="#pyramid.request.Request.pragma" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">Pragma</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.32">HTTP spec section 14.32</a>).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.query_string">
+<code class="descname">query_string</code><a class="headerlink" href="#pyramid.request.Request.query_string" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">QUERY_STRING</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.range">
+<code class="descname">range</code><a class="headerlink" href="#pyramid.request.Request.range" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">Range</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">HTTP spec section 14.35</a>).  Converts it using Range object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.referer">
+<code class="descname">referer</code><a class="headerlink" href="#pyramid.request.Request.referer" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">Referer</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.36">HTTP spec section 14.36</a>).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.referrer">
+<code class="descname">referrer</code><a class="headerlink" href="#pyramid.request.Request.referrer" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">Referer</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.36">HTTP spec section 14.36</a>).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.relative_url">
+<code class="descname">relative_url</code><span class="sig-paren">(</span><em>other_url</em>, <em>to_application=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.relative_url" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Resolve other_url relative to the request URL.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">to_application</span></code> is True, then resolve it relative to the
+URL with only SCRIPT_NAME</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.remote_addr">
+<code class="descname">remote_addr</code><a class="headerlink" href="#pyramid.request.Request.remote_addr" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">REMOTE_ADDR</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.remote_user">
+<code class="descname">remote_user</code><a class="headerlink" href="#pyramid.request.Request.remote_user" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">REMOTE_USER</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.remove_conditional_headers">
+<code class="descname">remove_conditional_headers</code><span class="sig-paren">(</span><em>remove_encoding=True</em>, <em>remove_range=True</em>, <em>remove_match=True</em>, <em>remove_modified=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.remove_conditional_headers" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Remove headers that make the request conditional.</p>
+<p>These headers can cause the response to be 304 Not Modified,
+which in some cases you may not want to be possible.</p>
+<p>This does not remove headers like If-Match, which are used for
+conflict detection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.request_iface">
+<code class="descname">request_iface</code><em class="property"> = &lt;InterfaceClass pyramid.interfaces.IRequest&gt;</em><a class="headerlink" href="#pyramid.request.Request.request_iface" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">response</code><a class="reference internal" href="../_modules/pyramid/request.html#Request.response"><span class="viewcode-link">[ソース]</span></a></dt>
+<dd><p>This attribute is actually a &quot;reified&quot; property which returns an
+instance of the <a class="reference internal" href="response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a>. class.  The
+response object returned does not exist until this attribute is
+accessed.  Subsequent accesses will return the same Response object.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">request.response</span></code> API is used by renderers.  A render obtains
+the response object it will return from a view that uses that renderer
+by accessing <code class="docutils literal notranslate"><span class="pre">request.response</span></code>.  Therefore, it's possible to use the
+<code class="docutils literal notranslate"><span class="pre">request.response</span></code> API to set up a response object with &quot;the
+right&quot; attributes (e.g. by calling <code class="docutils literal notranslate"><span class="pre">request.response.set_cookie()</span></code>)
+within a view that uses a renderer.  Mutations to this response object
+will be preserved in the response sent to the client.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.scheme">
+<code class="descname">scheme</code><a class="headerlink" href="#pyramid.request.Request.scheme" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">wsgi.url_scheme</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.script_name">
+<code class="descname">script_name</code><a class="headerlink" href="#pyramid.request.Request.script_name" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">SCRIPT_NAME</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.request.Request.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>application=None</em>, <em>catch_exc_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.request.Request.send" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Like <code class="docutils literal notranslate"><span class="pre">.call_application(application)</span></code>, except returns a
+response object with <code class="docutils literal notranslate"><span class="pre">.status</span></code>, <code class="docutils literal notranslate"><span class="pre">.headers</span></code>, and <code class="docutils literal notranslate"><span class="pre">.body</span></code>
+attributes.</p>
+<p>This will use <code class="docutils literal notranslate"><span class="pre">self.ResponseClass</span></code> to figure out the class
+of the response object to return.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">application</span></code> is not given, this will send the request to
+<code class="docutils literal notranslate"><span class="pre">self.make_default_send_app()</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.server_name">
+<code class="descname">server_name</code><a class="headerlink" href="#pyramid.request.Request.server_name" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">SERVER_NAME</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.server_port">
+<code class="descname">server_port</code><a class="headerlink" href="#pyramid.request.Request.server_port" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">SERVER_PORT</span></code> key in the environment.  Converts it using int.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">session</code><a class="reference internal" href="../_modules/pyramid/request.html#Request.session"><span class="viewcode-link">[ソース]</span></a></dt>
+<dd><p>Obtain the <a class="reference internal" href="../glossary.html#term-session"><span class="xref std std-term">session</span></a> object associated with this
+request.  If a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a> has not been registered
+during application configuration, a
+<a class="reference internal" href="exceptions.html#pyramid.exceptions.ConfigurationError" title="pyramid.exceptions.ConfigurationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.exceptions.ConfigurationError</span></code></a> will be raised</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.text">
+<code class="descname">text</code><a class="headerlink" href="#pyramid.request.Request.text" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Get/set the text value of the body</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.upath_info">
+<code class="descname">upath_info</code><a class="headerlink" href="#pyramid.request.Request.upath_info" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.url">
+<code class="descname">url</code><a class="headerlink" href="#pyramid.request.Request.url" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The full request URL, including QUERY_STRING</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.url_encoding">
+<code class="descname">url_encoding</code><a class="headerlink" href="#pyramid.request.Request.url_encoding" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">webob.url_encoding</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.urlargs">
+<code class="descname">urlargs</code><a class="headerlink" href="#pyramid.request.Request.urlargs" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return any <em>positional</em> variables matched in the URL.</p>
+<p>Takes values from <code class="docutils literal notranslate"><span class="pre">environ['wsgiorg.routing_args']</span></code>.
+Systems like <code class="docutils literal notranslate"><span class="pre">routes</span></code> set this value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.urlvars">
+<code class="descname">urlvars</code><a class="headerlink" href="#pyramid.request.Request.urlvars" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return any <em>named</em> variables matched in the URL.</p>
+<p>Takes values from <code class="docutils literal notranslate"><span class="pre">environ['wsgiorg.routing_args']</span></code>.
+Systems like <code class="docutils literal notranslate"><span class="pre">routes</span></code> set this value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.uscript_name">
+<code class="descname">uscript_name</code><a class="headerlink" href="#pyramid.request.Request.uscript_name" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">SCRIPT_NAME</span></code> key in the environment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.request.Request.user_agent">
+<code class="descname">user_agent</code><a class="headerlink" href="#pyramid.request.Request.user_agent" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Gets and sets the <code class="docutils literal notranslate"><span class="pre">User-Agent</span></code> header (<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.43">HTTP spec section 14.43</a>).</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">For information about the API of a <a class="reference internal" href="../glossary.html#term-multidict"><span class="xref std std-term">multidict</span></a> structure (such as
+that used as <code class="docutils literal notranslate"><span class="pre">request.GET</span></code>, <code class="docutils literal notranslate"><span class="pre">request.POST</span></code>, and <code class="docutils literal notranslate"><span class="pre">request.params</span></code>),
+see <a class="reference internal" href="interfaces.html#pyramid.interfaces.IMultiDict" title="pyramid.interfaces.IMultiDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IMultiDict</span></code></a>.</p>
+</div>
+<dl class="function">
+<dt id="pyramid.request.apply_request_extensions">
+<code class="descname">apply_request_extensions</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/request.html#apply_request_extensions"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.request.apply_request_extensions" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Apply request extensions (methods and properties) to an instance of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IRequest</span></code>. This method is dependent on the
+<code class="docutils literal notranslate"><span class="pre">request</span></code> containing a properly initialized registry.</p>
+<p>After invoking this method, the <code class="docutils literal notranslate"><span class="pre">request</span></code> should have the methods
+and properties that were defined using
+<a class="reference internal" href="config.html#pyramid.config.Configurator.add_request_method" title="pyramid.config.Configurator.add_request_method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_request_method()</span></code></a>.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="renderers.html"
+                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.renderers</span></code></a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="response.html"
+                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.response</span></code></a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/request.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="response.html" title="pyramid.response"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="renderers.html" title="pyramid.renderers"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
+    </div>
+  </body>
+</html>

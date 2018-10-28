@@ -1,0 +1,241 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../narr/events.rst:12
+msgid "Using Events"
+msgstr ""
+
+#: ../../narr/events.rst:14
+msgid ""
+"An *event* is an object broadcast by the :app:`Pyramid` framework at "
+"interesting points during the lifetime of an application.  You don't need"
+" to use events in order to create most :app:`Pyramid` applications, but "
+"they can be useful when you want to perform slightly advanced operations."
+"  For example, subscribing to an event can allow you to run some code as "
+"the result of every new request."
+msgstr ""
+
+#: ../../narr/events.rst:21
+msgid ""
+"Events in :app:`Pyramid` are always broadcast by the framework. However, "
+"they only become useful when you register a *subscriber*.  A subscriber "
+"is a function that accepts a single argument named `event`:"
+msgstr ""
+
+#: ../../narr/events.rst:31
+msgid ""
+"The above is a subscriber that simply prints the event to the console "
+"when it's called."
+msgstr ""
+
+#: ../../narr/events.rst:34
+msgid ""
+"The mere existence of a subscriber function, however, is not sufficient "
+"to arrange for it to be called.  To arrange for the subscriber to be "
+"called, you'll need to use the "
+":meth:`pyramid.config.Configurator.add_subscriber` method or you'll need "
+"to use the :func:`pyramid.events.subscriber` decorator to decorate a "
+"function found via a :term:`scan`."
+msgstr ""
+
+#: ../../narr/events.rst:41
+msgid "Configuring an Event Listener Imperatively"
+msgstr ""
+
+#: ../../narr/events.rst:43
+msgid ""
+"You can imperatively configure a subscriber function to be called for "
+"some event type via the "
+":meth:`~pyramid.config.Configurator.add_subscriber` method:"
+msgstr ""
+
+#: ../../narr/events.rst:58
+msgid ""
+"The first argument to :meth:`~pyramid.config.Configurator.add_subscriber`"
+" is the subscriber function (or a :term:`dotted Python name` which refers"
+" to a subscriber callable); the second argument is the event type."
+msgstr ""
+
+#: ../../narr/events.rst:64
+msgid "See also :term:`Configurator`."
+msgstr ""
+
+#: ../../narr/events.rst:67
+msgid "Configuring an Event Listener Using a Decorator"
+msgstr ""
+
+#: ../../narr/events.rst:69
+msgid ""
+"You can configure a subscriber function to be called for some event type "
+"via the :func:`pyramid.events.subscriber` function."
+msgstr ""
+
+#: ../../narr/events.rst:82
+msgid ""
+"When the :func:`~pyramid.events.subscriber` decorator is used, a "
+":term:`scan` must be performed against the package containing the "
+"decorated function for the decorator to have any effect."
+msgstr ""
+
+#: ../../narr/events.rst:86
+msgid ""
+"Either of the above registration examples implies that every time the "
+":app:`Pyramid` framework emits an event object that supplies an "
+":class:`pyramid.events.NewRequest` interface, the ``mysubscriber`` "
+"function will be called with an *event* object."
+msgstr ""
+
+#: ../../narr/events.rst:91
+msgid ""
+"As you can see, a subscription is made in terms of a *class* (such as "
+":class:`pyramid.events.NewResponse`).  The event object sent to a "
+"subscriber will always be an object that possesses an :term:`interface`."
+"  For :class:`pyramid.events.NewResponse`, that interface is "
+":class:`pyramid.interfaces.INewResponse`. The interface documentation "
+"provides information about available attributes and methods of the event "
+"objects."
+msgstr ""
+
+#: ../../narr/events.rst:98
+msgid ""
+"The return value of a subscriber function is ignored.  Subscribers to the"
+" same event type are not guaranteed to be called in any particular order "
+"relative to each other."
+msgstr ""
+
+#: ../../narr/events.rst:102
+msgid ""
+"All the concrete :app:`Pyramid` event types are documented in the "
+":ref:`events_module` API documentation."
+msgstr ""
+
+#: ../../narr/events.rst:106
+msgid "An Example"
+msgstr ""
+
+#: ../../narr/events.rst:108
+msgid ""
+"If you create event listener functions in a ``subscribers.py`` file in "
+"your application like so:"
+msgstr ""
+
+#: ../../narr/events.rst:120
+msgid ""
+"You may configure these functions to be called at the appropriate times "
+"by adding the following code to your application's configuration startup:"
+msgstr ""
+
+#: ../../narr/events.rst:133
+msgid ""
+"Either mechanism causes the functions in ``subscribers.py`` to be "
+"registered as event subscribers.  Under this configuration, when the "
+"application is run, each time a new request or response is detected, a "
+"message will be printed to the console."
+msgstr ""
+
+#: ../../narr/events.rst:138
+msgid ""
+"Each of our subscriber functions accepts an ``event`` object and prints "
+"an attribute of the event object.  This begs the question: how can we "
+"know which attributes a particular event has?"
+msgstr ""
+
+#: ../../narr/events.rst:142
+msgid ""
+"We know that :class:`pyramid.events.NewRequest` event objects have a "
+"``request`` attribute, which is a :term:`request` object, because the "
+"interface defined at :class:`pyramid.interfaces.INewRequest` says it "
+"must. Likewise, we know that :class:`pyramid.interfaces.NewResponse` "
+"events have a ``response`` attribute, which is a response object "
+"constructed by your application, because the interface defined at "
+":class:`pyramid.interfaces.INewResponse` says it must "
+"(:class:`pyramid.events.NewResponse` objects also have a ``request``)."
+msgstr ""
+
+#: ../../narr/events.rst:153
+msgid "Creating Your Own Events"
+msgstr ""
+
+#: ../../narr/events.rst:155
+msgid ""
+"In addition to using the events that the Pyramid framework creates, you "
+"can create your own events for use in your application. This can be "
+"useful to decouple parts of your application."
+msgstr ""
+
+#: ../../narr/events.rst:159
+msgid ""
+"For example, suppose your application has to do many things when a new "
+"document is created. Rather than putting all this logic in the view that "
+"creates the document, you can create the document in your view and then "
+"fire a custom event. Subscribers to the custom event can take other "
+"actions, such as indexing the document, sending email, or sending a "
+"message to a remote system."
+msgstr ""
+
+#: ../../narr/events.rst:165
+msgid ""
+"An event is simply an object. There are no required attributes or method "
+"for your custom events. In general, your events should keep track of the "
+"information that subscribers will need. Here are some example custom "
+"event classes:"
+msgstr ""
+
+#: ../../narr/events.rst:185
+msgid ""
+"Some Pyramid applications choose to define custom events classes in an "
+"``events`` module."
+msgstr ""
+
+#: ../../narr/events.rst:188
+msgid ""
+"You can subscribe to custom events in the same way that you subscribe to "
+"Pyramid events—either imperatively or with a decorator. You can also use "
+"custom events with :ref:`subscriber predicates <subscriber_predicates>`. "
+"Here's an example of subscribing to a custom event with a decorator:"
+msgstr ""
+
+#: ../../narr/events.rst:205
+msgid ""
+"The above example assumes that the application defines a ``DocCreated`` "
+"event class and an ``index_doc`` function."
+msgstr ""
+
+#: ../../narr/events.rst:208
+msgid ""
+"To fire your custom events use the "
+":meth:`pyramid.registry.Registry.notify` method, which is most often "
+"accessed as ``request.registry.notify``. For example:"
+msgstr ""
+
+#: ../../narr/events.rst:223
+msgid ""
+"This example view will notify all subscribers to the custom "
+"``DocCreated`` event."
+msgstr ""
+
+#: ../../narr/events.rst:226
+msgid ""
+"Note that when you fire an event, all subscribers are run synchronously "
+"so it's generally not a good idea to create event handlers that may take "
+"a long time to run. Although event handlers could be used as a central "
+"place to spawn tasks on your own message queues."
+msgstr ""
+

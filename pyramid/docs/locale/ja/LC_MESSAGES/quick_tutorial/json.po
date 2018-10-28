@@ -1,0 +1,183 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 00:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/json.rst:5
+msgid "14: AJAX Development With JSON Renderers"
+msgstr "14: JSONレンダラーを使ったAJAX開発(14: AJAX Development With JSON Renderers)"
+
+#: ../../quick_tutorial/json.rst:7
+msgid ""
+"Modern web apps are more than rendered HTML. Dynamic pages now use "
+"JavaScript to update the UI in the browser by requesting server data as "
+"JSON. Pyramid supports this with a *JSON renderer*."
+msgstr ""
+"モダンWebアプリケーションはレンダリングされたHTMLより多くの機能があります。"
+"動的なページではJSONを用いてサーバーデータのリクエストを行い、"
+"JavaScriptを使用してブラウザのUIを更新します。"
+"Pyramidはこれを「JSONレンダラー」でサポートしています。"
+
+#: ../../quick_tutorial/json.rst:13
+msgid "Background"
+msgstr "背景(Background)"
+
+#: ../../quick_tutorial/json.rst:15
+msgid ""
+"As we saw in :doc:`templating`, view declarations can specify a renderer."
+" Output from the view is then run through the renderer, which generates "
+"and returns the response. We first used a Chameleon renderer, then a "
+"Jinja2 renderer."
+msgstr ""
+":doc:`templating` で見たように、ビューの宣言はレンダラを指定できます。"
+"ビューからの出力はレンダラーを介して実行され、レンダラーがレスポンスを"
+"生成して返します。"
+"最初はChameleonレンダラーを使用してから、Jinja2レンダラーを使用しました。"
+
+#: ../../quick_tutorial/json.rst:20
+msgid ""
+"Renderers aren't limited, however, to templates that generate HTML. "
+"Pyramid supplies a JSON renderer which takes Python data, serializes it "
+"to JSON, and performs some other functions such as setting the content "
+"type. In fact you can write your own renderer (or extend a built-in "
+"renderer) containing custom logic for your unique application."
+msgstr ""
+"ただしレンダラーはHTMLを生成するテンプレートだけに制限されません。"
+"PyramidはPythonデータを受け取り、それをJSONにシリアル化してコンテ"
+"ンツタイプの設定などの他の機能を実行するJSONレンダラーを提供します。"
+"実際には独自のアプリケーションのカスタムロジックを含む独自のレンダラ"
+"ーを作成します（または組み込みレンダラーを拡張する）。 "
+
+
+#: ../../quick_tutorial/json.rst:28
+msgid "Steps"
+msgstr "手順（Steps）"
+
+#: ../../quick_tutorial/json.rst:30
+msgid "First we copy the results of the ``view_classes`` step:"
+msgstr "最初に、 ``view_classes``  での結果をコピーします:"
+
+#: ../../quick_tutorial/json.rst:37
+msgid "We add a new route for ``hello_json`` in ``json/tutorial/__init__.py``:"
+msgstr " ``json/tutorial/__init__.py``　に新しいルート ``hello_json`` を追加します:"
+
+#: ../../quick_tutorial/json.rst:42
+msgid ""
+"Rather than implement a new view, we will \"stack\" another decorator on "
+"the ``hello`` view in ``views.py``:"
+msgstr ""
+"新しいビューを実装するのではなく、別のデコレータを ``views.py`` の"
+"ビュー ``hello`` に「スタック」します:"
+
+#: ../../quick_tutorial/json.rst:48
+msgid "We need a new functional test at the end of ``json/tutorial/tests.py``:"
+msgstr "最後に新しい機能テストが ``json/tutorial/tests.py`` に必要です:"
+
+#: ../../quick_tutorial/json.rst:53
+msgid "Run the tests:"
+msgstr "テストを実行します:"
+
+#: ../../quick_tutorial/json.rst:62
+msgid "Run your Pyramid application with:"
+msgstr "Pyramidアプリケーションを以下のように実行します："
+
+#: ../../quick_tutorial/json.rst:68
+msgid ""
+"Open http://localhost:6543/howdy.json in your browser and you will see "
+"the resulting JSON response."
+msgstr ""
+" http://localhost:6543/howdy.json をブラウザで開いて、JSONレスポンスの結果を見ます。"
+
+#: ../../quick_tutorial/json.rst:73
+msgid "Analysis"
+msgstr "分析(Analysis)"
+
+#: ../../quick_tutorial/json.rst:75
+msgid ""
+"Earlier we changed our view functions and methods to return Python data. "
+"This change to a data-oriented view layer made test writing easier, "
+"decoupling the templating from the view logic."
+msgstr ""
+"以前からビュー関数とメソッドをPythonデータを返すように変更しました。"
+"このようなデータ指向のビューレイヤーの変更によってテストロジックの作成"
+"が容易になり、テンプレートをビューロジックから切り離せました。"
+
+#: ../../quick_tutorial/json.rst:79
+msgid ""
+"Since Pyramid has a JSON renderer as well as the templating renderers, it"
+" is an easy step to return JSON. In this case we kept the exact same view"
+" and arranged to return a JSON encoding of the view data. We did this by:"
+msgstr ""
+"PyramidにはJSONレンダラーとテンプレートレンダラーがあるので、"
+"JSONを返すようにする手順は簡単です。JSONを返すようにする場合は同じビューを保持"
+"してビューデータのJSONエンコーディングを返却するように設定しました。"
+"以下をを行いました:"
+
+#: ../../quick_tutorial/json.rst:83
+msgid "Adding a route to map ``/howdy.json`` to a route name."
+msgstr "``/howdy.json`` をルート名にマップするルートを追加します。"
+
+#: ../../quick_tutorial/json.rst:85
+msgid ""
+"Providing a ``@view_config`` that associated that route name with an "
+"existing view."
+msgstr ""
+"ルート名を既存のビューに関連付ける ``@view_config`` を提供します。"
+
+#: ../../quick_tutorial/json.rst:88
+msgid ""
+"*Overriding* the view defaults in the view config that mentions the "
+"``hello_json`` route, so that when the route is matched, we use the JSON "
+"renderer rather than the ``home.pt`` template renderer that would "
+"otherwise be used."
+msgstr ""
+"ビューの設定を「無効」にすると ``hello_json`` ルートが表示されて、"
+"ルートが一致すると使用されない ``home.pt`` テンプレートレンダラ"
+"ーではなくJSONレンダラーが使用されます。"
+
+#: ../../quick_tutorial/json.rst:93
+msgid ""
+"In fact, for pure AJAX-style web applications, we could re-use the "
+"existing route by using Pyramid's view predicates to match on the "
+"``Accepts:`` header sent by modern AJAX implementations."
+msgstr ""
+"事実、純粋なAJAXスタイルのWebアプリケーションでは、Pyramidのビュー述語"
+"を使用して、モダンなAJAX実装によって送信された ``Accepts:``  ヘッダーを"
+"照合することで既存のルートを再利用できます。
+
+
+#: ../../quick_tutorial/json.rst:97
+msgid ""
+"Pyramid's JSON renderer uses the base Python JSON encoder, thus "
+"inheriting its strengths and weaknesses. For example, Python can't "
+"natively JSON encode DateTime objects. There are a number of solutions "
+"for this in Pyramid, including extending the JSON renderer with a custom "
+"renderer."
+msgstr ""
+"PyramidのJSONレンダラは、基本的なPythonのJSONエンコーダを使用しているので"
+"長所と短所を受け継いでいます。 たとえばPythonはネイティブJSONの"
+"DateTimeオブジェクトをエンコードできません。 PyramidにはJSONレン"
+"ダラーをカスタムレンダラーで拡張するなどさまざまなソリューションがあります。"
+
+#: ../../quick_tutorial/json.rst:102
+msgid ""
+":ref:`views_which_use_a_renderer`, :ref:`json_renderer`, and "
+":ref:`adding_and_overriding_renderers`"
+msgstr ""
+":ref:`views_which_use_a_renderer`, :ref:`json_renderer`, そして "
+":ref:`adding_and_overriding_renderers`"

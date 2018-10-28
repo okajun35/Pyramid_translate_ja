@@ -1,0 +1,223 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 00:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/unit_testing.rst:5
+msgid "05: Unit Tests and ``pytest``"
+msgstr "05: ユニットテストとpytest(05: Unit Tests and ``pytest`` )"
+
+#: ../../quick_tutorial/unit_testing.rst:7
+msgid "Provide unit testing for our project's Python code."
+msgstr "Pythonコードのプロジェクトに単体テストを提供します。"
+
+#: ../../quick_tutorial/unit_testing.rst:11
+msgid "Background"
+msgstr "背景"
+
+#: ../../quick_tutorial/unit_testing.rst:13
+msgid ""
+"As the mantra says, \"Untested code is broken code.\" The Python "
+"community has had a long culture of writing test scripts which ensure "
+"that your code works correctly as you write it and maintain it in the "
+"future. Pyramid has always had a deep commitment to testing, with 100% "
+"test coverage from the earliest pre-releases."
+msgstr ""
+"マントラは言いました「テストされていないコードは壊れたコードです。」Python"
+"コミュニティには、テストスクリプトを記述するための長いカルチャーがあります。"
+"これにより、コードを記述した後の未来もコードが正しく機能するように維持されます。"
+"Pyramidはプレリリースからテストカバレッジ100％で、テストに深く関わってきました。"
+
+#: ../../quick_tutorial/unit_testing.rst:19
+msgid ""
+"Python includes a :ref:`unit testing framework <python:unittest-minimal-"
+"example>` in its standard library. Over the years a number of Python "
+"projects, such as :ref:`pytest <pytest:features>`, have extended this "
+"framework with alternative test runners that provide more convenience and"
+" functionality. The Pyramid developers use ``pytest``, which we'll use in"
+" this tutorial."
+msgstr ""
+"Pythonには、標準ライブラリに :ref:`unit testing framework <python:unittest-minimal-"
+"example>` が含まれています。長年に渡って、:ref:`pytest <pytest:features>` "
+"などの多くのPythonプロジェクトでは利便性と機能性を高める代替テストランナーを"
+"使用してこのフレームワークを拡張しました。"
+"チュートリアルでは「pytest」を使用します。"
+
+#: ../../quick_tutorial/unit_testing.rst:26
+msgid ""
+"Don't worry, this tutorial won't be pedantic about \"test-driven "
+"development\" (TDD). We'll do just enough to ensure that, in each step, "
+"we haven't majorly broken the code. As you're writing your code, you "
+"might find this more convenient than changing to your browser constantly "
+"and clicking reload."
+msgstr ""
+"心配しないでください。このチュートリアルでは、「テスト駆動型開発」（TDD）"
+"について杓子定規ではありません。各ステップでコードを大幅に壊さないようにす"
+"るだけで十分です。コードを書いているときは、ブラウザを常に変更してリロード"
+"をクリックするよりも便利です。"
+
+#: ../../quick_tutorial/unit_testing.rst:31
+msgid ""
+"We'll also leave discussion of `pytest-cov <http://pytest-"
+"cov.readthedocs.io/en/latest/>`_ for another section."
+msgstr ""
+"別のセクションで `pytest-cov <http://pytest-cov.readthedocs.io/en/latest/>`_ "
+"の議論があります。"
+
+#: ../../quick_tutorial/unit_testing.rst:36
+msgid "Objectives"
+msgstr "目標(Objectives)"
+
+#: ../../quick_tutorial/unit_testing.rst:38
+msgid "Write unit tests that ensure the quality of our code."
+msgstr "コードの品質を保証する単体テストを書く。"
+
+#: ../../quick_tutorial/unit_testing.rst:40
+msgid "Install a Python package (``pytest``) which helps in our testing."
+msgstr "私たちのテストに役立つPythonパッケージ (``pytest``) をインストールしてください"
+
+#: ../../quick_tutorial/unit_testing.rst:44
+msgid "Steps"
+msgstr "手順(Steps)"
+
+#: ../../quick_tutorial/unit_testing.rst:46
+msgid ""
+"First we copy the results of the previous step, as well as install the "
+"``pytest`` package:"
+msgstr ""
+"最初に、前のステップの結果をコピーして「pytest」パッケージをインストールします:"
+
+#: ../../quick_tutorial/unit_testing.rst:55
+msgid "Now we write a simple unit test in ``unit_testing/tutorial/tests.py``:"
+msgstr ""
+"今度は「unit_testing/tutorial/tests.py」に簡単な単体テストを書く："
+
+#: ../../quick_tutorial/unit_testing.rst:60
+msgid "Now run the tests:"
+msgstr "テストを実行してください:"
+
+#: ../../quick_tutorial/unit_testing.rst:71
+msgid "Analysis"
+msgstr "分析(Analysis)"
+
+#: ../../quick_tutorial/unit_testing.rst:73
+msgid ""
+"Our ``tests.py`` imports the Python standard unit testing framework. To "
+"make writing Pyramid-oriented tests more convenient, Pyramid supplies "
+"some ``pyramid.testing`` helpers which we use in the test setup and "
+"teardown. Our one test imports the view, makes a dummy request, and sees "
+"if the view returns what we expect."
+msgstr ""
+"「tests.py」はPythonの標準ユニットテストフレームワークをインポートします。"
+"Pyramid的なテストをより便利に書くために、Pyramidは「pyramid.testing」で"
+"テストのセットアップとティアダウンで使用するヘルパーを提供しています。"
+"1つのテストはビューをインポートし、ダミーリクエストを行い、ビューが"
+"期待どおりの結果を返すかどうかを確認します"
+
+#: ../../quick_tutorial/unit_testing.rst:79
+msgid ""
+"The ``tests.TutorialViewTests.test_hello_world`` test is a small example "
+"of a unit test. First, we import the view inside each test. Why not "
+"import at the top, like in normal Python code? Because imports can cause "
+"effects that break a test. We'd like our tests to be in *units*, hence "
+"the name *unit* testing. Each test should isolate itself to the correct "
+"degree."
+msgstr ""
+"「tests.TutorialViewTests.test_hello_world」テストは単体テストの小規模な例です。"
+"まず各テスト内でビューをインポートします。普通のPythonコードのように一番で"
+"インポートしないのはなぜですか？ インポートはテストを中断させる影響を引き"
+"起こす可能性があるためです。テストしたいユニット、同名のユニットテスト。"
+"それぞれのテストは、適切な程度に自分自身を分離する必要があります"
+
+
+#: ../../quick_tutorial/unit_testing.rst:85
+msgid ""
+"Our test then makes a fake incoming web request, then calls our Pyramid "
+"view. We test the HTTP status code on the response to make sure it "
+"matches our expectations."
+msgstr ""
+"テストでは、偽のWebリクエストを作成してPyramidビューを呼び出します。レ"
+"スポンスにHTTPステータスコードをテストして、期待通りの状態になっていることを確認します。"
+
+#: ../../quick_tutorial/unit_testing.rst:89
+msgid ""
+"Note that our use of ``pyramid.testing.setUp()`` and "
+"``pyramid.testing.tearDown()`` aren't actually necessary here; they are "
+"only necessary when your test needs to make use of the ``config`` object "
+"(it's a Configurator) to add stuff to the configuration state before "
+"calling the view."
+msgstr ""
+"「pyramid.testing.setUp()」と「pyramid.testing.tearDown()」の使用に注意してください。"
+" 実際には必要ありません。"
+"テストで「config（Configurator）」オブジェクトを使用する必要がある場合にのみ、"
+"ビューを呼び出す前に、構成に要素を追加する必要があります。"
+
+#: ../../quick_tutorial/unit_testing.rst:96
+msgid "Extra credit"
+msgstr "エクストラクレジット(Extra credit)"
+
+#: ../../quick_tutorial/unit_testing.rst:98
+msgid ""
+"Change the test to assert that the response status code should be ``404``"
+" (meaning, not found). Run ``py.test`` again. Read the error report and "
+"see if you can decipher what it is telling you."
+msgstr ""
+"レスポンスステータスコードが「404」 （not found）をアサートするようにテストを"
+"変更します。「py.test」をもう一度実行してください。エラーレポートを読んで、"
+"何を伝えているのか解読できるかどうかを見てください。"
+
+#: ../../quick_tutorial/unit_testing.rst:102
+msgid ""
+"As a more realistic example, put the ``tests.py`` back as you found it, "
+"and put an error in your view, such as a reference to a non-existing "
+"variable. Run the tests and see how this is more convenient than "
+"reloading your browser and going back to your code."
+msgstr ""
+"もっと現実的な例として、エラーが見つかったときに「tests.py」をもとに戻して、"
+"ビューに存在しない変数への参照などのエラーを入れます。"
+"テストを実行してブラウザをリロードしてコードに戻るよりも、"
+"これがどのように便利であるかを確認してください。"
+
+#: ../../quick_tutorial/unit_testing.rst:107
+msgid ""
+"Finally, for the most realistic test, read about Pyramid ``Response`` "
+"objects and see how to change the response code. Run the tests and see "
+"how testing confirms the \"contract\" that your code claims to support."
+msgstr ""
+"最後に、最も現実的なテストでは、Pyramidレスポンスオブジェクトについて読んで、"
+"レスポンスコードを変更する方法を見てください。テストを実行してテストがどのよう"
+"にコードがサポートすると主張している 「コントラクト」を確認します。"
+
+#: ../../quick_tutorial/unit_testing.rst:111
+msgid ""
+"How could we add a unit test assertion to test the HTML value of the "
+"response body?"
+msgstr ""
+"レスポンスボディのHTML値をテストするために、単体テストアサーションをどのように追加できますか？"
+
+#: ../../quick_tutorial/unit_testing.rst:114
+msgid ""
+"Why do we import the ``hello_world`` view function *inside* the "
+"``test_hello_world`` method instead of at the top of the module?"
+msgstr ""
+"なぜ、モジュールの上部ではなく、 「test_hello_world」メソッド内部で「hello_world」ビュー関数をインポートするのですか？"
+
+#: ../../quick_tutorial/unit_testing.rst:117
+msgid "See also :ref:`testing_chapter`"
+msgstr ":ref:`testing_chapter` も参照してください"
+

@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/views.rst:5
+msgid "07: Basic Web Handling With Views"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:7
+msgid "Organize a views module with decorators and multiple views."
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:11
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:13
+msgid ""
+"For the examples so far, the ``hello_world`` function is a \"view\". In "
+"Pyramid, views are the primary way to accept web requests and return "
+"responses."
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:16
+msgid "So far our examples place everything in one file:"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:18
+msgid "The view function"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:20
+msgid "Its registration with the configurator"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:22
+msgid "The route to map it to a URL"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:24
+msgid "The WSGI application launcher"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:26
+msgid ""
+"Let's move the views out to their own ``views.py`` module and change our "
+"startup code to scan that module, looking for decorators that set up the "
+"views. Let's also add a second view and update our tests."
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:32
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:34
+msgid "Move views into a module that is scanned by the configurator."
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:36
+msgid "Create decorators that do declarative configuration."
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:40
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:42
+msgid ""
+"Let's begin by using the previous package as a starting point for a new "
+"distribution, then making it active:"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:50
+msgid "Our ``views/tutorial/__init__.py`` gets a lot shorter:"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:55
+msgid ""
+"Let's add a module ``views/tutorial/views.py`` that is focused on "
+"handling requests and responses:"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:61
+msgid "Update the tests to cover the two new views:"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:66
+msgid "Now run the tests:"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:75
+msgid "Run your Pyramid application with:"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:81
+msgid ""
+"Open http://localhost:6543/ and http://localhost:6543/howdy in your "
+"browser."
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:86
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:88
+msgid ""
+"We added some more URLs, but we also removed the view code from the "
+"application startup code in ``tutorial/__init__.py``. Our views, and "
+"their view registrations (via decorators) are now in a module "
+"``views.py``, which is scanned via ``config.scan('.views')``."
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:93
+msgid ""
+"We have two views, each leading to the other. If you start at "
+"http://localhost:6543/, you get a response with a link to the next view. "
+"The ``hello`` view (available at the URL ``/howdy``) has a link back to "
+"the first view."
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:98
+msgid ""
+"This step also shows that the name appearing in the URL, the name of the "
+"\"route\" that maps a URL to a view, and the name of the view, can all be"
+" different. More on routes later."
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:102
+msgid ""
+"Earlier we saw ``config.add_view`` as one way to configure a view. This "
+"section introduces ``@view_config``. Pyramid's configuration supports "
+":term:`imperative configuration`, such as the ``config.add_view`` in the "
+"previous example. You can also use :term:`declarative configuration`, in "
+"which a Python :term:`python:decorator` is placed on the line above the "
+"view. Both approaches result in the same final configuration, thus "
+"usually, it is simply a matter of taste."
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:112
+msgid "Extra credit"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:114
+msgid "What does the dot in ``.views`` signify?"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:116
+msgid ""
+"Why might ``assertIn`` be a better choice in testing the text in "
+"responses than ``assertEqual``?"
+msgstr ""
+
+#: ../../quick_tutorial/views.rst:119
+msgid ""
+":ref:`views_chapter`, :ref:`view_config_chapter`, and "
+":ref:`debugging_view_configuration`"
+msgstr ""
+

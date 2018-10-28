@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 00:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/static_assets.rst:5
+msgid "13: CSS/JS/Images Files With Static Assets"
+msgstr ""
+"13: スタティックアセットを使用したCSS/JS/画像ファイル"
+"(13: CSS/JS/Images Files With Static Assets)"
+
+#: ../../quick_tutorial/static_assets.rst:7
+msgid ""
+"Of course the Web is more than just markup. You need static assets: CSS, "
+"JS, and images. Let's point our web app at a directory where Pyramid will"
+" serve some static assets."
+msgstr ""
+"もちろんWebは単にマークアップ以上のものです。CSS、JS、画像などの静的アセット"
+"が必要です。Pyramidがいくつかの静的なアセットを提供するディレクトリ"
+"についてwebアプリケーションを設定してみましょう。"
+
+#: ../../quick_tutorial/static_assets.rst:12
+msgid "Objectives"
+msgstr "目的(Objectives)"
+
+#: ../../quick_tutorial/static_assets.rst:14
+msgid "Publish a directory of static assets at a URL."
+msgstr "静的アセットのディレクトリをURLにパブリッシュします。"
+
+#: ../../quick_tutorial/static_assets.rst:16
+msgid "Use Pyramid to help generate URLs to files in that directory."
+msgstr "Pyramidを使用してディレクトリ内のファイルへのURLを生成します。"
+
+#: ../../quick_tutorial/static_assets.rst:20
+msgid "Steps"
+msgstr "手順(Steps)"
+
+#: ../../quick_tutorial/static_assets.rst:22
+msgid "First we copy the results of the ``view_classes`` step:"
+msgstr "最初に ``view_classes`` の手順の結果をコピーします:"
+
+#: ../../quick_tutorial/static_assets.rst:29
+msgid ""
+"We add a call ``config.add_static_view`` in "
+"``static_assets/tutorial/__init__.py``:"
+msgstr ""
+"``static_assets/tutorial/__init__.py`` に"
+" ``config.add_static_view`` という呼び出しを追加します:"
+
+#: ../../quick_tutorial/static_assets.rst:35
+msgid ""
+"We can add a CSS link in the ``<head>`` of our template at "
+"``static_assets/tutorial/home.pt``:"
+msgstr ""
+"``static_assets/tutorial/home.pt`` のテンプレートの"
+" ``<head>`` にCSSリンクを追加できます:"
+
+#: ../../quick_tutorial/static_assets.rst:41
+msgid "Add a CSS file at ``static_assets/tutorial/static/app.css``:"
+msgstr "CSSファイル ``static_assets/tutorial/static/app.css`` を追加します:"
+
+#: ../../quick_tutorial/static_assets.rst:46
+msgid ""
+"We add a functional test that asserts that the newly added static file is"
+" delivered:"
+msgstr ""
+"新しく追加された静的ファイルが配信されることを確認する機能テストを追加します:"
+
+#: ../../quick_tutorial/static_assets.rst:53
+msgid "Now run the tests:"
+msgstr "テストを実行します:"
+
+#: ../../quick_tutorial/static_assets.rst:61
+msgid "Run your Pyramid application with:"
+msgstr "Pyramidアプリケーションを以下のように実行します:"
+
+#: ../../quick_tutorial/static_assets.rst:67
+msgid "Open http://localhost:6543/ in your browser and note the new font."
+msgstr "ブラウザで http://localhost:6543/ を開き、新しいフォントを注意します。"
+
+#: ../../quick_tutorial/static_assets.rst:71
+msgid "Analysis"
+msgstr "分析(Analysis)"
+
+#: ../../quick_tutorial/static_assets.rst:73
+msgid ""
+"We changed our WSGI application to map requests under "
+"http://localhost:6543/static/ to files and directories inside a "
+"``static`` directory inside our ``tutorial`` package. This directory "
+"contained ``app.css``."
+msgstr ""
+"http://localhost:6543/static/ にあるリクエストを、``tutorial`` パッケージ内"
+"の ``static`` ディレクトリ内のファイルとディレクトリにマッピングするように、"
+"WSGIアプリケーションを変更しました。 このディレクトリには ``app.css`` が含まれていました。"
+
+#: ../../quick_tutorial/static_assets.rst:78
+msgid ""
+"We linked to the CSS in our template. We could have hard-coded this link "
+"to ``/static/app.css``. But what if the site is later moved under "
+"``/somesite/static/``? Or perhaps the web developer changes the "
+"arrangement on disk? Pyramid gives a helper that provides flexibility on "
+"URL generation:"
+msgstr ""
+"テンプレートのCSSにリンクしました。 このリンクを ``/static/app.css`` に"
+"ハードコーディングしました。 しかしサイトが後に　``/somesite/static/``　の下に"
+"移動されるとどうなりますか？ あるいはWeb開発者がディスク上のアレンジを"
+"変更したらどうするのでしょうか？ PyramidはURL生成に柔軟性を提供するヘルパーを提供します："
+
+#: ../../quick_tutorial/static_assets.rst:87
+msgid ""
+"This matches the ``path='tutorial:static'`` in our "
+"``config.add_static_view`` registration. By using ``request.static_url`` "
+"to generate the full URL to the static assets, you both ensure you stay "
+"in sync with the configuration and gain refactoring flexibility later."
+msgstr ""
+"これは ``config.add_static_view`` の登録で ``path='tutorial:static'`` "
+"に一致します。  ``request.static_url``  を使用して静的アセットの"
+"完全なURLを生成することにより、コンフィグレーションとの同期を維持します。"
+"その後にリファクタリングの柔軟性を得ます。"
+
+#: ../../quick_tutorial/static_assets.rst:94
+msgid "Extra credit"
+msgstr "エクストラクレジット(Extra credit)"
+
+#: ../../quick_tutorial/static_assets.rst:96
+msgid ""
+"There is also a ``request.static_path`` API.  How does this differ from "
+"``request.static_url``?"
+msgstr ""
+"``request.static_path`` API もあります。"
+"これは ``request.static_url`` とどのように違いますか？"
+
+#: ../../quick_tutorial/static_assets.rst:99
+msgid ""
+":ref:`assets_chapter`, :ref:`preventing_http_caching`, and "
+":ref:`influencing_http_caching`"
+msgstr ""
+"":ref:`assets_chapter`, :ref:`preventing_http_caching`, そして "
+":ref:`influencing_http_caching`"
+"

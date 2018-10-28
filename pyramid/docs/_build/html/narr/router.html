@@ -1,0 +1,248 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Request Processing &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="URL Dispatch" href="urldispatch.html" />
+    <link rel="prev" title="Startup" href="startup.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="urldispatch.html" title="URL Dispatch"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="startup.html" title="Startup"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="request-processing">
+<span id="router-chapter"></span><span id="index-0"></span><h1>Request Processing<a class="headerlink" href="#request-processing" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<img alt="Request Processing" src="../_images/pyramid_request_processing.svg" /><p>Once a <span>Pyramid</span> application is up and running, it is ready to accept
+requests and return responses.  What happens from the time a <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a>
+request enters a <span>Pyramid</span> application through to the point that
+<span>Pyramid</span> hands off a response back to WSGI for upstream processing?</p>
+<ol class="arabic">
+<li><p class="first">A user initiates a request from their browser to the hostname and port
+number of the WSGI server used by the <span>Pyramid</span> application.</p>
+</li>
+<li><p class="first">The WSGI server used by the <span>Pyramid</span> application passes the WSGI
+environment to the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method of the <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a>
+object.</p>
+</li>
+<li><p class="first">A <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object is created based on the WSGI environment.</p>
+</li>
+<li><p class="first">The <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> and the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object created in
+the last step are pushed on to the <a class="reference internal" href="../glossary.html#term-thread-local"><span class="xref std std-term">thread local</span></a> stack that
+<span>Pyramid</span> uses to allow the functions named
+<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a> and
+<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_registry()</span></code></a> to work.</p>
+</li>
+<li><p class="first">A <a class="reference internal" href="../api/events.html#pyramid.events.NewRequest" title="pyramid.events.NewRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewRequest</span></code></a> <a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a> is sent to any
+subscribers.</p>
+</li>
+<li><p class="first">If any <a class="reference internal" href="../glossary.html#term-route"><span class="xref std std-term">route</span></a> has been defined within application configuration, the
+<span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> calls a <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> &quot;route mapper.&quot;
+The job of the mapper is to examine the request to determine whether any
+user-defined <a class="reference internal" href="../glossary.html#term-route"><span class="xref std std-term">route</span></a> matches the current WSGI environment.  The
+<a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> passes the request as an argument to the mapper.</p>
+</li>
+<li><p class="first">If any route matches, the route mapper adds the attributes <code class="docutils literal notranslate"><span class="pre">matchdict</span></code>
+and <code class="docutils literal notranslate"><span class="pre">matched_route</span></code> to the request object. The former contains a
+dictionary representing the matched dynamic elements of the request's
+<code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> value, and the latter contains the
+<a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.IRoute" title="pyramid.interfaces.IRoute"><code class="xref py py-class docutils literal notranslate"><span class="pre">IRoute</span></code></a> object representing the route which
+matched.</p>
+</li>
+<li><p class="first">A <a class="reference internal" href="../api/events.html#pyramid.events.BeforeTraversal" title="pyramid.events.BeforeTraversal"><code class="xref py py-class docutils literal notranslate"><span class="pre">BeforeTraversal</span></code></a> <a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a> is sent to any
+subscribers.</p>
+</li>
+<li><p class="first">Continuing, if any route matches, the root object associated with the found
+route is generated. If the <a class="reference internal" href="../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a> which matched has an
+associated <code class="docutils literal notranslate"><span class="pre">factory</span></code> argument, then this factory is used to generate the
+root object; otherwise a default <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> is used.</p>
+<p>However, if no route matches, and if a <code class="docutils literal notranslate"><span class="pre">root_factory</span></code> argument was passed
+to the <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> constructor, that callable is used to generate
+the root object. If the <code class="docutils literal notranslate"><span class="pre">root_factory</span></code> argument passed to the
+Configurator constructor was <code class="docutils literal notranslate"><span class="pre">None</span></code>, a default root factory is used to
+generate a root object.</p>
+</li>
+<li><p class="first">The <span>Pyramid</span> router calls a &quot;traverser&quot; function with the root object
+and the request.  The traverser function attempts to traverse the root
+object (using any existing <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> on the root object and
+subobjects) to find a <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a>.  If the root object has no
+<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> method, the root itself is assumed to be the context. The
+exact traversal algorithm is described in <a class="reference internal" href="traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a>. The
+traverser function returns a dictionary, which contains a <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a>
+and a <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> as well as other ancillary information.</p>
+</li>
+<li><p class="first">The request is decorated with various names returned from the traverser
+(such as <code class="docutils literal notranslate"><span class="pre">context</span></code>, <code class="docutils literal notranslate"><span class="pre">view_name</span></code>, and so forth), so they can be accessed
+via, for example, <code class="docutils literal notranslate"><span class="pre">request.context</span></code> within <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> code.</p>
+</li>
+<li><p class="first">A <a class="reference internal" href="../api/events.html#pyramid.events.ContextFound" title="pyramid.events.ContextFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextFound</span></code></a> <a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a> is sent to any
+subscribers.</p>
+</li>
+<li><p class="first"><span>Pyramid</span> looks up a <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> callable using the context, the
+request, and the view name.  If a view callable doesn't exist for this
+combination of objects (based on the type of the context, the type of the
+request, and the value of the view name, and any <a class="reference internal" href="../glossary.html#term-predicate"><span class="xref std std-term">predicate</span></a>
+attributes applied to the view configuration), <span>Pyramid</span> raises a
+<a class="reference internal" href="../api/httpexceptions.html#pyramid.httpexceptions.HTTPNotFound" title="pyramid.httpexceptions.HTTPNotFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPNotFound</span></code></a> exception, which is meant to
+be caught by a surrounding <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a>.</p>
+</li>
+<li><p class="first">If a view callable was found, <span>Pyramid</span> attempts to call it.  If an
+<a class="reference internal" href="../glossary.html#term-authorization-policy"><span class="xref std std-term">authorization policy</span></a> is in use, and the view configuration is
+protected by a <a class="reference internal" href="../glossary.html#term-permission"><span class="xref std std-term">permission</span></a>, <span>Pyramid</span> determines whether the
+view callable being asked for can be executed by the requesting user based
+on credential information in the request and security information attached
+to the context.  If the view execution is allowed, <span>Pyramid</span> calls the
+view callable to obtain a response.  If view execution is forbidden,
+<span>Pyramid</span> raises a <a class="reference internal" href="../api/httpexceptions.html#pyramid.httpexceptions.HTTPForbidden" title="pyramid.httpexceptions.HTTPForbidden"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPForbidden</span></code></a>
+exception.</p>
+</li>
+<li><p class="first">If any exception is raised within a <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a>, by
+<a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>, by a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>, or by <span>Pyramid</span> itself
+(such as when it raises <a class="reference internal" href="../api/httpexceptions.html#pyramid.httpexceptions.HTTPNotFound" title="pyramid.httpexceptions.HTTPNotFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPNotFound</span></code></a> or
+<a class="reference internal" href="../api/httpexceptions.html#pyramid.httpexceptions.HTTPForbidden" title="pyramid.httpexceptions.HTTPForbidden"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPForbidden</span></code></a>), the router catches the
+exception, and attaches it to the request as the <code class="docutils literal notranslate"><span class="pre">exception</span></code> attribute.
+It then attempts to find a <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a> for the exception that was
+caught.  If it finds an exception view callable, that callable is called,
+and is presumed to generate a response.  If an <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a> that
+matches the exception cannot be found, the exception is reraised.</p>
+</li>
+<li><p class="first">The following steps occur only when a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> could be successfully
+generated by a normal <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> or an <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a>
+callable.  <span>Pyramid</span> will attempt to execute any <a class="reference internal" href="../glossary.html#term-response-callback"><span class="xref std std-term">response
+callback</span></a> functions attached via
+<a class="reference internal" href="../api/request.html#pyramid.request.Request.add_response_callback" title="pyramid.request.Request.add_response_callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_response_callback()</span></code></a>. A
+<a class="reference internal" href="../api/events.html#pyramid.events.NewResponse" title="pyramid.events.NewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewResponse</span></code></a> <a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a> is then sent to any
+subscribers.  The response object's <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method is then used to
+generate a WSGI response.  The response is sent back to the upstream WSGI
+server.</p>
+</li>
+<li><p class="first"><span>Pyramid</span> will attempt to execute any <a class="reference internal" href="../glossary.html#term-finished-callback"><span class="xref std std-term">finished callback</span></a>
+functions attached via
+<a class="reference internal" href="../api/request.html#pyramid.request.Request.add_finished_callback" title="pyramid.request.Request.add_finished_callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_finished_callback()</span></code></a>.</p>
+</li>
+<li><p class="first">The <a class="reference internal" href="../glossary.html#term-thread-local"><span class="xref std std-term">thread local</span></a> stack is popped.</p>
+</li>
+</ol>
+<img alt="Pyramid Router" src="../_images/pyramid_router.svg" /><p>This is a very high-level overview that leaves out various details.  For more
+detail about subsystems invoked by the <span>Pyramid</span> router, such as
+traversal, URL dispatch, views, and event processing, see
+<a class="reference internal" href="urldispatch.html#urldispatch-chapter"><span class="std std-ref">URL Dispatch</span></a>, <a class="reference internal" href="views.html#views-chapter"><span class="std std-ref">Views</span></a>, and <a class="reference internal" href="events.html#events-chapter"><span class="std std-ref">Using Events</span></a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="startup.html"
+                        title="前の章へ">Startup</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="urldispatch.html"
+                        title="次の章へ">URL Dispatch</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/narr/router.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="urldispatch.html" title="URL Dispatch"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="startup.html" title="Startup"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
+    </div>
+  </body>
+</html>

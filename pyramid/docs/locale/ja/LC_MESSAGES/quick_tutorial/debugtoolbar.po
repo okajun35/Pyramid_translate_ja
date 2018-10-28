@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-02 00:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/debugtoolbar.rst:5
+msgid "04: Easier Development with ``debugtoolbar``"
+msgstr "04:「debugtoolbar」を使った簡単な開発( 04: Easier Development with ``debugtoolbar`` )"
+
+#: ../../quick_tutorial/debugtoolbar.rst:7
+msgid ""
+"Error handling and introspection using the ``pyramid_debugtoolbar`` add-"
+"on."
+msgstr "「pyramid_debugtoolbar」アドオンを使ったエラー処理とイントロスペクション"
+
+#: ../../quick_tutorial/debugtoolbar.rst:11
+msgid "Background"
+msgstr "背景(Background)"
+
+#: ../../quick_tutorial/debugtoolbar.rst:13
+msgid ""
+"As we introduce the basics, we also want to show how to be productive in "
+"development and debugging. For example, we just discussed template "
+"reloading, and earlier we showed ``--reload`` for application reloading."
+msgstr ""
+"基本を紹介しながら、開発とデバッグの生産性を上げる方法を示します。"
+"たとえば、テンプレートのリロードについて説明したところで、「--reload」をアプリケーションリロードの前に示しました。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:17
+msgid ""
+"``pyramid_debugtoolbar`` is a popular Pyramid add-on which makes several "
+"tools available in your browser. Adding it to your project illustrates "
+"several points about configuration."
+msgstr ""
+"「pyramid_debugtoolbar」はブラウザでいくつかのツールを利用できる人気のPyramidアドオンです。"
+"プロジェクトに追加すると、設定に関するいくつかの点が示されます。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:23
+msgid "Objectives"
+msgstr "目標(Objectives)"
+
+#: ../../quick_tutorial/debugtoolbar.rst:25
+msgid "Install and enable the toolbar to help during development."
+msgstr "開発中にツールバーをインストールして有効にします。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:27
+msgid "Explain Pyramid add-ons."
+msgstr "Pyramidのアドオンを説明します。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:29
+msgid "Show how an add-on gets configured into your application."
+msgstr "アドオンがアプリケーションにどのように設定されるかを説明します。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:33
+msgid "Steps"
+msgstr "手順(Steps)"
+
+#: ../../quick_tutorial/debugtoolbar.rst:35
+msgid ""
+"First we copy the results of the previous step, as well as install the "
+"``pyramid_debugtoolbar`` package:"
+msgstr ""
+"最初に前の手順の結果をコピーして、「 ``pyramid_debugtoolbar`` 」パッケージをインストールし ます。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:44
+msgid ""
+"Our ``debugtoolbar/development.ini`` gets a configuration entry for "
+"``pyramid.includes``:"
+msgstr ""
+"ebugtoolbar/development.iniは以下の設定エントリを取得します pyramid.includes："
+
+#: ../../quick_tutorial/debugtoolbar.rst:51
+msgid "Run the WSGI application with:"
+msgstr "WSGIアプリケーションを以下のように実行します:"
+
+#: ../../quick_tutorial/debugtoolbar.rst:57
+msgid ""
+"Open http://localhost:6543/ in your browser. See the handy toolbar on the"
+" right."
+msgstr "ブラウザで http://localhost:6543/ を開きます。右側の便利なツールバーを参照してください。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:62
+msgid "Analysis"
+msgstr "分析(Analysis)"
+
+#: ../../quick_tutorial/debugtoolbar.rst:64
+msgid ""
+"``pyramid_debugtoolbar`` is a full-fledged Python package, available on "
+"PyPI just like thousands of other Python packages. Thus we start by "
+"installing the ``pyramid_debugtoolbar`` package into our virtual "
+"environment using normal Python package installation commands."
+msgstr ""
+"「pyramid_debugtoolbar」は本格的なPythonパッケージで、"
+"数千もの他のPythonパッケージと同様にPyPIで利用できます。"
+"「pyramid_debugtoolbar」は通常のPythonパッケージの同様の"
+"インストールコマンドを使用して、仮想環境にパッケージをインストールします。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:69
+msgid ""
+"The ``pyramid_debugtoolbar`` Python package is also a Pyramid add-on, "
+"which means we need to include its add-on configuration into our web "
+"application. We could do this with imperative configuration in "
+"``tutorial/__init__.py`` by using ``config.include``. Pyramid also "
+"supports wiring in add-on configuration via our ``development.ini`` using"
+" ``pyramid.includes``. We use this to load the configuration for the "
+"debugtoolbar."
+msgstr ""
+"「pyramid_debugtoolbar」はPythonパッケージもあるPyramidアドオンで"
+"Webアプリケーションにそのアドオンの設定を含める必要があることを意味しています。"
+"これを行うには「tutorial/__init__.py」の「config.includ」使用して設定する必要があります。"
+"Pyramidは「development.ini」に「pyramid.includes」を使用するアドオン構成もサポート"
+"しています。これを使用して「debugtoolbar」の設定を読み込みます。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:76
+msgid ""
+"You'll now see an attractive button on the right side of your browser, "
+"which you may click to provide introspective access to debugging "
+"information in a new browser tab. Even better, if your web application "
+"generates an error, you will see a nice traceback on the screen. When you"
+" want to disable this toolbar, there's no need to change code: you can "
+"remove it from ``pyramid.includes`` in the relevant ``.ini`` "
+"configuration file (thus showing why configuration files are handy)."
+msgstr ""
+"ブラウザの右側に魅力的なボタンが表示されます。ボタンをクリックすると"
+"新しいブラウザタブでデバッグ情報にアクセスできます。さらにWebアプリ"
+"ケーションでエラーが発生した場合は、画面に素晴らしいトレースバック"
+"が表示されます。このツールバーを無効にする場合は、コードを変更す"
+"る必要はありません。関連する「.ini」設定ファイルから"
+"「pyramid.includes」で削除できます（設定ファイルが便利な理由が示されています）。"
+
+
+#: ../../quick_tutorial/debugtoolbar.rst:84
+msgid ""
+"Note that the toolbar injects a small amount of HTML/CSS into your app "
+"just before the closing ``</body>`` tag in order to display itself. If "
+"you start to experience otherwise inexplicable client-side weirdness, you"
+" can shut it off by commenting out the ``pyramid_debugtoolbar`` line in "
+"``pyramid.includes`` temporarily."
+msgstr ""
+"ツールバーは自分自身を表示するために、アプリの終了タグ「</body>」」の直前に"
+"少量のHTML/CSSを挿入することに注意してください。あなたが他に説明できな"
+"いクライアントサイドの不思議さを体験し始めたら、"
+" 一時的に「pyramid.includes」の行をコメントアウトすることで「pyramid_debugtoolbar」を止められます。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:90
+msgid "See also :ref:`pyramid_debugtoolbar <toolbar:overview>`."
+msgstr ":ref:`pyramid_debugtoolbar <toolbar:overview>` も参照してください。"
+
+#: ../../quick_tutorial/debugtoolbar.rst:94
+msgid "Extra credit"
+msgstr "エクストラクレジット(Extra credit)"
+
+#: ../../quick_tutorial/debugtoolbar.rst:96
+msgid ""
+"Why don't we add ``pyramid_debugtoolbar`` to the list of "
+"``install_requires`` dependencies in ``debugtoolbar/setup.py``?"
+msgstr ""
+"なぜ「pyramid_debugtoolbar」を「debugtoolbar/setup.py」の依存関係"
+"のリスト「install_requires」に 追加しないのですか？"
+
+#: ../../quick_tutorial/debugtoolbar.rst:99
+msgid "Introduce a bug into your application. Change:"
+msgstr "アプリケーションにバグを導入してください。変更は:"
+
+#: ../../quick_tutorial/debugtoolbar.rst:106
+msgid "to:"
+msgstr "から:"
+
+#: ../../quick_tutorial/debugtoolbar.rst:113
+msgid ""
+"Save, and visit http://localhost:6543/ again. Notice the nice traceback "
+"display. On the lowest line, click the \"screen\" icon to the right, and "
+"try typing the variable names ``request`` and ``Response``. What else can"
+" you discover?"
+msgstr ""
+"保存して、http://localhost:654/ に再度アクセスしてください。"
+"素晴らしいトレースバック表示に注目してください。一番下の行で、"
+"右の 「screen」アイコンをクリックし、「request」変数と「Response」変数を"
+"入力してみてください。それ以外に何が見つかりますか？"

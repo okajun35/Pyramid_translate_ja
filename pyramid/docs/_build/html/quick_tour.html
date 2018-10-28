@@ -1,0 +1,1384 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Quick Tour of Pyramid &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="copyright" title="著作権" href="copyright.html" />
+    <link rel="next" title="Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)" href="quick_tutorial/index.html" />
+    <link rel="prev" title="The Pyramid Web Framework" href="index.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="index.html">
+      		<img class="logo" src="_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="quick_tutorial/index.html" title="Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="The Pyramid Web Framework"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="quick-tour-of-pyramid">
+<span id="quick-tour"></span><h1>Quick Tour of Pyramid<a class="headerlink" href="#quick-tour-of-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Pyramid lets you start small and finish big.  This <em>Quick Tour</em> of Pyramid is
+for those who want to evaluate Pyramid, whether you are new to Python web
+frameworks, or a pro in a hurry. For more detailed treatment of each topic,
+give the <a class="reference internal" href="quick_tutorial/index.html#quick-tutorial"><span class="std std-ref">Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</span></a> a try.</p>
+<p>If you would prefer to cut and paste the example code in this tour you may browse the source code located in the <cite>Pyramid repository in the directory &quot;docs/quick_tour&quot; &lt;https://github.com/Pylons/pyramid/&gt;</cite>. If you have downloaded the source code, you will find the tour in the same location.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Once you have a standard Python environment setup, getting started with Pyramid
+is a breeze. Unfortunately &quot;standard&quot; is not so simple in Python. For this
+Quick Tour, it means <a class="reference external" href="https://www.python.org/downloads/">Python</a>, <a class="reference external" href="https://packaging.python.org/en/latest/projects/#venv">venv</a> (or <a class="reference external" href="https://packaging.python.org/en/latest/projects/#virtualenv">virtualenv for
+Python 2.7</a>),
+<a class="reference external" href="https://packaging.python.org/en/latest/projects/#pip">pip</a>, and <a class="reference external" href="https://packaging.python.org/en/latest/projects/#easy-install">setuptools</a>.</p>
+<p>To save a little bit of typing and to be certain that we use the modules,
+scripts, and packages installed in our virtual environment, we'll set an
+environment variable, too.</p>
+<p>As an example, for Python 3.6+ on Linux:</p>
+<pre class="literal-block">
+# set an environment variable to where you want your virtual environment
+$ export VENV=~/env
+# create the virtual environment
+$ python3 -m venv $VENV
+# install pyramid
+$ $VENV/bin/pip install pyramid
+# or for a specific released version
+$ $VENV/bin/pip install &quot;pyramid==1.9.2&quot;
+</pre>
+<p>For Windows:</p>
+<pre class="literal-block">
+# set an environment variable to where you want your virtual environment
+c:\&gt; set VENV=c:\env
+# create the virtual environment
+c:\&gt; python -m venv %VENV%
+# install pyramid
+c:\&gt; %VENV%\Scripts\pip install pyramid
+# or for a specific released version
+c:\&gt; %VENV%\Scripts\pip install &quot;pyramid==1.9.2&quot;
+</pre>
+<p>Of course Pyramid runs fine on Python 2.7+, as do the examples in this <em>Quick
+Tour</em>. We're showing Python 3 for simplicity. (Pyramid had production support
+for Python 3 in October 2011.) Also for simplicity, the remaining examples will
+show only UNIX commands.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/requirements.html#qtut-requirements"><span class="std std-ref">Quick Tutorial section on Requirements</span></a>,
+<a class="reference internal" href="narr/install.html#installing-unix"><span class="std std-ref">Installing Pyramid on a UNIX System</span></a>, <a class="reference internal" href="narr/install.html#installing-chapter"><span class="std std-ref">Before You Install</span></a>,
+<a class="reference internal" href="narr/install.html#venv-bin-pip-vs-source-bin-activate"><span class="std std-ref">Why use $VENV/bin/pip instead of source bin/activate, then pip</span></a>, and
+<a class="reference internal" href="narr/install.html#installing-windows"><span class="std std-ref">Installing Pyramid on a Windows System</span></a>.</p>
+</div>
+</div>
+<div class="section" id="hello-world">
+<h2>Hello World<a class="headerlink" href="#hello-world" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Microframeworks have shown that learning starts best from a very small first
+step. Here's a tiny application in Pyramid:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wsgiref.simple_server</span> <span class="kn">import</span> <span class="n">make_server</span>
+<span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
+<span class="kn">from</span> <span class="nn">pyramid.response</span> <span class="kn">import</span> <span class="n">Response</span>
+
+
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;Hello World!&lt;/h1&gt;&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Configurator</span><span class="p">()</span> <span class="k">as</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+        <span class="n">app</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">make_server</span><span class="p">(</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">6543</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>This simple example is easy to run. Save this as <code class="docutils literal notranslate"><span class="pre">app.py</span></code> and run it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/python ./app.py
+</pre></div>
+</div>
+<p>Next open <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> in a browser, and you will see the <code class="docutils literal notranslate"><span class="pre">Hello</span>
+<span class="pre">World!</span></code> message.</p>
+<p>New to Python web programming? If so, some lines in the module merit
+explanation:</p>
+<ol class="arabic simple">
+<li><em>Line 10</em>. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code> is Python's way of saying &quot;Start
+here when running from the command line&quot;.</li>
+<li><em>Lines 11-13</em>. Use Pyramid's <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> in a <a class="reference internal" href="glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> to connect <a class="reference internal" href="glossary.html#term-view"><span class="xref std std-term">view</span></a>
+code to a particular URL <a class="reference internal" href="glossary.html#term-route"><span class="xref std std-term">route</span></a>.</li>
+<li><em>Lines 6-7</em>. Implement the view code that generates the <a class="reference internal" href="glossary.html#term-response"><span class="xref std std-term">response</span></a>.</li>
+<li><em>Lines 14-16</em>. Publish a <a class="reference internal" href="glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> app using an HTTP server.</li>
+</ol>
+<p>As shown in this example, the <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> plays a central role in
+Pyramid development. Building an application from loosely-coupled parts via
+<a class="reference internal" href="narr/configuration.html"><span class="doc">Application Configuration</span></a> is a central idea in Pyramid, one that we will
+revisit regurlarly in this <em>Quick Tour</em>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/hello_world.html#qtut-hello-world"><span class="std std-ref">Quick Tutorial Hello World</span></a>,
+<a class="reference internal" href="narr/firstapp.html#firstapp-chapter"><span class="std std-ref">Creating Your First Pyramid Application</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-cookbook/en/latest/sample_applications/single_file_tasks.html#single-file-tutorial" title="(in Pyramid Community Cookbook v0.2)"><span class="xref std std-ref">Todo List Application in One File</span></a>.</p>
+</div>
+</div>
+<div class="section" id="handling-web-requests-and-responses">
+<h2>Handling web requests and responses<a class="headerlink" href="#handling-web-requests-and-responses" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Developing for the web means processing web requests. As this is a critical
+part of a web application, web developers need a robust, mature set of software
+for web requests.</p>
+<p>Pyramid has always fit nicely into the existing world of Python web development
+(virtual environments, packaging, cookiecutters, one of the first to embrace
+Python 3, etc.). Pyramid turned to the well-regarded <a class="reference internal" href="glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> Python
+library for request and response handling. In our example above, Pyramid hands
+<code class="docutils literal notranslate"><span class="pre">hello_world</span></code> a <code class="docutils literal notranslate"><span class="pre">request</span></code> that is <a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">based on WebOb</span></a>.</p>
+<p>Let's see some features of requests and responses in action:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># Some parameters from a request such as /?name=lisa</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">url</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;No Name Provided&#39;</span><span class="p">)</span>
+
+    <span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;URL </span><span class="si">%s</span><span class="s1"> with name: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+        <span class="n">content_type</span><span class="o">=</span><span class="s2">&quot;text/plain&quot;</span><span class="p">,</span>
+        <span class="n">body</span><span class="o">=</span><span class="n">body</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>In this Pyramid view, we get the URL being visited from <code class="docutils literal notranslate"><span class="pre">request.url</span></code>. Also
+if you visited <a class="reference external" href="http://localhost:6543/?name=alice">http://localhost:6543/?name=alice</a> in a browser, the name is
+included in the body of the response:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>URL http://localhost:6543/?name=alice with name: alice
+</pre></div>
+</div>
+<p>Finally we set the response's content type, and return the Response.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/request_response.html#qtut-request-response"><span class="std std-ref">Quick Tutorial Request and Response</span></a> and
+<a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">Request and Response Objects</span></a>.</p>
+</div>
+</div>
+<div class="section" id="views">
+<h2>Views<a class="headerlink" href="#views" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>For the examples above, the <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> function is a &quot;view&quot;. In Pyramid
+views are the primary way to accept web requests and return responses.</p>
+<p>So far our examples place everything in one file:</p>
+<ul class="simple">
+<li>the view function</li>
+<li>its registration with the configurator</li>
+<li>the route to map it to an URL</li>
+<li>the WSGI application launcher</li>
+</ul>
+<p>Let's move the views out to their own <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module and change the
+<code class="docutils literal notranslate"><span class="pre">app.py</span></code> to scan that module, looking for decorators that set up the views.</p>
+<p>First our revised <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wsgiref.simple_server</span> <span class="kn">import</span> <span class="n">make_server</span>
+<span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Configurator</span><span class="p">()</span> <span class="k">as</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy&#39;</span><span class="p">)</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;redirect&#39;</span><span class="p">,</span> <span class="s1">&#39;/goto&#39;</span><span class="p">)</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;exception&#39;</span><span class="p">,</span> <span class="s1">&#39;/problem&#39;</span><span class="p">)</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s1">&#39;views&#39;</span><span class="p">)</span>
+        <span class="n">app</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">make_server</span><span class="p">(</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">6543</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>We added some more routes, but we also removed the view code. Our views and
+their registrations (via decorators) are now in a module <code class="docutils literal notranslate"><span class="pre">views.py</span></code>, which is
+scanned via <code class="docutils literal notranslate"><span class="pre">config.scan('views')</span></code>.</p>
+<p>We now have a <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module that is focused on handling requests and
+responses:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.compat</span> <span class="kn">import</span> <span class="n">escape</span>
+
+<span class="kn">from</span> <span class="nn">pyramid.httpexceptions</span> <span class="kn">import</span> <span class="n">HTTPFound</span>
+<span class="kn">from</span> <span class="nn">pyramid.response</span> <span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span> <span class="nn">pyramid.view</span> <span class="kn">import</span> <span class="n">view_config</span>
+
+
+<span class="c1"># First view, available at http://localhost:6543/</span>
+<span class="nd">@view_config</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;home&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">home_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;Visit &lt;a href=&quot;/howdy?name=lisa&quot;&gt;hello&lt;/a&gt;&lt;/p&gt;&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># /howdy?name=alice which links to the next view</span>
+<span class="nd">@view_config</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;No Name&#39;</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;&lt;p&gt;Hi </span><span class="si">%s</span><span class="s1">, this &lt;a href=&quot;/goto&quot;&gt;redirects&lt;/a&gt;&lt;/p&gt;&#39;</span>
+    <span class="c1"># pyramid.compat.escape to prevent Cross-Site Scripting (XSS) [CWE 79]</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span> <span class="o">%</span> <span class="n">escape</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+
+<span class="c1"># /goto which issues HTTP redirect to the last view</span>
+<span class="nd">@view_config</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;redirect&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">redirect_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HTTPFound</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="s2">&quot;/problem&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># /problem which causes a site error</span>
+<span class="nd">@view_config</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;exception&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">exception_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>We have four views, each leading to the other. If you start at
+<a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a>, you get a response with a link to the next view. The
+<code class="docutils literal notranslate"><span class="pre">hello_view</span></code> (available at the URL <code class="docutils literal notranslate"><span class="pre">/howdy</span></code>) has a link to the
+<code class="docutils literal notranslate"><span class="pre">redirect_view</span></code>, which issues a redirect to the final view.</p>
+<p>Earlier we saw <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code> as one way to configure a view. This section
+introduces <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code>. Pyramid's configuration supports <a class="reference internal" href="glossary.html#term-imperative-configuration"><span class="xref std std-term">imperative
+configuration</span></a>, such as the <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code> in the previous example. You
+can also use <a class="reference internal" href="glossary.html#term-declarative-configuration"><span class="xref std std-term">declarative configuration</span></a> in which a Python
+<a class="reference internal" href="glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> is placed on the line above the view. Both approaches result
+in the same final configuration, thus usually it is simply a matter of taste.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/views.html#qtut-views"><span class="std std-ref">Quick Tutorial Views</span></a>, <a class="reference internal" href="narr/views.html"><span class="doc">Views</span></a>,
+<a class="reference internal" href="narr/viewconfig.html"><span class="doc">View Configuration</span></a>, and <a class="reference internal" href="narr/viewconfig.html#debugging-view-configuration"><span class="std std-ref">Debugging View Configuration</span></a>.</p>
+</div>
+</div>
+<div class="section" id="routing">
+<h2>Routing<a class="headerlink" href="#routing" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Writing web applications usually means sophisticated URL design. We just saw
+some Pyramid machinery for requests and views. Let's look at features that help
+with routing.</p>
+<p>Above we saw the basics of routing URLs to views in Pyramid:</p>
+<ul class="simple">
+<li>Your project's &quot;setup&quot; code registers a route name to be used when matching
+part of the URL.</li>
+<li>Elsewhere a view is configured to be called for that route name.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Why do this twice? Other Python web frameworks let you create a route and
+associate it with a view in one step. As illustrated in
+<a class="reference internal" href="designdefense.html#routes-need-ordering"><span class="std std-ref">Routes need relative ordering</span></a>, multiple routes might match the same URL
+pattern. Rather than provide ways to help guess, Pyramid lets you be
+explicit in ordering. Pyramid also gives facilities to avoid the problem.</p>
+</div>
+<p>What if we want part of the URL to be available as data in my view? We can use
+this route declaration, for example:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy/{first}/{last}&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>With this, URLs such as <code class="docutils literal notranslate"><span class="pre">/howdy/amy/smith</span></code> will assign <code class="docutils literal notranslate"><span class="pre">amy</span></code> to <code class="docutils literal notranslate"><span class="pre">first</span></code>
+and <code class="docutils literal notranslate"><span class="pre">smith</span></code> to <code class="docutils literal notranslate"><span class="pre">last</span></code>. We can then use this data in our view:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@view_config</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="hll">    <span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;&lt;h1&gt;Hi </span><span class="si">%(first)s</span><span class="s1"> </span><span class="si">%(last)s</span><span class="s1">!&lt;/h1&gt;&#39;</span> <span class="o">%</span> <span class="n">request</span><span class="o">.</span><span class="n">matchdict</span>
+</span>    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p><code class="docutils literal notranslate"><span class="pre">request.matchdict</span></code> contains values from the URL that match the &quot;replacement
+patterns&quot; (the curly braces) in the route declaration. This information can
+then be used in your view.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/routing.html#qtut-routing"><span class="std std-ref">Quick Tutorial Routing</span></a>, <a class="reference internal" href="narr/urldispatch.html"><span class="doc">URL Dispatch</span></a>,
+<a class="reference internal" href="narr/urldispatch.html#debug-routematch-section"><span class="std std-ref">Debugging Route Matching</span></a>, and <a class="reference internal" href="narr/router.html"><span class="doc">Request Processing</span></a>.</p>
+</div>
+</div>
+<div class="section" id="templating">
+<h2>Templating<a class="headerlink" href="#templating" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Ouch. We have been making our own <code class="docutils literal notranslate"><span class="pre">Response</span></code> and filling the response body
+with HTML. You usually won't embed an HTML string directly in Python, but
+instead you will use a templating language.</p>
+<p>Pyramid doesn't mandate a particular database system, form library, and so on.
+It encourages replaceability. This applies equally to templating, which is
+fortunate: developers have strong views about template languages. That said,
+the Pylons Project officially supports bindings for Chameleon, Jinja2, and
+Mako. In this step let's use Chameleon.</p>
+<p>Let's add <code class="docutils literal notranslate"><span class="pre">pyramid_chameleon</span></code>, a Pyramid <a class="reference internal" href="glossary.html#term-add-on"><span class="xref std std-term">add-on</span></a> which enables
+Chameleon as a <a class="reference internal" href="glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> in our Pyramid application:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install pyramid_chameleon
+</pre></div>
+</div>
+<p>With the package installed, we can include the template bindings into our
+configuration in <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy/{name}&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;pyramid_chameleon&#39;</span><span class="p">)</span>
+</span>        <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s1">&#39;views&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Now lets change our <code class="docutils literal notranslate"><span class="pre">views.py</span></code> file:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.view</span> <span class="kn">import</span> <span class="n">view_config</span>
+
+
+<span class="hll"><span class="nd">@view_config</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;hello_world.pt&#39;</span><span class="p">)</span>
+</span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="hll">    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">matchdict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</span></pre></div>
+</td></tr></table></div>
+<p>Ahh, that looks better. We have a view that is focused on Python code. Our
+<code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator specifies a <a class="reference internal" href="glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> that points to our
+template file. Our view then simply returns data which is then supplied to our
+template <code class="docutils literal notranslate"><span class="pre">hello_world.pt</span></code>:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Quick Glance<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello ${name}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Since our view returned <code class="docutils literal notranslate"><span class="pre">dict(name=request.matchdict['name'])</span></code>, we can use
+<code class="docutils literal notranslate"><span class="pre">name</span></code> as a variable in our template via <code class="docutils literal notranslate"><span class="pre">${name}</span></code>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/templating.html#qtut-templating"><span class="std std-ref">Quick Tutorial Templating</span></a>,
+<a class="reference internal" href="narr/templates.html"><span class="doc">Templates</span></a>, <a class="reference internal" href="narr/templates.html#debugging-templates"><span class="std std-ref">Debugging Templates</span></a>, and
+<a class="reference internal" href="narr/templates.html#available-template-system-bindings"><span class="std std-ref">Available Add-On Template System Bindings</span></a>.</p>
+</div>
+</div>
+<div class="section" id="templating-with-jinja2">
+<h2>Templating with Jinja2<a class="headerlink" href="#templating-with-jinja2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>We just said Pyramid doesn't prefer one templating language over another. Time
+to prove it. Jinja2 is a popular templating system, modeled after Django's
+templates. Let's add <code class="docutils literal notranslate"><span class="pre">pyramid_jinja2</span></code>, a Pyramid <a class="reference internal" href="glossary.html#term-add-on"><span class="xref std std-term">add-on</span></a> which enables
+Jinja2 as a <a class="reference internal" href="glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> in our Pyramid applications:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install pyramid_jinja2
+</pre></div>
+</div>
+<p>With the package installed, we can include the template bindings into our
+configuration:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy/{name}&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;pyramid_jinja2&#39;</span><span class="p">)</span>
+</span>        <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s1">&#39;views&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>The only change in our view is to point the renderer at the <code class="docutils literal notranslate"><span class="pre">.jinja2</span></code> file:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nd">@view_config</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;hello_world.jinja2&#39;</span><span class="p">)</span>
+</span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">matchdict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</pre></div>
+</td></tr></table></div>
+<p>Our Jinja2 template is very similar to our previous template:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello World<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello {{ name }}!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Pyramid's templating add-ons register a new kind of renderer into your
+application. The renderer registration maps to different kinds of filename
+extensions. In this case, changing the extension from <code class="docutils literal notranslate"><span class="pre">.pt</span></code> to <code class="docutils literal notranslate"><span class="pre">.jinja2</span></code>
+passed the view response through the <code class="docutils literal notranslate"><span class="pre">pyramid_jinja2</span></code> renderer.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/jinja2.html#qtut-jinja2"><span class="std std-ref">Quick Tutorial Jinja2</span></a>, <a class="reference external" href="http://jinja.pocoo.org/">Jinja2 homepage</a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest/index.html#overview" title="(in pyramid_jinja2 v2.7)"><span class="xref std std-ref">pyramid_jinja2 Overview</span></a>.</p>
+</div>
+</div>
+<div class="section" id="static-assets">
+<h2>Static assets<a class="headerlink" href="#static-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Of course the Web is more than just markup. You need static assets: CSS, JS,
+and images. Let's point our web app at a directory from which Pyramid will
+serve some static assets. First let's make another call to the
+<a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> in <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy/{name}&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="n">config</span><span class="o">.</span><span class="n">add_static_view</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;static&#39;</span><span class="p">)</span>
+</span>        <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;pyramid_jinja2&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>This tells our WSGI application to map requests under
+<a class="reference external" href="http://localhost:6543/static/">http://localhost:6543/static/</a> to files and directories inside a <code class="docutils literal notranslate"><span class="pre">static</span></code>
+directory alongside our Python module.</p>
+<p>Next make a directory named <code class="docutils literal notranslate"><span class="pre">static</span></code>, and place <code class="docutils literal notranslate"><span class="pre">app.css</span></code> inside:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">body</span> <span class="p">{</span>
+    <span class="k">margin</span><span class="p">:</span> <span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
+    <span class="k">font-family</span><span class="p">:</span> <span class="kc">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>All we need to do now is point to it in the <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> of our Jinja2 template,
+<code class="docutils literal notranslate"><span class="pre">hello_world.jinja2</span></code>:</p>
+<div class="highlight-jinja notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">    &lt;title&gt;Hello World&lt;/title&gt;</span>
+<span class="hll"><span class="x">    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/app.css&quot;/&gt;</span>
+</span><span class="x">&lt;/head&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This link presumes that our CSS is at a URL starting with <code class="docutils literal notranslate"><span class="pre">/static/</span></code>. What if
+the site is later moved under <code class="docutils literal notranslate"><span class="pre">/somesite/static/</span></code>? Or perhaps a web developer
+changes the arrangement on disk? Pyramid provides a helper to allow flexibility
+on URL generation:</p>
+<div class="highlight-jinja notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">    &lt;title&gt;Hello World&lt;/title&gt;</span>
+<span class="hll"><span class="x">    &lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">request.static_url</span><span class="o">(</span><span class="s1">&#39;__main__:static/app.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;/&gt;</span>
+</span><span class="x">&lt;/head&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>By using <code class="docutils literal notranslate"><span class="pre">request.static_url</span></code> to generate the full URL to the static assets,
+you ensure that you stay in sync with the configuration and gain refactoring
+flexibility later.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/static_assets.html#qtut-static-assets"><span class="std std-ref">Quick Tutorial Static Assets</span></a>,
+<a class="reference internal" href="narr/assets.html"><span class="doc">Static Assets</span></a>, <a class="reference internal" href="narr/environment.html#preventing-http-caching"><span class="std std-ref">Preventing HTTP Caching</span></a>, and
+<a class="reference internal" href="narr/viewconfig.html#influencing-http-caching"><span class="std std-ref">Influencing HTTP Caching</span></a>.</p>
+</div>
+</div>
+<div class="section" id="returning-json">
+<h2>Returning JSON<a class="headerlink" href="#returning-json" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Modern web apps are more than rendered HTML. Dynamic pages now use JavaScript
+to update the UI in the browser by requesting server data as JSON. Pyramid
+supports this with a JSON renderer:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@view_config</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello_json&#39;</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_json</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</td></tr></table></div>
+<p>This wires up a view that returns some data through the JSON <a class="reference internal" href="glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a>,
+which calls Python's JSON support to serialize the data into JSON, and sets the
+appropriate HTTP headers.</p>
+<p>We also need to add a route to <code class="docutils literal notranslate"><span class="pre">app.py</span></code> so that our app will know how to
+respond to a request for <code class="docutils literal notranslate"><span class="pre">hello.json</span></code>.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy/{name}&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello_json&#39;</span><span class="p">,</span> <span class="s1">&#39;hello.json&#39;</span><span class="p">)</span>
+</span>        <span class="n">config</span><span class="o">.</span><span class="n">add_static_view</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;static&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/json.html#qtut-json"><span class="std std-ref">Quick Tutorial JSON</span></a>, <a class="reference internal" href="narr/renderers.html#views-which-use-a-renderer"><span class="std std-ref">Writing View Callables Which Use a Renderer</span></a>,
+<a class="reference internal" href="narr/renderers.html#json-renderer"><span class="std std-ref">JSON Renderer</span></a>, and <a class="reference internal" href="narr/renderers.html#adding-and-overriding-renderers"><span class="std std-ref">Adding and Changing Renderers</span></a>.</p>
+</div>
+</div>
+<div class="section" id="view-classes">
+<h2>View classes<a class="headerlink" href="#view-classes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>So far our views have been simple, free-standing functions. Many times your
+views are related. They may have different ways to look at or work on the same
+data, or they may be a REST API that handles multiple operations. Grouping
+these together as a <a class="reference internal" href="narr/views.html#class-as-view"><span class="std std-ref">view class</span></a> makes sense and achieves
+the following goals.</p>
+<ul class="simple">
+<li>Group views</li>
+<li>Centralize some repetitive defaults</li>
+<li>Share some state and helpers</li>
+</ul>
+<p>The following shows a &quot;Hello World&quot; example with three operations: view a form,
+save a change, or press the delete button in our <code class="docutils literal notranslate"><span class="pre">views.py</span></code>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># One route, at /howdy/amy, so don&#39;t repeat on each @view_config</span>
+<span class="nd">@view_defaults</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">HelloWorldViews</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">request</span>
+        <span class="c1"># Our templates can now say {{ view.name }}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">matchdict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Retrieving /howdy/amy the first time</span>
+    <span class="nd">@view_config</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;hello.jinja2&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">hello_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="c1"># Posting to /howdy/amy via the &quot;Edit&quot; submit button</span>
+    <span class="nd">@view_config</span><span class="p">(</span><span class="n">request_param</span><span class="o">=</span><span class="s1">&#39;form.edit&#39;</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;edit.jinja2&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">edit_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Edited&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="c1"># Posting to /howdy/amy via the &quot;Delete&quot; submit button</span>
+    <span class="nd">@view_config</span><span class="p">(</span><span class="n">request_param</span><span class="o">=</span><span class="s1">&#39;form.delete&#39;</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;delete.jinja2&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">delete_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Deleted&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>As you can see, the three views are logically grouped together. Specifically:</p>
+<ul class="simple">
+<li>The first view is returned when you go to <code class="docutils literal notranslate"><span class="pre">/howdy/amy</span></code>. This URL is mapped
+to the <code class="docutils literal notranslate"><span class="pre">hello</span></code> route that we centrally set using the optional
+<code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code>.</li>
+<li>The second view is returned when the form data contains a field with
+<code class="docutils literal notranslate"><span class="pre">form.edit</span></code>, such as clicking on <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;submit&quot;</span> <span class="pre">name=&quot;form.edit&quot;</span>
+<span class="pre">value=&quot;Save&quot;&gt;</span></code>. This rule is specified in the <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> for that
+view.</li>
+<li>The third view is returned when clicking on a button such as <code class="docutils literal notranslate"><span class="pre">&lt;input</span>
+<span class="pre">type=&quot;submit&quot;</span> <span class="pre">name=&quot;form.delete&quot;</span> <span class="pre">value=&quot;Delete&quot;&gt;</span></code>.</li>
+</ul>
+<p>Only one route is needed, stated in one place atop the view class. Also, the
+assignment of <code class="docutils literal notranslate"><span class="pre">name</span></code> is done in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function. Our templates can
+then use <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">view.name</span> <span class="pre">}}</span></code>.</p>
+<p>Pyramid view classes, combined with built-in and custom predicates, have much
+more to offer:</p>
+<ul class="simple">
+<li>All the same view configuration parameters as function views</li>
+<li>One route leading to multiple views, based on information in the request or
+data such as <code class="docutils literal notranslate"><span class="pre">request_param</span></code>, <code class="docutils literal notranslate"><span class="pre">request_method</span></code>, <code class="docutils literal notranslate"><span class="pre">accept</span></code>, <code class="docutils literal notranslate"><span class="pre">header</span></code>,
+<code class="docutils literal notranslate"><span class="pre">xhr</span></code>, <code class="docutils literal notranslate"><span class="pre">containment</span></code>, and <code class="docutils literal notranslate"><span class="pre">custom_predicates</span></code></li>
+</ul>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/view_classes.html#qtut-view-classes"><span class="std std-ref">Quick Tutorial View Classes</span></a>, <a class="reference internal" href="quick_tutorial/more_view_classes.html#qtut-more-view-classes"><span class="std std-ref">Quick
+Tutorial More View Classes</span></a>, and
+<a class="reference internal" href="narr/views.html#class-as-view"><span class="std std-ref">Defining a View Callable as a Class</span></a>.</p>
+</div>
+</div>
+<div class="section" id="quick-project-startup-with-cookiecutters">
+<h2>Quick project startup with cookiecutters<a class="headerlink" href="#quick-project-startup-with-cookiecutters" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>So far we have done all of our <em>Quick Tour</em> as a single Python file. No Python
+packages, no structure. Most Pyramid projects, though, aren't developed this
+way.</p>
+<p>To ease the process of getting started, the Pylons Project provides <a class="reference internal" href="glossary.html#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a>s that generate sample Pyramid projects from project templates. These cookiecutters will install Pyramid and its dependencies as well.</p>
+<p>First you'll need to install cookiecutter.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install cookiecutter
+</pre></div>
+</div>
+<p>Let's use the cookiecutter <code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code> to create a starter Pyramid project in the current directory, entering values at the prompts as shown below for the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/cookiecutter gh:Pylons/pyramid-cookiecutter-starter --checkout <span class="m">1</span>.9-branch
+</pre></div>
+</div>
+<p>If prompted for the first item, accept the default <code class="docutils literal notranslate"><span class="pre">yes</span></code> by hitting return.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>You&#39;ve cloned ~/.cookiecutters/pyramid-cookiecutter-starter before.
+Is it okay to delete and re-clone it? [yes]: yes
+project_name [Pyramid Scaffold]: hello_world
+repo_name [hello_world]: hello_world
+Select template_language:
+1 - jinja2
+2 - chameleon
+3 - mako
+Choose from 1, 2, 3 [1]: 1
+</pre></div>
+</div>
+<p>We then run through the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change directory into your newly created project.</span>
+$ <span class="nb">cd</span> hello_world
+<span class="c1"># Create a new virtual environment...</span>
+$ python3 -m venv env
+<span class="c1"># ...where we upgrade packaging tools...</span>
+$ env/bin/pip install --upgrade pip setuptools
+<span class="c1"># ...and into which we install our project and its testing requirements.</span>
+$ env/bin/pip install -e <span class="s2">&quot;.[testing]&quot;</span>
+<span class="c1"># Reset our environment variable for a new virtual environment.</span>
+$ <span class="nb">export</span> <span class="nv">VENV</span><span class="o">=</span>~/hello_world/env
+</pre></div>
+</div>
+<p>We are moving in the direction of a full-featured Pyramid project, with a
+proper setup for Python standards (packaging) and Pyramid configuration. This
+includes a new way of running your application:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini
+</pre></div>
+</div>
+<p>Let's look at <code class="docutils literal notranslate"><span class="pre">pserve</span></code> and configuration in more depth.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/cookiecutters.html#qtut-cookiecutters"><span class="std std-ref">Quick Tutorial Cookiecutters</span></a>,
+<a class="reference internal" href="narr/project.html#project-narr"><span class="std std-ref">Creating a Pyramid Project</span></a>, and
+<a class="reference internal" href="narr/cookiecutters.html"><span class="doc">Pyramid cookiecutters</span></a></p>
+</div>
+</div>
+<div class="section" id="application-running-with-pserve">
+<h2>Application running with <code class="docutils literal notranslate"><span class="pre">pserve</span></code><a class="headerlink" href="#application-running-with-pserve" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Prior to the cookiecutter, our project mixed a number of operational details into our
+code. Why should my main code care which HTTP server I want and what port
+number to run on?</p>
+<p><code class="docutils literal notranslate"><span class="pre">pserve</span></code> is Pyramid's application runner, separating operational details from
+your code. When you install Pyramid, a small command program called <code class="docutils literal notranslate"><span class="pre">pserve</span></code>
+is written to your <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory. This program is an executable Python
+module. It's very small, getting most of its brains via import.</p>
+<p>You can run <code class="docutils literal notranslate"><span class="pre">pserve</span></code> with <code class="docutils literal notranslate"><span class="pre">--help</span></code> to see some of its options. Doing so
+reveals that you can ask <code class="docutils literal notranslate"><span class="pre">pserve</span></code> to watch your development files and reload
+the server when they change:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini --reload
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">pserve</span></code> command has a number of other options and operations. Most of
+the work, though, comes from your project's wiring, as expressed in the
+configuration file you supply to <code class="docutils literal notranslate"><span class="pre">pserve</span></code>. Let's take a look at this
+configuration file.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="narr/project.html#what-is-this-pserve-thing"><span class="std std-ref">What Is This pserve Thing</span></a></p>
+</div>
+</div>
+<div class="section" id="configuration-with-ini-files">
+<h2>Configuration with <code class="docutils literal notranslate"><span class="pre">.ini</span></code> files<a class="headerlink" href="#configuration-with-ini-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Earlier in <em>Quick Tour</em> we first met Pyramid's configuration system. At that
+point we did all configuration in Python code. For example, the port number
+chosen for our HTTP server was right there in Python code. Our cookiecutter has
+moved this decision and more into the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1">###</span>
+<span class="c1"># app configuration</span>
+<span class="c1"># https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/environment.html</span>
+<span class="c1">###</span>
+
+<span class="k">[app:main]</span>
+<span class="na">use</span> <span class="o">=</span> <span class="s">egg:hello_world</span>
+
+<span class="na">pyramid.reload_templates</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">pyramid.debug_authorization</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">pyramid.debug_notfound</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">pyramid.debug_routematch</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">pyramid.default_locale_name</span> <span class="o">=</span> <span class="s">en</span>
+<span class="na">pyramid.includes</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    pyramid_debugtoolbar</span>
+
+<span class="c1"># By default, the toolbar only appears for clients from IP addresses</span>
+<span class="c1"># &#39;127.0.0.1&#39; and &#39;::1&#39;.</span>
+<span class="c1"># debugtoolbar.hosts = 127.0.0.1 ::1</span>
+
+<span class="c1">###</span>
+<span class="c1"># wsgi server configuration</span>
+<span class="c1">###</span>
+
+<span class="k">[server:main]</span>
+<span class="na">use</span> <span class="o">=</span> <span class="s">egg:waitress#main</span>
+<span class="na">listen</span> <span class="o">=</span> <span class="s">localhost:6543</span>
+
+<span class="c1">###</span>
+<span class="c1"># logging configuration</span>
+<span class="c1"># https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/logging.html</span>
+<span class="c1">###</span>
+
+<span class="k">[loggers]</span>
+<span class="na">keys</span> <span class="o">=</span> <span class="s">root, hello_world</span>
+
+<span class="k">[handlers]</span>
+<span class="na">keys</span> <span class="o">=</span> <span class="s">console</span>
+
+<span class="k">[formatters]</span>
+<span class="na">keys</span> <span class="o">=</span> <span class="s">generic</span>
+
+<span class="k">[logger_root]</span>
+<span class="na">level</span> <span class="o">=</span> <span class="s">INFO</span>
+<span class="na">handlers</span> <span class="o">=</span> <span class="s">console</span>
+
+<span class="k">[logger_hello_world]</span>
+<span class="na">level</span> <span class="o">=</span> <span class="s">DEBUG</span>
+<span class="na">handlers</span> <span class="o">=</span>
+<span class="na">qualname</span> <span class="o">=</span> <span class="s">hello_world</span>
+
+<span class="k">[handler_console]</span>
+<span class="na">class</span> <span class="o">=</span> <span class="s">StreamHandler</span>
+<span class="na">args</span> <span class="o">=</span> <span class="s">(sys.stderr,)</span>
+<span class="na">level</span> <span class="o">=</span> <span class="s">NOTSET</span>
+<span class="na">formatter</span> <span class="o">=</span> <span class="s">generic</span>
+
+<span class="k">[formatter_generic]</span>
+<span class="na">format</span> <span class="o">=</span> <span class="s">%(asctime)s %(levelname)-5.5s [%(name)s:%(lineno)s][%(threadName)s] %(message)s</span>
+</pre></div>
+</div>
+<p>Let's take a quick high-level look. First the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file is divided into
+sections:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> configures our WSGI app</li>
+<li><code class="docutils literal notranslate"><span class="pre">[server:main]</span></code> holds our WSGI server settings</li>
+<li>Various sections afterwards configure our Python logging system</li>
+</ul>
+<p>We have a few decisions made for us in this configuration:</p>
+<ol class="arabic simple">
+<li><em>WSGI app:</em> What package has our WSGI application in it?
+<code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">=</span> <span class="pre">egg:hello_world</span></code> in the app section tells the configuration what
+application to load.</li>
+<li><em>Easier development by automatic template reloading:</em> In development mode,
+you shouldn't have to restart the server when editing a Jinja2 template.
+<code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span> <span class="pre">=</span> <span class="pre">true</span></code> sets this policy, which might be
+different in production.</li>
+<li><em>Choice of web server:</em> <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">=</span> <span class="pre">egg:waitress#main</span></code> tells <code class="docutils literal notranslate"><span class="pre">pserve</span></code> to
+use the <code class="docutils literal notranslate"><span class="pre">waitress</span></code> server.</li>
+<li><em>Interfaces:</em> <code class="docutils literal notranslate"><span class="pre">listen</span> <span class="pre">=</span> <span class="pre">localhost:6543</span></code> tells <code class="docutils literal notranslate"><span class="pre">waitress</span></code> to listen on all interfaces on port 6543 for both IPv4 and IPv6.</li>
+</ol>
+<p>Additionally the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> generated by this cookiecutter wired up
+Python's standard logging. We'll now see in the console, for example, a log on
+every request that comes in, as well as traceback information.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/ini.html#qtut-ini"><span class="std std-ref">Quick Tutorial Application Configuration</span></a>,
+<a class="reference internal" href="narr/environment.html#environment-chapter"><span class="std std-ref">Environment Variables and .ini File Settings</span></a> and
+<a class="reference internal" href="narr/paste.html"><span class="doc">PasteDeploy Configuration Files</span></a></p>
+</div>
+</div>
+<div class="section" id="easier-development-with-debugtoolbar">
+<h2>Easier development with <code class="docutils literal notranslate"><span class="pre">debugtoolbar</span></code><a class="headerlink" href="#easier-development-with-debugtoolbar" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>As we introduce the basics, we also want to show how to be productive in
+development and debugging. For example, we just discussed template reloading
+and earlier we showed <code class="docutils literal notranslate"><span class="pre">--reload</span></code> for application reloading.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> is a popular Pyramid add-on which makes several tools
+available in your browser. Adding it to your project illustrates several points
+about configuration.</p>
+<p>The cookiecutter <code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code> already configured our package to include the
+add-on <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> in its <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">requires</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;plaster_pastedeploy&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pyramid&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pyramid_jinja2&#39;</span><span class="p">,</span>
+<span class="hll">    <span class="s1">&#39;pyramid_debugtoolbar&#39;</span><span class="p">,</span>
+</span>    <span class="s1">&#39;waitress&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</td></tr></table></div>
+<p>It was installed when you previously ran:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install -e <span class="s2">&quot;.[testing]&quot;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> package is a Pyramid add-on, which means we need
+to include its configuration into our web application. The cookiecutter already took care of this for us in its <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> using the <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> facility:</p>
+<div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="na">pyramid.includes</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    pyramid_debugtoolbar</span>
+</pre></div>
+</td></tr></table></div>
+<p>You'll now see a Pyramid logo on the right side of your browser window, which
+when clicked opens a new window that provides introspective access to debugging
+information. Even better, if your web application generates an error, you will
+see a nice traceback on the screen. When you want to disable this toolbar,
+there's no need to change code: you can remove it from <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> in
+the relevant <code class="docutils literal notranslate"><span class="pre">.ini</span></code> configuration file.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/debugtoolbar.html#qtut-debugtoolbar"><span class="std std-ref">Quick Tutorial pyramid_debugtoolbar</span></a> and
+<a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-debugtoolbar/en/latest/index.html#overview" title="(in pyramid_debugtoolbar v4.5)"><span class="xref std std-ref">pyramid_debugtoolbar</span></a></p>
+</div>
+</div>
+<div class="section" id="unit-tests-and-py-test">
+<h2>Unit tests and <code class="docutils literal notranslate"><span class="pre">py.test</span></code><a class="headerlink" href="#unit-tests-and-py-test" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Yikes! We got this far and we haven't yet discussed tests. This is particularly
+egregious, as Pyramid has had a deep commitment to full test coverage since
+before its release.</p>
+<p>Our <code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code> cookiecutter generated a <code class="docutils literal notranslate"><span class="pre">tests.py</span></code> module with
+one unit test and one functional test in it. It also configured <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> with test requirements:
+<code class="docutils literal notranslate"><span class="pre">py.test</span></code> as the test runner, <code class="docutils literal notranslate"><span class="pre">WebTest</span></code> for running view tests, and the
+<code class="docutils literal notranslate"><span class="pre">pytest-cov</span></code> tool which yells at us for code that isn't tested:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">tests_require</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;WebTest &gt;= 1.3.1&#39;</span><span class="p">,</span>  <span class="c1"># py3 compat</span>
+    <span class="s1">&#39;pytest&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pytest-cov&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>43
+44
+45</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="n">extras_require</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;testing&#39;</span><span class="p">:</span> <span class="n">tests_require</span><span class="p">,</span>
+    <span class="p">},</span>
+</pre></div>
+</td></tr></table></div>
+<p>We already installed the test requirements when we ran the command <code class="docutils literal notranslate"><span class="pre">$VENV/bin/pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">&quot;.[testing]&quot;</span></code>. We can now run all our tests:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test --cov --cov-report<span class="o">=</span>term-missing
+</pre></div>
+</div>
+<p>This yields the following output.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=========================== test session starts ===========================
+platform darwin -- Python 3.6.0, pytest-3.0.5, py-1.4.32, pluggy-0.4.0
+rootdir: /Users/stevepiercy/hello_world, inifile: pytest.ini
+plugins: cov-2.4.0
+collected 2 items
+
+hello_world/tests.py ..
+
+------------- coverage: platform darwin, python 3.6.0-final-0 -------------
+Name                                      Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------------
+hello_world/__init__.py                       8      0   100%
+hello_world/views.py                          3      0   100%
+-----------------------------------------------------------------------
+TOTAL                                        11      0   100%
+
+
+========================= 2 passed in 1.37 seconds =========================
+</pre></div>
+</div>
+<p>Our tests passed, and its coverage is complete. What did our test look like?</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">pyramid</span> <span class="kn">import</span> <span class="n">testing</span>
+
+
+<span class="k">class</span> <span class="nc">ViewTests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">testing</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">testing</span><span class="o">.</span><span class="n">tearDown</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">test_my_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="n">my_view</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="n">testing</span><span class="o">.</span><span class="n">DummyRequest</span><span class="p">()</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;project&#39;</span><span class="p">],</span> <span class="s1">&#39;hello_world&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">FunctionalTests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">hello_world</span> <span class="kn">import</span> <span class="n">main</span>
+        <span class="n">app</span> <span class="o">=</span> <span class="n">main</span><span class="p">({})</span>
+        <span class="kn">from</span> <span class="nn">webtest</span> <span class="kn">import</span> <span class="n">TestApp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">testapp</span> <span class="o">=</span> <span class="n">TestApp</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_root</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">testapp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Pyramid&#39;</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Pyramid supplies helpers for test writing, which we use in the test setup and
+teardown. Our first test imports the view, makes a dummy request, and sees if the
+view returns what we expected. Our second test verifies that the response body from a request to the web root contains what we expected.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/unit_testing.html#qtut-unit-testing"><span class="std std-ref">Quick Tutorial Unit Testing</span></a>, <a class="reference internal" href="quick_tutorial/functional_testing.html#qtut-functional-testing"><span class="std std-ref">Quick
+Tutorial Functional Testing</span></a>, and
+<a class="reference internal" href="narr/testing.html#testing-chapter"><span class="std std-ref">Unit, Integration, and Functional Testing</span></a></p>
+</div>
+</div>
+<div class="section" id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>It's important to know what is going on inside our web application. In
+development we might need to collect some output. In production we might need
+to detect situations when other people use the site. We need <em>logging</em>.</p>
+<p>Fortunately Pyramid uses the normal Python approach to logging. The <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file for your project has a number of lines that configure the
+logging for you to some reasonable defaults. You then see messages sent by
+Pyramid (for example, when a new request comes in).</p>
+<p>Maybe you would like to log messages in your code? In your Python module,
+import and set up the logging in your <code class="docutils literal notranslate"><span class="pre">views.py</span></code>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>You can now, in your code, log messages:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="hll">    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Some Message&#39;</span><span class="p">)</span>
+</span></pre></div>
+</td></tr></table></div>
+<p>This will log <code class="docutils literal notranslate"><span class="pre">Some</span> <span class="pre">Message</span></code> at a <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> log level to the
+application-configured logger in your <code class="docutils literal notranslate"><span class="pre">development.ini</span></code>. What controls that?
+These emphasized sections in the configuration file:</p>
+<div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="k">[loggers]</span>
+</span><span class="hll"><span class="na">keys</span> <span class="o">=</span> <span class="s">root, hello_world</span>
+</span>
+<span class="k">[handlers]</span>
+<span class="na">keys</span> <span class="o">=</span> <span class="s">console</span>
+
+<span class="k">[formatters]</span>
+<span class="na">keys</span> <span class="o">=</span> <span class="s">generic</span>
+
+<span class="k">[logger_root]</span>
+<span class="na">level</span> <span class="o">=</span> <span class="s">INFO</span>
+<span class="na">handlers</span> <span class="o">=</span> <span class="s">console</span>
+
+<span class="hll"><span class="k">[logger_hello_world]</span>
+</span><span class="hll"><span class="na">level</span> <span class="o">=</span> <span class="s">DEBUG</span>
+</span><span class="hll"><span class="na">handlers</span> <span class="o">=</span>
+</span><span class="hll"><span class="na">qualname</span> <span class="o">=</span> <span class="s">hello_world</span>
+</span></pre></div>
+</td></tr></table></div>
+<p>Our application, a package named <code class="docutils literal notranslate"><span class="pre">hello_world</span></code>, is set up as a logger and
+configured to log messages at a <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> or higher level. When you visit
+<a class="reference external" href="http://localhost:6543">http://localhost:6543</a>, your console will now show:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2016-12-25 03:03:57,059 DEBUG [hello_world.views:8][waitress] Some Message
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/logging.html#qtut-logging"><span class="std std-ref">Quick Tutorial Logging</span></a> and <a class="reference internal" href="narr/logging.html#logging-chapter"><span class="std std-ref">Logging</span></a>.</p>
+</div>
+</div>
+<div class="section" id="sessions">
+<h2>Sessions<a class="headerlink" href="#sessions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>When people use your web application, they frequently perform a task that
+requires semi-permanent data to be saved. For example, a shopping cart. This is
+called a <a class="reference internal" href="glossary.html#term-session"><span class="xref std std-term">session</span></a>.</p>
+<p>Pyramid has basic built-in support for sessions. Third party packages such as
+<code class="docutils literal notranslate"><span class="pre">pyramid_redis_sessions</span></code> provide richer session support. Or you can create
+your own custom sessioning engine. Let's take a look at the <a class="reference internal" href="narr/sessions.html"><span class="doc">built-in
+sessioning support</span></a>. In our <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> we first import
+the kind of sessioning we want:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">pyramid.session</span> <span class="kn">import</span> <span class="n">SignedCookieSessionFactory</span>
+</span></pre></div>
+</td></tr></table></div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">As noted in the session docs, this example implementation is not intended
+for use in settings with security implications.</p>
+</div>
+<p>Now make a &quot;factory&quot; and pass it to the <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a>'s
+<code class="docutils literal notranslate"><span class="pre">session_factory</span></code> argument:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="hll">    <span class="n">my_session_factory</span> <span class="o">=</span> <span class="n">SignedCookieSessionFactory</span><span class="p">(</span><span class="s1">&#39;itsaseekreet&#39;</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">config</span><span class="o">.</span><span class="n">set_session_factory</span><span class="p">(</span><span class="n">my_session_factory</span><span class="p">)</span>
+</span>    <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>Pyramid's <a class="reference internal" href="glossary.html#term-request"><span class="xref std std-term">request</span></a> object now has a <code class="docutils literal notranslate"><span class="pre">session</span></code> attribute that we can
+use in our view code in <code class="docutils literal notranslate"><span class="pre">views.py</span></code>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Some Message&#39;</span><span class="p">)</span>
+<span class="hll">    <span class="n">session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+</span><span class="hll">    <span class="k">if</span> <span class="s1">&#39;counter&#39;</span> <span class="ow">in</span> <span class="n">session</span><span class="p">:</span>
+</span><span class="hll">        <span class="n">session</span><span class="p">[</span><span class="s1">&#39;counter&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class="hll">    <span class="k">else</span><span class="p">:</span>
+</span><span class="hll">        <span class="n">session</span><span class="p">[</span><span class="s1">&#39;counter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="s1">&#39;hello_world&#39;</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>We need to update our Jinja2 template <code class="docutils literal notranslate"><span class="pre">templates/mytemplate.jinja2</span></code> to show counter increment in the session:</p>
+<div class="highlight-jinja notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">&lt;div class=&quot;content&quot;&gt;</span>
+<span class="x">  &lt;h1&gt;&lt;span class=&quot;font-semi-bold&quot;&gt;Pyramid&lt;/span&gt; &lt;span class=&quot;smaller&quot;&gt;Starter project&lt;/span&gt;&lt;/h1&gt;</span>
+<span class="x">  &lt;p class=&quot;lead&quot;&gt;Welcome to &lt;span class=&quot;font-normal&quot;&gt;hello_world&lt;/span&gt;, a&amp;nbsp;Pyramid application generated&amp;nbsp;by&lt;br&gt;&lt;span class=&quot;font-normal&quot;&gt;Cookiecutter&lt;/span&gt;.&lt;/p&gt;</span>
+<span class="hll"><span class="x">  &lt;p&gt;Counter: </span><span class="cp">{{</span> <span class="nv">request.session.counter</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
+</span><span class="x">&lt;/div&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/sessions.html#qtut-sessions"><span class="std std-ref">Quick Tutorial Sessions</span></a>, <a class="reference internal" href="narr/sessions.html#sessions-chapter"><span class="std std-ref">Sessions</span></a>,
+<a class="reference internal" href="narr/sessions.html#flash-messages"><span class="std std-ref">Flash Messages</span></a>, <a class="reference internal" href="api/session.html#session-module"><span class="std std-ref">pyramid.session</span></a>, and
+<a class="reference internal" href="glossary.html#term-pyramid-redis-sessions"><span class="xref std std-term">pyramid_redis_sessions</span></a>.</p>
+</div>
+</div>
+<div class="section" id="databases">
+<h2>Databases<a class="headerlink" href="#databases" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Web applications mean data. Data means databases. Frequently SQL databases. SQL
+databases frequently mean an &quot;ORM&quot; (object-relational mapper.) In Python, ORM
+usually leads to the mega-quality <em>SQLAlchemy</em>, a Python package that greatly
+eases working with databases.</p>
+<p>Pyramid and SQLAlchemy are great friends. That friendship includes a cookiecutter!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
+$ env/bin/cookiecutter gh:Pylons/pyramid-cookiecutter-alchemy --checkout <span class="m">1</span>.9-branch
+</pre></div>
+</div>
+<p>If prompted for the first item, accept the default <code class="docutils literal notranslate"><span class="pre">yes</span></code> by hitting return.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>You&#39;ve cloned ~/.cookiecutters/pyramid-cookiecutter-alchemy before.
+Is it okay to delete and re-clone it? [yes]: yes
+project_name [Pyramid Scaffold]: sqla_demo
+repo_name [sqla_demo]: sqla_demo
+</pre></div>
+</div>
+<p>We then run through the following commands as before.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change directory into your newly created project.</span>
+$ <span class="nb">cd</span> sqla_demo
+<span class="c1"># Create a new virtual environment...</span>
+$ python3 -m venv env
+<span class="c1"># ...where we upgrade packaging tools...</span>
+$ env/bin/pip install --upgrade pip setuptools
+<span class="c1"># ...and into which we install our project and its testing requirements.</span>
+$ env/bin/pip install -e <span class="s2">&quot;.[testing]&quot;</span>
+<span class="c1"># Reset our environment variable for a new virtual environment.</span>
+$ <span class="nb">export</span> <span class="nv">VENV</span><span class="o">=</span>~/sqla_demo/env
+</pre></div>
+</div>
+<p>We now have a working sample SQLAlchemy application with all dependencies
+installed. The sample project provides a console script to initialize a SQLite
+database with tables. Let's run it, then start the application:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/initialize_sqla_demo_db development.ini
+$ <span class="nv">$VENV</span>/bin/pserve development.ini
+</pre></div>
+</div>
+<p>The ORM eases the mapping of database structures into a programming language.
+SQLAlchemy uses &quot;models&quot; for this mapping. The cookiecutter generated a sample
+model:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;models&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Text</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>View code, which mediates the logic between web requests and the rest of the
+system, can then easily get at the data thanks to SQLAlchemy:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>13</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">one</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">MyModel</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;one&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/databases.html#qtut-databases"><span class="std std-ref">Quick Tutorial Databases</span></a>, <a class="reference external" href="http://www.sqlalchemy.org/">SQLAlchemy</a>, <a class="reference internal" href="narr/commandline.html#making-a-console-script"><span class="std std-ref">Making Your Script into a Console Script</span></a>,
+<a class="reference internal" href="tutorials/wiki2/index.html#bfg-sql-wiki-tutorial"><span class="std std-ref">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-tm/en/latest/index.html#overview" title="(in pyramid_tm v2.2.1)"><span class="xref std std-ref">Application Transactions with
+pyramid_tm</span></a>.</p>
+</div>
+</div>
+<div class="section" id="forms">
+<h2>Forms<a class="headerlink" href="#forms" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Developers have lots of opinions about web forms, thus there are many form
+libraries for Python. Pyramid doesn't directly bundle a form library, but
+<em>Deform</em> is a popular choice for forms, along with its related <em>Colander</em>
+schema system.</p>
+<p>As an example, imagine we want a form that edits a wiki page. The form should
+have two fields on it, one of them a required title and the other a rich text
+editor for the body. With Deform we can express this as a Colander schema:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">WikiPage</span><span class="p">(</span><span class="n">colander</span><span class="o">.</span><span class="n">MappingSchema</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">colander</span><span class="o">.</span><span class="n">SchemaNode</span><span class="p">(</span><span class="n">colander</span><span class="o">.</span><span class="n">String</span><span class="p">())</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">colander</span><span class="o">.</span><span class="n">SchemaNode</span><span class="p">(</span>
+        <span class="n">colander</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">deform</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">RichTextWidget</span><span class="p">()</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>With this in place, we can render the HTML for a form, perhaps with form data
+from an existing page:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">form</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wiki_form</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We'd like to handle form submission, validation, and saving:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the form data that was posted</span>
+<span class="n">controls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Validate and either raise a validation error</span>
+    <span class="c1"># or return deserialized data from widgets</span>
+    <span class="n">appstruct</span> <span class="o">=</span> <span class="n">wiki_form</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">controls</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">deform</span><span class="o">.</span><span class="n">ValidationFailure</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Bail out and render form with errors</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">page</span><span class="o">=</span><span class="n">page</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">render</span><span class="p">())</span>
+
+<span class="c1"># Change the content and redirect to the view</span>
+<span class="n">page</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">appstruct</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+<span class="n">page</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">appstruct</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Deform and Colander provide a very flexible combination for forms, widgets,
+schemas, and validation. Recent versions of Deform also include a <a class="reference external" href="https://docs.pylonsproject.org/projects/deform/en/latest/retail.html#retail" title="(in deform v2.0.7.dev0)"><span class="xref std std-ref">retail
+mode</span></a> for gaining Deform features on custom forms.</p>
+<p>Deform uses attractive CSS from Twitter Bootstrap and more powerful select, checkbox, and date and time widgets.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also:
+<a class="reference internal" href="quick_tutorial/forms.html#qtut-forms"><span class="std std-ref">Quick Tutorial Forms</span></a>, <a class="reference external" href="https://docs.pylonsproject.org/projects/deform/en/latest/index.html#overview" title="(in deform v2.0.7.dev0)"><span class="xref std std-ref">Deform</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/colander/en/latest/index.html#overview" title="(in colander v1.5.1)"><span class="xref std std-ref">Colander</span></a>.</p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>This <em>Quick Tour</em> covered a little about a lot. We introduced a long list
+of concepts in Pyramid, many of which are expanded on more fully in the
+Pyramid developer docs.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Quick Tour of Pyramid</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#hello-world">Hello World</a></li>
+<li><a class="reference internal" href="#handling-web-requests-and-responses">Handling web requests and responses</a></li>
+<li><a class="reference internal" href="#views">Views</a></li>
+<li><a class="reference internal" href="#routing">Routing</a></li>
+<li><a class="reference internal" href="#templating">Templating</a></li>
+<li><a class="reference internal" href="#templating-with-jinja2">Templating with Jinja2</a></li>
+<li><a class="reference internal" href="#static-assets">Static assets</a></li>
+<li><a class="reference internal" href="#returning-json">Returning JSON</a></li>
+<li><a class="reference internal" href="#view-classes">View classes</a></li>
+<li><a class="reference internal" href="#quick-project-startup-with-cookiecutters">Quick project startup with cookiecutters</a></li>
+<li><a class="reference internal" href="#application-running-with-pserve">Application running with <code class="docutils literal notranslate"><span class="pre">pserve</span></code></a></li>
+<li><a class="reference internal" href="#configuration-with-ini-files">Configuration with <code class="docutils literal notranslate"><span class="pre">.ini</span></code> files</a></li>
+<li><a class="reference internal" href="#easier-development-with-debugtoolbar">Easier development with <code class="docutils literal notranslate"><span class="pre">debugtoolbar</span></code></a></li>
+<li><a class="reference internal" href="#unit-tests-and-py-test">Unit tests and <code class="docutils literal notranslate"><span class="pre">py.test</span></code></a></li>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+<li><a class="reference internal" href="#sessions">Sessions</a></li>
+<li><a class="reference internal" href="#databases">Databases</a></li>
+<li><a class="reference internal" href="#forms">Forms</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="index.html"
+                        title="前の章へ">The Pyramid Web Framework</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="quick_tutorial/index.html"
+                        title="次の章へ">Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/quick_tour.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="quick_tutorial/index.html" title="Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="The Pyramid Web Framework"
+             >前へ</a> |</li>
+    	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
+    </div>
+  </body>
+</html>

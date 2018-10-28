@@ -1,0 +1,348 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../tutorials/wiki2/design.rst:5
+msgid "Design"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:7
+msgid ""
+"Following is a quick overview of the design of our wiki application to "
+"help us understand the changes that we will be making as we work through "
+"the tutorial."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:11
+msgid "Overall"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:13
+msgid ""
+"We choose to use :term:`reStructuredText` markup in the wiki text. "
+"Translation from reStructuredText to HTML is provided by the widely used "
+"``docutils`` Python module.  We will add this module to the dependency "
+"list in the project's ``setup.py`` file."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:19
+msgid "Models"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:21
+msgid ""
+"We'll be using an SQLite database to hold our wiki data, and we'll be "
+"using :term:`SQLAlchemy` to access the data in this database."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:24
+msgid "Within the database, we will define two tables:"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:26
+msgid ""
+"The ``users`` table which will store the ``id``, ``name``, "
+"``password_hash`` and ``role`` of each wiki user."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:28
+msgid ""
+"The ``pages`` table, whose elements will store the wiki pages. There are "
+"four columns: ``id``, ``name``, ``data`` and ``creator_id``."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:31
+msgid ""
+"There is a one-to-many relationship between ``users`` and ``pages`` "
+"tracking the user who created each wiki page defined by the "
+"``creator_id`` column on the ``pages`` table."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:35
+msgid ""
+"URLs like ``/PageName`` will try to find an element in the ``pages`` "
+"table that has a corresponding name."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:38
+msgid ""
+"To add a page to the wiki, a new row is created and the text is stored in"
+" ``data``."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:41
+msgid ""
+"A page named ``FrontPage`` containing the text \"This is the front page\""
+" will be created when the storage is initialized, and will be used as the"
+" wiki home page."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:46
+msgid "Wiki Views"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:48
+msgid ""
+"There will be three views to handle the normal operations of adding, "
+"editing, and viewing wiki pages, plus one view for the wiki front page. "
+"Two templates will be used, one for viewing, and one for both adding and "
+"editing wiki pages."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:52
+msgid ""
+"As of version 1.5 :app:`Pyramid` no longer ships with templating systems."
+"  In this tutorial, we will use :term:`Jinja2`.  Jinja2 is a modern and "
+"designer-friendly templating language for Python, modeled after Django's "
+"templates."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:58
+msgid "Security"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:60
+msgid ""
+"We'll eventually be adding security to our application.  To do this, "
+"we'll be using a very simple role-based security model. We'll assign a "
+"single role category to each user in our system."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:67
+msgid "``basic``"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:65
+msgid ""
+"An authenticated user who can view content and create new pages. A "
+"``basic`` user may also edit the pages they have created but not pages "
+"created by other users."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:70
+msgid "``editor``"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:70
+msgid "An authenticated user who can create and edit any content in the system."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:72
+msgid ""
+"In order to accomplish this we'll need to define an authentication policy"
+" which can identify users by their :term:`userid` and role. Then we'll "
+"need to define a page :term:`resource` which contains the appropriate "
+":term:`ACL`:"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:78 ../../tutorials/wiki2/design.rst:103
+msgid "Action"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:78
+msgid "Principal"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:78 ../../tutorials/wiki2/design.rst:103
+msgid "Permission"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:80 ../../tutorials/wiki2/design.rst:82
+#: ../../tutorials/wiki2/design.rst:84 ../../tutorials/wiki2/design.rst:86
+msgid "Allow"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:80
+msgid "Everyone"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:80 ../../tutorials/wiki2/design.rst:108
+msgid "view"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:82
+msgid "group:basic"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:82 ../../tutorials/wiki2/design.rst:119
+msgid "create"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:84
+msgid "group:editors"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:84 ../../tutorials/wiki2/design.rst:86
+#: ../../tutorials/wiki2/design.rst:111
+msgid "edit"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:86
+msgid "<creator of page>"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:89
+msgid ""
+"Permission declarations will be added to the views to assert the security"
+" policies as each request is handled."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:92
+msgid ""
+"On the security side of the application there are two additional views "
+"for handling login and logout as well as two exception views for handling"
+" invalid access attempts and unhandled URLs."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:97
+msgid "Summary"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:99
+msgid ""
+"The URL, actions, template, and permission associated to each view are "
+"listed in the following table:"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:103
+msgid "URL"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:103
+msgid "View"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:103
+msgid "Template"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:105
+msgid "/"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:105 ../../tutorials/wiki2/design.rst:149
+msgid "Redirect to /FrontPage"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:105
+msgid "view_wiki"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:108
+msgid "/PageName"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:108
+msgid "Display existing page [2]_"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:108
+msgid "view_page [1]_"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:108
+msgid "view.jinja2"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:111
+msgid "/PageName/edit_page"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:111
+msgid "Display edit form with existing content."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:115 ../../tutorials/wiki2/design.rst:125
+msgid "If the form was submitted, redirect to /PageName"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:111
+msgid "edit_page"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:111 ../../tutorials/wiki2/design.rst:119
+msgid "edit.jinja2"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:119
+msgid "/add_page/PageName"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:119
+msgid ""
+"Create the page *PageName* in storage,  display the edit form without "
+"content."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:119
+msgid "add_page"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:130
+msgid "/login"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:130
+msgid "Display login form, Forbidden [3]_"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:133
+msgid "If the form was submitted, authenticate."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:137
+msgid "If authentication succeeds, redirect to the page from which we came."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:143
+msgid "If authentication fails, display login form with \"login failed\" message."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:130
+msgid "login"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:130
+msgid "login.jinja2"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:149
+msgid "/logout"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:149
+msgid "logout"
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:153
+msgid "This is the default view for a Page context when there is no view name."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:154
+msgid ""
+"Pyramid will return a default 404 Not Found page if the page ``PageName``"
+" does not exist yet."
+msgstr ""
+
+#: ../../tutorials/wiki2/design.rst:156
+msgid ""
+"``pyramid.exceptions.Forbidden`` is reached when a user tries to invoke a"
+" view that is not authorized by the authorization policy."
+msgstr ""
+

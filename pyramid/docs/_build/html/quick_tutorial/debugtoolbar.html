@@ -1,0 +1,230 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>04:「debugtoolbar」を使った簡単な開発( 04: Easier Development with debugtoolbar ) &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="05: ユニットテストとpytest(05: Unit Tests and pytest )" href="unit_testing.html" />
+    <link rel="prev" title="03：.iniファイルを使ったアプリケーションの設定(03: Application Configuration with .ini Files)" href="ini.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="unit_testing.html" title="05: ユニットテストとpytest(05: Unit Tests and pytest )"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="ini.html" title="03：.iniファイルを使ったアプリケーションの設定(03: Application Configuration with .ini Files)"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="easier-development-with-debugtoolbar">
+<span id="qtut-debugtoolbar"></span><h1>04:「debugtoolbar」を使った簡単な開発( 04: Easier Development with <code class="docutils literal notranslate"><span class="pre">debugtoolbar</span></code> )<a class="headerlink" href="#easier-development-with-debugtoolbar" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>「pyramid_debugtoolbar」アドオンを使ったエラー処理とイントロスペクション</p>
+<div class="section" id="background">
+<h2>背景(Background)<a class="headerlink" href="#background" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>基本を紹介しながら、開発とデバッグの生産性を上げる方法を示します。たとえば、テンプレートのリロードについて説明したところで、「--reload」をアプリケーションリロードの前に示しました。</p>
+<p>「pyramid_debugtoolbar」はブラウザでいくつかのツールを利用できる人気のPyramidアドオンです。プロジェクトに追加すると、設定に関するいくつかの点が示されます。</p>
+</div>
+<div class="section" id="objectives">
+<h2>目標(Objectives)<a class="headerlink" href="#objectives" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>開発中にツールバーをインストールして有効にします。</li>
+<li>Pyramidのアドオンを説明します。</li>
+<li>アドオンがアプリケーションにどのように設定されるかを説明します。</li>
+</ul>
+</div>
+<div class="section" id="steps">
+<h2>手順(Steps)<a class="headerlink" href="#steps" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">最初に前の手順の結果をコピーして、「 <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> 」パッケージをインストールし ます。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ..<span class="p">;</span> cp -r ini debugtoolbar<span class="p">;</span> <span class="nb">cd</span> debugtoolbar
+$ <span class="nv">$VENV</span>/bin/pip install -e .
+$ <span class="nv">$VENV</span>/bin/pip install pyramid_debugtoolbar
+</pre></div>
+</div>
+</li>
+<li><p class="first">ebugtoolbar/development.iniは以下の設定エントリを取得します pyramid.includes：</p>
+<div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">[app:main]</span>
+<span class="na">use</span> <span class="o">=</span> <span class="s">egg:tutorial</span>
+<span class="na">pyramid.includes</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    pyramid_debugtoolbar</span>
+
+<span class="k">[server:main]</span>
+<span class="na">use</span> <span class="o">=</span> <span class="s">egg:waitress#main</span>
+<span class="na">listen</span> <span class="o">=</span> <span class="s">localhost:6543</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">WSGIアプリケーションを以下のように実行します:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini --reload
+</pre></div>
+</div>
+</li>
+<li><p class="first">ブラウザで <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> を開きます。右側の便利なツールバーを参照してください。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="analysis">
+<h2>分析(Analysis)<a class="headerlink" href="#analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>「pyramid_debugtoolbar」は本格的なPythonパッケージで、数千もの他のPythonパッケージと同様にPyPIで利用できます。「pyramid_debugtoolbar」は通常のPythonパッケージの同様のインストールコマンドを使用して、仮想環境にパッケージをインストールします。</p>
+<p>「pyramid_debugtoolbar」はPythonパッケージもあるPyramidアドオンでWebアプリケーションにそのアドオンの設定を含める必要があることを意味しています。これを行うには「tutorial/__init__.py」の「config.includ」使用して設定する必要があります。Pyramidは「development.ini」に「pyramid.includes」を使用するアドオン構成もサポートしています。これを使用して「debugtoolbar」の設定を読み込みます。</p>
+<p>ブラウザの右側に魅力的なボタンが表示されます。ボタンをクリックすると新しいブラウザタブでデバッグ情報にアクセスできます。さらにWebアプリケーションでエラーが発生した場合は、画面に素晴らしいトレースバックが表示されます。このツールバーを無効にする場合は、コードを変更する必要はありません。関連する「.ini」設定ファイルから「pyramid.includes」で削除できます（設定ファイルが便利な理由が示されています）。</p>
+<p>ツールバーは自分自身を表示するために、アプリの終了タグ「&lt;/body&gt;」」の直前に少量のHTML/CSSを挿入することに注意してください。あなたが他に説明できないクライアントサイドの不思議さを体験し始めたら、 一時的に「pyramid.includes」の行をコメントアウトすることで「pyramid_debugtoolbar」を止められます。</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last"><a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-debugtoolbar/en/latest/index.html#overview" title="(in pyramid_debugtoolbar v4.5)"><span class="xref std std-ref">pyramid_debugtoolbar</span></a> も参照してください。</p>
+</div>
+</div>
+<div class="section" id="extra-credit">
+<h2>エクストラクレジット(Extra credit)<a class="headerlink" href="#extra-credit" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">なぜ「pyramid_debugtoolbar」を「debugtoolbar/setup.py」の依存関係のリスト「install_requires」に 追加しないのですか？</p>
+</li>
+<li><p class="first">アプリケーションにバグを導入してください。変更は:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;&lt;body&gt;&lt;h1&gt;Hello World!&lt;/h1&gt;&lt;/body&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>から:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">xResponse</span><span class="p">(</span><span class="s1">&#39;&lt;body&gt;&lt;h1&gt;Hello World!&lt;/h1&gt;&lt;/body&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>保存して、<a class="reference external" href="http://localhost:654/">http://localhost:654/</a> に再度アクセスしてください。素晴らしいトレースバック表示に注目してください。一番下の行で、右の 「screen」アイコンをクリックし、「request」変数と「Response」変数を入力してみてください。それ以外に何が見つかりますか？</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">04:「debugtoolbar」を使った簡単な開発( 04: Easier Development with <code class="docutils literal notranslate"><span class="pre">debugtoolbar</span></code> )</a><ul>
+<li><a class="reference internal" href="#background">背景(Background)</a></li>
+<li><a class="reference internal" href="#objectives">目標(Objectives)</a></li>
+<li><a class="reference internal" href="#steps">手順(Steps)</a></li>
+<li><a class="reference internal" href="#analysis">分析(Analysis)</a></li>
+<li><a class="reference internal" href="#extra-credit">エクストラクレジット(Extra credit)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="ini.html"
+                        title="前の章へ">03：.iniファイルを使ったアプリケーションの設定(03: Application Configuration with <code class="docutils literal notranslate"><span class="pre">.ini</span></code> Files)</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="unit_testing.html"
+                        title="次の章へ">05: ユニットテストとpytest(05: Unit Tests and <code class="docutils literal notranslate"><span class="pre">pytest</span></code> )</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/quick_tutorial/debugtoolbar.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="unit_testing.html" title="05: ユニットテストとpytest(05: Unit Tests and pytest )"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="ini.html" title="03：.iniファイルを使ったアプリケーションの設定(03: Application Configuration with .ini Files)"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
+    </div>
+  </body>
+</html>

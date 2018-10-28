@@ -1,0 +1,366 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.compat &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="pyramid.config" href="config.html" />
+    <link rel="prev" title="pyramid.authorization" href="authorization.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="config.html" title="pyramid.config"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="authorization.html" title="pyramid.authorization"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pyramid-compat">
+<span id="compat-module"></span><h1><a class="reference internal" href="#module-pyramid.compat" title="pyramid.compat"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.compat</span></code></a><a class="headerlink" href="#pyramid-compat" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyramid.compat</span></code> module provides platform and version compatibility for
+Pyramid and its add-ons across Python platform and version differences.  APIs
+will be removed from this module over time as Pyramid ceases to support
+systems which require compatibility imports.</p>
+<span class="target" id="module-pyramid.compat"></span><dl class="function">
+<dt id="pyramid.compat.ascii_native_">
+<code class="descname">ascii_native_</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/compat.html#ascii_native_"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.ascii_native_" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Python 3: If <code class="docutils literal notranslate"><span class="pre">s</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">text_type</span></code>, return
+<code class="docutils literal notranslate"><span class="pre">s.encode('ascii')</span></code>, otherwise return <code class="docutils literal notranslate"><span class="pre">str(s,</span> <span class="pre">'ascii',</span> <span class="pre">'strict')</span></code></p>
+<p>Python 2: If <code class="docutils literal notranslate"><span class="pre">s</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">text_type</span></code>, return
+<code class="docutils literal notranslate"><span class="pre">s.encode('ascii')</span></code>, otherwise return <code class="docutils literal notranslate"><span class="pre">str(s)</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.binary_type">
+<code class="descname">binary_type</code><a class="headerlink" href="#pyramid.compat.binary_type" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Binary type for this platform.  For Python 3, it's <code class="docutils literal notranslate"><span class="pre">bytes</span></code>.  For
+Python 2, it's <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.bytes_">
+<code class="descname">bytes_</code><span class="sig-paren">(</span><em>s</em>, <em>encoding='latin-1'</em>, <em>errors='strict'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/compat.html#bytes_"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.bytes_" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>If <code class="docutils literal notranslate"><span class="pre">s</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">text_type</span></code>, return
+<code class="docutils literal notranslate"><span class="pre">s.encode(encoding,</span> <span class="pre">errors)</span></code>, otherwise return <code class="docutils literal notranslate"><span class="pre">s</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.class_types">
+<code class="descname">class_types</code><a class="headerlink" href="#pyramid.compat.class_types" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Sequence of class types for this platform.  For Python 3, it's
+<code class="docutils literal notranslate"><span class="pre">(type,)</span></code>.  For Python 2, it's <code class="docutils literal notranslate"><span class="pre">(type,</span> <span class="pre">types.ClassType)</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.configparser">
+<code class="descname">configparser</code><a class="headerlink" href="#pyramid.compat.configparser" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>On Python 2, the <code class="docutils literal notranslate"><span class="pre">ConfigParser</span></code> module, on Python 3, the
+<code class="docutils literal notranslate"><span class="pre">configparser</span></code> module.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.escape">
+<code class="descname">escape</code><span class="sig-paren">(</span><em>v</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/html.html#escape"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.escape" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>On Python 2, the <code class="docutils literal notranslate"><span class="pre">cgi.escape</span></code> function, on Python 3, the
+<code class="docutils literal notranslate"><span class="pre">html.escape</span></code> function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.exec_">
+<code class="descname">exec_</code><span class="sig-paren">(</span><em>code</em>, <em>globs=None</em>, <em>locs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.compat.exec_" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Exec code in a compatible way on both Python 2 and 3.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.im_func">
+<code class="descname">im_func</code><a class="headerlink" href="#pyramid.compat.im_func" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>On Python 2, the string value <code class="docutils literal notranslate"><span class="pre">im_func</span></code>, on Python 3, the string
+value <code class="docutils literal notranslate"><span class="pre">__func__</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.input_">
+<code class="descname">input_</code><span class="sig-paren">(</span><em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.compat.input_" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>On Python 2, the <code class="docutils literal notranslate"><span class="pre">raw_input</span></code> function, on Python 3, the
+<code class="docutils literal notranslate"><span class="pre">input</span></code> function.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.integer_types">
+<code class="descname">integer_types</code><a class="headerlink" href="#pyramid.compat.integer_types" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Sequence of integer types for this platform.  For Python 3, it's
+<code class="docutils literal notranslate"><span class="pre">(int,)</span></code>.  For Python 2, it's <code class="docutils literal notranslate"><span class="pre">(int,</span> <span class="pre">long)</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.is_nonstr_iter">
+<code class="descname">is_nonstr_iter</code><span class="sig-paren">(</span><em>v</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/compat.html#is_nonstr_iter"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.is_nonstr_iter" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">v</span></code> is a non-<code class="docutils literal notranslate"><span class="pre">str</span></code> iterable on both Python 2 and
+Python 3.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.iteritems_">
+<code class="descname">iteritems_</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/compat.html#iteritems_"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.iteritems_" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">d.items()</span></code> on Python 3, <code class="docutils literal notranslate"><span class="pre">d.iteritems()</span></code> on Python 2.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.itervalues_">
+<code class="descname">itervalues_</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/compat.html#itervalues_"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.itervalues_" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">d.values()</span></code> on Python 3, <code class="docutils literal notranslate"><span class="pre">d.itervalues()</span></code> on Python 2.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.iterkeys_">
+<code class="descname">iterkeys_</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/compat.html#iterkeys_"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.iterkeys_" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">d.keys()</span></code> on Python 3, <code class="docutils literal notranslate"><span class="pre">d.iterkeys()</span></code> on Python 2.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.long">
+<code class="descname">long</code><a class="headerlink" href="#pyramid.compat.long" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Long type for this platform.  For Python 3, it's <code class="docutils literal notranslate"><span class="pre">int</span></code>.  For
+Python 2, it's <code class="docutils literal notranslate"><span class="pre">long</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.map_">
+<code class="descname">map_</code><span class="sig-paren">(</span><em>v</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/compat.html#map_"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.map_" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">list(map(v))</span></code> on Python 3, <code class="docutils literal notranslate"><span class="pre">map(v)</span></code> on Python 2.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.pickle">
+<code class="descname">pickle</code><a class="headerlink" href="#pyramid.compat.pickle" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">cPickle</span></code> module if it exists, <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module otherwise.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.PY3">
+<code class="descname">PY3</code><a class="headerlink" href="#pyramid.compat.PY3" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if running on Python 3, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.PYPY">
+<code class="descname">PYPY</code><a class="headerlink" href="#pyramid.compat.PYPY" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if running on PyPy, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.reraise">
+<code class="descname">reraise</code><span class="sig-paren">(</span><em>tp</em>, <em>value</em>, <em>tb=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/compat.html#reraise"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.reraise" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Reraise an exception in a compatible way on both Python 2 and Python 3,
+e.g. <code class="docutils literal notranslate"><span class="pre">reraise(*sys.exc_info())</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.string_types">
+<code class="descname">string_types</code><a class="headerlink" href="#pyramid.compat.string_types" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Sequence of string types for this platform.  For Python 3, it's
+<code class="docutils literal notranslate"><span class="pre">(str,)</span></code>.  For Python 2, it's <code class="docutils literal notranslate"><span class="pre">(basestring,)</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.SimpleCookie">
+<code class="descname">SimpleCookie</code><a class="reference internal" href="../_modules/http/cookies.html#SimpleCookie"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.SimpleCookie" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>On Python 2, the <code class="docutils literal notranslate"><span class="pre">Cookie.SimpleCookie</span></code> class, on Python 3, the
+<code class="docutils literal notranslate"><span class="pre">http.cookies.SimpleCookie</span></code> module.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.text_">
+<code class="descname">text_</code><span class="sig-paren">(</span><em>s</em>, <em>encoding='latin-1'</em>, <em>errors='strict'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/compat.html#text_"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.text_" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>If <code class="docutils literal notranslate"><span class="pre">s</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">binary_type</span></code>, return
+<code class="docutils literal notranslate"><span class="pre">s.decode(encoding,</span> <span class="pre">errors)</span></code>, otherwise return <code class="docutils literal notranslate"><span class="pre">s</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.text_type">
+<code class="descname">text_type</code><a class="headerlink" href="#pyramid.compat.text_type" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Text type for this platform.  For Python 3, it's <code class="docutils literal notranslate"><span class="pre">str</span></code>.  For Python
+2, it's <code class="docutils literal notranslate"><span class="pre">unicode</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.native_">
+<code class="descname">native_</code><span class="sig-paren">(</span><em>s</em>, <em>encoding='latin-1'</em>, <em>errors='strict'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/compat.html#native_"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.compat.native_" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Python 3: If <code class="docutils literal notranslate"><span class="pre">s</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">text_type</span></code>, return <code class="docutils literal notranslate"><span class="pre">s</span></code>, otherwise
+return <code class="docutils literal notranslate"><span class="pre">str(s,</span> <span class="pre">encoding,</span> <span class="pre">errors)</span></code></p>
+<p>Python 2: If <code class="docutils literal notranslate"><span class="pre">s</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">text_type</span></code>, return
+<code class="docutils literal notranslate"><span class="pre">s.encode(encoding,</span> <span class="pre">errors)</span></code>, otherwise return <code class="docutils literal notranslate"><span class="pre">str(s)</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.urlparse">
+<code class="descname">urlparse</code><a class="headerlink" href="#pyramid.compat.urlparse" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">urlparse</span></code> module on Python 2, <code class="docutils literal notranslate"><span class="pre">urllib.parse</span></code> module on Python 3.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.url_quote">
+<code class="descname">url_quote</code><a class="headerlink" href="#pyramid.compat.url_quote" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">urllib.quote</span></code> function on Python 2, <code class="docutils literal notranslate"><span class="pre">urllib.parse.quote</span></code> function
+on Python 3.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.url_quote_plus">
+<code class="descname">url_quote_plus</code><a class="headerlink" href="#pyramid.compat.url_quote_plus" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">urllib.quote_plus</span></code> function on Python 2, <code class="docutils literal notranslate"><span class="pre">urllib.parse.quote_plus</span></code>
+function on Python 3.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.url_unquote">
+<code class="descname">url_unquote</code><a class="headerlink" href="#pyramid.compat.url_unquote" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">urllib.unquote</span></code> function on Python 2, <code class="docutils literal notranslate"><span class="pre">urllib.parse.unquote</span></code>
+function on Python 3.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.url_encode">
+<code class="descname">url_encode</code><a class="headerlink" href="#pyramid.compat.url_encode" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">urllib.urlencode</span></code> function on Python 2, <code class="docutils literal notranslate"><span class="pre">urllib.parse.urlencode</span></code>
+function on Python 3.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyramid.compat.url_open">
+<code class="descname">url_open</code><a class="headerlink" href="#pyramid.compat.url_open" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">urllib2.urlopen</span></code> function on Python 2, <code class="docutils literal notranslate"><span class="pre">urllib.request.urlopen</span></code>
+function on Python 3.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.url_unquote_text">
+<code class="descname">url_unquote_text</code><span class="sig-paren">(</span><em>v</em>, <em>encoding='utf-8'</em>, <em>errors='replace'</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.compat.url_unquote_text" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>On Python 2, return <code class="docutils literal notranslate"><span class="pre">url_unquote(v).decode(encoding(encoding,</span> <span class="pre">errors))</span></code>;
+on Python 3, return the result of <code class="docutils literal notranslate"><span class="pre">urllib.parse.unquote</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyramid.compat.url_unquote_native">
+<code class="descname">url_unquote_native</code><span class="sig-paren">(</span><em>v</em>, <em>encoding='utf-8'</em>, <em>errors='replace'</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.compat.url_unquote_native" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>On Python 2, return <code class="docutils literal notranslate"><span class="pre">native_(url_unquote_text_v,</span> <span class="pre">encoding,</span> <span class="pre">errors))</span></code>;
+on Python 3, return the result of <code class="docutils literal notranslate"><span class="pre">urllib.parse.unquote</span></code>.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="authorization.html"
+                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.authorization</span></code></a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="config.html"
+                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.config</span></code></a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/compat.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="config.html" title="pyramid.config"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="authorization.html" title="pyramid.authorization"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
+    </div>
+  </body>
+</html>

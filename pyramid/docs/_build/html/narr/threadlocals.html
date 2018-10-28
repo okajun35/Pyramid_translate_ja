@@ -1,0 +1,263 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Thread Locals &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="Using the Zope Component Architecture in Pyramid" href="zca.html" />
+    <link rel="prev" title="Upgrading Pyramid" href="upgrading.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="zca.html" title="Using the Zope Component Architecture in Pyramid"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="upgrading.html" title="Upgrading Pyramid"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="thread-locals">
+<span id="threadlocals-chapter"></span><span id="index-0"></span><h1>Thread Locals<a class="headerlink" href="#thread-locals" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>A <a class="reference internal" href="../glossary.html#term-thread-local"><span class="xref std std-term">thread local</span></a> variable is a variable that appears to be a &quot;global&quot;
+variable to an application which uses it.  However, unlike a true global
+variable, one thread or process serving the application may receive a different
+value than another thread or process when that variable is &quot;thread local&quot;.</p>
+<p>When a request is processed, <span>Pyramid</span> makes two <a class="reference internal" href="../glossary.html#term-thread-local"><span class="xref std std-term">thread local</span></a>
+variables available to the application: a &quot;registry&quot; and a &quot;request&quot;.</p>
+<div class="section" id="why-and-how-pyramid-uses-thread-local-variables">
+<h2>Why and How <span>Pyramid</span> Uses Thread Local Variables<a class="headerlink" href="#why-and-how-pyramid-uses-thread-local-variables" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>How are thread locals beneficial to <span>Pyramid</span> and application developers
+who use <span>Pyramid</span>?  Well, usually they're decidedly <strong>not</strong>.  Using a
+global or a thread local variable in any application usually makes it a lot
+harder to understand for a casual reader.  Use of a thread local or a global is
+usually just a way to avoid passing some value around between functions, which
+is itself usually a very bad idea, at least if code readability counts as an
+important concern.</p>
+<p>For historical reasons, however, thread local variables are indeed consulted by
+various <span>Pyramid</span> API functions.  For example, the implementation of the
+<a class="reference internal" href="../api/security.html#module-pyramid.security" title="pyramid.security"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.security</span></code></a> function named
+<a class="reference internal" href="../api/security.html#pyramid.security.authenticated_userid" title="pyramid.security.authenticated_userid"><code class="xref py py-func docutils literal notranslate"><span class="pre">authenticated_userid()</span></code></a> (deprecated as of 1.5) retrieves
+the thread local <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> as a matter of course to find an
+<a class="reference internal" href="../glossary.html#term-authentication-policy"><span class="xref std std-term">authentication policy</span></a>.  It uses the
+<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.threadlocal.get_current_registry()</span></code></a> function to retrieve the
+application registry, from which it looks up the authentication policy; it then
+uses the authentication policy to retrieve the authenticated user id.  This is
+how <span>Pyramid</span> allows arbitrary authentication policies to be &quot;plugged in&quot;.</p>
+<p>When they need to do so, <span>Pyramid</span> internals use two API functions to
+retrieve the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> and <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a>:
+<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a> and
+<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_registry()</span></code></a>.  The former returns the
+&quot;current&quot; request; the latter returns the &quot;current&quot; registry.  Both
+<code class="docutils literal notranslate"><span class="pre">get_current_*</span></code> functions retrieve an object from a thread-local data
+structure.  These API functions are documented in <a class="reference internal" href="../api/threadlocal.html#threadlocal-module"><span class="std std-ref">pyramid.threadlocal</span></a>.</p>
+<p>These values are thread locals rather than true globals because one Python
+process may be handling multiple simultaneous requests or even multiple
+<span>Pyramid</span> applications.  If they were true globals, <span>Pyramid</span> could
+not handle multiple simultaneous requests or allow more than one <span>Pyramid</span>
+application instance to exist in a single Python process.</p>
+<p>Because one <span>Pyramid</span> application is permitted to call <em>another</em>
+<span>Pyramid</span> application from its own <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> code (perhaps as a
+<a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> app with help from the <a class="reference internal" href="../api/wsgi.html#pyramid.wsgi.wsgiapp2" title="pyramid.wsgi.wsgiapp2"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.wsgi.wsgiapp2()</span></code></a> decorator),
+these variables are managed in a <em>stack</em> during normal system operations.  The
+stack instance itself is a <a class="reference external" href="https://docs.python.org/3/library/threading.html#threading.local" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">threading.local</span></code></a>.</p>
+<p>During normal operations, the thread locals stack is managed by a
+<a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">Router</span></a> object.  At the beginning of a request, the Router pushes the
+application's registry and the request on to the stack.  At the end of a
+request, the stack is popped.  The topmost request and registry on the stack
+are considered &quot;current&quot;.  Therefore, when the system is operating normally,
+the very definition of &quot;current&quot; is defined entirely by the behavior of a
+pyramid <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">Router</span></a>.</p>
+<p>However, during unit testing, no Router code is ever invoked, and the
+definition of &quot;current&quot; is defined by the boundary between calls to the
+<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.begin" title="pyramid.config.Configurator.begin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.begin()</span></code></a> and
+<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.end" title="pyramid.config.Configurator.end"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.end()</span></code></a> methods (or between calls to the
+<a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.setUp()</span></code></a> and <a class="reference internal" href="../api/testing.html#pyramid.testing.tearDown" title="pyramid.testing.tearDown"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.tearDown()</span></code></a> functions).
+These functions push and pop the threadlocal stack when the system is under
+test.  See <a class="reference internal" href="testing.html#test-setup-and-teardown"><span class="std std-ref">Test Set Up and Tear Down</span></a> for the definitions of these
+functions.</p>
+<p>Scripts which use <span>Pyramid</span> machinery but never actually start a WSGI
+server or receive requests via HTTP, such as scripts which use the
+<a class="reference internal" href="../api/scripting.html#module-pyramid.scripting" title="pyramid.scripting"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.scripting</span></code></a> API, will never cause any Router code to be executed.
+However, the <a class="reference internal" href="../api/scripting.html#module-pyramid.scripting" title="pyramid.scripting"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.scripting</span></code></a> APIs also push some values on to the
+thread locals stack as a matter of course. Such scripts should expect the
+<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a> function to always return
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, and should expect the
+<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_registry()</span></code></a> function to return exactly
+the same <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> for every request.</p>
+</div>
+<div class="section" id="why-you-shouldn-t-abuse-thread-locals">
+<h2>Why You Shouldn't Abuse Thread Locals<a class="headerlink" href="#why-you-shouldn-t-abuse-thread-locals" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>You probably should almost never use the
+<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a> or
+<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_registry()</span></code></a> functions, except perhaps in
+tests.  In particular, it's almost always a mistake to use
+<code class="docutils literal notranslate"><span class="pre">get_current_request</span></code> or <code class="docutils literal notranslate"><span class="pre">get_current_registry</span></code> in application code because
+its usage makes it possible to write code that can be neither easily tested nor
+scripted.  Inappropriate usage is defined as follows:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">get_current_request</span></code> should never be called within the body of a
+<a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>, or within code called by a view callable. View
+callables already have access to the request (it's passed in to each as
+<code class="docutils literal notranslate"><span class="pre">request</span></code>).</li>
+<li><code class="docutils literal notranslate"><span class="pre">get_current_request</span></code> should never be called in <a class="reference internal" href="../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> code. If a
+resource needs access to the request, it should be passed the request by a
+<a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">get_current_request</span></code> function should never be called because it's &quot;easier&quot;
+or &quot;more elegant&quot; to think about calling it than to pass a request through a
+series of function calls when creating some API design.  Your application
+should instead, almost certainly, pass around data derived from the request
+rather than relying on being able to call this function to obtain the request
+in places that actually have no business knowing about it.  Parameters are
+<em>meant</em> to be passed around as function arguments; this is why they exist.
+Don't try to &quot;save typing&quot; or create &quot;nicer APIs&quot; by using this function in
+the place where a request is required; this will only lead to sadness later.</li>
+<li>Neither <code class="docutils literal notranslate"><span class="pre">get_current_request</span></code> nor <code class="docutils literal notranslate"><span class="pre">get_current_registry</span></code> should ever be
+called within application-specific forks of third-party library code.  The
+library you've forked almost certainly has nothing to do with <span>Pyramid</span>,
+and making it dependent on <span>Pyramid</span> (rather than making your
+<span>pyramid</span> application depend upon it) means you're forming a dependency
+in the wrong direction.</li>
+</ul>
+<p>Use of the <a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a> function in
+application code <em>is</em> still useful in very limited circumstances. As a rule of
+thumb, usage of <code class="docutils literal notranslate"><span class="pre">get_current_request</span></code> is useful <strong>within code which is meant
+to eventually be removed</strong>.  For instance, you may find yourself wanting to
+deprecate some API that expects to be passed a request object in favor of one
+that does not expect to be passed a request object.  But you need to keep
+implementations of the old API working for some period of time while you
+deprecate the older API.  So you write a &quot;facade&quot; implementation of the new API
+which calls into the code which implements the older API.  Since the new API
+does not require the request, your facade implementation doesn't have local
+access to the request when it needs to pass it into the older API
+implementation.  After some period of time, the older implementation code is
+disused and the hack that uses <code class="docutils literal notranslate"><span class="pre">get_current_request</span></code> is removed.  This would
+be an appropriate place to use the <code class="docutils literal notranslate"><span class="pre">get_current_request</span></code>.</p>
+<p>Use of the <a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_registry()</span></code></a> function should be
+limited to testing scenarios.  The registry made current by use of the
+<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.begin" title="pyramid.config.Configurator.begin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.begin()</span></code></a> method during a test (or via
+<a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.setUp()</span></code></a>) when you do not pass one in is available to you
+via this API.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Thread Locals</a><ul>
+<li><a class="reference internal" href="#why-and-how-pyramid-uses-thread-local-variables">Why and How <span>Pyramid</span> Uses Thread Local Variables</a></li>
+<li><a class="reference internal" href="#why-you-shouldn-t-abuse-thread-locals">Why You Shouldn't Abuse Thread Locals</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="upgrading.html"
+                        title="前の章へ">Upgrading Pyramid</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="zca.html"
+                        title="次の章へ">Using the Zope Component Architecture in <span>Pyramid</span></a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/narr/threadlocals.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="zca.html" title="Using the Zope Component Architecture in Pyramid"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="upgrading.html" title="Upgrading Pyramid"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
+    </div>
+  </body>
+</html>

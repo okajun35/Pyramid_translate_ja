@@ -1,0 +1,146 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/json.rst:5
+msgid "14: AJAX Development With JSON Renderers"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:7
+msgid ""
+"Modern web apps are more than rendered HTML. Dynamic pages now use "
+"JavaScript to update the UI in the browser by requesting server data as "
+"JSON. Pyramid supports this with a *JSON renderer*."
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:13
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:15
+msgid ""
+"As we saw in :doc:`templating`, view declarations can specify a renderer."
+" Output from the view is then run through the renderer, which generates "
+"and returns the response. We first used a Chameleon renderer, then a "
+"Jinja2 renderer."
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:20
+msgid ""
+"Renderers aren't limited, however, to templates that generate HTML. "
+"Pyramid supplies a JSON renderer which takes Python data, serializes it "
+"to JSON, and performs some other functions such as setting the content "
+"type. In fact you can write your own renderer (or extend a built-in "
+"renderer) containing custom logic for your unique application."
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:28
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:30
+msgid "First we copy the results of the ``view_classes`` step:"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:37
+msgid "We add a new route for ``hello_json`` in ``json/tutorial/__init__.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:42
+msgid ""
+"Rather than implement a new view, we will \"stack\" another decorator on "
+"the ``hello`` view in ``views.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:48
+msgid "We need a new functional test at the end of ``json/tutorial/tests.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:53
+msgid "Run the tests:"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:62
+msgid "Run your Pyramid application with:"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:68
+msgid ""
+"Open http://localhost:6543/howdy.json in your browser and you will see "
+"the resulting JSON response."
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:73
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:75
+msgid ""
+"Earlier we changed our view functions and methods to return Python data. "
+"This change to a data-oriented view layer made test writing easier, "
+"decoupling the templating from the view logic."
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:79
+msgid ""
+"Since Pyramid has a JSON renderer as well as the templating renderers, it"
+" is an easy step to return JSON. In this case we kept the exact same view"
+" and arranged to return a JSON encoding of the view data. We did this by:"
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:83
+msgid "Adding a route to map ``/howdy.json`` to a route name."
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:85
+msgid ""
+"Providing a ``@view_config`` that associated that route name with an "
+"existing view."
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:88
+msgid ""
+"*Overriding* the view defaults in the view config that mentions the "
+"``hello_json`` route, so that when the route is matched, we use the JSON "
+"renderer rather than the ``home.pt`` template renderer that would "
+"otherwise be used."
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:93
+msgid ""
+"In fact, for pure AJAX-style web applications, we could re-use the "
+"existing route by using Pyramid's view predicates to match on the "
+"``Accepts:`` header sent by modern AJAX implementations."
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:97
+msgid ""
+"Pyramid's JSON renderer uses the base Python JSON encoder, thus "
+"inheriting its strengths and weaknesses. For example, Python can't "
+"natively JSON encode DateTime objects. There are a number of solutions "
+"for this in Pyramid, including extending the JSON renderer with a custom "
+"renderer."
+msgstr ""
+
+#: ../../quick_tutorial/json.rst:102
+msgid ""
+":ref:`views_which_use_a_renderer`, :ref:`json_renderer`, and "
+":ref:`adding_and_overriding_renderers`"
+msgstr ""
+

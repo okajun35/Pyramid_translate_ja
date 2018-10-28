@@ -1,0 +1,1021 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../narr/introspector.rst:8
+msgid "Pyramid Configuration Introspection"
+msgstr ""
+
+#: ../../narr/introspector.rst:12
+msgid ""
+"When Pyramid starts up, each call to a :term:`configuration directive` "
+"causes one or more :term:`introspectable` objects to be registered with "
+"an :term:`introspector`.  The introspector can be queried by application "
+"code to obtain information about the configuration of the running "
+"application.  This feature is useful for debug toolbars, command-line "
+"scripts which show some aspect of configuration, and for runtime "
+"reporting of startup-time configuration settings."
+msgstr ""
+
+#: ../../narr/introspector.rst:21
+msgid "Using the Introspector"
+msgstr ""
+
+#: ../../narr/introspector.rst:23
+msgid ""
+"Here's an example of using Pyramid's introspector from within a view "
+"callable:"
+msgstr ""
+
+#: ../../narr/introspector.rst:38
+msgid ""
+"This view will return a response that contains the \"pattern\" argument "
+"provided to the ``add_route`` method of the route which matched when the "
+"view was called.  It uses the "
+":meth:`pyramid.interfaces.IIntrospector.get` method to return an "
+"introspectable in the category ``routes`` with a :term:`discriminator` "
+"equal to the matched route name.  It then uses the returned "
+"introspectable to obtain a \"pattern\" value."
+msgstr ""
+
+#: ../../narr/introspector.rst:45
+msgid ""
+"The introspectable returned by the query methods of the introspector has "
+"methods and attributes described by "
+":class:`pyramid.interfaces.IIntrospectable`.  In particular, the "
+":meth:`~pyramid.interfaces.IIntrospector.get`, "
+":meth:`~pyramid.interfaces.IIntrospector.get_category`, "
+":meth:`~pyramid.interfaces.IIntrospector.categories`, "
+":meth:`~pyramid.interfaces.IIntrospector.categorized`, and "
+":meth:`~pyramid.interfaces.IIntrospector.related` methods of an "
+"introspector can be used to query for introspectables."
+msgstr ""
+
+#: ../../narr/introspector.rst:56
+msgid "Introspectable Objects"
+msgstr ""
+
+#: ../../narr/introspector.rst:58
+msgid ""
+"Introspectable objects are returned from query methods of an "
+"introspector. Each introspectable object implements the attributes and "
+"methods documented at :class:`pyramid.interfaces.IIntrospectable`."
+msgstr ""
+
+#: ../../narr/introspector.rst:62
+msgid "The important attributes shared by all introspectables are the following:"
+msgstr ""
+
+#: ../../narr/introspector.rst:64
+msgid "``title``"
+msgstr ""
+
+#: ../../narr/introspector.rst:66
+msgid "A human-readable text title describing the introspectable"
+msgstr ""
+
+#: ../../narr/introspector.rst:68
+msgid "``category_name``"
+msgstr ""
+
+#: ../../narr/introspector.rst:70
+msgid ""
+"A text category name describing the introspection category to which this "
+"introspectable belongs.  It is often a plural if there are expected to be"
+" more than one introspectable registered within the category."
+msgstr ""
+
+#: ../../narr/introspector.rst:74
+msgid "``discriminator``"
+msgstr ""
+
+#: ../../narr/introspector.rst:76
+msgid ""
+"A hashable object representing the unique value of this introspectable "
+"within its category."
+msgstr ""
+
+#: ../../narr/introspector.rst:79
+msgid "``discriminator_hash``"
+msgstr ""
+
+#: ../../narr/introspector.rst:81
+msgid "The integer hash of the discriminator (useful in HTML links)."
+msgstr ""
+
+#: ../../narr/introspector.rst:83
+msgid "``type_name``"
+msgstr ""
+
+#: ../../narr/introspector.rst:85
+msgid ""
+"The text name of a subtype within this introspectable's category.  If "
+"there is only one type name in this introspectable's category, this value"
+" will often be a singular version of the category name but it can be an "
+"arbitrary value."
+msgstr ""
+
+#: ../../narr/introspector.rst:90
+msgid "``action_info``"
+msgstr ""
+
+#: ../../narr/introspector.rst:92
+msgid ""
+"An object describing the directive call site which caused this "
+"introspectable to be registered.  It contains attributes described in "
+":class:`pyramid.interfaces.IActionInfo`."
+msgstr ""
+
+#: ../../narr/introspector.rst:96
+msgid ""
+"Besides having the attributes described above, an introspectable is a "
+"dictionary-like object.  An introspectable can be queried for data values"
+" via its ``__getitem__``, ``get``, ``keys``, ``values``, or ``items`` "
+"methods. For example:"
+msgstr ""
+
+#: ../../narr/introspector.rst:108
+msgid "Pyramid Introspection Categories"
+msgstr ""
+
+#: ../../narr/introspector.rst:110
+msgid ""
+"The list of concrete introspection categories provided by built-in "
+"Pyramid configuration directives follows.  Add-on packages may supply "
+"other introspectables in categories not described here."
+msgstr ""
+
+#: ../../narr/introspector.rst:114
+msgid "``subscribers``"
+msgstr ""
+
+#: ../../narr/introspector.rst:116
+msgid ""
+"Each introspectable in the ``subscribers`` category represents a call to "
+":meth:`pyramid.config.Configurator.add_subscriber` (or the decorator "
+"equivalent).  Each will have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:120
+msgid "``subscriber``"
+msgstr ""
+
+#: ../../narr/introspector.rst:122
+msgid ""
+"The subscriber callable object (the resolution of the ``subscriber`` "
+"argument passed to ``add_subscriber``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:125
+msgid "``interfaces``"
+msgstr ""
+
+#: ../../narr/introspector.rst:127
+msgid ""
+"A sequence of interfaces (or classes) that are subscribed to (the "
+"resolution of the ``ifaces`` argument passed to ``add_subscriber``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:130
+msgid "``derived_subscriber``"
+msgstr ""
+
+#: ../../narr/introspector.rst:132
+msgid ""
+"A wrapper around the subscriber used internally by the system so it can "
+"call it with more than one argument if your original subscriber accepts "
+"only one."
+msgstr ""
+
+#: ../../narr/introspector.rst:136
+msgid "``predicates``"
+msgstr ""
+
+#: ../../narr/introspector.rst:138
+msgid ""
+"The predicate objects created as the result of passing predicate "
+"arguments to ``add_subscriber``."
+msgstr ""
+
+#: ../../narr/introspector.rst:141
+msgid "``derived_predicates``"
+msgstr ""
+
+#: ../../narr/introspector.rst:143
+msgid ""
+"Wrappers around the predicate objects created as the result of passing "
+"predicate arguments to ``add_subscriber`` (to be used when predicates "
+"take only one value but must be passed more than one)."
+msgstr ""
+
+#: ../../narr/introspector.rst:147
+msgid "``response adapters``"
+msgstr ""
+
+#: ../../narr/introspector.rst:149
+msgid ""
+"Each introspectable in the ``response adapters`` category represents a "
+"call to :meth:`pyramid.config.Configurator.add_response_adapter` (or a "
+"decorator equivalent).  Each will have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:153 ../../narr/introspector.rst:571
+#: ../../narr/introspector.rst:581
+msgid "``adapter``"
+msgstr ""
+
+#: ../../narr/introspector.rst:155
+msgid ""
+"The adapter object (the resolved ``adapter`` argument to "
+"``add_response_adapter``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:158 ../../narr/introspector.rst:466
+#: ../../narr/introspector.rst:533
+msgid "``type``"
+msgstr ""
+
+#: ../../narr/introspector.rst:160
+msgid ""
+"The resolved ``type_or_iface`` argument passed to "
+"``add_response_adapter``."
+msgstr ""
+
+#: ../../narr/introspector.rst:162
+msgid "``root factories``"
+msgstr ""
+
+#: ../../narr/introspector.rst:164
+msgid ""
+"Each introspectable in the ``root factories`` category represents a call "
+"to :meth:`pyramid.config.Configurator.set_root_factory` (or the "
+"Configurator constructor equivalent) *or* a ``factory`` argument passed "
+"to :meth:`pyramid.config.Configurator.add_route`.  Each will have the "
+"following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:170 ../../narr/introspector.rst:188
+#: ../../narr/introspector.rst:200 ../../narr/introspector.rst:228
+#: ../../narr/introspector.rst:246 ../../narr/introspector.rst:529
+msgid "``factory``"
+msgstr ""
+
+#: ../../narr/introspector.rst:172
+msgid ""
+"The factory object (the resolved ``factory`` argument to "
+"``set_root_factory``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:175 ../../narr/introspector.rst:393
+msgid "``route_name``"
+msgstr ""
+
+#: ../../narr/introspector.rst:177
+msgid ""
+"The name of the route which will use this factory.  If this is the "
+"*default* root factory (if it's registered during a call to "
+"``set_root_factory``), this value will be ``None``."
+msgstr ""
+
+#: ../../narr/introspector.rst:181
+msgid "``session factory``"
+msgstr ""
+
+#: ../../narr/introspector.rst:183
+msgid ""
+"Only one introspectable will exist in the ``session factory`` category.  "
+"It represents a call to "
+":meth:`pyramid.config.Configurator.set_session_factory` (or the "
+"Configurator constructor equivalent).  It will have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:190
+msgid ""
+"The factory object (the resolved ``factory`` argument to "
+"``set_session_factory``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:193
+msgid "``request factory``"
+msgstr ""
+
+#: ../../narr/introspector.rst:195
+msgid ""
+"Only one introspectable will exist in the ``request factory`` category.  "
+"It represents a call to "
+":meth:`pyramid.config.Configurator.set_request_factory` (or the "
+"Configurator constructor equivalent).  It will have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:202
+msgid ""
+"The factory object (the resolved ``factory`` argument to "
+"``set_request_factory``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:205
+msgid "``locale negotiator``"
+msgstr ""
+
+#: ../../narr/introspector.rst:207
+msgid ""
+"Only one introspectable will exist in the ``locale negotiator`` category."
+"  It represents a call to "
+":meth:`pyramid.config.Configurator.set_locale_negotiator` (or the "
+"Configurator constructor equivalent).  It will have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:212
+msgid "``negotiator``"
+msgstr ""
+
+#: ../../narr/introspector.rst:214
+msgid ""
+"The factory object (the resolved ``negotiator`` argument to "
+"``set_locale_negotiator``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:217
+msgid "``renderer factories``"
+msgstr ""
+
+#: ../../narr/introspector.rst:219
+msgid ""
+"Each introspectable in the ``renderer factories`` category represents a "
+"call to :meth:`pyramid.config.Configurator.add_renderer` (or the "
+"Configurator constructor equivalent).  Each will have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:223 ../../narr/introspector.rst:238
+#: ../../narr/introspector.rst:371 ../../narr/introspector.rst:462
+#: ../../narr/introspector.rst:524 ../../narr/introspector.rst:551
+msgid "``name``"
+msgstr ""
+
+#: ../../narr/introspector.rst:225
+msgid ""
+"The name of the renderer (the value of the ``name`` argument to "
+"``add_renderer``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:230
+msgid ""
+"The factory object (the resolved ``factory`` argument to "
+"``add_renderer``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:232
+msgid "``routes``"
+msgstr ""
+
+#: ../../narr/introspector.rst:234
+msgid ""
+"Each introspectable in the ``routes`` category represents a call to "
+":meth:`pyramid.config.Configurator.add_route`.  Each will have the "
+"following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:240
+msgid "The ``name`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:242
+msgid "``pattern``"
+msgstr ""
+
+#: ../../narr/introspector.rst:244
+msgid "The ``pattern`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:248
+msgid "The (resolved) ``factory`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:250 ../../narr/introspector.rst:401
+msgid "``xhr``"
+msgstr ""
+
+#: ../../narr/introspector.rst:252
+msgid "The ``xhr`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:254
+msgid "``request_method``"
+msgstr ""
+
+#: ../../narr/introspector.rst:256
+msgid "The ``request_method`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:258 ../../narr/introspector.rst:387
+msgid "``request_methods``"
+msgstr ""
+
+#: ../../narr/introspector.rst:260
+msgid ""
+"A sequence of request method names implied by the ``request_method`` "
+"argument passed to ``add_route`` or the value ``None`` if a "
+"``request_method`` argument was not supplied."
+msgstr ""
+
+#: ../../narr/introspector.rst:264 ../../narr/introspector.rst:413
+msgid "``path_info``"
+msgstr ""
+
+#: ../../narr/introspector.rst:266
+msgid "The ``path_info`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:268 ../../narr/introspector.rst:383
+msgid "``request_param``"
+msgstr ""
+
+#: ../../narr/introspector.rst:270
+msgid "The ``request_param`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:272 ../../narr/introspector.rst:357
+#: ../../narr/introspector.rst:409
+msgid "``header``"
+msgstr ""
+
+#: ../../narr/introspector.rst:274
+msgid "The ``header`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:276 ../../narr/introspector.rst:405
+msgid "``accept``"
+msgstr ""
+
+#: ../../narr/introspector.rst:278
+msgid "The ``accept`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:280
+msgid "``traverse``"
+msgstr ""
+
+#: ../../narr/introspector.rst:282
+msgid "The ``traverse`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:284
+msgid "``custom_predicates``"
+msgstr ""
+
+#: ../../narr/introspector.rst:286
+msgid "The ``custom_predicates`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:288
+msgid "``pregenerator``"
+msgstr ""
+
+#: ../../narr/introspector.rst:290
+msgid "The ``pregenerator`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:292
+msgid "``static``"
+msgstr ""
+
+#: ../../narr/introspector.rst:294
+msgid "The ``static`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:296
+msgid "``use_global_views``"
+msgstr ""
+
+#: ../../narr/introspector.rst:298
+msgid "The ``use_global_views`` argument passed to ``add_route``."
+msgstr ""
+
+#: ../../narr/introspector.rst:300
+msgid "``object``"
+msgstr ""
+
+#: ../../narr/introspector.rst:302
+msgid ""
+"The :class:`pyramid.interfaces.IRoute` object that is used to perform "
+"matching and generation for this route."
+msgstr ""
+
+#: ../../narr/introspector.rst:305
+msgid "``authentication policy``"
+msgstr ""
+
+#: ../../narr/introspector.rst:307
+msgid ""
+"There will be one and only one introspectable in the ``authentication "
+"policy`` category.  It represents a call to the "
+":meth:`pyramid.config.Configurator.set_authentication_policy` method (or "
+"its Configurator constructor equivalent).  It will have the following "
+"data."
+msgstr ""
+
+#: ../../narr/introspector.rst:312 ../../narr/introspector.rst:324
+msgid "``policy``"
+msgstr ""
+
+#: ../../narr/introspector.rst:314
+msgid ""
+"The policy object (the resolved ``policy`` argument to "
+"``set_authentication_policy``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:317
+msgid "``authorization policy``"
+msgstr ""
+
+#: ../../narr/introspector.rst:319
+msgid ""
+"There will be one and only one introspectable in the ``authorization "
+"policy`` category.  It represents a call to the "
+":meth:`pyramid.config.Configurator.set_authorization_policy` method (or "
+"its Configurator constructor equivalent).  It will have the following "
+"data."
+msgstr ""
+
+#: ../../narr/introspector.rst:326
+msgid ""
+"The policy object (the resolved ``policy`` argument to "
+"``set_authorization_policy``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:329
+msgid "``default permission``"
+msgstr ""
+
+#: ../../narr/introspector.rst:331
+msgid ""
+"There will be one and only one introspectable in the ``default "
+"permission`` category.  It represents a call to the "
+":meth:`pyramid.config.Configurator.set_default_permission` method (or its"
+" Configurator constructor equivalent).  It will have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:336 ../../narr/introspector.rst:452
+msgid "``value``"
+msgstr ""
+
+#: ../../narr/introspector.rst:338
+msgid "The permission name passed to ``set_default_permission``."
+msgstr ""
+
+#: ../../narr/introspector.rst:340
+msgid "``default csrf options``"
+msgstr ""
+
+#: ../../narr/introspector.rst:342
+msgid ""
+"There will be one and only one introspectable in the ``default csrf "
+"options`` category. It represents a call to the "
+":meth:`pyramid.config.Configurator.set_default_csrf_options` method. It "
+"will have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:347
+msgid "``require_csrf``"
+msgstr ""
+
+#: ../../narr/introspector.rst:349
+msgid ""
+"The default value for ``require_csrf`` if left unspecified on calls to "
+":meth:`pyramid.config.Configurator.add_view`."
+msgstr ""
+
+#: ../../narr/introspector.rst:352
+msgid "``token``"
+msgstr ""
+
+#: ../../narr/introspector.rst:354
+msgid ""
+"The name of the token searched in ``request.POST`` to find a valid CSRF "
+"token."
+msgstr ""
+
+#: ../../narr/introspector.rst:359
+msgid "The name of the request header searched to find a valid CSRF token."
+msgstr ""
+
+#: ../../narr/introspector.rst:361
+msgid "``safe_methods``"
+msgstr ""
+
+#: ../../narr/introspector.rst:363
+msgid "The list of HTTP methods considered safe and exempt from CSRF checks."
+msgstr ""
+
+#: ../../narr/introspector.rst:365
+msgid "``views``"
+msgstr ""
+
+#: ../../narr/introspector.rst:367
+msgid ""
+"Each introspectable in the ``views`` category represents a call to "
+":meth:`pyramid.config.Configurator.add_view`.  Each will have the "
+"following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:373
+msgid "The ``name`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:375
+msgid "``context``"
+msgstr ""
+
+#: ../../narr/introspector.rst:377
+msgid "The (resolved) ``context`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:379
+msgid "``containment``"
+msgstr ""
+
+#: ../../narr/introspector.rst:381
+msgid "The (resolved) ``containment`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:385
+msgid "The ``request_param`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:389
+msgid ""
+"A sequence of request method names implied by the ``request_method`` "
+"argument passed to ``add_view`` or the value ``None`` if a "
+"``request_method`` argument was not supplied."
+msgstr ""
+
+#: ../../narr/introspector.rst:395
+msgid "The ``route_name`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:397
+msgid "``attr``"
+msgstr ""
+
+#: ../../narr/introspector.rst:399
+msgid "The ``attr`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:403
+msgid "The ``xhr`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:407
+msgid "The ``accept`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:411
+msgid "The ``header`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:415
+msgid "The ``path_info`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:417
+msgid "``match_param``"
+msgstr ""
+
+#: ../../narr/introspector.rst:419
+msgid "The ``match_param`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:421
+msgid "``csrf_token``"
+msgstr ""
+
+#: ../../narr/introspector.rst:423
+msgid "The ``csrf_token`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:425
+msgid "``callable``"
+msgstr ""
+
+#: ../../narr/introspector.rst:427
+msgid ""
+"The (resolved) ``view`` argument passed to ``add_view``.  Represents the "
+"\"raw\" view callable."
+msgstr ""
+
+#: ../../narr/introspector.rst:430
+msgid "``derived_callable``"
+msgstr ""
+
+#: ../../narr/introspector.rst:432
+msgid ""
+"The view callable derived from the ``view`` argument passed to "
+"``add_view``.  Represents the view callable which Pyramid itself calls "
+"(wrapped in security and other wrappers)."
+msgstr ""
+
+#: ../../narr/introspector.rst:436 ../../narr/introspector.rst:483
+msgid "``mapper``"
+msgstr ""
+
+#: ../../narr/introspector.rst:438
+msgid "The (resolved) ``mapper`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:440
+msgid "``decorator``"
+msgstr ""
+
+#: ../../narr/introspector.rst:442
+msgid "The (resolved) ``decorator`` argument passed to ``add_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:444
+msgid "``permissions``"
+msgstr ""
+
+#: ../../narr/introspector.rst:446
+msgid ""
+"Each introspectable in the ``permissions`` category represents a call to "
+":meth:`pyramid.config.Configurator.add_view` that has an explicit "
+"``permission`` argument *or* a call to "
+":meth:`pyramid.config.Configurator.set_default_permission`.  Each will "
+"have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:454
+msgid "The permission name passed to ``add_view`` or ``set_default_permission``."
+msgstr ""
+
+#: ../../narr/introspector.rst:456
+msgid "``templates``"
+msgstr ""
+
+#: ../../narr/introspector.rst:458
+msgid ""
+"Each introspectable in the ``templates`` category represents a call to "
+":meth:`pyramid.config.Configurator.add_view` that has a ``renderer`` "
+"argument which points to a template.  Each will have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:464
+msgid "The renderer's name (a string)."
+msgstr ""
+
+#: ../../narr/introspector.rst:468
+msgid "The renderer's type (a string)."
+msgstr ""
+
+#: ../../narr/introspector.rst:470
+msgid "``renderer``"
+msgstr ""
+
+#: ../../narr/introspector.rst:472
+msgid ""
+"The :class:`pyramid.interfaces.IRendererInfo` object which represents "
+"this template's renderer."
+msgstr ""
+
+#: ../../narr/introspector.rst:475
+msgid "``view mappers``"
+msgstr ""
+
+#: ../../narr/introspector.rst:477
+msgid ""
+"Each introspectable in the ``view mappers`` category represents a call to"
+" :meth:`pyramid.config.Configurator.add_view` that has an explicit "
+"``mapper`` argument *or* a call to "
+":meth:`pyramid.config.Configurator.set_view_mapper`.  Each will have the "
+"following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:485
+msgid ""
+"The (resolved) ``mapper`` argument passed to ``add_view`` or "
+"``set_view_mapper``."
+msgstr ""
+
+#: ../../narr/introspector.rst:488
+msgid "``asset overrides``"
+msgstr ""
+
+#: ../../narr/introspector.rst:490
+msgid ""
+"Each introspectable in the ``asset overrides`` category represents a call"
+" to :meth:`pyramid.config.Configurator.override_asset`.  Each will have "
+"the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:494
+msgid "``to_override``"
+msgstr ""
+
+#: ../../narr/introspector.rst:496
+msgid "The ``to_override`` argument (an asset spec) passed to ``override_asset``."
+msgstr ""
+
+#: ../../narr/introspector.rst:498
+msgid "``override_with``"
+msgstr ""
+
+#: ../../narr/introspector.rst:500
+msgid ""
+"The ``override_with`` argument (an asset spec) passed to "
+"``override_asset``."
+msgstr ""
+
+#: ../../narr/introspector.rst:503
+msgid "``translation directories``"
+msgstr ""
+
+#: ../../narr/introspector.rst:505
+msgid ""
+"Each introspectable in the ``translation directories`` category "
+"represents an individual element in a ``specs`` argument passed to "
+":meth:`pyramid.config.Configurator.add_translation_dirs`.  Each will have"
+" the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:510
+msgid "``directory``"
+msgstr ""
+
+#: ../../narr/introspector.rst:512
+msgid "The absolute path of the translation directory."
+msgstr ""
+
+#: ../../narr/introspector.rst:514 ../../narr/introspector.rst:555
+msgid "``spec``"
+msgstr ""
+
+#: ../../narr/introspector.rst:516
+msgid "The asset specification passed to ``add_translation_dirs``."
+msgstr ""
+
+#: ../../narr/introspector.rst:518
+msgid "``tweens``"
+msgstr ""
+
+#: ../../narr/introspector.rst:520
+msgid ""
+"Each introspectable in the ``tweens`` category represents a call to "
+":meth:`pyramid.config.Configurator.add_tween`.  Each will have the "
+"following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:526
+msgid ""
+"The dotted name to the tween factory as a string (passed as the "
+"``tween_factory`` argument to ``add_tween``)."
+msgstr ""
+
+#: ../../narr/introspector.rst:531
+msgid "The (resolved) tween factory object."
+msgstr ""
+
+#: ../../narr/introspector.rst:535
+msgid "``implicit`` or ``explicit`` as a string."
+msgstr ""
+
+#: ../../narr/introspector.rst:537
+msgid "``under``"
+msgstr ""
+
+#: ../../narr/introspector.rst:539
+msgid "The ``under`` argument passed to ``add_tween`` (a string)."
+msgstr ""
+
+#: ../../narr/introspector.rst:541
+msgid "``over``"
+msgstr ""
+
+#: ../../narr/introspector.rst:543
+msgid "The ``over`` argument passed to ``add_tween`` (a string)."
+msgstr ""
+
+#: ../../narr/introspector.rst:545
+msgid "``static views``"
+msgstr ""
+
+#: ../../narr/introspector.rst:547
+msgid ""
+"Each introspectable in the ``static views`` category represents a call to"
+" :meth:`pyramid.config.Configurator.add_static_view`.  Each will have the"
+" following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:553
+msgid "The ``name`` argument provided to ``add_static_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:557
+msgid ""
+"A normalized version of the ``spec`` argument provided to "
+"``add_static_view``."
+msgstr ""
+
+#: ../../narr/introspector.rst:560
+msgid "``traversers``"
+msgstr ""
+
+#: ../../narr/introspector.rst:562
+msgid ""
+"Each introspectable in the ``traversers`` category represents a call to "
+":meth:`pyramid.config.Configurator.add_traverser`.  Each will have the "
+"following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:566
+msgid "``iface``"
+msgstr ""
+
+#: ../../narr/introspector.rst:568
+msgid ""
+"The (resolved) interface or class object that represents the return value"
+" of a root factory for which this traverser will be used."
+msgstr ""
+
+#: ../../narr/introspector.rst:573
+msgid "The (resolved) traverser class."
+msgstr ""
+
+#: ../../narr/introspector.rst:575
+msgid "``resource url adapters``"
+msgstr ""
+
+#: ../../narr/introspector.rst:577
+msgid ""
+"Each introspectable in the ``resource url adapters`` category represents "
+"a call to :meth:`pyramid.config.Configurator.add_resource_url_adapter`.  "
+"Each will have the following data."
+msgstr ""
+
+#: ../../narr/introspector.rst:583
+msgid "The (resolved) resource URL adapter class."
+msgstr ""
+
+#: ../../narr/introspector.rst:585
+msgid "``resource_iface``"
+msgstr ""
+
+#: ../../narr/introspector.rst:587
+msgid ""
+"The (resolved) interface or class object that represents the resource "
+"interface for which this URL adapter is registered."
+msgstr ""
+
+#: ../../narr/introspector.rst:590
+msgid "``request_iface``"
+msgstr ""
+
+#: ../../narr/introspector.rst:592
+msgid ""
+"The (resolved) interface or class object that represents the request "
+"interface for which this URL adapter is registered."
+msgstr ""
+
+#: ../../narr/introspector.rst:596
+msgid "Introspection in the Toolbar"
+msgstr ""
+
+#: ../../narr/introspector.rst:598
+msgid ""
+"The Pyramid debug toolbar (part of the ``pyramid_debugtoolbar`` package) "
+"provides a canned view of all registered introspectables and their "
+"relationships.  It is currently under the \"Global\" tab in the main "
+"navigation, and it looks something like this:"
+msgstr ""
+
+#: ../../narr/introspector.rst:606
+msgid "Disabling Introspection"
+msgstr ""
+
+#: ../../narr/introspector.rst:608
+msgid ""
+"You can disable Pyramid introspection by passing the flag "
+"``introspection=False`` to the :term:`Configurator` constructor in your "
+"application setup:"
+msgstr ""
+
+#: ../../narr/introspector.rst:617
+msgid ""
+"When ``introspection`` is ``False``, all introspectables generated by "
+"configuration directives are thrown away."
+msgstr ""
+

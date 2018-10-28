@@ -1,0 +1,223 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/ini.rst:5
+msgid "03: Application Configuration with ``.ini`` Files"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:7
+msgid ""
+"Use Pyramid's ``pserve`` command with a ``.ini`` configuration file for "
+"simpler, better application running."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:12
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:14
+msgid ""
+"Pyramid has a first-class concept of :ref:`configuration "
+"<configuration_narr>` distinct from code. This approach is optional, but "
+"its presence makes it distinct from other Python web frameworks. It taps "
+"into Python's ``setuptools`` library, which establishes conventions for "
+"installing and providing \"entry points\" for Python projects. Pyramid "
+"uses an entry point to let a Pyramid application know where to find the "
+"WSGI app."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:23
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:25
+msgid ""
+"Modify our ``setup.py`` to have an entry point telling Pyramid the "
+"location of the WSGI app."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:28
+msgid "Create an application driven by an ``.ini`` file."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:30
+msgid "Start the application with Pyramid's ``pserve`` command."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:32
+msgid "Move code into the package's ``__init__.py``."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:36
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:38
+msgid "First we copy the results of the previous step:"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:44
+msgid ""
+"Our ``ini/setup.py`` needs a setuptools \"entry point\" in the "
+"``setup()`` function:"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:50
+msgid ""
+"We can now install our project, thus generating (or re-generating) an "
+"\"egg\" at ``ini/tutorial.egg-info``:"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:57
+msgid "Let's make a file ``ini/development.ini`` for our configuration:"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:63
+msgid ""
+"We can refactor our startup code from the previous step's ``app.py`` into"
+" ``ini/tutorial/__init__.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:69
+msgid "Now that ``ini/tutorial/app.py`` isn't used, let's remove it:"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:75
+msgid "Run your Pyramid application with:"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:81
+msgid "Open http://localhost:6543/."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:84
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:86
+msgid ""
+"Our ``development.ini`` file is read by ``pserve`` and serves to "
+"bootstrap our application. Processing then proceeds as described in the "
+"Pyramid chapter on :ref:`application startup <startup_chapter>`:"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:90
+msgid "``pserve`` looks for ``[app:main]`` and finds ``use = egg:tutorial``."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:92
+msgid ""
+"The projects's ``setup.py`` has defined an \"entry point\" (lines 10-13) "
+"for the project's \"main\" entry point of ``tutorial:main``."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:95
+msgid "The ``tutorial`` package's ``__init__`` has a ``main`` function."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:97
+msgid ""
+"This function is invoked, with the values from certain ``.ini`` sections "
+"passed in."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:100
+msgid "The ``.ini`` file is also used for two other functions:"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:102
+msgid ""
+"*Configuring the WSGI server*. ``[server:main]`` wires up the choice of "
+"which WSGI *server* for your WSGI *application*. In this case, we are "
+"using ``waitress`` which we specified in ``tutorial/setup.py`` and was "
+"installed in the :doc:`requirements` step at the start of this tutorial."
+"  It also wires up the *port number*: ``listen = localhost:6543`` tells "
+"``waitress`` to listen on host ``localhost`` at port ``6543``."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:109
+msgid ""
+"Running the command ``$VENV/bin/pip install -e .`` will check for "
+"previously installed packages in our virtual environment that are "
+"specified in our package's ``setup.py`` file, then install our package in"
+" editable mode, installing any requirements that were not previously "
+"installed.  If a requirement was manually installed previously on the "
+"command line or otherwise, in this case Waitress, then ``$VENV/bin/pip "
+"install -e .`` will merely check that it is installed and move on."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:111
+msgid ""
+"*Configuring Python logging*. Pyramid uses Python standard logging, which"
+" needs a number of configuration values. The ``.ini`` serves this "
+"function. This provides the console log output that you see on startup "
+"and each request."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:116
+msgid ""
+"We moved our startup code from ``app.py`` to the package's "
+"``tutorial/__init__.py``. This isn't necessary, but it is a common style "
+"in Pyramid to take the WSGI app bootstrapping out of your module's code "
+"and put it in the package's ``__init__.py``."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:121
+msgid ""
+"The ``pserve`` application runner has a number of command-line arguments "
+"and options. We are using ``--reload`` which tells ``pserve`` to watch "
+"the filesystem for changes to relevant code (Python files, the INI file, "
+"etc.) and, when something changes, restart the application. Very handy "
+"during development."
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:128
+msgid "Extra credit"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:130
+msgid ""
+"If you don't like configuration and/or ``.ini`` files, could you do this "
+"yourself in Python code?"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:133
+msgid ""
+"Can we have multiple ``.ini`` configuration files for a project? Why "
+"might you want to do that?"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:136
+msgid ""
+"The entry point in ``setup.py`` didn't mention ``__init__.py`` when it "
+"declared ``tutorial:main`` function. Why not?"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:139
+msgid "What is the purpose of ``**settings``? What does the ``**`` signify?"
+msgstr ""
+
+#: ../../quick_tutorial/ini.rst:142
+msgid ""
+":ref:`project_narr`, :ref:`cookiecutters`, "
+":ref:`what_is_this_pserve_thing`, :ref:`environment_chapter`, "
+":ref:`paste_chapter`"
+msgstr ""
+

@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../quick_tutorial/routing.rst:5
+msgid "11: Dispatching URLs To Views With Routing"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:7
+msgid ""
+"Routing matches incoming URL patterns to view code. Pyramid's routing has"
+" a number of useful features."
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:12
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:14
+msgid ""
+"Writing web applications usually means sophisticated URL design. We just "
+"saw some Pyramid machinery for requests and views. Let's look at features"
+" that help in routing."
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:18
+msgid "Previously we saw the basics of routing URLs to views in Pyramid."
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:20
+msgid ""
+"Your project's \"setup\" code registers a route name to be used when "
+"matching part of the URL"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:23
+msgid "Elsewhere a view is configured to be called for that route name."
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:27
+msgid ""
+"Why do this twice? Other Python web frameworks let you create a route and"
+" associate it with a view in one step. As illustrated in "
+":ref:`routes_need_ordering`, multiple routes might match the same URL "
+"pattern. Rather than provide ways to help guess, Pyramid lets you be "
+"explicit in ordering. Pyramid also gives facilities to avoid the problem."
+" It's relatively easy to build a system that uses implicit route ordering"
+" with Pyramid too. See `The Groundhog series of screencasts "
+"<http://static.repoze.org/casts/videotags.html>`_ if you're interested in"
+" doing so."
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:39
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:41
+msgid "Define a route that extracts part of the URL into a Python dictionary."
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:43
+msgid "Use that dictionary data in a view."
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:47
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:49
+msgid "First we copy the results of the ``view_classes`` step:"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:56
+msgid ""
+"Our ``routing/tutorial/__init__.py`` needs a route with a replacement "
+"pattern:"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:62
+msgid "We just need one view in ``routing/tutorial/views.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:67
+msgid "We just need one view in ``routing/tutorial/home.pt``:"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:73
+msgid "Update ``routing/tutorial/tests.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:78
+msgid "Now run the tests:"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:86
+msgid "Run your Pyramid application with:"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:92
+msgid "Open http://localhost:6543/howdy/amy/smith in your browser."
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:96
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:98
+msgid "In ``__init__.py`` we see an important change in our route declaration:"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:104
+msgid ""
+"With this we tell the :term:`configurator` that our URL has a "
+"\"replacement pattern\". With this, URLs such as ``/howdy/amy/smith`` "
+"will assign ``amy`` to ``first`` and ``smith`` to ``last``. We can then "
+"use this data in our view:"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:113
+msgid ""
+"``request.matchdict`` contains values from the URL that match the "
+"\"replacement patterns\" (the curly braces) in the route declaration. "
+"This information can then be used anywhere in Pyramid that has access to "
+"the request."
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:118
+msgid "Extra credit"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:120
+msgid ""
+"What happens if you to go the URL http://localhost:6543/howdy? Is this "
+"the result that you expected?"
+msgstr ""
+
+#: ../../quick_tutorial/routing.rst:123
+msgid ""
+"`Weird Stuff You Can Do With URL Dispatch "
+"<https://web.archive.org/web/20170131192830/http://www.plope.com/weird_pyramid_urldispatch>`_"
+msgstr ""
+

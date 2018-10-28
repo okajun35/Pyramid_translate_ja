@@ -1,0 +1,220 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>prequest &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="proutes" href="proutes.html" />
+    <link rel="prev" title="pdistreport" href="pdistreport.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="proutes.html" title="proutes"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="pdistreport.html" title="pdistreport"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">p*</span></code> Scripts Documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="prequest">
+<span id="prequest-script"></span><span id="index-0"></span><h1>prequest<a class="headerlink" href="#prequest" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Submit a HTTP request to a web application.</p>
+<p>This command makes an artifical request to a web application that uses a
+PasteDeploy (.ini) configuration file for the server and application.</p>
+<p>Use &quot;prequest config.ini /path&quot; to request &quot;/path&quot;.</p>
+<p>Use &quot;prequest --method=POST config.ini /path &lt; data&quot; to do a POST with
+the given request body.</p>
+<p>Use &quot;prequest --method=PUT config.ini /path &lt; data&quot; to do a
+PUT with the given request body.</p>
+<p>Use &quot;prequest --method=PATCH config.ini /path &lt; data&quot; to do a
+PATCH with the given request body.</p>
+<p>Use &quot;prequest --method=OPTIONS config.ini /path&quot; to do an
+OPTIONS request.</p>
+<p>Use &quot;prequest --method=PROPFIND config.ini /path&quot; to do a
+PROPFIND request.</p>
+<p>If the path is relative (doesn't begin with &quot;/&quot;) it is interpreted as
+relative to &quot;/&quot;.  The path passed to this script should be URL-quoted.
+The path can be succeeded with a query string (e.g. '/path?a=1&amp;=b2').</p>
+<p>The variable &quot;environ['paste.command_request']&quot; will be set to &quot;True&quot; in
+the request's WSGI environment, so your application can distinguish these
+calls from normal requests.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: prequest [-h] [-n NAME] [--header NAME:VALUE] [-d]</span>
+<span class="go">                [-m {GET,HEAD,POST,PUT,PATCH,DELETE,PROPFIND,OPTIONS}]</span>
+<span class="go">                [-l LOGIN]</span>
+<span class="go">                [config_uri] [path_info] [config_vars [config_vars ...]]</span>
+</pre></div>
+</div>
+<dl class="option">
+<dt id="cmdoption-prequest-arg-config-uri">
+<code class="descname">config_uri</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-prequest-arg-config-uri" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The URI to the configuration file.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-prequest-arg-path-info">
+<code class="descname">path_info</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-prequest-arg-path-info" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The path of the request.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-prequest-arg-config-vars">
+<code class="descname">config_vars</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-prequest-arg-config-vars" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Variables required by the config file. For example, <cite>http_port=%(http_port)s</cite> would expect <cite>http_port=8080</cite> to be passed here.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-prequest-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-prequest-h" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-prequest-n">
+<code class="descname">-n</code><code class="descclassname"> &lt;name&gt;</code><code class="descclassname">, </code><code class="descname">--app-name</code><code class="descclassname"> &lt;name&gt;</code><a class="headerlink" href="#cmdoption-prequest-n" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Load the named application from the config file (default 'main')</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-prequest-header">
+<code class="descname">--header</code><code class="descclassname"> &lt;name:value&gt;</code><a class="headerlink" href="#cmdoption-prequest-header" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Header to add to request (you can use this option multiple times)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-prequest-d">
+<code class="descname">-d</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--display-headers</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-prequest-d" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Display status and headers before the response body</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-prequest-m">
+<code class="descname">-m</code><code class="descclassname"> {GET,HEAD,POST,PUT,PATCH,DELETE,PROPFIND,OPTIONS}</code><code class="descclassname">, </code><code class="descname">--method</code><code class="descclassname"> {GET,HEAD,POST,PUT,PATCH,DELETE,PROPFIND,OPTIONS}</code><a class="headerlink" href="#cmdoption-prequest-m" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Request method type (GET, POST, PUT, PATCH, DELETE, PROPFIND, OPTIONS)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-prequest-l">
+<code class="descname">-l</code><code class="descclassname"> &lt;login&gt;</code><code class="descclassname">, </code><code class="descname">--login</code><code class="descclassname"> &lt;login&gt;</code><a class="headerlink" href="#cmdoption-prequest-l" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>HTTP basic auth username:password pair</p>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last"><a class="reference internal" href="../narr/commandline.html#invoking-a-request"><span class="std std-ref">Invoking a Request</span></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="pdistreport.html"
+                        title="前の章へ">pdistreport</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="proutes.html"
+                        title="次の章へ">proutes</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/pscripts/prequest.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="proutes.html" title="proutes"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="pdistreport.html" title="pdistreport"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" ><code class="docutils literal notranslate"><span class="pre">p*</span></code> Scripts Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
+    </div>
+  </body>
+</html>

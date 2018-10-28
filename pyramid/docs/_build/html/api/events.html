@@ -1,0 +1,432 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyramid.events &#8212; The Pyramid Web Framework v1.9.2</title>
+    <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="著作権" href="../copyright.html" />
+    <link rel="next" title="pyramid.exceptions" href="exceptions.html" />
+    <link rel="prev" title="pyramid.decorator" href="decorator.html" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<link rel="shortcut icon" href="../_static/pyramid.ico"/>
+
+  </head><body>
+
+
+
+
+
+
+
+<div class="header-small">
+	
+	<div class="logo-small">
+		<a href="../index.html">
+      		<img class="logo" src="../_static/pyramid-small.png" alt="Logo"/>
+		</a>
+  	</div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="exceptions.html" title="pyramid.exceptions"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="decorator.html" title="pyramid.decorator"
+             accesskey="P">前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyramid.events">
+<span id="pyramid-events"></span><span id="events-module"></span><h1><a class="reference internal" href="#module-pyramid.events" title="pyramid.events"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.events</span></code></a><a class="headerlink" href="#module-pyramid.events" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="function">
+<dt id="pyramid.events.subscriber">
+<code class="descname">subscriber</code><span class="sig-paren">(</span><em>*ifaces</em>, <em>**predicates</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/events.html#subscriber"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.events.subscriber" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Decorator activated via a <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a> which treats the function
+being decorated as an event subscriber for the set of interfaces passed
+as <code class="docutils literal notranslate"><span class="pre">*ifaces</span></code> and the set of predicate terms passed as <code class="docutils literal notranslate"><span class="pre">**predicates</span></code>
+to the decorator constructor.</p>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">NewRequest</span>
+<span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">subscriber</span>
+
+<span class="nd">@subscriber</span><span class="p">(</span><span class="n">NewRequest</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">mysubscriber</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="n">event</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>More than one event type can be passed as a constructor argument.  The
+decorated subscriber will be called for each event type.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">NewRequest</span><span class="p">,</span> <span class="n">NewResponse</span>
+<span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">subscriber</span>
+
+<span class="nd">@subscriber</span><span class="p">(</span><span class="n">NewRequest</span><span class="p">,</span> <span class="n">NewResponse</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">mysubscriber</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When the <code class="docutils literal notranslate"><span class="pre">subscriber</span></code> decorator is used without passing an arguments,
+the function it decorates is called for every event sent:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">subscriber</span>
+
+<span class="nd">@subscriber</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">mysubscriber</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This method will have no effect until a <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a> is performed
+against the package or module which contains it, ala:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s1">&#39;somepackage_containing_subscribers&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Any <code class="docutils literal notranslate"><span class="pre">**predicate</span></code> arguments will be passed along to
+<a class="reference internal" href="config.html#pyramid.config.Configurator.add_subscriber" title="pyramid.config.Configurator.add_subscriber"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_subscriber()</span></code></a>.  See
+<a class="reference internal" href="../narr/hooks.html#subscriber-predicates"><span class="std std-ref">Subscriber Predicates</span></a> for a description of how predicates can
+narrow the set of circumstances in which a subscriber will be called.</p>
+<p>Two additional keyword arguments which will be passed to the
+<a class="reference internal" href="../glossary.html#term-venusian"><span class="xref std std-term">venusian</span></a> <code class="docutils literal notranslate"><span class="pre">attach</span></code> function are <code class="docutils literal notranslate"><span class="pre">_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">_category</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_depth</span></code> is provided for people who wish to reuse this class from another
+decorator. The default value is <code class="docutils literal notranslate"><span class="pre">0</span></code> and should be specified relative to
+the <code class="docutils literal notranslate"><span class="pre">subscriber</span></code> invocation. It will be passed in to the
+<a class="reference internal" href="../glossary.html#term-venusian"><span class="xref std std-term">venusian</span></a> <code class="docutils literal notranslate"><span class="pre">attach</span></code> function as the depth of the callstack when
+Venusian checks if the decorator is being used in a class or module
+context. It's not often used, but it can be useful in this circumstance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_category</span></code> sets the decorator category name. It can be useful in
+combination with the <code class="docutils literal notranslate"><span class="pre">category</span></code> argument of <code class="docutils literal notranslate"><span class="pre">scan</span></code> to control which
+views should be processed.</p>
+<p>See the <a class="reference external" href="https://docs.pylonsproject.org/projects/venusian/en/latest/api.html#venusian.attach" title="(in venusian v1.1.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">venusian.attach()</span></code></a> function in Venusian for more
+information about the <code class="docutils literal notranslate"><span class="pre">_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">_category</span></code> arguments.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 1.9.1 で変更: </span>Added the <code class="docutils literal notranslate"><span class="pre">_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">_category</span></code> arguments.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="event-types">
+<span id="id1"></span><h2>Event Types<a class="headerlink" href="#event-types" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="class">
+<dt id="pyramid.events.ApplicationCreated">
+<em class="property">class </em><code class="descname">ApplicationCreated</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/events.html#ApplicationCreated"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.events.ApplicationCreated" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>An instance of this class is emitted as an <a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a> when
+the <a class="reference internal" href="config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.make_wsgi_app()</span></code></a> is
+called.  The instance has an attribute, <code class="docutils literal notranslate"><span class="pre">app</span></code>, which is an
+instance of the <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> that will handle WSGI requests.
+This class implements the
+<a class="reference internal" href="interfaces.html#pyramid.interfaces.IApplicationCreated" title="pyramid.interfaces.IApplicationCreated"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IApplicationCreated</span></code></a> interface.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">For backwards compatibility purposes, this class can also be imported as
+<code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.WSGIApplicationCreatedEvent</span></code>.  This was the name
+of the event class before <span>Pyramid</span> 1.0.</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyramid.events.NewRequest">
+<em class="property">class </em><code class="descname">NewRequest</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/events.html#NewRequest"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.events.NewRequest" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>An instance of this class is emitted as an <a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a>
+whenever <span>Pyramid</span> begins to process a new request.  The
+event instance has an attribute, <code class="docutils literal notranslate"><span class="pre">request</span></code>, which is a
+<a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  This event class implements the
+<a class="reference internal" href="interfaces.html#pyramid.interfaces.INewRequest" title="pyramid.interfaces.INewRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.INewRequest</span></code></a> interface.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyramid.events.ContextFound">
+<em class="property">class </em><code class="descname">ContextFound</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/events.html#ContextFound"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.events.ContextFound" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>An instance of this class is emitted as an <a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a> after
+the <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> finds a <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a>
+object (after it performs traversal) but before any view code is
+executed.  The instance has an attribute, <code class="docutils literal notranslate"><span class="pre">request</span></code>, which is
+the request object generated by <span>Pyramid</span>.</p>
+<p>Notably, the request object will have an attribute named
+<code class="docutils literal notranslate"><span class="pre">context</span></code>, which is the context that will be provided to the
+view which will eventually be called, as well as other attributes
+attached by context-finding code.</p>
+<p>This class implements the
+<a class="reference internal" href="interfaces.html#pyramid.interfaces.IContextFound" title="pyramid.interfaces.IContextFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IContextFound</span></code></a> interface.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">As of <span>Pyramid</span> 1.0, for backwards compatibility purposes, this
+event may also be imported as <code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.AfterTraversal</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyramid.events.BeforeTraversal">
+<em class="property">class </em><code class="descname">BeforeTraversal</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/events.html#BeforeTraversal"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.events.BeforeTraversal" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>An instance of this class is emitted as an <a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a> after the
+<span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> has attempted to find a <a class="reference internal" href="../glossary.html#term-route"><span class="xref std std-term">route</span></a> object
+but before any traversal or view code is executed. The instance has an
+attribute, <code class="docutils literal notranslate"><span class="pre">request</span></code>, which is the request object generated by
+<span>Pyramid</span>.</p>
+<p>Notably, the request object <strong>may</strong> have an attribute named
+<code class="docutils literal notranslate"><span class="pre">matched_route</span></code>, which is the matched route if found. If no route
+matched, this attribute is not available.</p>
+<p>This class implements the <a class="reference internal" href="interfaces.html#pyramid.interfaces.IBeforeTraversal" title="pyramid.interfaces.IBeforeTraversal"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IBeforeTraversal</span></code></a>
+interface.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyramid.events.NewResponse">
+<em class="property">class </em><code class="descname">NewResponse</code><span class="sig-paren">(</span><em>request</em>, <em>response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/events.html#NewResponse"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.events.NewResponse" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>An instance of this class is emitted as an <a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a>
+whenever any <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> or <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception
+view</span></a> returns a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a>.</p>
+<p>The instance has two attributes:<code class="docutils literal notranslate"><span class="pre">request</span></code>, which is the request
+which caused the response, and <code class="docutils literal notranslate"><span class="pre">response</span></code>, which is the response
+object returned by a view or renderer.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">response</span></code> was generated by an <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a>, the
+request will have an attribute named <code class="docutils literal notranslate"><span class="pre">exception</span></code>, which is the
+exception object which caused the exception view to be executed.  If the
+response was generated by a 'normal' view, this attribute of the request
+will be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>This event will not be generated if a response cannot be created due to
+an exception that is not caught by an exception view (no response is
+created under this circumstace).</p>
+<p>This class implements the
+<a class="reference internal" href="interfaces.html#pyramid.interfaces.INewResponse" title="pyramid.interfaces.INewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.INewResponse</span></code></a> interface.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Postprocessing a response is usually better handled in a WSGI
+<a class="reference internal" href="../glossary.html#term-middleware"><span class="xref std std-term">middleware</span></a> component than in subscriber code that is
+called by a <a class="reference internal" href="interfaces.html#pyramid.interfaces.INewResponse" title="pyramid.interfaces.INewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.INewResponse</span></code></a> event.
+The <a class="reference internal" href="interfaces.html#pyramid.interfaces.INewResponse" title="pyramid.interfaces.INewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.INewResponse</span></code></a> event exists
+almost purely for symmetry with the
+<a class="reference internal" href="interfaces.html#pyramid.interfaces.INewRequest" title="pyramid.interfaces.INewRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.INewRequest</span></code></a> event.</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyramid.events.BeforeRender">
+<em class="property">class </em><code class="descname">BeforeRender</code><span class="sig-paren">(</span><em>system</em>, <em>rendering_val=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/events.html#BeforeRender"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.events.BeforeRender" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Subscribers to this event may introspect and modify the set of
+<a class="reference internal" href="../glossary.html#term-renderer-globals"><span class="xref std std-term">renderer globals</span></a> before they are passed to a <a class="reference internal" href="../glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a>.
+This event object iself has a dictionary-like interface that can be used
+for this purpose.  For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="k">import</span> <span class="n">subscriber</span>
+<span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="k">import</span> <span class="n">BeforeRender</span>
+
+<span class="nd">@subscriber</span><span class="p">(</span><span class="n">BeforeRender</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add_global</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="n">event</span><span class="p">[</span><span class="s1">&#39;mykey&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+</pre></div>
+</div>
+<p>An object of this type is sent as an event just before a <a class="reference internal" href="../glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a>
+is invoked.</p>
+<p>If a subscriber adds a key via <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> that already exists in
+the renderer globals dictionary, it will overwrite the older value there.
+This can be problematic because event subscribers to the BeforeRender
+event do not possess any relative ordering.  For maximum interoperability
+with other third-party subscribers, if you write an event subscriber meant
+to be used as a BeforeRender subscriber, your subscriber code will need to
+ensure no value already exists in the renderer globals dictionary before
+setting an overriding value (which can be done using <code class="docutils literal notranslate"><span class="pre">.get</span></code> or
+<code class="docutils literal notranslate"><span class="pre">__contains__</span></code> of the event object).</p>
+<p>The dictionary returned from the view is accessible through the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">rendering_val</span></code> attribute of a <a class="reference internal" href="#pyramid.events.BeforeRender" title="pyramid.events.BeforeRender"><code class="xref py py-class docutils literal notranslate"><span class="pre">BeforeRender</span></code></a>
+event.</p>
+<p>Suppose you return <code class="docutils literal notranslate"><span class="pre">{'mykey':</span> <span class="pre">'somevalue',</span> <span class="pre">'mykey2':</span> <span class="pre">'somevalue2'}</span></code> from
+your view callable, like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.view</span> <span class="k">import</span> <span class="n">view_config</span>
+
+<span class="nd">@view_config</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;some_renderer&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">myview</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;mykey&#39;</span><span class="p">:</span> <span class="s1">&#39;somevalue&#39;</span><span class="p">,</span> <span class="s1">&#39;mykey2&#39;</span><span class="p">:</span> <span class="s1">&#39;somevalue2&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="xref py py-attr docutils literal notranslate"><span class="pre">rendering_val</span></code> can be used to access these values from the
+<a class="reference internal" href="#pyramid.events.BeforeRender" title="pyramid.events.BeforeRender"><code class="xref py py-class docutils literal notranslate"><span class="pre">BeforeRender</span></code></a> object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="k">import</span> <span class="n">subscriber</span>
+<span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="k">import</span> <span class="n">BeforeRender</span>
+
+<span class="nd">@subscriber</span><span class="p">(</span><span class="n">BeforeRender</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">read_return</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="c1"># {&#39;mykey&#39;: &#39;somevalue&#39;} is returned from the view</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">rendering_val</span><span class="p">[</span><span class="s1">&#39;mykey&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>In other words, <code class="xref py py-attr docutils literal notranslate"><span class="pre">rendering_val</span></code> is the (non-system) value returned
+by a view or passed to <code class="docutils literal notranslate"><span class="pre">render*</span></code> as <code class="docutils literal notranslate"><span class="pre">value</span></code>.  This feature is new in
+Pyramid 1.2.</p>
+<p>For a description of the values present in the renderer globals dictionary,
+see <a class="reference internal" href="../narr/templates.html#renderer-system-values"><span class="std std-ref">System Values Used During Rendering</span></a>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last">See also <a class="reference internal" href="interfaces.html#pyramid.interfaces.IBeforeRender" title="pyramid.interfaces.IBeforeRender"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IBeforeRender</span></code></a>.</p>
+</div>
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>E</em>, <em>**F</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.events.BeforeRender.update" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Update D from dict/iterable E and F. If E has a .keys() method, does:
+for k in E: D[k] = E[k] If E lacks .keys() method, does: for (k, v) in
+E: D[k] = v.  In either case, this is followed by: for k in F: D[k] =
+F[k].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None.  Remove all items from D.<a class="headerlink" href="#pyramid.events.BeforeRender.clear" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a shallow copy of D<a class="headerlink" href="#pyramid.events.BeforeRender.copy" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.fromkeys">
+<code class="descname">fromkeys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.events.BeforeRender.fromkeys" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Returns a new dict with keys from iterable and values equal to value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; D[k] if k in D, else d.  d defaults to None.<a class="headerlink" href="#pyramid.events.BeforeRender.get" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D's items<a class="headerlink" href="#pyramid.events.BeforeRender.items" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D's keys<a class="headerlink" href="#pyramid.events.BeforeRender.keys" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.pop">
+<code class="descname">pop</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; v, remove specified key and return the corresponding value.<a class="headerlink" href="#pyramid.events.BeforeRender.pop" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>If key is not found, d is returned if given, otherwise KeyError is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.popitem">
+<code class="descname">popitem</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; (k, v), remove and return some (key, value) pair as a<a class="headerlink" href="#pyramid.events.BeforeRender.popitem" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>2-tuple; but raise KeyError if D is empty.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.setdefault">
+<code class="descname">setdefault</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; D.get(k,d), also set D[k]=d if k not in D<a class="headerlink" href="#pyramid.events.BeforeRender.setdefault" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyramid.events.BeforeRender.values">
+<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; an object providing a view on D's values<a class="headerlink" href="#pyramid.events.BeforeRender.values" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<p>See <a class="reference internal" href="../narr/events.html#events-chapter"><span class="std std-ref">Using Events</span></a> for more information about how to register
+code which subscribes to these events.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">pyramid.events</span></code></a><ul>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#event-types">Event Types</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="decorator.html"
+                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.decorator</span></code></a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="exceptions.html"
+                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.exceptions</span></code></a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/events.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="exceptions.html" title="pyramid.exceptions"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="decorator.html" title="pyramid.decorator"
+             >前へ</a> |</li>
+    	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
+      最終更新: 10月 28, 2018
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
+    </div>
+  </body>
+</html>

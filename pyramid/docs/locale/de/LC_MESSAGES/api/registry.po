@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web
+# Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../api/registry.rst:4
+msgid ":mod:`pyramid.registry`"
+msgstr ""
+
+#: of pyramid.registry.Registry:1
+msgid "A registry object is an :term:`application registry`."
+msgstr ""
+
+#: of pyramid.registry.Registry:3
+msgid ""
+"It is used by the framework itself to perform mappings of URLs to view "
+"callables, as well as servicing other various framework duties. A "
+"registry has its own internal API, but this API is rarely used by Pyramid"
+" application developers (it's usually only used by developers of the "
+"Pyramid framework and Pyramid addons).  But it has a number of attributes"
+" that may be useful to application developers within application code, "
+"such as ``settings``, which is a dictionary containing application "
+"deployment settings."
+msgstr ""
+
+#: of pyramid.registry.Registry:12
+msgid ""
+"For information about the purpose and usage of the application registry, "
+"see :ref:`zca_chapter`."
+msgstr ""
+
+#: of pyramid.registry.Registry:15
+msgid ""
+"The registry may be used both as an :class:`pyramid.interfaces.IDict` and"
+" as a Zope component registry. These two ways of storing configuration "
+"are independent. Applications will tend to prefer to store information as"
+" key-values whereas addons may prefer to use the component registry to "
+"avoid naming conflicts and to provide more complex lookup mechanisms."
+msgstr ""
+
+#: of pyramid.registry.Registry:22
+msgid ""
+"The application registry is usually accessed as ``request.registry`` in "
+"application code. By the time a registry is used to handle requests it "
+"should be considered frozen and read-only. Any changes to its internal "
+"state should be done with caution and concern for thread-safety."
+msgstr ""
+
+#: ../../api/registry.rst:12
+msgid ""
+"The dictionary-like :term:`deployment settings` object.  See "
+":ref:`deployment_settings` for information.  This object is often "
+"accessed as ``request.registry.settings`` or ``config.registry.settings``"
+" in a typical Pyramid application."
+msgstr ""
+
+#: ../../api/registry.rst:21
+msgid ""
+"When a registry is set up (or created) by a :term:`Configurator`, this "
+"attribute will be the shortcut for "
+":attr:`pyramid.config.Configurator.package_name`."
+msgstr ""
+
+#: ../../api/registry.rst:25
+msgid ""
+"This attribute is often accessed as ``request.registry.package_name`` or "
+"``config.registry.package_name`` or ``config.package_name`` in a typical "
+"Pyramid application."
+msgstr ""
+
+#: ../../api/registry.rst:33
+msgid ""
+"When a registry is set up (or created) by a :term:`Configurator`, the "
+"registry will be decorated with an instance named ``introspector`` "
+"implementing the :class:`pyramid.interfaces.IIntrospector` interface."
+msgstr ""
+
+#: ../../api/registry.rst:39
+msgid "See also :attr:`pyramid.config.Configurator.introspector`."
+msgstr ""
+
+#: ../../api/registry.rst:41
+msgid ""
+"When a registry is created \"by hand\", however, this attribute will not "
+"exist until set up by a configurator."
+msgstr ""
+
+#: ../../api/registry.rst:44
+msgid ""
+"This attribute is often accessed as ``request.registry.introspector`` in "
+"a typical Pyramid application."
+msgstr ""
+
+#: ../../api/registry.rst:49
+msgid ""
+"Fire one or more events. All event subscribers to the event(s) will be "
+"notified. The subscribers will be called synchronously. This method is "
+"often accessed as ``request.registry.notify`` in Pyramid applications to "
+"fire custom events. See :ref:`custom_events` for more information."
+msgstr ""
+
+#: ../../api/registry.rst:60
+msgid ""
+"The default implementation of the interface "
+":class:`pyramid.interfaces.IIntrospectable` used by framework exenders. "
+"An instance of this class is created when "
+":attr:`pyramid.config.Configurator.introspectable` is called."
+msgstr ""
+
+#: of pyramid.registry.Deferred:1
+msgid ""
+"Can be used by a third-party configuration extender to wrap a "
+":term:`discriminator` during configuration if an immediately hashable "
+"discriminator cannot be computed because it relies on unresolved values. "
+"The function should accept no arguments and should return a hashable "
+"discriminator."
+msgstr ""
+
+#: of pyramid.registry.undefer:1
+msgid ""
+"Function which accepts an object and returns it unless it is a "
+":class:`pyramid.registry.Deferred` instance.  If it is an instance of "
+"that class, its ``resolve`` method is called, and the result of the "
+"method is returned."
+msgstr ""
+
+#: of pyramid.registry.predvalseq:1
+msgid "A subtype of tuple used to represent a sequence of predicate values"
+msgstr ""
+
