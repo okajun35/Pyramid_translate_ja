@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../tutorials/wiki2/authorization.rst:5
 msgid "Adding authorization"
-msgstr ""
+msgstr "(機械翻訳)承認を追加する"
 
 #: ../../tutorials/wiki2/authorization.rst:7
 msgid ""
@@ -31,42 +31,45 @@ msgid ""
 "cleaning this up and decoupling the constraints from the view function "
 "itself."
 msgstr ""
+"オブジェクトを使っていくつかの明示的な :term:`authorization` チェックを実行しました。"
+"これは多くのアプリケーションでうまくいきますが、app:`Pyramid` は、これをクリーンアップし、"
+"ビュー関数自体から制約を切り離すためのいくつかの機能を提供します。 :term:`authorization`"
 
 #: ../../tutorials/wiki2/authorization.rst:13
 msgid "We will implement access control with the following steps:"
-msgstr ""
+msgstr "次の手順でアクセス制御を実装します。"
 
 #: ../../tutorials/wiki2/authorization.rst:15
 msgid ""
 "Update the :term:`authentication policy` to break down the :term:`userid`"
 " into a list of :term:`principals <principal>` (``security.py``)."
-msgstr ""
+msgstr ":term:`authentication policy` を更新して :term:`userid` を以下のリストに分解してください :term:`principals <principal>` `(` `security.py``)です。"
 
 #: ../../tutorials/wiki2/authorization.rst:17
 msgid ""
 "Define an :term:`authorization policy` for mapping users, resources and "
 "permissions (``security.py``)."
-msgstr ""
+msgstr "ユーザ、リソース、権限( `` security.py``)をマッピングするための::term:`authentication policy` を定義してください。"
 
 #: ../../tutorials/wiki2/authorization.rst:19
 msgid ""
 "Add new :term:`resource` definitions that will be used as the "
 ":term:`context` for the wiki pages (``routes.py``)."
-msgstr ""
+msgstr "Wikiページ( `` routes.py``)の :term:`context` として使用されるnew :term:`resource` 定義を追加します。"
 
 #: ../../tutorials/wiki2/authorization.rst:21
 msgid "Add an :term:`ACL` to each resource (``routes.py``)."
-msgstr ""
+msgstr ":term: `ACL`を各リソースに追加します(` `routes.py``)。"
 
 #: ../../tutorials/wiki2/authorization.rst:22
 msgid ""
 "Replace the inline checks on the views with :term:`permission` "
 "declarations (``views/default.py``)."
-msgstr ""
+msgstr "ビューのインラインチェックを :term:`permission` 宣言(` `views/default.py``)に置き換えてください。"
 
 #: ../../tutorials/wiki2/authorization.rst:27
 msgid "Add user principals"
-msgstr ""
+msgstr "ユーザープリンシパルを追加する"
 
 #: ../../tutorials/wiki2/authorization.rst:29
 msgid ""
@@ -75,7 +78,7 @@ msgid ""
 "roles, or other identifiers that are easier to generalize. The "
 "permissions are then written against the principals without focusing on "
 "the exact user involved."
-msgstr ""
+msgstr "A :term:`principal` は、ユーザの能力、役割、または一般化が容易な他の識別子に関してユーザを記述する raw :term:`userid` の上に抽象化のレベルです。関連する正確なユーザーに焦点を当てることなく、プリンシパルに対してアクセス許可が書き込まれます。"
 
 #: ../../tutorials/wiki2/authorization.rst:34
 msgid ""
@@ -86,37 +89,37 @@ msgid ""
 "design. The user has two possible roles: ``editor`` or ``basic``. These "
 "will be prefixed by the string ``role:`` to avoid clashing with any other"
 " types of principals."
-msgstr ""
+msgstr ":app:`Pyramid`  :attr:`pyramid.security.Everyone` と :attr:`pyramid.Authenticated` "
 
 #: ../../tutorials/wiki2/authorization.rst:41
 msgid "Open the file ``tutorial/security.py`` and edit it as follows:"
-msgstr ""
+msgstr "`` tutorial/security.py``ファイルを開き、以下のように編集してください:"
 
 #: ../../tutorials/wiki2/authorization.rst:48
 msgid "Only the highlighted lines need to be added."
-msgstr ""
+msgstr "強調表示された行だけを追加する必要があります。"
 
 #: ../../tutorials/wiki2/authorization.rst:50
 msgid ""
 "Note that the role comes from the ``User`` object. We also add the "
 "``user.id`` as a principal for when we want to allow that exact user to "
 "edit pages which they have created."
-msgstr ""
+msgstr "役割は `` User`` オブジェクトから来ていることに注意してください。その正確なユーザが自分が作成したページを編集できるようにするために、 `` user.id`` をプリンシパルとして追加します。"
 
 #: ../../tutorials/wiki2/authorization.rst:56
 msgid "Add the authorization policy"
-msgstr ""
+msgstr "承認ポリシーを追加する"
 
 #: ../../tutorials/wiki2/authorization.rst:58
 msgid ""
 "We already added the :term:`authorization policy` in the previous chapter"
 " because :app:`Pyramid` requires one when adding an :term:`authentication"
 " policy`. However, it was not used anywhere, so we'll mention it now."
-msgstr ""
+msgstr "前の章で :term:`authorization policy` を追加しました :app:`Pyramid` は :term:`authentication policy` を追加するときに必要です。しかし、それはどこにも使われていなかったので、ここで言及します。"
 
 #: ../../tutorials/wiki2/authorization.rst:63
 msgid "In the file ``tutorial/security.py``, notice the following lines:"
-msgstr ""
+msgstr "ファイル `` tutorial/security.py``には、次の行があります。"
 
 #: ../../tutorials/wiki2/authorization.rst:71
 msgid ""
@@ -124,40 +127,40 @@ msgid ""
 "which will suffice for most applications. It uses the :term:`context` to "
 "define the mapping between a :term:`principal` and :term:`permission` for"
 " the current request via the ``__acl__``."
-msgstr ""
+msgstr "私たちは :class:`pyramid.authorization.ACLAuthorizationPolicy` を使っています。これは、ほとんどのアプリケーションで十分です。 :term:`context` を使用して、``__acl__`` を介して現在のリクエストに対して :term:`principal` と  :term:`permission` の間のマッピングを定義します。"
 
 #: ../../tutorials/wiki2/authorization.rst:78
 msgid "Add resources and ACLs"
-msgstr ""
+msgstr "リソースとACLを追加する"
 
 #: ../../tutorials/wiki2/authorization.rst:80
 msgid "Resources are the hidden gem of :app:`Pyramid`. You've made it!"
-msgstr ""
+msgstr "リソースは app:`Pyramid` の隠された宝石です。あなたはそれを作った!"
 
 #: ../../tutorials/wiki2/authorization.rst:82
 msgid ""
 "Every URL in a web application represents a :term:`resource` (the \"R\" "
 "in Uniform Resource Locator). Often the resource is something in your "
 "data model, but it could also be an abstraction over many models."
-msgstr ""
+msgstr "WebアプリケーションのすべてのURLは :term:`resource` (Uniform Resource Locatorの「R」)を表します。多くの場合、リソースはデータ・モデル内のものですが、多くのモデルで抽象化することもできます。"
 
 #: ../../tutorials/wiki2/authorization.rst:86
 msgid "Our wiki has two resources:"
-msgstr ""
+msgstr "私たちのwikiには2つのリソースがあります:"
 
 #: ../../tutorials/wiki2/authorization.rst:88
 msgid ""
 "A ``NewPage``. Represents a potential ``Page`` that does not exist. Any "
 "logged-in user, having either role of ``basic`` or ``editor``, can create"
 " pages."
-msgstr ""
+msgstr "`` NewPage``です。存在しない潜在的な `` Page``を表します。 `` basic``または `` editor``の役割を持つログインしているユーザは、ページを作成できます。"
 
 #: ../../tutorials/wiki2/authorization.rst:92
 msgid ""
 "A ``PageResource``. Represents a ``Page`` that is to be viewed or edited."
 " ``editor`` users, as well as the original creator of the ``Page``, may "
 "edit the ``PageResource``. Anyone may view it."
-msgstr ""
+msgstr "`` PageResource``です。表示または編集される「ページ」を表します。 `` Page``の編集者は、 `` PageResource``を編集することができます。誰でもそれを見ることができます。"
 
 #: ../../tutorials/wiki2/authorization.rst:98
 msgid ""
@@ -166,22 +169,22 @@ msgid ""
 "valid to combine these into one class. However, for this tutorial, they "
 "are explicitly separated to make clear the distinction between the parts "
 "about which :app:`Pyramid` cares versus application-defined objects."
-msgstr ""
+msgstr "wikiデータモデルは、単純に `` PageResource``が `` models.Page``のSQLAlchemyクラスと重複しているほど簡単です。これらを1つのクラスにまとめることは完全に有効です。しかし、このチュートリアルでは、app:`Pyramid` がアプリケーション定義のオブジェクトと何を区別しているのかを明確に区別するために明示的に区切られています。"
 
 #: ../../tutorials/wiki2/authorization.rst:104
 msgid ""
 "There are many ways to define these resources, and they can even be "
 "grouped into collections with a hierarchy. However, we're keeping it "
 "simple here!"
-msgstr ""
+msgstr "これらのリソースを定義するには多くの方法があり、階層構造のコレクションにグループ化することもできます。しかし、ここでは簡単にしています!"
 
 #: ../../tutorials/wiki2/authorization.rst:107
 msgid "Open the file ``tutorial/routes.py`` and edit the following lines:"
-msgstr ""
+msgstr "``tutorial/routes.py`` ファイルを開き、以下の行を編集してください:"
 
 #: ../../tutorials/wiki2/authorization.rst:114
 msgid "The highlighted lines need to be edited or added."
-msgstr ""
+msgstr "強調表示された行を編集または追加する必要があります。"
 
 #: ../../tutorials/wiki2/authorization.rst:116
 msgid ""
@@ -190,31 +193,31 @@ msgid ""
 " can do *what* with that :term:`resource`. In our case we want to allow "
 "only those users with the principals of either ``role:editor`` or "
 "``role:basic`` to have the ``create`` permission:"
-msgstr ""
+msgstr "``NewPage`` クラスには、 :term:`principal` から :term:`permission` までのマッピングのリストを返す __acl__ があります。これは who が何をできるかを定義します :term:`resource` 。私たちの場合、 role:editor または role:basic のいずれかのプリンシパルを持つユーザのみが create パーミッションを持つことを許可します:"
 
 #: ../../tutorials/wiki2/authorization.rst:128
 msgid ""
 "The ``NewPage`` is loaded as the :term:`context` of the ``add_page`` "
 "route by declaring a ``factory`` on the route:"
-msgstr ""
+msgstr "`` NewPage`` は ``add_page`` ルートの :term:`context`としてロードされ、ルート上に ``factory`` が宣言されます:"
 
 #: ../../tutorials/wiki2/authorization.rst:137
 msgid ""
 "The ``PageResource`` class defines the :term:`ACL` for a ``Page``. It "
 "uses an actual ``Page`` object to determine *who* can do *what* to the "
 "page."
-msgstr ""
+msgstr "`` PageResource``クラスは `` Page``のための :term:`ACL` を定義します。実際の `` Page``オブジェクトを使って*誰がページに何を*できるかを決定します。"
 
 #: ../../tutorials/wiki2/authorization.rst:146
 msgid ""
 "The ``PageResource`` is loaded as the :term:`context` of the "
 "``view_page`` and ``edit_page`` routes by declaring a ``factory`` on the "
 "routes:"
-msgstr ""
+msgstr "``PageResource`` は ``view_page`` と ` edit_page`` ルートの :term:`context` としてロードされ、ルート上に ``factory`` が宣言されます:"
 
 #: ../../tutorials/wiki2/authorization.rst:157
 msgid "Add view permissions"
-msgstr ""
+msgstr "表示権限を追加する"
 
 #: ../../tutorials/wiki2/authorization.rst:159
 msgid ""
@@ -223,21 +226,21 @@ msgid ""
 "``page_factory``. The ``PageResource`` is now the :term:`context` for all"
 " ``view_page`` and ``edit_page`` views. Similarly the ``NewPage`` will be"
 " the context for the ``add_page`` view."
-msgstr ""
+msgstr "現時点では、実際の ``Page`` モデルを ``page_factory`` に含めて、 ``PageResource`` を読み込むようにアプリケーションを修正しました。 `` PageResource`` はすべての ``view_page`` と ``edit_page`` ビューの :term:`context` です。同様に ``NewPage`` は ``add_page`` ビューのコンテキストになります。"
 
 #: ../../tutorials/wiki2/authorization.rst:165
 msgid "Open the file ``tutorial/views/default.py``."
-msgstr ""
+msgstr "`` tutorial/views/default.py``ファイルを開きます。"
 
 #: ../../tutorials/wiki2/authorization.rst:167
 msgid "First, you can drop a few imports that are no longer necessary:"
-msgstr ""
+msgstr "まず、不要になったインポートをいくつか削除できます。"
 
 #: ../../tutorials/wiki2/authorization.rst:175
 msgid ""
 "Edit the ``view_page`` view to declare the ``view`` permission, and "
 "remove the explicit checks within the view:"
-msgstr ""
+msgstr "``view_page`` ビューを編集して ``view`` パーミッションを宣言し、ビュー内の明示的なチェックを削除してください:"
 
 #: ../../tutorials/wiki2/authorization.rst:184
 msgid ""
@@ -246,22 +249,22 @@ msgid ""
 "``request.context``. Our factory also guarantees we will have a ``Page``,"
 " as it raises the ``HTTPNotFound`` exception if no ``Page`` exists, again"
 " simplifying the view logic."
-msgstr ""
+msgstr "ページを読み込む作業はすでに工場で行われているので、 ``pageResource`` から ``page.`` オブジェクトを取り出し、 ``request.context`` として読み込みます。私たちの工場では、 ``Page`` が存在しない場合には ``HTTPNotFound`` 例外が発生し、ビューロジックをやはり単純化するので、 `` Page``を保証します。"
 
 #: ../../tutorials/wiki2/authorization.rst:190
 msgid "Edit the ``edit_page`` view to declare the ``edit`` permission:"
-msgstr ""
+msgstr "``edit_page`` ビューを編集して ``edit`` パーミッションを宣言してください:"
 
 #: ../../tutorials/wiki2/authorization.rst:198
 msgid "Edit the ``add_page`` view to declare the ``create`` permission:"
-msgstr ""
+msgstr "``add_page`` ビューを編集して ``create`` パーミッションを宣言してください:"
 
 #: ../../tutorials/wiki2/authorization.rst:206
 msgid ""
 "Note the ``pagename`` here is pulled off of the context instead of "
 "``request.matchdict``. The factory has done a lot of work for us to hide "
 "the actual route pattern."
-msgstr ""
+msgstr "ここで ``pagename`` は ``request.matchdict`` ではなくコンテキストから取り除かれていることに注意してください。工場では、実際のルートパターンを隠すために多くの作業を行っています。"
 
 #: ../../tutorials/wiki2/authorization.rst:210
 msgid ""
@@ -272,29 +275,29 @@ msgid ""
 "will be raised automatically. Thus we're able to drop those exceptions "
 "and checks from the views themselves. Rather we've defined them in terms "
 "of operations on a resource."
-msgstr ""
+msgstr "各 :term:`resource` で定義されたACLは :term:`authorization policy` によって使用され :term:`principal` が何らかの :term:`permission` を許可されているかどうかを判断します。。このチェックが失敗した場合(たとえば、ユーザがログインしていない場合)、 ``HTTPForbidden`` 例外が自動的に呼び出されます。したがって、私たちはビューからそれらの例外やチェックを削除することができます。むしろ、リソースに対する操作の観点からそれらを定義しました。"
 
 #: ../../tutorials/wiki2/authorization.rst:217
 msgid "The final ``tutorial/views/default.py`` should look like the following:"
-msgstr ""
+msgstr "最後の ``tutorial/views/default.py`` は次のようになります:"
 
 #: ../../tutorials/wiki2/authorization.rst:224
 msgid "Viewing the application in a browser"
-msgstr ""
+msgstr "ブラウザでのアプリケーションの表示"
 
 #: ../../tutorials/wiki2/authorization.rst:226
 msgid ""
 "We can finally examine our application in a browser (See :ref:`wiki2"
 "-start-the-application`).  Launch a browser and visit each of the "
 "following URLs, checking that the result is as expected:"
-msgstr ""
+msgstr "ブラウザでアプリケーションを調べることができます(  :ref:`wiki2-start-the-application` を参照してください)。ブラウザを起動し、次の各URLにアクセスして、結果が期待どおりであることを確認します。"
 
 #: ../../tutorials/wiki2/authorization.rst:230
 msgid ""
-"http://localhost:6543/ invokes the ``view_wiki`` view.  This always "
+"http://localhost:6543/invokes the ``view_wiki`` view.  This always "
 "redirects to the ``view_page`` view of the ``FrontPage`` page object.  It"
 " is executable by any user."
-msgstr ""
+msgstr "http://localhost:6543/ ``view_wiki`` ビューを呼び出します。これは常に ``FrontPage`` ページオブジェクトの ``view_page`` ビューにリダイレクトされます。任意のユーザーが実行可能です。"
 
 #: ../../tutorials/wiki2/authorization.rst:234
 msgid ""
@@ -302,7 +305,7 @@ msgid ""
 "``FrontPage`` page object. There is a \"Login\" link in the upper right "
 "corner while the user is not authenticated, else it is a \"Logout\" link "
 "when the user is authenticated."
-msgstr ""
+msgstr "http://localhost:6543/FrontPage は ``FrontPage`` ページオブジェクトの ``view_page`` ビューを呼び出します。ユーザーが認証されていないときは右上に Login リンクがあり、認証されていない場合は Logout リンクです。"
 
 #: ../../tutorials/wiki2/authorization.rst:239
 msgid ""
@@ -312,7 +315,7 @@ msgid ""
 "then a login form will be displayed. Supplying the credentials with the "
 "username ``editor`` and password ``editor`` will display the edit page "
 "form."
-msgstr ""
+msgstr "http://localhost:6543/FrontPage/edit_page は、 ``FrontPage`` ページオブジェクトの ``edit_page`` ビューを呼び出します。 ``editor`` ユーザだけが実行可能です。別のユーザー(または匿名ユーザー)がそれを呼び出すと、ログインフォームが表示されます。ユーザー名 ``editor`` とパスワード ``editor`` を入力すると、編集ページのフォームが表示されます。"
 
 #: ../../tutorials/wiki2/authorization.rst:245
 msgid ""
@@ -324,7 +327,7 @@ msgid ""
 "credentials with either the username ``editor`` and password ``editor``, "
 "or username ``basic`` and password ``basic``, will display the edit page "
 "form."
-msgstr ""
+msgstr "http://localhost:6543/add_page/SomePageName はページの ``add_page`` ビューを呼び出します。ページがすでに存在する場合は、ページオブジェクトの ``edit_page`` ビューにユーザをリダイレクトします。これは、 ``editor`` または ``basic`` ユーザのいずれかによって実行可能です。別のユーザー(または匿名ユーザー)がそれを呼び出すと、ログインフォームが表示されます。ユーザ名 `` editor`` とパスワード ``editor`` 、またはユーザ名 ``basic`` とパスワード ``basic`` のいずれかで証明書を入力すると、編集ページのフォームが表示されます。"
 
 #: ../../tutorials/wiki2/authorization.rst:253
 msgid ""
@@ -334,7 +337,7 @@ msgid ""
 "that user in the previous step. If, instead, the page was created by the "
 "``editor`` user, then the login page should be shown for the ``basic`` "
 "user."
-msgstr ""
+msgstr "http://localhost:6543/SomePageName/edit_pageは、既存のページの ``edit_page`` ビューを呼び出し、ページが存在しない場合はエラーを生成します。これは、前の手順でそのユーザがページを作成した場合、 `` basic``ユーザによって編集可能です。代わりに、 ``editor`` ユーザがページを作成した場合、 ``basic`` ユーザのログインページが表示されます。"
 
 #: ../../tutorials/wiki2/authorization.rst:259
 msgid ""
@@ -343,5 +346,5 @@ msgid ""
 "\"Logout\" link in the upper right hand corner.  When we click it, we're "
 "logged out, redirected back to the front page, and a \"Login\" link is "
 "shown in the upper right hand corner."
-msgstr ""
+msgstr "ログインした後(編集やページを追加し、 ``editor`` の資格情報を使ってログインフォームを送信した結果)、右上に Logout というリンクが表示されます。クリックするとログアウトされ、フロントページにリダイレクトされ、右上に Login リンクが表示されます。"
 

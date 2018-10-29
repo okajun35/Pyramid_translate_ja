@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../tutorials/wiki2/tests.rst:5
 msgid "Adding Tests"
-msgstr ""
+msgstr "(機械翻訳)テストの追加"
 
 #: ../../tutorials/wiki2/tests.rst:7
 msgid ""
@@ -28,7 +28,7 @@ msgid ""
 "functional tests in a new ``tests`` subpackage.  Tests ensure that an "
 "application works, and that it continues to work when changes are made in"
 " the future."
-msgstr ""
+msgstr "新しい `` tests``サブパッケージにモデルとビューのテストといくつかの機能テストを追加します。テストでは、アプリケーションが正常に動作していることを確認し、将来変更が加えられた場合でも動作し続けます。"
 
 #: ../../tutorials/wiki2/tests.rst:11
 msgid ""
@@ -39,13 +39,13 @@ msgid ""
 "module in our application.  Each corresponding pair of modules should "
 "have the same names, except the test module should have the prefix "
 "``test_``."
-msgstr ""
+msgstr "ファイル ``tests.py`` は ``alchemy`` クッキーカッターの一部として生成されましたが、テストが ``tests``　サブパッケージに置かれるのは一般的なことです。テストサブパッケージの各モジュールには、アプリケーションの対応するモジュールのテストが含まれている必要があります。テストモジュールに ``test_`` という接頭辞が付いていることを除いて、それぞれの対応するモジュールのペアは同じ名前でなければなりません。"
 
 #: ../../tutorials/wiki2/tests.rst:18
 msgid ""
 "Start by deleting ``tests.py``, then create a new directory to contain "
 "our new tests as well as a new empty file ``tests/__init__.py``."
-msgstr ""
+msgstr "まず ``tests.py`` を削除し、新しいテストと新しい空のファイル ``tests/__init__.py`` を含む新しいディレクトリを作成します。"
 
 #: ../../tutorials/wiki2/tests.rst:23
 msgid ""
@@ -54,11 +54,11 @@ msgid ""
 "folders) sitting around! Python will prioritize the cache files before "
 "traversing into folders, using the old code, and you will wonder why none"
 " of your changes are working!"
-msgstr ""
+msgstr "Pythonモジュールをパッケージにリファクタリングして、キャッシュファイル（ `` .pyc``ファイルや `` __pycache__``フォルダ）を確実に削除することは非常に重要です！ Pythonは、古いコードを使用して、フォルダに移動する前にキャッシュファイルの優先順位を決定します。なぜあなたの変更がうまくいかないのだろうか？"
 
 #: ../../tutorials/wiki2/tests.rst:31
 msgid "Test the views"
-msgstr ""
+msgstr "ビューをテストする"
 
 #: ../../tutorials/wiki2/tests.rst:33
 msgid ""
@@ -68,11 +68,11 @@ msgid ""
 " test classes: ``ViewWikiTests``, ``ViewPageTests``, ``AddPageTests``, "
 "and ``EditPageTests``. These test the ``view_wiki``, ``view_page``, "
 "``add_page``, and ``edit_page`` views."
-msgstr ""
+msgstr "新しい `` tests / test_views.py``ファイルを作成し、他のテストクラスのベースとして使われる `` BaseTest``クラスを追加します。次に、以前にアプリケーションに追加した各ビュー関数のテストを追加します。 `` ViewWikiTests``、 `` ViewPageTests``、 `` AddPageTests``、および `` EditPageTests``の4つのテストクラスを追加します。これらは `` view_wiki``、 `` view_page``、 `` add_page``、 `` edit_page``のビューをテストします。"
 
 #: ../../tutorials/wiki2/tests.rst:42
 msgid "Functional tests"
-msgstr ""
+msgstr "機能テスト"
 
 #: ../../tutorials/wiki2/tests.rst:44
 msgid ""
@@ -80,37 +80,37 @@ msgid ""
 "tested in the unit tests, like logging in, logging out, checking that the"
 " ``basic`` user cannot edit pages that it didn't create but the "
 "``editor`` user can, and so on."
-msgstr ""
+msgstr "単体テストでテストされていないセキュリティ面（ログイン、ログアウト、 ``basic`` ユーザーは作成していないページを編集できないことを確認しますが、 ``editor`` ユーザーはできる、など。"
 
 #: ../../tutorials/wiki2/tests.rst:51
 msgid "View the results of all our edits to ``tests`` subpackage"
-msgstr ""
+msgstr "`` tests``サブパッケージに対するすべての編集の結果を表示します。"
 
 #: ../../tutorials/wiki2/tests.rst:53
 msgid "Create ``tutorial/tests/test_views.py`` such that it appears as follows:"
-msgstr ""
+msgstr "次のように表示されるように `` tutorial/tests/test_views.py`` を作成します："
 
 #: ../../tutorials/wiki2/tests.rst:59
 msgid ""
 "Create ``tutorial/tests/test_functional.py`` such that it appears as "
 "follows:"
-msgstr ""
+msgstr "次のように表示されるように `` tutorial / tests / test_functional.py``を作成します："
 
 #: ../../tutorials/wiki2/tests.rst:65
 msgid "Create ``tutorial/tests/test_initdb.py`` such that it appears as follows:"
-msgstr ""
+msgstr "次のように表示されるように `` tutorial / tests / test_initdb.py``を作成します："
 
 #: ../../tutorials/wiki2/tests.rst:71
 msgid ""
 "Create ``tutorial/tests/test_security.py`` such that it appears as "
 "follows:"
-msgstr ""
+msgstr "次のように表示されるように `` tutorial / tests / test_security.py``を作成します："
 
 #: ../../tutorials/wiki2/tests.rst:77
 msgid ""
 "Create ``tutorial/tests/test_user_model.py`` such that it appears as "
 "follows:"
-msgstr ""
+msgstr "次のように表示されるように `` tutorial / tests / test_user_model.py``を作成します："
 
 #: ../../tutorials/wiki2/tests.rst:86
 msgid ""
@@ -119,11 +119,11 @@ msgid ""
 "our ``setup.py``. Any other dependencies needed only for testing purposes"
 " can be added there and will be installed automatically when running "
 "``setup.py test``."
-msgstr ""
+msgstr "我々は優れた WebTest_ パッケージを利用してアプリケーションの機能テストを行っています。これは `` setup.py``の `` tests_require``セクションで定義されています。テスト目的だけに必要な他の依存関係はそこに追加することができ、 `` setup.py test``を実行すると自動的にインストールされます。"
 
 #: ../../tutorials/wiki2/tests.rst:94
 msgid "Running the tests"
-msgstr ""
+msgstr "テストの実行"
 
 #: ../../tutorials/wiki2/tests.rst:96
 msgid ""
@@ -131,17 +131,17 @@ msgid ""
 "but first delete the SQLite database ``tutorial.sqlite``. If you do not "
 "delete the database, then you will see an integrity error when running "
 "the tests."
-msgstr ""
+msgstr "これらのテストは、:ref:`running_tests` と同じように実行できますが、最初にSQLiteデータベース` tutorial.sqlite`を削除します。データベースを削除しないと、テスト実行時に整合性エラーが表示されます。"
 
 #: ../../tutorials/wiki2/tests.rst:98
 msgid "On UNIX:"
-msgstr ""
+msgstr "UNIXの場合："
 
 #: ../../tutorials/wiki2/tests.rst:105
 msgid "On Windows:"
-msgstr ""
+msgstr "Windowsの場合："
 
 #: ../../tutorials/wiki2/tests.rst:112
 msgid "The expected result should look like the following:"
-msgstr ""
+msgstr "予想される結果は、次のようになります。"
 

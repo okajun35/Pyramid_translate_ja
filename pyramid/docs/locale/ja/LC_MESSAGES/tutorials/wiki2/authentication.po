@@ -7,120 +7,120 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 00:00+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
+"Project-Id-Version:The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To:\n"
+"POT-Creation-Date:2018-08-02 00:00+0900\n"
+"PO-Revision-Date:YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator:FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team:LANGUAGE <LL@li.org>\n"
+"MIME-Version:1.0\n"
+"Content-Type:text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding:8bit\n"
+"Generated-By:Babel 2.6.0\n"
 
-#: ../../tutorials/wiki2/authentication.rst:5
+#:../../tutorials/wiki2/authentication.rst:5
 msgid "Adding authentication"
-msgstr ""
+msgstr "(機械翻訳)認証の追加"
 
-#: ../../tutorials/wiki2/authentication.rst:7
+#:../../tutorials/wiki2/authentication.rst:7
 msgid ""
 ":app:`Pyramid` provides facilities for :term:`authentication` and "
 ":term:`authorization`. In this section we'll focus solely on the "
 "authentication APIs to add login and logout functionality to our wiki."
-msgstr ""
+msgstr ":app:`Pyramid` は :term:`authentication` と :term:`authorization` のための機能を提供します。このセクションでは、ログインAPIとログアウト機能をWikiに追加するための認証APIのみに焦点を当てます。"
 
-#: ../../tutorials/wiki2/authentication.rst:11
+#:../../tutorials/wiki2/authentication.rst:11
 msgid "We will implement authentication with the following steps:"
-msgstr ""
+msgstr "次の手順で認証を実装します。"
 
-#: ../../tutorials/wiki2/authentication.rst:13
+#:../../tutorials/wiki2/authentication.rst:13
 msgid ""
 "Add an :term:`authentication policy` and a ``request.user`` computed "
 "property (``security.py``)."
-msgstr ""
+msgstr ":term:`認証ポリシー`と `` request.user``の計算されたプロパティー( `` security.py``)を追加してください。"
 
-#: ../../tutorials/wiki2/authentication.rst:15
+#:../../tutorials/wiki2/authentication.rst:15
 msgid "Add routes for ``/login`` and ``/logout`` (``routes.py``)."
-msgstr ""
+msgstr "`` /login``と `` /logout``( `` routes.py``)のルートを追加します。"
 
-#: ../../tutorials/wiki2/authentication.rst:16
+#:../../tutorials/wiki2/authentication.rst:16
 msgid "Add login and logout views (``views/auth.py``)."
-msgstr ""
+msgstr "ログインビューとログアウトビューを追加します( `` views /auth.py``)。"
 
-#: ../../tutorials/wiki2/authentication.rst:17
+#:../../tutorials/wiki2/authentication.rst:17
 msgid "Add a login template (``login.jinja2``)."
-msgstr ""
+msgstr "ログインテンプレートを追加します( `` login.jinja2``)。"
 
-#: ../../tutorials/wiki2/authentication.rst:18
+#:../../tutorials/wiki2/authentication.rst:18
 msgid ""
 "Add \"Login\" and \"Logout\" links to every page based on the user's "
 "authenticated state (``layout.jinja2``)."
-msgstr ""
+msgstr "ユーザーの認証済み状態( `` layout.jinja2``)に基づいて、すべてのページに\ &quot;ログイン\&quot;と\ &quot;ログアウト\&quot;リンクを追加します。"
 
-#: ../../tutorials/wiki2/authentication.rst:20
+#:../../tutorials/wiki2/authentication.rst:20
 msgid "Make the existing views verify user state (``views/default.py``)."
-msgstr ""
+msgstr "既存のビューがユーザの状態を確認するようにします( `` views /default.py``)。"
 
-#: ../../tutorials/wiki2/authentication.rst:21
+#:../../tutorials/wiki2/authentication.rst:21
 msgid ""
 "Redirect to ``/login`` when a user is denied access to any of the views "
 "that require permission, instead of a default \"403 Forbidden\" page "
 "(``views/auth.py``)."
-msgstr ""
+msgstr "デフォルトの &quot;403 Forbidden&quot;ページ( `` views /auth.py``)ではなく、アクセス権が必要なビューへのアクセスがユーザから拒否された場合、 `` /login``に??リダイレクトします。"
 
-#: ../../tutorials/wiki2/authentication.rst:27
+#:../../tutorials/wiki2/authentication.rst:27
 msgid "Authenticating requests"
-msgstr ""
+msgstr "リクエストの認証"
 
-#: ../../tutorials/wiki2/authentication.rst:29
+#:../../tutorials/wiki2/authentication.rst:29
 msgid ""
-"The core of :app:`Pyramid` authentication is an :term:`authentication "
+"The core of :app:`Pyramid` authentication is an  :term:`authentication"
 "policy` which is used to identify authentication information from a "
 "``request``, as well as handling the low-level login and logout "
 "operations required to track users across requests (via cookies, headers,"
 " or whatever else you can imagine)."
-msgstr ""
+msgstr ":app:`Pyramid` 認証の核心は :term:`authentication `であり、` `request``から認証情報を特定し、ユーザの追跡に必要な低レベルのログインとログアウト操作を処理するために使用されます(クッキー、ヘッダーなど、あなたが想像できるものを介して)"
 
-#: ../../tutorials/wiki2/authentication.rst:37
+#:../../tutorials/wiki2/authentication.rst:37
 msgid "Add the authentication policy"
-msgstr ""
+msgstr "認証ポリシーを追加する"
 
-#: ../../tutorials/wiki2/authentication.rst:39
+#:../../tutorials/wiki2/authentication.rst:39
 msgid "Create a new file ``tutorial/security.py`` with the following content:"
-msgstr ""
+msgstr "以下の内容の `` tutorial /security.py``ファイルを新規作成してください:"
 
-#: ../../tutorials/wiki2/authentication.rst:45
+#:../../tutorials/wiki2/authentication.rst:45
 msgid "Here we've defined:"
-msgstr ""
+msgstr "ここでは、"
 
-#: ../../tutorials/wiki2/authentication.rst:47
+#:../../tutorials/wiki2/authentication.rst:47
 msgid ""
 "A new authentication policy named ``MyAuthenticationPolicy``, which is "
 "subclassed from Pyramid's "
 ":class:`pyramid.authentication.AuthTktAuthenticationPolicy`, which tracks"
 " the :term:`userid` using a signed cookie (lines 7-11)."
-msgstr ""
+msgstr "Pyramidの :class:`pyramid.authentication.AuthTktAuthenticationPolicy` からサブクラス化された` `MyAuthenticationPolicy``という名前の新しい認証ポリシーは、署名されたクッキーを使って :term:`userid` を追跡します(7-11行目)。  :term:`userid` "
 
-#: ../../tutorials/wiki2/authentication.rst:51
+#:../../tutorials/wiki2/authentication.rst:51
 msgid ""
 "A ``get_user`` function, which can convert the ``unauthenticated_userid``"
 " from the policy into a ``User`` object from our database (lines 13-17)."
-msgstr ""
+msgstr "`` unauthenticated_userid``をポリシーから `` User``オブジェクトに変換する `` get_user``関数です(13-17行目)。"
 
-#: ../../tutorials/wiki2/authentication.rst:53
+#:../../tutorials/wiki2/authentication.rst:53
 msgid ""
 "The ``get_user`` is registered on the request as ``request.user`` to be "
 "used throughout our application as the authenticated ``User`` object for "
 "the logged-in user (line 27)."
-msgstr ""
+msgstr "`` get_user``は、ログインしたユーザのために認証された `` User``オブジェクトとしてアプリケーション全体で使用される `` request.user``としてリクエストに登録されます(27行目)。"
 
-#: ../../tutorials/wiki2/authentication.rst:57
+#:../../tutorials/wiki2/authentication.rst:57
 msgid ""
 "The logic in this file is a little bit interesting, so we'll go into "
 "detail about what's happening here:"
-msgstr ""
+msgstr "このファイルのロジックは少し面白いので、ここで何が起こっているのか詳しく説明します:"
 
-#: ../../tutorials/wiki2/authentication.rst:60
+#:../../tutorials/wiki2/authentication.rst:60
 msgid ""
 "First, the default authentication policies all provide a method named "
 "``unauthenticated_userid`` which is responsible for the low-level parsing"
@@ -130,16 +130,16 @@ msgid ""
 "value of the userid in the cookie, but it doesn't know if it's actually a"
 " user in our system (remember, anything the user sends to our app is "
 "untrusted)."
-msgstr ""
+msgstr "最初に、デフォルトの認証ポリシーはすべて、 `` unauthenticated_userid``という名前のメソッドを提供します。このメソッドは、リクエスト内の情報の低レベル解析(クッキー、ヘッダーなど)を担当します。 `` userid``が見つかった場合、このメソッドから返されます。最も低いレベルでは、それはクッキー内のユーザIDの値を知っているので、実際には私たちのシステム内のユーザであるかどうかはわからないので、これは `` unauthenticated_userid``という名前です(覚えておいて、信頼できません)。"
 
-#: ../../tutorials/wiki2/authentication.rst:68
+#:../../tutorials/wiki2/authentication.rst:68
 msgid ""
 "Second, our application should only care about ``authenticated_userid`` "
 "and ``request.user``, which have gone through our application-specific "
 "process of validating that the user is logged in."
-msgstr ""
+msgstr "第二に、アプリケーションは `` authenticated_userid``と `` request.user``だけを気にする必要があります。これはユーザーがログインしていることを検証するアプリケーション固有のプロセスを経ています。"
 
-#: ../../tutorials/wiki2/authentication.rst:72
+#:../../tutorials/wiki2/authentication.rst:72
 msgid ""
 "In order to provide an ``authenticated_userid`` we need a verification "
 "step. That can happen anywhere, so we've elected to do it inside of the "
@@ -148,36 +148,36 @@ msgid ""
 "``None`` or a ``User`` object from our database. This is why the "
 "``get_user`` function uses the ``unauthenticated_userid`` to check the "
 "database."
-msgstr ""
+msgstr "`` authenticated_userid``を提供するためには、検証のステップが必要です。これはどこでも発生する可能性があるので、キャッシュされた `` request.user``の計算されたプロパティの中で実行することにしました。これは、 `` request.user``をシステムの真理の源にする便利な機能です。私たちのデータベースの `` None``か `` User``オブジェクトです。これは、 `` get_user``関数が `` unauthenticated_userid``を使ってデータベースをチェックする理由です。"
 
-#: ../../tutorials/wiki2/authentication.rst:81
+#:../../tutorials/wiki2/authentication.rst:81
 msgid "Configure the app"
-msgstr ""
+msgstr "アプリを設定する"
 
-#: ../../tutorials/wiki2/authentication.rst:83
+#:../../tutorials/wiki2/authentication.rst:83
 msgid ""
 "Since we've added a new ``tutorial/security.py`` module, we need to "
 "include it. Open the file ``tutorial/__init__.py`` and edit the following"
 " lines:"
-msgstr ""
+msgstr "新しい `` tutorial /security.py``モジュールを追加したので、それをインクルードする必要があります。ファイル `` tutorial /__ init __。py``を開き、以下の行を編集してください:"
 
-#: ../../tutorials/wiki2/authentication.rst:91
+#:../../tutorials/wiki2/authentication.rst:91
 msgid ""
 "Our authentication policy is expecting a new setting, ``auth.secret``. "
 "Open the file ``development.ini`` and add the highlighted line below:"
-msgstr ""
+msgstr "私たちの認証方針は新しい設定 `` auth.secret``を期待しています。ファイル `` development.ini``を開き、以下の強調表示された行を追加してください:"
 
-#: ../../tutorials/wiki2/authentication.rst:100
+#:../../tutorials/wiki2/authentication.rst:100
 msgid ""
 "Finally, best practices tell us to use a different secret for production,"
 " so open ``production.ini`` and add a different secret:"
-msgstr ""
+msgstr "最後に、ベストプラクティスでは、生産のために別の秘密を使用するように指示するので、 `` production.ini``を開き、別の秘密を追加してください:"
 
-#: ../../tutorials/wiki2/authentication.rst:111
+#:../../tutorials/wiki2/authentication.rst:111
 msgid "Add permission checks"
-msgstr ""
+msgstr "権限チェックを追加する"
 
-#: ../../tutorials/wiki2/authentication.rst:113
+#:../../tutorials/wiki2/authentication.rst:113
 msgid ""
 ":app:`Pyramid` has full support for declarative authorization, which "
 "we'll cover in the next chapter. However, many people looking to get "
@@ -185,50 +185,50 @@ msgid ""
 " of home-grown authorization. We'll show below how to accomplish the "
 "simple security goals of our wiki, now that we can track the logged-in "
 "state of users."
-msgstr ""
+msgstr ":app:`Pyramid` は宣言的承認を完全にサポートしています。これについては次の章で説明します。しかし、足を濡らすことを望んでいる多くの人々は、自家認証のいくつかの基本的な形で認証に興味を持っています。以下に、wikiの単純なセキュリティ目標を達成する方法を示します。これで、ユーザーのログイン状態を追跡できるようになります。"
 
-#: ../../tutorials/wiki2/authentication.rst:119
+#:../../tutorials/wiki2/authentication.rst:119
 msgid "Remember our goals:"
-msgstr ""
+msgstr "私たちの目標を思い出してください:"
 
-#: ../../tutorials/wiki2/authentication.rst:121
+#:../../tutorials/wiki2/authentication.rst:121
 msgid "Allow only ``editor`` and ``basic`` logged-in users to create new pages."
-msgstr ""
+msgstr "ログインしたユーザーが `` editor``と `` basic``のみ新しいページを作成できるようにしてください。"
 
-#: ../../tutorials/wiki2/authentication.rst:122
+#:../../tutorials/wiki2/authentication.rst:122
 msgid ""
 "Only allow ``editor`` users and the page creator (possibly a ``basic`` "
 "user) to edit pages."
-msgstr ""
+msgstr "`` editor``ユーザとページ作成者(おそらく `` basic``ユーザ)のみがページを編集できるようにしてください。"
 
-#: ../../tutorials/wiki2/authentication.rst:125
+#:../../tutorials/wiki2/authentication.rst:125
 msgid "Open the file ``tutorial/views/default.py`` and fix the following imports:"
-msgstr ""
+msgstr "`` tutorial/views/default.py``ファイルを開き、以下のインポートを修正してください:"
 
-#: ../../tutorials/wiki2/authentication.rst:133
+#:../../tutorials/wiki2/authentication.rst:133
 msgid "Change the two highlighted lines."
-msgstr ""
+msgstr "強調表示されている2つの行を変更します。"
 
-#: ../../tutorials/wiki2/authentication.rst:135
+#:../../tutorials/wiki2/authentication.rst:135
 msgid "In the same file, now edit the ``edit_page`` view function:"
-msgstr ""
+msgstr "同じファイル内で、 `` edit_page``ビュー関数を編集してください:"
 
-#: ../../tutorials/wiki2/authentication.rst:143
-#: ../../tutorials/wiki2/authentication.rst:156
+#:../../tutorials/wiki2/authentication.rst:143
+#:../../tutorials/wiki2/authentication.rst:156
 msgid "Only the highlighted lines need to be changed."
-msgstr ""
+msgstr "強調表示されている行だけを変更する必要があります。"
 
-#: ../../tutorials/wiki2/authentication.rst:145
+#:../../tutorials/wiki2/authentication.rst:145
 msgid ""
 "If the user either is not logged in or the user is not the page's creator"
 " *and* not an ``editor``, then we raise ``HTTPForbidden``."
-msgstr ""
+msgstr "ユーザーがログインしていないか、ユーザーがページの作成者*ではなく、エディタではない場合は、 `` HTTPForbidden &#39;&#39;を生成します。"
 
-#: ../../tutorials/wiki2/authentication.rst:148
+#:../../tutorials/wiki2/authentication.rst:148
 msgid "In the same file, now edit the ``add_page`` view function:"
-msgstr ""
+msgstr "同じファイルで、 `` add_page``ビュー関数を編集してください:"
 
-#: ../../tutorials/wiki2/authentication.rst:158
+#:../../tutorials/wiki2/authentication.rst:158
 msgid ""
 "If the user either is not logged in or is not in the ``basic`` or "
 "``editor`` roles, then we raise ``HTTPForbidden``, which will return a "
@@ -236,38 +236,38 @@ msgid ""
 "to redirect to the login page. Also, now that we have ``request.user``, "
 "we no longer have to hard-code the creator as the ``editor`` user, so we "
 "can finally drop that hack."
-msgstr ""
+msgstr "ユーザーがログインしていないか、 `` basic``または `` editor``の役割にない場合、 `` HTTPForbidden`` を生成し、ユーザーに「403 Forbidden」応答を返します。しかし、これを後でフックしてログインページにリダイレクトします。また、 `` request.user`` ができたので、作成者を  ``editor`` のユーザとしてハードコーディングする必要がなくなり、最終的にそのハックを取り除くことができます。"
 
-#: ../../tutorials/wiki2/authentication.rst:164
+#:../../tutorials/wiki2/authentication.rst:164
 msgid "These simple checks should protect our views."
-msgstr ""
+msgstr "これらの単純なチェックは私たちの見解を保護するはずです。"
 
-#: ../../tutorials/wiki2/authentication.rst:168
+#:../../tutorials/wiki2/authentication.rst:168
 msgid "Login, logout"
-msgstr ""
+msgstr "ログイン、ログアウト"
 
-#: ../../tutorials/wiki2/authentication.rst:170
+#:../../tutorials/wiki2/authentication.rst:170
 msgid ""
 "Now that we've got the ability to detect logged-in users, we need to add "
 "the ``/login`` and ``/logout`` views so that they can actually login and "
 "logout!"
-msgstr ""
+msgstr "ログインユーザーを検出できるようになったので、実際にログインしてログアウトできるように、 `` /login``と `` /logout``ビューを追加する必要があります。"
 
-#: ../../tutorials/wiki2/authentication.rst:175
+#:../../tutorials/wiki2/authentication.rst:175
 msgid "Add routes for ``/login`` and ``/logout``"
-msgstr ""
+msgstr "`` /login``と `` /logout``のルートを追加する"
 
-#: ../../tutorials/wiki2/authentication.rst:177
+#:../../tutorials/wiki2/authentication.rst:177
 msgid "Go back to ``tutorial/routes.py`` and add these two routes as highlighted:"
-msgstr ""
+msgstr "`` tutorial /routes.py``に戻り、次の2つのルートをハイライト表示します:"
 
-#: ../../tutorials/wiki2/authentication.rst:185
+#:../../tutorials/wiki2/authentication.rst:185
 msgid ""
 "The preceding lines must be added *before* the following ``view_page`` "
 "route definition:"
-msgstr ""
+msgstr "上記の行は、以下の `` view_page``ルート定義の前に追加する必要があります:"
 
-#: ../../tutorials/wiki2/authentication.rst:193
+#:../../tutorials/wiki2/authentication.rst:193
 msgid ""
 "This is because ``view_page``'s route definition uses a catch-all "
 "\"replacement marker\" ``/{pagename}`` (see :ref:`route_pattern_syntax`),"
@@ -275,134 +275,134 @@ msgid ""
 "registered before it. Hence, for ``login`` and ``logout`` views to have "
 "the opportunity of being matched (or \"caught\"), they must be above "
 "``/{pagename}``."
-msgstr ""
+msgstr "これは、 `` view_page``のルート定義がcatch-all replacement marker  ``/{pagename}`` ((参照 :ref:`route_pattern_syntax` )を使用していて、その前に登録されているどのルートでも捕らえられます。したがって、 `` login``と `` logout`` ビューは一致する(またはキャッチされます)機会を持つためには、 `` /{pagename} `` の上になければなりません。"
 
-#: ../../tutorials/wiki2/authentication.rst:202
+#:../../tutorials/wiki2/authentication.rst:202
 msgid "Add login, logout, and forbidden views"
-msgstr ""
+msgstr "ログイン、ログアウト、禁止されたビューを追加する"
 
-#: ../../tutorials/wiki2/authentication.rst:204
+#:../../tutorials/wiki2/authentication.rst:204
 msgid ""
 "Create a new file ``tutorial/views/auth.py``, and add the following code "
 "to it:"
-msgstr ""
+msgstr "新しいファイル `` tutorial /views /auth.py``を作成し、次のコードを追加します:"
 
-#: ../../tutorials/wiki2/authentication.rst:210
+#:../../tutorials/wiki2/authentication.rst:210
 msgid "This code adds three new views to the application:"
-msgstr ""
+msgstr "このコードは、アプリケーションに3つの新しいビューを追加します。"
 
-#: ../../tutorials/wiki2/authentication.rst:212
+#:../../tutorials/wiki2/authentication.rst:212
 msgid ""
 "The ``login`` view renders a login form and processes the post from the "
 "login form, checking credentials against our ``users`` table in the "
 "database."
-msgstr ""
+msgstr "`` login`` ビューはログインフォームをレンダリングし、ログインフォームからの投稿を処理し、データベースの `` users`` テーブルに対して資格をチェックします。"
 
-#: ../../tutorials/wiki2/authentication.rst:215
+#:../../tutorials/wiki2/authentication.rst:215
 msgid ""
 "The check is done by first finding a ``User`` record in the database, "
 "then using our ``user.check_password`` method to compare the hashed "
 "passwords."
-msgstr ""
+msgstr "チェックは、まずデータベース内の `` User`` レコードを見つけてから、 `` user.check_password`` メソッドを使ってハッシュされたパスワードを比較して行います。"
 
-#: ../../tutorials/wiki2/authentication.rst:218
+#:../../tutorials/wiki2/authentication.rst:218
 msgid ""
 "If the credentials are valid, then we use our authentication policy to "
 "store the user's id in the response using "
 ":meth:`pyramid.security.remember`."
-msgstr ""
+msgstr "クレデンシャルが有効な場合は、私たちの認証ポリシーを使用して :meth:`pyramid.security.remember` を使用してユーザーのIDをレスポンスに格納します。"
 
-#: ../../tutorials/wiki2/authentication.rst:221
+#:../../tutorials/wiki2/authentication.rst:221
 msgid ""
 "Finally, the user is redirected back to either the page which they were "
 "trying to access (``next``) or the front page as a fallback. This "
 "parameter is used by our forbidden view, as explained below, to finish "
 "the login workflow."
-msgstr ""
+msgstr "最後に、ユーザーは、アクセスしようとしていたページ( `` next``)またはフォールバックとしてフロントページにリダイレクトされます。このパラメータは、以下に説明するように、ログインワークフローを終了するために、禁止されたビューで使用されます。"
 
-#: ../../tutorials/wiki2/authentication.rst:226
+#:../../tutorials/wiki2/authentication.rst:226
 msgid ""
 "The ``logout`` view handles requests to ``/logout`` by clearing the "
 "credentials using :meth:`pyramid.security.forget`, then redirecting them "
 "to the front page."
-msgstr ""
+msgstr "`` logout``ビューは :meth:`pyramid.security.forget`を使ってクレデンシャルをクリアし、フロントページにリダイレクトすることで ``/logout`` へのリクエストを処理します。"
 
-#: ../../tutorials/wiki2/authentication.rst:230
+#:../../tutorials/wiki2/authentication.rst:230
 msgid ""
 "The ``forbidden_view`` is registered using the "
 ":class:`pyramid.view.forbidden_view_config` decorator. This is a special "
 ":term:`exception view`, which is invoked when a "
 ":class:`pyramid.httpexceptions.HTTPForbidden` exception is raised."
-msgstr ""
+msgstr "``forbidden_view`` は :class:`pyramid.httpexceptions.HTTPForbidden` デコレータを使って登録されています。これは special :term:`exception view` で、:class:`pyramid.httpexceptions.HTTPForbidden` 例外が発生したときに呼び出されます。"
 
-#: ../../tutorials/wiki2/authentication.rst:235
+#:../../tutorials/wiki2/authentication.rst:235
 msgid ""
 "This view will handle a forbidden error by redirecting the user to "
 "``/login``. As a convenience, it also sets the ``next=`` query string to "
 "the current URL (the one that is forbidding access). This way, if the "
 "user successfully logs in, they will be sent back to the page which they "
 "had been trying to access."
-msgstr ""
+msgstr "このビューは、ユーザを ``/login`` にリダイレクトすることによって禁じられたエラーを処理します。便宜上、  ``next=`` クエリ文字列を現在のURL(アクセスを禁止しているURL)に設定します。このようにして、ユーザーが正常にログインすると、アクセスしようとしていたページに戻ります。"
 
-#: ../../tutorials/wiki2/authentication.rst:243
+#:../../tutorials/wiki2/authentication.rst:243
 msgid "Add the ``login.jinja2`` template"
-msgstr ""
+msgstr "`` login.jinja2``テンプレートを追加してください"
 
-#: ../../tutorials/wiki2/authentication.rst:245
+#:../../tutorials/wiki2/authentication.rst:245
 msgid "Create ``tutorial/templates/login.jinja2`` with the following content:"
-msgstr ""
+msgstr "以下の内容の `` tutorial /templates /login.jinja2`` を作成してください:"
 
-#: ../../tutorials/wiki2/authentication.rst:250
+#:../../tutorials/wiki2/authentication.rst:250
 msgid ""
 "The above template is referenced in the login view that we just added in "
 "``tutorial/views/auth.py``."
-msgstr ""
+msgstr "上記のテンプレートは、 `` tutorial /views /auth.py`` で追加したログインビューで参照されています。"
 
-#: ../../tutorials/wiki2/authentication.rst:255
+#:../../tutorials/wiki2/authentication.rst:255
 msgid "Add \"Login\" and \"Logout\" links"
-msgstr ""
+msgstr "ログインとログアウトのリンクを追加"
 
-#: ../../tutorials/wiki2/authentication.rst:257
+#:../../tutorials/wiki2/authentication.rst:257
 msgid ""
 "Open ``tutorial/templates/layout.jinja2`` and add the following code as "
 "indicated by the highlighted lines."
-msgstr ""
+msgstr "`` tutorial /templates /layout.jinja2``を開き、強調表示された行に示すように次のコードを追加してください。"
 
-#: ../../tutorials/wiki2/authentication.rst:266
+#:../../tutorials/wiki2/authentication.rst:266
 msgid ""
 "The ``request.user`` will be ``None`` if the user is not authenticated, "
 "or a ``tutorial.models.User`` object if the user is authenticated. This "
 "check will make the logout link shown only when the user is logged in, "
 "and conversely the login link is only shown when the user is logged out."
-msgstr ""
+msgstr "`` request.user``は、ユーザが認証されていなければ `` None``、ユーザが認証されている場合は `` tutorial.models.User``オブジェクトになります。このチェックでは、ユーザーがログインしているときのみログアウトリンクが表示され、逆にユーザーがログアウトするとログインリンクが表示されます。"
 
-#: ../../tutorials/wiki2/authentication.rst:273
+#:../../tutorials/wiki2/authentication.rst:273
 msgid "Viewing the application in a browser"
-msgstr ""
+msgstr "ブラウザでのアプリケーションの表示"
 
-#: ../../tutorials/wiki2/authentication.rst:275
+#:../../tutorials/wiki2/authentication.rst:275
 msgid ""
 "We can finally examine our application in a browser (See :ref:`wiki2"
 "-start-the-application`).  Launch a browser and visit each of the "
 "following URLs, checking that the result is as expected:"
-msgstr ""
+msgstr "ブラウザでアプリケーションを調べることができます(  :ref:`wiki2-start-the-application` を参照してください)。ブラウザを起動し、次の各URLにアクセスして、結果が期待どおりであることを確認します。"
 
-#: ../../tutorials/wiki2/authentication.rst:279
+#:../../tutorials/wiki2/authentication.rst:279
 msgid ""
-"http://localhost:6543/ invokes the ``view_wiki`` view.  This always "
+"http://localhost:6543/invokes the ``view_wiki`` view.  This always "
 "redirects to the ``view_page`` view of the ``FrontPage`` page object.  It"
 " is executable by any user."
-msgstr ""
+msgstr "http://localhost:6543 /`` view_wiki``ビューを呼び出します。これは常に `` FrontPage``ページオブジェクトの `` view_page``ビューにリダイレクトされます。任意のユーザーが実行可能です。"
 
-#: ../../tutorials/wiki2/authentication.rst:283
+#:../../tutorials/wiki2/authentication.rst:283
 msgid ""
 "http://localhost:6543/FrontPage invokes the ``view_page`` view of the "
 "``FrontPage`` page object. There is a \"Login\" link in the upper right "
 "corner while the user is not authenticated, else it is a \"Logout\" link "
 "when the user is authenticated."
-msgstr ""
+msgstr "http://localhost:6543/FrontPageは `` FrontPage``ページオブジェクトの `` view_page``ビューを呼び出します。ユーザーが認証されていないときは右上に\ &quot;Login \&quot;リンクがあり、認証されていない場合は\ &quot;Logout \&quot;リンクです。"
 
-#: ../../tutorials/wiki2/authentication.rst:288
+#:../../tutorials/wiki2/authentication.rst:288
 msgid ""
 "http://localhost:6543/FrontPage/edit_page invokes the ``edit_page`` view "
 "for the ``FrontPage`` page object.  It is executable by only the "
@@ -410,9 +410,9 @@ msgid ""
 "then a login form will be displayed. Supplying the credentials with the "
 "username ``editor`` and password ``editor`` will display the edit page "
 "form."
-msgstr ""
+msgstr "http://localhost:6543/FrontPage/edit_pageは、 `` FrontPage``ページオブジェクトの `` edit_page``ビューを呼び出します。 `` editor``ユーザだけが実行可能です。別のユーザー(または匿名ユーザー)がそれを呼び出すと、ログインフォームが表示されます。ユーザー名 `` editor``とパスワード `` editor``を入力すると、編集ページのフォームが表示されます。"
 
-#: ../../tutorials/wiki2/authentication.rst:294
+#:../../tutorials/wiki2/authentication.rst:294
 msgid ""
 "http://localhost:6543/add_page/SomePageName invokes the ``add_page`` view"
 " for a page. If the page already exists, then it redirects the user to "
@@ -422,9 +422,9 @@ msgid ""
 "credentials with either the username ``editor`` and password ``editor``, "
 "or username ``basic`` and password ``basic``, will display the edit page "
 "form."
-msgstr ""
+msgstr "http://localhost:6543/add_page/SomePageNameはページの `` add_page``ビューを呼び出します。ページがすでに存在する場合は、ページオブジェクトの `` edit_page``ビューにユーザをリダイレクトします。これは、 `` editor``または `` basic``ユーザのいずれかによって実行可能です。別のユーザー(または匿名ユーザー)がそれを呼び出すと、ログインフォームが表示されます。ユーザ名 `` editor``とパスワード `` editor``、またはユーザ名 `` basic``とパスワード `` basic``のいずれかで証明書を入力すると、編集ページのフォームが表示されます。"
 
-#: ../../tutorials/wiki2/authentication.rst:302
+#:../../tutorials/wiki2/authentication.rst:302
 msgid ""
 "http://localhost:6543/SomePageName/edit_page invokes the ``edit_page`` "
 "view for an existing page, or generates an error if the page does not "
@@ -432,14 +432,14 @@ msgid ""
 "that user in the previous step. If, instead, the page was created by the "
 "``editor`` user, then the login page should be shown for the ``basic`` "
 "user."
-msgstr ""
+msgstr "http://localhost:6543/SomePageName/edit_pageは、既存のページの `` edit_page``ビューを呼び出し、ページが存在しない場合はエラーを生成します。これは、前の手順でそのユーザがページを作成した場合、 `` basic``ユーザによって編集可能です。代わりに、 `` editor``ユーザがページを作成した場合、 `` basic``ユーザのログインページが表示されます。"
 
-#: ../../tutorials/wiki2/authentication.rst:308
+#:../../tutorials/wiki2/authentication.rst:308
 msgid ""
 "After logging in (as a result of hitting an edit or add page and "
 "submitting the login form with the ``editor`` credentials), we'll see a "
 "\"Logout\" link in the upper right hand corner.  When we click it, we're "
 "logged out, redirected back to the front page, and a \"Login\" link is "
 "shown in the upper right hand corner."
-msgstr ""
+msgstr "ログインした後(編集やページを追加し、 `` editor``の資格情報を使ってログインフォームを送信した結果)、右上にLogoutというリンクが表示されます。クリックするとログアウトされ、フロントページにリダイレクトされ、右上に\ Loginリンクが表示されます。"
 
