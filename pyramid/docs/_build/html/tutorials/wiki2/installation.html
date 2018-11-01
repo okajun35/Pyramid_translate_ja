@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Installation &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>（機械翻訳）インストール &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -18,7 +18,7 @@
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
-    <link rel="next" title="Basic Layout" href="basiclayout.html" />
+    <link rel="next" title="(機械翻訳)基本レイアウト" href="basiclayout.html" />
     <link rel="prev" title="Design(デザイン)" href="design.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
@@ -54,7 +54,7 @@
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="basiclayout.html" title="Basic Layout"
+          <a href="basiclayout.html" title="(機械翻訳)基本レイアウト"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="design.html" title="Design(デザイン)"
@@ -70,49 +70,47 @@
           <div class="body" role="main">
             
   <div class="section" id="installation">
-<span id="wiki2-installation"></span><h1>Installation<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="wiki2-installation"></span><h1>（機械翻訳）インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="before-you-begin">
-<h2>Before you begin<a class="headerlink" href="#before-you-begin" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>This tutorial assumes that you have already followed the steps in
-<a class="reference internal" href="../../narr/install.html#installing-chapter"><span class="std std-ref">Installing Pyramid</span></a>, except <strong>do not create a virtual environment or
-install Pyramid</strong>.  Thereby you will satisfy the following requirements.</p>
+<h2>あなたが始める前に<a class="headerlink" href="#before-you-begin" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このチュートリアルでは、** ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>installing_chapter`の手順に従っていることを前提としていますが、<a href="#id3"><span class="problematic" id="id4">**</span></a>仮想環境を作成したり、Pyramid <a href="#id5"><span class="problematic" id="id6">**</span></a>をインストールしたりすることはありません。それにより、あなたは次の要件を満たします。</p>
 <ul class="simple">
-<li>A Python interpreter is installed on your operating system.</li>
-<li>You've satisfied the <a class="reference internal" href="../../narr/install.html#requirements-for-installing-packages"><span class="std std-ref">Requirements for Installing Packages</span></a>.</li>
+<li>Pythonインタプリタがオペレーティングシステムにインストールされています。</li>
+<li>あなたは：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>require-for-installing-packages`を満足しています。</li>
 </ul>
 </div>
 <div class="section" id="install-sqlite3-and-its-development-packages">
-<h2>Install SQLite3 and its development packages<a class="headerlink" href="#install-sqlite3-and-its-development-packages" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If you used a package manager to install your Python or if you compiled your Python from source, then you must install SQLite3 and its development packages.  If you downloaded your Python as an installer from <a class="reference external" href="https://www.python.org">https://www.python.org</a>, then you already have it installed and can skip this step.</p>
-<p>If you need to install the SQLite3 packages, then, for example, using the Debian system and <code class="docutils literal notranslate"><span class="pre">apt-get</span></code>, the command would be the following:</p>
+<h2>SQLite3とその開発パッケージをインストールする<a class="headerlink" href="#install-sqlite3-and-its-development-packages" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>パッケージマネージャを使用してPythonをインストールした場合、またはソースからPythonをコンパイルした場合は、SQLite3とその開発パッケージをインストールする必要があります。 Pythonをhttps://www.python.orgからインストーラとしてダウンロードした場合は、すでにインストール済みであり、この手順を省略することができます。</p>
+<p>SQLite3パッケージをインストールする必要がある場合（Debianシステムと `` apt-get``など）、コマンドは次のようになります：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install libsqlite3-dev
 </pre></div>
 </div>
 </div>
 <div class="section" id="install-cookiecutter">
-<h2>Install cookiecutter<a class="headerlink" href="#install-cookiecutter" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We will use a <a class="reference internal" href="../../glossary.html#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a> to create a Python package project from a Python package project template.  See <a class="reference external" href="https://cookiecutter.readthedocs.io/en/latest/installation.html">Cookiecutter Installation</a> for instructions.</p>
+<h2>cookiecutterをインストールする<a class="headerlink" href="#install-cookiecutter" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>cookiecutter`を使って、PythonパッケージプロジェクトテンプレートからPythonパッケージプロジェクトを作成します。 <a href="#id3"><span class="problematic" id="id4">`</span></a>Cookiecutterのインストール&lt;<a class="reference external" href="https://cookiecutter.readthedocs.io/en/latest/installation.html">https://cookiecutter.readthedocs.io/en/latest/installation.html</a>&gt; <a href="#id5"><span class="problematic" id="id6">`</span></a>_の指示に従ってください。</p>
 </div>
 <div class="section" id="generate-a-pyramid-project-from-a-cookiecutter">
-<h2>Generate a Pyramid project from a cookiecutter<a class="headerlink" href="#generate-a-pyramid-project-from-a-cookiecutter" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We will create a Pyramid project in your home directory for UNIX or at the root for Windows. It is assumed you know the path to where you installed <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code>. Issue the following commands and override the defaults in the prompts as follows.</p>
+<h2>cookiecutterからピラミッドプロジェクトを生成する<a class="headerlink" href="#generate-a-pyramid-project-from-a-cookiecutter" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>UNIXの場合はホームディレクトリに、Windowsの場合はルートにPyramidプロジェクトを作成します。 `` cookiecutter``をインストールした場所へのパスを知っていると仮定します。次のコマンドを発行し、プロンプトのデフォルトを次のように変更します。</p>
 <div class="section" id="on-unix">
-<h3>On UNIX<a class="headerlink" href="#on-unix" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#on-unix" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
 $ cookiecutter gh:Pylons/pyramid-cookiecutter-alchemy --checkout <span class="m">1</span>.9-branch
 </pre></div>
 </div>
 </div>
 <div class="section" id="on-windows">
-<h3>On Windows<a class="headerlink" href="#on-windows" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windowsの場合<a class="headerlink" href="#on-windows" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\&gt;</span> <span class="k">cd</span> \
 c<span class="p">:</span><span class="nl">\</span><span class="c1">&gt; cookiecutter gh:Pylons/pyramid-cookiecutter-alchemy --checkout 1.9-branch</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="on-all-operating-systems">
-<h3>On all operating systems<a class="headerlink" href="#on-all-operating-systems" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If prompted for the first item, accept the default <code class="docutils literal notranslate"><span class="pre">yes</span></code> by hitting return.</p>
+<h3>すべてのオペレーティングシステム<a class="headerlink" href="#on-all-operating-systems" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>最初の項目の入力を求められたら、returnキーを押してデフォルトの `` yes``を受け入れます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>You&#39;ve cloned ~/.cookiecutters/pyramid-cookiecutter-alchemy before.
 Is it okay to delete and re-clone it? [yes]: yes
 project_name [Pyramid Scaffold]: myproj
@@ -122,90 +120,90 @@ repo_name [myproj]: tutorial
 </div>
 </div>
 <div class="section" id="change-directory-into-your-newly-created-project">
-<h2>Change directory into your newly created project<a class="headerlink" href="#change-directory-into-your-newly-created-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>新しく作成したプロジェクトにディレクトリを変更する<a class="headerlink" href="#change-directory-into-your-newly-created-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id1">
-<h3>On UNIX<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> tutorial
 </pre></div>
 </div>
 </div>
 <div class="section" id="id2">
-<h3>On Windows<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windowsの場合<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\&gt;</span> <span class="k">cd</span> tutorial
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="set-and-use-a-venv-environment-variable">
-<h2>Set and use a <code class="docutils literal notranslate"><span class="pre">VENV</span></code> environment variable<a class="headerlink" href="#set-and-use-a-venv-environment-variable" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We will set the <code class="docutils literal notranslate"><span class="pre">VENV</span></code> environment variable to the absolute path of the virtual environment, and use it going forward.</p>
+<h2>`` VENV``環境変数を設定して使用する<a class="headerlink" href="#set-and-use-a-venv-environment-variable" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` VENV``環境変数を仮想環境の絶対パスに設定し、それを先に使用します。</p>
 <div class="section" id="id3">
-<h3>On UNIX<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">VENV</span><span class="o">=</span>~/tutorial
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
-<h3>On Windows<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windowsの場合<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> <span class="k">set</span> <span class="nv">VENV</span><span class="p">=</span>c:\tutorial
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="create-a-virtual-environment">
-<h2>Create a virtual environment<a class="headerlink" href="#create-a-virtual-environment" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>仮想環境を作成する<a class="headerlink" href="#create-a-virtual-environment" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id5">
-<h3>On UNIX<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv <span class="nv">$VENV</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id6">
-<h3>On Windows<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Each version of Python uses different paths, so you will need to adjust the path to the command for your Python version. Recent versions of the Python 3 installer for Windows now install a Python launcher.</p>
-<p>Python 2.7:</p>
+<h3>Windowsの場合<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Pythonの各バージョンは異なるパスを使用するため、Pythonバージョンのコマンドへのパスを調整する必要があります。最近のバージョンのWindows用Python 3インストーラは、Pythonランチャをインストールするようになりました。</p>
+<p>Python 2.7：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> c:\Python27\Scripts\virtualenv <span class="nv">%VENV%</span>
 </pre></div>
 </div>
-<p>Python 3.6:</p>
+<p>Python 3.6：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> python -m venv <span class="nv">%VENV%</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="upgrade-packaging-tools-in-the-virtual-environment">
-<h2>Upgrade packaging tools in the virtual environment<a class="headerlink" href="#upgrade-packaging-tools-in-the-virtual-environment" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>仮想環境におけるパッケージングツールのアップグレード<a class="headerlink" href="#upgrade-packaging-tools-in-the-virtual-environment" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id7">
-<h3>On UNIX<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install --upgrade pip setuptools
 </pre></div>
 </div>
 </div>
 <div class="section" id="id8">
-<h3>On Windows<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windowsの場合<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> <span class="nv">%VENV%</span>\Scripts\pip install --upgrade pip setuptools
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="installing-the-project-in-development-mode">
-<span id="installing-project-in-dev-mode"></span><h2>Installing the project in development mode<a class="headerlink" href="#installing-the-project-in-development-mode" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In order to do development on the project easily, you must &quot;register&quot; the project as a development egg in your workspace. We will install testing requirements at the same time. We do so with the following command.</p>
+<span id="installing-project-in-dev-mode"></span><h2>開発モードでのプロジェクトのインストール<a class="headerlink" href="#installing-the-project-in-development-mode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロジェクトの開発を容易にするためには、プロジェクトをワークスペースの開発卵として登録する必要があります。同時にテスト要件をインストールします。次のコマンドでそれを行います。</p>
 <div class="section" id="id9">
-<h3>On UNIX<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install -e <span class="s2">&quot;.[testing]&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id10">
-<h3>On Windows<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windowsの場合<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> <span class="nv">%VENV%</span>\Scripts\pip install -e <span class="s2">&quot;.[testing]&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id11">
-<h3>On all operating systems<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The console will show <code class="docutils literal notranslate"><span class="pre">pip</span></code> checking for packages and installing missing packages. Success executing this command will show a line like the following:</p>
+<h3>すべてのオペレーティングシステム<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>コンソールは `` pip``でパッケージのチェックと欠落しているパッケージのインストールを表示します。このコマンドを実行すると、次のような行が表示されます。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Successfully installed Jinja2-2.8 Mako-1.0.6 MarkupSafe-0.23 <span class="se">\</span>
 PasteDeploy-1.5.2 Pygments-2.1.3 SQLAlchemy-1.1.4 WebOb-1.6.3 <span class="se">\</span>
 WebTest-2.0.24 beautifulsoup4-4.5.1 coverage-4.2 py-1.4.32 pyramid-1.7.3 <span class="se">\</span>
@@ -216,7 +214,7 @@ waitress-1.0.1 zope.deprecation-4.2.0 zope.interface-4.3.3 <span class="se">\</s
 zope.sqlalchemy-0.7.7
 </pre></div>
 </div>
-<p>Testing requirements are defined in our project's <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file, in the <code class="docutils literal notranslate"><span class="pre">tests_require</span></code> and <code class="docutils literal notranslate"><span class="pre">extras_require</span></code> stanzas.</p>
+<p>テスト要件は、プロジェクトの `` setup.py``ファイル、 `` tests_require``と `` extras_require``スタンザで定義されています。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>24
 25
 26
@@ -238,23 +236,20 @@ zope.sqlalchemy-0.7.7
 </div>
 </div>
 <div class="section" id="run-the-tests">
-<span id="sql-running-tests"></span><h2>Run the tests<a class="headerlink" href="#run-the-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>After you've installed the project in development mode as well as the testing
-requirements, you may run the tests for the project. The following commands
-provide options to py.test that specify the module for which its tests shall be
-run, and to run py.test in quiet mode.</p>
+<span id="sql-running-tests"></span><h2>テストを実行する<a class="headerlink" href="#run-the-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロジェクトを開発モードおよびテスト要件にインストールしたら、プロジェクトのテストを実行できます。次のコマンドは、テストを実行するモジュールを指定するpy.testにオプションを提供し、quietモードでpy.testを実行します。</p>
 <div class="section" id="id12">
-<h3>On UNIX<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test -q
 </pre></div>
 </div>
 </div>
 <div class="section" id="id13">
-<h3>On Windows<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windowsの場合<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> <span class="nv">%VENV%</span>\Scripts\py.test -q
 </pre></div>
 </div>
-<p>For a successful test run, you should see output that ends like this:</p>
+<p>テストが正常に終了するには、次のような出力が表示されます。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>..
 <span class="m">2</span> passed in <span class="m">0</span>.44 seconds
 </pre></div>
@@ -262,25 +257,21 @@ run, and to run py.test in quiet mode.</p>
 </div>
 </div>
 <div class="section" id="expose-test-coverage-information">
-<h2>Expose test coverage information<a class="headerlink" href="#expose-test-coverage-information" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>You can run the <code class="docutils literal notranslate"><span class="pre">py.test</span></code> command to see test coverage information. This
-runs the tests in the same way that <code class="docutils literal notranslate"><span class="pre">py.test</span></code> does, but provides additional
-<a class="reference internal" href="../../glossary.html#term-coverage"><span class="xref std std-term">coverage</span></a> information, exposing which lines of your project are covered by the
-tests.</p>
-<p>We've already installed the <code class="docutils literal notranslate"><span class="pre">pytest-cov</span></code> package into our virtual
-environment, so we can run the tests with coverage.</p>
+<h2>テストカバレッジ情報を公開する<a class="headerlink" href="#expose-test-coverage-information" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` py.test``コマンドを実行するとテストカバレッジ情報を見ることができます。これは、 `` py.test``と同じようにテストを実行しますが、term： <a href="#id1"><span class="problematic" id="id2">`</span></a>カバレッジ（coverage） &amp;#39;情報を追加して、テストの対象となるプロジェクトの行を公開します。</p>
+<p>私たちは既に `` pytest-cov``パッケージを仮想環境にインストールしていますので、カバレッジを持ってテストを実行することができます。</p>
 <div class="section" id="id14">
-<h3>On UNIX<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test --cov --cov-report<span class="o">=</span>term-missing
 </pre></div>
 </div>
 </div>
 <div class="section" id="id15">
-<h3>On Windows<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windowsの場合<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> <span class="nv">%VENV%</span>\Scripts\py.test --cov --cov-report=term-missing
 </pre></div>
 </div>
-<p>If successful, you will see output something like this:</p>
+<p>成功すると、次のような出力が表示されます。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">========================</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">========================</span>
 platform Python <span class="m">3</span>.6.0, pytest-3.0.5, py-1.4.31, pluggy-0.4.0
 rootdir: /Users/stevepiercy/tutorial, inifile:
@@ -306,61 +297,50 @@ TOTAL                                 <span class="m">88</span>     <span class=
 <span class="o">=====================</span> <span class="m">2</span> passed in <span class="m">0</span>.57 <span class="nv">seconds</span> <span class="o">======================</span>
 </pre></div>
 </div>
-<p>Our package doesn't quite have 100% test coverage.</p>
+<p>私たちのパッケージは100％のテストカバレッジを持っていません。</p>
 </div>
 </div>
 <div class="section" id="test-and-coverage-cookiecutter-defaults">
-<span id="test-and-coverage-cookiecutter-defaults-sql"></span><h2>Test and coverage cookiecutter defaults<a class="headerlink" href="#test-and-coverage-cookiecutter-defaults" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Cookiecutters include configuration defaults for <code class="docutils literal notranslate"><span class="pre">py.test</span></code> and test coverage.
-These configuration files are <code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code> and <code class="docutils literal notranslate"><span class="pre">.coveragerc</span></code>, located at
-the root of your package. Without these defaults, we would need to specify the
-path to the module on which we want to run tests and coverage.</p>
+<span id="test-and-coverage-cookiecutter-defaults-sql"></span><h2>テストとカバレッジcookiecutterのデフォルト<a class="headerlink" href="#test-and-coverage-cookiecutter-defaults" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Cookiecuttersには、 `` py.test``とテストカバレッジのデフォルト設定が含まれています。これらの設定ファイルはパッケージのルートにある `` pytest.ini``と `` .coveragerc``です。これらのデフォルトがなければ、テストとカバレッジを実行するモジュールへのパスを指定する必要があります。</p>
 <div class="section" id="id16">
-<h3>On UNIX<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test --cov<span class="o">=</span>tutorial tutorial/tests.py -q
 </pre></div>
 </div>
 </div>
 <div class="section" id="id17">
-<h3>On Windows<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windowsの場合<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> <span class="nv">%VENV%</span>\Scripts\py.test --cov=tutorial tutorial\tests.py -q
 </pre></div>
 </div>
-<p>py.test follows <a class="reference external" href="https://docs.pytest.org/en/latest/goodpractices.html#test-discovery" title="(in pytest v3.9.4.dev3+gbab1ef5)"><span class="xref std std-ref">conventions for Python test discovery</span></a>, and the configuration defaults from the cookiecutter
-tell <code class="docutils literal notranslate"><span class="pre">py.test</span></code> where to find the module on which we want to run tests and
-coverage.</p>
+<p>py.testは次のようになります：ref： <cite>Pythonテストの発見のための規則&lt;pytest:test discovery&gt; `であり、cookiecutterのデフォルト設定は</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>py.test``にテストとカバレッジを実行するモジュールを見つける場所を指定します。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See py.test's documentation for <a class="reference external" href="https://docs.pytest.org/en/latest/usage.html#usage" title="(in pytest v3.9.4.dev3+gbab1ef5)"><span>Usage and Invocations</span></a> or invoke
-<code class="docutils literal notranslate"><span class="pre">py.test</span> <span class="pre">-h</span></code> to see its full set of options.</p>
+<p class="last">：ref： <cite>pytest：usage`のpy.testのドキュメントを参照するか、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>py.test -h``を呼び出してその完全なオプションセットを見てください。</p>
 </div>
 </div>
 </div>
 <div class="section" id="initializing-the-database">
-<span id="initialize-db-wiki2"></span><h2>Initializing the database<a class="headerlink" href="#initializing-the-database" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We need to use the <code class="docutils literal notranslate"><span class="pre">initialize_tutorial_db</span></code> <a class="reference internal" href="../../glossary.html#term-console-script"><span class="xref std std-term">console script</span></a> to
-initialize our database.</p>
+<span id="initialize-db-wiki2"></span><h2>データベースの初期化<a class="headerlink" href="#initializing-the-database" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>データベースを初期化するには、 `` initialize_tutorial_db``：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>console script`を使う必要があります。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">initialize_tutorial_db</span></code> command does not perform a migration, but
-rather it simply creates missing tables and adds some dummy data. If you
-already have a database, you should delete it before running
-<code class="docutils literal notranslate"><span class="pre">initialize_tutorial_db</span></code> again.</p>
+<p class="last">`` initialize_tutorial_db``コマンドは、移行を実行しませんが、欠落しているテーブルを作成し、いくつかのダミーデータを追加するだけです。すでにデータベースがある場合は、 `` initialize_tutorial_db``を再度実行する前にデータベースを削除する必要があります。</p>
 </div>
-<p>Type the following command, making sure you are still in the <code class="docutils literal notranslate"><span class="pre">tutorial</span></code>
-directory (the directory with a <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> in it):</p>
+<p>次のコマンドを入力して、 `` tutorial``ディレクトリ（ `` development.ini``があるディレクトリ）にまだ入っていることを確認してください：</p>
 <div class="section" id="id18">
-<h3>On UNIX<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/initialize_tutorial_db development.ini
 </pre></div>
 </div>
 </div>
 <div class="section" id="id19">
-<h3>On Windows<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windowsの場合<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> <span class="nv">%VENV%</span>\Scripts\initialize_tutorial_db development.ini
 </pre></div>
 </div>
-<p>The output to your console should be something like this:</p>
+<p>コンソールへの出力は次のようになります。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">2016</span>-12-18 <span class="m">21</span>:30:08,675 INFO  <span class="o">[</span>sqlalchemy.engine.base.Engine:1235<span class="o">][</span>MainThread<span class="o">]</span> SELECT CAST<span class="o">(</span><span class="s1">&#39;test plain returns&#39;</span> AS VARCHAR<span class="o">(</span><span class="m">60</span><span class="o">))</span> AS anon_1
 <span class="m">2016</span>-12-18 <span class="m">21</span>:30:08,675 INFO  <span class="o">[</span>sqlalchemy.engine.base.Engine:1236<span class="o">][</span>MainThread<span class="o">]</span> <span class="o">()</span>
 <span class="m">2016</span>-12-18 <span class="m">21</span>:30:08,676 INFO  <span class="o">[</span>sqlalchemy.engine.base.Engine:1235<span class="o">][</span>MainThread<span class="o">]</span> SELECT CAST<span class="o">(</span><span class="s1">&#39;test unicode returns&#39;</span> AS VARCHAR<span class="o">(</span><span class="m">60</span><span class="o">))</span> AS anon_1
@@ -387,70 +367,55 @@ CREATE TABLE models <span class="o">(</span>
 <span class="m">2016</span>-12-18 <span class="m">21</span>:30:08,682 INFO  <span class="o">[</span>sqlalchemy.engine.base.Engine:719<span class="o">][</span>MainThread<span class="o">]</span> COMMIT
 </pre></div>
 </div>
-<p>Success!  You should now have a <code class="docutils literal notranslate"><span class="pre">tutorial.sqlite</span></code> file in your current
-working directory. This is an SQLite database with a single table defined in it
-(<code class="docutils literal notranslate"><span class="pre">models</span></code>).</p>
+<p>成功！現在の作業ディレクトリに `` tutorial.sqlite``ファイルがあるはずです。これは、単一のテーブルが定義されたSQLiteデータベースです（ <a href="#id1"><span class="problematic" id="id2">``</span></a>モデル <a href="#id3"><span class="problematic" id="id4">``</span></a>）。</p>
 </div>
 </div>
 <div class="section" id="start-the-application">
-<span id="wiki2-start-the-application"></span><h2>Start the application<a class="headerlink" href="#start-the-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Start the application. See <a class="reference internal" href="../../narr/project.html#what-is-this-pserve-thing"><span class="std std-ref">What Is This pserve Thing</span></a> for more
-information on <code class="docutils literal notranslate"><span class="pre">pserve</span></code>.</p>
+<span id="wiki2-start-the-application"></span><h2>アプリケーションを起動する<a class="headerlink" href="#start-the-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アプリケーションを起動します。 `` pserve``の詳細については：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>what_is_this_pserve_thing`を参照してください。</p>
 <div class="section" id="id20">
-<h3>On UNIX<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>UNIXの場合<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini --reload
 </pre></div>
 </div>
 </div>
 <div class="section" id="id21">
-<h3>On Windows<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windowsの場合<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> <span class="nv">%VENV%</span>\Scripts\pserve development.ini --reload
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Your OS firewall, if any, may pop up a dialog asking for authorization
-to allow python to accept incoming network connections.</p>
+<p class="last">あなたのOSのファイアウォールがあれば、Pythonが着信ネットワーク接続を受け入れることを許可するダイアログボックスが表示されます。</p>
 </div>
-<p>If successful, you will see something like this on your console:</p>
+<p>成功した場合、コンソールに次のようなメッセージが表示されます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting subprocess with file monitor
 Starting server in PID 44078.
 Serving on http://localhost:6543
 Serving on http://localhost:6543
 </pre></div>
 </div>
-<p>This means the server is ready to accept requests.</p>
+<p>これは、サーバーが要求を受け入れる準備ができていることを意味します。</p>
 </div>
 </div>
 <div class="section" id="visit-the-application-in-a-browser">
-<h2>Visit the application in a browser<a class="headerlink" href="#visit-the-application-in-a-browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In a browser, visit <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a>. You will see the generated
-application's default page.</p>
-<p>One thing you'll notice is the &quot;debug toolbar&quot; icon on right hand side of the
-page.  You can read more about the purpose of the icon at
-<a class="reference internal" href="../../narr/project.html#debug-toolbar"><span class="std std-ref">The Debug Toolbar</span></a>.  It allows you to get information about your
-application while you develop.</p>
+<h2>ブラウザでアプリケーションにアクセスする<a class="headerlink" href="#visit-the-application-in-a-browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ブラウザでhttp：// localhost：6543 /をご覧ください。生成されたアプリケーションのデフォルトページが表示されます。</p>
+<p>あなたが気づくことの1つは、ページの右側の&amp;quot;デバッグツールバー&amp;quot;アイコンです。アイコンの目的について詳しくは、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>debug_toolbar`を参照してください。開発中にアプリケーションに関する情報を得ることができます。</p>
 </div>
 <div class="section" id="decisions-the-alchemy-cookiecutter-has-made-for-you">
-<h2>Decisions the <code class="docutils literal notranslate"><span class="pre">alchemy</span></code> cookiecutter has made for you<a class="headerlink" href="#decisions-the-alchemy-cookiecutter-has-made-for-you" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Creating a project using the <code class="docutils literal notranslate"><span class="pre">alchemy</span></code> cookiecutter makes the following
-assumptions:</p>
+<h2><a href="#id1"><span class="problematic" id="id2">``</span></a>錬金術師 `` cookcutterがあなたのために作った決定<a class="headerlink" href="#decisions-the-alchemy-cookiecutter-has-made-for-you" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` alchemy`` cookiecutterを使ってプロジェクトを作成すると、以下の前提が成り立ちます：</p>
 <ul class="simple">
-<li>You are willing to use SQLite for persistent storage, although almost any SQL database could be used with SQLAlchemy.</li>
-<li>You are willing to use <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> for a database access tool.</li>
-<li>You are willing to use <a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> to map URLs to code.</li>
-<li>You want to use <a class="reference external" href="https://pypi.org/project/zope.sqlalchemy/">zope.sqlalchemy</a>, <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-tm/en/latest/">pyramid_tm</a>, and the <a class="reference external" href="https://zodb.readthedocs.io/en/latest/transactions.html">transaction</a> packages
-to scope sessions to requests.</li>
-<li>You want to use <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest/">pyramid_jinja2</a> to render your templates. Different
-templating engines can be used, but we had to choose one to make this
-tutorial. See <a class="reference internal" href="../../narr/templates.html#available-template-system-bindings"><span class="std std-ref">Available Add-On Template System Bindings</span></a> for some options.</li>
+<li>ほぼすべてのSQLデータベースをSQLAlchemyで使用することができますが、永続ストレージとしてSQLiteを使用する意思があります。</li>
+<li>データベースアクセスツールの場合、term： <a href="#id1"><span class="problematic" id="id2">`</span></a>SQLAlchemy`を使用します。</li>
+<li>あなたはURLをコードにマップするためにterm： <a href="#id1"><span class="problematic" id="id2">`</span></a>URL dispatch`を使います。</li>
+<li><a class="reference external" href="https://pypi.org/project/zope.sqlalchemy/">zope.sqlalchemy</a>、<a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-tm/en/latest/">pyramid_tm</a>、およびtransaction_パッケージを使用して、要求に対するセッションをスコープします。</li>
+<li>あなたはテンプレートをレンダリングするためにpyramid_jinja2_を使いたいと思っています。異なるテンプレートエンジンを使用することもできますが、このチュートリアルを作成するには1つを選択する必要がありました。いくつかのオプションについては：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>available_template_system_bindings`を参照してください。</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last"><span>Pyramid</span> supports any persistent storage mechanism (e.g., object
-database or filesystem files). It also supports an additional mechanism to
-map URLs to code (<a class="reference internal" href="../../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>). However, for the purposes of this
-tutorial, we'll only be using <a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> and <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a>.</p>
+<p class="last">：app： <cite>Pyramid`は永続ストレージ機構（オブジェクトデータベースやファイルシステムファイルなど）をサポートします。また、URLをコード（：term： `traversal</cite>）にマップする追加のメカニズムもサポートしています。ただし、このチュートリアルでは、term： <cite>URL dispatch`と：term：</cite> SQLAlchemy`のみを使用します。</p>
 </div>
 </div>
 </div>
@@ -463,69 +428,69 @@ tutorial, we'll only be using <a class="reference internal" href="../../glossary
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#before-you-begin">Before you begin</a></li>
-<li><a class="reference internal" href="#install-sqlite3-and-its-development-packages">Install SQLite3 and its development packages</a></li>
-<li><a class="reference internal" href="#install-cookiecutter">Install cookiecutter</a></li>
-<li><a class="reference internal" href="#generate-a-pyramid-project-from-a-cookiecutter">Generate a Pyramid project from a cookiecutter</a><ul>
-<li><a class="reference internal" href="#on-unix">On UNIX</a></li>
-<li><a class="reference internal" href="#on-windows">On Windows</a></li>
-<li><a class="reference internal" href="#on-all-operating-systems">On all operating systems</a></li>
+<li><a class="reference internal" href="#">（機械翻訳）インストール</a><ul>
+<li><a class="reference internal" href="#before-you-begin">あなたが始める前に</a></li>
+<li><a class="reference internal" href="#install-sqlite3-and-its-development-packages">SQLite3とその開発パッケージをインストールする</a></li>
+<li><a class="reference internal" href="#install-cookiecutter">cookiecutterをインストールする</a></li>
+<li><a class="reference internal" href="#generate-a-pyramid-project-from-a-cookiecutter">cookiecutterからピラミッドプロジェクトを生成する</a><ul>
+<li><a class="reference internal" href="#on-unix">UNIXの場合</a></li>
+<li><a class="reference internal" href="#on-windows">Windowsの場合</a></li>
+<li><a class="reference internal" href="#on-all-operating-systems">すべてのオペレーティングシステム</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#change-directory-into-your-newly-created-project">Change directory into your newly created project</a><ul>
-<li><a class="reference internal" href="#id1">On UNIX</a></li>
-<li><a class="reference internal" href="#id2">On Windows</a></li>
+<li><a class="reference internal" href="#change-directory-into-your-newly-created-project">新しく作成したプロジェクトにディレクトリを変更する</a><ul>
+<li><a class="reference internal" href="#id1">UNIXの場合</a></li>
+<li><a class="reference internal" href="#id2">Windowsの場合</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#set-and-use-a-venv-environment-variable">Set and use a <code class="docutils literal notranslate"><span class="pre">VENV</span></code> environment variable</a><ul>
-<li><a class="reference internal" href="#id3">On UNIX</a></li>
-<li><a class="reference internal" href="#id4">On Windows</a></li>
+<li><a class="reference internal" href="#set-and-use-a-venv-environment-variable">`` VENV``環境変数を設定して使用する</a><ul>
+<li><a class="reference internal" href="#id3">UNIXの場合</a></li>
+<li><a class="reference internal" href="#id4">Windowsの場合</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#create-a-virtual-environment">Create a virtual environment</a><ul>
-<li><a class="reference internal" href="#id5">On UNIX</a></li>
-<li><a class="reference internal" href="#id6">On Windows</a></li>
+<li><a class="reference internal" href="#create-a-virtual-environment">仮想環境を作成する</a><ul>
+<li><a class="reference internal" href="#id5">UNIXの場合</a></li>
+<li><a class="reference internal" href="#id6">Windowsの場合</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#upgrade-packaging-tools-in-the-virtual-environment">Upgrade packaging tools in the virtual environment</a><ul>
-<li><a class="reference internal" href="#id7">On UNIX</a></li>
-<li><a class="reference internal" href="#id8">On Windows</a></li>
+<li><a class="reference internal" href="#upgrade-packaging-tools-in-the-virtual-environment">仮想環境におけるパッケージングツールのアップグレード</a><ul>
+<li><a class="reference internal" href="#id7">UNIXの場合</a></li>
+<li><a class="reference internal" href="#id8">Windowsの場合</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installing-the-project-in-development-mode">Installing the project in development mode</a><ul>
-<li><a class="reference internal" href="#id9">On UNIX</a></li>
-<li><a class="reference internal" href="#id10">On Windows</a></li>
-<li><a class="reference internal" href="#id11">On all operating systems</a></li>
+<li><a class="reference internal" href="#installing-the-project-in-development-mode">開発モードでのプロジェクトのインストール</a><ul>
+<li><a class="reference internal" href="#id9">UNIXの場合</a></li>
+<li><a class="reference internal" href="#id10">Windowsの場合</a></li>
+<li><a class="reference internal" href="#id11">すべてのオペレーティングシステム</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#run-the-tests">Run the tests</a><ul>
-<li><a class="reference internal" href="#id12">On UNIX</a></li>
-<li><a class="reference internal" href="#id13">On Windows</a></li>
+<li><a class="reference internal" href="#run-the-tests">テストを実行する</a><ul>
+<li><a class="reference internal" href="#id12">UNIXの場合</a></li>
+<li><a class="reference internal" href="#id13">Windowsの場合</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#expose-test-coverage-information">Expose test coverage information</a><ul>
-<li><a class="reference internal" href="#id14">On UNIX</a></li>
-<li><a class="reference internal" href="#id15">On Windows</a></li>
+<li><a class="reference internal" href="#expose-test-coverage-information">テストカバレッジ情報を公開する</a><ul>
+<li><a class="reference internal" href="#id14">UNIXの場合</a></li>
+<li><a class="reference internal" href="#id15">Windowsの場合</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#test-and-coverage-cookiecutter-defaults">Test and coverage cookiecutter defaults</a><ul>
-<li><a class="reference internal" href="#id16">On UNIX</a></li>
-<li><a class="reference internal" href="#id17">On Windows</a></li>
+<li><a class="reference internal" href="#test-and-coverage-cookiecutter-defaults">テストとカバレッジcookiecutterのデフォルト</a><ul>
+<li><a class="reference internal" href="#id16">UNIXの場合</a></li>
+<li><a class="reference internal" href="#id17">Windowsの場合</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#initializing-the-database">Initializing the database</a><ul>
-<li><a class="reference internal" href="#id18">On UNIX</a></li>
-<li><a class="reference internal" href="#id19">On Windows</a></li>
+<li><a class="reference internal" href="#initializing-the-database">データベースの初期化</a><ul>
+<li><a class="reference internal" href="#id18">UNIXの場合</a></li>
+<li><a class="reference internal" href="#id19">Windowsの場合</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#start-the-application">Start the application</a><ul>
-<li><a class="reference internal" href="#id20">On UNIX</a></li>
-<li><a class="reference internal" href="#id21">On Windows</a></li>
+<li><a class="reference internal" href="#start-the-application">アプリケーションを起動する</a><ul>
+<li><a class="reference internal" href="#id20">UNIXの場合</a></li>
+<li><a class="reference internal" href="#id21">Windowsの場合</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#visit-the-application-in-a-browser">Visit the application in a browser</a></li>
-<li><a class="reference internal" href="#decisions-the-alchemy-cookiecutter-has-made-for-you">Decisions the <code class="docutils literal notranslate"><span class="pre">alchemy</span></code> cookiecutter has made for you</a></li>
+<li><a class="reference internal" href="#visit-the-application-in-a-browser">ブラウザでアプリケーションにアクセスする</a></li>
+<li><a class="reference internal" href="#decisions-the-alchemy-cookiecutter-has-made-for-you">``錬金術師 `` cookcutterがあなたのために作った決定</a></li>
 </ul>
 </li>
 </ul>
@@ -535,7 +500,7 @@ tutorial, we'll only be using <a class="reference internal" href="../../glossary
                         title="前の章へ">Design(デザイン)</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="basiclayout.html"
-                        title="次の章へ">Basic Layout</a></p>
+                        title="次の章へ">(機械翻訳)基本レイアウト</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -569,7 +534,7 @@ tutorial, we'll only be using <a class="reference internal" href="../../glossary
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="basiclayout.html" title="Basic Layout"
+          <a href="basiclayout.html" title="(機械翻訳)基本レイアウト"
              >次へ</a> |</li>
         <li class="right" >
           <a href="design.html" title="Design(デザイン)"
@@ -580,7 +545,7 @@ tutorial, we'll only be using <a class="reference internal" href="../../glossary
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 10月 30, 2018
+      最終更新: 11月 02, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

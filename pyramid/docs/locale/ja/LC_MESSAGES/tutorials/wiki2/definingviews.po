@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../tutorials/wiki2/definingviews.rst:5
 msgid "Defining Views"
-msgstr ""
+msgstr "(機械翻訳)ビューの定義"
 
 #: ../../tutorials/wiki2/definingviews.rst:7
 msgid ""
@@ -28,7 +28,7 @@ msgid ""
 "simple Python function that accepts a single parameter named "
 ":term:`request`. A view callable is assumed to return a :term:`response` "
 "object."
-msgstr ""
+msgstr "A:term:`view callable` は :app:`Pyramid` アプリケーションは通常、 :term:`request` という単一のパラメータを受け入れる単純なPython関数です。ビューcallableは :term:`response` オブジェクトを返すものとします。"
 
 #: ../../tutorials/wiki2/definingviews.rst:11
 msgid ""
@@ -39,11 +39,11 @@ msgid ""
 "``/{one}/{two}``, and a user visits ``http://example.com/foo/bar``, our "
 "pattern would be matched against ``/foo/bar`` and the ``matchdict`` would"
 " look like ``{'one':'foo', 'two':'bar'}``."
-msgstr ""
+msgstr "リクエストオブジェクトには、 `` matchdict`` という属性の辞書があります。 `` matchdict`` は、一致するURLのプレースホルダ `` pattern` `を :term:`request` URLのパスの部分文字列にマップします。たとえば、:meth:`pyramid.config.Configurator.add_route`  への呼び出しが ``/{one}/{two}`` というパターンを持ち、ユーザが ``http://example.com/foo/foo/bar`` と一致し、 ``matchdict``  は  ``{'one':'foo', 'two':'bar'}`` のようになります。 。"
 
 #: ../../tutorials/wiki2/definingviews.rst:21
 msgid "Adding the ``docutils`` dependency"
-msgstr ""
+msgstr "``docutils`` 依存関係の追加"
 
 #: ../../tutorials/wiki2/definingviews.rst:23
 msgid ""
@@ -51,39 +51,39 @@ msgid ""
 "``bcrypt`` package. Again, the view code in our application will depend "
 "on a package which is not a dependency of the original \"tutorial\" "
 "application."
-msgstr ""
+msgstr "前の章では、 ``bcrypt``  パッケージの新しい依存性を追加しました。ここでも、アプリケーションのビューコードは、オリジナルの \"tutorial\" アプリケーションの依存関係ではないパッケージに依存します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:27
 msgid ""
 "We need to add a dependency on the ``docutils`` package to our "
 "``tutorial`` package's ``setup.py`` file by assigning this dependency to "
 "the ``requires`` parameter in the ``setup()`` function."
-msgstr ""
+msgstr "``docutils`` パッケージの依存関係を ``tutorial`` パッケージの ``setup.py`` ファイルに追加する必要があります。この依存関係は ``  ``setup()`` 関数の ``requires`` パラメータに割り当てます。 "
 
 #: ../../tutorials/wiki2/definingviews.rst:31
 msgid "Open ``tutorial/setup.py`` and edit it to look like the following:"
-msgstr ""
+msgstr "`` tutorial/setup.py`` を開き、以下のように編集してください："
 
 #: ../../tutorials/wiki2/definingviews.rst:38
 msgid "Only the highlighted line needs to be added."
-msgstr ""
+msgstr "強調表示された行だけを追加する必要があります。"
 
 #: ../../tutorials/wiki2/definingviews.rst:40
 msgid ""
 "Again, as we did in the previous chapter, the dependency now needs to be "
 "installed, so re-run the ``$VENV/bin/pip install -e .`` command."
-msgstr ""
+msgstr "ここでも、前の章で行ったように依存関係をインストールする必要がありますので、 ``$ VENV/bin/pip install -e.`` コマンドを再実行してください。"
 
 #: ../../tutorials/wiki2/definingviews.rst:45
 msgid "Static assets"
-msgstr ""
+msgstr "静的資産"
 
 #: ../../tutorials/wiki2/definingviews.rst:47
 msgid ""
 "Our templates name static assets, including CSS and images.  We don't "
 "need to create these files within our package's ``static`` directory "
 "because they were provided at the time we created the project."
-msgstr ""
+msgstr "テンプレートには、CSSや画像などの静的資産の名前が付けられます。これらのファイルは、プロジェクトの作成時に提供されたものであるため、パッケージの ``static`` ディレクトリ内に作成する必要はありません。"
 
 #: ../../tutorials/wiki2/definingviews.rst:51
 msgid ""
@@ -94,17 +94,17 @@ msgid ""
 "subdirectories) and are just referred to by URL or by using the "
 "convenience method ``static_url``, e.g., "
 "``request.static_url('<package>:static/foo.css')`` within templates."
-msgstr ""
+msgstr "たとえば、 `` http://localhost:6543/static/theme.css`` を経由してCSSファイルにアクセスするには、 ``add_static_view`` ディレクティブを呼び出してください  ``routes.py`` ファイル。任意の数とタイプの静的アセットをこのディレクトリ（またはサブディレクトリ）に配置することができ、単にURLで、または ``static_url`` という便利なメソッドを使用するだけです。たとえば、``request.static_url('<package>:static/foo.css')`` テンプレート内にあります。"
 
 #: ../../tutorials/wiki2/definingviews.rst:61
 msgid "Adding routes to ``routes.py``"
-msgstr ""
+msgstr "``routes.py`` にルートを追加する"
 
 #: ../../tutorials/wiki2/definingviews.rst:63
 msgid ""
 "This is the `URL Dispatch` tutorial, so let's start by adding some URL "
 "patterns to our app. Later we'll attach views to handle the URLs."
-msgstr ""
+msgstr "これは `URL Dispatch` チュートリアルですので、いくつかのURLパターンをアプリケーションに追加してみましょう。後でURLを処理するビューを添付します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:66
 msgid ""
@@ -113,14 +113,14 @@ msgid ""
 "routes to our application. First we'll get rid of the existing route "
 "created by the template using the name ``'home'``. It's only an example "
 "and isn't relevant to our application."
-msgstr ""
+msgstr "``routes.py`` ファイルには、アプリケーションにルートを追加するための :meth:`pyramid.config.Configurator.add_route` 呼び出しが含まれています。最初に、テンプレートによって作成された既存ルートを ``'home'`` という名前で削除します。これは単なる例であり、私たちのアプリケーションには関係ありません。"
 
 #: ../../tutorials/wiki2/definingviews.rst:71
 msgid ""
 "We then need to add four calls to ``add_route``. Note that the *ordering*"
 " of these declarations is very important. Route declarations are matched "
 "in the order they're registered."
-msgstr ""
+msgstr "``add_route`` に4回の呼び出しを追加する必要があります。これらの宣言の*順序*は非常に重要であることに注意してください。ルート宣言は、登録された順序で一致します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:75
 msgid ""
@@ -129,7 +129,7 @@ msgid ""
 " ``view_wiki`` view callable by virtue of the ``@view_config`` decorator "
 "attached to the ``view_wiki`` view function, which in turn will be "
 "indicated by ``route_name='view_wiki'``."
-msgstr ""
+msgstr "``/`` （ルートURLを示す）パターンを ``view_wiki`` というルートにマップする宣言を追加してください。次のステップでは、view_wikiビュー・ファンクションに添付された ``@view_config`` デコレータによってコール可能な ``view_wiki`` ビューにマップします。これは ``route_name='view_wiki'`` 。"
 
 #: ../../tutorials/wiki2/definingviews.rst:81
 msgid ""
@@ -138,7 +138,7 @@ msgid ""
 "next step, we will map it to our ``view_page`` view callable by virtue of"
 " the ``@view_config`` decorator attached to the ``view_page`` view "
 "function, whin in turn will be indicated by ``route_name='view_page'``."
-msgstr ""
+msgstr "``/{pagename}`` パターン を ``view_page`` というルートにマップする宣言を追加してください。これはページの通常の表示です。また、次のステップでは、 `` view_page`` ビュー関数にアタッチされた ``@view_config`` デコレータによってコール可能な ``view_page`` ビューにマップし、 ``route_name='view_page'`` です。"
 
 #: ../../tutorials/wiki2/definingviews.rst:87
 msgid ""
@@ -147,7 +147,7 @@ msgid ""
 "map it to our ``add_page`` view callable by virtue of the "
 "``@view_config`` decorator attached to the ``add_page`` view function, "
 "which in turn will be indicated by ``route_name='add_page'``."
-msgstr ""
+msgstr "``/add_page/{pagename}`` というパターンを ``add_page`` というルートにマップする宣言を追加してください。これは、新しいページの追加ビューです。 ``add_page``ビューにマップされる ``@view_config`` デコレータは ``add_page`` ビュー関数にアタッチされています。これは ``route_name='add_page'`` で示されます。 "
 
 #: ../../tutorials/wiki2/definingviews.rst:93
 msgid ""
@@ -156,17 +156,17 @@ msgid ""
 " it to our ``edit_page`` view callable by virtue of the ``@view_config`` "
 "decorator attached to the ``edit_page`` view function, which in turn will"
 " be indicated by ``route_name='edit_page'``."
-msgstr ""
+msgstr "パターン  ``/{pagename}/edit_page`` を ``edit_page`` という名前のルートにマップする宣言を追加してください。これはページの編集ビューです。 ``edit_page`` ビュー関数にアタッチされた ``@view_config`` デコレータによって呼び出し可能な ``edit_page`` ビューにマップします。これは ``route_name='edit_page'`` で示されます。 。"
 
 #: ../../tutorials/wiki2/definingviews.rst:99
 msgid ""
 "As a result of our edits, the ``routes.py`` file should look like the "
 "following:"
-msgstr ""
+msgstr "編集した結果、``routes.py`` ファイルは次のようになります："
 
 #: ../../tutorials/wiki2/definingviews.rst:107
 msgid "The highlighted lines are the ones that need to be added or edited."
-msgstr ""
+msgstr "強調表示されている行は、追加または編集が必要な行です。"
 
 #: ../../tutorials/wiki2/definingviews.rst:111
 msgid ""
@@ -177,27 +177,27 @@ msgid ""
 "``/add_page/..`` to have priority. This isn't a huge problem in this "
 "particular app because wiki pages are always camel case, but it's "
 "important to be aware of this behavior in your own apps."
-msgstr ""
+msgstr "ルートの順序は重要です！ ``/add_page/{pagename} `` の前に ``/{pagename}/edit_page`` を置いた場合、ページを追加することはできません。これは、最初のルートが ``/add_page/edit_page`` にリクエストを常に一致させるためですが、 ``/add_page/..`` が優先されるようにしたいからです。 wikiページは常にラクダのケースなので、これはこの特定のアプリでは大きな問題ではありませんが、自分のアプリでこの動作を認識することが重要です。"
 
 #: ../../tutorials/wiki2/definingviews.rst:121
 msgid "Adding view functions in ``views/default.py``"
-msgstr ""
+msgstr "``views/default.py`` にビュー関数を追加する"
 
 #: ../../tutorials/wiki2/definingviews.rst:123
 msgid ""
 "It's time for a major change.  Open ``tutorial/views/default.py`` and "
 "edit it to look like the following:"
-msgstr ""
+msgstr "大きな変化の時です。 `` tutorial/views/default.py`` を開き、以下のように編集してください："
 
 #: ../../tutorials/wiki2/definingviews.rst:131
 msgid "The highlighted lines need to be added or edited."
-msgstr ""
+msgstr "強調表示された行を追加または編集する必要があります。"
 
 #: ../../tutorials/wiki2/definingviews.rst:133
 msgid ""
 "We added some imports, and created a regular expression to find "
 "\"WikiWords\"."
-msgstr ""
+msgstr "いくつかのインポートを追加し、WikiWords　を見つける正規表現を作成しました。"
 
 #: ../../tutorials/wiki2/definingviews.rst:135
 msgid ""
@@ -205,35 +205,35 @@ msgid ""
 "added when we originally rendered the ``alchemy`` cookiecutter.  It was "
 "only an example and isn't relevant to our application.  We also deleted "
 "the ``db_err_msg`` string."
-msgstr ""
+msgstr "私たちはもともと ``alchemy`` cookiecutterをレンダリングしたときに追加された ``my_view``　ビュー関数とそのデコレータを取り除きました。これは単なる例であり、私たちのアプリケーションには関係ありません。 ``db_err_msg`` 文字列も削除しました。"
 
 #: ../../tutorials/wiki2/definingviews.rst:140
 msgid ""
 "Then we added four :term:`view callable` functions to our "
 "``views/default.py`` module, as mentioned in the previous step:"
-msgstr ""
+msgstr "前のステップで述べたように、 `view/default.py` モジュールに :term:`view callable` 関数を4つ追加しました："
 
 #: ../../tutorials/wiki2/definingviews.rst:143
 msgid ""
 "``view_wiki()`` - Displays the wiki itself. It will answer on the root "
 "URL."
-msgstr ""
+msgstr "``view_wiki（）``  -  wiki自体を表示します。それはルートURLで答えるでしょう。"
 
 #: ../../tutorials/wiki2/definingviews.rst:144
 msgid "``view_page()`` - Displays an individual page."
-msgstr ""
+msgstr "``view_page（）``  - 個々のページを表示します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:145
 msgid "``edit_page()`` - Allows the user to edit a page."
-msgstr ""
+msgstr "``edit_page（）``  - ユーザがページを編集できるようにします。"
 
 #: ../../tutorials/wiki2/definingviews.rst:146
 msgid "``add_page()`` - Allows the user to add a page."
-msgstr ""
+msgstr "``add_page（）``  - ユーザーがページを追加できるようにします。"
 
 #: ../../tutorials/wiki2/definingviews.rst:148
 msgid "We'll describe each one briefly in the following sections."
-msgstr ""
+msgstr "以下のセクションでは、それぞれを簡単に説明します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:152
 msgid ""
@@ -243,24 +243,24 @@ msgid ""
 "callables often have ``view`` in their name (or may live in a Python "
 "subpackage of your application package named ``views``, as in our case), "
 "but this is only by convention, not a requirement."
-msgstr ""
+msgstr "ファイル名 ``default.py`` がPythonモジュールであることを除いて特別なことは何もありません。プロジェクトは、コードベース全体で、任意の名前付きモジュールで多くのビュー呼び出し可能ファイルを持つことができます。ビュー呼び出し可能関数を実装しているモジュールは、その名前に ``view`` をつけている（または、私たちの場合のように `` views`` という名前のアプリケーションパッケージのPythonサブパッケージに入っているかもしれませんが）、これは規約であり、要件ではありません。"
 
 #: ../../tutorials/wiki2/definingviews.rst:161
 msgid "The ``view_wiki`` view function"
-msgstr ""
+msgstr "`` view_wiki``ビュー関数"
 
 #: ../../tutorials/wiki2/definingviews.rst:163
 msgid ""
 "Following is the code for the ``view_wiki`` view function and its "
 "decorator:"
-msgstr ""
+msgstr "以下は `` view_wiki``ビュー関数とそのデコレータのコードです："
 
 #: ../../tutorials/wiki2/definingviews.rst:171
 msgid ""
 "``view_wiki()`` is the :term:`default view` that gets called when a "
 "request is made to the root URL of our wiki.  It always redirects to a "
 "URL which represents the path to our \"FrontPage\"."
-msgstr ""
+msgstr "``view_wiki()``は、wikiのルートURLへのリクエストがあったときに呼び出される :term:`default view` です。常に FrontPage へのパスを表すURLにリダイレクトされます。"
 
 #: ../../tutorials/wiki2/definingviews.rst:175
 msgid ""
@@ -273,15 +273,16 @@ msgid ""
 "``FrontPage`` page (i.e., ``http://localhost:6543/FrontPage``), and uses "
 "it as the \"location\" of the ``HTTPFound`` response, forming an HTTP "
 "redirect."
-msgstr ""
+msgstr "`` view_wiki``ビューcallableは、常に FrontPage という名前のページリソースのURLにリダイレクトします。これを行うには、：class： `pyramid.httpexceptions.HTTPFound` クラスのインスタンスを返します（インスタンスは ：class：`pyramid.interfaces.IResponse` インターフェイスを実装しています：class：`pyramid.response.Response` ）。これは ：meth：`pyramid.request.Request.route_url` APIを使用して ``FrontPage`` ページ（すなわち` `http://
+ localhost：6543/FrontPage`` ）へのURLを構築し、それをHTTPリダイレクトを形成する `` HTTPFound``応答の\ &quot;location \&quot;を返します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:186
 msgid "The ``view_page`` view function"
-msgstr ""
+msgstr "`` view_page``ビュー関数"
 
 #: ../../tutorials/wiki2/definingviews.rst:188
 msgid "Here is the code for the ``view_page`` view function and its decorator:"
-msgstr ""
+msgstr "`` view_page``ビュー関数とそのデコレータのコードを以下に示します："
 
 #: ../../tutorials/wiki2/definingviews.rst:196
 msgid ""
@@ -290,7 +291,7 @@ msgid ""
 "attribute of a ``Page`` model object) as HTML.  Then it substitutes an "
 "HTML anchor for each *WikiWord* reference in the rendered HTML using a "
 "compiled regular expression."
-msgstr ""
+msgstr "`` view_page（） ``は、私たちのwikiの1ページを表示するために使われます。これは、ページの：term： `reStructuredText`本体（` `Page``モデルオブジェクトの` `data``属性として保存されます）をHTMLとしてレンダリングします。次に、コンパイルされた正規表現を使用して、レンダリングされたHTMLの* WikiWord *参照ごとにHTMLアンカーを置き換えます。"
 
 #: ../../tutorials/wiki2/definingviews.rst:201
 msgid ""
@@ -302,14 +303,14 @@ msgid ""
 "wiki does not already contain a page with the matched WikiWord name, "
 "``add_link()`` generates an \"add\" link as the substitution value and "
 "returns it."
-msgstr ""
+msgstr "`` add_link``というカルト機能は、 `` wikiwords.sub``の最初の引数として使われ、コンテンツ内の各WikiWordマッチの値を提供するために呼び出されるべきであることを示しています。 wikiに一致するWikiWord名のページがすでに含まれている場合、 `` add_link（） ``は置換値として使用されるビューリンクを生成して返します。 wikiに一致するWikiWord名のページがまだ含まれていない場合、 `` add_link（） ``は置換値として\ &quot;add \&quot;リンクを生成して返します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:209
 msgid ""
 "As a result, the ``content`` variable is now a fully formed bit of HTML "
 "containing various view and add links for WikiWords based on the content "
 "of our current page object."
-msgstr ""
+msgstr "その結果、 `` content``変数は、現在のページオブジェクトの内容に基づいてWikiWords用のさまざまなビューとリンクを含むHTMLの完全に形成されたビットになりました。"
 
 #: ../../tutorials/wiki2/definingviews.rst:213
 msgid ""
@@ -321,14 +322,14 @@ msgid ""
 "a response.  In our case, the renderer used will be the ``view.jinja2`` "
 "template, as indicated in the ``@view_config`` decorator that is applied "
 "to ``view_page()``."
-msgstr ""
+msgstr "テンプレートよりもここでやる方が簡単だから、編集URLを生成し、いくつかの引数を持つ辞書を返します。 `` view_page（） ``が辞書（a：term： `response`オブジェクトとは対照的に）を返すという事実は、 :app:`Pyramid`  には：term： `renderer`レスポンスを表示するためのビュー構成を使用します。私たちの場合、使用されるレンダラは、 `` view_page（） ``に適用される `` @ view_config``デコレータに示されているように、 `` view.jinja2``テンプレートになります。"
 
 #: ../../tutorials/wiki2/definingviews.rst:221
 msgid ""
 "If the page does not exist, then we need to handle that by raising a "
 ":class:`pyramid.httpexceptions.HTTPNotFound` to trigger our 404 handling,"
 " defined in ``tutorial/views/notfound.py``."
-msgstr ""
+msgstr "ページが存在しない場合は、 `` tutorial / views / notfound.py``で定義されている：class： `pyramid.httpexceptions.HTTPNotFound`を404処理をトリガーとして扱う必要があります。"
 
 #: ../../tutorials/wiki2/definingviews.rst:227
 msgid ""
@@ -342,15 +343,15 @@ msgid ""
 "being executed, this is most likely the problem! See "
 ":ref:`special_exceptions_in_callables` for more information about "
 "exception views."
-msgstr ""
+msgstr "HTTP例外を使って `` raise``と `` return``を使うことは、一般的に人々を混乱させる重要な違いです。 `` tutorial / views / notfound.py``には、 `` HTTPNotFound``例外を扱うために登録されたterm： `exception view`があります。例外ビューは、発生した例外に対してのみトリガされます。 `` HTTPNotFound``が返された場合、内部的な\ &quot;stock \&quot;テンプレートがあり、応答として自身をレンダリングするために使用されます。あなたの例外ビューが実行されているのを見ていない場合、これはおそらく問題です！例外ビューの詳細については、ref： `special_exceptions_in_callables`を参照してください。"
 
 #: ../../tutorials/wiki2/definingviews.rst:239
 msgid "The ``edit_page`` view function"
-msgstr ""
+msgstr "`` edit_page``ビュー関数"
 
 #: ../../tutorials/wiki2/definingviews.rst:241
 msgid "Here is the code for the ``edit_page`` view function and its decorator:"
-msgstr ""
+msgstr "`` edit_page``ビュー関数とそのデコレータのコードは次のとおりです："
 
 #: ../../tutorials/wiki2/definingviews.rst:249
 msgid ""
@@ -359,7 +360,7 @@ msgid ""
 " handler for the form which it renders. The ``matchdict`` attribute of "
 "the request passed to the ``edit_page`` view will have a ``'pagename'`` "
 "key matching the name of the page that the user wants to edit."
-msgstr ""
+msgstr "`` edit_page（） ``は、ユーザがビューフォームの\ &quot;Edit this Page \&quot;ボタンをクリックすると呼び出されます。これは編集フォームをレンダリングしますが、レンダリングするフォームのハンドラとしても機能します。 `` edit_page``ビューに渡されたリクエストの `` matchdict``属性は、ユーザが編集したいページの名前と一致する `` pagename```キーを持っています。"
 
 #: ../../tutorials/wiki2/definingviews.rst:255
 msgid ""
@@ -368,7 +369,7 @@ msgid ""
 "grabs the ``body`` element of the request parameters and sets it as the "
 "``data`` attribute of the page object.  It then redirects to the "
 "``view_page`` view of the wiki page."
-msgstr ""
+msgstr "ビューの実行*がフォームの提出の結果である場合（つまり、 `` request.params``の中の `` form.submitted``が `` True``の場合）、ビューは `` body``要素を取得します。リクエストパラメータを設定し、それをページオブジェクトの `` data``属性として設定します。その後、wikiページの `` view_page``ビューにリダイレクトされます。"
 
 #: ../../tutorials/wiki2/definingviews.rst:261
 msgid ""
@@ -376,7 +377,7 @@ msgid ""
 "expression ``'form.submitted' in request.params`` is ``False``), the view"
 " simply renders the edit form, passing the page object and a ``save_url``"
 " which will be used as the action of the generated form."
-msgstr ""
+msgstr "ビューの実行がフォーム提出の結果でない場合（つまり、 `` request.params``中のform.submittedが `` False``の場合）、ビューは単純に編集フォームをレンダリングし、生成されたフォームのアクションとして使用される `` save_url``があります。"
 
 #: ../../tutorials/wiki2/definingviews.rst:268
 msgid ""
@@ -386,15 +387,15 @@ msgid ""
 "automatically. In the event that there was an error (even later, in our "
 "template code), the changes would be aborted. This means the view itself "
 "does not need to concern itself with commit/rollback logic."
-msgstr ""
+msgstr "前章で定義した `` request.dbsession``が `` pyramid_tm``トランザクションマネージャに登録されているので、そのセッションで管理されているオブジェクトに対する変更は自動的にコミットされます。エラーが発生した場合（テンプレートコードでも後で）、変更は中止されます。これは、ビュー自身がコミット/ロールバックロジックに関わる必要はないことを意味します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:277
 msgid "The ``add_page`` view function"
-msgstr ""
+msgstr "`` add_page``ビュー関数"
 
 #: ../../tutorials/wiki2/definingviews.rst:279
 msgid "Here is the code for the ``add_page`` view function and its decorator:"
-msgstr ""
+msgstr "`` add_page``ビュー関数とそのデコレータのコードを以下に示します："
 
 #: ../../tutorials/wiki2/definingviews.rst:287
 msgid ""
@@ -405,7 +406,7 @@ msgid ""
 "page object. The ``matchdict`` attribute of the request passed to the "
 "``add_page()`` view will have the values we need to construct URLs and "
 "find model objects."
-msgstr ""
+msgstr "`` add_page（） ``はユーザが* WikiWord *をクリックしたときに呼び出されます。* WikiWord *はまだシステム内のページとして表現されていません。 `` view_page``ビュー内の `` add_link``関数は、このビューへのURLを生成します。 `` add_page（） ``は、ページオブジェクトを追加するときに生成されるフォームのハンドラとしても機能します。 `` add_page（） ``ビューに渡されるリクエストの `` matchdict``属性は、URLを構築してモデルオブジェクトを見つけるために必要な値を持ちます。"
 
 #: ../../tutorials/wiki2/definingviews.rst:294
 msgid ""
@@ -413,14 +414,14 @@ msgid ""
 " the page we'd like to add. If our add view is invoked via, for example, "
 "``http://localhost:6543/add_page/SomeName``, the value for ``'pagename'``"
 " in the ``matchdict`` will be ``'SomeName'``."
-msgstr ""
+msgstr "`` matchdict``には、追加したいページの名前と一致する `` pagename```キーがあります。 addビューが、例えば `` http：// localhost：6543 / add_page / SomeName``を介して呼び出された場合、 `` matchdict``の `` &#39;pagename```の値は `` SomeName &#39;``。"
 
 #: ../../tutorials/wiki2/definingviews.rst:299
 msgid ""
 "Next a check is performed to determine whether the ``Page`` already "
 "exists in the database. If it already exists, then the client is "
 "redirected to the ``edit_page`` view, else we continue to the next check."
-msgstr ""
+msgstr "次に、 `` Page``が既にデータベースに存在するかどうかを判断するためのチェックが行われます。既に存在する場合、クライアントは `` edit_page``ビューにリダイレクトされます。そうでなければ、次のチェックに進みます。"
 
 #: ../../tutorials/wiki2/definingviews.rst:303
 msgid ""
@@ -435,7 +436,7 @@ msgid ""
 "query for that object, and set it on ``page.creator``. Finally, we "
 "redirect the client back to the ``view_page`` view for the newly created "
 "page."
-msgstr ""
+msgstr "ビューの実行*が*フォームの提出の結果である場合（つまり、 `` request.params``の `` form.submitted &#39;&#39;が `` True``の場合）、フォームデータからページ本文を取得し、createこのページ本文と `` matchdict [&#39;pagename&#39;] ``から取った名前を持つPageオブジェクトを作成し、 `` request.dbession.add``を使ってデータベースに保存します。認証はまだ行っていないので、ページの `` creator``として追加するログインユーザはいません。チュートリアルでその点に達するまでは、すべてのページが `` editor``ユーザによって作成されたと仮定します。したがって、そのオブジェクトをクエリし、 `` page.creator``に設定します。最後に、クライアントを新しく作成したページの `` view_page``ビューにリダイレクトします。"
 
 #: ../../tutorials/wiki2/definingviews.rst:314
 msgid ""
@@ -449,11 +450,11 @@ msgid ""
 "edit form's desire to have *some* page object exposed as ``page``. "
 ":app:`Pyramid` will render the template associated with this view to a "
 "response."
-msgstr ""
+msgstr "ビューの実行がフォーム提出の結果でない場合（つまり、 `` &#39;form.method&#39; &#39;request.params``が `` False``の場合）、ビューの呼び出し可能ビューはテンプレートをレンダリングします。そのために、テンプレートはレンダリング時にフォームのポストURLとして使用する `` save_url``を生成します。ここでは怠惰なので、追加ビューとページ編集ビューに同じテンプレート（ `` templates / edit.jinja2``）を使用します。これを行うために、* pageオブジェクトを `` page``として公開する編集フォームの希望を満たすために、ダミーの `` Page``オブジェクトを作成します。 ：app： `Pyramid`は、このビューに関連付けられたテンプレートをレスポンスにレンダリングします。"
 
 #: ../../tutorials/wiki2/definingviews.rst:326
 msgid "Adding templates"
-msgstr ""
+msgstr "テンプレートの追加"
 
 #: ../../tutorials/wiki2/definingviews.rst:328
 msgid ""
@@ -462,156 +463,156 @@ msgid ""
 "template. These templates will live in the ``templates`` directory of our"
 " tutorial package.  Jinja2 templates must have a ``.jinja2`` extension to"
 " be recognized as such."
-msgstr ""
+msgstr "`` view_page``、 `` add_page``、 `` edit_page``ビューは、参照：a：term： `template`を追加しました。各テンプレートは：term： `Jinja2`テンプレートです。これらのテンプレートはチュートリアルパッケージの `` templates``ディレクトリにあります。 Jinja2テンプレートは、そのように認識されるように `` .jinja2``拡張子を持たなければなりません。"
 
 #: ../../tutorials/wiki2/definingviews.rst:336
 msgid "The ``layout.jinja2`` template"
-msgstr ""
+msgstr "`` layout.jinja2``テンプレート"
 
 #: ../../tutorials/wiki2/definingviews.rst:338
 msgid ""
 "Update ``tutorial/templates/layout.jinja2`` with the following content, "
 "as indicated by the emphasized lines:"
-msgstr ""
+msgstr "`` tutorial / templates / layout.jinja2``を以下の内容で更新します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:346
 msgid ""
 "Since we're using a templating engine, we can factor common boilerplate "
 "out of our page templates into reusable components. One method for doing "
 "this is template inheritance via blocks."
-msgstr ""
+msgstr "テンプレートエンジンを使用しているので、ページテンプレートの一般的な定型文を再利用可能なコンポーネントに組み込むことができます。これを行う1つの方法は、ブロックによるテンプレートの継承です。"
 
 #: ../../tutorials/wiki2/definingviews.rst:350
 msgid ""
 "We have defined two placeholders in the layout template where a child "
 "template can override the content. These blocks are named ``subtitle`` "
 "(line 11) and ``content`` (line 36)."
-msgstr ""
+msgstr "レイアウトテンプレートには、子テンプレートがコンテンツをオーバーライドできる2つのプレースホルダが定義されています。これらのブロックの名前は ``字幕 ``（行11）と ``コンテンツ ``（行36）です。"
 
 #: ../../tutorials/wiki2/definingviews.rst:353
 msgid ""
 "Please refer to the `Jinja2 documentation <http://jinja.pocoo.org/>`_ for"
 " more information about template inheritance."
-msgstr ""
+msgstr "`Jinja2のドキュメントを参照してください<http://jinja.pocoo.org/>テンプレート継承の詳細については `_を参照してください。"
 
 #: ../../tutorials/wiki2/definingviews.rst:358
 msgid "The ``view.jinja2`` template"
-msgstr ""
+msgstr "`` view.jinja2``テンプレート"
 
 #: ../../tutorials/wiki2/definingviews.rst:360
 msgid "Create ``tutorial/templates/view.jinja2`` and add the following content:"
-msgstr ""
+msgstr "`` tutorial / templates / view.jinja2``を作成し、以下の内容を追加してください："
 
 #: ../../tutorials/wiki2/definingviews.rst:366
 msgid ""
 "This template is used by ``view_page()`` for displaying a single wiki "
 "page."
-msgstr ""
+msgstr "このテンプレートは、単一のwikiページを表示するために `` view_page（） ``によって使用されます。"
 
 #: ../../tutorials/wiki2/definingviews.rst:368
 msgid ""
 "We begin by extending the ``layout.jinja2`` template defined above, which"
 " provides the skeleton of the page (line 1)."
-msgstr ""
+msgstr "最初に、上記で定義した `layout.jinja2`テンプレートを拡張します。このテンプレートは、ページのスケルトン（行1）を提供します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:370
 msgid ""
 "We override the ``subtitle`` block from the base layout, inserting the "
 "page name into the page's title (line 3)."
-msgstr ""
+msgstr "ページのタイトル（行3）にページ名を挿入して、基本レイアウトから `` subtitle``ブロックをオーバーライドします。"
 
 #: ../../tutorials/wiki2/definingviews.rst:372
 msgid ""
 "We override the ``content`` block from the base layout to insert our "
 "markup into the body (lines 5-18)."
-msgstr ""
+msgstr "本文にマークアップを挿入するために、基本レイアウトから `` content``ブロックをオーバーライドします（5行目~18行目）。"
 
 #: ../../tutorials/wiki2/definingviews.rst:374
 msgid ""
 "We use a variable that is replaced with the ``content`` value provided by"
 " the view (line 6). ``content`` contains HTML, so the ``|safe`` filter is"
 " used to prevent escaping it (e.g., changing \">\" to \"&gt;\")."
-msgstr ""
+msgstr "ビューが提供する `` content``値で置き換えられる変数を使用します（6行目）。 `` content``はHTMLを含んでいるので、 `` safe``フィルタはエスケープするのを防ぐために使われます（例えば、\ &quot;&gt; \&quot;を\ &quot;&gt; \&quot;に変更する）。"
 
 #: ../../tutorials/wiki2/definingviews.rst:377
 msgid ""
 "We create a link that points at the \"edit\" URL, which when clicked "
 "invokes the ``edit_page`` view for the requested page (lines 8-10)."
-msgstr ""
+msgstr "クリックすると、要求されたページの `` edit_page``ビューが呼び出されます（8-10行目）。"
 
 #: ../../tutorials/wiki2/definingviews.rst:382
 msgid "The ``edit.jinja2`` template"
-msgstr ""
+msgstr "`` edit.jinja2``テンプレート"
 
 #: ../../tutorials/wiki2/definingviews.rst:384
 msgid "Create ``tutorial/templates/edit.jinja2`` and add the following content:"
-msgstr ""
+msgstr "`` tutorial / templates / edit.jinja2``を作成し、以下の内容を追加してください："
 
 #: ../../tutorials/wiki2/definingviews.rst:391
 msgid ""
 "This template serves two use cases. It is used by ``add_page()`` and "
 "``edit_page()`` for adding and editing a wiki page.  It displays a page "
 "containing a form and which provides the following:"
-msgstr ""
+msgstr "このテンプレートは2つのユースケースを扱います。これは `` add_page（） ``と `` edit_page（） ``によってwikiページの追加と編集に使用されます。フォームを含むページが表示され、次の情報が表示されます。"
 
 #: ../../tutorials/wiki2/definingviews.rst:395
 msgid ""
 "Again, we extend the ``layout.jinja2`` template, which provides the "
 "skeleton of the page (line 1)."
-msgstr ""
+msgstr "ここでもまた、ページのスケルトン（1行目）を提供する `layout.jinja2`テンプレートを拡張します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:397
 msgid ""
 "Override the ``subtitle`` block to affect the ``<title>`` tag in the "
 "``head`` of the page (line 3)."
-msgstr ""
+msgstr "<html> `` subtitle``ブロックをオーバーライドして、 `` <title> ``タグ ``の `` head``（行3）にある。&lt;/ html&gt;"
 
 #: ../../tutorials/wiki2/definingviews.rst:399
 msgid ""
 "A 10-row by 60-column ``textarea`` field named ``body`` that is filled "
 "with any existing page data when it is rendered (line 14)."
-msgstr ""
+msgstr "既存のページデータがレンダリングされたときにそれが埋め込まれた `body`という名前の10行×60列の` textarea`フィールドです（14行目）。"
 
 #: ../../tutorials/wiki2/definingviews.rst:401
 msgid "A submit button that has the name ``form.submitted`` (line 17)."
-msgstr ""
+msgstr "「form.submitted」という名前の送信ボタン（17行目）。"
 
 #: ../../tutorials/wiki2/definingviews.rst:402
 msgid ""
 "The form POSTs back to the ``save_url`` argument supplied by the view "
 "(line 12). The view will use the ``body`` and ``form.submitted`` values."
-msgstr ""
+msgstr "フォームは、ビューが提供する `` save_url``引数に戻ります（12行目）。ビューは `` body``と `` form.submitted``の値を使用します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:407
 msgid "The ``404.jinja2`` template"
-msgstr ""
+msgstr "`` 404.jinja2``テンプレート"
 
 #: ../../tutorials/wiki2/definingviews.rst:409
 msgid "Replace ``tutorial/templates/404.jinja2`` with the following content:"
-msgstr ""
+msgstr "`` tutorial / templates / 404.jinja2``を以下の内容に置き換えてください："
 
 #: ../../tutorials/wiki2/definingviews.rst:415
 msgid ""
 "This template is linked from the ``notfound_view`` defined in "
 "``tutorial/views/notfound.py`` as shown here:"
-msgstr ""
+msgstr "このテンプレートは、以下に示すように `` tutorial / views / notfound.py``で定義された `` notfound_view``からリンクされています："
 
 #: ../../tutorials/wiki2/definingviews.rst:423
 msgid "There are several important things to note about this configuration:"
-msgstr ""
+msgstr "この設定については、いくつか重要な点があります。"
 
 #: ../../tutorials/wiki2/definingviews.rst:425
 msgid ""
 "The ``notfound_view`` in the above snippet is called an :term:`exception "
 "view`. For more information see :ref:`special_exceptions_in_callables`."
-msgstr ""
+msgstr "上のsnippetの `` notfound_view``は：term： `例外ビュー`と呼ばれます。詳細については、ref： `special_exceptions_in_callables`を参照してください。"
 
 #: ../../tutorials/wiki2/definingviews.rst:428
 msgid ""
 "The ``notfound_view`` sets the response status to 404. It's possible to "
 "affect the response object used by the renderer via "
 ":ref:`request_response_attr`."
-msgstr ""
+msgstr "`` notfound_view``はレスポンスステータスを404に設定します：ref： `request_response_attr`でレンダラが使用するレスポンスオブジェクトに影響を与えることができます。"
 
 #: ../../tutorials/wiki2/definingviews.rst:431
 msgid ""
@@ -621,14 +622,14 @@ msgid ""
 "returned from a view normally. For example, on line 27 of "
 "``tutorial/views/default.py`` the exception is raised which will trigger "
 "the view."
-msgstr ""
+msgstr "`` notfound_view``は例外ビューとして登録され、 `` pyramid.httpexceptions.HTTPNotFound``が例外として呼び出された場合に** **のみ呼び出されます。つまり、通常はビューから返された応答に対しては呼び出されません。たとえば、 `` tutorial / views / default.py`の27行目では、ビューがトリガされる例外が発生します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:438
 msgid ""
 "Finally, we may delete the ``tutorial/templates/mytemplate.jinja2`` "
 "template that was provided by the ``alchemy`` cookiecutter, as we have "
 "created our own templates for the wiki."
-msgstr ""
+msgstr "最後に、 `` alchemy`` cookiecutterによって提供された `` tutorial / templates / mytemplate.jinja2``テンプレートを削除するかもしれません。これはwiki用の独自のテンプレートを作成したからです。"
 
 #: ../../tutorials/wiki2/definingviews.rst:444
 msgid ""
@@ -637,50 +638,50 @@ msgid ""
 "available \"by default\" in a template when a template renderer is used. "
 "See :ref:`renderer_system_values` for information about other names that "
 "are available by default when a template is used as a renderer."
-msgstr ""
+msgstr "私たちのテンプレートは、私たちのチュートリアルビューのどれもが辞書に返されない `` request``オブジェクトを使います。 `` request``は、テンプレートレンダラーが使用されているときに、テンプレート内でデフォルトで利用可能ないくつかの名前の1つです。テンプレートがレンダラーとして使われるときにデフォルトで利用可能な他の名前については、ref： `renderer_system_values`を参照してください。"
 
 #: ../../tutorials/wiki2/definingviews.rst:452
 msgid "Viewing the application in a browser"
-msgstr ""
+msgstr "ブラウザでのアプリケーションの表示"
 
 #: ../../tutorials/wiki2/definingviews.rst:454
 msgid ""
 "We can finally examine our application in a browser (See :ref:`wiki2"
 "-start-the-application`).  Launch a browser and visit each of the "
 "following URLs, checking that the result is as expected:"
-msgstr ""
+msgstr "ブラウザでアプリケーションを調べることができます（ref： `wiki2-start-the-application`を参照してください）。ブラウザを起動し、次の各URLにアクセスして、結果が期待どおりであることを確認します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:458
 msgid ""
 "http://localhost:6543/ invokes the ``view_wiki`` view.  This always "
 "redirects to the ``view_page`` view of the ``FrontPage`` page object."
-msgstr ""
+msgstr "http：// localhost：6543 / `` view_wiki``ビューを呼び出します。これは常に `` FrontPage``ページオブジェクトの `` view_page``ビューにリダイレクトされます。"
 
 #: ../../tutorials/wiki2/definingviews.rst:461
 msgid ""
 "http://localhost:6543/FrontPage invokes the ``view_page`` view of the "
 "``FrontPage`` page object."
-msgstr ""
+msgstr "http：// localhost：6543 / FrontPageは `` FrontPage``ページオブジェクトの `` view_page``ビューを呼び出します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:464
 msgid ""
 "http://localhost:6543/FrontPage/edit_page invokes the ``edit_page`` view "
 "for the ``FrontPage`` page object."
-msgstr ""
+msgstr "http：// localhost：6543 / FrontPage / edit_pageは、 `` FrontPage``ページオブジェクトの `` edit_page``ビューを呼び出します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:467
 msgid ""
 "http://localhost:6543/add_page/SomePageName invokes the ``add_page`` view"
 " for a page. If the page already exists, then it redirects the user to "
 "the ``edit_page`` view for the page object."
-msgstr ""
+msgstr "http：// localhost：6543 / add_page / SomePageNameはページの `` add_page``ビューを呼び出します。ページがすでに存在する場合は、ページオブジェクトの `` edit_page``ビューにユーザをリダイレクトします。"
 
 #: ../../tutorials/wiki2/definingviews.rst:471
 msgid ""
 "http://localhost:6543/SomePageName/edit_page invokes the ``edit_page`` "
 "view for an existing page, or generates an error if the page does not "
 "exist."
-msgstr ""
+msgstr "http://localhost:6543/SomePageName/edit_page　は、既存のページの ``edit_page``　ビューを呼び出し、ページが存在しない場合はエラーを生成します。"
 
 #: ../../tutorials/wiki2/definingviews.rst:474
 msgid ""
@@ -688,5 +689,5 @@ msgid ""
 " will generate a ``NoResultFound: No row was found for one()`` error. "
 "You'll see an interactive traceback facility provided by "
 ":term:`pyramid_debugtoolbar`."
-msgstr ""
+msgstr "エラーを生成するには、 http://localhost:6543/foobars/edit_page にアクセスし、 ``NoResultFound: No row was found for one()``  エラーで行が見つかりませんでした。対話的なトレースバック機能がterm： `pyramid_debugtoolbar`によって提供されます。"
 
