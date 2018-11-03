@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../whatsnew-1.7.rst:2
 msgid "What's New in Pyramid 1.7"
-msgstr ""
+msgstr "(機械翻訳)Pyramid 1.7の新機能"
 
 #: ../../whatsnew-1.7.rst:4
 msgid ""
@@ -29,11 +19,11 @@ msgid ""
 "backwards incompatibilities between the two versions and deprecations "
 "added to :app:`Pyramid` 1.7, as well as software dependency changes and "
 "notable documentation additions."
-msgstr ""
+msgstr "この記事では、：app： `Pyramid`バージョン1.7の新機能について説明しました：app：` Pyramid` 1.6。また、app： `Pyramid` 1.7に追加された2つのバージョンと廃止予定との間の後方互換性も文書化されています。"
 
 #: ../../whatsnew-1.7.rst:11
 msgid "Backwards Incompatibilities"
-msgstr ""
+msgstr "後方の非互換性"
 
 #: ../../whatsnew-1.7.rst:13
 msgid ""
@@ -42,7 +32,7 @@ msgid ""
 "from ``md5`` to ``sha512``. If you are using the authentication policy "
 "and need to continue using ``md5``, please explicitly set "
 "``hashalg='md5'``."
-msgstr ""
+msgstr "class： `pyramid.authentication.AuthTktAuthenticationPolicy`のデフォルトハッシュアルゴリズムが` `md5``から` `sha512``に変更されました。認証ポリシーを使用していて、 `` md5``を引き続き使用する必要がある場合は、明示的に `` hashalg = &#39;md5``を設定してください。"
 
 #: ../../whatsnew-1.7.rst:18
 msgid ""
@@ -50,31 +40,31 @@ msgid ""
 "then this change means any existing auth tickets (and associated cookies)"
 " will no longer be valid, users will be logged out, and have to login to "
 "their accounts again."
-msgstr ""
+msgstr "あなたのアプリケーションで `` hashalg``オプションを現在指定していない場合、この変更は既存の認証チケット（および関連するCookie）が有効ではなくなり、ユーザーはログアウトされ、アカウントに再度ログインする必要があります。"
 
 #: ../../whatsnew-1.7.rst:23
 msgid ""
 "This change has been issuing a DeprecationWarning since :app:`Pyramid` "
 "1.4."
-msgstr ""
+msgstr "この変更により、app： `Pyramid` 1.4以降、DeprecationWarningが発行されています。"
 
 #: ../../whatsnew-1.7.rst:25
 msgid "See https://github.com/Pylons/pyramid/pull/2496"
-msgstr ""
+msgstr "https://github.com/Pylons/pyramid/pull/2496を参照してください。"
 
 #: ../../whatsnew-1.7.rst:27
 msgid ""
 "Python 2.6 and 3.2 are no longer supported by Pyramid. See "
 "https://github.com/Pylons/pyramid/issues/2368 and "
 "https://github.com/Pylons/pyramid/pull/2256"
-msgstr ""
+msgstr "Python 2.6と3.2はPyramidではサポートされなくなりました。 https://github.com/Pylons/pyramid/issues/2368およびhttps://github.com/Pylons/pyramid/pull/2256を参照してください。"
 
 #: ../../whatsnew-1.7.rst:31
 msgid ""
 "The :func:`pyramid.session.check_csrf_token` function no longer validates"
 " a csrf token in the query string of a request. Only headers and request "
 "bodies are supported. See https://github.com/Pylons/pyramid/pull/2500"
-msgstr ""
+msgstr "：func： `pyramid.session.check_csrf_token`関数は、リクエストのクエリ文字列のcsrfトークンを検証しなくなりました。ヘッダーとリクエストボディのみがサポートされています。 https://github.com/Pylons/pyramid/pull/2500を参照してください。"
 
 #: ../../whatsnew-1.7.rst:35 ../../whatsnew-1.7.rst:107
 msgid ""
@@ -82,11 +72,11 @@ msgid ""
 ":meth:`pyramid.config.Configurator.set_default_permission` will no longer"
 " affect exception views. A permission must be set explicitly on the view "
 "for it to be enforced. See https://github.com/Pylons/pyramid/pull/2534"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.set_default_permission`を介して設定されたグローバル権限は、もはや例外ビューに影響を与えません。権限は強制的にビューに明示的に設定する必要があります。 https://github.com/Pylons/pyramid/pull/2534を参照してください。"
 
 #: ../../whatsnew-1.7.rst:41
 msgid "Feature Additions"
-msgstr ""
+msgstr "機能の追加"
 
 #: ../../whatsnew-1.7.rst:43
 msgid ""
@@ -97,7 +87,7 @@ msgid ""
 "``config.add_view`` and can affect other stages of the pipeline such as "
 "the raw response from a view or prior to security checks. See "
 "https://github.com/Pylons/pyramid/pull/2021"
-msgstr ""
+msgstr "新しい：ref： `view_derivers`という概念がPyramidに追加され、フレームワークの作成者は要素を標準のPyramidビューパイプラインに挿入し、アプリケーション内のすべてのビューに影響を与えることができます。これはデコレータに似ていますが、 `` config.add_view``に渡されるオプションにアクセスでき、ビューからの生のレスポンスやセキュリティチェックの前にパイプラインの他のステージに影響を与える可能性があります。 https://github.com/Pylons/pyramid/pull/2021を参照してください。"
 
 #: ../../whatsnew-1.7.rst:50
 msgid ""
@@ -110,7 +100,7 @@ msgid ""
 "response to the client instead of a catchable exception.  See "
 ":ref:`auto_csrf_checking`, https://github.com/Pylons/pyramid/pull/2413 "
 "and https://github.com/Pylons/pyramid/pull/2500"
-msgstr ""
+msgstr "`` require_csrf``ビューオプションを追加しました。このオプションは、RFC2616で定義されている安全でないメソッドを使って要求に対するCSRFチェックを強制します。 CSRFチェックが失敗した場合、 `` BadCSRFToken``例外が発生し、例外ビュー（デフォルトの応答は `` 400 Bad Request``です）によって捕捉されます。このオプションは、非推奨の `` check_csrf``ビュー述語の代わりに使用されるべきです。この述語は通常、キャッチ可能な例外の代わりに予期しない `` 404 Not Found``応答をクライアントに送ります。 See：ref： `auto_csrf_checking`、https://github.com/Pylons/pyramid/pull/2413およびhttps://github.com/Pylons/pyramid/pull/2500"
 
 #: ../../whatsnew-1.7.rst:60
 msgid ""
@@ -123,7 +113,7 @@ msgid ""
 "basis by setting ``require_csrf=False`` on those views. See "
 ":ref:`auto_csrf_checking` and https://github.com/Pylons/pyramid/pull/2413"
 " and https://github.com/Pylons/pyramid/pull/2518"
-msgstr ""
+msgstr "`` require_csrf = True``ビューオプションで使用されるCSRFチェックを設定するための新しいメソッド：meth： `pyramid.config.Configurator.set_csrf_default_options`を追加しました。このメソッドを使用すると、アプリケーションのすべてのビューでCSRFチェックをグローバルに有効にすることができます。これは、Pyramid上に構築されたウェブサイトのための良いデフォルトと見なされるべきです。これらのビューに対して `` require_csrf = False``を設定することで、ビュー単位でCSRFチェックをオプトアウトすることができます。 See：ref： `auto_csrf_checking`とhttps://github.com/Pylons/pyramid/pull/2413とhttps://github.com/Pylons/pyramid/pull/2518"
 
 #: ../../whatsnew-1.7.rst:71
 msgid ""
@@ -138,14 +128,14 @@ msgid ""
 "ports if on a non standard port) to allow. Subdomains are not allowed "
 "unless the domain name has been prefixed with a ``.``. See "
 "https://github.com/Pylons/pyramid/pull/2501"
-msgstr ""
+msgstr "要求の起点/参照元をチェックし、現在の `` request.domain``と一致することを確認する追加のCSRF検証を追加しました。この特定のチェックは、HTTPS経由でサイトにアクセスする場合にのみ有効です。そうしないと、ブラウザが常に必要な情報を送信するとは限りません。この追加のCSRF検証に失敗した場合、 `` BadCSRFOrigin``例外が発生し、例外ビュー（デフォルトの応答は `` 400 Bad Request``です）によって捕捉される可能性があります。 `` pyramid.csrf_trusted_origins``を許可するドメイン名のリスト（非標準ポートの場合はポート付き）に設定することにより、追加の許可されたオリジンを設定することができます。サブドメインはドメイン名の前に `` .``が付いていなければ許されません。 https://github.com/Pylons/pyramid/pull/2501を参照してください。"
 
 #: ../../whatsnew-1.7.rst:83
 msgid ""
 "Added a new :func:`pyramid.session.check_csrf_origin` API for validating "
 "the origin or referrer headers against the request's domain. See "
 "https://github.com/Pylons/pyramid/pull/2501"
-msgstr ""
+msgstr "リクエストのドメインに対してオリジンまたはリファラーヘッダを検証するための新しい：func： `pyramid.session.check_csrf_origin` APIを追加しました。 https://github.com/Pylons/pyramid/pull/2501を参照してください。"
 
 #: ../../whatsnew-1.7.rst:87
 msgid ""
@@ -156,7 +146,7 @@ msgid ""
 "``text/html``, but if ``application/json`` is explicitly mentioned it "
 "will now receive a valid JSON response. See "
 "https://github.com/Pylons/pyramid/pull/2489"
-msgstr ""
+msgstr "：class： `pyramid.httpexceptions.HTTPException`のサブクラスは、クライアントの` Accept``ヘッダに最もよくマッチするものを考慮に入れ、要求されたものに応じて `` text / html``、 `` application / json``または `` text / plain``です。 `` * / * ``のデフォルトは `` text / html``ですが、 `` application / json``が明示的に言及されると、有効なJSON応答を受け取るようになります。 https://github.com/Pylons/pyramid/pull/2489を参照してください。"
 
 #: ../../whatsnew-1.7.rst:94
 msgid ""
@@ -166,7 +156,7 @@ msgid ""
 ":ref:`router_chapter` as well as "
 "https://github.com/Pylons/pyramid/pull/2469 and "
 "https://github.com/Pylons/pyramid/pull/1876"
-msgstr ""
+msgstr "：class： `pyramid.events.BeforeTraversal`という新しいイベントと、interface：class：` pyramid.interfaces.IBeforeTraversal`が導入されました。このイベントは、ルータ内でのトラバーサルの開始前にリスナーに通知します。参照：ref： `router_chapter`、https://github.com/Pylons/pyramid/pull/2469、https://github.com/Pylons/pyramid/pull/1876を参照してください。"
 
 #: ../../whatsnew-1.7.rst:101
 msgid ""
@@ -175,14 +165,14 @@ msgid ""
 "This is useful for rendering an exception view outside of the context of "
 "the ``EXCVIEW`` tween where you may need more control over the request. "
 "See https://github.com/Pylons/pyramid/pull/2393"
-msgstr ""
+msgstr "新しいメソッド：meth： `pyramid.request.Request.invoke_exception_view`：例外ビューを呼び出して応答を返すために使用できます。これは、 &quot;EXCVIEW&quot;トゥイーンのコンテキスト外で例外ビューをレンダリングする場合に便利です。ここでは、リクエストをより詳細に制御する必要があります。 https://github.com/Pylons/pyramid/pull/2393を参照してください。"
 
 #: ../../whatsnew-1.7.rst:112
 msgid ""
 "Allow a leading ``=`` on the key of the request param predicate. For "
 "example, ``'=abc=1'`` is equivalent down to ``request.params['=abc'] == "
 "'1'``. See https://github.com/Pylons/pyramid/pull/1370"
-msgstr ""
+msgstr "要求パラメタ述語のキーに先行する `` = ``を許可します。たとえば、 `` &#39;= abc = 1&#39;``は `` request.params [&#39; = abc &#39;] ==&#39; 1&#39;``と同等です。 https://github.com/Pylons/pyramid/pull/1370を参照してください。"
 
 #: ../../whatsnew-1.7.rst:117
 #, python-format
@@ -190,18 +180,18 @@ msgid ""
 "Allow using variable substitutions like ``%(LOGGING_LOGGER_ROOT_LEVEL)s``"
 " for logging sections of the .ini file and populate these variables from "
 "the ``pserve`` command line -- e.g.:"
-msgstr ""
+msgstr ".iniファイルのロギングセクションに ``％（LOGGING_LOGGER_ROOT_LEVEL）s``のような変数置換を許可し、 `` pserve``コマンドラインからこれらの変数を設定します。"
 
 #: ../../whatsnew-1.7.rst:121
 msgid "``pserve development.ini LOGGING_LOGGER_ROOT_LEVEL=DEBUG``"
-msgstr ""
+msgstr "`` pserve development.ini LOGGING_LOGGER_ROOT_LEVEL = DEBUG``"
 
 #: ../../whatsnew-1.7.rst:123
 msgid ""
 "This support is thanks to the new ``global_conf`` option on "
 ":func:`pyramid.paster.setup_logging`. See "
 "https://github.com/Pylons/pyramid/pull/2399"
-msgstr ""
+msgstr "このサポートは：func： `pyramid.paster.setup_logging`の新しい` `global_conf``オプションのおかげです。 https://github.com/Pylons/pyramid/pull/2399を参照してください。"
 
 #: ../../whatsnew-1.7.rst:127
 msgid ""
@@ -209,11 +199,11 @@ msgid ""
 "exception if no exception view could be found to handle it. This allows "
 "the exception to be handled upstream by another tween or middleware. See "
 "https://github.com/Pylons/pyramid/pull/2567"
-msgstr ""
+msgstr "：attr： `pyramid.tweens.EXCVIEW` tweenは、それを処理するための例外ビューが見つからなければ元の例外を再起動します。これにより、例外が別のトゥイーンまたはミドルウェアによって上流側で処理されるようになります。 https://github.com/Pylons/pyramid/pull/2567を参照してください。"
 
 #: ../../whatsnew-1.7.rst:133
 msgid "Deprecations"
-msgstr ""
+msgstr "廃止"
 
 #: ../../whatsnew-1.7.rst:135
 msgid ""
@@ -221,17 +211,17 @@ msgid ""
 "``require_csrf`` option or the ``pyramid.require_default_csrf`` setting "
 "to ensure that the :class:`pyramid.exceptions.BadCSRFToken` exception is "
 "raised. See https://github.com/Pylons/pyramid/pull/2413"
-msgstr ""
+msgstr "`` check_csrf``ビュー述語は非推奨です。新しい `` require_csrf``オプションまたは `` pyramid.require_default_csrf``の設定を使って、：class： `pyramid.exceptions.BadCSRFToken`例外が発生するようにしてください。 https://github.com/Pylons/pyramid/pull/2413を参照してください。"
 
 #: ../../whatsnew-1.7.rst:140
 msgid ""
 "Support for Python 3.3 will be removed in Pyramid 1.8. "
 "https://github.com/Pylons/pyramid/issues/2477"
-msgstr ""
+msgstr "Python 3.3のサポートはPyramid 1.8で削除されます。 https://github.com/Pylons/pyramid/issues/2477"
 
 #: ../../whatsnew-1.7.rst:144
 msgid "Scaffolding Enhancements"
-msgstr ""
+msgstr "足場の強化"
 
 #: ../../whatsnew-1.7.rst:146
 msgid ""
@@ -241,39 +231,39 @@ msgid ""
 " module to illustrate uses of "
 ":meth:`pyramid.config.Configurator.include`. See "
 "https://github.com/Pylons/pyramid/pull/2024"
-msgstr ""
+msgstr "SQLAlchemyのセッション管理に関してより現代的なベストプラクティスを示す「錬金術」足場の完全なオーバーホールと、よりモジュラーな構成へのアプローチ、ルートを別のモジュールに分けて：meth： `ピラミッドの使い方を説明する。 config.Configurator.include`。 https://github.com/Pylons/pyramid/pull/2024を参照してください。"
 
 #: ../../whatsnew-1.7.rst:153
 msgid "Documentation Enhancements"
-msgstr ""
+msgstr "ドキュメントの機能拡張"
 
 #: ../../whatsnew-1.7.rst:155
 msgid ""
 "A massive overhaul of the packaging and tools used in the documentation "
 "was completed in https://github.com/Pylons/pyramid/pull/2468. A summary "
 "follows:"
-msgstr ""
+msgstr "このドキュメントで使用されているパッケージやツールの大規模な見直しはhttps://github.com/Pylons/pyramid/pull/2468で完了しました。要約は次のとおりです。"
 
 #: ../../whatsnew-1.7.rst:159
 msgid "All docs now recommend using ``pip`` instead of ``easy_install``."
-msgstr ""
+msgstr "すべてのドキュメントは `` easy_install``の代わりに `` pip``を使うことを推奨しています。"
 
 #: ../../whatsnew-1.7.rst:161
 msgid ""
 "The installation docs now expect the user to be using Python 3.4 or "
 "greater with access to the ``python3 -m venv`` tool to create virtual "
 "environments."
-msgstr ""
+msgstr "インストール文書では、ユーザがPython 3.4以降を使用して、仮想環境を作成するための `` python3 -m venv``ツールにアクセスできるようになりました。"
 
 #: ../../whatsnew-1.7.rst:165
 msgid ""
 "Tutorials now use ``py.test`` and ``pytest-cov`` instead of ``nose`` and "
 "``coverage``."
-msgstr ""
+msgstr "チュートリアルでは、 `` nose``と `` coverage&#39;`の代わりに `` py.test``と `` pytest-cov``を使います。"
 
 #: ../../whatsnew-1.7.rst:168
 msgid "Further updates to the scaffolds as well as tutorials and their src files."
-msgstr ""
+msgstr "チュートリアルとそのsrcファイルだけでなく、足場への更なるアップデート。"
 
 #: ../../whatsnew-1.7.rst:170
 msgid ""
@@ -282,19 +272,19 @@ msgid ""
 "features into the usage of SQLAlchemy with Pyramid and provide a better "
 "starting point for new projects. See "
 "https://github.com/Pylons/pyramid/pull/2024 for more. Highlights were:"
-msgstr ""
+msgstr "`` alchemy``のオーバーホールに加え、：ref： `bfg_sql_wiki_tutorial`チュートリアルの全面的な見直しが行われ、Pyramidを使ったSQLAlchemyの使い方についてより現代的な機能を紹介し、新しいプロジェクトの出発点を提供しました。詳細についてはhttps://github.com/Pylons/pyramid/pull/2024をご覧ください。ハイライトは："
 
 #: ../../whatsnew-1.7.rst:176
 msgid ""
 "New SQLAlchemy session management without any global ``DBSession``. "
 "Replaced by a per-request ``request.dbsession`` property."
-msgstr ""
+msgstr "グローバルな `` DBSession``なしの新しいSQLAlchemyセッション管理。リクエストごとの `` request.dbsession``プロパティに置き換えられました。"
 
 #: ../../whatsnew-1.7.rst:179
 msgid ""
 "A new authentication chapter demonstrating how to get simple "
 "authentication bootstrapped quickly in an application."
-msgstr ""
+msgstr "簡単な認証をアプリケーション内で迅速にブートストラップする方法を示す新しい認証の章。"
 
 #: ../../whatsnew-1.7.rst:182
 msgid ""
@@ -302,15 +292,15 @@ msgid ""
 "factories which demonstrate object-level authorization on top of simple "
 "group-level authorization. Did you want to restrict page edits to only "
 "the owner but couldn't figure it out before? Here you go!"
-msgstr ""
+msgstr "認可は、単純なグループレベルの認可の上にオブジェクトレベルの認可を示すルートごとのコンテキストファクトリの使用を示すために改訂されました。ページの編集を所有者だけに制限したいのですが、それを事前に把握できませんでしたか？どうぞ！"
 
 #: ../../whatsnew-1.7.rst:187
 msgid ""
 "The users and groups are stored in the database now instead of within "
 "tutorial-specific global variables."
-msgstr ""
+msgstr "ユーザーとグループは、チュートリアル固有のグローバル変数ではなく、データベースに格納されます。"
 
 #: ../../whatsnew-1.7.rst:190
 msgid "User passwords are stored using ``bcrypt``."
-msgstr ""
+msgstr "ユーザパスワードは `` bcrypt``を使って保存されます。"
 

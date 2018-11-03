@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../whatsnew-1.8.rst:2
 msgid "What's New in Pyramid 1.8"
-msgstr ""
+msgstr "Pyramid 1.8の新機能"
 
 #: ../../whatsnew-1.8.rst:4
 msgid ""
@@ -29,11 +19,11 @@ msgid ""
 "backwards incompatibilities between the two versions and deprecations "
 "added to :app:`Pyramid` 1.8, as well as software dependency changes and "
 "notable documentation additions."
-msgstr ""
+msgstr "この記事では、app： `Pyramid`バージョン1.8の新機能について説明しています：app：` Pyramid` 1.7。また、2つのバージョン間の非互換性と、app： `Pyramid` 1.8に追加されたdeprecationsと、ソフトウェアの依存関係の変更と、著しいドキュメントの追加についても説明しています。"
 
 #: ../../whatsnew-1.8.rst:11
 msgid "Major Feature Additions"
-msgstr ""
+msgstr "主な機能の追加"
 
 #: ../../whatsnew-1.8.rst:13
 msgid ""
@@ -45,59 +35,59 @@ msgid ""
 "views were also registered for a traversal context that inherited from "
 "the exception class which prevented any exception-only optimizations. See"
 " https://github.com/Pylons/pyramid/pull/2660"
-msgstr ""
+msgstr "追加：meth： `pyramid.config.Configurator.add_exception_view`と：func：` pyramid.view.exception_view_config`デコレータ。これらのメソッドを使うか、新しい `` exception_only = True``オプションを使って、：meth： `pyramid.config.Configurator.add_view`を使って、例外を扱うときにのみ一致するビューを追加することが可能になりました。以前は、例外クラスから継承されたトラバーサルコンテキストに対して例外ビューが登録されていたため、例外のみの最適化ができませんでした。 https://github.com/Pylons/pyramid/pull/2660を参照してください。"
 
 #: ../../whatsnew-1.8.rst:22
 msgid ""
 "``pserve --reload`` now uses the `hupper "
 "<http://docs.pylonsproject.org/projects/hupper/en/latest/>`_ library to "
 "monitor file changes. This comes with many improvements:"
-msgstr ""
+msgstr "`` pserve --reload``は `` hupper <http://docs.pylonsproject.org/projects/hupper/en/latest/> `_ライブラリを使ってファイルの変更を監視します。これには多くの改善が伴います："
 
 #: ../../whatsnew-1.8.rst:26
 msgid ""
 "If the `watchdog <http://pythonhosted.org/watchdog/>`_ package is "
 "installed then monitoring will be done using inotify instead of cpu and "
 "disk-intensive polling."
-msgstr ""
+msgstr "`watchdog <http://pythonhosted.org/watchdog/> `_パッケージがインストールされていれば、cpuとディスク集約的なポーリングの代わりにinotifyを使って監視が行われます。"
 
 #: ../../whatsnew-1.8.rst:30
 msgid ""
 "The monitor is now a separate process that will not crash and starts up "
 "before any of your code."
-msgstr ""
+msgstr "モニタは、コードの前にクラッシュしたり起動したりすることのない別のプロセスになりました。"
 
 #: ../../whatsnew-1.8.rst:33
 msgid ""
 "The monitor will not restart the process after a crash until a file is "
 "saved."
-msgstr ""
+msgstr "ファイルが保存されるまで、クラッシュ後にモニターはプロセスを再始動しません。"
 
 #: ../../whatsnew-1.8.rst:36
 msgid "The monitor works on windows."
-msgstr ""
+msgstr "モニターはウィンドウ上で動作します。"
 
 #: ../../whatsnew-1.8.rst:38
 msgid ""
 "You can now trigger a reload manually from a pyramid view or any other "
 "code via ``hupper.get_reloader().trigger_reload()``. Kind of neat."
-msgstr ""
+msgstr "`` hupper.get_reloader（）。trigger_reload（） ``を使ってピラミッドビューやその他のコードから手動でリロードをトリガできるようになりました。ちょっとしたもの。"
 
 #: ../../whatsnew-1.8.rst:41
 msgid "You can trigger a reload by issuing a ``SIGHUP`` to the monitor process."
-msgstr ""
+msgstr "監視プロセスに対して `` SIGHUP``を発行することによって、再ロードをトリガーすることができます。"
 
 #: ../../whatsnew-1.8.rst:43
 msgid "See https://github.com/Pylons/pyramid/pull/2805"
-msgstr ""
+msgstr "https://github.com/Pylons/pyramid/pull/2805を参照してください。"
 
 #: ../../whatsnew-1.8.rst:46
 msgid "Minor Feature Additions"
-msgstr ""
+msgstr "マイナー機能追加"
 
 #: ../../whatsnew-1.8.rst:48
 msgid "Python 3.6 compatibility. https://github.com/Pylons/pyramid/issues/2835"
-msgstr ""
+msgstr "Python 3.6との互換性。 https://github.com/Pylons/pyramid/issues/2835"
 
 #: ../../whatsnew-1.8.rst:51
 msgid ""
@@ -108,7 +98,7 @@ msgid ""
 "function extracts HTTP Basic credentials from a ``request`` object, and "
 "returns them as a named tuple. See "
 "https://github.com/Pylons/pyramid/pull/2662"
-msgstr ""
+msgstr "class： `pyramid.authentication.BasicAuthAuthenticationPolicy`の` `_get_credentials``プライベートメソッドは、スタンドアロン関数：func：` pyramid.authentication.extract_http_basic_credentials`に抽出されました。この関数は、 `` request``オブジェクトからHTTP基本認証情報を抽出しますそれらを名前付きタプルとして返します。 https://github.com/Pylons/pyramid/pull/2662を参照してください。"
 
 #: ../../whatsnew-1.8.rst:58
 msgid ""
@@ -116,7 +106,7 @@ msgid ""
 "restored. It's again possible for action discriminators to conflict "
 "across different action orders. See "
 "https://github.com/Pylons/pyramid/pull/2757"
-msgstr ""
+msgstr "Pyramid 1.4は、復元されたコンフィギュレータの機能を静かに削除しました。行動弁別者が異なる行動秩序にぶつかり合うことも可能です。 https://github.com/Pylons/pyramid/pull/2757を参照してください。"
 
 #: ../../whatsnew-1.8.rst:63
 msgid ""
@@ -124,7 +114,7 @@ msgid ""
 ":func:`pyramid.scripting.prepare` can now be used as context managers to "
 "automatically invoke the ``closer`` and pop threadlocals off of the stack"
 " to prevent memory leaks. See https://github.com/Pylons/pyramid/pull/2760"
-msgstr ""
+msgstr "：func： `pyramid.paster.bootstrap`とその兄弟：func：` pyramid.scripting.prepare`をコンテクストマネージャーとして使うことができるようになりました。メモリリークを防ぐためにスタックの `close`とpoplocallocalsを自動的に呼び出す。 https://github.com/Pylons/pyramid/pull/2760を参照してください。"
 
 #: ../../whatsnew-1.8.rst:68
 msgid ""
@@ -135,14 +125,14 @@ msgid ""
 "time checks for ``request.exception`` to determine if the view is "
 "handling an exception - the pipeline can be optimized at config-time. See"
 " https://github.com/Pylons/pyramid/pull/2660"
-msgstr ""
+msgstr "view deriverが例外を処理するだけのビューをラッピングしているかどうかを判断するために使用できる：class： `pyramid.interfaces.IViewDeriverInfo`に` `exception_only``ブール値を追加しました。これは、ビューが例外を処理しているかどうかを判断するために `` request.exception``のために要求時間チェックを実行する必要がなくなり、パイプラインを設定時に最適化できることを意味します。 https://github.com/Pylons/pyramid/pull/2660を参照してください。"
 
 #: ../../whatsnew-1.8.rst:76
 msgid ""
 "``pcreate`` learned about ``--package-name`` to allow you to create a new"
 " project in an existing folder with a different package name than the "
 "project name. See https://github.com/Pylons/pyramid/pull/2783"
-msgstr ""
+msgstr "`` pcreate``は `` --package-name``について学びました。プロジェクト名とは異なるパッケージ名で既存のフォルダに新しいプロジェクトを作成することができます。 https://github.com/Pylons/pyramid/pull/2783を参照してください。"
 
 #: ../../whatsnew-1.8.rst:80
 msgid ""
@@ -150,14 +140,14 @@ msgid ""
 " monkeypatch the process, assuming the server and / or the app do so as "
 "soon as possible before importing the rest of pyramid. See "
 "https://github.com/Pylons/pyramid/pull/2797"
-msgstr ""
+msgstr "`` pserve``は、サーバやアプリケーションがピラミッドの残りの部分をインポートする前にできるだけ早くそれを行うと仮定して、プロセスをmonkeypatchする必要がある `` gevent``や他のワーカーで動作するはずです。 https://github.com/Pylons/pyramid/pull/2797を参照してください。"
 
 #: ../../whatsnew-1.8.rst:85
 msgid ""
 "Pyramid no longer copies the settings object passed to the "
 "``pyramid.config.Configurator(settings=)``. The original ``dict`` is "
 "kept. See https://github.com/Pylons/pyramid/pull/2823"
-msgstr ""
+msgstr "Pyramidは `` pyramid.config.Configurator（settings =） ``に渡された設定オブジェクトをコピーしません。元の `` dict``が保持されます。 https://github.com/Pylons/pyramid/pull/2823を参照してください。"
 
 #: ../../whatsnew-1.8.rst:89
 msgid ""
@@ -166,14 +156,14 @@ msgid ""
 "be set using the ``PYRAMID_CSRF_TRUSTED_ORIGINS`` environment variable "
 "similar to other settings. See "
 "https://github.com/Pylons/pyramid/pull/2823"
-msgstr ""
+msgstr "csrf trusted origininsの設定は、空白で区切られたドメインのリストになりました。以前は、Pythonのリストだけが許可されていました。また、他の設定と同様の `` PYRAMID_CSRF_TRUSTED_ORIGINS``環境変数を使って設定することもできます。 https://github.com/Pylons/pyramid/pull/2823を参照してください。"
 
 #: ../../whatsnew-1.8.rst:94
 msgid ""
 "A new ``[pserve]`` section is supported in your config files with a "
 "``watch_files`` key that can configure ``pserve --reload`` to monitor "
 "custom file paths. See https://github.com/Pylons/pyramid/pull/2827"
-msgstr ""
+msgstr "新しい `` [pserve] ``セクションは、カスタムファイルパスを監視する `` pserve --reload``を設定できる `` watch_files``キーで設定ファイルでサポートされています。 https://github.com/Pylons/pyramid/pull/2827を参照してください。"
 
 #: ../../whatsnew-1.8.rst:98
 msgid ""
@@ -181,21 +171,21 @@ msgid ""
 ":class:`pyramid.httpexceptions.HTTPException`. Previously the response "
 "would be unrolled while testing for a body, making it impossible to "
 "stream a response. See https://github.com/Pylons/pyramid/pull/2863"
-msgstr ""
+msgstr "ストリーミング応答を：class： `pyramid.httpexceptions.HTTPException`のサブクラスから行うことができます。以前は、ボディのテスト中に応答が展開され、応答をストリーミングできなくなりました。 https://github.com/Pylons/pyramid/pull/2863を参照してください。"
 
 #: ../../whatsnew-1.8.rst:104
 msgid ""
 "Update starter, alchemy and zodb scaffolds to support IPv6 by using the "
 "new ``listen`` directives in waitress. See "
 "https://github.com/Pylons/pyramid/pull/2853"
-msgstr ""
+msgstr "ウェイトレスの新しい &quot;listen&quot;ディレクティブを使用して、IPv6をサポートするためのスターター、錬金術、zodbの足場を更新します。 https://github.com/Pylons/pyramid/pull/2853を参照してください。"
 
 #: ../../whatsnew-1.8.rst:108
 msgid ""
 "All p* scripts now use argparse instead of optparse. This improves their "
 "``--help`` output as well as enabling nicer documentation of their "
 "options. See https://github.com/Pylons/pyramid/pull/2864"
-msgstr ""
+msgstr "すべてのp *スクリプトは、optparseではなくargparseを使用するようになりました。これは `` --help``の出力を改善するだけでなく、それらのオプションのより良いドキュメントを可能にします。 https://github.com/Pylons/pyramid/pull/2864を参照してください。"
 
 #: ../../whatsnew-1.8.rst:112
 msgid ""
@@ -203,7 +193,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_translation_dirs` to allow later "
 "calls to place translation directories at a higher priority then earlier "
 "calls. See https://github.com/Pylons/pyramid/pull/2902"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_translation_dirs`に` `override``オプションを追加しました。 https://github.com/Pylons/pyramid/pull/2902を参照してください。"
 
 #: ../../whatsnew-1.8.rst:117
 msgid ""
@@ -213,11 +203,11 @@ msgid ""
 "to allow for a mix authentication methods. Only cookie-based methods "
 "generally require CSRF checking. See "
 "https://github.com/Pylons/pyramid/pull/2778"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.set_default_csrf_options``に新しい` `callback``オプションを追加しました。これは、リクエストごとにCSRFチェックを有効にしてミックス認証方法を許可するかどうかを判断するために使用できます。 Cookieベースの方法だけでは、一般的にCSRFチェックが必要です。 https://github.com/Pylons/pyramid/pull/2778を参照してください。"
 
 #: ../../whatsnew-1.8.rst:125
 msgid "Backwards Incompatibilities"
-msgstr ""
+msgstr "後方の非互換性"
 
 #: ../../whatsnew-1.8.rst:127
 msgid ""
@@ -226,17 +216,17 @@ msgid ""
 "(start, stop, restart, status) as well as the following arguments: "
 "``--daemon``, ``--pid-file``, ``--log-file``, ``--monitor-restart``, "
 "``--status``, ``--user``, ``--group``, ``--stop-daemon``"
-msgstr ""
+msgstr "ピラミッドの非推奨期間（1.6  - &gt; 1.8）の後、pserveのデーモンサポートは削除されました。これには、デーモンコマンド（start、stop、restart、status）と `` --daemon``、 `` --pid-file``、 `` -log-file``、 `` --monitor-restart``、 `` --status``、 `` --user``、 `` --group``、 `` --stop-daemon``"
 
 #: ../../whatsnew-1.8.rst:134
 msgid ""
 "To run your server as a daemon you should use a process manager instead "
 "of pserve."
-msgstr ""
+msgstr "サーバをデーモンとして実行するには、pserveではなくプロセスマネージャを使用する必要があります。"
 
 #: ../../whatsnew-1.8.rst:137
 msgid "See https://github.com/Pylons/pyramid/pull/2615"
-msgstr ""
+msgstr "https://github.com/Pylons/pyramid/pull/2615を参照してください。"
 
 #: ../../whatsnew-1.8.rst:139
 msgid ""
@@ -248,7 +238,7 @@ msgid ""
 "the ``Content-Encoding`` should only have been used if the client itself "
 "broadcast support for the encoding via ``Accept-Encoding`` request "
 "headers. See https://github.com/Pylons/pyramid/pull/2810"
-msgstr ""
+msgstr "静的ビューを変更して、 `` Content-Encoding``レスポンスヘッダをPythonの `` mimetypes``モジュールを使って推測されるエンコーディングに設定しないようにします。これは、クライアントがgzipファイルをダウンロードするときにその内容をデコードする原因となっていました。クライアントは、既にデコードされたディスク上の `` foo.txt.gz``ファイルで終わるので、実際は `` foo.txt``でなければなりません。また、 `` Content-Encoding``は、クライアント自身が `` Accept-Encoding``リクエストヘッダを使ってエンコーディングをサポートしている場合にのみ使われるべきです。 https://github.com/Pylons/pyramid/pull/2810を参照してください。"
 
 #: ../../whatsnew-1.8.rst:148
 msgid ""
@@ -256,44 +246,44 @@ msgid ""
 " already exists with different content. Previously if there were similar "
 "files it would silently skip them unless you specified ``--interactive`` "
 "or ``--overwrite``. See https://github.com/Pylons/pyramid/pull/2775"
-msgstr ""
+msgstr "`` pcreate``はデフォルトで対話型になりました。異なる内容のファイルがすでに存在するかどうかを確認するメッセージが表示されます。これまでは、 `` --interactive``や `` --overwrite``を指定しない限り、類似したファイルがあった場合、それらを静かにスキップしていました。 https://github.com/Pylons/pyramid/pull/2775を参照してください。"
 
 #: ../../whatsnew-1.8.rst:154
 msgid ""
 "Support for the ``IContextURL`` interface that was deprecated in Pyramid "
 "1.3 has been removed.  See https://github.com/Pylons/pyramid/pull/2822"
-msgstr ""
+msgstr "Pyramid 1.3で廃止された `` IContextURL``インターフェースのサポートが削除されました。 https://github.com/Pylons/pyramid/pull/2822を参照してください。"
 
 #: ../../whatsnew-1.8.rst:157
 msgid ""
 "Settings are no longer accessible as attributes on the settings object "
 "(e.g. ``request.registry.settings.foo``). This was deprecated in Pyramid "
 "1.2. See https://github.com/Pylons/pyramid/pull/2823"
-msgstr ""
+msgstr "設定は、設定オブジェクトの属性としてアクセスできなくなりました（ `` request.registry.settings.foo``など）。これはPyramid 1.2では推奨されていませんでした。 https://github.com/Pylons/pyramid/pull/2823を参照してください。"
 
 #: ../../whatsnew-1.8.rst:161
 msgid ""
 "Removed undocumented argument ``cachebust_match`` from "
 "``pyramid.static.static_view``. This argument was shipped accidentally in"
 " Pyramid 1.6. See https://github.com/Pylons/pyramid/pull/2681"
-msgstr ""
+msgstr "`` pyramid.static.static_view``から文書化されていない引数 `` cachebust_match``を削除しました。この議論は、Pyramid 1.6で誤って出荷されました。 https://github.com/Pylons/pyramid/pull/2681を参照してください。"
 
 #: ../../whatsnew-1.8.rst:166
 msgid "Deprecations"
-msgstr ""
+msgstr "廃止"
 
 #: ../../whatsnew-1.8.rst:168
 msgid ""
 "The ``pcreate`` script and the core scaffolds (``starter``, ``alchemy`` "
 "and ``zodb``) have been deprecated."
-msgstr ""
+msgstr "`` pcreate``スクリプトとコア足場（ ``​​ starter``、 `` alchemy``、 `` zodb``）は廃止されました。"
 
 #: ../../whatsnew-1.8.rst:171
 msgid ""
 "They have been replaced with the decision to embrace the popular "
 "`cookiecutter <https://cookiecutter.readthedocs.io/en/latest/>`_ project "
 "as a best-of-breed project templating solution."
-msgstr ""
+msgstr "彼らは人気の `cookiecutterを採用する決定に取り替えられました<https://cookiecutter.readthedocs.io/en/latest/> `_最も優れたプロジェクトテンプレートソリューションとしてのプロジェクト。"
 
 #: ../../whatsnew-1.8.rst:175
 msgid ""
@@ -302,71 +292,71 @@ msgid ""
 "possible tooling support for cookiecutters being discussed by major IDEs,"
 " and the simplicity of the jinja2 syntax, it is exciting to embrace the "
 "project moving forward!"
-msgstr ""
+msgstr "もともとは、サポートされているPython 3の代替案がほとんど存在しないときに `` pcreate``が導入されました。幸いにも、状況が改善され、主要なIDEによってcookiecuttersについてのツールサポートが可能になり、jinja2構文がシンプルになりました。プロジェクトは前進しています！"
 
 #: ../../whatsnew-1.8.rst:181
 msgid ""
 "All of Pyramid's official scaffolds as well as the tutorials have been "
 "ported to cookiecutters:"
-msgstr ""
+msgstr "ピラミッドの公式の足場とチュートリアルは、すべてcookiecuttersに移植されています："
 
 #: ../../whatsnew-1.8.rst:184
 msgid ""
 "`pyramid-cookiecutter-starter <https://github.com/Pylons/pyramid-"
 "cookiecutter-starter>`_"
-msgstr ""
+msgstr "`pyramid-cookiecutter-starter <https://github.com/Pylons/pyramid-cookiecutter-starter> `_"
 
 #: ../../whatsnew-1.8.rst:187
 msgid ""
 "`pyramid-cookiecutter-alchemy <https://github.com/Pylons/pyramid-"
 "cookiecutter-alchemy>`_"
-msgstr ""
+msgstr "`ピラミッド - クッキーカッター - 錬金術<https://github.com/Pylons/pyramid-cookiecutter-alchemy> `_"
 
 #: ../../whatsnew-1.8.rst:190
 msgid ""
 "`pyramid-cookiecutter-zodb <https://github.com/Pylons/pyramid-"
 "cookiecutter-zodb>`_"
-msgstr ""
+msgstr "`pyramid-cookiecutter-zodb <https://github.com/Pylons/pyramid-cookiecutter-zodb> `_"
 
 #: ../../whatsnew-1.8.rst:193
 msgid "See https://github.com/Pylons/pyramid/pull/2780"
-msgstr ""
+msgstr "https://github.com/Pylons/pyramid/pull/2780を参照してください。"
 
 #: ../../whatsnew-1.8.rst:196
 msgid "Documentation Enhancements"
-msgstr ""
+msgstr "ドキュメントの機能拡張"
 
 #: ../../whatsnew-1.8.rst:198
 msgid ""
 "Update Typographical Conventions. "
 "https://github.com/Pylons/pyramid/pull/2838"
-msgstr ""
+msgstr "印刷慣習を更新する。 https://github.com/Pylons/pyramid/pull/2838"
 
 #: ../../whatsnew-1.8.rst:201
 msgid ""
 "Add `pyramid_nacl_session <http://docs.pylonsproject.org/projects"
 "/pyramid-nacl-session/en/latest/>`_ to session factories. See "
 "https://github.com/Pylons/pyramid/issues/2791"
-msgstr ""
+msgstr "`pyramid_nacl_sessionを追加する<http://docs.pylonsproject.org/projects/pyramid-nacl-session/en/latest/> `_セッションファクトリに。 https://github.com/Pylons/pyramid/issues/2791を参照してください。"
 
 #: ../../whatsnew-1.8.rst:205
 msgid ""
 "Update HACKING.txt from stale branch that was never merged to master. See"
 " https://github.com/Pylons/pyramid/pull/2782"
-msgstr ""
+msgstr "マスターにマージされていない古いブランチからHACKING.txtを更新してください。 https://github.com/Pylons/pyramid/pull/2782を参照してください。"
 
 #: ../../whatsnew-1.8.rst:208
 msgid ""
 "Updated Windows installation instructions and related bits. See "
 "https://github.com/Pylons/pyramid/issues/2661"
-msgstr ""
+msgstr "更新されたWindowsのインストール手順と関連するビット。 https://github.com/Pylons/pyramid/issues/2661を参照してください。"
 
 #: ../../whatsnew-1.8.rst:211
 msgid ""
 "Fix an inconsistency in the documentation between view predicates and "
 "route predicates and highlight the differences in their APIs. See "
 "https://github.com/Pylons/pyramid/pull/2764"
-msgstr ""
+msgstr "ビュー述語とルート述語の間のドキュメントの不整合を修正し、APIの違いを強調表示します。 https://github.com/Pylons/pyramid/pull/2764を参照してください。"
 
 #: ../../whatsnew-1.8.rst:215
 msgid ""
@@ -374,20 +364,20 @@ msgid ""
 ":class:`pyramid.httpexceptions.HTTPException` in which more appropriate "
 "kwargs from the parent class :class:`pyramid.response.Response` should be"
 " used instead. See https://github.com/Pylons/pyramid/pull/2750"
-msgstr ""
+msgstr "class： `pyramid.httpexceptions.HTTPException`のサブクラスに` `ヘッダー` `kwargを誤って使用する可能性があることを明確にしてください。クラス：` `pyramid.response.Response``を親クラスから適切なkwargsで代用するべきです。 https://github.com/Pylons/pyramid/pull/2750を参照してください。"
 
 #: ../../whatsnew-1.8.rst:220
 msgid ""
 "The SQLAlchemy + URL Dispatch + Jinja2 (``wiki2``) and ZODB + Traversal +"
 " Chameleon (``wiki``) tutorials have been updated to utilize the new "
 "cookiecutters and drop support for the ``pcreate`` scaffolds."
-msgstr ""
+msgstr "SQLAlchemy + URL Dispatch + Jinja2（ `` wiki2``）とZODB + Traversal + Chameleon（ `` wiki``）チュートリアルは、新しいcookiecuttersと `` pcreate``スカフォールドのサポートを利用するように更新されました。"
 
 #: ../../whatsnew-1.8.rst:225
 msgid ""
 "See https://github.com/Pylons/pyramid/pull/2881 and "
 "https://github.com/Pylons/pyramid/pull/2883."
-msgstr ""
+msgstr "https://github.com/Pylons/pyramid/pull/2881およびhttps://github.com/Pylons/pyramid/pull/2883を参照してください。"
 
 #: ../../whatsnew-1.8.rst:228
 msgid ""
@@ -395,11 +385,11 @@ msgid ""
 "have been updated to use cookiecutters instead of pcreate and scaffolds. "
 "See https://github.com/Pylons/pyramid/pull/2888 and "
 "https://github.com/Pylons/pyramid/pull/2889"
-msgstr ""
+msgstr "クイックツアー、クイックチュートリアル、およびほとんどのファイルは、pcreateや足場の代わりにcookiecuttersを使用するように更新されました。 https://github.com/Pylons/pyramid/pull/2888およびhttps://github.com/Pylons/pyramid/pull/2889を参照してください。"
 
 #: ../../whatsnew-1.8.rst:233
 msgid ""
 "Updated the ``mod_wsgi`` tutorial to use cookiecutters and Apache 2.4+. "
 "See https://github.com/Pylons/pyramid/pull/2901"
-msgstr ""
+msgstr "cookiecuttersとApache 2.4+を使うための `` mod_wsgi``チュートリアルを更新しました。 https://github.com/Pylons/pyramid/pull/2901を参照してください。"
 

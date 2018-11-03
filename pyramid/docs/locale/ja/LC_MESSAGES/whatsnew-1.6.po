@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../whatsnew-1.6.rst:2
 msgid "What's New in Pyramid 1.6"
-msgstr ""
+msgstr "(機械翻訳)Pyramid 1.6の新機能"
 
 #: ../../whatsnew-1.6.rst:4
 msgid ""
@@ -29,11 +19,11 @@ msgid ""
 "backwards incompatibilities between the two versions and deprecations "
 "added to :app:`Pyramid` 1.6, as well as software dependency changes and "
 "notable documentation additions."
-msgstr ""
+msgstr "この記事では、app： `Pyramid`バージョン1.6の新機能について説明しています：app：` Pyramid` 1.5。また、app： `Pyramid` 1.6に追加された2つのバージョンと廃止予定との間の後方互換性と、ソフトウェア依存の変更と著しいドキュメントの追加についても書かれています。"
 
 #: ../../whatsnew-1.6.rst:12
 msgid "Backwards Incompatibilities"
-msgstr ""
+msgstr "後方の非互換性"
 
 #: ../../whatsnew-1.6.rst:14
 msgid ""
@@ -42,7 +32,7 @@ msgid ""
 "packages explicitly. One way to do this is by adding ``pyramid_ipython`` "
 "(or ``pyramid_bpython``) to the ``install_requires`` section of your "
 "package's ``setup.py`` file, then re-running ``setup.py develop``::"
-msgstr ""
+msgstr "IPythonとBPythonのサポートはコアのpshellから削除されました。 Pyramid 1.6以降で引き続き使用するには、バインディングパッケージを明示的にインストールする必要があります。これを行う1つの方法は、パッケージの `` setup.py``ファイルの `` install_requires``セクションに `` pyramid_ipython``（または `` pyramid_bpython``）を追加してから、 `` setup.py開発 `::"
 
 #: ../../whatsnew-1.6.rst:29
 msgid ""
@@ -60,7 +50,7 @@ msgid ""
 "``render_to_response`` is now explicitly different from "
 "``request.response``. This does not change the API of a renderer. See "
 "https://github.com/Pylons/pyramid/pull/1563"
-msgstr ""
+msgstr "： `func：`〜pyramid.renderers.render_to_response` APIを使用するとき、 `` request.response``はもはや変更されません。レンダラーにカスタムレスポンスオブジェクトを提供する場合は、 `` func： `〜pyramid.renderers.render_to_response`に` `response =` `引数を渡す必要があります。値を渡さないと、現在のレスポンスファクトリを使用してレスポンスオブジェクトが作成されます。ほぼすべてのレンダラーが `` request.response``レスポンスオブジェクトを変更します（例えば、JSONレンダラーは `` application / json``に `` request.response.content_type``を設定します）。しかし、 `` render_to_response``を呼び出すとき、返されるレスポンスオブジェクトは、リクエストで後で使用されるレスポンスオブジェクトと同じであるとは限りません。 `` render_to_response``から返された応答オブジェクトは、 `` request.response``と明示的に異なっています。これはレンダラーのAPIを変更しません。 https://github.com/Pylons/pyramid/pull/1563を参照してください。"
 
 #: ../../whatsnew-1.6.rst:44
 msgid ""
@@ -75,21 +65,21 @@ msgid ""
 " you may not use a function with the first parameter named ``self``. In "
 "this case it looks too much like a common error and the exception will be"
 " raised. See https://github.com/Pylons/pyramid/pull/1498"
-msgstr ""
+msgstr "共通の問題に対処するために、class： `〜pyramid.exceptions.ConfigurationError`はデフォルトのビューマッパーを使用しているときに実際にはアンバインドされたビューであるビュー呼び出し可能オブジェクトを登録します。結合されていないメソッドがPY3 +に存在しないため、可能なエラーは、最初のパラメータの名前が `` self``であるかどうかを調べることによって検出されます。たとえば、 `config.add_view（ViewClass.some_method、...）`は実際には `config.add_view（ViewClass、attr = &#39;some_method）&#39;です。これはPY2のPyramidでは常に問題でしたが、後方互換性はPY3 +にあります。ここでは、 `` self``という名前の最初のパラメータで関数を使用することはできません。この場合、一般的なエラーのように見え、例外が発生します。 https://github.com/Pylons/pyramid/pull/1498を参照してください。"
 
 #: ../../whatsnew-1.6.rst:58
 msgid "Feature Additions"
-msgstr ""
+msgstr "機能の追加"
 
 #: ../../whatsnew-1.6.rst:60
 msgid "Python 3.5 and pypy3 compatibility."
-msgstr ""
+msgstr "Python 3.5とpypy3との互換性。"
 
 #: ../../whatsnew-1.6.rst:62
 msgid ""
 "``pserve --reload`` will no longer crash on syntax errors. See "
 "https://github.com/Pylons/pyramid/pull/2044"
-msgstr ""
+msgstr "構文エラーで `` pserve --reload``がクラッシュすることはなくなりました。 https://github.com/Pylons/pyramid/pull/2044を参照してください。"
 
 #: ../../whatsnew-1.6.rst:65
 msgid ""
@@ -100,7 +90,7 @@ msgid ""
 "https://github.com/Pylons/pyramid/pull/1380 and "
 "https://github.com/Pylons/pyramid/pull/1583 and "
 "https://github.com/Pylons/pyramid/pull/2171"
-msgstr ""
+msgstr "静的リソース用のキャッシュ破棄が追加され、新しい：meth： `pyramid.config.Configurator.add_cache_buster` APIを介して利用できます。コアAPIは、クエリ文字列を介したキャッシュ破棄と、カスタムアセットパイプラインへの統合のためのアセットマニフェストを使用して出荷されます。 https://github.com/Pylons/pyramid/pull/1380およびhttps://github.com/Pylons/pyramid/pull/1583およびhttps://github.com/Pylons/pyramid/pull/2171を参照してください。"
 
 #: ../../whatsnew-1.6.rst:73
 msgid ""
@@ -119,7 +109,7 @@ msgid ""
 "completely made up and does not need to exist—it is used for generating "
 "URLs via ``request.static_url('myapp:static/foo.png')``. See "
 "https://github.com/Pylons/pyramid/issues/1252"
-msgstr ""
+msgstr "アセットは、：meth： `〜pyramid.config.Configurator.override_asset` APIを使用するとき、ファイルシステム上の絶対パスによって上書きされるようになりました。これにより、変更可能なディレクトリからの静的コンテンツの配信を完全にサポートしながら、：meth： `〜pyramid.request.Request.static_url` APIと：meth：`〜pyramid.config.Configurator.add_static_view` 。以前は：meth： `〜pyramid.config.Configurator.add_static_view`を絶対パスで使用することはできませんでした**と**コンテンツにURLを生成します。この変更は `` config.add_static_view（ &#39;/ abs / path&#39;、 &#39;static&#39;） ``を `` config.add_static_view（ &#39;myapp：static&#39;、 &#39;static&#39;） ``と `` config &#39;に置き換えます。 override_asset（to_override = &#39;myapp：static /&#39;、override_with = &#39;/ abs / path /&#39;） ``です。 `` myapp：static``アセット仕様は完全に作られており、存在する必要はありません。これは `` request.static_url（ &#39;myapp：static / foo.png&#39;） ``でURLを生成するために使用されます。 https://github.com/Pylons/pyramid/issues/1252を参照してください。"
 
 #: ../../whatsnew-1.6.rst:88
 msgid ""
@@ -128,7 +118,7 @@ msgid ""
 ":class:`~pyramid.config.Configurator` for defining a factory that will "
 "return a custom ``Response`` class. See "
 "https://github.com/Pylons/pyramid/pull/1499"
-msgstr ""
+msgstr "追加された：meth： `〜pyramid.config.Configurator.set_response_factory`と` `response_factory``キーワードは、class：`〜pyramid.config.Configurator`のコンストラクタのキーワード引数で、カスタムの `` Response ``クラス。 https://github.com/Pylons/pyramid/pull/1499を参照してください。"
 
 #: ../../whatsnew-1.6.rst:93
 msgid ""
@@ -139,7 +129,7 @@ msgid ""
 "settings, in which case it may be natural for a developer to define "
 "imports or assets relative to the top-level package. See "
 "https://github.com/Pylons/pyramid/pull/1337"
-msgstr ""
+msgstr "追加：attr： `pyramid.config.Configurator.root_package`属性とinitパラメータは、コンフィグレータが作成されたパッケージに関連するリソースを解決するためのincludibleパッケージを支援します。これは、設定からアセット仕様をロードする必要のあるアドオンで特に役に立ちます。その場合、開発者がトップレベルパッケージを基準にしてインポートまたはアセットを定義するのは自然かもしれません。 https://github.com/Pylons/pyramid/pull/1337を参照してください。"
 
 #: ../../whatsnew-1.6.rst:101
 msgid ""
@@ -148,20 +138,20 @@ msgid ""
 " displaying available request methods, and improved the ``view`` output "
 "by showing the module instead of just ``__repr__``. See "
 "https://github.com/Pylons/pyramid/pull/1488"
-msgstr ""
+msgstr "`` proutes``コマンドの全体的な改良。コマンドに `` --format``と `` --glob``引数を追加し、利用可能なリクエストメソッドを表示するための `` method``カラムを導入し、 `` view``の出力を改善しました。ちょうど `` __repr__``です。 https://github.com/Pylons/pyramid/pull/1488を参照してください。"
 
 #: ../../whatsnew-1.6.rst:107
 msgid ""
 "``pserve`` can now take a ``-b`` or ``--browser`` option to open the "
 "server URL in a web browser. See "
 "https://github.com/Pylons/pyramid/pull/1533"
-msgstr ""
+msgstr "`` pserve``は `` -b``または `` --browser``オプションを使って、WebブラウザでサーバURLを開きます。 https://github.com/Pylons/pyramid/pull/1533を参照してください。"
 
 #: ../../whatsnew-1.6.rst:110
 msgid ""
 "Support keyword-only arguments and function annotations in views in "
 "Python 3. See https://github.com/Pylons/pyramid/pull/1556"
-msgstr ""
+msgstr "Python 3のビューでキーワードのみの引数と関数アノテーションをサポートしています。https://github.com/Pylons/pyramid/pull/1556を参照してください。"
 
 #: ../../whatsnew-1.6.rst:113
 msgid ""
@@ -171,7 +161,7 @@ msgid ""
 "interface and will use that as the response class instead of the default "
 ":class:`~pyramid.httpexceptions.HTTPFound`. See "
 "https://github.com/Pylons/pyramid/pull/1610"
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_notfound_view（）`の `` append_slash``引数は：class： `〜pyramid.interfaces.IResponse`インターフェースを実装しているものを受け入れ、レスポンスクラスとして使用しますデフォルト：class： `〜pyramid.httpexceptions.HTTPFound`の代わりに。 https://github.com/Pylons/pyramid/pull/1610を参照してください。"
 
 #: ../../whatsnew-1.6.rst:120
 msgid ""
@@ -182,14 +172,14 @@ msgid ""
 "exposed and documented the configuration phases that Pyramid uses in "
 "order to further assist in building conforming add-ons. See "
 "https://github.com/Pylons/pyramid/pull/1513"
-msgstr ""
+msgstr "：class： `〜pyramid.config.Configurator`は、アクションがコミットサイクル中に他のアクションを呼び出せるようにする機能を拡張しました。これにより、他のアクションを呼び出す機能や、競合検出を改善するためにそれらをグループ化する機能など、より多くのロジックをアクションに配置できます。また、適合したアドオンの構築をさらに支援するために、Pyramidが使用する設定フェーズを公開し、文書化しました。 https://github.com/Pylons/pyramid/pull/1513を参照してください。"
 
 #: ../../whatsnew-1.6.rst:128
 msgid ""
 "Allow an iterator to be returned from a renderer. Previously it was only "
 "possible to return bytes or unicode. See "
 "https://github.com/Pylons/pyramid/pull/1417"
-msgstr ""
+msgstr "イテレータがレンダラから返されるようにします。以前は、バイトまたはユニコードを返すことしかできませんでした。 https://github.com/Pylons/pyramid/pull/1417を参照してください。"
 
 #: ../../whatsnew-1.6.rst:132
 msgid ""
@@ -198,13 +188,13 @@ msgid ""
 ":class:`~pyramid.session.SignedCookieSessionFactory` classes by using the"
 " stdlib's ``hmac.compare_digest`` if it is available (such as Python "
 "2.7.7+ and 3.3+). See https://github.com/Pylons/pyramid/pull/1457"
-msgstr ""
+msgstr "class： `〜pyramid.authentication.AuthTktCookieHelper`クラスと：class：`〜pyramid.session.SignedCookieSessionFactory`クラスでタイミング攻撃に対する堅牢性を向上させるには、stdlibの `` hmac.compare_digest`` Python 2.7.7+および3.3+）。 https://github.com/Pylons/pyramid/pull/1457を参照してください。"
 
 #: ../../whatsnew-1.6.rst:138
 msgid ""
 "Improve the readability of the ``pcreate`` shell script output. See "
 "https://github.com/Pylons/pyramid/pull/1453"
-msgstr ""
+msgstr "`` pcreate``シェルスクリプト出力の可読性を向上させます。 https://github.com/Pylons/pyramid/pull/1453を参照してください。"
 
 #: ../../whatsnew-1.6.rst:141
 msgid ""
@@ -214,14 +204,14 @@ msgid ""
 " :meth:`~pyramid.config.Configurator.add_notfound_view` and "
 ":meth:`~pyramid.config.Configurator.add_forbidden_view` See "
 "https://github.com/Pylons/pyramid/issues/494"
-msgstr ""
+msgstr "デフォルトの例外応答ビューを使用したいが、変更された述語やその他の設定オプションを使用する `` notfound``と `` forbidden``ビューを簡単に定義できるようにします。 `` view``引数は、meth： `〜pyramid.config.Configurator.add_notfound_view`と：meth：`〜pyramid.config.Configurator.add_forbidden_​​view`のオプションです。https://github.com/Pylons/pyramidを参照してください。 / issues / 494"
 
 #: ../../whatsnew-1.6.rst:148
 msgid ""
 "The ``pshell`` script will now load a ``PYTHONSTARTUP`` file if one is "
 "defined in the environment prior to launching the interpreter. See "
 "https://github.com/Pylons/pyramid/pull/1448"
-msgstr ""
+msgstr "`` pshell``スクリプトは、インタープリタを起動する前に環境に定義されている場合、 `` PYTHONSTARTUP``ファイルを読み込みます。 https://github.com/Pylons/pyramid/pull/1448を参照してください。"
 
 #: ../../whatsnew-1.6.rst:152
 msgid ""
@@ -229,7 +219,7 @@ msgid ""
 "Required``, ``429 Too Many Requests`` and ``431 Request Header Fields Too"
 " Large`` in ``pyramid.httpexceptions``. See "
 "https://github.com/Pylons/pyramid/pull/1372/files"
-msgstr ""
+msgstr "`` pyramid.httpexceptions``のステータスコード `` 428前提条件必須 &quot;、&quot; 429 &quot;、&quot; 431リクエストヘッダフィールドが大きすぎます &quot;という新しいHTTP例外オブジェクトを追加しました。 https://github.com/Pylons/pyramid/pull/1372/filesを参照してください。"
 
 #: ../../whatsnew-1.6.rst:157
 msgid ""
@@ -237,7 +227,7 @@ msgid ""
 "information on the missing flag, as well as a list of available "
 "scaffolds. See https://github.com/Pylons/pyramid/pull/1566 and "
 "https://github.com/Pylons/pyramid/issues/1297"
-msgstr ""
+msgstr "scaffold引数なしで実行されたときに `` pcreate``は、足りないフラグに関する情報と利用可能な足場のリストを出力するようになりました。 https://github.com/Pylons/pyramid/pull/1566およびhttps://github.com/Pylons/pyramid/issues/1297を参照してください。"
 
 #: ../../whatsnew-1.6.rst:162
 msgid ""
@@ -245,7 +235,7 @@ msgid ""
 " a project name that already exists or is importable in the current "
 "environment. See https://github.com/Pylons/pyramid/issues/1357 and "
 "https://github.com/Pylons/pyramid/pull/1837"
-msgstr ""
+msgstr "`` pcreate``は、現在存在するか、あるいは現在の環境でインポート可能なプロジェクト名の引数を指定して起動すると、確認を求めます。 https://github.com/Pylons/pyramid/issues/1357およびhttps://github.com/Pylons/pyramid/pull/1837を参照してください。"
 
 #: ../../whatsnew-1.6.rst:167
 msgid ""
@@ -254,32 +244,32 @@ msgid ""
 "``config.add_request_method``. Previously it was only possible to test "
 "the extensions by going through Pyramid's router. See "
 "https://github.com/Pylons/pyramid/pull/1581"
-msgstr ""
+msgstr "Add：func： `pyramid.request.apply_request_extensions`関数は、` `config.add_request_method``で設定されたリクエスト拡張を適用するためのテストに使用できます。以前は、Pyramidのルーターを経由して拡張機能をテストすることしかできませんでした。 https://github.com/Pylons/pyramid/pull/1581を参照してください。"
 
 #: ../../whatsnew-1.6.rst:173
 msgid ""
 "Make it possible to subclass ``pyramid.request.Request`` and also use "
 "``pyramid.request.Request.add_request.method``. See "
 "https://github.com/Pylons/pyramid/issues/1529"
-msgstr ""
+msgstr "`` pyramid.request.Request``をサブクラス化し、 `` pyramid.request.Request.add_request.method``を使うことも可能です。 https://github.com/Pylons/pyramid/issues/1529を参照してください。"
 
 #: ../../whatsnew-1.6.rst:177
 msgid ""
 "Additional shells for ``pshell`` can now be registered as entry points. "
 "See https://github.com/Pylons/pyramid/pull/1891 and "
 "https://github.com/Pylons/pyramid/pull/2012"
-msgstr ""
+msgstr "`` pshell``用の追加のシェルをエントリポイントとして登録できるようになりました。 https://github.com/Pylons/pyramid/pull/1891およびhttps://github.com/Pylons/pyramid/pull/2012を参照してください。"
 
 #: ../../whatsnew-1.6.rst:181
 msgid ""
 "The variables injected into ``pshell`` are now displayed with their "
 "docstrings instead of the default ``str(obj)`` when possible. See "
 "https://github.com/Pylons/pyramid/pull/1929"
-msgstr ""
+msgstr "可能であれば、 `` pshell``に注入された変数はデフォルトの `` str（obj） ``ではなくdocstringで表示されます。 https://github.com/Pylons/pyramid/pull/1929を参照してください。"
 
 #: ../../whatsnew-1.6.rst:187
 msgid "Deprecations"
-msgstr ""
+msgstr "廃止"
 
 #: ../../whatsnew-1.6.rst:189
 msgid ""
@@ -290,7 +280,7 @@ msgid ""
 "``--group`` flags. See https://github.com/Pylons/pyramid/pull/2120 and "
 "https://github.com/Pylons/pyramid/pull/2189 and "
 "https://github.com/Pylons/pyramid/pull/1641"
-msgstr ""
+msgstr "`` pserve``コマンドのデーモン化機能と `` --monitor-restart``は廃止されました。これには、 `` --daemon``、 `` --stop-daemon``、 `` -pid-file``、 `` -stop- `` --status``、 `` --user``、 `` --group``の各フラグがあります。 https://github.com/Pylons/pyramid/pull/2120およびhttps://github.com/Pylons/pyramid/pull/2189およびhttps://github.com/Pylons/pyramid/pull/1641を参照してください。"
 
 #: ../../whatsnew-1.6.rst:197
 msgid ""
@@ -298,13 +288,13 @@ msgid ""
 "``pserve`` to daemonize itself. Many options exist, including your "
 "operating system's services, such as Systemd or Upstart, as well as "
 "Python-based solutions like Circus and Supervisor."
-msgstr ""
+msgstr "`` pserve``に依存するのではなく、実際のプロセスマネージャーを使って、自分自身をデーモン化してください。あなたのオペレーティングシステムのサービス（SystemdやUpstartなど）やサーカスやスーパーバイザなどのPythonベースのソリューションを含む多くのオプションが存在します。"
 
 #: ../../whatsnew-1.6.rst:202
 msgid ""
 "See https://github.com/Pylons/pyramid/pull/1641 and "
 "https://github.com/Pylons/pyramid/pull/2120"
-msgstr ""
+msgstr "https://github.com/Pylons/pyramid/pull/1641およびhttps://github.com/Pylons/pyramid/pull/2120を参照してください。"
 
 #: ../../whatsnew-1.6.rst:205
 msgid ""
@@ -312,17 +302,17 @@ msgid ""
 "renamed to ``userid``. Using ``principal`` as the argument name still "
 "works and will continue to work for the next few releases, but a "
 "deprecation warning is printed."
-msgstr ""
+msgstr "：func： `pyramid.security.remember`の` `principal``引数は` `userid``に名前が変更されました。引数名として `` principal``を使用することは引き続き機能し、次のいくつかのリリースでは引き続き動作しますが、非推奨警告が表示されます。"
 
 #: ../../whatsnew-1.6.rst:212
 msgid "Scaffolding Enhancements"
-msgstr ""
+msgstr "足場の強化"
 
 #: ../../whatsnew-1.6.rst:214
 msgid ""
 "Added line numbers to the log formatters in the scaffolds to assist with "
 "debugging. See https://github.com/Pylons/pyramid/pull/1326"
-msgstr ""
+msgstr "デバッグを支援する足場のログフォーマッタに行番号を追加しました。 https://github.com/Pylons/pyramid/pull/1326を参照してください。"
 
 #: ../../whatsnew-1.6.rst:217
 msgid ""
@@ -331,31 +321,31 @@ msgid ""
 "``starter``, ``alchemy`` and ``zodb`` templates to have links to "
 "correctly versioned documentation, and to reflect which :app:`Pyramid` "
 "was used to generate the scaffold."
-msgstr ""
+msgstr "スキャフォールドで使用するための：app： `Pyramid`とそのドキュメントを返すように更新しました。 `` starter```、 `` alchemy``、 `` zodb``テンプレートをバージョンアップされたドキュメントにリンクし、app： `Pyramid`が足場を生成するために使用されたことを反映しました。"
 
 #: ../../whatsnew-1.6.rst:222
 msgid ""
 "Removed non-ASCII copyright symbol from templates, as this was causing "
 "the scaffolds to fail for project generation."
-msgstr ""
+msgstr "テンプレートから非ASCII著作権記号を削除しました。これにより、足場がプロジェクト生成に失敗する原因となりました。"
 
 #: ../../whatsnew-1.6.rst:227
 msgid "Documentation Enhancements"
-msgstr ""
+msgstr "ドキュメントの機能拡張"
 
 #: ../../whatsnew-1.6.rst:229
 msgid ""
 "Removed logging configuration from Quick Tutorial ``ini`` files, except "
 "for scaffolding- and logging-related chapters, to avoid needing to "
 "explain it too early."
-msgstr ""
+msgstr "クイックチュートリアルの `` ini``ファイルからロギングの設定を削除しました。足場やロギング関連の章を除き、早すぎる説明は避けてください。"
 
 #: ../../whatsnew-1.6.rst:233
 msgid ""
 "Improve and clarify the documentation on what :app:`Pyramid` defines as a"
 " ``principal`` and a ``userid`` in its security APIs. See "
 "https://github.com/Pylons/pyramid/pull/1399"
-msgstr ""
+msgstr "app： `Pyramid`がセキュリティAPIの` `principal``と` `userid``として定義しているものに関するドキュメントを改善し明確にします。 https://github.com/Pylons/pyramid/pull/1399を参照してください。"
 
 #: ../../whatsnew-1.6.rst:237
 msgid ""
@@ -365,17 +355,17 @@ msgid ""
 "bug report stating ``not_`` was failing on ``accept``. Discussion with "
 "@mcdonc led to the conclusion that it should not be documented as a "
 "predicate. See https://github.com/Pylons/pyramid/pull/1487 for this PR."
-msgstr ""
+msgstr "meth： `pyramid.config.Configurator.add_view`を` `accept``のためにドキュメントをもはや述語リストの一部に移動しませんでした。 `` not_``が `` accept``で失敗したというバグレポートについては、https://github.com/Pylons/pyramid/issues/1391を参照してください。 @mcdoncとの議論は、それが述語として文書化されるべきではないという結論に導いた。このPRについては、https://github.com/Pylons/pyramid/pull/1487を参照してください。"
 
 #: ../../whatsnew-1.6.rst:244
 msgid ""
 "Clarify a previously-implied detail of the ``ISession.invalidate`` API "
 "documentation."
-msgstr ""
+msgstr "`` ISession.invalidate`` APIドキュメントの暗黙の詳細を明確にしてください。"
 
 #: ../../whatsnew-1.6.rst:247
 msgid ""
 "Add documentation of command line programs (``p*`` scripts). See "
 "https://github.com/Pylons/pyramid/pull/2191"
-msgstr ""
+msgstr "コマンドラインプログラムのドキュメントを追加する（ `` p * ``スクリプト）。 https://github.com/Pylons/pyramid/pull/2191を参照してください。"
 

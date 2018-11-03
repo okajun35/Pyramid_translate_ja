@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>What&#39;s New in Pyramid 1.6 &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳)Pyramid 1.6の新機能 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="copyright" title="著作権" href="copyright.html" />
-    <link rel="next" title="What&#39;s New in Pyramid 1.5" href="whatsnew-1.5.html" />
-    <link rel="prev" title="What&#39;s New in Pyramid 1.7" href="whatsnew-1.7.html" />
+    <link rel="next" title="(機械翻訳)Pyramid 1.5の新機能" href="whatsnew-1.5.html" />
+    <link rel="prev" title="(機械翻訳)Pyramid 1.7の新機能" href="whatsnew-1.7.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="whatsnew-1.5.html" title="What&#39;s New in Pyramid 1.5"
+          <a href="whatsnew-1.5.html" title="(機械翻訳)Pyramid 1.5の新機能"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="whatsnew-1.7.html" title="What&#39;s New in Pyramid 1.7"
+          <a href="whatsnew-1.7.html" title="(機械翻訳)Pyramid 1.7の新機能"
              accesskey="P">前へ</a> |</li>
     	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,20 +69,12 @@
           <div class="body" role="main">
             
   <div class="section" id="what-s-new-in-pyramid-1-6">
-<h1>What's New in Pyramid 1.6<a class="headerlink" href="#what-s-new-in-pyramid-1-6" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>This article explains the new features in <span>Pyramid</span> version 1.6 as
-compared to its predecessor, <span>Pyramid</span> 1.5. It also documents backwards
-incompatibilities between the two versions and deprecations added to
-<span>Pyramid</span> 1.6, as well as software dependency changes and notable
-documentation additions.</p>
+<h1>(機械翻訳)Pyramid 1.6の新機能<a class="headerlink" href="#what-s-new-in-pyramid-1-6" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>この記事では、app： <cite>Pyramid`バージョン1.6の新機能について説明しています：app：</cite> Pyramid` 1.5。また、app： <cite>Pyramid</cite> 1.6に追加された2つのバージョンと廃止予定との間の後方互換性と、ソフトウェア依存の変更と著しいドキュメントの追加についても書かれています。</p>
 <div class="section" id="backwards-incompatibilities">
-<h2>Backwards Incompatibilities<a class="headerlink" href="#backwards-incompatibilities" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>後方の非互換性<a class="headerlink" href="#backwards-incompatibilities" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p class="first">IPython and BPython support have been removed from pshell in the core. To
-continue using them on Pyramid 1.6+, you must install the binding packages
-explicitly. One way to do this is by adding <code class="docutils literal notranslate"><span class="pre">pyramid_ipython</span></code> (or
-<code class="docutils literal notranslate"><span class="pre">pyramid_bpython</span></code>) to the <code class="docutils literal notranslate"><span class="pre">install_requires</span></code> section of your package's
-<code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file, then re-running <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">develop</span></code>:</p>
+<li><p class="first">IPythonとBPythonのサポートはコアのpshellから削除されました。 Pyramid 1.6以降で引き続き使用するには、バインディングパッケージを明示的にインストールする必要があります。これを行う1つの方法は、パッケージの `` setup.py``ファイルの `` install_requires``セクションに `` pyramid_ipython``（または `` pyramid_bpython``）を追加してから、 `` setup.py開発 <a href="#id1"><span class="problematic" id="id2">`</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setup</span><span class="p">(</span>
     <span class="c1">#...</span>
     <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span>
@@ -94,198 +86,67 @@ explicitly. One way to do this is by adding <code class="docutils literal notran
 </pre></div>
 </div>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">request.response</span></code> will no longer be mutated when using the
-<a class="reference internal" href="api/renderers.html#pyramid.renderers.render_to_response" title="pyramid.renderers.render_to_response"><code class="xref py py-func docutils literal notranslate"><span class="pre">render_to_response()</span></code></a> API. It is now necessary to
-pass in a <code class="docutils literal notranslate"><span class="pre">response=</span></code> argument to
-<a class="reference internal" href="api/renderers.html#pyramid.renderers.render_to_response" title="pyramid.renderers.render_to_response"><code class="xref py py-func docutils literal notranslate"><span class="pre">render_to_response()</span></code></a> if you wish to supply the
-renderer with a custom response object. If you do not pass one, then a
-response object will be created using the current response factory. Almost
-all renderers mutate the <code class="docutils literal notranslate"><span class="pre">request.response</span></code> response object (for example,
-the JSON renderer sets <code class="docutils literal notranslate"><span class="pre">request.response.content_type</span></code> to
-<code class="docutils literal notranslate"><span class="pre">application/json</span></code>). However, when invoking <code class="docutils literal notranslate"><span class="pre">render_to_response</span></code>, it is
-not expected that the response object being returned would be the same one
-used later in the request. The response object returned from
-<code class="docutils literal notranslate"><span class="pre">render_to_response</span></code> is now explicitly different from <code class="docutils literal notranslate"><span class="pre">request.response</span></code>.
-This does not change the API of a renderer. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1563">https://github.com/Pylons/pyramid/pull/1563</a></p>
+<li><p class="first">： <cite>func：</cite>〜pyramid.renderers.render_to_response` APIを使用するとき、 `` request.response``はもはや変更されません。レンダラーにカスタムレスポンスオブジェクトを提供する場合は、 `` func： <cite>〜pyramid.renderers.render_to_response`に</cite> <cite>response =</cite> <cite>引数を渡す必要があります。値を渡さないと、現在のレスポンスファクトリを使用してレスポンスオブジェクトが作成されます。ほぼすべてのレンダラーが `</cite> request.response``レスポンスオブジェクトを変更します（例えば、JSONレンダラーは `` application / json``に `` request.response.content_type``を設定します）。しかし、 `` render_to_response``を呼び出すとき、返されるレスポンスオブジェクトは、リクエストで後で使用されるレスポンスオブジェクトと同じであるとは限りません。 `` render_to_response``から返された応答オブジェクトは、 `` request.response``と明示的に異なっています。これはレンダラーのAPIを変更しません。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1563を参照してください。</p>
 </li>
-<li><p class="first">In an effort to combat a common issue it is now a
-<a class="reference internal" href="api/exceptions.html#pyramid.exceptions.ConfigurationError" title="pyramid.exceptions.ConfigurationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfigurationError</span></code></a> to register a view
-callable that is actually an unbound method when using the default view
-mapper. As unbound methods do not exist in PY3+ possible errors are detected
-by checking if the first parameter is named <code class="docutils literal notranslate"><span class="pre">self</span></code>. For example,
-<cite>config.add_view(ViewClass.some_method, ...)</cite> should actually be
-<cite>config.add_view(ViewClass, attr='some_method)'</cite>. This was always an issue
-in Pyramid on PY2 but the backward incompatibility is on PY3+ where you may
-not use a function with the first parameter named <code class="docutils literal notranslate"><span class="pre">self</span></code>. In this case
-it looks too much like a common error and the exception will be raised.
-See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/1498">https://github.com/Pylons/pyramid/pull/1498</a></p>
+<li><p class="first">共通の問題に対処するために、class： <cite>〜pyramid.exceptions.ConfigurationError`はデフォルトのビューマッパーを使用しているときに実際にはアンバインドされたビューであるビュー呼び出し可能オブジェクトを登録します。結合されていないメソッドがPY3 +に存在しないため、可能なエラーは、最初のパラメータの名前が `</cite> self``であるかどうかを調べることによって検出されます。たとえば、 <cite>config.add_view（ViewClass.some_method、...）`は実際には `config.add_view（ViewClass、attr = &amp;#39;some_method）&amp;#39;です。これはPY2のPyramidでは常に問題でしたが、後方互換性はPY3 +にあります。ここでは、 `</cite> self``という名前の最初のパラメータで関数を使用することはできません。この場合、一般的なエラーのように見え、例外が発生します。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1498を参照してください。</p>
 </li>
 </ul>
 </div>
 <div class="section" id="feature-additions">
-<h2>Feature Additions<a class="headerlink" href="#feature-additions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>機能の追加<a class="headerlink" href="#feature-additions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>Python 3.5 and pypy3 compatibility.</li>
-<li><code class="docutils literal notranslate"><span class="pre">pserve</span> <span class="pre">--reload</span></code> will no longer crash on syntax errors. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2044">https://github.com/Pylons/pyramid/pull/2044</a></li>
-<li>Cache busting for static resources has been added and is available via a new
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_cache_buster()</span></code> API. Core APIs are
-shipped for both cache busting via query strings and via asset manifests for
-integrating into custom asset pipelines. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1380">https://github.com/Pylons/pyramid/pull/1380</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1583">https://github.com/Pylons/pyramid/pull/1583</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2171">https://github.com/Pylons/pyramid/pull/2171</a></li>
-<li>Assets can now be overidden by an absolute path on the filesystem when using
-the <a class="reference internal" href="api/config.html#pyramid.config.Configurator.override_asset" title="pyramid.config.Configurator.override_asset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">override_asset()</span></code></a> API. This makes it
-possible to fully support serving up static content from a mutable directory
-while still being able to use the <a class="reference internal" href="api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a>
-API and <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a>.  Previously it
-was not possible to use <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a>
-with an absolute path <strong>and</strong> generate urls to the content. This change
-replaces the call, <code class="docutils literal notranslate"><span class="pre">config.add_static_view('/abs/path',</span> <span class="pre">'static')</span></code>, with
-<code class="docutils literal notranslate"><span class="pre">config.add_static_view('myapp:static',</span> <span class="pre">'static')</span></code> and
-<code class="docutils literal notranslate"><span class="pre">config.override_asset(to_override='myapp:static/',</span>
-<span class="pre">override_with='/abs/path/')</span></code>. The <code class="docutils literal notranslate"><span class="pre">myapp:static</span></code> asset spec is completely
-made up and does not need to exist—it is used for generating URLs via
-<code class="docutils literal notranslate"><span class="pre">request.static_url('myapp:static/foo.png')</span></code>. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/issues/1252">https://github.com/Pylons/pyramid/issues/1252</a></li>
-<li>Added <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_response_factory()</span></code> and the
-<code class="docutils literal notranslate"><span class="pre">response_factory</span></code> keyword argument to the constructor of
-<a class="reference internal" href="api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> for defining a factory that will return
-a custom <code class="docutils literal notranslate"><span class="pre">Response</span></code> class. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/1499">https://github.com/Pylons/pyramid/pull/1499</a></li>
-<li>Added <code class="xref py py-attr docutils literal notranslate"><span class="pre">pyramid.config.Configurator.root_package</span></code> attribute and init
-parameter to assist with includible packages that wish to resolve resources
-relative to the package in which the configurator was created. This is
-especially useful for add-ons that need to load asset specs from settings, in
-which case it may be natural for a developer to define imports or assets
-relative to the top-level package. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1337">https://github.com/Pylons/pyramid/pull/1337</a></li>
-<li>Overall improvements for the <code class="docutils literal notranslate"><span class="pre">proutes</span></code> command. Added <code class="docutils literal notranslate"><span class="pre">--format</span></code> and
-<code class="docutils literal notranslate"><span class="pre">--glob</span></code> arguments to the command, introduced the <code class="docutils literal notranslate"><span class="pre">method</span></code>
-column for displaying available request methods, and improved the <code class="docutils literal notranslate"><span class="pre">view</span></code>
-output by showing the module instead of just <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1488">https://github.com/Pylons/pyramid/pull/1488</a></li>
-<li><code class="docutils literal notranslate"><span class="pre">pserve</span></code> can now take a <code class="docutils literal notranslate"><span class="pre">-b</span></code> or <code class="docutils literal notranslate"><span class="pre">--browser</span></code> option to open the server
-URL in a web browser. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/1533">https://github.com/Pylons/pyramid/pull/1533</a></li>
-<li>Support keyword-only arguments and function annotations in views in Python 3.
-See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/1556">https://github.com/Pylons/pyramid/pull/1556</a></li>
-<li>The <code class="docutils literal notranslate"><span class="pre">append_slash</span></code> argument of
-<a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_notfound_view" title="pyramid.config.Configurator.add_notfound_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_notfound_view()</span></code></a> will now accept
-anything that implements the <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.IResponse" title="pyramid.interfaces.IResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">IResponse</span></code></a> interface
-and will use that as the response class instead of the default
-<a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPFound" title="pyramid.httpexceptions.HTTPFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPFound</span></code></a>. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1610">https://github.com/Pylons/pyramid/pull/1610</a></li>
-<li>The <a class="reference internal" href="api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> has grown the ability to allow
-actions to call other actions during a commit cycle. This enables much more
-logic to be placed into actions, such as the ability to invoke other actions
-or group them for improved conflict detection. We have also exposed and
-documented the configuration phases that Pyramid uses in order to further
-assist in building conforming add-ons. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1513">https://github.com/Pylons/pyramid/pull/1513</a></li>
-<li>Allow an iterator to be returned from a renderer. Previously it was only
-possible to return bytes or unicode. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1417">https://github.com/Pylons/pyramid/pull/1417</a></li>
-<li>Improve robustness to timing attacks in the
-<a class="reference internal" href="api/authentication.html#pyramid.authentication.AuthTktCookieHelper" title="pyramid.authentication.AuthTktCookieHelper"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuthTktCookieHelper</span></code></a> and the
-<a class="reference internal" href="api/session.html#pyramid.session.SignedCookieSessionFactory" title="pyramid.session.SignedCookieSessionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignedCookieSessionFactory</span></code></a> classes by using the
-stdlib's <code class="docutils literal notranslate"><span class="pre">hmac.compare_digest</span></code> if it is available (such as Python 2.7.7+
-and 3.3+). See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/1457">https://github.com/Pylons/pyramid/pull/1457</a></li>
-<li>Improve the readability of the <code class="docutils literal notranslate"><span class="pre">pcreate</span></code> shell script output. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1453">https://github.com/Pylons/pyramid/pull/1453</a></li>
-<li>Make it simple to define <code class="docutils literal notranslate"><span class="pre">notfound</span></code> and <code class="docutils literal notranslate"><span class="pre">forbidden</span></code> views that wish to
-use the default exception-response view, but with altered predicates and
-other configuration options. The <code class="docutils literal notranslate"><span class="pre">view</span></code> argument is now optional in
-<a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_notfound_view" title="pyramid.config.Configurator.add_notfound_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_notfound_view()</span></code></a> and
-<a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_forbidden_view" title="pyramid.config.Configurator.add_forbidden_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_forbidden_view()</span></code></a> See
-<a class="reference external" href="https://github.com/Pylons/pyramid/issues/494">https://github.com/Pylons/pyramid/issues/494</a></li>
-<li>The <code class="docutils literal notranslate"><span class="pre">pshell</span></code> script will now load a <code class="docutils literal notranslate"><span class="pre">PYTHONSTARTUP</span></code> file if one is
-defined in the environment prior to launching the interpreter. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1448">https://github.com/Pylons/pyramid/pull/1448</a></li>
-<li>Add new HTTP exception objects for status codes <code class="docutils literal notranslate"><span class="pre">428</span> <span class="pre">Precondition</span>
-<span class="pre">Required</span></code>, <code class="docutils literal notranslate"><span class="pre">429</span> <span class="pre">Too</span> <span class="pre">Many</span> <span class="pre">Requests</span></code> and <code class="docutils literal notranslate"><span class="pre">431</span> <span class="pre">Request</span> <span class="pre">Header</span> <span class="pre">Fields</span> <span class="pre">Too</span>
-<span class="pre">Large</span></code> in <code class="docutils literal notranslate"><span class="pre">pyramid.httpexceptions</span></code>. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1372/files">https://github.com/Pylons/pyramid/pull/1372/files</a></li>
-<li><code class="docutils literal notranslate"><span class="pre">pcreate</span></code> when run without a scaffold argument will now print information
-on the missing flag, as well as a list of available scaffolds. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1566">https://github.com/Pylons/pyramid/pull/1566</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/issues/1297">https://github.com/Pylons/pyramid/issues/1297</a></li>
-<li><code class="docutils literal notranslate"><span class="pre">pcreate</span></code> will now ask for confirmation if invoked with an argument for a
-project name that already exists or is importable in the current environment.
-See <a class="reference external" href="https://github.com/Pylons/pyramid/issues/1357">https://github.com/Pylons/pyramid/issues/1357</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1837">https://github.com/Pylons/pyramid/pull/1837</a></li>
-<li>Add <a class="reference internal" href="api/request.html#pyramid.request.apply_request_extensions" title="pyramid.request.apply_request_extensions"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.request.apply_request_extensions()</span></code></a> function which can be
-used in testing to apply any request extensions configured via
-<code class="docutils literal notranslate"><span class="pre">config.add_request_method</span></code>. Previously it was only possible to test the
-extensions by going through Pyramid's router. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1581">https://github.com/Pylons/pyramid/pull/1581</a></li>
-<li>Make it possible to subclass <code class="docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code> and also use
-<code class="docutils literal notranslate"><span class="pre">pyramid.request.Request.add_request.method</span></code>. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/issues/1529">https://github.com/Pylons/pyramid/issues/1529</a></li>
-<li>Additional shells for <code class="docutils literal notranslate"><span class="pre">pshell</span></code> can now be registered as entry points. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1891">https://github.com/Pylons/pyramid/pull/1891</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2012">https://github.com/Pylons/pyramid/pull/2012</a></li>
-<li>The variables injected into <code class="docutils literal notranslate"><span class="pre">pshell</span></code> are now displayed with their
-docstrings instead of the default <code class="docutils literal notranslate"><span class="pre">str(obj)</span></code> when possible. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1929">https://github.com/Pylons/pyramid/pull/1929</a></li>
+<li>Python 3.5とpypy3との互換性。</li>
+<li>構文エラーで `` pserve --reload``がクラッシュすることはなくなりました。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2044を参照してください。</li>
+<li>静的リソース用のキャッシュ破棄が追加され、新しい：meth： <cite>pyramid.config.Configurator.add_cache_buster</cite> APIを介して利用できます。コアAPIは、クエリ文字列を介したキャッシュ破棄と、カスタムアセットパイプラインへの統合のためのアセットマニフェストを使用して出荷されます。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1380およびhttps://github.com/Pylons/pyramid/pull/1583およびhttps://github.com/Pylons/pyramid/pull/2171を参照してください。</li>
+<li>アセットは、：meth： <cite>〜pyramid.config.Configurator.override_asset</cite> APIを使用するとき、ファイルシステム上の絶対パスによって上書きされるようになりました。これにより、変更可能なディレクトリからの静的コンテンツの配信を完全にサポートしながら、：meth： <cite>〜pyramid.request.Request.static_url</cite> APIと：meth：<cite>〜pyramid.config.Configurator.add_static_view</cite> 。以前は：meth： <cite>〜pyramid.config.Configurator.add_static_view`を絶対パスで使用することはできませんでした**と**コンテンツにURLを生成します。この変更は `</cite> config.add_static_view（ &amp;#39;/ abs / path&amp;#39;、 &amp;#39;static&amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>を `` config.add_static_view（ &amp;#39;myapp：static&amp;#39;、 &amp;#39;static&amp;#39;） <a href="#id3"><span class="problematic" id="id4">``</span></a>と `` config &amp;#39;に置き換えます。 override_asset（to_override = &amp;#39;myapp：static /&amp;#39;、override_with = &amp;#39;/ abs / path /&amp;#39;） <a href="#id5"><span class="problematic" id="id6">``</span></a>です。 `` myapp：static``アセット仕様は完全に作られており、存在する必要はありません。これは `` request.static_url（ &amp;#39;myapp：static / foo.png&amp;#39;） <a href="#id7"><span class="problematic" id="id8">``</span></a>でURLを生成するために使用されます。 <a class="reference external" href="https://github.com/Pylons/pyramid/issues">https://github.com/Pylons/pyramid/issues</a>/1252を参照してください。</li>
+<li>追加された：meth： <cite>〜pyramid.config.Configurator.set_response_factory`と</cite> <cite>response_factory``キーワードは、class：</cite>〜pyramid.config.Configurator`のコンストラクタのキーワード引数で、カスタムの `` Response <a href="#id1"><span class="problematic" id="id2">``</span></a>クラス。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1499を参照してください。</li>
+<li>追加：attr： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.root_package`属性とinitパラメータは、コンフィグレータが作成されたパッケージに関連するリソースを解決するためのincludibleパッケージを支援します。これは、設定からアセット仕様をロードする必要のあるアドオンで特に役に立ちます。その場合、開発者がトップレベルパッケージを基準にしてインポートまたはアセットを定義するのは自然かもしれません。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1337を参照してください。</li>
+<li>`` proutes``コマンドの全体的な改良。コマンドに `` --format``と `` --glob``引数を追加し、利用可能なリクエストメソッドを表示するための `` method``カラムを導入し、 `` view``の出力を改善しました。ちょうど `` __repr__``です。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1488を参照してください。</li>
+<li>`` pserve``は `` -b``または `` --browser``オプションを使って、WebブラウザでサーバURLを開きます。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1533を参照してください。</li>
+<li>Python 3のビューでキーワードのみの引数と関数アノテーションをサポートしています。<a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1556を参照してください。</li>
+<li>：meth： <cite>〜pyramid.config.Configurator.add_notfound_view（）`の `</cite> append_slash``引数は：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.interfaces.IResponse`インターフェースを実装しているものを受け入れ、レスポンスクラスとして使用しますデフォルト：class： <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.httpexceptions.HTTPFound`の代わりに。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1610を参照してください。</li>
+<li>：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator`は、アクションがコミットサイクル中に他のアクションを呼び出せるようにする機能を拡張しました。これにより、他のアクションを呼び出す機能や、競合検出を改善するためにそれらをグループ化する機能など、より多くのロジックをアクションに配置できます。また、適合したアドオンの構築をさらに支援するために、Pyramidが使用する設定フェーズを公開し、文書化しました。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1513を参照してください。</li>
+<li>イテレータがレンダラから返されるようにします。以前は、バイトまたはユニコードを返すことしかできませんでした。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1417を参照してください。</li>
+<li>class： <cite>〜pyramid.authentication.AuthTktCookieHelper`クラスと：class：</cite>〜pyramid.session.SignedCookieSessionFactory`クラスでタイミング攻撃に対する堅牢性を向上させるには、stdlibの `` hmac.compare_digest`` Python 2.7.7+および3.3+）。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1457を参照してください。</li>
+<li>`` pcreate``シェルスクリプト出力の可読性を向上させます。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1453を参照してください。</li>
+<li>デフォルトの例外応答ビューを使用したいが、変更された述語やその他の設定オプションを使用する `` notfound``と `` forbidden``ビューを簡単に定義できるようにします。 `` view``引数は、meth： <cite>〜pyramid.config.Configurator.add_notfound_view`と：meth：</cite>〜pyramid.config.Configurator.add_forbidden_​​view`のオプションです。<a class="reference external" href="https://github.com/Pylons">https://github.com/Pylons</a>/pyramidを参照してください。 / issues / 494</li>
+<li>`` pshell``スクリプトは、インタープリタを起動する前に環境に定義されている場合、 `` PYTHONSTARTUP``ファイルを読み込みます。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1448を参照してください。</li>
+<li>`` pyramid.httpexceptions``のステータスコード `` 428前提条件必須 &amp;quot;、&amp;quot; 429 &amp;quot;、&amp;quot; 431リクエストヘッダフィールドが大きすぎます &amp;quot;という新しいHTTP例外オブジェクトを追加しました。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull/1372">https://github.com/Pylons/pyramid/pull/1372</a>/filesを参照してください。</li>
+<li>scaffold引数なしで実行されたときに `` pcreate``は、足りないフラグに関する情報と利用可能な足場のリストを出力するようになりました。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1566およびhttps://github.com/Pylons/pyramid/issues/1297を参照してください。</li>
+<li>`` pcreate``は、現在存在するか、あるいは現在の環境でインポート可能なプロジェクト名の引数を指定して起動すると、確認を求めます。 <a class="reference external" href="https://github.com/Pylons/pyramid/issues">https://github.com/Pylons/pyramid/issues</a>/1357およびhttps://github.com/Pylons/pyramid/pull/1837を参照してください。</li>
+<li>Add：func： <cite>pyramid.request.apply_request_extensions`関数は、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>config.add_request_method``で設定されたリクエスト拡張を適用するためのテストに使用できます。以前は、Pyramidのルーターを経由して拡張機能をテストすることしかできませんでした。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1581を参照してください。</li>
+<li>`` pyramid.request.Request``をサブクラス化し、 `` pyramid.request.Request.add_request.method``を使うことも可能です。 <a class="reference external" href="https://github.com/Pylons/pyramid/issues">https://github.com/Pylons/pyramid/issues</a>/1529を参照してください。</li>
+<li>`` pshell``用の追加のシェルをエントリポイントとして登録できるようになりました。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1891およびhttps://github.com/Pylons/pyramid/pull/2012を参照してください。</li>
+<li>可能であれば、 `` pshell``に注入された変数はデフォルトの `` str（obj） <a href="#id1"><span class="problematic" id="id2">``</span></a>ではなくdocstringで表示されます。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1929を参照してください。</li>
 </ul>
 </div>
 <div class="section" id="deprecations">
-<h2>Deprecations<a class="headerlink" href="#deprecations" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>廃止<a class="headerlink" href="#deprecations" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">pserve</span></code> command's daemonization features, as well as
-<code class="docutils literal notranslate"><span class="pre">--monitor-restart</span></code>, have been deprecated. This includes the
-<code class="docutils literal notranslate"><span class="pre">[start,stop,restart,status]</span></code> subcommands, as well as the <code class="docutils literal notranslate"><span class="pre">--daemon</span></code>,
-<code class="docutils literal notranslate"><span class="pre">--stop-daemon</span></code>, <code class="docutils literal notranslate"><span class="pre">--pid-file</span></code>, <code class="docutils literal notranslate"><span class="pre">--status</span></code>, <code class="docutils literal notranslate"><span class="pre">--user</span></code>, and <code class="docutils literal notranslate"><span class="pre">--group</span></code>
-flags. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2120">https://github.com/Pylons/pyramid/pull/2120</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2189">https://github.com/Pylons/pyramid/pull/2189</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1641">https://github.com/Pylons/pyramid/pull/1641</a></p>
-<p>Please use a real process manager in the future instead of relying on
-<code class="docutils literal notranslate"><span class="pre">pserve</span></code> to daemonize itself. Many options exist, including your operating
-system's services, such as Systemd or Upstart, as well as Python-based
-solutions like Circus and Supervisor.</p>
-<p>See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/1641">https://github.com/Pylons/pyramid/pull/1641</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2120">https://github.com/Pylons/pyramid/pull/2120</a></p>
+<li><p class="first">`` pserve``コマンドのデーモン化機能と `` --monitor-restart``は廃止されました。これには、 `` --daemon``、 `` --stop-daemon``、 `` -pid-file``、 `` -stop- `` --status``、 `` --user``、 `` --group``の各フラグがあります。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2120およびhttps://github.com/Pylons/pyramid/pull/2189およびhttps://github.com/Pylons/pyramid/pull/1641を参照してください。</p>
+<p>`` pserve``に依存するのではなく、実際のプロセスマネージャーを使って、自分自身をデーモン化してください。あなたのオペレーティングシステムのサービス（SystemdやUpstartなど）やサーカスやスーパーバイザなどのPythonベースのソリューションを含む多くのオプションが存在します。</p>
+<p><a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1641およびhttps://github.com/Pylons/pyramid/pull/2120を参照してください。</p>
 </li>
-<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">principal</span></code> argument to <a class="reference internal" href="api/security.html#pyramid.security.remember" title="pyramid.security.remember"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.security.remember()</span></code></a> was renamed
-to <code class="docutils literal notranslate"><span class="pre">userid</span></code>. Using <code class="docutils literal notranslate"><span class="pre">principal</span></code> as the argument name still works and will
-continue to work for the next few releases, but a deprecation warning is
-printed.</p>
+<li><p class="first">：func： <cite>pyramid.security.remember`の</cite> <cite>principal``引数は</cite> <cite>userid``に名前が変更されました。引数名として `</cite> principal``を使用することは引き続き機能し、次のいくつかのリリースでは引き続き動作しますが、非推奨警告が表示されます。</p>
 </li>
 </ul>
 </div>
 <div class="section" id="scaffolding-enhancements">
-<h2>Scaffolding Enhancements<a class="headerlink" href="#scaffolding-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>足場の強化<a class="headerlink" href="#scaffolding-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>Added line numbers to the log formatters in the scaffolds to assist with
-debugging. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/1326">https://github.com/Pylons/pyramid/pull/1326</a></li>
-<li>Updated scaffold generating machinery to return the version of <span>Pyramid</span>
-and its documentation for use in scaffolds. Updated <code class="docutils literal notranslate"><span class="pre">starter</span></code>, <code class="docutils literal notranslate"><span class="pre">alchemy</span></code>
-and <code class="docutils literal notranslate"><span class="pre">zodb</span></code> templates to have links to correctly versioned documentation,
-and to reflect which <span>Pyramid</span> was used to generate the scaffold.</li>
-<li>Removed non-ASCII copyright symbol from templates, as this was causing the
-scaffolds to fail for project generation.</li>
+<li>デバッグを支援する足場のログフォーマッタに行番号を追加しました。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1326を参照してください。</li>
+<li>スキャフォールドで使用するための：app： <cite>Pyramid`とそのドキュメントを返すように更新しました。 `</cite> starter```、 `` alchemy``、 `` zodb``テンプレートをバージョンアップされたドキュメントにリンクし、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`が足場を生成するために使用されたことを反映しました。</li>
+<li>テンプレートから非ASCII著作権記号を削除しました。これにより、足場がプロジェクト生成に失敗する原因となりました。</li>
 </ul>
 </div>
 <div class="section" id="documentation-enhancements">
-<h2>Documentation Enhancements<a class="headerlink" href="#documentation-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ドキュメントの機能拡張<a class="headerlink" href="#documentation-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>Removed logging configuration from Quick Tutorial <code class="docutils literal notranslate"><span class="pre">ini</span></code> files, except for
-scaffolding- and logging-related chapters, to avoid needing to explain it too
-early.</li>
-<li>Improve and clarify the documentation on what <span>Pyramid</span> defines as a
-<code class="docutils literal notranslate"><span class="pre">principal</span></code> and a <code class="docutils literal notranslate"><span class="pre">userid</span></code> in its security APIs. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1399">https://github.com/Pylons/pyramid/pull/1399</a></li>
-<li>Moved the documentation for <code class="docutils literal notranslate"><span class="pre">accept</span></code> on
-<a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> to no longer be part of the
-predicate list. See <a class="reference external" href="https://github.com/Pylons/pyramid/issues/1391">https://github.com/Pylons/pyramid/issues/1391</a> for a bug
-report stating <code class="docutils literal notranslate"><span class="pre">not_</span></code> was failing on <code class="docutils literal notranslate"><span class="pre">accept</span></code>. Discussion with &#64;mcdonc
-led to the conclusion that it should not be documented as a predicate.
-See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/1487">https://github.com/Pylons/pyramid/pull/1487</a> for this PR.</li>
-<li>Clarify a previously-implied detail of the <code class="docutils literal notranslate"><span class="pre">ISession.invalidate</span></code> API
-documentation.</li>
-<li>Add documentation of command line programs (<code class="docutils literal notranslate"><span class="pre">p*</span></code> scripts). See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2191">https://github.com/Pylons/pyramid/pull/2191</a></li>
+<li>クイックチュートリアルの `` ini``ファイルからロギングの設定を削除しました。足場やロギング関連の章を除き、早すぎる説明は避けてください。</li>
+<li>app： <cite>Pyramid`がセキュリティAPIの</cite> <cite>principal``と</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>userid``として定義しているものに関するドキュメントを改善し明確にします。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1399を参照してください。</li>
+<li>meth： <cite>pyramid.config.Configurator.add_view`を</cite> <cite>accept``のためにドキュメントをもはや述語リストの一部に移動しませんでした。 `</cite> not_``が `` accept``で失敗したというバグレポートについては、<a class="reference external" href="https://github.com/Pylons/pyramid/issues">https://github.com/Pylons/pyramid/issues</a>/1391を参照してください。 &#64;mcdoncとの議論は、それが述語として文書化されるべきではないという結論に導いた。このPRについては、<a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1487を参照してください。</li>
+<li>`` ISession.invalidate`` APIドキュメントの暗黙の詳細を明確にしてください。</li>
+<li>コマンドラインプログラムのドキュメントを追加する（ `` p * <a href="#id1"><span class="problematic" id="id2">``</span></a>スクリプト）。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2191を参照してください。</li>
 </ul>
 </div>
 </div>
@@ -298,22 +159,22 @@ documentation.</li>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">What's New in Pyramid 1.6</a><ul>
-<li><a class="reference internal" href="#backwards-incompatibilities">Backwards Incompatibilities</a></li>
-<li><a class="reference internal" href="#feature-additions">Feature Additions</a></li>
-<li><a class="reference internal" href="#deprecations">Deprecations</a></li>
-<li><a class="reference internal" href="#scaffolding-enhancements">Scaffolding Enhancements</a></li>
-<li><a class="reference internal" href="#documentation-enhancements">Documentation Enhancements</a></li>
+<li><a class="reference internal" href="#">(機械翻訳)Pyramid 1.6の新機能</a><ul>
+<li><a class="reference internal" href="#backwards-incompatibilities">後方の非互換性</a></li>
+<li><a class="reference internal" href="#feature-additions">機能の追加</a></li>
+<li><a class="reference internal" href="#deprecations">廃止</a></li>
+<li><a class="reference internal" href="#scaffolding-enhancements">足場の強化</a></li>
+<li><a class="reference internal" href="#documentation-enhancements">ドキュメントの機能拡張</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="whatsnew-1.7.html"
-                        title="前の章へ">What's New in Pyramid 1.7</a></p>
+                        title="前の章へ">(機械翻訳)Pyramid 1.7の新機能</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="whatsnew-1.5.html"
-                        title="次の章へ">What's New in Pyramid 1.5</a></p>
+                        title="次の章へ">(機械翻訳)Pyramid 1.5の新機能</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -347,10 +208,10 @@ documentation.</li>
           <a href="py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="whatsnew-1.5.html" title="What&#39;s New in Pyramid 1.5"
+          <a href="whatsnew-1.5.html" title="(機械翻訳)Pyramid 1.5の新機能"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="whatsnew-1.7.html" title="What&#39;s New in Pyramid 1.7"
+          <a href="whatsnew-1.7.html" title="(機械翻訳)Pyramid 1.7の新機能"
              >前へ</a> |</li>
     	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>

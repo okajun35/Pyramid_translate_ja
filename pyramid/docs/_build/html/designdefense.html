@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Defending Pyramid&#39;s Design &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳)守るピラミッドのデザイン &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="copyright" title="著作権" href="copyright.html" />
-    <link rel="next" title="Copyright, Trademarks, and Attributions" href="copyright.html" />
-    <link rel="prev" title="Pyramid Change History" href="changes.html" />
+    <link rel="next" title="(機械翻訳)著作権、商標、帰属" href="copyright.html" />
+    <link rel="prev" title="(機械翻訳) Pyramid 変更履歴" href="changes.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="copyright.html" title="Copyright, Trademarks, and Attributions"
+          <a href="copyright.html" title="(機械翻訳)著作権、商標、帰属"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="changes.html" title="Pyramid Change History"
+          <a href="changes.html" title="(機械翻訳) Pyramid 変更履歴"
              accesskey="P">前へ</a> |</li>
     	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,107 +69,25 @@
           <div class="body" role="main">
             
   <div class="section" id="defending-pyramid-s-design">
-<span id="design-defense"></span><h1>Defending Pyramid's Design<a class="headerlink" href="#defending-pyramid-s-design" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>From time to time, challenges to various aspects of <span>Pyramid</span> design are
-lodged.  To give context to discussions that follow, we detail some of the
-design decisions and trade-offs here.  In some cases, we acknowledge that the
-framework can be made better and we describe future steps which will be taken
-to improve it.  In others we just file the challenge as noted, as obviously you
-can't please everyone all of the time.</p>
+<span id="design-defense"></span><h1>(機械翻訳)守るピラミッドのデザイン<a class="headerlink" href="#defending-pyramid-s-design" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>時には、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`デザインのさまざまな面での課題が提起されています。ここでの議論に文脈を与えるために、ここではいくつかの設計上の決定とトレードオフについて詳しく説明します。場合によっては、フレームワークが改善され、改善するための今後の手順について説明します。他の人たちは、気づいたとおりに挑戦します。明らかに、みんなをいつも楽しませることはできません。</p>
 <div class="section" id="pyramid-provides-more-than-one-way-to-do-it">
-<h2>Pyramid Provides More Than One Way to Do It<a class="headerlink" href="#pyramid-provides-more-than-one-way-to-do-it" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A canon of Python popular culture is &quot;TIOOWTDI&quot; (&quot;there is only one way to do
-it&quot;, a slighting, tongue-in-cheek reference to Perl's &quot;TIMTOWTDI&quot;, which is an
-acronym for &quot;there is more than one way to do it&quot;).</p>
-<p><span>Pyramid</span> is, for better or worse, a &quot;TIMTOWTDI&quot; system.  For example, it
-includes more than one way to resolve a URL to a <a class="reference internal" href="glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>: via
-<a class="reference internal" href="glossary.html#term-url-dispatch"><span class="xref std std-term">url dispatch</span></a> or <a class="reference internal" href="glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>. Multiple methods of configuration
-exist: <a class="reference internal" href="glossary.html#term-imperative-configuration"><span class="xref std std-term">imperative configuration</span></a>, <a class="reference internal" href="glossary.html#term-configuration-decoration"><span class="xref std std-term">configuration decoration</span></a>, and
-<a class="reference internal" href="glossary.html#term-zcml"><span class="xref std std-term">ZCML</span></a> (optionally via <a class="reference internal" href="glossary.html#term-pyramid-zcml"><span class="xref std std-term">pyramid_zcml</span></a>). It works with multiple
-different kinds of persistence and templating systems. And so on. However, the
-existence of most of these overlapping ways to do things are not without reason
-and purpose: we have a number of audiences to serve, and we believe that
-TIMTOWTDI at the web framework level actually <em>prevents</em> a much more insidious
-and harmful set of duplication at higher levels in the Python web community.</p>
-<p><span>Pyramid</span> began its life as <code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.bfg</span></code>, written by a team of people
-with many years of prior <a class="reference internal" href="glossary.html#term-zope"><span class="xref std std-term">Zope</span></a> experience.  The idea of
-<a class="reference internal" href="glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> and the way <a class="reference internal" href="glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> works was stolen entirely
-from Zope.  The authorization subsystem provided by <span>Pyramid</span> is a
-derivative of Zope's.  The idea that an application can be <em>extended</em> without
-forking is also a Zope derivative.</p>
-<p>Implementations of these features were <em>required</em> to allow the <span>Pyramid</span>
-authors to build the bread-and-butter CMS-type systems for customers in the way
-in which they were accustomed. No other system, save for Zope itself, had such
-features, and Zope itself was beginning to show signs of its age. We were
-becoming hampered by consequences of its early design mistakes. Zope's lack of
-documentation was also difficult to work around. It was hard to hire smart
-people to work on Zope applications because there was no comprehensive
-documentation set which explained &quot;it all&quot; in one consumable place, and it was
-too large and self-inconsistent to document properly. Before <code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.bfg</span></code>
-went under development, its authors obviously looked around for other
-frameworks that fit the bill. But no non-Zope framework did. So we embarked on
-building <code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.bfg</span></code>.</p>
-<p>As the result of our research, however, it became apparent that, despite the
-fact that no <em>one</em> framework had all the features we required, lots of existing
-frameworks had good, and sometimes very compelling ideas. In particular,
-<a class="reference internal" href="glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> is a more direct mechanism to map URLs to code.</p>
-<p>So, although we couldn't find a framework, save for Zope, that fit our needs,
-and while we incorporated a lot of Zope ideas into BFG, we also emulated the
-features we found compelling in other frameworks (such as <a class="reference internal" href="glossary.html#term-url-dispatch"><span class="xref std std-term">url
-dispatch</span></a>). After the initial public release of BFG, as time went on, features
-were added to support people allergic to various Zope-isms in the system, such
-as the ability to configure the application using <a class="reference internal" href="glossary.html#term-imperative-configuration"><span class="xref std std-term">imperative
-configuration</span></a> and <a class="reference internal" href="glossary.html#term-configuration-decoration"><span class="xref std std-term">configuration decoration</span></a>, rather than solely using
-<a class="reference internal" href="glossary.html#term-zcml"><span class="xref std std-term">ZCML</span></a>, and the elimination of the required use of <a class="reference internal" href="glossary.html#term-interface"><span class="xref std std-term">interface</span></a>
-objects. It soon became clear that we had a system that was very generic, and
-was beginning to appeal to non-Zope users as well as ex-Zope users.</p>
-<p>As the result of this generalization, it became obvious BFG shared 90% of its
-feature set with the feature set of Pylons 1, and thus had a very similar
-target market. Because they were so similar, choosing between the two systems
-was an exercise in frustration for an otherwise non-partisan developer. It was
-also strange for the Pylons and BFG development communities to be in
-competition for the same set of users, given how similar the two frameworks
-were. So the Pylons and BFG teams began to work together to form a plan to
-merge. The features missing from BFG (notably <a class="reference internal" href="glossary.html#term-view-handler"><span class="xref std std-term">view handler</span></a> classes,
-flash messaging, and other minor missing bits), were added to provide
-familiarity to ex-Pylons users. The result is <span>Pyramid</span>.</p>
-<p>The Python web framework space is currently notoriously balkanized. We're truly
-hoping that the amalgamation of components in <span>Pyramid</span> will appeal to at
-least two currently very distinct sets of users: Pylons and BFG users. By
-unifying the best concepts from Pylons and BFG into a single codebase, and
-leaving the bad concepts from their ancestors behind, we'll be able to
-consolidate our efforts better, share more code, and promote our efforts as a
-unit rather than competing pointlessly. We hope to be able to shortcut the pack
-mentality which results in a <em>much larger</em> duplication of effort, represented
-by competing but incredibly similar applications and libraries, each built upon
-a specific low level stack that is incompatible with the other. We'll also
-shrink the choice of credible Python web frameworks down by at least one. We're
-also hoping to attract users from other communities (such as Zope's and
-TurboGears') by providing the features they require, while allowing enough
-flexibility to do things in a familiar fashion. Some overlap of functionality
-to achieve these goals is expected and unavoidable, at least if we aim to
-prevent pointless duplication at higher levels. If we've done our job well
-enough, the various audiences will be able to coexist and cooperate rather than
-firing at each other across some imaginary web framework DMZ.</p>
+<h2>ピラミッドは、それを行う方法の一つ以上を提供します<a class="headerlink" href="#pyramid-provides-more-than-one-way-to-do-it" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Pythonの普及した文化のキヤノンは、&amp;quot;TIOOWTDI &amp;quot;（&amp;quot;それを行う唯一の方法があります&amp;quot;、Perlの&amp;quot;TIMTOWTDI &amp;quot;への少し舌の頬の参照、&amp;quot;それを行うには複数の方法があります」）。</p>
+<p>：app： <cite>Pyramid`は、「TIMTOWTDI」システムです。たとえば、URLを：term： `view callable</cite>：via：term：` url dispatch`または：term： <cite>traversal`に解決する方法は複数あります。 ：term： `必須設定</cite>、：term： <cite>コンフィギュレーションデコレーション</cite>、：term： <cite>ZCML`（オプション：term：</cite> pyramid_zcml`）。これは、複数の異なる種類のパーシスタンスおよびテンプレートシステムで動作します。等々。しかし、これらの重複する方法の大半は理由と目的がないわけではありません。私たちは多数の聴衆を抱えており、WebフレームワークレベルのTIMTOWTDIは実際にはもっと潜在的で危険なセットPython Webコミュニティの上位レベルで重複しています。</p>
+<p>：app： <cite>Pyramid`は長年の人々のチームによって書かれたmod：</cite> repoze.bfg`のように人生を始めました。 「term： <cite>traversal`とterm：</cite> view lookup`の考え方はZopeから完全に盗まれました。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`によって提供される承認サブシステムは、Zopeの派生物です。アプリケーションをフォークすることなく*拡張することができるという考えは、Zopeの派生物でもあります。</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`の作者が、彼らが慣れ親しんだやり方で、顧客のためにパンとバターのCMS型システムを構築できるようにするには、これらの機能の実装が必要でした。 Zope自身のために保存されている他のシステムは、そのような機能を持っていませんでした.Zope自体は、時代の兆しを見せ始めていました。私たちは、初期の設計ミスの結果によって妨げられていました。 Zopeの文書化の欠如もまた回避するのが難しかった。 Zopeアプリケーションで作業するために賢い人材を雇うことは難しかった。なぜなら、1つの消耗品の場所で&amp;quot;すべて&amp;quot;を説明する包括的な文書セットがなく、大きすぎて正しく文書化するために自己矛盾していたからです。 mod： <a href="#id3"><span class="problematic" id="id4">`</span></a>repoze.bfg`が開発される前は、著者たちは明らかに法案に適合する他のフレームワークについて検討しました。しかし、Zope以外のフレームワークはありませんでした。そこで我々はmod： <a href="#id5"><span class="problematic" id="id6">`</span></a>repoze.bfg`のビルドに着手しました。</p>
+<p>しかし、私たちの研究の結果、* 1つの*フレームワークに必要な機能がすべて含まれていなかったにもかかわらず、既存のフレームワークは多く、優れたアイデアを持ち、時には非常に魅力的なアイデアを持っていたことが明らかになりました。特に、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>URL dispatch`はURLをコードにマッピングするためのより直接的なメカニズムです。</p>
+<p>だから、私たちのニーズに合ったZopeを除いて、フレームワークを見つけることはできませんでしたが、ZopeのアイデアをBFGに取り込んでいる間に、他のフレームワークで魅力的だった機能も模倣しました。 url dispatch`）。 BFGの最初の一般公開後、時間がたつにつれて、システム内の様々なZope-ismsにアレルギーのある人々をサポートする機能が追加されました。たとえば、term： <cite>必須の設定`と：term： ：term： `ZCML`のみを使用するのではなく、：term：</cite> interface`オブジェクトの必要な使用を排除することです。すぐにわれわれは非常に汎用的なシステムを持っていて、Zope以外のユーザーや元のZopeユーザーにアピールするようになっていたことが明らかになりました。</p>
+<p>この一般化の結果、BFGはPylons 1のフィーチャセットでそのフィーチャセットの90％を共有したことが明らかになり、ターゲット市場は非常に似ていました。彼らはとても似ていたので、2つのシステムの選択は、そうでなければ党派ではない開発者の不満の練習であった。また、PylonsとBFGの開発コミュニティが、2つのフレームワークがどれほど似ているかを考慮して、同じユーザーセットに対して競争することは奇妙でした。そこで、PylonsチームとBFGチームが協力して合併計画を立てました。 BFGには欠けている機能（特に、用語： <a href="#id1"><span class="problematic" id="id2">`</span></a>view handler`クラス、フラッシュメッセージング、その他のマイナーな欠落ビット）が追加され、Pylonsユーザーに親しみを与えました。結果はapp： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`です。</p>
+<p>PythonのWebフレームワークのスペースは、現在、有名なバルカン化されています。 app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`のコンポーネントが合併すれば、PylonsとBFGユーザーの少なくとも二つの現在非常に異なるユーザーにアピールすることを本当に望んでいます。 PylonsとBFGの最高のコンセプトを単一のコードベースに統合し、先祖からの悪いコンセプトを残しておくことで、無駄に競合することなく、より良い取り組みを強化し、より多くのコードを共有し、 。私たちは、競合他社と互換性のない特定の低レベルのスタック上に構築された、競合しているが信じられないほど類似しているアプリケーションやライブラリに代表される、<a href="#id3"><span class="problematic" id="id4">*</span></a>はるかに大きな*重複の努力をもたらすパック・メンタリティをショートカットすることを望んでいます。また、信頼できるPython Webフレームワークの選択を少なくとも1つ減らします。また、ZopeやTurboGearsのような他のコミュニティから必要な機能を提供することでユーザーを引きつけ、親しみやすい方法で柔軟に対応できるようにしたいと考えています。少なくとも、より高いレベルで無意味な複製を防ぐことを目指すならば、これらの目標を達成するための機能のオーバーラップが予想され、避けられません。私たちが十分に仕事をしていれば、さまざまな観客が、仮想WebフレームワークDMZのいくつかの間でお互いに発砲するのではなく、共存し協力することができます。</p>
 </div>
 <div class="section" id="pyramid-uses-a-zope-component-architecture-zca-registry">
-<h2>Pyramid Uses a Zope Component Architecture (&quot;ZCA&quot;) Registry<a class="headerlink" href="#pyramid-uses-a-zope-component-architecture-zca-registry" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><span>Pyramid</span> uses a <a class="reference internal" href="glossary.html#term-zope-component-architecture"><span class="xref std std-term">Zope Component Architecture</span></a> (ZCA) &quot;component
-registry&quot; as its <a class="reference internal" href="glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> under the hood.  This is a
-point of some contention.  <span>Pyramid</span> is of a <a class="reference internal" href="glossary.html#term-zope"><span class="xref std std-term">Zope</span></a> pedigree, so
-it was natural for its developers to use a ZCA registry at its inception.
-However, we understand that using a ZCA registry has issues and consequences,
-which we've attempted to address as best we can.  Here's an introspection
-about <span>Pyramid</span> use of a ZCA registry, and the trade-offs its usage
-involves.</p>
+<h2>ピラミッドはZopeコンポーネントアーキテクチャ（&amp;quot;ZCA &amp;quot;）レジストリを使用します<a class="headerlink" href="#pyramid-uses-a-zope-component-architecture-zca-registry" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <cite>Pyramid`は：term：</cite> Zope Component Architecture`（ZCA）&amp;quot;コンポーネントレジストリ&amp;quot;を：term： <cite>アプリケーションレジストリ`として使用します。これはいくつかの論争のポイントです。 ：app： `Pyramid`は：term：</cite> Zope`系統であるため、開発者がZCAレジストリを使用するのは当然です。しかし、ZCAレジストリの使用には問題と結果があります。私たちができる限り最善の方法で対応しようとしています。ここでは、app：PyramidのZCAレジストリの使用と、その使用法のトレードオフについてのイントロスペクションです。</p>
 <div class="section" id="problems">
-<h3>Problems<a class="headerlink" href="#problems" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The global API that may be used to access data in a ZCA component registry
-is not particularly pretty or intuitive, and sometimes it's just plain
-obtuse.  Likewise, the conceptual load on a casual source code reader of code
-that uses the ZCA global API is somewhat high.  Consider a ZCA neophyte
-reading the code that performs a typical &quot;unnamed utility&quot; lookup using the
-<a class="reference external" href="https://zopecomponent.readthedocs.io/en/latest/api/utility.html#zope.component.getUtility" title="(in zope.component v4.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">zope.component.getUtility()</span></code></a> global API:</p>
+<h3>問題<a class="headerlink" href="#problems" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ZCAコンポーネントレジストリ内のデータにアクセスするために使用される可能性のあるグローバルAPIは、あまり直感的ではありません。同様に、ZCAグローバルAPIを使用するコードの偶然のソースコードリーダーに対する概念的な負荷はいくぶん高いです。 ：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>zope.component.getUtility`グローバルAPIを使って典型的な&amp;quot;無名ユーティリティ&amp;quot;ルックアップを実行するコードを読んでいるZCA初心者を考えてみましょう：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.interfaces</span> <span class="kn">import</span> <span class="n">ISettings</span>
@@ -177,64 +95,26 @@ reading the code that performs a typical &quot;unnamed utility&quot; lookup usin
 <span class="n">settings</span> <span class="o">=</span> <span class="n">getUtility</span><span class="p">(</span><span class="n">ISettings</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>After this code runs, <code class="docutils literal notranslate"><span class="pre">settings</span></code> will be a Python dictionary.  But it's
-unlikely that any civilian would know that just by reading the code.  There
-are a number of comprehension issues with the bit of code above that are
-obvious.</p>
-<p>First, what's a &quot;utility&quot;?  Well, for the purposes of this discussion, and
-for the purpose of the code above, it's just not very important.  If you
-really want to know, you can read <a class="reference external" href="http://muthukadan.net/docs/zca.html#utility">this</a>.  However, still, readers
-of such code need to understand the concept in order to parse it.  This is
-problem number one.</p>
-<p>Second, what's this <code class="docutils literal notranslate"><span class="pre">ISettings</span></code> thing?  It's an <a class="reference internal" href="glossary.html#term-interface"><span class="xref std std-term">interface</span></a>.  Is that
-important here?  Not really, we're just using it as a key for some lookup
-based on its identity as a marker: it represents an object that has the
-dictionary API, but that's not very important in this context.  That's
-problem number two.</p>
-<p>Third of all, what does the <code class="docutils literal notranslate"><span class="pre">getUtility</span></code> function do?  It's performing a
-lookup for the <code class="docutils literal notranslate"><span class="pre">ISettings</span></code> &quot;utility&quot; that should return... well, a utility.
-Note how we've already built up a dependency on the understanding of an
-<a class="reference internal" href="glossary.html#term-interface"><span class="xref std std-term">interface</span></a> and the concept of &quot;utility&quot; to answer this question: a bad
-sign so far.  Note also that the answer is circular, a <em>really</em> bad sign.</p>
-<p>Fourth, where does <code class="docutils literal notranslate"><span class="pre">getUtility</span></code> look to get the data?  Well, the &quot;component
-registry&quot; of course.  What's a component registry?  Problem number four.</p>
-<p>Fifth, assuming you buy that there's some magical registry hanging around,
-where <em>is</em> this registry?  <em>Homina homina</em>... &quot;around&quot;?  That's sort of the
-best answer in this context (a more specific answer would require knowledge of
-internals).  Can there be more than one registry?  Yes.  So in <em>which</em> registry
-does it find the registration?  Well, the &quot;current&quot; registry of course.  In
-terms of <span>Pyramid</span>, the current registry is a thread local variable.
-Using an API that consults a thread local makes understanding how it works
-non-local.</p>
-<p>You've now bought in to the fact that there's a registry that is just hanging
-around.  But how does the registry get populated?  Why, via code that calls
-directives like <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code>.  In this particular case, however, the
-registration of <code class="docutils literal notranslate"><span class="pre">ISettings</span></code> is made by the framework itself under the hood:
-it's not present in any user configuration.  This is extremely hard to
-comprehend.  Problem number six.</p>
-<p>Clearly there's some amount of cognitive load here that needs to be borne by a
-reader of code that extends the <span>Pyramid</span> framework due to its use of the
-ZCA, even if they are already an expert Python programmer and an expert in the
-domain of web applications.  This is suboptimal.</p>
+<p>このコードが実行されると、 `` settings``はPython辞書になります。しかし、民間人はコードを読むだけでそれを知ることはまずありません。上記のコードには明らかな問題がいくつかあります。</p>
+<p>まず、&amp;quot;ユーティリティ&amp;quot;とは何ですか？さて、この議論の目的のために、そして上記のコードの目的のために、あまり重要ではない。あなたが本当に知りたいのであれば、 <a href="#id1"><span class="problematic" id="id2">`</span></a>this &lt;<a class="reference external" href="http://muthukadan.net/docs/zca.html#utility">http://muthukadan.net/docs/zca.html#utility</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_。しかし、そのようなコードの読者は、それを解析するためには概念を理解する必要があります。これは問題番号1です。</p>
+<p>次に、「ISETTINGS」のことは何ですか？それは：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>interface`です。それはここで重要ですか？実際には、マーカーとしてのIDに基づいたルックアップのキーとして単に使用しています。これは辞書APIを持つオブジェクトを表しますが、これはあまり重要ではありません。それは2番の問題です。</p>
+<p>第三に、 `` getUtility``関数は何をしますか？これは、 &amp;quot;ISettings&amp;quot; &amp;quot;utility &amp;quot;の検索を実行しています。これは、ユーティリティでもあります。この質問に答えるために：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>interface`と&amp;quot; utility &amp;quot;という概念の理解に依存していることに注意してください。また、答えは循環的で、実際には*悪い兆候であることにも注意してください。</p>
+<p>四番目に、 `` getUtility``はデータを取得するためにどこにありますか？まあ、&amp;quot;コンポーネントレジストリ&amp;quot;もちろん。コンポーネントレジストリとは何ですか？問題番号4。</p>
+<p>第五に、あなたが購入したと仮定すると、いくつかの魔法のレジストリがぶら下がっています。 * Homina homina * ... &amp;quot;around &amp;quot;？これは、この文脈で最良の答えのようなものです（より具体的な答えは、内部の知識を必要とします）。複数のレジストリがありますか？はい。したがって、レジストリで登録が見つかりますか？まあ、もちろん&amp;quot;現在の&amp;quot;レジストリ。 app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`に関して、現在のレジストリはスレッドローカル変数です。ローカルのスレッドに問い合わせるAPIを使用すると、非ローカルで動作する方法を理解できます。</p>
+<p>あなたは今、ちょうどぶらぶらしているレジストリがあるという事実を買いました。しかし、どのようにレジストリにデータが取り込まれますか？なぜ、 `` config.add_view``のような指令を呼び出すコードを介して。しかし、この特別なケースでは、 `` ISettings``の登録はフレームワーク自体によって行われます。これは、どのユーザ設定でも存在しません。これは非常に理解しにくいです。 6番の問題</p>
+<p>Pythonプログラマーの熟練者であるにもかかわらず、ZCAの使用のために：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`フレームワークを拡張したコードの読者が負担しなければならない認知負荷があることは明らかですWebアプリケーションのドメインこれは準最適です。</p>
 </div>
 <div class="section" id="ameliorations">
-<h3>Ameliorations<a class="headerlink" href="#ameliorations" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>First, the primary amelioration: <span>Pyramid</span> <em>does not expect application
-developers to understand ZCA concepts or any of its APIs</em>.  If an <em>application</em>
-developer needs to understand a ZCA concept or API during the creation of a
-<span>Pyramid</span> application, we've failed on some axis.</p>
-<p>Instead the framework hides the presence of the ZCA registry behind
-special-purpose API functions that <em>do</em> use ZCA APIs.  Take for example the
-<code class="docutils literal notranslate"><span class="pre">pyramid.security.authenticated_userid</span></code> function, which returns the userid
-present in the current request or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no userid is present in the
-current request.  The application developer calls it like so:</p>
+<h3>改善<a class="headerlink" href="#ameliorations" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>最初に、：app： <cite>Pyramid</cite> <a href="#id1"><span class="problematic" id="id2">*</span></a>は、アプリケーション開発者がZCAの概念やそのAPIを理解することを期待していません。 * app：Pyramidアプリケーションの作成中に*アプリケーション*開発者がZCAの概念やAPIを理解する必要がある場合、いくつかの軸で失敗しました。</p>
+<p>その代わりに、フレームワークは、ZCA APIを使用する専用API関数の背後にZCAレジストリの存在を隠します。たとえば、現在のリクエストに存在するuseridを返す `` pyramid.security.authenticated_userid``関数や、現在のリクエストにuseridが存在しない場合は `` None``を返します。アプリケーション開発者は次のように呼び出します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.security</span> <span class="kn">import</span> <span class="n">authenticated_userid</span>
 <span class="n">userid</span> <span class="o">=</span> <span class="n">authenticated_userid</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>They now have the current user id.</p>
-<p>Under its hood however, the implementation of <code class="docutils literal notranslate"><span class="pre">authenticated_userid</span></code> is this:</p>
+<p>彼らは現在、現在のユーザーIDを持っています。</p>
+<p>しかし、そのフードの下では、 `` authenticated_userid``の実装はこれです：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -256,51 +136,17 @@ current request.  The application developer calls it like so:</p>
     <span class="k">return</span> <span class="n">policy</span><span class="o">.</span><span class="n">authenticated_userid</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Using such wrappers, we strive to always hide the ZCA API from application
-developers.  Application developers should just never know about the ZCA API;
-they should call a Python function with some object germane to the domain as an
-argument, and it should return a result.  A corollary that follows is that any
-reader of an application that has been written using <span>Pyramid</span> needn't
-understand the ZCA API either.</p>
-<p>Hiding the ZCA API from application developers and code readers is a form of
-enhancing domain specificity.  No application developer wants to need to
-understand the small, detailed mechanics of how a web framework does its thing.
-People want to deal in concepts that are closer to the domain they're working
-in. For example, web developers want to know about <em>users</em>, not <em>utilities</em>.
-<span>Pyramid</span> uses the ZCA as an implementation detail, not as a feature which
-is exposed to end users.</p>
-<p>However, unlike application developers, <em>framework developers</em>, including
-people who want to override <span>Pyramid</span> functionality via preordained
-framework plugpoints like traversal or view lookup, <em>must</em> understand the ZCA
-registry API.</p>
-<p><span>Pyramid</span> framework developers were so concerned about conceptual load
-issues of the ZCA registry API that a <a class="reference external" href="https://github.com/repoze/repoze.component">replacement registry implementation</a> named <code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.component</span></code>
-was actually developed.  Though this package has a registry implementation
-which is fully functional and well-tested, and its API is much nicer than the
-ZCA registry API, work on it was largely abandoned, and it is not used in
-<span>Pyramid</span>.  We continued to use a ZCA registry within <span>Pyramid</span>
-because it ultimately proved a better fit.</p>
+<p>このようなラッパーを使用して、我々はアプリケーション開発者からZCA APIを常に隠すように努めています。アプリケーション開発者はZCA APIについて知る必要はありません。彼らは引数としてドメインにいくつかのオブジェクトを混ぜたPython関数を呼び出す必要があり、結果を返さなければなりません。以下の結論は、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`を使って書かれたアプリケーションの読者は、ZCA APIを理解する必要はないということです。</p>
+<p>アプリケーション開発者やコードリーダーからZCA APIを隠すことは、ドメイン特化を強化する一形態です。アプリケーション開発者は、Webフレームワークがどのように機能するかについての細かく詳細なメカニズムを理解する必要はありません。人々は彼らが働いているドメインに近い概念を扱いたいと思っています。例えば、Web開発者は*ユーティリティ*ではなく*ユーザー*について知りたいと思っています。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、エンドユーザに公開されている機能ではなく、実装の詳細としてZCAを使用します。</p>
+<p>しかし、アプリケーション開発者とは異なり、トラバーサルやビュールックアップのようなあらかじめ定義されたフレームワークプラグインを使ってapp： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`機能をオーバーライドしたい人を含め、<a href="#id3"><span class="problematic" id="id4">*</span></a>フレームワーク開発者*はZCAレジストリAPIを理解しなければなりません。</p>
+<p>：app： <cite>Pyramid`フレームワークの開発者は、ZCAレジストリAPIの概念的な負荷の問題を心配していました。 &lt;https://github.com/repoze/repoze.component&gt; `_ named：mod：</cite> repoze.component`が実際に開発されました。このパッケージには完全に機能し、十分にテストされたレジストリ実装がありますが、そのAPIはZCAレジストリAPIよりもはるかに優れていますが、その作業はほとんど放棄されています：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`では使用されていません。私たちは、最終的により良い適合が証明されたため、app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`内でZCAレジストリを使い続けました。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">We continued using ZCA registry rather than disusing it in favor of using
-the registry implementation in <code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.component</span></code> largely because the
-ZCA concept of interfaces provides for use of an interface hierarchy, which
-is useful in a lot of scenarios (such as context type inheritance).  Coming
-up with a marker type that was something like an interface that allowed for
-this functionality seemed like it was just reinventing the wheel.</p>
+<p class="last">ZCAのレジストリを使用することは、インターフェイスのZCAの概念が多くのシナリオで有用なインターフェイス階層の使用を提供しているため、mod： <a href="#id1"><span class="problematic" id="id2">`</span></a>repoze.component &amp;#39;でレジストリ実装を使用することに賛成ですコンテキストタイプの継承として）。この機能を可能にするインターフェイスのようなものだったマーカータイプが登場したのは、ホイールを再開発したようなものでした。</p>
 </div>
-<p>Making framework developers and extenders understand the ZCA registry API is a
-trade-off.  We (the <span>Pyramid</span> developers) like the features that the ZCA
-registry gives us, and we have long-ago borne the weight of understanding what
-it does and how it works.  The authors of <span>Pyramid</span> understand the ZCA
-deeply and can read code that uses it as easily as any other code.</p>
-<p>But we recognize that developers who might want to extend the framework are not
-as comfortable with the ZCA registry API as the original developers.  So for
-the purpose of being kind to third-party <span>Pyramid</span> framework developers,
-we've drawn some lines in the sand.</p>
-<p>In all core code, we've made use of ZCA global API functions, such as
-<code class="docutils literal notranslate"><span class="pre">zope.component.getUtility</span></code> and <code class="docutils literal notranslate"><span class="pre">zope.component.getAdapter</span></code>, the exception
-instead of the rule.  So instead of:</p>
+<p>フレームワークの開発者とエクステンダーにZCAレジストリAPIを理解させることはトレードオフです。我々（the：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`開発者）は、ZCAレジストリが私たちに与えてくれた機能を好きです。私たちは、これが何をし、どのように機能するのかを理解する重要性を昔から持っています。 app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`の著者は、ZCAを深く理解し、他のコードと同じように簡単に使用するコードを読むことができます。</p>
+<p>しかし、我々は、フレームワークを拡張したいかもしれない開発者は、元の開発者と同じようにZCAレジストリAPIに慣れていないことを認識しています。ですから、第三者に親切であることを目的に、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`フレームワーク開発者たちは、砂の中にいくつかの線を引いています。</p>
+<p>すべてのコアコードでは、 &amp;quot;zope.component.getUtility&amp;quot;や &amp;quot;zope.component.getAdapter&amp;quot;などのZCAグローバルAPI関数を使用しました。これはルールの代わりに例外です。だから代わりに：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.interfaces</span> <span class="kn">import</span> <span class="n">IAuthenticationPolicy</span>
@@ -308,7 +154,7 @@ instead of the rule.  So instead of:</p>
 <span class="n">policy</span> <span class="o">=</span> <span class="n">getUtility</span><span class="p">(</span><span class="n">IAuthenticationPolicy</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p><span>Pyramid</span> code will usually do:</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`コードは通常次のようになります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -318,187 +164,59 @@ instead of the rule.  So instead of:</p>
 <span class="n">policy</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">getUtility</span><span class="p">(</span><span class="n">IAuthenticationPolicy</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>While the latter is more verbose, it also arguably makes it more obvious what's
-going on.  All of the <span>Pyramid</span> core code uses this pattern rather than
-the ZCA global API.</p>
+<p>後者はより冗長ですが、それは間違いなく何が起こっているかをより明白にします。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`コアコードは、ZCAのグローバルAPIではなく、このパターンを使用します。</p>
 </div>
 <div class="section" id="rationale">
-<h3>Rationale<a class="headerlink" href="#rationale" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Here are the main rationales involved in the <span>Pyramid</span> decision to use
-the ZCA registry:</p>
+<h3>根拠<a class="headerlink" href="#rationale" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ZCAレジストリを使用するapp： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`の決定：</p>
 <ul class="simple">
-<li>History.  A nontrivial part of the answer to this question is &quot;history&quot;.
-Much of the design of <span>Pyramid</span> is stolen directly from <a class="reference internal" href="glossary.html#term-zope"><span class="xref std std-term">Zope</span></a>.
-Zope uses the ZCA registry to do a number of tricks.  <span>Pyramid</span> mimics
-these tricks, and, because the ZCA registry works well for that set of
-tricks, <span>Pyramid</span> uses it for the same purposes.  For example, the way
-that <span>Pyramid</span> maps a <a class="reference internal" href="glossary.html#term-request"><span class="xref std std-term">request</span></a> to a <a class="reference internal" href="glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> using
-<a class="reference internal" href="glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> is lifted almost entirely from Zope.  The ZCA registry
-plays an important role in the particulars of how this request to view
-mapping is done.</li>
-<li>Features.  The ZCA component registry essentially provides what can be
-considered something like a superdictionary, which allows for more complex
-lookups than retrieving a value based on a single key.  Some of this lookup
-capability is very useful for end users, such as being able to register a
-view that is only found when the context is some class of object, or when
-the context implements some <a class="reference internal" href="glossary.html#term-interface"><span class="xref std std-term">interface</span></a>.</li>
-<li>Singularity.  There's only one place where &quot;application configuration&quot; lives
-in a <span>Pyramid</span> application: in a component registry.  The component
-registry answers questions made to it by the framework at runtime based on
-the configuration of <em>an application</em>.  Note: &quot;an application&quot; is not the
-same as &quot;a process&quot;; multiple independently configured copies of the same
-<span>Pyramid</span> application are capable of running in the same process space.</li>
-<li>Composability.  A ZCA component registry can be populated imperatively, or
-there's an existing mechanism to populate a registry via the use of a
-configuration file (ZCML, via the optional <a class="reference internal" href="glossary.html#term-pyramid-zcml"><span class="xref std std-term">pyramid_zcml</span></a> package).
-We didn't need to write a frontend from scratch to make use of
-configuration-file-driven registry population.</li>
-<li>Pluggability.  Use of the ZCA registry allows for framework extensibility
-via a well-defined and widely understood plugin architecture.  As long as
-framework developers and extenders understand the ZCA registry, it's
-possible to extend <span>Pyramid</span> almost arbitrarily.  For example, it's
-relatively easy to build a directive that registers several views all at
-once, allowing app developers to use that directive as a &quot;macro&quot; in code
-that they write.  This is somewhat of a differentiating feature from other
-(non-Zope) frameworks.</li>
-<li>Testability.  Judicious use of the ZCA registry in framework code makes
-testing that code slightly easier.  Instead of using monkeypatching or other
-facilities to register mock objects for testing, we inject dependencies via
-ZCA registrations, then use lookups in the code to find our mock objects.</li>
-<li>Speed.  The ZCA registry is very fast for a specific set of complex lookup
-scenarios that <span>Pyramid</span> uses, having been optimized through the years
-for just these purposes.  The ZCA registry contains optional C code for
-this purpose which demonstrably has no (or very few) bugs.</li>
-<li>Ecosystem.  Many existing Zope packages can be used in <span>Pyramid</span> with
-few (or no) changes due to our use of the ZCA registry.</li>
+<li>歴史。この質問に対する答えの重要な部分は「歴史」です。 app： <cite>Pyramid`のデザインの多くは：term：</cite> Zope`から直接盗まれました。 Zopeは、ZCAレジストリを使用して多くのトリックを行います。 ：app： <cite>Pyramid`はこれらのトリックを模倣しています.ZCAレジストリはそのトリックセットでうまくいくので、：app：</cite> Pyramid`は同じ目的でそれを使います。例えば：app： <cite>Pyramid`はa：term：</cite> request`をa：term： <cite>view callable`にマップします：term：</cite> traversal`はZopeからほぼ完全に取り除かれます。 ZCAレジストリは、マッピングを表示するこの要求がどのように行われているかという点で重要な役割を果たします。</li>
+<li>特徴。 ZCAコンポーネントレジストリは、基本的にスーパーディクショナリのようなものとみなされるものを提供します。これにより、単一のキーに基づいて値を取得するよりも複雑なルックアップが可能になります。このルックアップ機能の中には、コンテキストがオブジェクトのクラスである場合にのみ見られるビューを登録することや、コンテキストがいくつか：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>interface`を実装している場合など、エンドユーザにとって非常に便利です。</li>
+<li>特異性。 &amp;quot;アプリケーション構成&amp;quot;がコンポーネントのレジストリにある：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションに存在する場所は1つだけです。コンポーネントレジストリは、アプリケーション*の設定に基づいて、実行時にフレームワークによって作成された質問に答えます。注：&amp;quot;アプリケーション&amp;quot;は&amp;quot;プロセス&amp;quot;と同じではありません。同じ：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`アプリケーションの複数の独立して設定されたコピーは、同じプロセス空間で実行することができます。</li>
+<li>合成性。 ZCAコンポーネントのレジストリには必須のものがあります。あるいは、設定ファイル（ZCML、オプション：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid_zcml`パッケージを使用）を使用してレジストリを読み込むための既存のメカニズムがあります。私たちは設定ファイル駆動のレジストリの人口を利用するために、フロントエンドを最初から書く必要はありませんでした。</li>
+<li>プラガブル性。 ZCAレジストリを使用することで、広く定義され広く理解されているプラ​​グインアーキテクチャによるフレームワーク拡張が可能になります。フレームワークの開発者とエクステンダーがZCAレジストリを理解している限り、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`をほぼ任意に拡張することができます。たとえば、複数のビューを一度に登録するディレクティブを作成するのは比較的簡単で、アプリケーション開発者はそのディレクティブを、自分が記述し​​たコードで&amp;quot;マクロ&amp;quot;として使うことができます。これは、他の（Zope以外の）フレームワークとは多少異なる点です。</li>
+<li>テスト容易性。フレームワークコードでZCAレジストリを慎重に使用することで、コードを少し簡単にテストできます。テストのためにモックオブジェクトを登録するためにMonkeypatchingや他の機能を使用する代わりに、ZCA登録を介して依存関係を注入し、モックオブジェクトを見つけるためにコード内のルックアップを使用します。</li>
+<li>速度。 ZCAレジストリは、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`が使用する複合ルックアップシナリオの特定のセットに対して非常に高速です。これらの目的のために何年もの間最適化されています。 ZCAレジストリには、この目的のためのオプションのCコードが含まれています。このコードでは、明らかにバグはありません（またはごくわずかです）。</li>
+<li>生態系。多くの既存のZopeパッケージは、ZCAレジストリを使用しているため、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`でほとんど変更を加えずに使用できます。</li>
 </ul>
 </div>
 <div class="section" id="conclusion">
-<h3>Conclusion<a class="headerlink" href="#conclusion" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If you only <em>develop applications</em> using <span>Pyramid</span>, there's not much to
-complain about here.  You just should never need to understand the ZCA registry
-API; use documented <span>Pyramid</span> APIs instead.  However, you may be an
-application developer who doesn't read API documentation. Instead you
-read the raw source code, and because you haven't read the API documentation,
-you don't know what functions, classes, and methods even <em>form</em> the
-<span>Pyramid</span> API.  As a result, you've now written code that uses internals,
-and you've painted yourself into a conceptual corner, needing to wrestle with
-some ZCA-using implementation detail.  If this is you, it's extremely hard to
-have a lot of sympathy for you.  You'll either need to get familiar with how
-we're using the ZCA registry or you'll need to use only the documented APIs;
-that's why we document them as APIs.</p>
-<p>If you <em>extend</em> or <em>develop</em> <span>Pyramid</span> (create new directives, use some
-of the more obscure hooks as described in <a class="reference internal" href="narr/hooks.html#hooks-chapter"><span class="std std-ref">(機械翻訳) フックの使用</span></a>, or work on
-the <span>Pyramid</span> core code), you will be faced with needing to understand
-at least some ZCA concepts.  In some places it's used unabashedly, and will
-be forever.  We know it's quirky, but it's also useful and fundamentally
-understandable if you take the time to do some reading about it.</p>
+<h3>結論<a class="headerlink" href="#conclusion" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <cite>Pyramid`を使って*アプリケーションを開発するだけの場合は、ここで不平を言うことはあまりありません。 ZCAレジストリAPIを理解する必要はありません。 documented：app： `Pyramid</cite> APIを代わりに使用してください。しかし、APIのドキュメントを読まないアプリケーション開発者がいるかもしれません。代わりに未加工のソースコードを読んだり、APIドキュメントを読まなかったので、関数、クラス、メソッドが*：* form：the：app： <cite>Pyramid</cite> APIであっても分かりません。その結果、内部を使用するコードを作成し、概念のコーナーに自分自身を描き、実装の詳細を使用したZCAに取り組む必要がありました。これがあなたなら、あなたのために多くの同情を持つことは非常に難しいです。 ZCAレジストリをどのように使用しているかに精通している必要があるか、またはドキュメント化されたAPIのみを使用する必要があります。そのため、APIとして文書化しています。</p>
+<p>：ref： <cite>hooks_chapter`で説明されているように、より曖昧なフックのいくつかを使用するか、：app：</cite> Pyramid`コアコードで作業します）あなたは、少なくともいくつかのZCAの概念を理解する必要があることに直面するでしょう。いくつかの場所でそれは恥ずかしがりに使用され、永遠になります。奇妙なことはわかっていますが、それについての読書をする時間があれば、それは有用で基本的に理解できます。</p>
 </div>
 </div>
 <div class="section" id="pyramid-encourages-use-of-zcml">
-<span id="zcml-encouragement"></span><h2>Pyramid &quot;Encourages Use of ZCML&quot;<a class="headerlink" href="#pyramid-encourages-use-of-zcml" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference internal" href="glossary.html#term-zcml"><span class="xref std std-term">ZCML</span></a> is a configuration language that can be used to configure the
-<a class="reference internal" href="glossary.html#term-zope-component-architecture"><span class="xref std std-term">Zope Component Architecture</span></a> registry that <span>Pyramid</span> uses for
-application configuration.  Often people claim that Pyramid &quot;needs ZCML&quot;.</p>
-<p>It doesn't.  In <span>Pyramid</span> 1.0, ZCML doesn't ship as part of the core;
-instead it ships in the <a class="reference internal" href="glossary.html#term-pyramid-zcml"><span class="xref std std-term">pyramid_zcml</span></a> add-on package, which is
-completely optional.  No ZCML is required at all to use <span>Pyramid</span>, nor
-any other sort of frameworky declarative frontend to application
-configuration.</p>
+<span id="zcml-encouragement"></span><h2>Pyramid &amp;quot;ZCMLの使用を奨励<a class="headerlink" href="#pyramid-encourages-use-of-zcml" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：term： <cite>ZCML`は：term：</cite> Zope Component Architecture`レジストリを設定するために使用できる設定言語です：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`がアプリケーション設定に使用します。ピラミッドには &amp;quot;ZCMLが必要&amp;quot;と主張する人が多いです。</p>
+<p>それはしません。 In：app： <cite>Pyramid</cite> 1.0、ZCMLはコアの一部としては出荷されません。代わりに：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid_zcml`アドオンパッケージに含まれています。これは完全にオプションです。 app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`やその他のフレームワークの宣言的なフロントエンドからアプリケーションを構成するために、ZCMLは必要ありません。</p>
 </div>
 <div class="section" id="pyramid-does-traversal-and-i-don-t-like-traversal">
-<h2>Pyramid Does Traversal, and I Don't Like Traversal<a class="headerlink" href="#pyramid-does-traversal-and-i-don-t-like-traversal" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In <span>Pyramid</span>, <a class="reference internal" href="glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> is the act of resolving a URL path to a
-<a class="reference internal" href="glossary.html#term-resource"><span class="xref std std-term">resource</span></a> object in a resource tree.  Some people are uncomfortable with
-this notion, and believe it is wrong. Thankfully if you use <span>Pyramid</span> and
-you don't want to model your application in terms of a resource tree, you
-needn't use it at all. Instead use <a class="reference internal" href="glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> to map URL paths to
-views.</p>
-<p>The idea that some folks believe traversal is unilaterally wrong is
-understandable.  The people who believe it is wrong almost invariably have
-all of their data in a relational database.  Relational databases aren't
-naturally hierarchical, so traversing one like a tree is not possible.</p>
-<p>However, folks who deem traversal unilaterally wrong are neglecting to take
-into account that many persistence mechanisms <em>are</em> hierarchical.  Examples
-include a filesystem, an LDAP database, a <a class="reference internal" href="glossary.html#term-zodb"><span class="xref std std-term">ZODB</span></a> (or another type of
-graph) database, an XML document, and the Python module namespace.  It is
-often convenient to model the frontend to a hierarchical data store as a
-graph, using traversal to apply views to objects that either <em>are</em> the
-resources in the tree being traversed (such as in the case of ZODB) or at
-least ones which stand in for them (such as in the case of wrappers for files
-from the filesystem).</p>
-<p>Also, many website structures are naturally hierarchical, even if the data
-which drives them isn't.  For example, newspaper websites are often extremely
-hierarchical: sections within sections within sections, ad infinitum.  If you
-want your URLs to indicate this structure, and the structure is indefinite
-(the number of nested sections can be &quot;N&quot; instead of some fixed number), a
-resource tree is an excellent way to model this, even if the backend is a
-relational database.  In this situation, the resource tree is just a site
-structure.</p>
-<p>Traversal also offers better composability of applications than URL dispatch,
-because it doesn't rely on a fixed ordering of URL matching.  You can compose
-a set of disparate functionality (and add to it later) around a mapping of
-view to resource more predictably than trying to get the right ordering of
-URL pattern matching.</p>
-<p>But the point is ultimately moot.  If you don't want to use traversal, you
-needn't.  Use URL dispatch instead.</p>
+<h2>ピラミッドはトラバーサルを行い、トラバースを好まない<a class="headerlink" href="#pyramid-does-traversal-and-i-don-t-like-traversal" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>In：app： <cite>Pyramid</cite>、：term：` traversal`は、リソースツリーの：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>resource`オブジェクトへのURLパスを解決する行為です。一部の人々はこの概念に不快であり、間違っていると信じています。ありがたいことに：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`を使用していて、リソースツリーの観点からアプリケーションをモデル化したくない場合は、まったく使用する必要はありません。代わりに：term： <a href="#id5"><span class="problematic" id="id6">`</span></a>URL dispatch`を使用して、URLパスをビューにマップします。</p>
+<p>一部の人々がトラバーサルが一方的に間違っていると考える考えは理解できる。間違っていると信じている人々は、ほとんどすべてのデータをリレーショナルデータベースに入れています。リレーショナルデータベースは当然階層的ではないので、ツリーのようなものを横断することはできません。</p>
+<p>しかし、トラバーサルを一方的に間違っているとみなす人々は、多くのパーシステンスメカニズム*が階層的であることを考慮に入れていません。例には、ファイルシステム、LDAPデータベース、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>ZODB`（または他のタイプのグラフ）データベース、XMLドキュメント、Pythonモジュールの名前空間などがあります。フロントエンドを階層的なデータストアにモデル化してグラフとしてモデル化すると便利です。トラバーサルを使用して、ツリー内のリソース（たとえばZODBの場合）や、 （ファイルシステムからのファイルのためのラッパーの場合のように）それらのために立ち入ってください。</p>
+<p>また、多くのウェブサイト構造は、それらを駆動するデータがそうでなくても、自然に階層的です。例えば、新聞のウェブサイトは、しばしば非常に階層的である：セクション内のセクション内のセクション、無限にある。 URLがこの構造を示し、構造が不定である場合（ネストされたセクションの数は固定数ではなく&amp;quot;N &amp;quot;となります）、リソースツリーはバックエンドリレーショナルデータベースです。この状況では、リソースツリーは単なるサイト構造に過ぎません。</p>
+<p>トラバーサルは、URLマッチングの固定された順序付けに依存しないため、URLディスパッチよりもアプリケーションの合成性が優れています。 URLパターンマッチングの正しい順序付けをしようとするよりも、予想以上にリソースへのビューのマッピングを中心に、異種の機能を組み立てることができます（後で追加します）。</p>
+<p>しかし、そのポイントは最終的には間違いです。トラバースを使用したくない場合は、そうする必要はありません。代わりにURLディスパッチを使用してください。</p>
 </div>
 <div class="section" id="pyramid-does-url-dispatch-and-i-don-t-like-url-dispatch">
-<h2>Pyramid Does URL Dispatch, and I Don't Like URL Dispatch<a class="headerlink" href="#pyramid-does-url-dispatch-and-i-don-t-like-url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In <span>Pyramid</span>, <a class="reference internal" href="glossary.html#term-url-dispatch"><span class="xref std std-term">url dispatch</span></a> is the act of resolving a URL path to
-a <a class="reference internal" href="glossary.html#term-view"><span class="xref std std-term">view</span></a> callable by performing pattern matching against some set of
-ordered route definitions.  The route definitions are examined in order: the
-first pattern which matches is used to associate the URL with a view
-callable.</p>
-<p>Some people are uncomfortable with this notion, and believe it is wrong.
-These are usually people who are steeped deeply in <a class="reference internal" href="glossary.html#term-zope"><span class="xref std std-term">Zope</span></a>.  Zope does
-not provide any mechanism except <a class="reference internal" href="glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> to map code to URLs.  This
-is mainly because Zope effectively requires use of <a class="reference internal" href="glossary.html#term-zodb"><span class="xref std std-term">ZODB</span></a>, which is a
-hierarchical object store.  Zope also supports relational databases, but
-typically the code that calls into the database lives somewhere in the ZODB
-object graph (or at least is a <a class="reference internal" href="glossary.html#term-view"><span class="xref std std-term">view</span></a> related to a node in the object
-graph), and traversal is required to reach this code.</p>
-<p>I'll argue that URL dispatch is ultimately useful, even if you want to use
-traversal as well.  You can actually <em>combine</em> URL dispatch and traversal in
-<span>Pyramid</span> (see <a class="reference internal" href="narr/hybrid.html#hybrid-chapter"><span class="std std-ref">(機械翻訳) トラバーサルとURLディスパッチの組み合わせ</span></a>).  One example of such a usage: if
-you want to emulate something like Zope 2's &quot;Zope Management Interface&quot; UI on
-top of your object graph (or any administrative interface), you can register a
-route like <code class="docutils literal notranslate"><span class="pre">config.add_route('manage',</span> <span class="pre">'/manage/*traverse')</span></code> and then
-associate &quot;management&quot; views in your code by using the <code class="docutils literal notranslate"><span class="pre">route_name</span></code> argument
-to a <code class="docutils literal notranslate"><span class="pre">view</span></code> configuration, e.g., <code class="docutils literal notranslate"><span class="pre">config.add_view('.some.callable',</span>
-<span class="pre">context=&quot;.some.Resource&quot;,</span> <span class="pre">route_name='manage')</span></code>.  If you wire things up this
-way, someone then walks up to, for example, <code class="docutils literal notranslate"><span class="pre">/manage/ob1/ob2</span></code>, they might be
-presented with a management interface, but walking up to <code class="docutils literal notranslate"><span class="pre">/ob1/ob2</span></code> would
-present them with the default object view.  There are other tricks you can pull
-in these hybrid configurations if you're clever (and maybe masochistic) too.</p>
-<p>Also, if you are a URL dispatch hater, if you should ever be asked to write an
-application that must use some legacy relational database structure, you might
-find that using URL dispatch comes in handy for one-off associations between
-views and URL paths.  Sometimes it's just pointless to add a node to the object
-graph that effectively represents the entry point for some bit of code.  You
-can just use a route and be done with it.  If a route matches, a view
-associated with the route will be called. If no route matches, <span>Pyramid</span>
-falls back to using traversal.</p>
-<p>But the point is ultimately moot.  If you use <span>Pyramid</span>, and you really
-don't want to use URL dispatch, you needn't use it at all.  Instead, use
-<a class="reference internal" href="glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> exclusively to map URL paths to views, just like you do in
-<a class="reference internal" href="glossary.html#term-zope"><span class="xref std std-term">Zope</span></a>.</p>
+<h2>ピラミッドはURLディスパッチを行いますが、私はURLディスパッチが嫌いです<a class="headerlink" href="#pyramid-does-url-dispatch-and-i-don-t-like-url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>in：app： <cite>Pyramid</cite>、：term：` url dispatch`は、URLパスを：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>view`に解決する行為です。ルート定義は順番に調べられます。一致する最初のパターンは、URLをビュー呼び出し可能に関連付けるために使用されます。</p>
+<p>一部の人々はこの概念に不快であり、間違っていると信じています。これらは通常、「Zope」という言葉に深く浸透している人々です。 Zopeは、term：コードをURLにマップする <cite>traversal`以外のメカニズムを提供していません。これは主に、Zopeが階層オブジェクトストアである：term： `ZODB`の使用を事実上必要とするためです。 Zopeはリレーショナルデータベースもサポートしていますが、通常、データベースに呼び出されるコードはZODBオブジェクトグラフのどこかに存在します（少なくとも、オブジェクトグラフのノードに関連する：term： `view</cite>）、到達するためにはトラバーサルが必要ですこのコード。</p>
+<p>私は、たとえあなたがトラバーサルを使用したいとしても、URLディスパッチが最終的には有用であると主張します。実際には、app： <cite>Pyramid`（参照：ref：</cite> hybrid_chapter`）に* URLディスパッチとトラバースを組み合わせることができます。そのような使い方の一例：オブジェクトグラフ（または任意の管理インターフェース）の上にZope 2の&amp;quot;Zope Management Interface &amp;quot; UIのようなものをエミュレートしたい場合は、 `` config.add_route（ &amp;#39; `` manage`、 `` / manage / * traverse &amp;#39;``） `` `` view``の設定に `` route_name``引数を使ってコード内の&amp;quot;管理&amp;quot;ビューを関連づけます。例えば `` config.add_view （ &amp;#39;.some.callable&amp;#39;、context = &amp;quot;。some.Resource &amp;quot;、route_name = &amp;#39;manage&amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>です。このように物事を結ぶと、誰かが `` / manage / ob1 / ob2` &amp;#39;のように歩いていくと、管理インターフェースが表示されるかもしれませんが、 `` / ob1 / ob2``まで歩いていくとデフォルトのオブジェクトビューを表示します。あなたが賢い（そして恐らくmasochisticな）場合でも、これらのハイブリッド構成で引き出すことができる他のトリックがあります。</p>
+<p>また、URLディスパッチ機能を備えている場合、従来のリレーショナルデータベース構造を使用する必要があるアプリケーションを作成する必要がある場合は、URLディスパッチを使用すると、ビューとURLパスの間の1回限りの関連付けが便利になることがあります。場合によっては、オブジェクトグラフにノードを追加するだけで、コードの一部のエントリポイントを効果的に表現することができます。あなたは単にルートを使用して、それを使って完了することができます。ルートが一致すると、そのルートに関連付けられたビューが呼び出されます。一致するルートがない場合、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はトラバーサルを使用します。</p>
+<p>しかし、そのポイントは最終的には間違いです。 ：app： <cite>Pyramid`を使用していて、本当にURLディスパッチを使用したくない場合は、まったく使用する必要はありません。代わりに：term： `traversal`を使用して：term：</cite> Zope`のようにURLパスをビューにマップするだけです。</p>
 </div>
 <div class="section" id="pyramid-views-do-not-accept-arbitrary-keyword-arguments">
-<h2>Pyramid Views Do Not Accept Arbitrary Keyword Arguments<a class="headerlink" href="#pyramid-views-do-not-accept-arbitrary-keyword-arguments" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Many web frameworks (Zope, TurboGears, Pylons 1.X, Django) allow for their
-variant of a <a class="reference internal" href="glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> to accept arbitrary keyword or positional
-arguments, which are filled in using values present in the <code class="docutils literal notranslate"><span class="pre">request.POST</span></code>,
-<code class="docutils literal notranslate"><span class="pre">request.GET</span></code>, or route match dictionaries.  For example, a Django view will
-accept positional arguments which match information in an associated &quot;urlconf&quot;
-such as <code class="docutils literal notranslate"><span class="pre">r'^polls/(?P&lt;poll_id&gt;\d+)/$</span></code>:</p>
+<h2>ピラミッドビューは任意のキーワード引数を受け入れない<a class="headerlink" href="#pyramid-views-do-not-accept-arbitrary-keyword-arguments" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>多くのWebフレームワーク（Zope、TurboGears、Pylons 1.X、Django）は：term： <cite>view callable`のバリエーションが任意のキーワードや位置引数を受け入れることを許します。これらの引数は</cite> <cite>request.POST `</cite>、 `` request.GET``、またはルートマッチ辞書を使用します。例えば、Djangoのビューは `` rl ^ polls /（？P）のような関連する &amp;quot;urlconf&amp;quot;内の情報と一致する位置引数を受け取ります。 &lt;poll_id&gt; d +）/ $ <a href="#id1"><span class="problematic" id="id2">``</span></a>：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">aview</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">poll_id</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">poll_id</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Zope likewise allows you to add arbitrary keyword and positional arguments to
-any method of a resource object found via traversal:</p>
+<p>Zopeは同様に、トラバーサルによって見つかったリソースオブジェクトのメソッドに任意のキーワードと位置引数を追加することができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -510,468 +228,166 @@ any method of a resource object found via traversal:</p>
          <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> </span><span class="si">%c</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>When this method is called as the result of being the published callable, the
-Zope request object's GET and POST namespaces are searched for keys which
-match the names of the positional and keyword arguments in the request, and
-the method is called (if possible) with its argument list filled with values
-mentioned therein.  TurboGears and Pylons 1.X operate similarly.</p>
-<p>Out of the box, <span>Pyramid</span> is configured to have none of these features. By
-default <span>Pyramid</span> view callables always accept only <code class="docutils literal notranslate"><span class="pre">request</span></code> and no
-other arguments. The rationale is, this argument specification matching when
-done aggressively can be costly, and <span>Pyramid</span> has performance as one of
-its main goals. Therefore we've decided to make people, by default, obtain
-information by interrogating the request object within the view callable body
-instead of providing magic to do unpacking into the view argument list.</p>
-<p>However, as of <span>Pyramid</span> 1.0a9, user code can influence the way view
-callables are expected to be called, making it possible to compose a system
-out of view callables which are called with arbitrary arguments.  See
-<a class="reference internal" href="narr/hooks.html#using-a-view-mapper"><span class="std std-ref">ビューマッパーの使用</span></a>.</p>
+<p>公開された呼び出し可能オブジェクトの結果としてこのメ​​ソッドが呼び出されると、要求内の位置引数とキーワード引数の名前と一致するキーがZope要求オブジェクトのGETとPOSTの名前空間で検索され、メソッドは（可能であれば）呼び出されます引数リストには、そこに記載されている値が入っています。 TurboGearsとPylons 1.Xも同様に動作します。</p>
+<p>すぐに：app： <cite>Pyramid`はこれらの機能を持たないように設定されています。デフォルトでは、app： `Pyramid`ビューのcallablesは常に</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>request``だけを受け取り、他の引数は受け付けません。その根拠は、積極的に行われた場合、この引数指定はコストがかかる可能性があり、app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`はその主要な目的の1つとしてパフォーマンスを持ちます。したがって、デフォルトでは、view引数リストに展開するための魔法を提供するのではなく、ビューの呼び出し可能な本体内のリクエストオブジェクトを調べることで情報を取得することにしました。</p>
+<p>しかし、：app： <cite>Pyramid</cite> 1.0a9のように、ユーザコードは、ビュー呼び出し可能関数が呼び出されると予想される方法に影響を与え、任意の引数で呼び出される呼び出し外のシステムを構成することができます。参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>using_a_view_mapper`を参照してください。</p>
 </div>
 <div class="section" id="pyramid-provides-too-few-rails">
-<h2>Pyramid Provides Too Few &quot;Rails&quot;<a class="headerlink" href="#pyramid-provides-too-few-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>By design, <span>Pyramid</span> is not a particularly opinionated web framework.
-It has a relatively parsimonious feature set.  It contains no built in ORM
-nor any particular database bindings.  It contains no form generation
-framework.  It has no administrative web user interface.  It has no built in
-text indexing.  It does not dictate how you arrange your code.</p>
-<p>Such opinionated functionality exists in applications and frameworks built
-<em>on top</em> of <span>Pyramid</span>.  It's intended that higher-level systems emerge
-built using <span>Pyramid</span> as a base.</p>
+<h2>Pyramidはあまりにも少ない &amp;quot;Rails <a class="headerlink" href="#pyramid-provides-too-few-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>設計上、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、特に有名なWebフレームワークではありません。これは、比較的簡潔な機能セットを持っています。 ORMや特定のデータベースバインディングは組み込まれていません。フォーム生成フレームワークは含まれていません。管理Webユーザーインターフェイスはありません。テキスト索引作成機能は組み込まれていません。コードの整理方法は決まっていません。</p>
+<p>このような批判的な機能は、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`の上に*作られたアプリケーションとフレームワークに存在します。上位のシステムは、：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`をベースに構築されています。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="#apps-are-extensible"><span class="std std-ref">Pyramid Applications Are Extensible; I Don't Believe in Application Extensibility</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>apps_are_extensible`も参照してください。</p>
 </div>
 </div>
 <div class="section" id="pyramid-provides-too-many-rails">
-<h2>Pyramid Provides Too Many &quot;Rails&quot;<a class="headerlink" href="#pyramid-provides-too-many-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><span>Pyramid</span> provides some features that other web frameworks do not.
-These are features meant for use cases that might not make sense to you if
-you're building a simple bespoke web application:</p>
+<h2>Pyramidは多すぎる&amp;quot;Rails <a class="headerlink" href="#pyramid-provides-too-many-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、他のWebフレームワークが提供していない機能を提供します。これらは、単純な注文Webアプリケーションを構築している場合には意味をなさない可能性のあるユースケース向けの機能です。</p>
 <ul class="simple">
-<li>An optional way to map URLs to code using <a class="reference internal" href="glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> which implies a
-walk of a <a class="reference internal" href="glossary.html#term-resource-tree"><span class="xref std std-term">resource tree</span></a>.</li>
-<li>The ability to aggregate Pyramid application configuration from multiple
-sources using <a class="reference internal" href="api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a>.</li>
-<li>View and subscriber registrations made using <a class="reference internal" href="glossary.html#term-interface"><span class="xref std std-term">interface</span></a> objects
-instead of class objects (e.g., <a class="reference internal" href="narr/traversal.html#using-resource-interfaces"><span class="std std-ref">ビュー構成でのリソースインタフェースの使用</span></a>).</li>
-<li>A declarative <a class="reference internal" href="glossary.html#term-authorization"><span class="xref std std-term">authorization</span></a> system.</li>
-<li>Multiple separate I18N <a class="reference internal" href="glossary.html#term-translation-string"><span class="xref std std-term">translation string</span></a> factories, each of which
-can name its own domain.</li>
+<li><cite>term：</cite> traversal`を使ってURLをコードにマップするオプションの方法です。これはa：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>resource tree`の散歩を意味します。</li>
+<li>：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.include`を使用して複数のソースからPyramidアプリケーション設定を集める機能。</li>
+<li>クラスオブジェクトの代わりに：term： <cite>interface`オブジェクトを使用して作成されたビューとサブスクライバ登録（例：：ref：</cite> use_resource_interfaces`）</li>
+<li>宣言的な：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>authorization`システムです。</li>
+<li>複数の独立したI18N：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>translation string`ファクトリ。それぞれが独自のドメインを指定できます。</li>
 </ul>
-<p>These features are important to the authors of <span>Pyramid</span>.  The
-<span>Pyramid</span> authors are often commissioned to build CMS-style
-applications.  Such applications are often frameworky because they have more
-than one deployment.  Each deployment requires a slightly different
-composition of sub-applications, and the framework and sub-applications often
-need to be <em>extensible</em>.  Because the application has more than one
-deployment, pluggability and extensibility is important, as maintaining
-multiple forks of the application, one per deployment, is extremely
-undesirable.  Because it's easier to extend a system that uses
-<a class="reference internal" href="glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> from the outside than it is to do the same in a system that
-uses <a class="reference internal" href="glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>, each deployment uses a <a class="reference internal" href="glossary.html#term-resource-tree"><span class="xref std std-term">resource tree</span></a>
-composed of a persistent tree of domain model objects, and uses
-<a class="reference internal" href="glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> to map <a class="reference internal" href="glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> code to resources in the tree.
-The resource tree contains very granular security declarations, as resources
-are owned and accessible by different sets of users.  Interfaces are used to
-make unit testing and implementation substitutability easier.</p>
-<p>In a bespoke web application, usually there's a single canonical deployment,
-and therefore no possibility of multiple code forks.  Extensibility is not
-required; the code is just changed in place.  Security requirements are often
-less granular.  Using the features listed above will often be overkill for such
-an application.</p>
-<p>If you don't like these features, it doesn't mean you can't or shouldn't use
-<span>Pyramid</span>.  They are all optional, and a lot of time has been spent making
-sure you don't need to know about them up front.  You can build &quot;Pylons 1.X
-style&quot; applications using <span>Pyramid</span> that are purely bespoke by ignoring
-the features above.  You may find these features handy later after building a
-bespoke web application that suddenly becomes popular and requires
-extensibility because it must be deployed in multiple locations.</p>
+<p>これらの機能は、app： <cite>Pyramid`の作成者にとって重要です。 ：app： `Pyramid`の著者は、しばしばCMSスタイルのアプリケーションを構築するよう依頼されます。そのようなアプリケーションは、複数のデプロイメントを持つため、しばしば枠組み的です。各デプロイメントでは、サブアプリケーションの構成が若干異なりますが、フレームワークとサブアプリケーションはしばしば拡張可能である必要があります*。アプリケーションには複数のデプロイメントが存在するため、アプリケーションごとに1つずつ複数のフォークを維持することは非常に望ましくないため、プラグインと拡張性は重要です。 ：term： `traversal`を使用するシステムを、term：</cite> URL dispatch`を使用するシステムで同じことをするよりも簡単に拡張できるので、各デプロイメントは：term： <cite>resource tree`を使用しますドメインモデルオブジェクトの永続的なツリーのうちの1つを使用し、term： `traversal`を使用してツリー内のリソースにmap：term：</cite> call callable`コードをマッピングします。リソースツリーには、リソースがさまざまなユーザーセットによって所有され、アクセス可能なため、非常にきめ細かなセキュリティ宣言が含まれています。インタフェースはユニットテストと実装の代用性を容易にするために使用されます。</p>
+<p>カスタムWebアプリケーションでは、通常、単一の標準的なデプロイメントが存在するため、複数のコードフォークの可能性はありません。拡張性は必要ありません。コードはちょうどその場所で変更されます。セキュリティ要件は、しばしばそれほど細かくはありません。上記の機能を使用すると、そのようなアプリケーションでは過度の負荷となることがよくあります。</p>
+<p>これらの機能が気に入らなければ、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`を使うことはできません。彼らはすべてオプションで、多くの時間があなたの前で彼らについて知る必要がないことを確認するのに費やされてきました。上記の機能を無視することによって純粋に別注されている：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`を使って&amp;quot; Pylons 1.X style &amp;quot;アプリケーションをビルドすることができます。これらの機能は、後で普及し、複数の場所に展開する必要があるため、拡張性が必要な別注のWebアプリケーションを作成した後に便利です。</p>
 </div>
 <div class="section" id="pyramid-is-too-big">
-<h2>Pyramid Is Too Big<a class="headerlink" href="#pyramid-is-too-big" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>&quot;The <span>Pyramid</span> compressed tarball is larger than 2MB.  It must be enormous!&quot;</p>
-<p>No.  We just ship it with docs, test code, and scaffolding.  Here's a breakdown
-of what's included in subdirectories of the package tree:</p>
-<p>docs/</p>
+<h2>ピラミッドが大きすぎます<a class="headerlink" href="#pyramid-is-too-big" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>&amp;quot;The：app：` Pyramid`圧縮されたtarballは2MB以上です。</p>
+<p>いいえ、ドキュメント、テストコード、スキャフォールディングで出荷します。パッケージツリーのサブディレクトリに含まれるものの内訳を次に示します。</p>
+<p>docs /</p>
 <blockquote>
 <div>3.6MB</div></blockquote>
-<p>pyramid/tests/</p>
+<p>ピラミッド/テスト/</p>
 <blockquote>
 <div>1.3MB</div></blockquote>
-<p>pyramid/scaffolds/</p>
+<p>ピラミッド/足場/</p>
 <blockquote>
 <div>133KB</div></blockquote>
-<p>pyramid/ (except for <code class="docutils literal notranslate"><span class="pre">pyramid/tests</span></code> and <code class="docutils literal notranslate"><span class="pre">pyramid/scaffolds</span></code>)</p>
+<p>ピラミッド/（「ピラミッド/テスト」と「ピラミッド/スキャフォールド」を除く）</p>
 <blockquote>
 <div>812KB</div></blockquote>
-<p>Of the approximately 34K lines of Python code in the package, the code
-that actually has a chance of executing during normal operation, excluding
-tests and scaffolding Python files, accounts for approximately 10K lines.</p>
+<p>パッケージ内の約34K行のPythonコードのうち、テストやPythonファイルの足場を除いて、通常の動作中に実際に実行する可能性のあるコードは、約10K行を占めます。</p>
 </div>
 <div class="section" id="pyramid-has-too-many-dependencies">
-<h2>Pyramid Has Too Many Dependencies<a class="headerlink" href="#pyramid-has-too-many-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Over time, we've made lots of progress on reducing the number of packaging
-dependencies Pyramid has had.  Pyramid 1.2 had 15 of them.  Pyramid 1.3 and 1.4
-had 12 of them.  The current release as of this writing, Pyramid 1.5, has
-only 7.  This number is unlikely to become any smaller.</p>
-<p>A port to Python 3 completed in Pyramid 1.3 helped us shed a good number of
-dependencies by forcing us to make better packaging decisions.  Removing
-Chameleon and Mako templating system dependencies in the Pyramid core in 1.5
-let us shed most of the remainder of them.</p>
+<h2>ピラミッドに依存性が多すぎる<a class="headerlink" href="#pyramid-has-too-many-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>時間の経過とともに、ピラミッドが持っていたパッケージ依存性の数を減らすことについて、多くの進歩を遂げました。ピラミッド1.2には15種類ありました。ピラミッド1.3と1.4には12個のピラミッドがありました。この執筆時点での現在のリリース、Pyramid 1.5にはわずか7しかありません。この数字はそれほど小さくなる可能性は低いです。</p>
+<p>Pyramid 1.3で完成したPython 3への移植は、より良いパッケージングの決定を下すことによって、多くの依存関係を解消するのに役立ちました。 1.5のPyramidコアにおけるChameleonとMakoのテンプレートシステムの依存関係を削除することで、残りの部分の大半が解放されました。</p>
 </div>
 <div class="section" id="pyramid-cheats-to-obtain-speed">
-<h2>Pyramid &quot;Cheats&quot; to Obtain Speed<a class="headerlink" href="#pyramid-cheats-to-obtain-speed" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Complaints have been lodged by other web framework authors at various times
-that <span>Pyramid</span> &quot;cheats&quot; to gain performance.  One claimed cheating
-mechanism is our use (transitively) of the C extensions provided by
-<code class="xref py py-mod docutils literal notranslate"><span class="pre">zope.interface</span></code> to do fast lookups.  Another claimed cheating mechanism
-is the religious avoidance of extraneous function calls.</p>
-<p>If there's such a thing as cheating to get better performance, we want to cheat
-as much as possible. We optimize <span>Pyramid</span> aggressively. This comes at a
-cost. The core code has sections that could be expressed with more readability.
-As an amelioration, we've commented these sections liberally.</p>
+<h2>Pyramid &amp;quot;Cheats &amp;quot;で速度を得る<a class="headerlink" href="#pyramid-cheats-to-obtain-speed" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>苦情はさまざまな時に他のWebフレームワークの著者によって提出されました：app： <cite>Pyramid</cite> &amp;quot; cheats &amp;quot;がパフォーマンスを得る1つの主張されている不正行為のメカニズムは、mod： <a href="#id1"><span class="problematic" id="id2">`</span></a>zope.interface`によって提供されるCの拡張機能を（高速で）使用する（推移的に）ものです。別の主張されている不正行為のメカニズムは、無関係の機能呼び出しの宗教的回避です。</p>
+<p>より良いパフォーマンスを得るために不正行為があるようなことがあれば、私たちは可能な限りチートしたい。我々は：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`を積極的に最適化します。これはコストがかかります。コアコードには、読みやすくするためのセクションがあります。改善として、我々はこれらのセクションを自由にコメントした。</p>
 </div>
 <div class="section" id="pyramid-gets-its-terminology-wrong-mvc">
-<h2>Pyramid Gets Its Terminology Wrong (&quot;MVC&quot;)<a class="headerlink" href="#pyramid-gets-its-terminology-wrong-mvc" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>&quot;I'm a MVC web framework user, and I'm confused.  <span>Pyramid</span> calls the
-controller a view!  And it doesn't have any controllers.&quot;</p>
-<p>If you are in this camp, you might have come to expect things about how your
-existing &quot;MVC&quot; framework uses its terminology.  For example, you probably
-expect that models are ORM models, controllers are classes that have methods
-that map to URLs, and views are templates.  <span>Pyramid</span> indeed has each of
-these concepts, and each probably <em>works</em> almost exactly like your existing
-&quot;MVC&quot; web framework. We just don't use the MVC terminology, as we can't square
-its usage in the web framework space with historical reality.</p>
-<p>People very much want to give web applications the same properties as common
-desktop GUI platforms by using similar terminology, and to provide some frame
-of reference for how various components in the common web framework might
-hang together.  But in the opinion of the author, &quot;MVC&quot; doesn't match the web
-very well in general. Quoting from the <a class="reference external" href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Model-View-Controller Wikipedia entry</a>:</p>
+<h2>ピラミッドの用語が間違っている（&amp;quot;MVC &amp;quot;）<a class="headerlink" href="#pyramid-gets-its-terminology-wrong-mvc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>&amp;quot;私はMVCのWebフレームワークのユーザーで、混乱しています：app：` Pyramid`はコントローラをビューと呼びます！コントローラはありません。</p>
+<p>このキャンプにいるなら、既存のMVCフレームワークがその用語をどのように使用しているかを期待するかもしれません。たとえば、モデルはORMモデルであり、コントローラはURLにマップするメソッドを持つクラスであり、ビューはテンプレートです。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`にはこれらの概念があり、既存のMVCフレームワークとほぼ同じように機能します。私たちはMVC用語を使用しません。ウェブフレームワークでの使用を歴史的な現実に合わせることができないからです。</p>
+<p>人々は、似たような用語を使用してWebアプリケーションに共通のデスクトップGUIプラットフォームと同じプロパティを与え、共通のWebフレームワーク内のさまざまなコンポーネントがどういった方法でハングアップしているかを示すフレームを提供したいと思っています。しかし、作者の意見では、&amp;quot;MVC はウェブとよくよくマッチしません。モデルビューコントローラーWikipediaのエントリー&lt;<a class="reference external" href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_：</p>
 <blockquote>
-<div><p>Though MVC comes in different flavors, control flow is generally as
-follows:</p>
+<div><p>MVCはさまざまな種類がありますが、制御フローは一般的に次のとおりです。</p>
 <blockquote>
-<div><p>The user interacts with the user interface in some way (for example,
-presses a mouse button).</p>
-<p>The controller handles the input event from the user interface, often via
-a registered handler or callback and converts the event into appropriate
-user action, understandable for the model.</p>
-<p>The controller notifies the model of the user action, possibly resulting
-in a change in the model's state. (For example, the controller updates the
-user's shopping cart.)[5]</p>
-<p>A view queries the model in order to generate an appropriate user
-interface (for example, the view lists the shopping cart's contents). Note
-that the view gets its own data from the model.</p>
-<p>The controller may (in some implementations) issue a general instruction
-to the view to render itself. In others, the view is automatically
-notified by the model of changes in state (Observer) which require a
-screen update.</p>
-<p>The user interface waits for further user interactions, which restarts the
-cycle.</p>
+<div><p>ユーザーは何らかの方法でユーザーインターフェイスとやり取りします（たとえば、マウスボタンを押します）。</p>
+<p>コントローラは、多くの場合、登録されたハンドラまたはコールバックを介してユーザインタフェースからの入力イベントを処理し、そのイベントを適切なユーザアクションに変換します。</p>
+<p>コントローラは、モデルにユーザアクションを通知します。その結果、モデルの状態が変更される可能性があります。 （たとえば、コントローラがユーザのショッピングカートを更新する）[5]</p>
+<p>ビューは、適切なユーザーインターフェイスを生成するためにモデルをクエリします（たとえば、ビューにはショッピングカートのコンテンツが一覧表示されます）。ビューはモデルから独自のデータを取得することに注意してください。</p>
+<p>コントローラは、（いくつかの実装では）それ自体をレンダリングするための一般的な命令をビューに発行することができる。他のものでは、画面の更新を必要とする状態の変化のモデル（Observer）によって自動的に通知が通知されます。</p>
+<p>ユーザーインターフェイスは、さらにユーザーの操作を待って、サイクルを再開します。</p>
 </div></blockquote>
 </div></blockquote>
-<p>To the author, it seems as if someone edited this Wikipedia definition,
-tortuously couching concepts in the most generic terms possible in order to
-account for the use of the term &quot;MVC&quot; by current web frameworks.  I doubt such
-a broad definition would ever be agreed to by the original authors of the MVC
-pattern.  But <em>even so</em>, it seems most MVC web frameworks fail to meet even
-this falsely generic definition.</p>
-<p>For example, do your templates (views) always query models directly as is
-claimed in &quot;note that the view gets its own data from the model&quot;? Probably not.
-My &quot;controllers&quot; tend to do this, massaging the data for easier use by the
-&quot;view&quot; (template). What do you do when your &quot;controller&quot; returns JSON? Do your
-controllers use a template to generate JSON? If not, what's the &quot;view&quot; then?
-Most MVC-style GUI web frameworks have some sort of event system hooked up that
-lets the view detect when the model changes. The web just has no such facility
-in its current form; it's effectively pull-only.</p>
-<p>So, in the interest of not mistaking desire with reality, and instead of trying
-to jam the square peg that is the web into the round hole of &quot;MVC&quot;, we just
-punt and say there are two things: resources and views. The resource tree
-represents a site structure, the view presents a resource. The templates are
-really just an implementation detail of any given view. A view doesn't need a
-template to return a response. There's no &quot;controller&quot;; it just doesn't exist.
-The &quot;model&quot; is either represented by the resource tree or by a &quot;domain model&quot;
-(like an SQLAlchemy model) that is separate from the framework entirely. This
-seems to us like more reasonable terminology, given the current constraints of
-the web.</p>
+<p>作者にとっては、このウィキペディアの定義を編集した人が、現在のWebフレームワークで「MVC」という用語の使用を説明するために可能な最も一般的な用語でコンセプトを酷使しているかのように思えます。このような幅広い定義が、MVCパターンの原作者がこれまでに同意するとは思っていません。しかし、* MVCのWebフレームワークのほとんどは、この誤ったジェネリック定義でさえも満たされていないようです。</p>
+<p>たとえば、テンプレート（ビュー）は、「ビューがモデルから独自のデータを取得することに注意してください」と主張されているように、モデルを直接クエリしますか？おそらくそうではありません。私の &amp;quot;制御部&amp;quot;はこれを行う傾向があり、データを &amp;quot;ビュー&amp;quot;（テンプレート）で使いやすくするためにマッサージします。 &amp;quot;コントローラ&amp;quot;がJSONを返すときはどうしますか？あなたのコントローラはJSONを生成するためにテンプレートを使用していますか？もしそうでなければ、&amp;quot;view &amp;quot;は何ですか？ほとんどのMVCスタイルのGUI Webフレームワークには、モデルの変更時にビューが検出できるようにする何らかの種類のイベントシステムがあります。ウェブには、そのような機能は現在の形ではありません。効果的にプルのみです。</p>
+<p>したがって、現実と欲望を誤解しないようにするために、「MVC」の丸穴にウェブであるスクエアペグを詰め込もうとするのではなく、リソースと見解という2つのことがあります。リソースツリーはサイト構造を表し、ビューはリソースを表します。テンプレートは実際には任意のビューの実装の詳細です。ビューは応答を返すためのテンプレートを必要としません。 &amp;quot;コントローラ&amp;quot;はありません。それだけでは存在しません。 &amp;quot;model &amp;quot;は、リソースツリーまたは（ &amp;quot;SQLAlchemy&amp;quot;モデルのように）フレームワークとは別の&amp;quot;ドメインモデル&amp;quot;によって表現されます。これはウェブの現在の制約を考えると、より合理的な用語が好きなようです。</p>
 </div>
 <div class="section" id="pyramid-applications-are-extensible-i-don-t-believe-in-application-extensibility">
-<span id="apps-are-extensible"></span><h2>Pyramid Applications Are Extensible; I Don't Believe in Application Extensibility<a class="headerlink" href="#pyramid-applications-are-extensible-i-don-t-believe-in-application-extensibility" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Any <span>Pyramid</span> application written obeying certain constraints is
-<em>extensible</em>. This feature is discussed in the <span>Pyramid</span> documentation
-chapters named <a class="reference internal" href="narr/extending.html#extending-chapter"><span class="std std-ref">(機械翻訳) 既存の Pyramid アプリケーションの拡張</span></a> and <a class="reference internal" href="narr/advconfig.html#advconfig-narr"><span class="std std-ref">(機械翻訳) 高度な設定</span></a>. It is made
-possible by the use of the <a class="reference internal" href="glossary.html#term-zope-component-architecture"><span class="xref std std-term">Zope Component Architecture</span></a> within
-<span>Pyramid</span>.</p>
-<p>&quot;Extensible&quot; in this context means:</p>
+<span id="apps-are-extensible"></span><h2>ピラミッドアプリケーションは拡張可能です。私はアプリケーションの拡張性を信じていない<a class="headerlink" href="#pyramid-applications-are-extensible-i-don-t-believe-in-application-extensibility" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Any：app： <cite>Pyramid`アプリケーションは特定の制約に従って書かれています*拡張可能です*。この機能については、：app： `Pyramid`のドキュメンテーションのchapter：ref：</cite> extend_chapter`と：ref： <cite>advconfig_narr`で説明します。 app： `Pyramid`の中で、：term：</cite> Zope Component Architecture`を使うことで可能になりました。</p>
+<p>この文脈では、「拡張可能」とは、</p>
 <ul class="simple">
-<li>The behavior of an application can be overridden or extended in a particular
-<em>deployment</em> of the application without requiring that the deployer modify
-the source of the original application.</li>
-<li>The original developer is not required to anticipate any extensibility
-plug points at application creation time to allow fundamental application
-behavior to be overridden or extended.</li>
-<li>The original developer may optionally choose to anticipate an
-application-specific set of plug points, which may be hooked by a deployer.
-If they choose to use the facilities provided by the ZCA, the original
-developer does not need to think terribly hard about the mechanics of
-introducing such a plug point.</li>
+<li>デプロイヤーが元のアプリケーションのソースを変更することなく、アプリケーションの動作をアプリケーションの特定のデプロイメント*でオーバーライドまたは拡張することができます。</li>
+<li>元の開発者は、基本的なアプリケーションの動作を上書きまたは拡張できるように、アプリケーション作成時に拡張プラグインポイントを予測する必要はありません。</li>
+<li>元の開発者は、アプリケーション固有のプラグポイントのセットを予期することを任意に選択することができます。プラグポイントは、デプロイヤによってフックされることがあります。 ZCAが提供する機能を使用することを選択した場合、元の開発者は、このようなプラグポイントを導入する仕組みについて深刻に考える必要はありません。</li>
 </ul>
-<p>Many developers seem to believe that creating extensible applications is not
-worth it. They instead suggest that modifying the source of a given application
-for each deployment to override behavior is more reasonable. Much discussion
-about version control branching and merging typically ensues.</p>
-<p>It's clear that making every application extensible isn't required. The
-majority of web applications only have a single deployment, and thus needn't be
-extensible at all. However some web applications have multiple deployments, and
-others have <em>many</em> deployments. For example, a generic content management
-system (CMS) may have basic functionality that needs to be extended for a
-particular deployment. That CMS may be deployed for many organizations at many
-places. Some number of deployments of this CMS may be deployed centrally by a
-third party and managed as a group. It's easier to be able to extend such a
-system for each deployment via preordained plug points than it is to
-continually keep each software branch of the system in sync with some upstream
-source. The upstream developers may change code in such a way that your changes
-to the same codebase conflict with theirs in fiddly, trivial ways. Merging such
-changes repeatedly over the lifetime of a deployment can be difficult and time
-consuming, and it's often useful to be able to modify an application for a
-particular deployment in a less invasive way.</p>
-<p>If you don't want to think about <span>Pyramid</span> application extensibility at
-all, you needn't. You can ignore extensibility entirely. However if you follow
-the set of rules defined in <a class="reference internal" href="narr/extending.html#extending-chapter"><span class="std std-ref">(機械翻訳) 既存の Pyramid アプリケーションの拡張</span></a>, you don't need to <em>make</em>
-your application extensible. Any application you write in the framework just
-<em>is</em> automatically extensible at a basic level. The mechanisms that deployers
-use to extend it will be necessarily coarse. Typically views, routes, and
-resources will be capable of being overridden. But for most minor (and even
-some major) customizations, these are often the only override plug points
-necessary. If the application doesn't do exactly what the deployment requires,
-it's often possible for a deployer to override a view, route, or resource, and
-quickly make it do what they want it to do in ways <em>not necessarily anticipated
-by the original developer</em>. Here are some example scenarios demonstrating the
-benefits of such a feature.</p>
+<p>多くの開発者は、拡張可能なアプリケーションを作成する価値がないと信じているようです。代わりに、それぞれの展開で特定のアプリケーションのソースを変更して、動作を上書きする方がより合理的であることを示唆しています。バージョン管理の分岐とマージに関する多くの議論が一般的に続いています。</p>
+<p>すべてのアプリケーションを拡張可能にする必要はないことは明らかです。 Webアプリケーションの大部分は単一の配備しか持たないため、拡張する必要は全くありません。しかし、いくつかのWebアプリケーションには複数のデプロイメントがあり、他のものには*多くのデプロイメントがあります。例えば、一般的なコンテンツ管理システム（CMS）は、特定の展開のために拡張される必要がある基本機能を有することができる。そのCMSは、多くの組織で多くの場所に展開できます。このCMSのいくつかの展開は、サードパーティによって集中的に展開され、グループとして管理されます。システムの各ソフトウェアブランチを上流のソースと同期させ続けるよりも、あらかじめ定義されたプラグポイントを使用して、展開ごとにそのようなシステムを拡張する方が簡単です。上流の開発者は、同じコードベースへの変更が邪魔にならないようにコードを変更する可能性があります。このような変更を展開のライフサイクル全体にわたって繰り返していることは困難で時間がかかることがありますが、侵入の少ない方法で特定の展開のアプリケーションを変更できるようにすることはしばしば役に立ちます。</p>
+<p>app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションの拡張性について全く考えたくなければ、あなたはそうする必要はありません。あなたは完全に拡張性を無視することができます。しかし、：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>extends_chapter`で定義された一連の規則に従えば、アプリケーションを拡張可能にする必要はありません。 <em>あなたがフレームワークで書くアプリケーションは、基本レベルで自動的に拡張可能です</em>。デプロイヤーがそれを拡張するために使用するメカニズムは必然的に粗いでしょう。通常、ビュー、ルート、およびリソースはオーバーライドすることができます。しかし、ほとんどのマイナーな（そしていくつかの主要な）カスタマイズでは、必要なオーバーライドプラグポイントが必要な場合があります。アプリケーションがデプロイメントが必要とするものを正確に実行できない場合は、デプロイヤーがビュー、ルート、またはリソースをオーバーライドして、元の開発者が必ずしも予期しない方法ですばやく実行できるようにすることがよくあります*。このような機能の利点を示すいくつかのシナリオの例を以下に示します。</p>
 <ul class="simple">
-<li>If a deployment needs a different styling, the deployer may override the main
-template and the CSS in a separate Python package which defines overrides.</li>
-<li>If a deployment needs an application page to do something differently, or to
-expose more or different information, the deployer may override the view that
-renders the page within a separate Python package.</li>
-<li>If a deployment needs an additional feature, the deployer may add a view to
-the override package.</li>
+<li>デプロイメントに異なるスタイルが必要な場合、デプロイヤーはメインテンプレートとCSSを、オーバーライドを定義する別のPythonパッケージでオーバーライドすることができます。</li>
+<li>デプロイメントが何か別のことをするためにアプリケーションページを必要とする場合や、より多くの情報や異なる情報を公開する必要がある場合、デプロイヤーはページを別のPythonパッケージにレンダリングするビューをオーバーライドする可能性があります。</li>
+<li>デプロイメントに追加機能が必要な場合、デプロイヤーはオーバーライドパッケージにビューを追加できます。</li>
 </ul>
-<p>As long as the fundamental design of the upstream package doesn't change, these
-types of modifications often survive across many releases of the upstream
-package without needing to be revisited.</p>
-<p>Extending an application externally is not a panacea, and carries a set of
-risks similar to branching and merging. Sometimes major changes upstream will
-cause you to revisit and update some of your modifications. But you won't
-regularly need to deal with meaningless textual merge conflicts that trivial
-changes to upstream packages often entail when it comes time to update the
-upstream package, because if you extend an application externally, there just
-is no textual merge done. Your modifications will also, for whatever it's
-worth, be contained in one, canonical, well-defined place.</p>
-<p>Branching an application and continually merging in order to get new features
-and bug fixes is clearly useful. You can do that with a <span>Pyramid</span>
-application just as usefully as you can do it with any application. But
-deployment of an application written in <span>Pyramid</span> makes it possible to
-avoid the need for this even if the application doesn't define any plug points
-ahead of time. It's possible that promoters of competing web frameworks dismiss
-this feature in favor of branching and merging because applications written in
-their framework of choice aren't extensible out of the box in a comparably
-fundamental way.</p>
-<p>While <span>Pyramid</span> applications are fundamentally extensible even if you
-don't write them with specific extensibility in mind, if you're moderately
-adventurous, you can also take it a step further. If you learn more about the
-<a class="reference internal" href="glossary.html#term-zope-component-architecture"><span class="xref std std-term">Zope Component Architecture</span></a>, you can optionally use it to expose other
-more domain-specific configuration plug points while developing an application.
-The plug points you expose needn't be as coarse as the ones provided
-automatically by <span>Pyramid</span> itself. For example, you might compose your own
-directive that configures a set of views for a pre-baked purpose (e.g.,
-<code class="docutils literal notranslate"><span class="pre">restview</span></code> or somesuch), allowing other people to refer to that directive
-when they make declarations in the <code class="docutils literal notranslate"><span class="pre">includeme</span></code> of their customization
-package. There is a cost for this: the developer of an application that defines
-custom plug points for its deployers will need to understand the ZCA or they
-will need to develop their own similar extensibility system.</p>
-<p>Ultimately any argument about whether the extensibility features lent to
-applications by <span>Pyramid</span> are good or bad is mostly pointless. You needn't
-take advantage of the extensibility features provided by a particular
-<span>Pyramid</span> application in order to affect a modification for a particular
-set of its deployments. You can ignore the application's extensibility plug
-points entirely, and use version control branching and merging to manage
-application deployment modifications instead, as if you were deploying an
-application written using any other web framework.</p>
+<p>上流パッケージの基本設計が変更されない限り、これらのタイプの変更は、上流パッケージの多くのリリースにわたって再訪する必要なくしばしば生き残ります。</p>
+<p>アプリケーションを外部に拡張することは万能薬ではなく、分岐やマージに似た一連のリスクを伴います。アップストリームの大きな変更により、いくつかの変更を再訪して更新することがあります。しかし、アプリケーションを外部に拡張すると、テキストマージが行われないため、アップストリームパッケージを更新するときに、しばしばアップストリームパッケージの些細な変更が伴う無意味なテキストマージの競合に対処する必要はありません。あなたの修正は、それが価値があるものであっても、正式な、明確に定義された1つの場所に含まれます。</p>
+<p>新しい機能やバグ修正を得るために、アプリケーションを分岐して継続的にマージすることは、明らかに便利です。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションを使って、アプリケーションと同じように便利に行うことができます。しかし、app：Pyramidで書かれたアプリケーションをデプロイすると、アプリケーションが先にプラグポイントを定義しなくても、この必要性を避けることができます。競合するWebフレームワークのプロモーターは、選択したフレームワークで書かれたアプリケーションが比較的基本的な方法で拡張できないため、ブランチングやマージのためにこの機能を却下する可能性があります。</p>
+<p>while：app： <cite>Pyramid`アプリケーションは、あなたが特定の拡張性を念頭に置いていなくても基本的に拡張可能ですが、あなたが中程度の冒険をしているならば、さらに進歩を遂げることができます。 ：term： `Zope Component Architecture`についてもっと学ぶならば、オプションでそれを使って、アプリケーション開発中に他のドメイン固有の設定プラグポイントを公開することができます。公開するプラグポイントは、app： `Pyramid`自身によって自動的に提供されるプラグポイントほど粗くする必要はありません。例えば、事前に焼いた目的（例えば `</cite> restview``など）のために一連のビューを設定する独自の指示文を作成し、 `` includeme &amp;#39;&amp;#39;で宣言するときに他の人がその指示文を参照できるようにすることができます``のカスタマイズパッケージに含まれています。これにはコストがかかります。デプロイヤのカスタムプラグポイントを定義するアプリケーションの開発者は、ZCAを理解する必要があります。あるいは、独自の同様の拡張性システムを開発する必要があります。</p>
+<p>最終的に、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`によってアプリケーションに貸し出される拡張性機能が良いか悪いかについての議論は、ほとんど無意味です。特定の：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`アプリケーションが提供する拡張機能を利用する必要はありません。特定の配備セットの変更に影響を与えるためです。アプリケーションの拡張性のプラグポイントを完全に無視し、他のWebフレームワークを使用して作成されたアプリケーションを展開する場合と同様に、バージョンコントロールの分岐とマージを使用してアプリケーションの展開の変更を管理できます。</p>
 </div>
 <div class="section" id="zope-3-enforces-ttw-authorization-checks-by-default-pyramid-does-not">
-<h2>Zope 3 Enforces &quot;TTW&quot; Authorization Checks by Default; Pyramid Does Not<a class="headerlink" href="#zope-3-enforces-ttw-authorization-checks-by-default-pyramid-does-not" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Zope 3は&amp;quot;TTW &amp;quot;認証チェックをデフォルトで強制します。ピラミッドはしません<a class="headerlink" href="#zope-3-enforces-ttw-authorization-checks-by-default-pyramid-does-not" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="challenge">
-<h3>Challenge<a class="headerlink" href="#challenge" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span>Pyramid</span> performs automatic authorization checks only at <a class="reference internal" href="glossary.html#term-view"><span class="xref std std-term">view</span></a>
-execution time. Zope 3 wraps context objects with a security proxy, which
-causes Zope 3 also to do security checks during attribute access. I like this,
-because it means:</p>
+<h3>チャレンジ<a class="headerlink" href="#challenge" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <cite>Pyramid`はterm：</cite> view`の実行時間でのみ自動権限チェックを行います。 Zope 3はコンテキストオブジェクトをセキュリティプロキシで囲みます。これにより、Zope 3は属性アクセス中にセキュリティチェックを行います。私はこれが好きなのです。</p>
 <ol class="arabic simple">
-<li>When I use the security proxy machinery, I can have a view that
-conditionally displays certain HTML elements (like form fields) or
-prevents certain attributes from being modified depending on the
-permissions that the accessing user possesses with respect to a context
-object.</li>
-<li>I want to also expose my resources via a REST API using Twisted Web. If
-Pyramid performed authorization based on attribute access via Zope3's
-security proxies, I could enforce my authorization policy in both
-<span>Pyramid</span> and in the Twisted-based system the same way.</li>
+<li>セキュリティプロキシマシンを使用すると、特定のHTML要素（フォームフィールドなど）を条件付きで表示するビューを持つことができます。また、アクセスするユーザーがコンテキストオブジェクトに対して所有するアクセス許可に応じて特定の属性が変更されないようにできます。</li>
+<li>また、Twisted Webを使用してREST APIを介してリソースを公開したいと考えています。 PyramidがZope3のセキュリティプロキシを介して属性アクセスに基づいて権限を実行した場合、私はapp：PyramidとTwistedベースのシステムの両方で認証ポリシーを適用することができます。</li>
 </ol>
 </div>
 <div class="section" id="defense">
-<h3>Defense<a class="headerlink" href="#defense" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span>Pyramid</span> was developed by folks familiar with Zope 2, which has a
-&quot;through the web&quot; security model.  This TTW security model was the precursor
-to Zope 3's security proxies.  Over time, as the <span>Pyramid</span> developers
-(working in Zope 2) created such sites, we found authorization checks during
-code interpretation extremely useful in a minority of projects.  But much of
-the time, TTW authorization checks usually slowed down the development
-velocity of projects that had no delegation requirements.  In particular, if
-we weren't allowing untrusted users to write arbitrary Python code to be
-executed by our application, the burden of through the web security checks
-proved too costly to justify.  We (collectively) haven't written an
-application on top of which untrusted developers are allowed to write code in
-many years, so it seemed to make sense to drop this model by default in a new
-web framework.</p>
-<p>And since we tend to use the same toolkit for all web applications, it's just
-never been a concern to be able to use the same set of restricted-execution
-code under two different web frameworks.</p>
-<p>Justifications for disabling security proxies by default notwithstanding,
-given that Zope 3 security proxies are viral by nature, the only requirement
-to use one is to make sure you wrap a single object in a security proxy and
-make sure to access that object normally when you want proxy security checks
-to happen.  It is possible to override the <span>Pyramid</span> traverser for a
-given application (see <a class="reference internal" href="narr/hooks.html#changing-the-traverser"><span class="std std-ref">トラバーサの変更</span></a>).  To get Zope3-like
-behavior, it is possible to plug in a different traverser which returns
-Zope3-security-proxy-wrapped objects for each traversed object (including the
-<a class="reference internal" href="glossary.html#term-context"><span class="xref std std-term">context</span></a> and the <a class="reference internal" href="glossary.html#term-root"><span class="xref std std-term">root</span></a>).  This would have the effect of
-creating a more Zope3-like environment without much effort.</p>
+<h3>防衛<a class="headerlink" href="#defense" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はZope 2に慣れ親しんでいる人たちが開発しました.Zope 2には、Web経由のセキュリティモデルがあります。このTTWセキュリティモデルは、Zope 3のセキュリティプロキシの前身でした。時間の経過とともに、：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`開発者（Zope 2で働いている）がこのようなサイトを作ったので、コード解釈中の権限チェックが少数のプロジェクトで非常に有用であることがわかりました。しかし、多くの場合、TTW認可チェックは通常、委任要件がないプロジェクトの開発速度を遅くしました。特に、信頼できないユーザーがアプリケーションで実行される任意のPythonコードを書くことを許可していない場合、Webセキュリティチェックによる負担はあまりにもコストがかかり、正当化することができませんでした。私たちは（総称して）信頼できない開発者が長年に渡ってコードを書くことを許可されたアプリケーションを作成していないので、このモデルをデフォルトで新しいWebフレームワークにドロップするのが理にかなっていたようです。</p>
+<p>また、すべてのWebアプリケーションに同じツールキットを使用する傾向があるため、2つの異なるWebフレームワークで同一の制限付き実行コードセットを使用できるようになることは決して懸念されていません。</p>
+<p>Zope 3のセキュリティー・プロキシがウイルス性であることを考慮すると、デフォルトでセキュリティー・プロキシーを無効にすることの妥当性については、セキュリティー・プロキシー内に単一のオブジェクトをラップして、プロキシのセキュリティチェックが行われます。特定のアプリケーションの：app： <cite>Pyramid`トラバーサをオーバーライドすることができます（ref：</cite> changing_the_traverser`を参照）。 Zope3のような振る舞いをするには、トラバーサルされた各オブジェクト（：term： <cite>context`と：term：</cite> root`を含む）に対してZope3-security-proxy-wrappedオブジェクトを返す別のトラバーサーを接続することができます。これは、Zope3のような環境を多くの努力なしに作り出す効果があります。</p>
 </div>
 </div>
 <div class="section" id="pyramid-uses-its-own-http-exception-class-hierarchy-rather-than-webob-exc">
-<span id="http-exception-hierarchy"></span><h2>Pyramid uses its own HTTP exception class hierarchy rather than <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/exceptions.html#module-webob.exc" title="(in WebOb v1.8.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">webob.exc</span></code></a><a class="headerlink" href="#pyramid-uses-its-own-http-exception-class-hierarchy-rather-than-webob-exc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="http-exception-hierarchy"></span><h2>Pyramidは、mod： <a href="#id1"><span class="problematic" id="id2">`</span></a>webob.exc`ではなく、独自のHTTP例外クラス階層を使用します。<a class="headerlink" href="#pyramid-uses-its-own-http-exception-class-hierarchy-rather-than-webob-exc" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.1 で追加.</span></p>
 </div>
-<p>The HTTP exception classes defined in <a class="reference internal" href="api/httpexceptions.html#module-pyramid.httpexceptions" title="pyramid.httpexceptions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.httpexceptions</span></code></a> are very
-much like the ones defined in <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/exceptions.html#module-webob.exc" title="(in WebOb v1.8.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">webob.exc</span></code></a>, (e.g.,
-<a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPNotFound" title="pyramid.httpexceptions.HTTPNotFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPNotFound</span></code></a> or
-<a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPForbidden" title="pyramid.httpexceptions.HTTPForbidden"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPForbidden</span></code></a>).  They have the same names and
-largely the same behavior, and all have a very similar implementation, but not
-the same identity.  Here's why they have a separate identity.</p>
+<p>：mod： <cite>pyramid.httpexceptions`で定義されているHTTP例外クラスは：mod：</cite> webob.exc`で定義されたものと非常によく似ています（例：：class： <cite>〜pyramid.httpexceptions.HTTPNotFound`または：class：</cite> 〜pyramid.httpexceptions.HTTPForbidden`）。それらは同じ名前でほぼ同じ動作をしており、すべて同じような実装ですが、同一のアイデンティティではありません。ここに彼らは別のアイデンティティを持っている理由です。</p>
 <ul class="simple">
-<li>Making them separate allows the HTTP exception classes to subclass
-<a class="reference internal" href="api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a>.  This speeds up response generation
-slightly due to the way the Pyramid router works.  The same speed up could be
-gained by monkeypatching <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/response.html#webob.response.Response" title="(in WebOb v1.8.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">webob.response.Response</span></code></a>, but it's usually
-the case that monkeypatching turns out to be evil and wrong.</li>
-<li>Making them separate allows them to provide alternate <code class="docutils literal notranslate"><span class="pre">__call__</span></code> logic,
-which also speeds up response generation.</li>
-<li>Making them separate allows the exception classes to provide for the proper
-value of <code class="docutils literal notranslate"><span class="pre">RequestClass</span></code> (<a class="reference internal" href="api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a>).</li>
-<li>Making them separate gives us freedom from thinking about backwards
-compatibility code present in <a class="reference external" href="https://docs.pylonsproject.org/projects/webob/en/latest/api/exceptions.html#module-webob.exc" title="(in WebOb v1.8.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">webob.exc</span></code></a> related to Python 2.4, which
-we no longer support in Pyramid 1.1+.</li>
-<li>We change the behavior of two classes
-(<a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPNotFound" title="pyramid.httpexceptions.HTTPNotFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPNotFound</span></code></a> and
-<a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPForbidden" title="pyramid.httpexceptions.HTTPForbidden"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPForbidden</span></code></a>) in the module so that they
-can be used by Pyramid internally for <code class="docutils literal notranslate"><span class="pre">notfound</span></code> and <code class="docutils literal notranslate"><span class="pre">forbidden</span></code>
-exceptions.</li>
-<li>Making them separate allows us to influence the docstrings of the exception
-classes to provide Pyramid-specific documentation.</li>
-<li>Making them separate allows us to silence a stupid deprecation warning under
-Python 2.6 when the response objects are used as exceptions (related to
-<code class="docutils literal notranslate"><span class="pre">self.message</span></code>).</li>
+<li>それらを別々にすることで、HTTP例外クラスがclass： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.response.Response`のサブクラス化を行うことができます。これは、ピラミッドルータの仕組みのせいで、応答の生成をわずかに高速化します。 monkeypatching：class： <a href="#id3"><span class="problematic" id="id4">`</span></a>webob.response.Response`でも同じスピードアップが得られるかもしれませんが、通常は、monkeypatchingが悪いと間違っていることが判明します。</li>
+<li>それらを別々にすることで、代替の `` __call__``ロジックを提供することができます。これによりレスポンスの生成も高速化されます。</li>
+<li>それらを分離することで、例外クラスは `` RequestClass``（：class： <cite>pyramid.request.Request</cite>）の適切な値を提供することができます。</li>
+<li>それらを別々にすると、Pyramid 1.1以降ではサポートしていないPython 2.4に関連するmod： <a href="#id1"><span class="problematic" id="id2">`</span></a>webob.exc`という下位互換性コードについて考えることができなくなりました。</li>
+<li>モジュール内の2つのクラス（：class： <cite>〜pyramid.httpexceptions.HTTPNotFound`と：class：</cite>〜pyramid.httpexceptions.HTTPForbidden`）を `` notfound``のために内部的にPyramidで使用できるように変更します「禁じられた」例外を含む。</li>
+<li>それらを別々にすることで、Pyramid固有のドキュメントを提供するために例外クラスのドキュメントストリングに影響を与えることができます。</li>
+<li>それらを別々にすることで、応答オブジェクトが（ `` self.message``に関連して）例外として使われるとき、Python 2.6の下で愚かな非推奨警告を静かにすることができます。</li>
 </ul>
 </div>
 <div class="section" id="pyramid-has-simpler-traversal-machinery-than-does-zope">
-<span id="simpler-traversal-model"></span><h2>Pyramid has simpler traversal machinery than does Zope<a class="headerlink" href="#pyramid-has-simpler-traversal-machinery-than-does-zope" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Zope's default traverser:</p>
+<span id="simpler-traversal-model"></span><h2>ピラミッドはZopeよりも単純なトラバーサル機構を持っています<a class="headerlink" href="#pyramid-has-simpler-traversal-machinery-than-does-zope" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Zopeのデフォルトトラバース：</p>
 <ul class="simple">
-<li>Allows developers to mutate the traversal name stack while traversing (they
-can add and remove path elements).</li>
-<li>Attempts to use an adaptation to obtain the next element in the path from
-the currently traversed object, falling back to <code class="docutils literal notranslate"><span class="pre">__bobo_traverse__</span></code>,
-<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>, and eventually <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code>.</li>
+<li>開発者がトラバース中にトラバーサル名のスタックを変更することを許可します（パス要素の追加と削除が可能です）。</li>
+<li>現在トラバースされているオブジェクトからパス内の次の要素を取得し、 `` __bobo_traverse__``、 `` __getitem__``、そして最終的に `` __getattr__``にフォールバックするためにアダプテーションを使用しようとします。</li>
 </ul>
-<p>Zope's default traverser allows developers to mutate the traversal name stack
-during traversal by mutating <code class="docutils literal notranslate"><span class="pre">REQUEST['TraversalNameStack']</span></code>. Pyramid's
-default traverser (<code class="docutils literal notranslate"><span class="pre">pyramid.traversal.ResourceTreeTraverser</span></code>) does not offer
-a way to do this. It does not maintain a stack as a request attribute and, even
-if it did, it does not pass the request to resource objects while it's
-traversing. While it was handy at times, this feature was abused in frameworks
-built atop Zope (like CMF and Plone), often making it difficult to tell exactly
-what was happening when a traversal didn't match a view. I felt it was better
-for folks that wanted the feature to make them replace the traverser rather
-than build that particular honey pot in to the default traverser.</p>
-<p>Zope uses multiple mechanisms to attempt to obtain the next element in the
-resource tree based on a name.  It first tries an adaptation of the current
-resource to <code class="docutils literal notranslate"><span class="pre">ITraversable</span></code>, and if that fails, it falls back to attempting a
-number of magic methods on the resource (<code class="docutils literal notranslate"><span class="pre">__bobo_traverse__</span></code>,
-<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>, and <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code>).  My experience while both using Zope and
-attempting to reimplement its publisher in <code class="docutils literal notranslate"><span class="pre">repoze.zope2</span></code> led me to believe
-the following:</p>
+<p>Zopeのデフォルトのトラバーサでは、開発者は <cite>&amp;#39;REQUEST [&amp;#39;TraversalNameStack&amp;#39;]</cite> <cite>を変更することによって、トラバース中にトラバース名のスタックを変更することができます。 Pyramidのデフォルトのトラバーサ（ `</cite> pyramid.traversal.ResourceTreeTraverser``）はこれを行う方法を提供していません。要求属性としてスタックを保持せず、それが実行されても、移動中のリソースオブジェクトに要求を渡しません。この機能は時に便利でしたが、Zope（CMFやPloneのような）の上に構築されたフレームワークでは悪用され、しばしばトラバーサルがビューに一致しなかったときに何が起こったのかを正確に伝えることが難しくなりました。私はそれがデフォルトトラバーサーに特定の蜂蜜の鍋を構築するよりもむしろtraverserを置き換えるように機能を望んでいる人々の方が良いと感じました。</p>
+<p>Zopeは、複数のメカニズムを使用して、名前に基づいてリソースツリー内の次の要素を取得しようとします。現在のリソースを `` ITraversable``に適合させようと試みます。失敗した場合は、リソース（ `` __bobo_traverse__``、 `` __getitem__``、 `` __getattr__``）。 Zopeを使って、 `` repoze.zope2``で出版社を再実装しようとしている私の経験は、私が次のように信じてくれました。</p>
 <ul class="simple">
-<li>The <em>default</em> traverser should be as simple as possible.  Zope's publisher
-is somewhat difficult to follow and replicate due to the fallbacks it tried
-when one traversal method failed.  It is also slow.</li>
-<li>The <em>entire traverser</em> should be replaceable, not just elements of the
-traversal machinery.  Pyramid has a few big components rather than a
-plethora of small ones.  If the entire traverser is replaceable, it's an
-antipattern to make portions of the default traverser replaceable.  Doing
-so is a &quot;knobs on knobs&quot; pattern, which is unfortunately somewhat endemic
-in Zope.  In a &quot;knobs on knobs&quot; pattern, a replaceable subcomponent of a
-larger component is made configurable using the same configuration
-mechanism that can be used to replace the larger component.  For example,
-in Zope, you can replace the default traverser by registering an adapter.
-But you can also (or alternately) control how the default traverser
-traverses by registering one or more adapters.  As a result of being able
-to either replace the larger component entirely or turn knobs on the
-default implementation of the larger component, no one understands when (or
-whether) they should ever override the larger component entrirely.  This
-results, over time, in a rusting together of the larger &quot;replaceable&quot;
-component and the framework itself because people come to depend on the
-availability of the default component in order just to turn its knobs. The
-default component effectively becomes part of the framework, which entirely
-subverts the goal of making it replaceable.  In Pyramid, typically if a
-component is replaceable, it will itself have no knobs (it will be solid
-state).  If you want to influence behavior controlled by that component,
-you will replace the component instead of turning knobs attached to the
-component.</li>
+<li><a href="#id1"><span class="problematic" id="id2">*</span></a>デフォルトのトラバーサーはできるだけシンプルでなければなりません。 Zopeのパブリッシャーは、1つのトラバーサルメソッドが失敗したときに試みたフォールバックのために、追跡して複製することは多少困難です。それはまた遅いです。</li>
+<li>トラバーサルマシンの要素だけでなく、トラバーサ全体*も置き換え可能でなければなりません。ピラミッドには小さなものがたくさんあるのではなく、いくつかの大きな要素があります。トラバーサ全体が交換可能な場合は、デフォルトのトラバーサの一部を交換可能にする反パターンです。そうすることは&amp;quot;ノブのつまみ&amp;quot;パターンであり、残念なことにZopeでは風土病です。ノブのノブのパターンでは、大きなコンポーネントの交換可能なサブコンポーネントは、大きなコンポーネントを置き換えるのに使用できるのと同じ構成メカニズムを使用して構成可能になります。たとえば、Zopeでは、アダプターを登録することによってデフォルトのトラバーサーを置き換えることができます。しかし、1つまたは複数のアダプタを登録することによって、デフォルトのトラバーサがどのようにトラバースするかを制御することもできます（または代わりに）。より大きなコンポーネントを完全に置き換えたり、大きなコンポーネントのデフォルトの実装でノブを回すことができた結果、大きなコンポーネントをいつでも上書きする必要があるかどうかは誰も理解できません。これは時間が経つにつれて、より大きな「交換可能な」コンポーネントとフレームワーク自体の錆びた状態になります。なぜなら、人々はノブを回すだけでデフォルトコンポーネントの可用性に依存するからです。デフォルトのコンポーネントは事実上フレームワークの一部になり、フレームワークは交換可能にするという目標を完全に打ち消します。ピラミッドでは、通常、コンポーネントが置換可能な場合、それ自体にはノブはありません（ソリッドステートになります）。そのコンポーネントによって制御される振る舞いに影響を与えたい場合は、そのコンポーネントに接続されたノブを回すのではなく、そのコンポーネントを置き換えます。</li>
 </ul>
 </div>
 <div class="section" id="microframeworks-have-smaller-hello-world-programs">
-<span id="microframeworks-smaller-hello-world"></span><h2>Microframeworks have smaller Hello World programs<a class="headerlink" href="#microframeworks-have-smaller-hello-world-programs" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Self-described &quot;microframeworks&quot; exist. <a class="reference external" href="http://bottlepy.org/docs/dev/index.html">Bottle</a> and <a class="reference external" href="http://flask.pocoo.org/">Flask</a> are two that are becoming popular. <a class="reference external" href="https://bobo.readthedocs.io/en/latest/">Bobo</a> doesn't describe itself as a
-microframework, but its intended user base is much the same. Many others exist.
-We've even (only as a teaching tool, not as any sort of official project)
-<a class="reference external" href="http://static.repoze.org/casts/videotags.html">created one using Pyramid</a>.
-The videos use BFG, a precursor to Pyramid, but the resulting code is
-<a class="reference external" href="https://github.com/Pylons/groundhog">available for Pyramid too</a>).
-Microframeworks are small frameworks with one common feature: each allows its
-users to create a fully functional application that lives in a single Python
-file.</p>
-<p>Some developers and microframework authors point out that Pyramid's &quot;hello
-world&quot; single-file program is longer (by about five lines) than the equivalent
-program in their favorite microframework. Guilty as charged.</p>
-<p>This loss isn't for lack of trying. Pyramid is useful in the same circumstance
-in which microframeworks claim dominance: single-file applications. But Pyramid
-doesn't sacrifice its ability to credibly support larger applications in order
-to achieve &quot;hello world&quot; lines of code parity with the current crop of
-microframeworks. Pyramid's design instead tries to avoid some common pitfalls
-associated with naive declarative configuration schemes. The subsections which
-follow explain the rationale.</p>
+<span id="microframeworks-smaller-hello-world"></span><h2>マイクロフレームワークでは、より小さなHello Worldプログラム<a class="headerlink" href="#microframeworks-have-smaller-hello-world-programs" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>自己記述された&amp;quot;microframeworks &amp;quot;が存在する。 <cite>ボトル&lt;http://bottlepy.org/docs/dev/index.html&gt; `_と</cite> Flask &lt;<a class="reference external" href="http://flask.pocoo.org/">http://flask.pocoo.org/</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_は人気が高まっている2つです。ボボ&lt;<a class="reference external" href="https://bobo.readthedocs.io/en/latest/">https://bobo.readthedocs.io/en/latest/</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_はマイクロフレームワークとは言いませんが、その意図するユーザー基盤はほとんど同じです。他にも多くのものが存在する。我々は（公式のプロジェクトのようなものではなく、教えのツールとしてのみであっても） <a href="#id5"><span class="problematic" id="id6">`</span></a>Pyramid &lt;<a class="reference external" href="http://static.repoze.org/casts/videotags.html">http://static.repoze.org/casts/videotags.html</a>&gt; <a href="#id7"><span class="problematic" id="id8">`</span></a>_。このビデオはPyramidの前身であるBFGを使用していますが、結果のコードはPyramidでも利用可能です&lt;<a class="reference external" href="https://github.com/Pylons/groundhog">https://github.com/Pylons/groundhog</a>&gt; <a href="#id9"><span class="problematic" id="id10">`</span></a>_）。 Microframeworksは小さなフレームワークで、共​​通の機能を1つ備えています。それぞれの機能を使用すると、1つのPythonファイルに完全に機能するアプリケーションを作成できます。</p>
+<p>いくつかの開発者とマイクロフレームワークの著者は、ピラミッドの ​​&amp;quot;hello world&amp;quot;単一ファイルプログラムは、好きなマイクロフレームワークの同等のプログラムより長い（約5行で）ことを指摘しています。帯電したとして有罪。</p>
+<p>この損失は試行の欠如のためではありません。ピラミッドは、マイクロファイルワークが優位性を主張しているのと同じ状況、すなわちシングルファイルアプリケーションでも役に立ちます。しかし、ピラミッドは、現在のマイクロフレームワークとのコード・パリティの &amp;quot;hello world&amp;quot;ラインを達成するために、より大きなアプリケーションを信頼できる形でサポートする能力を犠牲にすることはありません。代わりにPyramidの設計は、素朴な宣言的構成スキームに関連するいくつかの一般的な落とし穴を回避しようとしています。以下のサブセクションでその根拠を説明します。</p>
 <div class="section" id="application-programmers-don-t-control-the-module-scope-codepath-import-time-side-effects-are-evil">
-<span id="you-dont-own-modulescope"></span><h3>Application programmers don't control the module-scope codepath (import-time side-effects are evil)<a class="headerlink" href="#application-programmers-don-t-control-the-module-scope-codepath-import-time-side-effects-are-evil" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Imagine a directory structure with a set of Python files in it:</p>
+<span id="you-dont-own-modulescope"></span><h3>アプリケーションプログラマはモジュールスコープコードパスを制御しません（インポート時の副作用は悪です）<a class="headerlink" href="#application-programmers-don-t-control-the-module-scope-codepath-import-time-side-effects-are-evil" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>一連のPythonファイルを含むディレクトリ構造を想像してみてください。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.
 |-- app.py
 |-- app2.py
 `-- config.py
 </pre></div>
 </div>
-<p>The contents of <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
+<p>`` app.py``の内容：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -995,7 +411,7 @@ follow explain the rationale.</p>
     <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The contents of <code class="docutils literal notranslate"><span class="pre">app2.py</span></code>:</p>
+<p>`` app2.py``の内容：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1007,7 +423,7 @@ follow explain the rationale.</p>
     <span class="k">pass</span>
 </pre></div>
 </td></tr></table></div>
-<p>The contents of <code class="docutils literal notranslate"><span class="pre">config.py</span></code>:</p>
+<p>`` config.py``の内容：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1019,36 +435,16 @@ follow explain the rationale.</p>
     <span class="k">return</span> <span class="n">func</span>
 </pre></div>
 </td></tr></table></div>
-<p>If we <code class="docutils literal notranslate"><span class="pre">cd</span></code> to the directory that holds these files, and we run
-<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">app.py</span></code>, given the directory structure and code above, what happens?
-Presumably, our <code class="docutils literal notranslate"><span class="pre">decorator</span></code> decorator will be used twice, once by the
-decorated function <code class="docutils literal notranslate"><span class="pre">foo</span></code> in <code class="docutils literal notranslate"><span class="pre">app.py</span></code>, and once by the decorated function
-<code class="docutils literal notranslate"><span class="pre">bar</span></code> in <code class="docutils literal notranslate"><span class="pre">app2.py</span></code>. Since each time the decorator is used, the list <code class="docutils literal notranslate"><span class="pre">L</span></code>
-in <code class="docutils literal notranslate"><span class="pre">config.py</span></code> is appended to, we'd expect a list with two elements to be
-printed, right? Sadly, no:</p>
+<p>これらのファイルを保持しているディレクトリに対して `` cd``を実行し、上記のディレクトリ構造とコードで `` python app.py``を実行すると、どうなりますか？おそらく、私たちの `` decorator``デコレータは `` app.py``内の `` foo``関数と `` app2.py``内の装飾関数 `` bar``の二回使用されるでしょう``。デコレータが使用されるたびに、 `` config.py``の `` L``が追加されているので、2つの要素を持つリストが印刷されると思いますよね？悲しいことに、</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[chrism@thinko]$ python app.py
 [&lt;function foo at 0x7f4ea41ab1b8&gt;,
  &lt;function foo at 0x7f4ea41ab230&gt;,
  &lt;function bar at 0x7f4ea41ab2a8&gt;]
 </pre></div>
 </div>
-<p>By visual inspection, that outcome (three different functions in the list)
-seems impossible. We defined only two functions, and we decorated each of those
-functions only once, so we believe that the <code class="docutils literal notranslate"><span class="pre">decorator</span></code> decorator will run
-only twice. However, what we believe is in fact wrong, because the code at
-module scope in our <code class="docutils literal notranslate"><span class="pre">app.py</span></code> module was <em>executed twice</em>. The code is
-executed once when the script is run as <code class="docutils literal notranslate"><span class="pre">__main__</span></code> (via <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">app.py</span></code>),
-and then it is executed again when <code class="docutils literal notranslate"><span class="pre">app2.py</span></code> imports the same file as
-<code class="docutils literal notranslate"><span class="pre">app</span></code>.</p>
-<p>What does this have to do with our comparison to microframeworks? Many
-microframeworks in the current crop (e.g., Bottle and Flask) encourage you to
-attach configuration decorators to objects defined at module scope. These
-decorators execute arbitrarily complex registration code, which populates a
-singleton registry that is a global which is in turn defined in external Python
-module. This is analogous to the above example: the &quot;global registry&quot; in the
-above example is the list <code class="docutils literal notranslate"><span class="pre">L</span></code>.</p>
-<p>Let's see what happens when we use the same pattern with the <a class="reference external" href="https://github.com/Pylons/groundhog">Groundhog</a> microframework.  Replace the contents
-of <code class="docutils literal notranslate"><span class="pre">app.py</span></code> above with this:</p>
+<p>視覚的検査によって、その結果（リストの3つの異なる機能）は不可能と思われる。 2つの関数しか定義しなかったので、それらの関数をそれぞれ1回だけ飾ったので、 `` decorator``デコレータは2回しか実行されないと考えています。しかし、私たちが信じることは、実際には間違っています。なぜなら、私たちの `` app.py``モジュールのモジュールスコープのコードが* 2回*実行されたからです。このコードは、スクリプトが `` __main__``（ `` python app.py``を介して）で実行されると一度実行され、 `` app2.py``が `` app &amp;#39;&amp;#39;と同じファイルをインポートすると再び実行されます``。</p>
+<p>これは、マイクロフレームワークとの比較とどう関係していますか？現在の作物の多くのマイクロフレームワーク（BottleやFlaskなど）では、モジュールスコープで定義されたオブジェクトにコンフィギュレーションデコレータをアタッチすることが推奨されています。これらのデコレータは、任意の複雑な登録コードを実行します。これは、外部Pythonモジュールで定義されたグローバルであるシングルトンレジストリにデータを読み込みます。これは上記の例に似ています：上の例の&amp;quot;グローバルレジストリ&amp;quot;はリスト &amp;quot;L&amp;quot;です。</p>
+<p>同じパターンを <cite>Groundhog &amp;#39;で使うとどうなるか見てみましょう&lt;https://github.com/Pylons/groundhog&gt; `_マイクロフレームワーク。上記の `</cite> app.py``の内容を以下のように置き換えてください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1068,7 +464,7 @@ of <code class="docutils literal notranslate"><span class="pre">app.py</span></c
     <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Replace the contents of <code class="docutils literal notranslate"><span class="pre">app2.py</span></code> above with this:</p>
+<p>上記の `` app2.py``の内容を以下のように置き換えてください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1080,86 +476,18 @@ of <code class="docutils literal notranslate"><span class="pre">app.py</span></c
     <span class="s1">&#39;return bar&#39;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Replace the contents of <code class="docutils literal notranslate"><span class="pre">config.py</span></code> above with this:</p>
+<p>上記の `` config.py``の内容を以下のように置き換えてください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">groundhog</span> <span class="kn">import</span> <span class="n">Groundhog</span>
 <span class="n">gh</span> <span class="o">=</span> <span class="n">Groundhog</span><span class="p">(</span><span class="s1">&#39;myapp&#39;</span><span class="p">,</span> <span class="s1">&#39;seekrit&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>How many routes will be registered within the routing table of the &quot;gh&quot;
-Groundhog application?  If you answered three, you are correct.  How many
-would a casual reader (and any sane developer) expect to be registered?  If
-you answered two, you are correct.  Will the double registration be a
-problem?  With our Groundhog framework's <code class="docutils literal notranslate"><span class="pre">route</span></code> method backing this
-application, not really.  It will slow the application down a little bit,
-because it will need to miss twice for a route when it does not match.  Will
-it be a problem with another framework, another application, or another
-decorator?  Who knows.  You need to understand the application in its
-totality, the framework in its totality, and the chronology of execution to
-be able to predict what the impact of unintentional code double-execution
-will be.</p>
-<p>The encouragement to use decorators which perform population of an external
-registry has an unintended consequence: the application developer now must
-assert ownership of every code path that executes Python module scope code.
-Module-scope code is presumed by the current crop of decorator-based
-microframeworks to execute once and only once. If it executes more than once,
-weird things will start to happen. It is up to the application developer to
-maintain this invariant. Unfortunately, in reality this is an impossible task,
-because Python programmers <em>do not own the module scope code path, and never
-will</em>. Anyone who tries to sell you on the idea that they do so is simply
-mistaken. Test runners that you may want to use to run your code's tests often
-perform imports of arbitrary code in strange orders that manifest bugs like the
-one demonstrated above. API documentation generation tools do the same. Some
-people even think it's safe to use the Python <code class="docutils literal notranslate"><span class="pre">reload</span></code> command, or delete
-objects from <code class="docutils literal notranslate"><span class="pre">sys.modules</span></code>, each of which has hilarious effects when used
-against code that has import-time side effects.</p>
-<p>Global registry-mutating microframework programmers therefore will at some
-point need to start reading the tea leaves about what <em>might</em> happen if module
-scope code gets executed more than once, like we do in the previous paragraph.
-When Python programmers assume they can use the module-scope code path to run
-arbitrary code (especially code which populates an external registry), and this
-assumption is challenged by reality, the application developer is often
-required to undergo a painful, meticulous debugging process to find the root
-cause of an inevitably obscure symptom. The solution is often to rearrange
-application import ordering, or move an import statement from module-scope into
-a function body. The rationale for doing so can never be expressed adequately
-in the commit message which accompanies the fix, and can't be documented
-succinctly enough for the benefit of the rest of the development team so that
-the problem never happens again. It will happen again, especially if you are
-working on a project with other people who haven't yet internalized the lessons
-you learned while you stepped through module-scope code using <code class="docutils literal notranslate"><span class="pre">pdb</span></code>. This is
-a very poor situation in which to find yourself as an application developer:
-you probably didn't even know you or your team signed up for the job, because
-the documentation offered by decorator-based microframeworks don't warn you
-about it.</p>
-<p>Folks who have a large investment in eager decorator-based configuration that
-populates an external data structure (such as microframework authors) may
-argue that the set of circumstances I outlined above is anomalous and
-contrived.  They will argue that it just will never happen.  If you never
-intend your application to grow beyond one or two or three modules, that's
-probably true.  However, as your codebase grows, and becomes spread across a
-greater number of modules, the circumstances in which module-scope code will
-be executed multiple times will become more and more likely to occur and less
-and less predictable.  It's not responsible to claim that double-execution of
-module-scope code will never happen.  It will; it's just a matter of luck,
-time, and application complexity.</p>
-<p>If microframework authors do admit that the circumstance isn't contrived,
-they might then argue that real damage will never happen as the result of the
-double-execution (or triple-execution, etc.) of module scope code.  You would
-be wise to disbelieve this assertion.  The potential outcomes of multiple
-execution are too numerous to predict because they involve delicate
-relationships between application and framework code as well as chronology of
-code execution.  It's literally impossible for a framework author to know
-what will happen in all circumstances.  But even if given the gift of
-omniscience for some limited set of circumstances, the framework author
-almost certainly does not have the double-execution anomaly in mind when
-coding new features.  They're thinking of adding a feature, not protecting
-against problems that might be caused by the 1% multiple execution case.
-However, any 1% case may cause 50% of your pain on a project, so it'd be nice
-if it never occurred.</p>
-<p>Responsible microframeworks actually offer a back-door way around the problem.
-They allow you to disuse decorator-based configuration entirely. Instead of
-requiring you to do the following:</p>
+<p>&amp;quot;gh Groundhogアプリケーションのルーティングテーブルに登録されるルートはいくつですか？あなたが3つ答えた場合、あなたは正しいですか？カジュアルリーダー（および正常な開発者）は何人登録する予定ですか？あなたは正しいですか？ダブル登録は問題になりますか？Groundhogフレームワークの `` route``メソッドは、このアプリケーションをサポートしています。実際にはアプリケーションを遅くするでしょう。それは他のフレームワーク、別のアプリケーション、または別のデコレータで問題になるのでしょうか？誰が知っていますか？アプリケーション全体を理解し、フレームワーク全体と実行時間を予測できる必要があります。意図しないコードの二重実行の影響はどのようなものになりますか。</p>
+<p>外部レジストリの配置を行うデコレータの使用を奨励すると、意図しない結果になります。アプリケーション開発者は、Pythonモジュールスコープコードを実行するすべてのコードパスの所有権をアサートする必要があります。モジュールスコープコードは、デコレータベースのマイクロフレームワークの現在の作物によって1回だけ実行されると推定されます。複数回実行すると、奇妙なことが起こり始めるでしょう。この不変量を維持するのはアプリケーション開発者次第です。残念ながら、実際には、これは不可能な作業です。なぜなら、Pythonプログラマ*はモジュールスコープのコードパスを所有していないからです。あなたがそうするという考えにあなたを売ろうとする者は、間違っているだけです。あなたのコードのテストを実行するために使用したいと思うかもしれないテストランナーは、上記のようなバグを明らかにする不思議な命令で任意のコードをインポートすることがよくあります。 APIドキュメント生成ツールも同じです。 Pythonの `` reload``コマンドを使うことや、 `` sys.modules``からオブジェクトを削除する方が安全だと思う人もいます。それぞれのオブジェクトは、インポート時に副作用があるコードに対して使用すると面白い効果があります。</p>
+<p>したがって、グローバルレジストリを変更するマイクロフレームワークプログラマーは、前の段落のように、モジュールスコープコードが複数回実行された場合に発生する可能性のあることについて、お茶リーフを読んでいく必要があります。 Pythonプログラマがモジュールスコープのコードパスを使用して任意のコード（特に外部レジストリを埋め込むコード）を実行できると仮定すると、この仮定は現実に挑戦され、アプリケーション開発者はしばしば厄介なデバッグプロセスを踏まなければなりません。必然的にあいまいな症状の根本的な原因を突き止める。解決方法は、アプリケーションのインポート順序を並べ替えるか、モジュールスコープから関数本体にインポートステートメントを移動することがよくあります。これを行うための根拠は、修正に伴うコミットメッセージで決して適切に表現されることはありません。また、開発チームの残りの利益のために十分に簡潔に文書化することはできません。特に、 `` pdb``を使ってモジュールスコープコードを実行している間に学んだレッスンをまだ内部化していない他の人たちと一緒にプロジェクトに取り組んでいるなら、もう一度やり直してください。デコレータベースのマイクロフレームワークで提供されているドキュメントでは、あなたに警告していないため、あなたやあなたのチームが登録したことさえ知りませんでした。</p>
+<p>外部データ構造（マイクロフレームワークの作成者など）を占有する熱心なデコレータベースの構成に多額の投資をしている人は、上記で概説した一連の状況は異常であり、人工的であると主張するかもしれません。彼らはそれが決して起こらないと主張するでしょう。アプリケーションが1つまたは2つまたは3つのモジュールを超えて成長することを決して意図していない場合は、おそらくそれが当てはまります。しかし、コードベースが拡大し、より多くのモジュールに分散されるにつれて、モジュールスコープコードが複数回実行される状況がますます起こりやすくなり、予期しにくくなります。モジュールスコープコードの二重実行が決して起こらないと主張する責任はありません。そうなる;運と時間とアプリケーションの複雑さの問題です。</p>
+<p>マイクロフレーム作成者がその状況が考案されていないと認める場合、モジュールスコープコードの二重実行（または三重実行など）の結果として実際の損害は決して起こらないと主張するかもしれない。あなたはこの主張を信じないことが賢明でしょう。複数の実行の潜在的な結果は、アプリケーションとフレームワークコードの間の微妙な関係やコード実行の時系列が関係しているため、予期するには多すぎます。フレームワークの作者があらゆる状況で何が起こるかを知ることは、文字通り不可能です。しかし、いくつかの限られた状況に対して全知の贈り物が与えられたとしても、フレームワークの作者は、新機能をコーディングする際に、二重実行異常を念頭に置いていることはほとんどありません。彼らは機能を追加することを考えており、1％の多重実行の場合に起こりうる問題に対して保護しません。しかし、1％の症例では、プロジェクトの痛みの50％が発生する可能性があるため、発生していないといいでしょう。</p>
+<p>責任あるマイクロフレームワークは、実際には問題の背後にある道を提供します。デコレータベースの設定を完全に廃止することができます。あなたに次のことを要求する代わりに：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1177,7 +505,7 @@ requiring you to do the following:</p>
     <span class="n">gh</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>They allow you to disuse the decorator syntax and go almost all-imperative:</p>
+<p>デコレータの構文を廃止し、ほとんどすべての命令を実行することができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1195,32 +523,15 @@ requiring you to do the following:</p>
     <span class="n">gh</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>This is a generic mode of operation that is encouraged in the Pyramid
-documentation. Some existing microframeworks (Flask, in particular) allow for
-it as well.  None (other than Pyramid) <em>encourage</em> it.  If you never expect
-your application to grow beyond two or three or four or ten modules, it
-probably doesn't matter very much which mode you use.  If your application
-grows large, however, imperative configuration can provide better
-predictability.</p>
+<p>これはPyramidのドキュメントで推奨されている一般的な操作モードです。いくつかの既存のマイクロフレームワーク（特にフラスコ）はそれを可能にします。なし（ピラミッド以外）*それを奨励する*。アプリケーションが2〜3または4〜10のモジュールを超えて成長することを決して期待しない場合は、どのモードを使用するかはあまり関係ありません。ただし、アプリケーションが大きくなる場合は、必須の構成によって予測性が向上します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Astute readers may notice that Pyramid has configuration decorators too. Aha!
-Don't these decorators have the same problems? No. These decorators do not
-populate an external Python module when they are executed. They only mutate
-the functions (and classes and methods) to which they're attached. These
-mutations must later be found during a scan process that has a predictable
-and structured import phase. Module-localized mutation is actually the
-best-case circumstance for double-imports. If a module only mutates itself
-and its contents at import time, if it is imported twice, that's OK, because
-each decorator invocation will always be mutating an independent copy of the
-object to which it's attached, not a shared resource like a registry in
-another module. This has the effect that double-registrations will never be
-performed.</p>
+<p class="last">鋭い読者は、Pyramidにも構成デコレータがあることに気付くかもしれません。ああ！これらのデコレータに同じ問題はありませんか？いいえ。これらのデコレータは、実行時に外部のPythonモジュールを生成しません。彼らは、それらが接続されている関数（およびクラスとメソッド）のみを変更します。これらの突然変異は、予測可能かつ構造化されたインポートフェーズを有するスキャンプロセス中に後に見つけ出さなければならない。モジュールローカライズされた突然変異は、実際には二重輸入の最良の状況です。モジュールがインポート時に自分自身とその内容を変更するだけであれば、それが2回インポートされてもOKです。なぜなら、各デコレータ呼び出しは、レジストリのような共有リソースではなく、添付されたオブジェクトの独立したコピーをモジュール。これは、二重登録が決して実行されないという効果を有する。</p>
 </div>
 </div>
 <div class="section" id="routes-need-relative-ordering">
-<span id="routes-need-ordering"></span><h3>Routes need relative ordering<a class="headerlink" href="#routes-need-relative-ordering" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Consider the following simple <a class="reference external" href="https://github.com/Pylons/groundhog">Groundhog</a> application:</p>
+<span id="routes-need-ordering"></span><h3>経路には相対的な順序が必要<a class="headerlink" href="#routes-need-relative-ordering" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下の単純な「Groundhog &lt;<a class="reference external" href="https://github.com/Pylons/groundhog">https://github.com/Pylons/groundhog</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_アプリケーション：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1256,9 +567,7 @@ performed.</p>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>If you run this application and visit the URL <code class="docutils literal notranslate"><span class="pre">/admin</span></code>, you will see the
-&quot;admin&quot; page. This is the intended result. However, what if you rearrange the
-order of the function definitions in the file?</p>
+<p>このアプリケーションを実行し、 `` / admin``のURLにアクセスすると、&amp;quot;admin &amp;quot;ページが表示されます。これが意図した結果です。ただし、ファイル内の関数定義の順序を並べ替えるとどうなりますか？</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1294,70 +603,20 @@ order of the function definitions in the file?</p>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>If you run this application and visit the URL <code class="docutils literal notranslate"><span class="pre">/admin</span></code>, your app will now
-return a 404 error. This is probably not what you intended. The reason you see
-a 404 error when you rearrange function definition ordering is that routing
-declarations expressed via our microframework's routing decorators have an
-<em>ordering</em>, and that ordering matters.</p>
-<p>In the first case, where we achieved the expected result, we first added a
-route with the pattern <code class="docutils literal notranslate"><span class="pre">/admin</span></code>, then we added a route with the pattern
-<code class="docutils literal notranslate"><span class="pre">/:action</span></code> by virtue of adding routing patterns via decorators at module
-scope.  When a request with a <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> of <code class="docutils literal notranslate"><span class="pre">/admin</span></code> enters our
-application, the web framework loops over each of our application's route
-patterns in the order in which they were defined in our module.  As a result,
-the view associated with the <code class="docutils literal notranslate"><span class="pre">/admin</span></code> routing pattern will be invoked because
-it matches first. All is right with the world.</p>
-<p>In the second case, where we did not achieve the expected result, we first
-added a route with the pattern <code class="docutils literal notranslate"><span class="pre">/:action</span></code>, then we added a route with the
-pattern <code class="docutils literal notranslate"><span class="pre">/admin</span></code>.  When a request with a <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> of <code class="docutils literal notranslate"><span class="pre">/admin</span></code> enters
-our application, the web framework loops over each of our application's route
-patterns in the order in which they were defined in our module.  As a result,
-the view associated with the <code class="docutils literal notranslate"><span class="pre">/:action</span></code> routing pattern will be invoked
-because it matches first. A 404 error is raised. This is not what we wanted; it
-just happened due to the order in which we defined our view functions.</p>
-<p>This is because Groundhog routes are added to the routing map in import order,
-and matched in the same order when a request comes in. Bottle, like Groundhog,
-as of this writing, matches routes in the order in which they're defined at
-Python execution time. Flask, on the other hand, does not order route matching
-based on import order. Instead it reorders the routes you add to your
-application based on their &quot;complexity&quot;. Other microframeworks have varying
-strategies to do route ordering.</p>
-<p>Your application may be small enough where route ordering will never cause an
-issue. If your application becomes large enough, however, being able to specify
-or predict that ordering as your application grows larger will be difficult.
-At some point, you will likely need to start controlling route ordering more
-explicitly, especially in applications that require extensibility.</p>
-<p>If your microframework orders route matching based on complexity, you'll need
-to understand what is meant by &quot;complexity&quot;, and you'll need to attempt to
-inject a &quot;less complex&quot; route to have it get matched before any &quot;more complex&quot;
-one to ensure that it's tried first.</p>
-<p>If your microframework orders its route matching based on relative
-import/execution of function decorator definitions, you will need to ensure
-that you execute all of these statements in the &quot;right&quot; order, and you'll need
-to be cognizant of this import/execution ordering as you grow your application
-or try to extend it. This is a difficult invariant to maintain for all but the
-smallest applications.</p>
-<p>In either case, your application must import the non-<code class="docutils literal notranslate"><span class="pre">__main__</span></code> modules which
-contain configuration decorations somehow for their configuration to be
-executed. Does that make you a little uncomfortable? It should, because
-<a class="reference internal" href="#you-dont-own-modulescope"><span class="std std-ref">Application programmers don't control the module-scope codepath (import-time side-effects are evil)</span></a>.</p>
-<p>Pyramid uses neither decorator import time ordering nor does it attempt to
-divine the relative complexity of one route to another as a means to define a
-route match ordering. In Pyramid, you have to maintain relative route ordering
-imperatively via the chronology of multiple executions of the
-<a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> method. The order in which you
-repeatedly call <code class="docutils literal notranslate"><span class="pre">add_route</span></code> becomes the order of route matching.</p>
-<p>If needing to maintain this imperative ordering truly bugs you, you can use
-<a class="reference internal" href="glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> instead of route matching, which is a completely declarative
-(and completely predictable) mechanism to map code to URLs. While URL dispatch
-is easier to understand for small non-extensible applications, traversal is a
-great fit for very large applications and applications that need to be
-arbitrarily extensible.</p>
+<p>このアプリケーションを実行し、 `` / admin``というURLにアクセスすると、アプリケーションは404エラーを返します。これはおそらくあなたが意図したものではありません。関数定義の順序を並べ替えるときに404エラーが表示される理由は、マイクロフレームワークのルーティングデコレータを介して表現されたルーティング宣言に* ordering <a href="#id1"><span class="problematic" id="id2">*</span></a>があり、その順序付けが重要であるということです。</p>
+<p>我々が期待した結果を得た最初のケ​​ースでは、最初にパターン `` / admin`を追加した後、デコレータを介してルーティングパターンを追加することでパターン `` /：action``を追加しましたモジュールスコープで`` / admin``の `` PATH_INFO``を持つリクエストがアプリケーションに入ると、Webフレームワークは私たちのモジュールで定義された順番で、それぞれのアプリケーションのルートパターンをループします。その結果、 `` / admin``ルーティングパターンに関連付けられたビューが最初に一致するため、呼び出されます。すべてが世界と正しかった。</p>
+<p>2番目のケースでは、期待した結果が得られなかったので、最初にパターン `` /：action``を追加した後、パターン `` / admin``を追加しました。 `` / admin``の `` PATH_INFO``を持つリクエストがアプリケーションに入ると、Webフレームワークは私たちのモジュールで定義された順番で、それぞれのアプリケーションのルートパターンをループします。結果として、 `` /：action``ルーティングパターンに関連付けられたビューは最初に一致するため呼び出されます。 404エラーが発生します。これは私たちが望むものではありません。私たちがビュー機能を定義した順序のために起こったばかりです。</p>
+<p>これは、Groundhogルートがインポート順にルーティングマップに追加され、リクエストが入ったときに同じ順序で一致するためです。この記事の時点で、GroundhogのようなBottleは、Pythonで定義されている順序でルートを照合します実行時間。一方、フラスコは輸入注文に基づいてルートマッチングを注文しません。代わりに、アプリケーションに追加するルートを&amp;quot;complexity &amp;quot;に基づいて並べ替えます。他のマイクロフレームワークでは、経路の順序付けを行うさまざまな戦略があります。</p>
+<p>あなたのアプリケーションは、ルートの順序が問題を引き起こさないほど十分に小さいかもしれません。しかし、アプリケーションが十分に大きくなると、アプリケーションが大きくなるにつれて順序を指定したり予測したりすることが難しくなります。ある時点で、特に拡張性を必要とするアプリケーションでは、より明示的に経路順序を制御し始める必要があります。</p>
+<p>あなたのマイクロフレームワークが複雑さに基づいてルートマッチングを注文する場合、&amp;quot;複雑さ&amp;quot;が意味するものを理解する必要があります。そして、 &amp;quot;より複雑ではない&amp;quot;ルートを注入して、それが最初に試されることを保証するために &amp;quot;より複雑な&amp;quot;ものを選択します。</p>
+<p>あなたのマイクロフレームワークが、関数デコレータ定義の相対的なインポート/実行に基づいてルートマッチングを注文する場合は、これらのステートメントをすべて「右」の順序で実行する必要があります。このインポートを認識する必要がありますアプリケーションを拡張したり、拡張しようとすると、実行順序が変わることがあります。これは、最小のアプリケーション以外のすべてを維持するのは難しい不変量です。</p>
+<p>どちらの場合でも、アプリケーションは、構成の飾りを含む <a href="#id1"><span class="problematic" id="id2">``</span></a>__main__``以外のモジュールを、何らかの形でそれらの構成が実行されるようにインポートする必要があります。それはあなたを少し不快にさせますか？これは、：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>you_dont_own_modulescope`のためです。</p>
+<p>Pyramidは、デコレータのインポート時間の順序付けも、経路の順序付けを定義する手段として、ある経路の相対的な複雑さを別の経路に割り当てることもしません。 Pyramidでは、：meth： <cite>pyramid.config.Configurator.add_route`メソッドを複数回実行することによって、相対的なルートの順序付けを命令的に維持する必要があります。 `</cite> add_route``を繰り返し呼び出す順序は、ルートマッチングの順番になります。</p>
+<p>この必須命令を本当にバグのままにする必要がある場合、ルートマッチングの代わりに：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>traversal`を使うことができます。これはコードをURLにマップするための完全に宣言的な（完全に予測可能な）メカニズムです。小さな非拡張可能アプリケーションではURLディスパッチが理解しやすくなりますが、トラバーサルは、非常に大きなアプリケーションや任意に拡張可能なアプリケーションに最適です。</p>
 </div>
 <div class="section" id="stacked-object-proxies-are-too-clever-thread-locals-are-a-nuisance">
-<span id="thread-local-nuisance"></span><h3>&quot;Stacked object proxies&quot; are too clever / thread locals are a nuisance<a class="headerlink" href="#stacked-object-proxies-are-too-clever-thread-locals-are-a-nuisance" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Some microframeworks use the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement to get a handle to an
-object which <em>is not logically global</em>:</p>
+<span id="thread-local-nuisance"></span><h3>&amp;quot;スタックされたオブジェクトのプロキシ&amp;quot;があまりにも賢い/スレッドの地元の人は迷惑です<a class="headerlink" href="#stacked-object-proxies-are-too-clever-thread-locals-are-a-nuisance" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>いくつかのマイクロフレームワークは、 `` import``ステートメントを使って、<em>論理的にグローバルではないオブジェクトへのハンドルを取得します</em>：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1385,17 +644,8 @@ object which <em>is not logically global</em>:</p>
     <span class="c1"># credentials were invalid</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <a class="reference external" href="https://docs.pylonsproject.org/projects/pylons-webframework/en/latest/">Pylons 1.X</a>
-web framework uses a similar strategy.  It calls these things &quot;Stacked Object
-Proxies&quot;, so, for purposes of this discussion, I'll do so as well.</p>
-<p>Import statements in Python (<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">foo</span></code>, <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">bar</span> <span class="pre">import</span> <span class="pre">baz</span></code>) are
-most frequently performed to obtain a reference to an object defined globally
-within an external Python module.  However, in normal programs, they are
-never used to obtain a reference to an object that has a lifetime measured by
-the scope of the body of a function.  It would be absurd to try to import,
-for example, a variable named <code class="docutils literal notranslate"><span class="pre">i</span></code> representing a loop counter defined in
-the body of a function.  For example, we'd never try to import <code class="docutils literal notranslate"><span class="pre">i</span></code> from the
-code below:</p>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a>Pylons 1.X &lt;<a class="reference external" href="https://docs.pylonsproject.org/projects/pylons-webframework/en/latest/">https://docs.pylonsproject.org/projects/pylons-webframework/en/latest/</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_ web frameworkも同様の戦略を使用します。これは、これらのものを「スタックオブジェクトプロキシ」と呼びます。この議論の目的のために、私はそうするでしょう。</p>
+<p>Pythonのimport文（ `` import foo``、 `` from bar import baz``）は、外部Pythonモジュール内でグローバルに定義されたオブジェクトへの参照を取得するために最も頻繁に実行されます。しかし、通常のプログラムでは、関数の本体のスコープで測定された有効期間を持つオブジェクトへの参照を取得することはありません。たとえば、関数の本体で定義されたループカウンタを表す `` i``という名前の変数をインポートしようとするのは不合理です。例えば、以下のコードから `` i``をインポートしようとはしません。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">afunc</span><span class="p">():</span>
@@ -1403,68 +653,20 @@ code below:</p>
         <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>By its nature, the <em>request</em> object that is created as the result of a WSGI
-server's call into a long-lived web framework cannot be global, because the
-lifetime of a single request will be much shorter than the lifetime of the
-process running the framework.  A request object created by a web framework
-actually has more similarity to the <code class="docutils literal notranslate"><span class="pre">i</span></code> loop counter in our example above
-than it has to any comparable importable object defined in the Python standard
-library or in normal library code.</p>
-<p>However, systems which use stacked object proxies promote locally scoped
-objects, such as <code class="docutils literal notranslate"><span class="pre">request</span></code>, out to module scope, for the purpose of being
-able to offer users a nice spelling involving <code class="docutils literal notranslate"><span class="pre">import</span></code>.  They, for what I
-consider dubious reasons, would rather present to their users the canonical way
-of getting at a <code class="docutils literal notranslate"><span class="pre">request</span></code> as <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">framework</span> <span class="pre">import</span> <span class="pre">request</span></code> instead of a
-saner <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">myframework.threadlocals</span> <span class="pre">import</span> <span class="pre">get_request;</span> <span class="pre">request</span> <span class="pre">=</span>
-<span class="pre">get_request()</span></code>, even though the latter is more explicit.</p>
-<p>It would be <em>most</em> explicit if the microframeworks did not use thread local
-variables at all. Pyramid view functions are passed a request object. Many of
-Pyramid's APIs require that an explicit request object be passed to them. It is
-<em>possible</em> to retrieve the current Pyramid request as a threadlocal variable,
-but it is an &quot;in case of emergency, break glass&quot; type of activity. This
-explicitness makes Pyramid view functions more easily unit testable, as you
-don't need to rely on the framework to manufacture suitable &quot;dummy&quot; request
-(and other similarly-scoped) objects during test setup.  It also makes them
-more likely to work on arbitrary systems, such as async servers, that do no
-monkeypatching.</p>
+<p>その性質上、WSGIサーバーの長期間Webフレームワークへの呼び出しの結果として生成される* request <a href="#id1"><span class="problematic" id="id2">*</span></a>オブジェクトは、グローバルにすることはできません。単一の要求の存続期間は、実行中のプロセスの存続期間フレームワーク。 Webフレームワークによって作成されたリクエストオブジェクトは、Python標準ライブラリまたは通常のライブラリコードで定義されている同等のインポート可能なオブジェクトよりも、上記の例の `` i``ループカウンタと実際に類似しています。</p>
+<p>しかし、スタックされたオブジェクトプロキシを使用するシステムでは、 <a href="#id1"><span class="problematic" id="id2">``</span></a>要求 &amp;#39;&amp;#39;のようなローカルスコープのオブジェクトをモジュールスコープに送り出して、 `` import``を含む素晴らしいスペルをユーザに提供することを目的としています。彼らは私が疑わしい理由を考えると、myframework.threadlocals import get_requestからsanerを使うのではなく、 <a href="#id3"><span class="problematic" id="id4">``</span></a>フレームワークインポート要求から <a href="#id5"><span class="problematic" id="id6">``</span></a>要求 &amp;#39;&amp;#39;を得る標準的な方法をユーザに提示するだろう。 request = get_request（） <a href="#id7"><span class="problematic" id="id8">``</span></a>のようになります。</p>
+<p>マイクロフレームワークがスレッドローカル変数をまったく使用していない場合は、* most * explicitになります。ピラミッドビュー関数はリクエストオブジェクトに渡されます。 PyramidのAPIの多くは、明示的な要求オブジェクトを渡す必要があります。現在のピラミッド要求をスレッドローカル変数として取り出すことは可能ですが、緊急の場合には &amp;quot;ブレークグラス&amp;quot;タイプのアクティビティです。この設定では、テストセットアップ中に適切な&amp;quot;ダミー&amp;quot;要求（および同様のスコープを持つ）オブジェクトを作成するためにフレームワークに頼る必要がないため、ピラミッドビュー機能をより簡単にユニットテスト可能にしています。また、非同期サーバなどの、モノスケッチをしない任意のシステムで動作する可能性が高くなります。</p>
 </div>
 <div class="section" id="explicitly-wsgi">
-<span id="id2"></span><h3>Explicitly WSGI<a class="headerlink" href="#explicitly-wsgi" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Some microframeworks offer a <code class="docutils literal notranslate"><span class="pre">run()</span></code> method of an application object that
-executes a default server configuration for easy execution.</p>
-<p>Pyramid doesn't currently try to hide the fact that its router is a WSGI
-application behind a convenience <code class="docutils literal notranslate"><span class="pre">run()</span></code> API.  It just tells people to
-import a WSGI server and use it to serve up their Pyramid application as per
-the documentation of that WSGI server.</p>
-<p>The extra lines saved by abstracting away the serving step behind <code class="docutils literal notranslate"><span class="pre">run()</span></code>
-seems to have driven dubious second-order decisions related to its API in some
-microframeworks. For example, Bottle contains a <code class="docutils literal notranslate"><span class="pre">ServerAdapter</span></code> subclass for
-each type of WSGI server it supports via its <code class="docutils literal notranslate"><span class="pre">app.run()</span></code> mechanism. This
-means that there exists code in <code class="docutils literal notranslate"><span class="pre">bottle.py</span></code> that depends on the following
-modules: <code class="docutils literal notranslate"><span class="pre">wsgiref</span></code>, <code class="docutils literal notranslate"><span class="pre">flup</span></code>, <code class="docutils literal notranslate"><span class="pre">paste</span></code>, <code class="docutils literal notranslate"><span class="pre">cherrypy</span></code>, <code class="docutils literal notranslate"><span class="pre">fapws</span></code>,
-<code class="docutils literal notranslate"><span class="pre">tornado</span></code>, <code class="docutils literal notranslate"><span class="pre">google.appengine</span></code>, <code class="docutils literal notranslate"><span class="pre">twisted.web</span></code>, <code class="docutils literal notranslate"><span class="pre">diesel</span></code>, <code class="docutils literal notranslate"><span class="pre">gevent</span></code>,
-<code class="docutils literal notranslate"><span class="pre">gunicorn</span></code>, <code class="docutils literal notranslate"><span class="pre">eventlet</span></code>, and <code class="docutils literal notranslate"><span class="pre">rocket</span></code>. You choose the kind of server you
-want to run by passing its name into the <code class="docutils literal notranslate"><span class="pre">run</span></code> method. In theory, this sounds
-great: I can try out Bottle on <code class="docutils literal notranslate"><span class="pre">gunicorn</span></code> just by passing in a name! However,
-to fully test Bottle, all of these third-party systems must be installed and
-functional. The Bottle developers must monitor changes to each of these
-packages and make sure their code still interfaces properly with them. This
-increases the number of packages required for testing greatly; this is a <em>lot</em>
-of requirements. It is likely difficult to fully automate these tests due to
-requirements conflicts and build issues.</p>
-<p>As a result, for single-file apps, we currently don't bother to offer a
-<code class="docutils literal notranslate"><span class="pre">run()</span></code> shortcut. We tell folks to import their WSGI server of choice and run
-it by hand. For the people who want a server abstraction layer, we suggest that
-they use PasteDeploy.  In PasteDeploy-based systems, the onus for making sure
-that the server can interface with a WSGI application is placed on the server
-developer, not the web framework developer, making it more likely to be timely
-and correct.</p>
+<span id="id2"></span><h3>明示的にWSGI<a class="headerlink" href="#explicitly-wsgi" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>いくつかのマイクロフレームワークは、簡単な実行のためにデフォルトのサーバ設定を実行するアプリケーションオブジェクトの `` run（） <a href="#id1"><span class="problematic" id="id2">``</span></a>メソッドを提供します。</p>
+<p>Pyramidは現在、ルータが便利な `` run（） `` APIの後ろにあるWSGIアプリケーションであるという事実を隠そうとしていません。これは、WSGIサーバーをインポートし、そのWSGIサーバーのドキュメントに従ってPyramidアプリケーションを提供するために、WSGIサーバーをインポートするように指示します。</p>
+<p>`` run（） <cite>の後ろで提供ステップを抽象化することで節約された余分な行は、いくつかのマイクロフレームワークでそのAPIに関連する疑わしい2次的決定を引き起こしたようです。たとえば、Bottleには、 `</cite> app.run（） <code class="docutils literal notranslate"><span class="pre">メカニズムを介してサポートされているWSGIサーバのタイプごとに、</span> <span class="pre">``</span> <span class="pre">ServerAdapter``サブクラスが含まれています。これは</span> <span class="pre">``</span> <span class="pre">wsgiref</span></code>、 `` flup``、 `` paste``、 `` cherrypy``、 `` fapws``モジュールに依存する `` bottle.py``にコードが存在することを意味します。 `` google.appengine``、 `` twisted.web``、 `` diesel``、 `` gevent``、 `` gunicorn``、 `` eventlet``、 <a href="#id1"><span class="problematic" id="id2">``</span></a>ロケット。 `` run``メソッドに名前を渡すことで、実行したいサーバの種類を選択します。理論的には、これはすばらしいことです：私は `` gunicorn``のボトルを名前を渡すだけで試すことができます！ただし、ボトルを完全にテストするには、これらのサードパーティシステムをすべてインストールして機能させる必要があります。ボトルの開発者は、これらのパッケージのそれぞれに対する変更を監視し、コードが依然としてそれらと適切にインターフェースしていることを確認する必要があります。これにより、テストに必要なパッケージの数が大幅に増えます。これは要件の*ロット*です。要件の競合やビルドの問題により、これらのテストを完全に自動化することは難しいでしょう。</p>
+<p>その結果、単一ファイルのアプリケーションの場合、現在 `` run（） <a href="#id1"><span class="problematic" id="id2">``</span></a>ショートカットを提供することに煩わされることはありません。私たちは、選択したWSGIサーバーをインポートし、手動で実行するように指示します。サーバー抽象化レイヤーが必要な人にとっては、PasteDeployを使用することをお勧めします。 PasteDeployベースのシステムでは、サーバーがWSGIアプリケーションとインターフェイスできることを確認するための責任は、Webフレームワークの開発者ではなく、サーバーの開発者に配置されるため、タイムリーかつ正確になる可能性が高くなります。</p>
 </div>
 <div class="section" id="wrapping-up">
-<h3>Wrapping up<a class="headerlink" href="#wrapping-up" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Here's a diagrammed version of the simplest pyramid application, where the
-inlined comments take into account what we've discussed in the
-<a class="reference internal" href="#microframeworks-smaller-hello-world"><span class="std std-ref">Microframeworks have smaller Hello World programs</span></a> section.</p>
+<h3>ラッピング<a class="headerlink" href="#wrapping-up" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ここでは、最も単純なピラミッドアプリケーションのダイアグラムを示します。ここでは、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>microframeworks_smaller_hello_world`セクションで説明したインラインコメントが考慮されています。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1497,84 +699,31 @@ inlined comments take into account what we've discussed in the
 </div>
 </div>
 <div class="section" id="pyramid-doesn-t-offer-pluggable-apps">
-<h2>Pyramid doesn't offer pluggable apps<a class="headerlink" href="#pyramid-doesn-t-offer-pluggable-apps" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>It is &quot;Pyramidic&quot; to compose multiple external sources into the same
-configuration using <a class="reference internal" href="api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">include()</span></code></a>.  Any
-number of includes can be done to compose an application; includes can even
-be done from within other includes.  Any directive can be used within an
-include that can be used outside of one (such as
-<a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a>).</p>
-<p>Pyramid has a conflict detection system that will throw an error if two
-included externals try to add the same configuration in a conflicting way
-(such as both externals trying to add a route using the same name, or both
-externals trying to add a view with the same set of predicates).  It's awful
-tempting to call this set of features something that can be used to compose a
-system out of &quot;pluggable applications&quot;.  But in reality, there are a number
-of problems with claiming this:</p>
+<h2>Pyramidはプラグイン可能なアプリケーションを提供していません<a class="headerlink" href="#pyramid-doesn-t-offer-pluggable-apps" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>複数の外部ソースを：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.include`を使って同じ設定に組み立てるのは&amp;quot; Pyramidic &amp;quot;です。アプリケーションの作成には、任意の数のインクルードを行うことができます。包含は他の包含の中からでも行うことができます。 1つのディレクティブはインクルード内で使用できます（：meth： <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.config.Configurator.add_view`など）。</p>
+<p>ピラミッドには競合検出システムがあり、含まれている2つの外部が同じ構成を競合する方法で追加しようとするとエラーが発生します（同じ名前を使用してルートを追加しようとしている外部もあれば、同じ述語セット）。このセットの機能を&amp;quot;プラグイン可能なアプリケーション&amp;quot;からシステムを構成するために使うことができるものと呼ぶのはひどく魅力的です。しかし実際には、これを主張することにはいくつかの問題があります。</p>
 <ul class="simple">
-<li>The terminology is strained. Pyramid really has no notion of a
-plurality of &quot;applications&quot;, just a way to compose configuration
-from multiple sources to create a single WSGI application.  That
-WSGI application may gain behavior by including or disincluding
-configuration, but once it's all composed together, Pyramid
-doesn't really provide any machinery which can be used to demarcate
-the boundaries of one &quot;application&quot; (in the sense of configuration
-from an external that adds routes, views, etc) from another.</li>
-<li>Pyramid doesn't provide enough &quot;rails&quot; to make it possible to integrate
-truly honest-to-god, download-an-app-from-a-random-place
-and-plug-it-in-to-create-a-system &quot;pluggable&quot; applications.  Because
-Pyramid itself isn't opinionated (it doesn't mandate a particular kind of
-database, it offers multiple ways to map URLs to code, etc), it's unlikely
-that someone who creates something application-like will be able to
-casually redistribute it to J. Random Pyramid User and have it just work by
-asking him to config.include a function from the package.  This is
-particularly true of very high level components such as blogs, wikis,
-twitter clones, commenting systems, etc.  The integrator (the Pyramid
-developer who has downloaded a package advertised as a &quot;pluggable app&quot;)
-will almost certainly have made different choices about e.g. what type of
-persistence system he's using, and for the integrator to appease the
-requirements of the &quot;pluggable application&quot;, he may be required to set up a
-different database, make changes to his own code to prevent his application
-from shadowing the pluggable app (or vice versa), and any other number of
-arbitrary changes.</li>
+<li>用語は緊張している。 Pyramidには複数の &amp;quot;アプリケーション&amp;quot;という概念はありません。単一のWSGIアプリケーションを作成するために複数のソースから構成を作成する方法です。そのWSGIアプリケーションは、構成を含めるか否かによって動作を得ることができますが、一度構成すると、ピラミッドは実際には、アプリケーションの境界を区切るために使用できる機械を提供しません外部からルート、ビューなどを追加する外部）。</li>
+<li>Pyramidは真に正直な、神からの、無作為な場所からのダウンロード、プラグインの作成を可能にするのに十分な &amp;quot;レール&amp;quot;を提供していません。 -system &amp;quot;pluggable &amp;quot;アプリケーション。 Pyramid自体は（特定の種類のデータベースを要求するものではなく、URLをコードなどにマップするための複数の方法を提供します）、アプリケーションに似たものを作成する人は、 J. Random Pyramid Userであり、パッケージの機能をconfig.includeに依頼するだけで動作します。これは、ブログ、ウィキ、ツイッタークローン、コメントシステムなどの非常に高いレベルのコンポーネントに特に当てはまります。インテグレータ（&amp;quot;プラグ可能なアプリケーション&amp;quot;として宣伝されたパッケージをダウンロードしたPyramid開発者）は、彼がどのようなタイプの永続システムを使用しているかについての選択、および「プラグ可能なアプリケーション」の要件を緩和するためのインテグレータのために、彼は別のデータベースを設定し、プラグイン可能なアプリケーションのシャドウイング（またはその逆）、その他任意の数の変更が含まれます。</li>
 </ul>
-<p>For this reason, we claim that Pyramid has &quot;extensible&quot; applications,
-not pluggable applications.  Any Pyramid application can be extended
-without forking it as long as its configuration statements have been
-composed into things that can be pulled in via <code class="docutils literal notranslate"><span class="pre">config.include</span></code>.</p>
-<p>It's also perfectly reasonable for a single developer or team to create a set
-of interoperating components which can be enabled or disabled by using
-config.include.  That developer or team will be able to provide the &quot;rails&quot;
-(by way of making high-level choices about the technology used to create the
-project, so there won't be any issues with plugging all of the components
-together.  The problem only rears its head when the components need to be
-distributed to <em>arbitrary</em> users.  Note that Django has a similar problem
-with &quot;pluggable applications&quot; that need to work for arbitrary third parties,
-even though they provide many, many more rails than does Pyramid.  Even the
-rails they provide are not enough to make the &quot;pluggable application&quot; story
-really work without local modification.</p>
-<p>Truly pluggable applications need to be created at a much higher level than a
-web framework, as no web framework can offer enough constraints to really
-make them work out of the box.  They really need to plug into an application,
-instead.  It would be a noble goal to build an application with Pyramid that
-provides these constraints and which truly does offer a way to plug in
-applications (Joomla, Plone, Drupal come to mind).</p>
+<p>このため、Pyramidにはプラグイン可能なアプリケーションではなく、 &amp;quot;拡張可能な&amp;quot;アプリケーションがあると主張しています。すべてのPyramidアプリケーションは、設定文が `` config.include``を介して取り込めるものに構成されていれば、それをフォークせずに拡張することができます。</p>
+<p>単一の開発者やチームが、config.includeを使用して有効または無効にできる相互運用コンポーネントのセットを作成することも、まったく合理的です。その開発者またはチームは、プロジェクトを作成するために使用される技術について高いレベルの選択を行うことによって、&amp;quot;rails &amp;quot;を提供することができるので、すべてのコンポーネントを一緒に接続することに問題はありません。 Djangoは&amp;quot;プラグ可能なアプリケーション&amp;quot;と同様の問題を抱えていますが、これは多くの、より多くのレールを提供していますが、任意のサードパーティで動作する必要があることに注意してくださいn &amp;quot;プラグ可能なアプリケーション&amp;quot;の話を実際にローカルで修正することなく動作させるのに十分ではありません。</p>
+<p>本当にプラグイン可能なアプリケーションは、Webフレームワークよりはるかに高いレベルで作成する必要があります。実際には、アプリケーションにプラグインする必要があります。これらの制約を提供し、アプリケーションをプラグインする方法を提供するPyramidを使ってアプリケーションを構築することは、貴重な目標です（Joomla、Plone、Drupalが思い浮かびます）。</p>
 </div>
 <div class="section" id="pyramid-has-zope-things-in-it-so-it-s-too-complex">
-<h2>Pyramid Has Zope Things In It, So It's Too Complex<a class="headerlink" href="#pyramid-has-zope-things-in-it-so-it-s-too-complex" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>On occasion, someone will feel compelled to post a mailing list message that
-reads something like this:</p>
+<h2>ピラミッドにはゾープが入っているので、複雑すぎる<a class="headerlink" href="#pyramid-has-zope-things-in-it-so-it-s-too-complex" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>場合によっては、誰かが次のようなメーリングリストのメッセージを投稿しなければならないと感じるでしょう：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>had a quick look at pyramid ... too complex to me and not really
 understand for which benefits.. I feel should consider whether it&#39;s time
 for me to step back to django .. I always hated zope (useless ?)
 complexity and I love simple way of thinking
 </pre></div>
 </div>
-<p>(Paraphrased from a real email, actually.)</p>
-<p>Let's take this criticism point-by-point.</p>
+<p>（実際の電子メールから言い換えると、実際には。）</p>
+<p>この批判をポイントごとに見てみましょう。</p>
 <div class="section" id="too-complex">
-<h3>Too Complex<a class="headerlink" href="#too-complex" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If you can understand this &quot;hello world&quot; program, you can use Pyramid:</p>
+<h3>複雑すぎる<a class="headerlink" href="#too-complex" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>この &amp;quot;hello world&amp;quot;プログラムを理解できれば、Pyramidを使うことができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1602,54 +751,23 @@ complexity and I love simple way of thinking
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>Pyramid has over 1200 pages of documentation (printed), covering topics from
-the very basic to the most advanced. <em>Nothing</em> is left undocumented, quite
-literally.  It also has an <em>awesome</em>, very helpful community.  Visit the
-<a class="reference external" href="https://webchat.freenode.net/?channels=pyramid">#pyramid IRC channel on freenode.net</a> and see.</p>
+<p>ピラミッドには、基本的なものから最も高度なものまで、1200ページ以上のドキュメンテーション（印刷物）があります。 <em>文字通り、文書化されていないものは何もありません。それはまた素晴らしい</em>、非常に有用なコミュニティを持っています。 freenode.netの <a href="#id1"><span class="problematic" id="id2">`</span></a>#pyramid IRCチャンネルをご覧ください&lt;<a class="reference external" href="https://webchat.freenode.net/?channels=pyramid">https://webchat.freenode.net/?channels=pyramid</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_そして参照してください。</p>
 </div>
 <div class="section" id="hate-zope">
-<h3>Hate Zope<a class="headerlink" href="#hate-zope" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>I'm sorry you feel that way.  The Zope brand has certainly taken its share of
-lumps over the years, and has a reputation for being insular and mysterious.
-But the word &quot;Zope&quot; is literally quite meaningless without qualification.
-What <em>part</em> of Zope do you hate?  &quot;Zope&quot; is a brand, not a technology.</p>
-<p>If it's Zope2-the-web-framework, Pyramid is not that.  The primary designers
-and developers of Pyramid, if anyone, should know.  We wrote Pyramid's
-predecessor (<code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.bfg</span></code>), in part, because <em>we</em> knew that Zope 2 had
-usability issues and limitations.  <code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.bfg</span></code> (and now <span>Pyramid</span>)
-was written to address these issues.</p>
-<p>If it's Zope3-the-web-framework, Pyramid is <em>definitely</em> not that.  Making
-use of lots of Zope 3 technologies is territory already staked out by the
-<a class="reference internal" href="glossary.html#term-grok"><span class="xref std std-term">Grok</span></a> project.  Save for the obvious fact that they're both web
-frameworks, <span>Pyramid</span> is very, very different than Grok.  Grok exposes
-lots of Zope technologies to end users.  On the other hand, if you need to
-understand a Zope-only concept while using Pyramid, then we've failed on some
-very basic axis.</p>
-<p>If it's just the word Zope: this can only be guilt by association.  Because a
-piece of software internally uses some package named <code class="docutils literal notranslate"><span class="pre">zope.foo</span></code>, it doesn't
-turn the piece of software that uses it into &quot;Zope&quot;.  There is a lot of
-<em>great</em> software written that has the word Zope in its name.  Zope is not
-some sort of monolithic thing, and a lot of its software is usable
-externally.  And while it's not really the job of this document to defend it,
-Zope has been around for over 10 years and has an incredibly large, active
-community.  If you don't believe this,
-<a class="reference external" href="http://pypi-ranking.info/author">http://pypi-ranking.info/author</a> is an eye-opening reality
-check.</p>
+<h3>憎むゾープ<a class="headerlink" href="#hate-zope" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>私はあなたがそのように感じごめんなさい。 Zopeブランドは、長年に渡って確かに塊を占めており、孤独で神秘的であるという評判を持っています。しかし、&amp;quot;ゾープ&amp;quot;という言葉は、文字通り、無意味で無意味です。 Zopeの何があなたのことを憎んでいるのですか？ &amp;quot;Zope &amp;quot;は技術ではなくブランドです。</p>
+<p>Zope2-the-web-frameworkの場合、Pyramidはそうではありません。ピラミッドの主なデザイナーと開発者は誰でも知っておくべきです。 Zope 2にユーザビリティの問題や制限があることを知っていたため、Pyramidの前身（：mod： <cite>repoze.bfg</cite>）を書きました。 ：mod： <cite>repoze.bfg`（そして今は：app：</cite> Pyramid`）がこれらの問題に対処するために書かれました。</p>
+<p>Zope3-the-web-frameworkの場合、ピラミッドは絶対にそうではありません。多くのZope 3技術を利用することは、既に：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Grok`プロジェクトによって賭けられています。両方ともWebフレームワークであるという明白な事実のために保存してください：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`はGrokと非常に大きく異なっています。 Grokは多くのZopeテクノロジをエンドユーザーに公開しています。一方、Pyramidを使用してZopeのみのコンセプトを理解する必要がある場合は、いくつかの非常に基本的な軸で失敗しました。</p>
+<p>Zopeという単語だけの場合、これは関連性によってのみ罪を犯すことができます。ソフトウェアの一部は内部的に `` zope.foo``という名前のパッケージを使用しているので、それを使用するソフトウェアを&amp;quot;Zope &amp;quot;にすることはありません。その名前にZopeという言葉が書かれた*素晴らしいソフトウェアがたくさんあります。 Zopeはモノリシックなものではなく、多くのソフトウェアが外部で使用可能です。そして、それを守ることは実際にこの文書の仕事ではありませんが、Zopeは10年以上にわたって存在し、信じられないほど大きく、活発なコミュニティを持っています。あなたがこれを信じていないなら、<a class="reference external" href="http://pypi-ranking.info">http://pypi-ranking.info</a>/authorは目を開く現実のチェックです。</p>
 </div>
 <div class="section" id="love-simplicity">
-<h3>Love Simplicity<a class="headerlink" href="#love-simplicity" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Years of effort have gone into honing this package and its documentation to
-make it as simple as humanly possible for developers to use.  Everything is a
-tradeoff, of course, and people have their own ideas about what &quot;simple&quot; is.
-You may have a style difference if you believe Pyramid is complex.  Its
-developers obviously disagree.</p>
+<h3>愛シンプリシティ<a class="headerlink" href="#love-simplicity" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このパッケージとそのドキュメントは、開発者が使用できるように人間工学的に可能な限りシンプルにするために努力してきました。もちろん、すべてはトレードオフですが、人々は&amp;quot;シンプル&amp;quot;について何か自分の考えを持っています。ピラミッドが複雑だと思えば、スタイルの違いがあるかもしれません。その開発者は明らかに同意しない。</p>
 </div>
 </div>
 <div class="section" id="other-challenges">
-<h2>Other Challenges<a class="headerlink" href="#other-challenges" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Other challenges are encouraged to be sent to the <a class="reference external" href="https://groups.google.com/forum/#!forum/pylons-devel">Pylons-devel</a> maillist.  We'll try
-to address them by considering a design change, or at very least via exposition
-here.</p>
+<h2>その他の課題<a class="headerlink" href="#other-challenges" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>他の挑戦は <a href="#id1"><span class="problematic" id="id2">`</span></a>Pylons-devel &lt;<a class="reference external" href="https://groups.google.com/forum/#!forum/pylons-devel">https://groups.google.com/forum/#!forum/pylons-devel</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_ maillist。私たちはデザインの変更を考慮して、またはここでは少なくとも展覧会を経てそれらに取り組もうとします。</p>
 </div>
 </div>
 
@@ -1661,59 +779,59 @@ here.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Defending Pyramid's Design</a><ul>
-<li><a class="reference internal" href="#pyramid-provides-more-than-one-way-to-do-it">Pyramid Provides More Than One Way to Do It</a></li>
-<li><a class="reference internal" href="#pyramid-uses-a-zope-component-architecture-zca-registry">Pyramid Uses a Zope Component Architecture (&quot;ZCA&quot;) Registry</a><ul>
-<li><a class="reference internal" href="#problems">Problems</a></li>
-<li><a class="reference internal" href="#ameliorations">Ameliorations</a></li>
-<li><a class="reference internal" href="#rationale">Rationale</a></li>
-<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#">(機械翻訳)守るピラミッドのデザイン</a><ul>
+<li><a class="reference internal" href="#pyramid-provides-more-than-one-way-to-do-it">ピラミッドは、それを行う方法の一つ以上を提供します</a></li>
+<li><a class="reference internal" href="#pyramid-uses-a-zope-component-architecture-zca-registry">ピラミッドはZopeコンポーネントアーキテクチャ（&amp;quot;ZCA &amp;quot;）レジストリを使用します</a><ul>
+<li><a class="reference internal" href="#problems">問題</a></li>
+<li><a class="reference internal" href="#ameliorations">改善</a></li>
+<li><a class="reference internal" href="#rationale">根拠</a></li>
+<li><a class="reference internal" href="#conclusion">結論</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pyramid-encourages-use-of-zcml">Pyramid &quot;Encourages Use of ZCML&quot;</a></li>
-<li><a class="reference internal" href="#pyramid-does-traversal-and-i-don-t-like-traversal">Pyramid Does Traversal, and I Don't Like Traversal</a></li>
-<li><a class="reference internal" href="#pyramid-does-url-dispatch-and-i-don-t-like-url-dispatch">Pyramid Does URL Dispatch, and I Don't Like URL Dispatch</a></li>
-<li><a class="reference internal" href="#pyramid-views-do-not-accept-arbitrary-keyword-arguments">Pyramid Views Do Not Accept Arbitrary Keyword Arguments</a></li>
-<li><a class="reference internal" href="#pyramid-provides-too-few-rails">Pyramid Provides Too Few &quot;Rails&quot;</a></li>
-<li><a class="reference internal" href="#pyramid-provides-too-many-rails">Pyramid Provides Too Many &quot;Rails&quot;</a></li>
-<li><a class="reference internal" href="#pyramid-is-too-big">Pyramid Is Too Big</a></li>
-<li><a class="reference internal" href="#pyramid-has-too-many-dependencies">Pyramid Has Too Many Dependencies</a></li>
-<li><a class="reference internal" href="#pyramid-cheats-to-obtain-speed">Pyramid &quot;Cheats&quot; to Obtain Speed</a></li>
-<li><a class="reference internal" href="#pyramid-gets-its-terminology-wrong-mvc">Pyramid Gets Its Terminology Wrong (&quot;MVC&quot;)</a></li>
-<li><a class="reference internal" href="#pyramid-applications-are-extensible-i-don-t-believe-in-application-extensibility">Pyramid Applications Are Extensible; I Don't Believe in Application Extensibility</a></li>
-<li><a class="reference internal" href="#zope-3-enforces-ttw-authorization-checks-by-default-pyramid-does-not">Zope 3 Enforces &quot;TTW&quot; Authorization Checks by Default; Pyramid Does Not</a><ul>
-<li><a class="reference internal" href="#challenge">Challenge</a></li>
-<li><a class="reference internal" href="#defense">Defense</a></li>
+<li><a class="reference internal" href="#pyramid-encourages-use-of-zcml">Pyramid &amp;quot;ZCMLの使用を奨励</a></li>
+<li><a class="reference internal" href="#pyramid-does-traversal-and-i-don-t-like-traversal">ピラミッドはトラバーサルを行い、トラバースを好まない</a></li>
+<li><a class="reference internal" href="#pyramid-does-url-dispatch-and-i-don-t-like-url-dispatch">ピラミッドはURLディスパッチを行いますが、私はURLディスパッチが嫌いです</a></li>
+<li><a class="reference internal" href="#pyramid-views-do-not-accept-arbitrary-keyword-arguments">ピラミッドビューは任意のキーワード引数を受け入れない</a></li>
+<li><a class="reference internal" href="#pyramid-provides-too-few-rails">Pyramidはあまりにも少ない &amp;quot;Rails </a></li>
+<li><a class="reference internal" href="#pyramid-provides-too-many-rails">Pyramidは多すぎる&amp;quot;Rails </a></li>
+<li><a class="reference internal" href="#pyramid-is-too-big">ピラミッドが大きすぎます</a></li>
+<li><a class="reference internal" href="#pyramid-has-too-many-dependencies">ピラミッドに依存性が多すぎる</a></li>
+<li><a class="reference internal" href="#pyramid-cheats-to-obtain-speed">Pyramid &amp;quot;Cheats &amp;quot;で速度を得る</a></li>
+<li><a class="reference internal" href="#pyramid-gets-its-terminology-wrong-mvc">ピラミッドの用語が間違っている（&amp;quot;MVC &amp;quot;）</a></li>
+<li><a class="reference internal" href="#pyramid-applications-are-extensible-i-don-t-believe-in-application-extensibility">ピラミッドアプリケーションは拡張可能です。私はアプリケーションの拡張性を信じていない</a></li>
+<li><a class="reference internal" href="#zope-3-enforces-ttw-authorization-checks-by-default-pyramid-does-not">Zope 3は&amp;quot;TTW &amp;quot;認証チェックをデフォルトで強制します。ピラミッドはしません</a><ul>
+<li><a class="reference internal" href="#challenge">チャレンジ</a></li>
+<li><a class="reference internal" href="#defense">防衛</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pyramid-uses-its-own-http-exception-class-hierarchy-rather-than-webob-exc">Pyramid uses its own HTTP exception class hierarchy rather than <code class="docutils literal notranslate"><span class="pre">webob.exc</span></code></a></li>
-<li><a class="reference internal" href="#pyramid-has-simpler-traversal-machinery-than-does-zope">Pyramid has simpler traversal machinery than does Zope</a></li>
-<li><a class="reference internal" href="#microframeworks-have-smaller-hello-world-programs">Microframeworks have smaller Hello World programs</a><ul>
-<li><a class="reference internal" href="#application-programmers-don-t-control-the-module-scope-codepath-import-time-side-effects-are-evil">Application programmers don't control the module-scope codepath (import-time side-effects are evil)</a></li>
-<li><a class="reference internal" href="#routes-need-relative-ordering">Routes need relative ordering</a></li>
-<li><a class="reference internal" href="#stacked-object-proxies-are-too-clever-thread-locals-are-a-nuisance">&quot;Stacked object proxies&quot; are too clever / thread locals are a nuisance</a></li>
-<li><a class="reference internal" href="#explicitly-wsgi">Explicitly WSGI</a></li>
-<li><a class="reference internal" href="#wrapping-up">Wrapping up</a></li>
+<li><a class="reference internal" href="#pyramid-uses-its-own-http-exception-class-hierarchy-rather-than-webob-exc">Pyramidは、mod： `webob.exc`ではなく、独自のHTTP例外クラス階層を使用します。</a></li>
+<li><a class="reference internal" href="#pyramid-has-simpler-traversal-machinery-than-does-zope">ピラミッドはZopeよりも単純なトラバーサル機構を持っています</a></li>
+<li><a class="reference internal" href="#microframeworks-have-smaller-hello-world-programs">マイクロフレームワークでは、より小さなHello Worldプログラム</a><ul>
+<li><a class="reference internal" href="#application-programmers-don-t-control-the-module-scope-codepath-import-time-side-effects-are-evil">アプリケーションプログラマはモジュールスコープコードパスを制御しません（インポート時の副作用は悪です）</a></li>
+<li><a class="reference internal" href="#routes-need-relative-ordering">経路には相対的な順序が必要</a></li>
+<li><a class="reference internal" href="#stacked-object-proxies-are-too-clever-thread-locals-are-a-nuisance">&amp;quot;スタックされたオブジェクトのプロキシ&amp;quot;があまりにも賢い/スレッドの地元の人は迷惑です</a></li>
+<li><a class="reference internal" href="#explicitly-wsgi">明示的にWSGI</a></li>
+<li><a class="reference internal" href="#wrapping-up">ラッピング</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pyramid-doesn-t-offer-pluggable-apps">Pyramid doesn't offer pluggable apps</a></li>
-<li><a class="reference internal" href="#pyramid-has-zope-things-in-it-so-it-s-too-complex">Pyramid Has Zope Things In It, So It's Too Complex</a><ul>
-<li><a class="reference internal" href="#too-complex">Too Complex</a></li>
-<li><a class="reference internal" href="#hate-zope">Hate Zope</a></li>
-<li><a class="reference internal" href="#love-simplicity">Love Simplicity</a></li>
+<li><a class="reference internal" href="#pyramid-doesn-t-offer-pluggable-apps">Pyramidはプラグイン可能なアプリケーションを提供していません</a></li>
+<li><a class="reference internal" href="#pyramid-has-zope-things-in-it-so-it-s-too-complex">ピラミッドにはゾープが入っているので、複雑すぎる</a><ul>
+<li><a class="reference internal" href="#too-complex">複雑すぎる</a></li>
+<li><a class="reference internal" href="#hate-zope">憎むゾープ</a></li>
+<li><a class="reference internal" href="#love-simplicity">愛シンプリシティ</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#other-challenges">Other Challenges</a></li>
+<li><a class="reference internal" href="#other-challenges">その他の課題</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="changes.html"
-                        title="前の章へ"><span>Pyramid</span> Change History</a></p>
+                        title="前の章へ">(機械翻訳) <span>Pyramid</span> 変更履歴</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="copyright.html"
-                        title="次の章へ">Copyright, Trademarks, and Attributions</a></p>
+                        title="次の章へ">(機械翻訳)著作権、商標、帰属</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -1747,10 +865,10 @@ here.</p>
           <a href="py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="copyright.html" title="Copyright, Trademarks, and Attributions"
+          <a href="copyright.html" title="(機械翻訳)著作権、商標、帰属"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="changes.html" title="Pyramid Change History"
+          <a href="changes.html" title="(機械翻訳) Pyramid 変更履歴"
              >前へ</a> |</li>
     	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>

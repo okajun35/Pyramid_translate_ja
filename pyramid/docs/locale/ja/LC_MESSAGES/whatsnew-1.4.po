@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../whatsnew-1.4.rst:2
 msgid "What's New in Pyramid 1.4"
-msgstr ""
+msgstr "(機械翻訳)Pyramid 1.4の新機能"
 
 #: ../../whatsnew-1.4.rst:4
 msgid ""
@@ -29,19 +19,19 @@ msgid ""
 "backwards incompatibilities between the two versions and deprecations "
 "added to :app:`Pyramid` 1.4, as well as software dependency changes and "
 "notable documentation additions."
-msgstr ""
+msgstr "この記事では、app： `Pyramid`バージョン1.4の新機能を、app：` Pyramid` 1.3と比較して説明します。また、app： `Pyramid` 1.4に追加された2つのバージョンと廃止予定との間の後方互換性も文書化されています。また、ソフトウェア依存の変更や著しいドキュメントの追加もあります。"
 
 #: ../../whatsnew-1.4.rst:11
 msgid "Major Feature Additions"
-msgstr ""
+msgstr "主な機能の追加"
 
 #: ../../whatsnew-1.4.rst:13
 msgid "The major feature additions in Pyramid 1.4 follow."
-msgstr ""
+msgstr "Pyramid 1.4の主な機能の追加は以下のとおりです。"
 
 #: ../../whatsnew-1.4.rst:16
 msgid "Third-Party Predicates"
-msgstr ""
+msgstr "第三者の述語"
 
 #: ../../whatsnew-1.4.rst:18
 msgid ""
@@ -51,24 +41,24 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_route_predicate` and "
 ":meth:`pyramid.config.Configurator.add_subscriber_predicate`.  So, for "
 "example, doing this::"
-msgstr ""
+msgstr "meth： `pyramid.config.Configurator.add_view_predicate`、：meth：` pyramid.config.Configurator.add_route_predicate`および：meth：を介して、ビュー作成者が使用するサードパーティのカスタムビュー、ルートおよびサブスクライバ述語を追加できるようになりました。 `pyramid.config.Configurator.add_subscriber_predicate`。たとえば、これを行う::"
 
 #: ../../whatsnew-1.4.rst:27
 msgid ""
 "Might allow a view author to do this in an application that configured "
 "that predicate::"
-msgstr ""
+msgstr "ビュー作成者は、その述部を構成したアプリケーションでこれを行うことができます。"
 
 #: ../../whatsnew-1.4.rst:32
 msgid ""
 "Similar features exist for :meth:`pyramid.config.Configurator.add_route`,"
 " and :meth:`pyramid.config.Configurator.add_subscriber`.  See "
 ":ref:`registering_thirdparty_predicates` for more information."
-msgstr ""
+msgstr "同様の機能が：meth： `pyramid.config.Configurator.add_route`と：meth：` pyramid.config.Configurator.add_subscriber`に存在します。詳細は、ref： `registration_thirdparty_predicates`を参照してください。"
 
 #: ../../whatsnew-1.4.rst:37
 msgid "Easy Custom JSON Serialization"
-msgstr ""
+msgstr "簡単なカスタムJSONシリアライズ"
 
 #: ../../whatsnew-1.4.rst:39
 msgid ""
@@ -80,11 +70,11 @@ msgid ""
 "renderer now also allows for the definition of custom type adapters to "
 "convert unknown objects to JSON serializations, in case you can't add a "
 "``__json__`` method to returned objects."
-msgstr ""
+msgstr "ビューは、オブジェクトのクラスに対して `` __json__``メソッドを定義することで、JSONレンダラによってJSONにシリアライズされるカスタムオブジェクトを返すようになりました。このメソッドは、 `` json.dumps``（int、リスト、辞書、文字列など）によってネイティブにシリアライズ可能な値を返さなければなりません。詳細はref： `json_serializing_custom_objects`を参照してください。 JSONレンダラは、返されたオブジェクトに `` __json__``メソッドを追加できない場合に備えて、未知のオブジェクトをJSONシリアライズに変換するカスタムタイプアダプタの定義も可能にしました。"
 
 #: ../../whatsnew-1.4.rst:49
 msgid "Partial Mako and Chameleon Template Renderings"
-msgstr ""
+msgstr "部分マコとカメレオンのテンプレートレンダリング"
 
 #: ../../whatsnew-1.4.rst:51
 msgid ""
@@ -97,7 +87,7 @@ msgid ""
 "the entire template.  The old way of returning a tuple in the form "
 "``('defname', {})`` from the view is supported for backward "
 "compatibility."
-msgstr ""
+msgstr "Makoレンダラでは、アセット仕様のdef名の使用がサポートされるようになりました。 defの名前がアセット仕様にある場合、システムはテンプレート全体をレンダリングする代わりに、テンプレート内のdefという名前のテンプレートをレンダリングします。 defを指定するアセット仕様の例は、 `` package：path / to / template＃defname.mako``です。これはテンプレート全体をレンダリングするのではなく、 `` template.mako``テンプレートの中で `` defname``という名前のdefをレンダリングします。ビューから ``（ &#39;defname&#39;、{}） ``の形式でタプルを返す古い方法は、下位互換性のためにサポートされています。"
 
 #: ../../whatsnew-1.4.rst:60
 msgid ""
@@ -108,11 +98,11 @@ msgid ""
 "``package:path/to/template#macroname.pt``.  This will render the macro "
 "defined as ``macroname`` within the ``template.pt`` template instead of "
 "the entire template."
-msgstr ""
+msgstr "Chameleon ZPTレンダラはアセット仕様でマクロ名の使用をサポートするようになりました。アセット仕様にマクロ名がある場合、システムは `` define-macro``としてリストされたマクロをレンダリングし、テンプレート全体をレンダリングする代わりに結果を返します。資産仕様の例： `` package：path / to / template＃macroname.pt``。これにより、テンプレート全体ではなく、 `` template.pt``テンプレート内に `` macroname``として定義されたマクロがレンダリングされます。"
 
 #: ../../whatsnew-1.4.rst:69
 msgid "Subrequest Support"
-msgstr ""
+msgstr "サブリクエストサポート"
 
 #: ../../whatsnew-1.4.rst:71
 msgid ""
@@ -121,11 +111,11 @@ msgid ""
 "developer to obtain a response from one view callable by issuing a "
 "subrequest from within a different view callable.  See "
 ":ref:`subrequest_chapter` for more information."
-msgstr ""
+msgstr "開発者は：meth： `pyramid.request.Request.invoke_subrequest` APIを使用してサブリクエストを呼び出すことができます。これにより、開発者は、呼び出し可能な別のビュー内からサブ要求を発行することにより、呼び出し可能な1つのビューから応答を取得することができます。詳細は、：ref： `subrequest_chapter`を参照してください。"
 
 #: ../../whatsnew-1.4.rst:78
 msgid "Minor Feature Additions"
-msgstr ""
+msgstr "マイナー機能追加"
 
 #: ../../whatsnew-1.4.rst:80
 msgid ""
@@ -133,7 +123,7 @@ msgid ""
 "updated to support newer hashing algorithms such as ``sha512``. Existing "
 "applications should consider updating if possible for improved security "
 "over the default md5 hashing."
-msgstr ""
+msgstr "：class： `pyramid.authentication.AuthTktAuthenticationPolicy`が、` `sha512``のような新しいハッシュアルゴリズムをサポートするように更新されました。既存のアプリケーションでは、可能であれば、デフォルトのmd5ハッシュよりもセキュリティを強化するために、更新を考慮する必要があります。"
 
 #: ../../whatsnew-1.4.rst:85
 msgid ""
@@ -142,7 +132,7 @@ msgid ""
 "have ``__name__`` and ``__doc__`` attributes.  See "
 "https://github.com/Pylons/pyramid/issues/621 and "
 "https://github.com/Pylons/pyramid/pull/647."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_directive`は、` `__name__``と` `__doc__``属性を持たない` `__call__``を実装している部分的オブジェクトやオブジェクトのような任意の呼び出し可能変数を受け付けるようになりました。 https://github.com/Pylons/pyramid/issues/621およびhttps://github.com/Pylons/pyramid/pull/647を参照してください。"
 
 #: ../../whatsnew-1.4.rst:91
 msgid ""
@@ -154,7 +144,7 @@ msgid ""
 "``@view_config(request_method=('GET', 'HEAD', 'POST')``.  This is because"
 " HEAD is a variant of GET that omits the body, and WebOb has special "
 "support to return an empty body when a HEAD is used."
-msgstr ""
+msgstr "このリリースから、 `` request_method``のビュー/ルート述語は、 `` GET``を使うときに `` HEAD``が暗示されていることを暗示します。例えば、 `` @view_config（request_method = &#39;GET&#39;） ``を使うことは `` @view_config（request_method =（ &#39;GET&#39;、 &#39;HEAD&#39;）） ``を使うのと同じです。 @view_config（request_method =（ &#39;GET&#39;、 &#39;POST&#39;） ``は、 `` @view_config（request_method =（ &#39;GET&#39;、 &#39;HEAD&#39;、 &#39;POST&#39;） ``を使うのと同じです。はボディを省略したGETの変種で、WebObはHEADが使用されたときに空のボディを返す特別なサポートを持っています。"
 
 #: ../../whatsnew-1.4.rst:100
 msgid ""
@@ -165,7 +155,7 @@ msgid ""
 "methods as well as properties. This method also causes less code to be "
 "executed at request construction time than "
 ":meth:`~pyramid.config.Configurator.set_request_property`."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_request_method`は任意の呼び出し可能な要求オブジェクトの拡張をサポートするために導入されました。このメソッドは、メソッドとプロパティをサポートすることによって、現在はドキュメント廃止予定の：meth： `pyramid.config.Configurator.set_request_property`を拡張しています。また、このメソッドは：meth： `〜pyramid.config.Configurator.set_request_property`よりも要求構築時に実行されるコードを少なくします。"
 
 #: ../../whatsnew-1.4.rst:108
 msgid ""
@@ -173,14 +163,14 @@ msgid ""
 ":class:`pyramid.httpexceptions.HTTPNotFound` and "
 ":class:`pyramid.httpexceptions.HTTPMovedPermanently` exceptions, so these"
 " can be caught by the Not Found View (and other exception views)."
-msgstr ""
+msgstr "静的ビューマシンはclass： `pyramid.httpexceptions.HTTPNotFound`と：class：` pyramid.httpexceptions.HTTPMovedPermanently`例外を返すのではなく、Not Found View（および他の例外ビュー）によって捕捉されるようになりました。"
 
 #: ../../whatsnew-1.4.rst:113
 msgid ""
 "When there is a predicate mismatch exception (seen when no view matches "
 "for a given request due to predicates not working), the exception now "
 "contains a textual description of the predicate which didn't match."
-msgstr ""
+msgstr "述部の不一致例外がある場合（述部が機能しないためにビューが特定の要求に一致しない場合に表示されます）、例外には一致しなかった述部のテキスト記述が含まれるようになりました。"
 
 #: ../../whatsnew-1.4.rst:117
 msgid ""
@@ -196,7 +186,7 @@ msgid ""
 " it possible to arrange for a permission to be put into the "
 "``permissions`` introspectable category without naming it along with an "
 "associated view.  Here's an example of usage of ``add_permission``::"
-msgstr ""
+msgstr "Configuratorに：meth： `pyramid.config.Configurator.add_permission`指示メソッドが追加されました。この指令は、ピラミッドのイントロスペクションシステムにイントロスペクト可能な自立型パーミッションを登録します。 Pyramidの上に構築されたフレームワークは、 `` permissions``のイントロスペクション可能なカテゴリデータを使用して、実行中のシステムでサポートされているパーミッションの包括的なリストを構築することができます。このメソッドが追加される前に、パーミッションは：meth： `pyramid.config.Configurator.add_view`コールに名前を付ける副作用として、このイントロスペクション可能なカテゴリにすでに登録されていました。このメソッドは、パーミッションをアレンジできるようにするだけです関連するビューとともに名前を付けることなく、 `` permissions``のイントロスペクション可能なカテゴリに入れます。 `` add_permission``の使用例を次に示します::"
 
 #: ../../whatsnew-1.4.rst:132
 msgid ""
@@ -204,14 +194,14 @@ msgid ""
 "function now accepts ``signed_serialize`` and ``signed_deserialize`` "
 "hooks which may be used to influence how the sessions are marshalled (by "
 "default this is done with HMAC+pickle)."
-msgstr ""
+msgstr "：func： `pyramid.session.UnencryptedCookieSessionFactoryConfig`関数は、セッションがマーシャリングされる方法に影響を与えるために使用される` `signed_serialize``と` `signed_deserialize``フックを受け入れるようになりました（デフォルトでHMAC + pickleで行われます）。"
 
 #: ../../whatsnew-1.4.rst:137
 msgid ""
 ":class:`pyramid.testing.DummyRequest` now supports methods supplied by "
 "the ``pyramid.util.InstancePropertyMixin`` class such as "
 "``set_property``."
-msgstr ""
+msgstr "：class： `pyramid.testing.DummyRequest`は、` `set_property``のような` `pyramid.util.InstancePropertyMixin``クラスによって提供されるメソッドをサポートするようになりました。"
 
 #: ../../whatsnew-1.4.rst:140
 msgid ""
@@ -219,7 +209,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_request_method` or "
 ":meth:`pyramid.config.Configurator.set_request_property` are now "
 "available to tweens."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_request_method`または：meth：` pyramid.config.Configurator.set_request_property`を介して追加されたリクエストプロパティとメソッドは、現在トゥイーンで利用可能です。"
 
 #: ../../whatsnew-1.4.rst:145
 msgid ""
@@ -228,33 +218,33 @@ msgid ""
 ":meth:`pyramid.config.Configurator.set_request_property` are now "
 "available in the request object returned from "
 ":func:`pyramid.paster.bootstrap`."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_request_method`または：meth：` pyramid.config.Configurator.set_request_property`を介して追加されたプロパティとメソッドは、func： `pyramid.paster.bootstrap`から返されたリクエストオブジェクトで利用可能になりました。 。"
 
 #: ../../whatsnew-1.4.rst:150
 msgid ""
 "``request.context`` of environment request during "
 ":func:`pyramid.paster.bootstrap` is now the root object if a context "
 "isn't already set on a provided request."
-msgstr ""
+msgstr "func： `pyramid.paster.bootstrap`は、提供されたリクエストにコンテキストがまだ設定されていない場合、ルートオブジェクトになりました。"
 
 #: ../../whatsnew-1.4.rst:154
 msgid ""
 ":class:`pyramid.decorator.reify`  is now an API, and was added to the API"
 " documentation."
-msgstr ""
+msgstr "：class： `pyramid.decorator.reify`はAPIになり、APIドキュメントに追加されました。"
 
 #: ../../whatsnew-1.4.rst:157
 msgid ""
 "Added the :func:`pyramid.testing.testConfig` context manager, which can "
 "be used to generate a configurator in a test, e.g. ``with "
 "testing.testConfig(...):``."
-msgstr ""
+msgstr "：func： `pyramid.testing.testConfig`コンテキストマネージャを追加しました。例えば、` `with testing.testConfig（...）：` `などのテストでコンフィギュレータを生成するために使用できます。"
 
 #: ../../whatsnew-1.4.rst:161
 msgid ""
 "A new :func:`pyramid.session.check_csrf_token` convenience API function "
 "was added."
-msgstr ""
+msgstr "新しい：func： `pyramid.session.check_csrf_token`便利API関数が追加されました。"
 
 #: ../../whatsnew-1.4.rst:164
 msgid ""
@@ -263,38 +253,38 @@ msgid ""
 "checked, if the ``csrf_token`` value in ``request.params`` matches the "
 "csrf token in the request's session, the view will be permitted to "
 "execute. Otherwise, it will not be permitted to execute."
-msgstr ""
+msgstr "`` check_csrf``ビュー述語が追加されました。たとえば、 `` config.add_view（someview、check_csrf = True） ``を実行することができます。述語がチェックされると、 `` request.params``の `` csrf_token``の値がリクエストのセッションのcsrfトークンと一致すると、ビューは実行を許可されます。そうしないと、実行が許可されません。"
 
 #: ../../whatsnew-1.4.rst:170
 msgid ""
 "Add ``Base.metadata.bind = engine`` to ``alchemy`` scaffold, so that "
 "tables defined imperatively will work."
-msgstr ""
+msgstr "`` alchemy``足場に `` Base.metadata.bind = engine``を追加して、必要に応じて定義されたテーブルが機能するようにします。"
 
 #: ../../whatsnew-1.4.rst:173
 msgid ""
 "Comments with references to documentation sections placed in scaffold "
 "``.ini`` files."
-msgstr ""
+msgstr "足場の `` .ini``ファイルに置かれたドキュメンテーションセクションへの参照に関するコメント。"
 
 #: ../../whatsnew-1.4.rst:176
 msgid ""
 "Allow multiple values to be specified to the ``request_param`` view/route"
 " predicate as a sequence.  Previously only a single string value was "
 "allowed. See https://github.com/Pylons/pyramid/pull/705"
-msgstr ""
+msgstr "`` request_param``のview / route述部に複数の値をシーケンスとして指定できるようにします。以前は、単一の文字列値のみが許可されていました。 https://github.com/Pylons/pyramid/pull/705を参照してください。"
 
 #: ../../whatsnew-1.4.rst:180
 msgid ""
 "Added an HTTP Basic authentication policy at "
 ":class:`pyramid.authentication.BasicAuthAuthenticationPolicy`."
-msgstr ""
+msgstr "class： `pyramid.authentication.BasicAuthAuthenticationPolicy`にHTTP基本認証ポリシーを追加しました。"
 
 #: ../../whatsnew-1.4.rst:183
 msgid ""
 "The :meth:`pyramid.config.Configurator.testing_securitypolicy` method now"
 " returns the policy object it creates."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.testing_securitypolicy`メソッドは、作成したポリシーオブジェクトを返します。"
 
 #: ../../whatsnew-1.4.rst:186
 msgid ""
@@ -302,7 +292,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.testing_securitypolicy` now sets a "
 "``forgotten`` value  on the policy (the value ``True``) when its "
 "``forget`` method is called."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.testing_securitypolicy`で作成されたDummySecurityPolicyは、` `forget``メソッドが呼び出されたときに、ポリシーに` `忘れられた` `値（` `True``値）を設定するようになりました。"
 
 #: ../../whatsnew-1.4.rst:191
 msgid ""
@@ -311,7 +301,7 @@ msgid ""
 "``remembered`` value on the policy, which is the value of the "
 "``principal`` argument it's called with when its ``remember`` method is "
 "called."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.testing_securitypolicy`によって作成されたDummySecurityPolicyは、ポリシーに` `記憶された` `値を設定します。これは` `remember``時に呼び出される` `principal``引数の値です。 `メソッドが呼び出されます。"
 
 #: ../../whatsnew-1.4.rst:196
 msgid ""
@@ -323,11 +313,11 @@ msgid ""
 "always potentially show a view when some object is traversed to, but you "
 "can't be sure about what kind of object it will be, so you can't use the "
 "``context`` predicate."
-msgstr ""
+msgstr "新しい `` physical_path``ビュー述語。指定する場合、この値は、この述部が真と一致するためにトラバーサルによって検出されたコンテキストの物理的なトラバーサルパスを表す文字列またはタプルでなければなりません。例： `` physical_path = &#39;/&#39; ``または `` physical_path = &#39;/ a / b / c``または `` physical_path =（&#39; &#39;、&#39; a &#39;、&#39; b &#39;、&#39; c &#39;） `` 。これは、あるオブジェクトがトラバースされているときに常にビューを表示したいときに便利ですが、どのようなオブジェクトであるかを確かめることができないので、 `` context``述語を使うことはできません。"
 
 #: ../../whatsnew-1.4.rst:204
 msgid "Added an ``effective_principals`` route and view predicate."
-msgstr ""
+msgstr "`` effective_principals``ルートとビュー述語を追加しました。"
 
 #: ../../whatsnew-1.4.rst:206
 msgid ""
@@ -339,14 +329,14 @@ msgid ""
 " authorization policies that live in :mod:`pyramid.authentication` are in"
 " use.  These two strings are reserved for internal usage by Pyramid and "
 "they will no longer be accepted as valid userids."
-msgstr ""
+msgstr "：func： `pyramid.security.authenticated_userid`または：func：` pyramid.security.effective_principals`によって返されたプリンシパルのリストの1つであるユーザIDが、 `` system `` mod： `pyramid.authentication``が使用されているときに.Everyone``または` `System.Authenticated``を呼び出します。これらの2つの文字列は、Pyramidによる内部使用のために予約されており、有効なユーザーIDとして受け入れられなくなります。"
 
 #: ../../whatsnew-1.4.rst:215
 msgid ""
 "Allow a ``_depth`` argument to :class:`pyramid.view.view_config`, which "
 "will permit limited composition reuse of the decorator by other software "
 "that wants to provide custom decorators that are much like view_config."
-msgstr ""
+msgstr "：class： `pyramid.view.view_config`に` `_depth``引数を許可します。これは、view_configによく似たカスタムデコレータを提供したい他のソフトウェアによるデコレータのコンポジションの再利用を制限します。"
 
 #: ../../whatsnew-1.4.rst:219
 msgid ""
@@ -354,7 +344,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_view`. This allows views to be "
 "wrapped by more than one decorator without requiring combining the "
 "decorators yourself."
-msgstr ""
+msgstr "デコレータのiterableを：meth： `pyramid.config.Configurator.add_view`に渡すことを許可します。これにより、デコレータを自分で組み合わせなくても、ビューを複数のデコレータでラップすることができます。"
 
 #: ../../whatsnew-1.4.rst:224
 msgid ""
@@ -362,7 +352,7 @@ msgid ""
 "if no view could be found. It now raises a :exc:`TypeError` exception in "
 "that case, as it doesn't make sense to assert that a nonexistent view is "
 "execution-permitted. See https://github.com/Pylons/pyramid/issues/299."
-msgstr ""
+msgstr "：func： `pyramid.security.view_execution_permitted`はビューが見つからない場合に` True`を返すために使用されます。存在しないビューが実行可能であることを宣言するのは意味をなさないので、この場合は：exc： `TypeError`例外が発生します。 https://github.com/Pylons/pyramid/issues/299を参照してください。"
 
 #: ../../whatsnew-1.4.rst:229
 msgid ""
@@ -371,7 +361,7 @@ msgid ""
 " view.  Some code is shortcut if the class of the object returned by a "
 "view is this class.  A similar microoptimization was done to "
 ":func:`pyramid.request.Request.is_response`."
-msgstr ""
+msgstr "a：class： `pyramid.response.Response`オブジェクトがビューから返されることが予想される小さなマイクロスピードの拡張です。ビューによって返されるオブジェクトのクラスがこのクラスである場合、いくつかのコードはショートカットです。 func： `pyramid.request.Request.is_response`に対して同様のマイクロ最適化が行われました。"
 
 #: ../../whatsnew-1.4.rst:235
 msgid ""
@@ -379,7 +369,7 @@ msgid ""
 "(``pserve``, ``pshell``, ``pviews``, etc) in the form ``a=1 b=2`` so you "
 "can fill in values in parameterized ``.ini`` file, e.g. ``pshell "
 "etc/development.ini http_port=8080``."
-msgstr ""
+msgstr "`` p * ``コマンド（ `` pserve``、 `` pshell``、 `` pviews``など）のすべてで可変引数を `` a = 1b = 2``の形式で使用できるようにします。 `` pshell etc / development.ini http_port = 8080`のように、パラメータ化された `.ini`ファイルで値を入力することができます。"
 
 #: ../../whatsnew-1.4.rst:240
 msgid ""
@@ -388,11 +378,11 @@ msgid ""
 " subscriber predicates, we now allow both subscribers and subscriber "
 "predicates to accept only a single ``event`` argument even if they've "
 "been subscribed for notifications that involve multiple interfaces."
-msgstr ""
+msgstr "人々が加入者呼び出し可能変数への未使用引数を無視し、イベント加入者と加入者述語の間の関係を正規化するために、加入者と加入者述語の両方が購読していても単一の `` event``引数だけを受け入れることができるようになりました。複数のインタフェースを含む通知の場合"
 
 #: ../../whatsnew-1.4.rst:247
 msgid "Backwards Incompatibilities"
-msgstr ""
+msgstr "後方の非互換性"
 
 #: ../../whatsnew-1.4.rst:249
 msgid ""
@@ -401,7 +391,7 @@ msgid ""
 "These values were docs-deprecated in ``repoze.bfg`` 1.0 (effectively "
 "seven minor releases ago).  If your code depended on these values, use "
 "``request.matched_route`` and ``request.matchdict`` instead."
-msgstr ""
+msgstr "ピラミッドルータは、 `` bfg.routes.route``または `` bfg.routes.matchdict``の値をリクエストのWSGI環境辞書に追加しなくなりました。これらの値は `` repoze.bfg`` 1.0で文書廃止されました（事実上7つのマイナーリリース前）。コードがこれらの値に依存している場合は、代わりに `` request.matched_route``と `` request.matchdict``を使用してください。"
 
 #: ../../whatsnew-1.4.rst:255
 msgid ""
@@ -410,7 +400,7 @@ msgid ""
 "``ModelGraphTraverser.__call__``).  Instead, you must pass a request "
 "object.  Passing an environment instead of a request has generated a "
 "deprecation warning since Pyramid 1.1."
-msgstr ""
+msgstr "environ辞書を `` pyramid.traversal.ResourceTreeTraverser .__ call__``（別名 `` ModelGraphTraverser .__ call__``）に直接渡すことはもはや不可能です。代わりに、要求オブジェクトを渡す必要があります。リクエストの代わりに環境を渡すと、Pyramid 1.1以降の廃止予定の警告が生成されました。"
 
 #: ../../whatsnew-1.4.rst:261
 msgid ""
@@ -419,7 +409,7 @@ msgid ""
 "LegacyRequest class have a ``request.path_info`` which return a string. "
 "This Pyramid release assumes that ``request.path_info`` will "
 "unconditionally be Unicode."
-msgstr ""
+msgstr "`` webob.request.LegacyRequest``を要求ファクトリとして使用すると、Pyramidは正しく動作しなくなります。 LegacyRequestクラスのインスタンスには、文字列を返す `` request.path_info``があります。このPyramidのリリースでは、 `` request.path_info``が無条件にUnicodeになると仮定しています。"
 
 #: ../../whatsnew-1.4.rst:267
 msgid ""
@@ -432,14 +422,14 @@ msgid ""
 ":func:`pyramid.renderers.render` or "
 ":func:`pyramid.renderers.render_to_response` respectively instead of "
 "these functions."
-msgstr ""
+msgstr "`` get_renderer``、 `` get_template``、 `` render_template``、および `` render_template_to_response``という名前の `` pyramid.chameleon_zpt``と `` pyramid.chameleon_text``の関数は削除されました。これらはPyramid 1.0以降のインポート時に廃止予定の警告を出しました。 func： `pyramid.renderers.get_renderer`、` `pyramid.renderers.get_renderer（）。implementation（）` `、：func：` pyramid.renderers.render`ま​​たは：func： `pyramid.renderers.render_to_response`をそれぞれ使用します。これらの機能の代わりに。"
 
 #: ../../whatsnew-1.4.rst:277
 msgid ""
 "The ``pyramid.configuration`` module was removed.  It had been deprecated"
 " since Pyramid 1.0 and printed a deprecation warning upon its use.  Use "
 ":mod:`pyramid.config` instead."
-msgstr ""
+msgstr "`` pyramid.configuration``モジュールが削除されました。 Pyramid 1.0以降、非推奨となっていたため、使用時に非推奨警告が表示されました。 mod： `pyramid.config`を代わりに使用してください。"
 
 #: ../../whatsnew-1.4.rst:281
 msgid ""
@@ -447,7 +437,7 @@ msgid ""
 "deprecated since Pyramid 1.1 and issued a warning on import.  If your "
 "code depended on this, adjust your code to import "
 ":class:`pyramid.scaffolds.PyramidTemplate` instead."
-msgstr ""
+msgstr "`` pyramid.paster.PyramidTemplate`` APIが削除されました。ピラミッド1.1以来廃止され、輸入に関する警告が出されました。あなたのコードがこれに依存している場合は、代わりに：class： `pyramid.scaffolds.PyramidTemplate`をインポートするようにコードを調整してください。"
 
 #: ../../whatsnew-1.4.rst:286
 msgid ""
@@ -456,73 +446,73 @@ msgid ""
 "on this API, use ``pyramid.threadlocal.get_current_registry().settings`` "
 "instead or use the ``settings`` attribute of the registry available from "
 "the request (``request.registry.settings``)."
-msgstr ""
+msgstr "`` pyramid.settings.get_settings（） `` APIが削除されました。 Pyramid 1.0以降、廃止予定の警告が表示されていました。あなたのコードがこのAPIに依存している場合、代わりに `` pyramid.threadlocal.get_current_registry（）。settings``を使うか、リクエストから利用可能なレジストリの `` settings``属性を使います（ `` request.registry.settings``） 。"
 
 #: ../../whatsnew-1.4.rst:292
 msgid ""
 "These APIs from the ``pyramid.testing`` module were removed.  They have "
 "been printing deprecation warnings since Pyramid 1.0:"
-msgstr ""
+msgstr "`` pyramid.testing``モジュールのこれらのAPIは削除されました。彼らはPyramid 1.0以降、廃止予定の警告を印刷しています："
 
 #: ../../whatsnew-1.4.rst:295
 msgid ""
 "``registerDummySecurityPolicy``, use "
 ":meth:`pyramid.config.Configurator.testing_securitypolicy` instead."
-msgstr ""
+msgstr "`` registerDummySecurityPolicy``では、代わりに：meth： `pyramid.config.Configurator.testing_securitypolicy`を使います。"
 
 #: ../../whatsnew-1.4.rst:298
 msgid ""
 "``registerResources`` (aka ``registerModels``), use "
 ":meth:`pyramid.config.Configurator.testing_resources` instead."
-msgstr ""
+msgstr "`` registerResources``（別名 `` registerModels``）では、代わりに：meth： `pyramid.config.Configurator.testing_resources`を使用してください。"
 
 #: ../../whatsnew-1.4.rst:301
 msgid ""
 "``registerEventListener``, use "
 ":meth:`pyramid.config.Configurator.testing_add_subscriber` instead."
-msgstr ""
+msgstr "`` registerEventListener``、代わりに：meth： `pyramid.config.Configurator.testing_add_subscriber`を使用してください。"
 
 #: ../../whatsnew-1.4.rst:304
 msgid ""
 "``registerTemplateRenderer`` (aka ``registerDummyRenderer``), use "
 ":meth:`pyramid.config.Configurator.testing_add_renderer` instead."
-msgstr ""
+msgstr "`` registerTemplateRenderer``（別名 `` registerDummyRenderer``）では、代わりに：meth： `pyramid.config.Configurator.testing_add_renderer`を使います。"
 
 #: ../../whatsnew-1.4.rst:307
 msgid ""
 "``registerView``, use :meth:`pyramid.config.Configurator.add_view` "
 "instead."
-msgstr ""
+msgstr "`` registerView``、代わりに：meth： `pyramid.config.Configurator.add_view`を使用してください。"
 
 #: ../../whatsnew-1.4.rst:309
 msgid ""
 "``registerUtility``, use "
 ":meth:`pyramid.config.Configurator.registry.registerUtility` instead."
-msgstr ""
+msgstr "`` registerUtility``では、代わりに：meth： `pyramid.config.Configurator.registry.registerUtility`を使います。"
 
 #: ../../whatsnew-1.4.rst:312
 msgid ""
 "``registerAdapter``, use "
 ":meth:`pyramid.config.Configurator.registry.registerAdapter` instead."
-msgstr ""
+msgstr "`` registerAdapter``では、代わりに：meth： `pyramid.config.Configurator.registry.registerAdapter`を使用してください。"
 
 #: ../../whatsnew-1.4.rst:315
 msgid ""
 "``registerSubscriber``, use "
 ":meth:`pyramid.config.Configurator.add_subscriber` instead."
-msgstr ""
+msgstr "`` registerSubscriber``では、代わりに：meth： `pyramid.config.Configurator.add_subscriber`を使用してください。"
 
 #: ../../whatsnew-1.4.rst:318
 msgid ""
 "``registerRoute``, use :meth:`pyramid.config.Configurator.add_route` "
 "instead."
-msgstr ""
+msgstr "`` registerRoute``では、代わりに：meth： `pyramid.config.Configurator.add_route`を使用してください。"
 
 #: ../../whatsnew-1.4.rst:321
 msgid ""
 "``registerSettings``, use "
 ":meth:`pyramid.config.Configurator.add_settings` instead."
-msgstr ""
+msgstr "`` registerSettings``では、代わりに：meth： `pyramid.config.Configurator.add_settings`を使います。"
 
 #: ../../whatsnew-1.4.rst:324
 msgid ""
@@ -531,11 +521,11 @@ msgid ""
 "executed. As of this release, the ``__call__`` method of a Response "
 "object is invoked *after* finished callbacks are executed.  This is in "
 "support of the :meth:`pyramid.request.Request.invoke_subrequest` feature."
-msgstr ""
+msgstr "Pyramid 1.3以前では、終了したコールバックが実行される前にビューから返されたResponseオブジェクトの `` __call__``メソッドが呼び出されました。このリリースから、Responseオブジェクトの `` __call__``メソッドは、終了したコールバックが実行された後に呼び出されます。これは：meth： `pyramid.request.Request.invoke_subrequest`機能をサポートしています。"
 
 #: ../../whatsnew-1.4.rst:331
 msgid "Deprecations"
-msgstr ""
+msgstr "廃止"
 
 #: ../../whatsnew-1.4.rst:333
 msgid ""
@@ -544,7 +534,7 @@ msgid ""
 "more featureful :meth:`pyramid.config.Configurator.add_request_method` "
 "should be used in its place (it has all of the same capabilities but can "
 "also extend the request object with methods)."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.set_request_property`ディレクティブはドキュメンテーションで非難されています。メソッドは使用可能ですが、もっと機能的です：meth： `pyramid.config.Configurator.add_request_method`を代わりに使用する必要があります（すべて同じ機能を持ちますが、メソッドでリクエストオブジェクトを拡張することもできます）。"
 
 #: ../../whatsnew-1.4.rst:339
 msgid ""
@@ -554,11 +544,11 @@ msgid ""
 " \"md5\" which is considered theoretically subject to collision attacks. "
 "If you really want \"md5\" then you must specify it explicitly to get rid"
 " of the warning."
-msgstr ""
+msgstr "：class： `pyramid.authentication.AuthTktAuthenticationPolicy`は、アプリケーションが明示的に` `hashalg``引数を渡さずにポリシーを使用している場合、非推奨警告を出します。これは、デフォルトでは理論的には衝突攻撃の対象と見なされる\ &quot;md5 \&quot;であるためです。 \ &quot;md5 \&quot;が本当に必要な場合は、警告を取り除くために明示的に指定する必要があります。"
 
 #: ../../whatsnew-1.4.rst:346
 msgid "Documentation Enhancements"
-msgstr ""
+msgstr "ドキュメントの機能拡張"
 
 #: ../../whatsnew-1.4.rst:348
 msgid ""
@@ -566,31 +556,31 @@ msgid ""
 " It describes how to cope with deprecations and removals of Pyramid APIs "
 "and how to show Pyramid-generated deprecation warnings while running "
 "tests and while running a server."
-msgstr ""
+msgstr "ナレーション文書に：ref： `upgrading_chapter`の章を追加しました。 Pyramid APIの廃止と削除に対処する方法と、テストの実行中およびサーバーの実行中にPyramidで生成された廃止予定の警告を表示する方法について説明します。"
 
 #: ../../whatsnew-1.4.rst:353
 msgid "Added a :ref:`subrequest_chapter` chapter to the narrative documentation."
-msgstr ""
+msgstr "物語のドキュメンテーションにa：ref： `subrequest_chapter`章を追加しました。"
 
 #: ../../whatsnew-1.4.rst:355
 msgid ""
 "All of the tutorials that use "
 ":class:`pyramid.authentication.AuthTktAuthenticationPolicy` now "
 "explicitly pass ``sha512`` as a ``hashalg`` argument."
-msgstr ""
+msgstr "すべてのチュートリアルでは：class： `pyramid.authentication.AuthTktAuthenticationPolicy`は` `sha512``を` `hashalg``引数として明示的に渡します。"
 
 #: ../../whatsnew-1.4.rst:359
 msgid "Many cleanups and improvements to narrative and API docs."
-msgstr ""
+msgstr "多くのクリーンアップと物語とAPIのドキュメントの改良。"
 
 #: ../../whatsnew-1.4.rst:362
 msgid "Dependency Changes"
-msgstr ""
+msgstr "依存関係の変更"
 
 #: ../../whatsnew-1.4.rst:364
 msgid ""
 "Pyramid now requires WebOb 1.2b3+ (the prior Pyramid release only relied "
 "on 1.2dev+).  This is to ensure that we obtain a version of WebOb that "
 "returns ``request.path_info`` as text."
-msgstr ""
+msgstr "PyramidにはWebOb 1.2b3 +が必要です（以前のPyramidリリースは1.2dev +のみに依存していました）。これは、 `` request.path_info``をテキストとして返すWebObのバージョンを確実に取得するためです。"
 

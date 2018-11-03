@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../whatsnew-1.1.rst:2
 msgid "What's New in Pyramid 1.1"
-msgstr ""
+msgstr "(機械翻訳)Pyramid 1.1の新機能"
 
 #: ../../whatsnew-1.1.rst:4
 msgid ""
@@ -29,11 +19,11 @@ msgid ""
 "incompatibilities between the two versions and deprecations added to "
 "Pyramid 1.1, as well as software dependency changes and notable "
 "documentation additions."
-msgstr ""
+msgstr "この記事では、Pyramidバージョン1.1の新機能について、その前身であるapp： `Pyramid` 1.0と比較して説明します。また、Pyramid 1.1に追加された2つのバージョンと廃止予定の間の後方互換性や、ソフトウェア依存の変更や著しいドキュメントの追加についても説明しています。"
 
 #: ../../whatsnew-1.1.rst:11
 msgid "Terminology Changes"
-msgstr ""
+msgstr "用語の変更"
 
 #: ../../whatsnew-1.1.rst:13
 msgid ""
@@ -42,53 +32,53 @@ msgid ""
 "by a rendering engine.  i.e. Mako, Chameleon, Jinja, etc.).  \"Paster "
 "templates\" will now be referred to as \"scaffolds\", whereas the name "
 "for \"rendered templates\" will remain as \"templates.\""
-msgstr ""
+msgstr "ピラミッドのドキュメントで使用される &quot;テンプレート&quot;という用語は、\ &quot;パスタテンプレート\&quot;と\ &quot;レンダリングテンプレート\&quot;（レンダリングエンジンで作成されたテンプレート、つまりMako、Chameleon、Jinjaなど）の両方を指します。 \ &quot;Paster templates \&quot;は\ &quot;scaffolds \&quot;と呼ばれますが、\ &quot;rendered templates \&quot;の名前は\ &quot;テンプレート\"
 
 #: ../../whatsnew-1.1.rst:20
 msgid "Major Feature Additions"
-msgstr ""
+msgstr "主な機能の追加"
 
 #: ../../whatsnew-1.1.rst:22
 msgid "The major feature additions in Pyramid 1.1 are:"
-msgstr ""
+msgstr "Pyramid 1.1の主な機能の追加は次のとおりです。"
 
 #: ../../whatsnew-1.1.rst:24
 msgid "Support for the ``request.response`` attribute."
-msgstr ""
+msgstr "`` request.response``属性のサポート。"
 
 #: ../../whatsnew-1.1.rst:26
 msgid "New views introspection feature: ``paster pviews``."
-msgstr ""
+msgstr "新しいビューイントロスペクション機能： `` paster pviews``。"
 
 #: ../../whatsnew-1.1.rst:28
 msgid "Support for \"static\" routes."
-msgstr ""
+msgstr "\ &quot;静的\&quot;ルートのサポート。"
 
 #: ../../whatsnew-1.1.rst:30
 msgid "Default HTTP exception view."
-msgstr ""
+msgstr "デフォルトのHTTP例外ビュー。"
 
 #: ../../whatsnew-1.1.rst:32
 msgid ""
 "``http_cache`` view configuration parameter causes Pyramid to set HTTP "
 "caching headers."
-msgstr ""
+msgstr "`` http_cache``表示設定パラメータは、PyramidにHTTPキャッシュヘッダを設定させます。"
 
 #: ../../whatsnew-1.1.rst:35
 msgid ""
 "Features that make it easier to write scripts that work in a "
 ":app:`Pyramid` environment."
-msgstr ""
+msgstr "：app： `Pyramid`環境で動作するスクリプトを書くのを容易にする機能。"
 
 #: ../../whatsnew-1.1.rst:39
 msgid "``request.response``"
-msgstr ""
+msgstr "`` request.response``"
 
 #: ../../whatsnew-1.1.rst:41
 msgid ""
 "Instances of the :class:`pyramid.request.Request` class now have a "
 "``response`` attribute."
-msgstr ""
+msgstr "：class： `pyramid.request.Request`クラスのインスタンスに` `response``属性が追加されました。"
 
 #: ../../whatsnew-1.1.rst:44
 msgid ""
@@ -100,7 +90,7 @@ msgid ""
 "can set response attributes such as ``request.response.content_type`` "
 "(before they return, e.g. a dictionary to the renderer) and this will "
 "influence the HTTP return value of the view callable."
-msgstr ""
+msgstr "`` request``としてコール可能なビューに渡されるオブジェクトは、class： `pyramid.request.Request`のインスタンスです。 `` request.response``はクラスのインスタンスです：class： `pyramid.response.Response`。 ：term： `renderer`で設定された呼び出し可能な呼び出しを表示すると、この応答オブジェクトがPyramidルータに返されます。したがって、レンダラを使用するビュー呼び出し可能コードでは、 `` request.response.content_type``（返される前、レンダラに辞書など）のようなレスポンス属性を設定できます。これは、コール可能なビューのHTTP戻り値に影響します。"
 
 #: ../../whatsnew-1.1.rst:53
 msgid ""
@@ -111,28 +101,28 @@ msgid ""
 "*returned* when a renderer is not in play in order to have any effect on "
 "the HTTP response (it is not a \"global\" response, and modifications to "
 "it are not somehow merged into a separately returned response object)."
-msgstr ""
+msgstr "`` request.response``はレンダラーを使用するように構成されていないビュー呼び出し可能コードでも使用できます。たとえば、ビュー呼び出し可能な関数は `` request.response.body = &#39;123&#39;; return request.response``です。しかし、 `` request.response``で生成されるレスポンスオブジェクトは、HTTPレスポンスに影響を与えるためにレンダラが動作していないときには必ず返されなければなりません（レスポンスはグローバルなレスポンスではなく、それに対する変更は、何らかの形で別々に返されるレスポンスオブジェクトにマージされません）。"
 
 #: ../../whatsnew-1.1.rst:61
 msgid ""
 "The ``request.response`` object is lazily created, so its introduction "
 "does not negatively impact performance."
-msgstr ""
+msgstr "`` request.response``オブジェクトは遅れて作成されるため、その導入はパフォーマンスに悪影響を与えません。"
 
 #: ../../whatsnew-1.1.rst:65
 msgid "``paster pviews``"
-msgstr ""
+msgstr "`` paster pviews``"
 
 #: ../../whatsnew-1.1.rst:67
 msgid ""
 "A new paster command named ``paster pviews`` was added.  This command "
 "prints a summary of potentially matching views for a given path.  See the"
 " section entitled :ref:`displaying_matching_views` for more information."
-msgstr ""
+msgstr "`` paster pviews``という新しいパスタコマンドが追加されました。このコマンドは、指定されたパスについて一致する可能性のあるビューの概要を出力します。詳細は、ref： `display_matching_views`セクションを参照してください。"
 
 #: ../../whatsnew-1.1.rst:73
 msgid "Static Routes"
-msgstr ""
+msgstr "静的ルート"
 
 #: ../../whatsnew-1.1.rst:75
 msgid ""
@@ -141,11 +131,11 @@ msgid ""
 "considered for matching when a request is handled.  Instead, it will only"
 " be useful for URL generation via ``route_url`` and ``route_path``.  See "
 "the section entitled :ref:`static_route_narr` for more information."
-msgstr ""
+msgstr "Configuratorの `` add_route``メソッドは、 `` static``引数を受け付けるようになりました。この引数が `` True``の場合、要求が処理されたときに追加されたルートは照合のために決して考慮されません。代わりに、 `` route_url``と `` route_path``を使ってURLを生成するだけに便利です。詳細は、ref： `static_route_narr`を参照してください。"
 
 #: ../../whatsnew-1.1.rst:82
 msgid "Default HTTP Exception View"
-msgstr ""
+msgstr "デフォルトのHTTP例外ビュー"
 
 #: ../../whatsnew-1.1.rst:84
 msgid ""
@@ -155,7 +145,7 @@ msgid ""
 "from :mod:`pyramid.httpexceptions` (such as ``HTTPFound``) can now be "
 "raised from within view code; when raised, this exception view will "
 "render the exception to a response."
-msgstr ""
+msgstr "インタフェース：class： `pyramid.interfaces.IExceptionResponse`のデフォルトの例外ビューがデフォルトで登録されるようになりました。つまり、mod： `pyramid.httpexceptions`（` `HTTPFound``など）からインポートされた例外クラスのインスタンスをビューコード内から呼び出すことができます。呼び出されると、この例外ビューは応答に例外をレンダリングします。"
 
 #: ../../whatsnew-1.1.rst:91
 msgid ""
@@ -167,17 +157,17 @@ msgid ""
 "will not be registered.  Passing ``None`` returns the behavior of raising"
 " an HTTP exception to that of Pyramid 1.0 (the exception will propagate "
 "to :term:`middleware` and to the WSGI server)."
-msgstr ""
+msgstr "この機能の設定を可能にするために、：term： `Configurator`は、` `exceptionresponse_view``というキーワード引数を追加できるようになりました。デフォルトでは、この引数には、HTTP例外が発生したときに使用されるデフォルトの例外ビュー関数が設定されます。この値に `` None``が渡されると、HTTP例外の例外ビューは登録されません。 `` None``を渡すと、HTTP例外をPyramid 1.0の例外に戻します（例外はterm： `middleware`とWSGIサーバに伝播します）。"
 
 #: ../../whatsnew-1.1.rst:101
 msgid "``http_cache``"
-msgstr ""
+msgstr "`` http_cache``"
 
 #: ../../whatsnew-1.1.rst:103
 msgid ""
 "A new value ``http_cache`` can be used as a :term:`view configuration` "
 "parameter."
-msgstr ""
+msgstr "新しい値 `` http_cache``は：term： `view configuration`パラメータとして使うことができます。"
 
 #: ../../whatsnew-1.1.rst:106
 msgid ""
@@ -185,7 +175,7 @@ msgid ""
 "``Expires`` and ``Cache-Control`` headers of a response generated by the "
 "associated view callable are modified.  The value for ``http_cache`` may "
 "be one of the following:"
-msgstr ""
+msgstr "ビュー設定に `` http_cache``値を指定すると、関連するview呼び出し可能で生成されたレスポンスの `` Expires``と `` Cache-Control``ヘッダーが変更されます。 `` http_cache``の値は次のいずれかです："
 
 #: ../../whatsnew-1.1.rst:111
 msgid ""
@@ -195,7 +185,7 @@ msgid ""
 "responses to requests which call this view.  For example: "
 "``http_cache=3600`` instructs the requesting browser to 'cache this "
 "response for an hour, please'."
-msgstr ""
+msgstr "非ゼロの整数。ゼロ以外の整数の場合、秒数として扱われます。この秒数は、このビューを呼び出すリクエストに対するレスポンスの `` Expires``ヘッダと `` Cache-Control：max-age``パラメータを計算するために使用されます。たとえば、 `` http_cache = 3600``は、リクエストしているブラウザに「この応答を1時間キャッシュしてください」と指示します。"
 
 #: ../../whatsnew-1.1.rst:118
 msgid ""
@@ -206,7 +196,7 @@ msgid ""
 "this view.  For example: ``http_cache=datetime.timedelta(days=1)`` "
 "instructs the requesting browser to 'cache this response for a day, "
 "please'."
-msgstr ""
+msgstr "`` datetime.timedelta``インスタンスです。 `` datetime.timedelta``インスタンスの場合、秒数に変換され、その秒数が `` Expires``ヘッダーと `` Cache-Control：max-age &#39;&#39;を計算するために使われますこのビューを呼び出す要求への応答のパラメータ。例： `` http_cache = datetime.timedelta（days = 1） ``は、リクエストしているブラウザに「この応答を1日キャッシュしてください」と指示します。"
 
 #: ../../whatsnew-1.1.rst:126
 msgid ""
@@ -214,7 +204,7 @@ msgid ""
 "``Expires`` headers present in all responses from this view will be "
 "composed such that client browser cache (and any intermediate caches) are"
 " instructed to never cache the response."
-msgstr ""
+msgstr "0（ `` 0``）。値がゼロの場合、このビューからのすべての応答に存在する `` Cache-Control``と `` Expires``ヘッダーは、クライアントブラウザのキャッシュ（および任意の中間キャッシュ）にレスポンスをキャッシュしないように構成されます。"
 
 #: ../../whatsnew-1.1.rst:131
 msgid ""
@@ -230,19 +220,19 @@ msgid ""
 "``webob.cachecontrol.CacheControl`` interface may be added to the "
 "dictionary.  Supplying ``{'public':True}`` is equivalent to calling "
 "``response.cache_control.public = True``."
-msgstr ""
+msgstr "2タプル。それが2つのタプル（例えば `` http_cache =（1、{&#39;public&#39;：True）） ``）の場合、タプルの最初の値は非ゼロの整数か `` datetime.timedelta``インスタンスです。どちらの場合も、この値はレスポンスをキャッシュする秒数として使用されます。タプルの2番目の値は辞書でなければなりません。辞書にある値は `` Cache-Control``レスポンスヘッダへの入力として使われます。例えば、 `` http_cache =（3600、{&#39;public&#39;：True}）は ``キャッシュを1時間意味し、 `` public``をレスポンスのCache-Controlヘッダに追加します。 `` webob.cachecontrol.CacheControl``インターフェースでサポートされているすべてのキーと値を辞書に追加することができます。 `` {&#39;public&#39;：True} ``を提供することは、 `` response.cache_control.public = True``を呼び出すことと等価です。"
 
 #: ../../whatsnew-1.1.rst:144
 msgid ""
 "Providing a non-tuple value as ``http_cache`` is equivalent to calling "
 "``response.cache_expires(value)`` within your view's body."
-msgstr ""
+msgstr "`` http_cache``として非タプルの値を与えることは、あなたのビューのボディ内で `` response.cache_expires（value） ``を呼び出すことと同じです。"
 
 #: ../../whatsnew-1.1.rst:147
 msgid ""
 "Providing a two-tuple value as ``http_cache`` is equivalent to calling "
 "``response.cache_expires(value[0], **value[1])`` within your view's body."
-msgstr ""
+msgstr "`` http_cache``として2タプルの値を与えることは、あなたのビューのボディ内で `` response.cache_expires（value [0]、** value [1]） ``を呼び出すのと同じです。"
 
 #: ../../whatsnew-1.1.rst:150
 msgid ""
@@ -250,7 +240,7 @@ msgid ""
 "wish to only influence ``Cache-Control`` headers, pass a tuple as "
 "``http_cache`` with the first element of ``None``, e.g.: ``(None, "
 "{'public':True})``."
-msgstr ""
+msgstr "`` Expires``ヘッダーに影響を与えず、 `` Cache-Control``ヘッダにのみ影響を与えたい場合は、 `` None``の最初の要素を持つ `` http_cache``としてタプルを渡し、例： ``（None、{&#39;public&#39;：True}） ``。"
 
 #: ../../whatsnew-1.1.rst:154
 msgid ""
@@ -259,26 +249,26 @@ msgid ""
 " HTTP cache headers from being set by Pyramid's ``http_cache`` machinery "
 "globally in a process.  see :ref:`influencing_http_caching` and "
 ":ref:`preventing_http_caching`."
-msgstr ""
+msgstr "環境設定 `` PYRAMID_PREVENT_HTTP_CACHE`と設定ファイルの値 `` prevent_http_cache``は同義で、プロセス内でグローバルにPyramidの `` http_cache``機構によってHTTPキャッシュヘッダが設定されないようにします。 ：ref： `influencing_http_caching`と：ref：` prevent_http_caching`を参照してください。"
 
 #: ../../whatsnew-1.1.rst:161
 msgid "Easier Scripting Writing"
-msgstr ""
+msgstr "簡単なスクリプト作成"
 
 #: ../../whatsnew-1.1.rst:163
 msgid ""
 "A new API function :func:`pyramid.paster.bootstrap` has been added to "
 "make writing scripts that need to work under Pyramid environment easier, "
 "e.g.:"
-msgstr ""
+msgstr "新しいAPI関数：func： `pyramid.paster.bootstrap`が追加され、Pyramid環境下で動作する必要のあるスクリプトを簡単に作成できます。例："
 
 #: ../../whatsnew-1.1.rst:173
 msgid "See :ref:`writing_a_script` for more details."
-msgstr ""
+msgstr "詳細は、：ref： `writing_a_script`を参照してください。"
 
 #: ../../whatsnew-1.1.rst:176
 msgid "Minor Feature Additions"
-msgstr ""
+msgstr "マイナー機能追加"
 
 #: ../../whatsnew-1.1.rst:178
 msgid ""
@@ -287,7 +277,7 @@ msgid ""
 "application.  The shell will work in a degraded mode, and will warn the "
 "user.  See \"The Interactive Shell\" in the \"Creating a Pyramid "
 "Project\" narrative documentation section."
-msgstr ""
+msgstr "引数に指定されているpaste iniファイルセクション名がPyramid WSGIアプリケーションではない場合でも、 `` paster pshell``を呼び出すことが可能になりました。シェルは劣化モードで動作し、ユーザーに警告します。 \ &quot;Pyramid Projectの作成\&quot;ドキュメンテーションセクションの\ &quot;The Interactive Shell \&quot;を参照してください。"
 
 #: ../../whatsnew-1.1.rst:184
 msgid ""
@@ -297,14 +287,14 @@ msgid ""
 " section in the file that points at the actual Pyramid application.  "
 "Instead, you can generally just run ``paster {pshell|proutes|pviews} "
 "development.ini`` and it will do mostly the right thing."
-msgstr ""
+msgstr "`` paster pshell``、 `` paster pviews``、 `` paster proutes``コマンドはfunc： `pyramid.paster.bootstrap`を使用します。通常の `` paster {pshell | proutes | pviews} development.ini``を実行するだけで、ほとんどの場合に実行されます良い行い。"
 
 #: ../../whatsnew-1.1.rst:191
 msgid ""
 "It is now possible to add a ``[pshell]`` section to your application's "
 ".ini configuration file, which influences the global names available to a"
 " pshell session.  See :ref:`extending_pshell`."
-msgstr ""
+msgstr "現在、アプリケーションの.ini設定ファイルに `` [pshell] `セクションを追加することができます。これは、pshellセッションで使用できるグローバル名に影響します。参照：ref： `extend_pshell`を参照してください。"
 
 #: ../../whatsnew-1.1.rst:195
 msgid ""
@@ -312,34 +302,34 @@ msgid ""
 "argument.  ``kw`` argument represents a set of keyword arguments to pass "
 "to the Venusian ``Scanner`` object created by Pyramid.  (See the "
 ":term:`Venusian` documentation for more information about ``Scanner``)."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.scan`メソッドは` `** kw``引数を増やしました。 `` kw``引数は、ピラミッドが作成したVenusianの `` Scanner``オブジェクトに渡すキーワード引数の集合を表します。 （ `` Scanner``の詳細については：term： `Venusian`のドキュメントを参照してください）。"
 
 #: ../../whatsnew-1.1.rst:200
 msgid ""
 "New request property: ``json_body``. This property will return the JSON-"
 "decoded variant of the request body.  If the request body is not well-"
 "formed JSON, this property will raise an exception."
-msgstr ""
+msgstr "新しいリクエストプロパティ： `` json_body``。このプロパティは、リクエスト本体のJSONでデコードされた変形を返します。要求の本文が整形式JSONでない場合、このプロパティは例外を発生させます。"
 
 #: ../../whatsnew-1.1.rst:204
 msgid ""
 "A `JSONP <http://en.wikipedia.org/wiki/JSONP>`_ renderer.  See "
 ":ref:`jsonp_renderer` for more details."
-msgstr ""
+msgstr "`JSONP <http://en.wikipedia.org/wiki/JSONP> `_ renderer。詳細はref： `jsonp_renderer`を参照してください。"
 
 #: ../../whatsnew-1.1.rst:207
 msgid ""
 "New authentication policy: "
 ":class:`pyramid.authentication.SessionAuthenticationPolicy`, which uses a"
 " session to store credentials."
-msgstr ""
+msgstr "新しい認証ポリシー：：class： `pyramid.authentication.SessionAuthenticationPolicy`：セッションを使用してクレデンシャルを保存します。"
 
 #: ../../whatsnew-1.1.rst:211
 msgid ""
 "A function named :func:`pyramid.httpexceptions.exception_response` is a "
 "shortcut that can be used to create HTTP exception response objects using"
 " an HTTP integer status code."
-msgstr ""
+msgstr "func： `pyramid.httpexceptions.exception_response`という名前の関数は、HTTP整数ステータスコードを使用してHTTP例外応答オブジェクトを作成するために使用できるショートカットです。"
 
 #: ../../whatsnew-1.1.rst:215
 msgid ""
@@ -349,27 +339,27 @@ msgid ""
 " request, 1, 2)`` (``1`` and ``2`` are the ``elements``) will now be "
 "converted implicitly to strings in the result.  Previously passing "
 "integers or longs as elements would cause a TypeError."
-msgstr ""
+msgstr "func： `pyramid.url.resource_url`や：meth：` pyramid.request.Request.resource_url`のように、 `` resource_url（context、request、1、2） ``に渡された整数とロング`` 1``と `` 2``が `` elements``です）は、暗黙的に結果の文字列に変換されます。以前は整数またはlongを要素として渡すと、TypeErrorが発生します。"
 
 #: ../../whatsnew-1.1.rst:222
 msgid ""
 "``pyramid_alchemy`` scaffold now uses ``query.get`` rather than "
 "``query.filter_by`` to take better advantage of identity map caching."
-msgstr ""
+msgstr "`` pyramid_alchemy`` scaffoldは、 `` query.filter_by``ではなく `` query.get``を使用してアイデンティティマップのキャッシュをより有効に活用します。"
 
 #: ../../whatsnew-1.1.rst:225
 msgid "``pyramid_alchemy`` scaffold now has unit tests."
-msgstr ""
+msgstr "`` pyramid_alchemy``足場には単体テストがあります。"
 
 #: ../../whatsnew-1.1.rst:227
 msgid "Added a :func:`pyramid.i18n.make_localizer` API."
-msgstr ""
+msgstr "a：func： `pyramid.i18n.make_localizer` APIを追加しました。"
 
 #: ../../whatsnew-1.1.rst:229
 msgid ""
 "An exception raised by a :class:`pyramid.events.NewRequest` event "
 "subscriber can now be caught by an exception view."
-msgstr ""
+msgstr "a：class： `pyramid.events.NewRequest`イベントサブスクライバによって生成された例外は、例外ビューで捕捉できるようになりました。"
 
 #: ../../whatsnew-1.1.rst:232
 msgid ""
@@ -382,7 +372,7 @@ msgid ""
 "ACE, ACL, permission, and principals involved in the request as eg. "
 "``context.result.permission``, ``context.result.acl``, etc within the "
 "logic of the Forbidden exception view."
-msgstr ""
+msgstr "Pyramidが例外ビューからForbidden例外を発生させた理由についての情報を得ることができるようになりました。各株式承認ポリシー（：meth： `pyramid.interfaces.IAuthorizationPolicy.permits`）の` `permits``メソッドによって返された` `ACLDenied``オブジェクトは、` `result``属性としてForbidden例外に付加されました。したがって、[禁止された例外]ビューを作成した場合、ACE、ACL、アクセス許可、および要求に含まれるプリンシパルが、たとえば次のように表示されます。 `` context.result.permission``、 `` context.result.acl``などの禁止された例外ビューのロジック内にあります。"
 
 #: ../../whatsnew-1.1.rst:242
 msgid ""
@@ -392,19 +382,19 @@ msgid ""
 "such a configuration would raise a ``ValueError``, now it's allowed, "
 "although typically nonsensical).  Allowing the nonsensical configuration "
 "made the code more understandable and required fewer tests."
-msgstr ""
+msgstr "：class： `pyramid.authentication.AuthTktAuthenticationPolicy`を設定するときに` `timeout``が` `reissue_time``よりも低くなるのを明示的に禁止しないでください（以前の設定では` `ValueError``それは許可されていますが、通常は無意味ですが）。無意味な設定を許可することで、コードを理解しやすくなり、必要なテストが少なくなりました。"
 
 #: ../../whatsnew-1.1.rst:249
 msgid ""
 "The :class:`pyramid.request.Request` class now has a ``ResponseClass`` "
 "attribute which points at :class:`pyramid.response.Response`."
-msgstr ""
+msgstr "：class： `pyramid.request.Request`クラスはclass：` pyramid.response.Response`を指す `` ResponseClass``属性を持つようになりました。"
 
 #: ../../whatsnew-1.1.rst:252
 msgid ""
 "The :class:`pyramid.response.Response` class now has a ``RequestClass`` "
 "interface which points at :class:`pyramid.request.Request`."
-msgstr ""
+msgstr "：class： `pyramid.response.Response`クラスはclass：` pyramid.request.Request`を指す `` RequestClass``インターフェースを持っています。"
 
 #: ../../whatsnew-1.1.rst:255
 msgid ""
@@ -415,7 +405,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_response_adapter` API.  See the "
 "section in the Hooks chapter of the documentation entitled "
 ":ref:`using_iresponse`."
-msgstr ""
+msgstr "レンダラーが使用されていなくても、呼び出し可能なピラミッドビューから任意のオブジェクトを返すことができるようになりました。class： `pyramid.interfaces.IResponse`は、新しい：meth： `pyramid.config.Configurator.add_response_adapter` APIです。ドキュメント：ref： `using_iresponse`のHooksの章を参照してください。"
 
 #: ../../whatsnew-1.1.rst:263
 msgid ""
@@ -423,33 +413,33 @@ msgid ""
 "response objects when returning a WSGI response.  This means that, among "
 "other things, the ``conditional_response`` feature response objects "
 "inherited from WebOb will now behave properly."
-msgstr ""
+msgstr "Pyramidルータはデフォルトで、WSGI応答を返すときに応答オブジェクトの `` __call__``メソッドを呼び出すようになりました。これは、とりわけ、WebObから継承された `` conditional_response``の機能応答オブジェクトが正しく動作するようになりました。"
 
 #: ../../whatsnew-1.1.rst:268
 msgid ""
 "New method named :meth:`pyramid.request.Request.is_response`.  This "
 "method should be used instead of the :func:`pyramid.view.is_response` "
 "function, which has been deprecated."
-msgstr ""
+msgstr "新しいメソッド：meth： `pyramid.request.Request.is_response`。このメソッドは、：func： `pyramid.view.is_response`関数の代わりに使用する必要があります。これは廃止予定です。"
 
 #: ../../whatsnew-1.1.rst:272
 msgid ""
 ":class:`pyramid.exceptions.NotFound` is now just an alias for "
 ":class:`pyramid.httpexceptions.HTTPNotFound`."
-msgstr ""
+msgstr "：class： `pyramid.exceptions.NotFound`はclass：` pyramid.httpexceptions.HTTPNotFound`のエイリアスになりました。"
 
 #: ../../whatsnew-1.1.rst:275
 msgid ""
 ":class:`pyramid.exceptions.Forbidden` is now just an alias for "
 ":class:`pyramid.httpexceptions.HTTPForbidden`."
-msgstr ""
+msgstr "：class： `pyramid.exceptions.Forbidden`はclass：` pyramid.httpexceptions.HTTPForbidden`の別名になりました。"
 
 #: ../../whatsnew-1.1.rst:278
 msgid ""
 "Added ``mako.preprocessor`` config file parameter; allows for a Mako "
 "preprocessor to be specified as a Python callable or Python dotted name. "
 "See https://github.com/Pylons/pyramid/pull/183 for rationale."
-msgstr ""
+msgstr "`` mako.preprocessor``設定ファイルのパラメータを追加しました。 MakoプリプロセッサをPythonの呼び出し可能な名前またはPythonの点名として指定することができます。根拠については、https://github.com/Pylons/pyramid/pull/183を参照してください。"
 
 #: ../../whatsnew-1.1.rst:282
 msgid ""
@@ -462,7 +452,7 @@ msgid ""
 ":class:`pyramid.static.static_view` exposes a ``use_subpath`` flag for "
 "use when you want the static view to behave like the older deprecated "
 "version."
-msgstr ""
+msgstr "新しいAPIクラス：：class： `pyramid.static.static_view`。これは、（現在廃止されている）class： `pyramid.view.static`クラスに取って代わるものです。 ：class： `pyramid.static.static_view`は、デフォルトでは、要求の` `path_info``属性の結果としてドキュメントを提供します。属性は` `subpath``属性ではありません（逆はtrueです：class：` pyramid .view.static`、それでもなおです）。 ：class： `pyramid.static.static_view`は静的ビューを古い非推奨バージョンと同じように動作させたいときに使う` `use_subpath``フラグを公開します。"
 
 #: ../../whatsnew-1.1.rst:291
 msgid ""
@@ -470,7 +460,7 @@ msgid ""
 "is a lower-level analogue of :func:`pyramid.paster.bootstrap` that "
 "accepts a request and a registry instead of a config file argument, and "
 "is used for the same purpose:"
-msgstr ""
+msgstr "新しいapi関数：func： `pyramid.scripting.prepare`が追加されました。それは設定ファイル引数の代わりに要求とレジストリを受け入れ、同じ目的のために使用される：func： `pyramid.paster.bootstrap`の下位レベルのアナログです："
 
 #: ../../whatsnew-1.1.rst:303
 msgid ""
@@ -479,7 +469,7 @@ msgid ""
 "to be used in conjunction with :func:`pyramid.scripting.prepare` and/or "
 ":func:`pyramid.paster.bootstrap` (both of which accept a request as an "
 "argument):"
-msgstr ""
+msgstr "新しいAPI関数func： `pyramid.scripting.make_request`が追加されました。結果として得られるリクエストは `` registry``属性を持ちます。 func： `pyramid.scripting.prepare`や：func：` pyramid.paster.bootstrap`（どちらも引数としてリクエストを受け付けます）と組み合わせて使用​​することを意図しています："
 
 #: ../../whatsnew-1.1.rst:314
 msgid ""
@@ -489,7 +479,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.make_wsgi_app`.  It also has a "
 "``last`` attribute containing the last registry loaded.  This is used by "
 "the scripting machinery, and is available for introspection."
-msgstr ""
+msgstr "新しいAPI属性：attr： `pyramid.config.global_registries`は、現在のプロセスにロードされたすべてのPyramidレジストリへの参照を含むmether：` pyramid.config.Configurator.make_wsgi_app`という反復可能オブジェクトです。最後にロードされたレジストリを含む `` last``属性もあります。これはスクリプティング機器で使用され、イントロスペクションに使用できます。"
 
 #: ../../whatsnew-1.1.rst:320
 msgid ""
@@ -503,18 +493,18 @@ msgid ""
 "added for consumption by the ``pyramid_rpc`` package, which uses view "
 "configuration and lookup outside the context of a router in exactly this "
 "way.)"
-msgstr ""
+msgstr "：attr： `pyramid.renderers.null_renderer`オブジェクトをAPIとして追加しました。 nullレンダラーは、ビュー構成のレンダラー= ``引き数への入力として高度な統合のケースで使用できるオブジェクトです。 nullレンダラーをビューレンダラー引数として使用すると、Pyramidはビューの呼び出し可能な結果を​​Responseオブジェクトに変換することを回避します。これは、Pyramidルーターが使用しているコンテキスト外で、ビュー構成とルックアップマシンを再利用する場合に便利です。 （この機能は `` pyramid_rpc``パッケージで消費するために追加されました。このパッケージは、まさにこのようにルータのコンテキスト外でビューの設定と参照を使用します）。"
 
 #: ../../whatsnew-1.1.rst:331
 msgid "Backwards Incompatibilities"
-msgstr ""
+msgstr "後方の非互換性"
 
 #: ../../whatsnew-1.1.rst:333
 msgid ""
 "Pyramid no longer supports Python 2.4.  Python 2.5 or better is required "
 "to run Pyramid 1.1+.  Pyramid, however, does not work under any version "
 "of Python 3 yet."
-msgstr ""
+msgstr "PyramidはPython 2.4をサポートしなくなりました。 Pyramid 1.1+を実行するには、Python 2.5以上が必要です。しかしPyramidはPython 3のどのバージョンでも動作しません。"
 
 #: ../../whatsnew-1.1.rst:337
 msgid ""
@@ -531,7 +521,7 @@ msgid ""
 "from the type of object you're now returning from view callables.  See "
 "the section in the Hooks chapter of the documentation entitled "
 ":ref:`using_iresponse`."
-msgstr ""
+msgstr "Pyramidルータは、デフォルトでは、view callablesから返されたレスポンスオブジェクトが：class： `pyramid.interfaces.IResponse`インタフェースを実装することを期待しています。このインタフェースのPyramid 1.0バージョンとは異なり、IResponseを実装するオブジェクトは、現在、 `` environ``と `` start_response``を受け入れ、 `` app_iter`` iterableを返す `` __call__``メソッドを定義しなければなりませんもの。以前は、3つのWebOb `` app_iter``、 `` headerlist``、および `` status``属性をレスポンスとして持つオブジェクトを返すことができました。これは後方互換性がありません。 IRISponseにアダプターを登録することで、ビュー呼び出し可能オブジェクトから戻ってきたオブジェクトの型から下位互換性を取り戻すことができます。ドキュメント：ref： `using_iresponse`のHooksの章を参照してください。"
 
 #: ../../whatsnew-1.1.rst:350
 msgid ""
@@ -539,7 +529,7 @@ msgid ""
 "extensive.  Previously it defined only ``app_iter``, ``status`` and "
 "``headerlist``; now it is basically intended to directly mirror the "
 "``webob.Response`` API, which has many methods and attributes."
-msgstr ""
+msgstr "：class： `pyramid.interfaces.IResponse`インターフェースがはるかに広範囲になりました。これまでは `` app_iter``、 `` status``、 `` headerlist``だけを定義していました。これは基本的に `` webob.Response`` APIを直接ミラーリングすることを意図しています。これは多くのメソッドと属性を持っています。"
 
 #: ../../whatsnew-1.1.rst:355
 msgid ""
@@ -551,7 +541,7 @@ msgid ""
 "pyramid.httpexceptions.HTTPFound('http://foo')`` rather than ``return "
 "pyramid.httpexceptions.HTTPFound(location='http//foo')`` (the latter will"
 " of course continue to work)."
-msgstr ""
+msgstr "`` HTTPFound``、 `` HTTPMultipleChoices``、 `` HTTPMovedPermanently``、 `` HTTPSeeOther``、 `` HTTPUseProxy``、および `` HTTPTemporaryRedirect``という名前の：mod： `pyramid.httpexceptions`クラスは` `` detail``ではなく `` location``を最初の位置引数として使用します。これは、pyramid.httpexceptions.HTTPFound（location = &#39;http // foo&#39;） ``を返すのではなく、 `` pyramid.httpexceptions.HTTPFound（ &#39;http：// foo&#39;） ``を返すなど、後者はもちろん作業を続けるでしょう）。"
 
 #: ../../whatsnew-1.1.rst:364
 msgid ""
@@ -560,7 +550,7 @@ msgid ""
 " for backwards compatibility with applications written for "
 ":mod:`repoze.bfg` during error handling.  It did this by using code that "
 "looked like so::"
-msgstr ""
+msgstr "ピラミッドルータは、エラー時に：mod： `repoze.bfg`で書かれたアプリケーションとの下位互換性のためにビュー関連の例外を捕捉したときに、キー` `environ [&#39;repoze.bfg.message&#39;]` `に値を設定しようとしました取り扱い。これは、次のようなコードを使用してこれを行いました::"
 
 #: ../../whatsnew-1.1.rst:377
 msgid ""
@@ -576,11 +566,11 @@ msgid ""
 " the environment should now use the ``exception`` attribute of the "
 "request (e.g. ``request.exception[0]``) to retrieve the message instead "
 "of relying on ``request.environ['repoze.bfg.message']``."
-msgstr ""
+msgstr "値 `` environ [&#39;repoze.bfg.message&#39;] ``の使用は、Pyramid 1.0で廃止されました。私たちの定める方針は、完全な2つのメジャーリリースに対する非推奨の機能を削除しないことです。このコードはもともとPyramid 1.2で削除される予定でした。しかし、 `` repoze.bfg.message``値を計算することは、野生で見つかった少なくとも1つのバグ（https://github.com/Pylons/pyramid/issues/199）のソースであり、下位互換性を維持し、バグを修正するための完全な方法です。したがって、このリリースでは値を設定するコードは削除されています。環境におけるこの値の存在に依存する例外ビューのコードは、要求の `` exception``属性（例えば、 `` request.exception [0] ``）を使用して、 `` request .environ [&#39;repoze.bfg.message&#39;] ``。"
 
 #: ../../whatsnew-1.1.rst:391
 msgid "Deprecations and Behavior Differences"
-msgstr ""
+msgstr "廃止と行動の相違"
 
 #: ../../whatsnew-1.1.rst:393
 msgid ""
@@ -592,7 +582,7 @@ msgid ""
 "UNIX, ``PYTHONWARNINGS=all $VENV/bin/paster serve development.ini``. "
 "Python 2.5 and 2.6 show deprecation warnings by default, so this is "
 "unnecessary there. All deprecation warnings are emitted to the console."
-msgstr ""
+msgstr "Python 2.7以降では、古いバージョンのPyramidからアプリケーションを移植する際に、Pyramidが発行する廃止予定の警告を表示するために、Pythonインタプリタに正しい警告フラグを渡す必要があります。 UNIXの場合、 `` PYTHONWARNINGS = all $ VENV / bin / paster &#39;&#39;のように、 `` paster serve``を呼び出すために使用する ``すべて ``の値を持つ `` PYTHONWARNINGS``環境変数を `` paster serve &#39;開発.ini``。 Python 2.5と2.6は、デフォルトで廃止予定の警告を表示するので、これは不要です。すべての非推奨警告がコンソールに出力されます。"
 
 #: ../../whatsnew-1.1.rst:403
 msgid ""
@@ -601,7 +591,7 @@ msgid ""
 "warning is raised when it is used.  You should replace it with a "
 "reference to :class:`pyramid.static.static_view` with the "
 "``use_subpath=True`` argument."
-msgstr ""
+msgstr "：class： `pyramid.view.static`クラスは新しい：class：` pyramid.static.static_view`クラスのために推奨されなくなりました。非推奨警告は使用時に発生します。 `` use_subpath = True``引数で：class： `pyramid.static.static_view`への参照で置き換えるべきです。"
 
 #: ../../whatsnew-1.1.rst:408
 msgid ""
@@ -610,7 +600,7 @@ msgid ""
 "``/path/to/config.ini#sectionname`` rather than the previous 2-argument "
 "spelling ``/path/to/config.ini sectionname``.  ``#sectionname`` may be "
 "omitted, in which case ``#main`` is assumed."
-msgstr ""
+msgstr "`` paster pshell``、 `` paster proutes``、 `` paster pviews``コマンドは、前の2つではなく `` / path / to / config.ini＃sectionname``の形式で引数を取るようになりました - 引数の `` /path/to/config.ini sectionname``のスペルです。 ``＃sectionname``は省略できます。この場合、 ``＃main``が仮定されます。"
 
 #: ../../whatsnew-1.1.rst:414
 msgid ""
@@ -618,11 +608,11 @@ msgid ""
 "expression tags. This is intended to help prevent XSS attacks caused by "
 "rendering unsanitized input from users. To revert this behavior in user's"
 " templates, they need to filter the expression through the 'n' filter::"
-msgstr ""
+msgstr "デフォルトのMakoレンダラは、式タグ内のすべてのHTMLをエスケープするように設定されました。これは、非正規化された入力をユーザーから表示することによるXSS攻撃を防ぐのに役立ちます。ユーザーのテンプレートでこの動作を元に戻すには、 &#39;n&#39;フィルタを使用して式をフィルタリングする必要があります。"
 
 #: ../../whatsnew-1.1.rst:421
 msgid "See https://github.com/Pylons/pyramid/issues/193."
-msgstr ""
+msgstr "https://github.com/Pylons/pyramid/issues/193を参照してください。"
 
 #: ../../whatsnew-1.1.rst:423
 msgid ""
@@ -637,7 +627,7 @@ msgid ""
 "created by accessing ``request.response`` (e.g. code which does "
 "``request.response_content_type = 'abc'`` should be changed to "
 "``request.response.content_type = 'abc'``)."
-msgstr ""
+msgstr "`` request.response_ * ``属性へのすべての代入を非推奨にしました（例えば `` request.response_content_type = &#39;foo&#39;``は廃止予定です）。レスポンスへの影響をフレームワークで考慮した、割り当て可能なリクエスト属性の代入と突然変異は非難されました： `` response_content_type``、 `` response_headerlist``、 `` response_status``、 `` response_charset``、 `` response_cache_for`` 。後でレンダリング機構が検出するためにこれらをリクエストオブジェクトに割り当てるのではなく、 `` request.response``にアクセスして作成したResponseオブジェクトの適切なAPIを使用する必要があります（例えば `` request.response_content_type = &#39;abc&#39; ``は `` request.response.content_type = &#39;abc&#39;``に変更する必要があります）。"
 
 #: ../../whatsnew-1.1.rst:435
 msgid ""
@@ -648,7 +638,7 @@ msgid ""
 "Configurator.  This was a shorthand which replaced the need to perform a "
 "subsequent call to ``add_view``. For example, it was valid (and often "
 "recommended) to do::"
-msgstr ""
+msgstr "ビュー関連のパラメータを：meth： `pyramid.config.Configurator.add_route`に渡すことは廃止されました。以前は、コンフィグレータの `` add_route``メソッドに渡された `` view * ``パラメータのセットを使って、ビューをルートに接続することが許可されていました。これは、後で `` add_view``を呼び出す必要性に代わる短縮形でした。たとえば、以下のことを行うには有効でした（しばしば推奨されます）："
 
 #: ../../whatsnew-1.1.rst:446
 msgid ""
@@ -657,20 +647,20 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_view` using the route's "
 "``route_name`` parameter.  As a result, the above example should now be "
 "spelled::"
-msgstr ""
+msgstr "`` view * ``引数を `` add_route``に渡すことは、ルートの `` route_name``パラメータを使って：meth： `pyramid.config.Configurator.add_view`を介してビューを定義済みのルートに接続することを推奨しています。その結果、上記の例は今すぐ綴られるべきです::"
 
 #: ../../whatsnew-1.1.rst:456
 msgid ""
 "This deprecation was done to reduce confusion observed in IRC, as well as"
 " to (eventually) reduce documentation burden.  A deprecation warning is "
 "now issued when any view-related parameter is passed to ``add_route``."
-msgstr ""
+msgstr "この廃止は、IRCで見られる混乱を減らし、（最終的に）文書化の負担を軽減するために行われました。ビュー関連のパラメータが `` add_route``に渡されると非推奨警告が発行されるようになりました。"
 
 #: ../../whatsnew-1.1.rst:462
 msgid ""
 "See also `issue #164 on GitHub "
 "<https://github.com/Pylons/pyramid/issues/164>`_."
-msgstr ""
+msgstr "GitHubの `issue＃164 &#39;も参照してください。 <https://github.com/Pylons/pyramid/issues/164> `_。"
 
 #: ../../whatsnew-1.1.rst:465
 msgid ""
@@ -683,7 +673,7 @@ msgid ""
 "environ dict is permitted has been documentation-deprecated since "
 "``repoze.bfg`` 1.1, and this capability will be removed entirely in a "
 "future version."
-msgstr ""
+msgstr "\ &quot;traverser \&quot;の `` __call__`メソッド（例：class： `pyramid.interfaces.ITraverser`：class：` pyramidのインスタンスを実装するオブジェクト）に `` environ``辞書を渡します。 traversal.ResourceTreeTraverser`）を `` request``引数として使用すると、非推奨警告が発行されるようになりました。コンシューマーコードは `` request``オブジェクトを渡すべきです。環境を渡すことが許可されているという事実は、 `` repoze.bfg`` 1.1以降、ドキュメンテーション非難されており、この機能は将来のバージョンでは完全に削除されるでしょう。"
 
 #: ../../whatsnew-1.1.rst:474
 msgid ""
@@ -697,7 +687,7 @@ msgid ""
 " compatibility in ``repoze.bfg`` 1.1 (code that currently expects a "
 "request object expected an environ object in BFG 1.0 and before).  In a "
 "future version, these methods will be removed entirely."
-msgstr ""
+msgstr "：class： `pyramid.request.Request`オブジェクトの以下の（文書化されていない、辞書のような）メソッドは非難されました：` `__contains__``、` `__delitem__``、` `__getitem__``、` `__iter__`` `` iteritems``、 `` itervalues``、 `` keys``、 `` pop``、 `` iteritems``、 `` iteritems``、 `` `popitem``、` `setdefault``、` `update``、` `values``のようなものです。これらのメソッドを使用すると、非推奨警告が発行されます。これらのメソッドは、 `` repoze.bfg`` 1.1（BFG 1.0以前ではenvironオブジェクトが期待される要求オブジェクトを現在期待しているコード）の内部互換性のために追加されました。将来のバージョンでは、これらのメソッドは完全に削除されます。"
 
 #: ../../whatsnew-1.1.rst:485
 msgid ""
@@ -706,14 +696,14 @@ msgid ""
 "request is meant to be used in a view that uses a renderer.  This "
 "``response`` attribute should be an instance of the class "
 ":class:`pyramid.response.Response`."
-msgstr ""
+msgstr "リクエストがレンダラーを使用するビューで使用される場合は、カスタムリクエストファクトリが `` response``属性（または\ &quot;reified \&quot; / lazyプロパティ）を持つリクエストオブジェクトを返すようになりました。この `` response``属性はクラス：class： `pyramid.response.Response`のインスタンスでなければなりません。"
 
 #: ../../whatsnew-1.1.rst:491
 msgid ""
 "The JSON and string renderer factories now assign to "
 "``request.response.content_type`` rather than "
 "``request.response_content_type``."
-msgstr ""
+msgstr "JSONおよび文字列レンダラーファクトリは、 `` request.response_content_type``ではなく `` request.response.content_type``に割り当てられます。"
 
 #: ../../whatsnew-1.1.rst:495
 msgid ""
@@ -723,7 +713,7 @@ msgid ""
 "default content type (usually ``text/html``), the renderer changes the "
 "content type (to ``application/json`` or ``text/plain`` for JSON and "
 "string renderers respectively)."
-msgstr ""
+msgstr "各ビルトインレンダラーファクトリは、レスポンスのコンテンツタイプをレスポンスのデフォルトのコンテンツタイプと比較することによってレスポンスのコンテンツタイプを変更する必要があるかどうかを判断します。コンテンツタイプがデフォルトのコンテンツタイプ（通常 `` text / html``）である場合、レンダラーはコンテンツタイプをJSONおよび文字列レンダラーのそれぞれに対して `` application / json``または `` text / plain``に​​変更します。 。"
 
 #: ../../whatsnew-1.1.rst:502
 msgid ""
@@ -732,7 +722,7 @@ msgid ""
 "downstream application.  As a result, those values may differ slightly "
 "from the perspective of the downstream application (for example, "
 "``SCRIPT_NAME`` will now never possess a trailing slash)."
-msgstr ""
+msgstr "：func： `pyramid.wsgi.wsgiapp2`は、下位アプリケーションの` `SCRIPT_NAME``と` `PATH_INFO``を修正する方法を少し違った方法で使います。結果として、それらの値は、下流のアプリケーションの観点から若干異なるかもしれません（例えば、 `` SCRIPT_NAME``は後にスラッシュを持たないでしょう）。"
 
 #: ../../whatsnew-1.1.rst:508
 msgid ""
@@ -745,7 +735,7 @@ msgid ""
 ":class:`webob.request.Request`, which provides the same behavior. "
 ":class:`pyramid.request.Request` no longer implements its own "
 "``__getattr__``, ``__setattr__`` or ``__delattr__`` as a result."
-msgstr ""
+msgstr "これまで：：class： `pyramid.request.Request`：class：` webob.request.Request`から継承し、 `` __getattr__``、 `` __setattr__``、 `` __delattr__``自体を実装して、 adhoc attr \ &quot;要求の属性が環境内に格納されているWebObの動作。さて、：class： `pyramid.request.Request`は：class：` webob.request.Request`の代わりに（もっと最近の）：class： `webob.request.BaseRequest`を継承しています。 ：class： `pyramid.request.Request`はもはや独自の` `__getattr__``、` `__setattr__``または` `__delattr__``を実装しません。"
 
 #: ../../whatsnew-1.1.rst:518
 msgid ""
@@ -756,7 +746,7 @@ msgid ""
 ":func:`pyramid.view.is_response` function will still work until it is "
 "removed, but now may return an incorrect answer under some (very "
 "uncommon) circumstances."
-msgstr ""
+msgstr "deprecated：func： `pyramid.view.is_response`関数は、（新しく追加された）：meth：` pyramid.request.Request.is_response`メソッドを支持します。オブジェクトが本当に有効な応答オブジェクトであるかどうかを判断するには、レジストリにアクセスする必要があります。これは、要求属性としてのみ簡単に利用できます。 ：func： `pyramid.view.is_response`関数は、それが削除されるまでは動作しますが、現在、いくつかの（非常に珍しい）状況下で誤った答えを返す可能性があります。"
 
 #: ../../whatsnew-1.1.rst:526
 msgid ""
@@ -764,7 +754,7 @@ msgid ""
 "``webob.response.Response`` (in order to directly implement the "
 ":class:`pyramid.interfaces.IResponse` interface, to speed up response "
 "generation)."
-msgstr ""
+msgstr "：class： `pyramid.response.Response`は` `webob.response.Response``の*サブクラス*になりました（レスポンス生成を高速化するために：class：` pyramid.interfaces.IResponse`インタフェースを直接実装するためです） ）。"
 
 #: ../../whatsnew-1.1.rst:531
 msgid ""
@@ -775,7 +765,7 @@ msgid ""
 "and emulate the ``webob.exc`` exception response objects almost entirely."
 "  See :ref:`http_exception_hierarchy` in the Design Defense chapter for "
 "more information."
-msgstr ""
+msgstr "`` pyramid.httpexceptions``（例えば `` HTTPNotFound``）からインポート可能な\ &quot;例外応答\&quot;オブジェクトは、 `` webob.exc``に実際に存在するクラスのインポートエイリアスではなくなりました。代わりに、 `` webob.exc``例外応答オブジェクトをほぼ完全にミラーリングしてエミュレートする独自の例外クラスをモジュール内に定義しました。詳細については、Design Defenseの章の：ref： `http_exception_hierarchy`を参照してください。"
 
 #: ../../whatsnew-1.1.rst:539
 msgid ""
@@ -784,13 +774,13 @@ msgid ""
 " properly.  Instead, a redirect to ``/subdir`` would be issued.  This has"
 " been fixed, and now visiting a subdirectory that contains an "
 "``index.html`` within a static view returns the index.html properly."
-msgstr ""
+msgstr "サブディレクトリに解決された静的ビューを表すURLにアクセスすると、そのサブディレクトリの `` index.html``は適切に処理されません。代わりに、 `` / subdir``へのリダイレクトが発行されます。これは修正され、静的ビュー内の `` index.html``を含むサブディレクトリにアクセスすると、index.htmlが正しく返されます。"
 
 #: ../../whatsnew-1.1.rst:547
 msgid ""
 "See also `issue #67 on GitHub "
 "<https://github.com/Pylons/pyramid/issues/67>`_."
-msgstr ""
+msgstr "GitHubの `issue＃67 <https://github.com/Pylons/pyramid/issues/67> `_。"
 
 #: ../../whatsnew-1.1.rst:550
 msgid ""
@@ -799,7 +789,7 @@ msgid ""
 "the ``renderer_globals`` Configurator constructor parameter. Users should"
 " convert code using this feature to use a BeforeRender event. See the "
 "section :ref:`beforerender_event` in the Hooks chapter."
-msgstr ""
+msgstr "`` pyramid.config.Configurator.set_renderer_globals_factory``メソッドと `` renderer_globals``のコンストラクタコンストラクタパラメータは廃止されました。 BeforeRenderイベントを使用するには、この機能を使用してコードを変換する必要があります。フックの章のref： `beforerender_event`を参照してください。"
 
 #: ../../whatsnew-1.1.rst:555
 msgid ""
@@ -807,7 +797,7 @@ msgid ""
 "contrary to the documentation when passed more than one interface object "
 "to its constructor.  For example, when the following listener was "
 "registered::"
-msgstr ""
+msgstr "Pyramid 1.0では、：class： `pyramid.events.subscriber`ディレクティブは、複数のインタフェースオブジェクトをそのコンストラクタに渡すとドキュメンテーションとは逆の動作をします。たとえば、次のリスナーが登録されているとします。"
 
 #: ../../whatsnew-1.1.rst:563
 msgid ""
@@ -816,7 +806,7 @@ msgid ""
 " an \"object event\" subscriber which would only be called if an "
 "IObjectEvent was emitted where the object interface was ``IFoo`` and the "
 "event interface was ``IBar``."
-msgstr ""
+msgstr "イベントの章docsは、リスナーが登録され、 `` IFoo``と `` IBar``イベントの両方を聞くと主張しました。代わりに、IObjectEventが発行され、オブジェクトインタフェースが &quot;IFoo&quot;で、イベントインタフェースが &quot;IBar&quot;であった場合にのみ呼び出される\ &quot;オブジェクトイベント\&quot;サブスクライバを登録しました。"
 
 #: ../../whatsnew-1.1.rst:569
 msgid ""
@@ -824,7 +814,7 @@ msgid ""
 "buggy behavior of the 1.0 ``subscriber`` directive in order to register "
 "an object event subscriber, you must now pass a sequence to indicate "
 "you'd like to register a subscriber for an object event. e.g.::"
-msgstr ""
+msgstr "この動作はドキュメントと一致するようになりました。オブジェクトイベントサブスクライバを登録するために1.0の `` subscriber``ディレクティブのバグの振る舞いに頼っていた場合、オブジェクトイベントのサブスクライバを登録することを示すシーケンスを渡す必要があります。例えば：："
 
 #: ../../whatsnew-1.1.rst:578
 msgid ""
@@ -843,7 +833,7 @@ msgid ""
 "now need to (using ``.get`` or ``__contains__`` of the event object) "
 "ensure no value already exists in the renderer globals dictionary before "
 "setting an overriding value."
-msgstr ""
+msgstr "1.0では、class： `pyramid.events.BeforeRender`イベントサブスクライバが、イベントオブジェクトの` `__setitem__``メソッドまたは` `update``メソッドを介してレンダラーグローバルディクショナリにすでに存在しているキーで値を追加した場合、 `` KeyError``が発生しました。コンフィギュレータの\ &quot;add_renderer_globals \&quot;機能の廃止により、既に存在していたレンダラグローバルディクショナリの既存の値を上書きする方法はありませんでした。さて、イベントオブジェクトは、 `` __setitem__``または `` update``が呼び出されたとき（新しい `` setdefault``メソッドと同様に）、グローバルディクショナリにすでにある古い値を上書きします古い辞書。その結果、他のサードパーティの加入者との最大限の相互運用性を実現するために、BeforeRenderサブスクライバとして使用する予定のイベントサブスクライバを書くと、サブスクライバコードが必要になります（ `` .get``または ``____ __contains__``オーバーライド値を設定する前に、レンダラーグローバルディクショナリに値が存在しないことを確認します。"
 
 #: ../../whatsnew-1.1.rst:594
 msgid ""
@@ -855,11 +845,11 @@ msgid ""
 " unique or b) call ``config.commit()`` before adding a second route with "
 "the name of a previously added name or c) use a Configurator that works "
 "in ``autocommit`` mode."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_route`メソッドは：meth：` pyramid.config.Configurator.commit`への中間呼び出しなしで、同じルートを持つ2つのルートを追加することを許可しました。起動時に `` ConfigurationError``が `` add_route``に関連しているように見える場合は、a）すべてのルート名が一意であることを確認するか、またはb） `` config.commit以前に追加された名前の名前を持つ第2のルートを追加する前に、または `` autocommit``モードで動作するConfiguratorを使用してください。"
 
 #: ../../whatsnew-1.1.rst:604
 msgid "Dependency Changes"
-msgstr ""
+msgstr "依存関係の変更"
 
 #: ../../whatsnew-1.1.rst:606
 msgid ""
@@ -868,25 +858,25 @@ msgid ""
 "``SCRIPT_NAME``\".  (Note that in reality, everyone should probably be "
 "using 1.0.4 or better though, as WebOb 1.0.2 and 1.0.3 were effectively "
 "brownbag releases.)"
-msgstr ""
+msgstr "Pyramidは、テストではそのリリースのバグ修正に依存しているため、term： `WebOb`&gt; = 1.0.2に依存しています：\&quot; SCRIPT_NAME`` \がないWSGI環境の処理を修正しました。 （WebOb 1.0.2と1.0.3は実質的にブラウンバックのリリースであったため、実際には1.0.4以上のバージョンを使用しているはずです）。"
 
 #: ../../whatsnew-1.1.rst:613
 msgid "Documentation Enhancements"
-msgstr ""
+msgstr "ドキュメントの機能拡張"
 
 #: ../../whatsnew-1.1.rst:615
 msgid ""
 "Added a section entitled :ref:`writing_a_script` to the \"Command-Line "
 "Pyramid\" chapter."
-msgstr ""
+msgstr "\ &quot;Command-Line Pyramid \&quot;章に：ref： `writing_a_script`というセクションを追加しました。"
 
 #: ../../whatsnew-1.1.rst:618
 msgid "The :ref:`bfg_wiki_tutorial` was updated slightly."
-msgstr ""
+msgstr "：ref： `bfg_wiki_tutorial`が少し更新されました。"
 
 #: ../../whatsnew-1.1.rst:620
 msgid "The :ref:`bfg_sql_wiki_tutorial` was updated slightly."
-msgstr ""
+msgstr "：ref： `bfg_sql_wiki_tutorial`が少し更新されました。"
 
 #: ../../whatsnew-1.1.rst:622
 msgid ""
@@ -894,53 +884,53 @@ msgid ""
 ":class:`pyramid.interfaces.IAuthorizationPolicy` public interfaces, and "
 "they are now referred to within the :mod:`pyramid.authentication` and "
 ":mod:`pyramid.authorization` API docs."
-msgstr ""
+msgstr "`pyramid.interfaces.IAuthenticationPolicy`と：class：` pyramid.interfaces.IAuthorizationPolicy`パブリックインターフェースを作成しました：mod： `pyramid.authentication`と：mod：` pyramid.authorization` APIドキュメント"
 
 #: ../../whatsnew-1.1.rst:627
 msgid ""
 "Render the function definitions for each exposed interface in "
 ":mod:`pyramid.interfaces`."
-msgstr ""
+msgstr "公開された各インタフェースの関数定義を：mod： `pyramid.interfaces`にレンダリングします。"
 
 #: ../../whatsnew-1.1.rst:630
 msgid ""
 "Add missing docs reference to "
 ":meth:`pyramid.config.Configurator.set_view_mapper` and refer to it "
 "within the documentation section entitled :ref:`using_a_view_mapper`."
-msgstr ""
+msgstr "不足しているドキュメントの参照を：meth： `pyramid.config.Configurator.set_view_mapper`に追加し、参照：ref：` using_a_view_mapper`というドキュメントのセクションを参照してください。"
 
 #: ../../whatsnew-1.1.rst:634
 msgid ""
 "Added section to the \"Environment Variables and ``.ini`` File Settings\""
 " chapter in the narrative documentation section entitled "
 ":ref:`adding_a_custom_setting`."
-msgstr ""
+msgstr "環境変数と `` .ini``ファイル設定\章にセクションを追加しました：ref： `adding_a_custom_setting`というナラティブドキュメンテーションセクション。"
 
 #: ../../whatsnew-1.1.rst:638
 msgid ""
 "Added documentation for a :term:`multidict` as "
 ":class:`pyramid.interfaces.IMultiDict`."
-msgstr ""
+msgstr "：term： `multidict`をclass：` pyramid.interfaces.IMultiDict`として追加しました。"
 
 #: ../../whatsnew-1.1.rst:641
 msgid ""
 "Added a section to the \"URL Dispatch\" narrative chapter regarding the "
 "new \"static\" route feature entitled :ref:`static_route_narr`."
-msgstr ""
+msgstr "ref： `static_route_narr`という新しい\&quot;静的\ &quot;ルート機能に関するセクションをURLディスパッチ\ nの章に追加しました。"
 
 #: ../../whatsnew-1.1.rst:644
 msgid "Added API docs for :func:`pyramid.httpexceptions.exception_response`."
-msgstr ""
+msgstr "func： `pyramid.httpexceptions.exception_response`のAPIドキュメントを追加しました。"
 
 #: ../../whatsnew-1.1.rst:646
 msgid ""
 "Added :ref:`http_exceptions` section to Views narrative chapter including"
 " a description of :func:`pyramid.httpexceptions.exception_response`."
-msgstr ""
+msgstr "Func： `pyramid.httpexceptions.exception_response`の説明を含むビューの説明の章にref：` http_exceptions`セクションを追加しました。"
 
 #: ../../whatsnew-1.1.rst:649
 msgid ""
 "Added API docs for "
 ":class:`pyramid.authentication.SessionAuthenticationPolicy`."
-msgstr ""
+msgstr "class： `pyramid.authentication.SessionAuthenticationPolicy`のAPIドキュメントを追加しました。"
 

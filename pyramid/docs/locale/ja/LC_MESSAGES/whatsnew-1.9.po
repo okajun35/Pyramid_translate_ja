@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../whatsnew-1.9.rst:2
 msgid "What's New in Pyramid 1.9"
-msgstr ""
+msgstr "(機械翻訳)Pyramid 1.9の新機能"
 
 #: ../../whatsnew-1.9.rst:4
 msgid ""
@@ -29,33 +19,33 @@ msgid ""
 "backwards incompatibilities between the two versions and deprecations "
 "added to :app:`Pyramid` 1.9, as well as software dependency changes and "
 "notable documentation additions."
-msgstr ""
+msgstr "この記事では、app： `Pyramid`バージョン1.9の新機能を、app：` Pyramid` 1.8と比較して説明します。また、app： `Pyramid` 1.9に追加された2つのバージョンと廃止予定の間の後方互換性も文書化されています。"
 
 #: ../../whatsnew-1.9.rst:7
 msgid "Bug Fix Releases"
-msgstr ""
+msgstr "バグ修正リリース"
 
 #: ../../whatsnew-1.9.rst:9
 msgid "Pyramid 1.9 was released on 2017-06-26."
-msgstr ""
+msgstr "Pyramid 1.9は2017年から06年26年にリリースされました。"
 
 #: ../../whatsnew-1.9.rst:11
 msgid ""
 "The following bug fix releases were made since then. Bug fix releases "
 "also include documentation improvements and other minor feature changes."
-msgstr ""
+msgstr "その後、次のバグ修正リリースが行われました。バグ修正リリースには、ドキュメントの改善やその他のマイナーな機能の変更も含まれています。"
 
 #: ../../whatsnew-1.9.rst:13
 msgid ":ref:`changes_1.9.1`"
-msgstr ""
+msgstr "：ref： `changes_1.9.1`"
 
 #: ../../whatsnew-1.9.rst:15
 msgid ":ref:`changes_1.9.2`"
-msgstr ""
+msgstr "：ref： `changes_1.9.2`"
 
 #: ../../whatsnew-1.9.rst:18
 msgid "Major Feature Additions"
-msgstr ""
+msgstr "主な機能の追加"
 
 #: ../../whatsnew-1.9.rst:20
 msgid ""
@@ -64,7 +54,7 @@ msgid ""
 ":func:`pyramid.paster.bootstrap` function is now replaceable thanks to a "
 "new dependency on `plaster "
 "<https://docs.pylonsproject.org/projects/plaster/en/latest/>`_."
-msgstr ""
+msgstr "`` pserve``や `` pshell``などのすべての `` p * ``コマンドラインスクリプトで使用されるファイルフォーマットや、：func： `pyramid.paster.bootstrap`関数は、 `石膏への新しい依存<https://docs.pylonsproject.org/projects/plaster/en/latest/> `_。"
 
 #: ../../whatsnew-1.9.rst:22
 msgid ""
@@ -73,11 +63,11 @@ msgid ""
 "<https://github.com/Pylons/plaster_pastedeploy>`_ binding library. This "
 "may change in the future so it is recommended for applications to start "
 "depending on the appropriate plaster binding for their needs."
-msgstr ""
+msgstr "今のところ、Pyramidは `plaster_pastedeployに依存してPasteDeploy INIフォーマットの統合サポートを提供しています<https://github.com/Pylons/plaster_pastedeploy> `バインディングライブラリ。これは将来変更される可能性がありますので、必要に応じて適切な絆創膏に応じてアプリケーションを開始することをお勧めします。"
 
 #: ../../whatsnew-1.9.rst:24
 msgid "See https://github.com/Pylons/pyramid/pull/2985"
-msgstr ""
+msgstr "https://github.com/Pylons/pyramid/pull/2985を参照してください。"
 
 #: ../../whatsnew-1.9.rst:26
 msgid ""
@@ -86,20 +76,20 @@ msgid ""
 " request objects before they enter the rest of the pipeline. This means "
 "for a single request environ the policy may create more than one request "
 "object."
-msgstr ""
+msgstr "要求パイプラインに：term： `実行ポリシー`フックを追加しました。実行ポリシーには、要求オブジェクトがパイプラインの残りの部分に入る前に、その要求オブジェクトの作成と実行を制御する機能があります。これは、単一の要求環境に対して、ポリシーが複数の要求オブジェクトを作成する可能性があることを意味します。"
 
 #: ../../whatsnew-1.9.rst:28
 msgid ""
 "The execution policy can be replaced using the new "
 ":meth:`pyramid.config.Configurator.set_execution_policy` config "
 "directive."
-msgstr ""
+msgstr "実行ポリシーは、新しい：meth： `pyramid.config.Configurator.set_execution_policy`設定ディレクティブを使用して置き換えることができます。"
 
 #: ../../whatsnew-1.9.rst:30
 msgid ""
 "The first library to use this feature is `pyramid_retry "
 "<https://docs.pylonsproject.org/projects/pyramid-retry/en/latest/>`_."
-msgstr ""
+msgstr "この機能を使うための最初のライブラリは `pyramid_retry <https://docs.pylonsproject.org/projects/pyramid-retry/en/latest/> `_。"
 
 #: ../../whatsnew-1.9.rst:32
 msgid ""
@@ -117,7 +107,7 @@ msgid ""
 "  ``request.exception`` or ``request.exc_info`` to determine if the "
 "response was generated as the result of an exception. See "
 "https://github.com/Pylons/pyramid/pull/2964"
-msgstr ""
+msgstr "Pyramidのデフォルト：term： `execution policy`は、キャッチされない例外を処理してレンダリングしようとします。これは微妙ではあるが基本的な変更であり、：term： `例外ビュー &#39;がデフォルトの` `EXCVIEW``トゥイーンの外で呼び出されることを期待していることを示しています。パイプラインのさまざまな部分に対して有効な例外ビューを定義するのに役立つさまざまな述部があります。たとえば、 `` pyramid_tm``は、デフォルトのトランザクションへのアクセスを必要とする例外ビューに適用できる `` tm_active = True``述部を定義します。一般的にこれは、例外ビューがより多くの考えられるエラー条件をカバーすると予想されることを意味します。例外は、トゥイーンから発生する例外を含みます。**は、** EXCVIEW`トゥイーン以上です。必要に応じて、 `` response``オブジェクトが提供された場合、 `` request.exception``または `` request.exc_info``を調べて、レスポンスが例外の結果として生成されたかどうかを調べることができます。 https://github.com/Pylons/pyramid/pull/2964を参照してください。"
 
 #: ../../whatsnew-1.9.rst:35
 msgid ""
@@ -136,7 +126,7 @@ msgid ""
 "storage policy can be changed by using the new "
 ":meth:`pyramid.config.Configurator.set_csrf_storage_policy` config "
 "directive."
-msgstr ""
+msgstr "CSRFのサポートは、：mod： `pyramid.csrf`モジュールで、セッションから独立したAPIにリファクタリングされました。それは、プラグイン可能な：class： `pyramid.interfaces.ICSRFStoragePolicy`をサポートしています。これは、CSRFトークンを生成し、検証する独自のメカニズムを定義するために使用できます。デフォルトでは、ピラミッドは古いPyramidとの互換性を保つために、 `` request.session.get_csrf_token``と `` request.session.new_csrf_token`` APIをフードの下で使う：class： `pyramid.csrf.LegacySessionCSRFStoragePolicy`を使い続けています。アプリケーション。クラス： `pyramid.csrf.SessionCSRFStoragePolicy`と：class：` pyramid.csrf.CookieCSRFStoragePolicy`の2つの新しいポリシーが出荷され、それぞれセッションとスタンドアロンCookieにCSRFトークンが格納されます。ストレージポリシーは、新しい：meth： `pyramid.config.Configurator.set_csrf_storage_policy`設定ディレクティブを使用して変更できます。"
 
 #: ../../whatsnew-1.9.rst:37
 msgid ""
@@ -146,17 +136,17 @@ msgid ""
 "working if the storage policy is changed. Also, the "
 ":func:`pyramid.csrf.get_csrf_token` function is now injected into "
 "templates to be used conveniently in UI code."
-msgstr ""
+msgstr "CSRFトークンは、新しい：func： `pyramid.csrf.get_csrf_token`、：func：` pyramid.csrf.new_csrf_token`と：func： `pyramid.csrf.check_csrf_token` APIを介して使用する必要があります。変更されます。また、：func： `pyramid.csrf.get_csrf_token`関数がテンプレートに注入され、UIコードで便利に使用できます。"
 
 #: ../../whatsnew-1.9.rst:39 ../../whatsnew-1.9.rst:69
 msgid ""
 "See https://github.com/Pylons/pyramid/pull/2854 and "
 "https://github.com/Pylons/pyramid/pull/3019"
-msgstr ""
+msgstr "https://github.com/Pylons/pyramid/pull/2854およびhttps://github.com/Pylons/pyramid/pull/3019を参照してください。"
 
 #: ../../whatsnew-1.9.rst:42
 msgid "Minor Feature Additions"
-msgstr ""
+msgstr "マイナー機能追加"
 
 #: ../../whatsnew-1.9.rst:44
 msgid ""
@@ -167,7 +157,7 @@ msgid ""
 "``server:<server_name>`` section of the config file but there is no "
 "requirement that the server is being run in this format so it may fail. "
 "See https://github.com/Pylons/pyramid/pull/2984"
-msgstr ""
+msgstr "設定ファイルの `` pserve``セクションで `` open_url``設定をサポートしてください。このurlは `` pserve  -  browser &#39;`が呼び出されたときにウェブブラウザを開くために使われます。この設定が利用できない場合、 `` pserve``スクリプトはサーバが使用しているポートを `` server： <server_name> configファイルの ``セクションには書かれていますが、サーバがこのフォーマットで実行されているため、失敗する可能性はありません。 https://github.com/Pylons/pyramid/pull/2984を参照してください。"
 
 #: ../../whatsnew-1.9.rst:46
 msgid ""
@@ -178,7 +168,7 @@ msgid ""
 "perform a :meth:`pyramid.config.Configurator.commit` at the end and thus "
 "it is only recommended to be used at the top-level of your app. See "
 "https://github.com/Pylons/pyramid/pull/2874"
-msgstr ""
+msgstr "：class： `pyramid.config.Configurator`は、コンテキストマネージャーとして使用できるようになりました。これは自動的にThreadlocalsをプッシュ/ポップします（：meth：` pyramid.config.Configurator.begin`と：meth： `pyramid.config。 Configurator.end`）。また、自動的に：meth： `pyramid.config.Configurator.commit`を最後に実行するので、アプリの最上位レベルでのみ使用することをおすすめします。 https://github.com/Pylons/pyramid/pull/2874を参照してください。"
 
 #: ../../whatsnew-1.9.rst:48
 msgid ""
@@ -190,7 +180,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.end` appropriately or using the new "
 "context manager feature of the configurator. See "
 "https://github.com/Pylons/pyramid/pull/2989"
-msgstr ""
+msgstr "threadlocalsは、：meth： `pyramid.config.Configurator.include`を介して呼び出される関数内で利用可能になりました。つまり、threadlocalsに依存できない唯一のコンフィギュレーションタイムコードは、メイン内部の非アクションから実行されるコードです。これは：meth： `pyramid.config.Configurator.begin`と：meth：` pyramid.config.Configurator.end`を適切に呼び出すか、コンフィギュレータの新しいコンテキストマネージャ機能を使用することで緩和できます。 https://github.com/Pylons/pyramid/pull/2989を参照してください。"
 
 #: ../../whatsnew-1.9.rst:50
 msgid ""
@@ -198,7 +188,7 @@ msgid ""
 ":meth:`pyramid.request.Request.invoke_exception_view` even when the "
 "``request`` argument is overridden. See "
 "https://github.com/Pylons/pyramid/pull/3060"
-msgstr ""
+msgstr "threadlocalsは、 `` request``引数がオーバーライドされた場合でも、：meth： `pyramid.request.Request.invoke_exception_view`で呼び出される例外ビューの中で利用可能になりました。 https://github.com/Pylons/pyramid/pull/3060を参照してください。"
 
 #: ../../whatsnew-1.9.rst:52
 msgid ""
@@ -208,7 +198,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_subscriber` a much more helpful "
 "error message is output with a guess as to which predicate was intended. "
 "See https://github.com/Pylons/pyramid/pull/3054"
-msgstr ""
+msgstr "サポートされていない述語が：meth： `pyramid.config.Configurator.add_view`、：meth：` pyramid.config.Configurator.add_route`と：meth： `pyramid.config.Configurator.add_subscriber`よりもっと役に立つエラーメッセージどの述語が意図されているかを推測して出力される。 https://github.com/Pylons/pyramid/pull/3054を参照してください。"
 
 #: ../../whatsnew-1.9.rst:54
 msgid ""
@@ -217,14 +207,14 @@ msgid ""
 ":class:`pyramid.security.Allowed` and :class:`pyramid.security.ACLDenied`"
 " is now a subclass of :class:`pyramid.security.Denied`. See "
 "https://github.com/Pylons/pyramid/pull/3084"
-msgstr ""
+msgstr "許可の結果を適切なクラス階層に正規化します。 ：class： `pyramid.security.ACLAllowed`はclass：` pyramid.security.Allowed`のサブクラスになりました：class： `pyramid.security.ACLDenied`はクラス：` pyramid.security.Denied `。 https://github.com/Pylons/pyramid/pull/3084を参照してください。"
 
 #: ../../whatsnew-1.9.rst:56
 msgid ""
 "Add a ``quote_via`` argument to :func:`pyramid.encode.urlencode` to "
 "follow the stdlib's version and enable custom quoting functions. See "
 "https://github.com/Pylons/pyramid/pull/3088"
-msgstr ""
+msgstr "`` quote_via``引数を：func： `pyramid.encode.urlencode`に追加してstdlibのバージョンに従い、カスタム引用関数を有効にします。 https://github.com/Pylons/pyramid/pull/3088を参照してください。"
 
 #: ../../whatsnew-1.9.rst:58
 msgid ""
@@ -234,11 +224,11 @@ msgid ""
 "Previously this would cause an `?` and a `#`, respectively, in the url "
 "with nothing after it. Now the unnecessary parts are dropped from the "
 "generated URL. See https://github.com/Pylons/pyramid/pull/3034"
-msgstr ""
+msgstr "：meth： `pyramid.request.Request.route_url`と` `query = None``と` `anchor = None``：meth：` pyramidの `_query = None`と` _anchor = None`をサポートしています。 request.Request.resource_url`。これまでは、URLの中に `？`と `＃ &#39;がそれぞれ付いていました。生成されたURLから不要な部分が削除されました。 https://github.com/Pylons/pyramid/pull/3034を参照してください。"
 
 #: ../../whatsnew-1.9.rst:61
 msgid "Deprecations"
-msgstr ""
+msgstr "廃止"
 
 #: ../../whatsnew-1.9.rst:63
 msgid ""
@@ -248,7 +238,7 @@ msgid ""
 "subject to Pyramid's deprecation policy and may be removed in the future."
 " Applications should depend on the appropriate plaster binding to satisfy"
 " their needs."
-msgstr ""
+msgstr "Pyramidは現在、 `` plaster_pastedeploy``に依存して、INIファイルの統合サポートを維持して ``石膏 &#39;&#39;への移行を単純化しています。 `` plaster_pastedeploy``へのこの依存性は、Pyramidの非推奨ポリシーの対象となり、将来削除される可能性があります。アプリケーションは、ニーズを満たすために適切な石膏製本に依存する必要があります。"
 
 #: ../../whatsnew-1.9.rst:65
 msgid ""
@@ -258,7 +248,7 @@ msgid ""
 "longer required on the :class:`pyramid.interfaces.ISession` interface "
 "except when using the default "
 ":class:`pyramid.csrf.LegacySessionCSRFStoragePolicy`."
-msgstr ""
+msgstr "セッションからCSRFトークンを取得することは、：mod： `pyramid.csrf`モジュールの同等のメソッドのほうを優先して廃止されました。デフォルト：class： `pyramid.csrf &#39;を使用する場合を除いて、class：` pyramid.interfaces.ISession`インタフェースでCSRFメソッド（ `` ISession.get_csrf_token``と `` Session_new_csrf_token``）は不要になりました。 LegacySessionCSRFStoragePolicy`。"
 
 #: ../../whatsnew-1.9.rst:67
 msgid ""
@@ -266,11 +256,11 @@ msgid ""
 ":func:`pyramid.csrf.check_csrf_token` and "
 "``pyramid.session.check_csrf_origin`` is moved to "
 ":func:`pyramid.csrf.check_csrf_origin`."
-msgstr ""
+msgstr "また、 `` pyramid.session.check_csrf_token``はfunc： `pyramid.csrf.check_csrf_token`にあり、` `pyramid.session.check_csrf_origin``は：func：` pyramid.csrf.check_csrf_origin`に移動しました。"
 
 #: ../../whatsnew-1.9.rst:72
 msgid "Backward Incompatibilities"
-msgstr ""
+msgstr "後方の非互換性"
 
 #: ../../whatsnew-1.9.rst:74
 msgid ""
@@ -281,7 +271,7 @@ msgid ""
 "wants to catch and render responses for exceptions they should set "
 "``request.exception`` and ``request.exc_info`` themselves to indicate the"
 " exception that was squashed when generating the response."
-msgstr ""
+msgstr "応答がEXCVIEWトゥイーンによって生成された場合にのみ、 `` request.exception``と `` request.exc_info``がセットされます。これは、応答がパイプラインのどこかで生成され、元の例外とは直接関係しない混乱を避けるためです。アップストリームの誰かが例外に対する応答を捕捉してレンダリングしたい場合、応答を生成するときに押しつぶされた例外を示すために、 `` request.exception``と `` request.exc_info``をそれ自身で設定するべきです。"
 
 #: ../../whatsnew-1.9.rst:76
 msgid ""
@@ -289,7 +279,7 @@ msgid ""
 ":meth:`pyramid.request.Request.invoke_exception_view` in which the "
 "exception properties are set to reflect the exception if a response is "
 "successfully generated by the method."
-msgstr ""
+msgstr "同様の動作は：meth： `pyramid.request.Request.invoke_exception_view`で発生します。このメソッドでは、メソッドによってレスポンスが正常に生成された場合、例外プロパティが例外を反映するように設定されています。"
 
 #: ../../whatsnew-1.9.rst:78
 msgid ""
@@ -299,15 +289,15 @@ msgid ""
 "clear about the relationship between the response and its squashed "
 "exception. See https://github.com/Pylons/pyramid/pull/3029 and "
 "https://github.com/Pylons/pyramid/pull/3031"
-msgstr ""
+msgstr "これは非常に小さな不一致です。現在、ほとんどのtweensは、発生した例外を優先し、 `` request.exception``を無視します。この変更では、レスポンスとその押しつぶされた例外との関係をより明確にしようとすることによって、その簿記が改善され、明確化されます。 https://github.com/Pylons/pyramid/pull/3029およびhttps://github.com/Pylons/pyramid/pull/3031を参照してください。"
 
 #: ../../whatsnew-1.9.rst:81
 msgid "Documentation Enhancements"
-msgstr ""
+msgstr "ドキュメントの機能拡張"
 
 #: ../../whatsnew-1.9.rst:83
 msgid ""
 "Added the :term:`execution policy` to the routing diagram in "
 ":ref:`router_chapter`. See https://github.com/Pylons/pyramid/pull/2993"
-msgstr ""
+msgstr "：term： `実行ポリシー &#39;を：ref：` router_chapter`のルーティングダイアグラムに追加しました。 https://github.com/Pylons/pyramid/pull/2993を参照してください。"
 

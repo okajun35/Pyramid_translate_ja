@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Quick Tour of Pyramid &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳)ピラミッドのクイックツアー &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -69,23 +69,14 @@
           <div class="body" role="main">
             
   <div class="section" id="quick-tour-of-pyramid">
-<span id="quick-tour"></span><h1>Quick Tour of Pyramid<a class="headerlink" href="#quick-tour-of-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Pyramid lets you start small and finish big.  This <em>Quick Tour</em> of Pyramid is
-for those who want to evaluate Pyramid, whether you are new to Python web
-frameworks, or a pro in a hurry. For more detailed treatment of each topic,
-give the <a class="reference internal" href="quick_tutorial/index.html#quick-tutorial"><span class="std std-ref">Pyramidのクイックチュートリアル(Quick Tutorial for Pyramid)</span></a> a try.</p>
-<p>If you would prefer to cut and paste the example code in this tour you may browse the source code located in the <cite>Pyramid repository in the directory &quot;docs/quick_tour&quot; &lt;https://github.com/Pylons/pyramid/&gt;</cite>. If you have downloaded the source code, you will find the tour in the same location.</p>
+<span id="quick-tour"></span><h1>(機械翻訳)ピラミッドのクイックツアー<a class="headerlink" href="#quick-tour-of-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ピラミッドは小さなものから始まり大きなものに仕上げます。 Pyramidのこのクイックツアー*は、あなたがPython Webフレームワークの初心者であろうと、急いでプロであろうと、Pyramidを評価したい人のためのものです。各トピックの詳細な扱いについては、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>quick_tutorial`を試してみてください。</p>
+<p>このツアーでサンプルコードをカットアンドペーストしたい場合は、&amp;quot;docs / quick_tour &amp;quot;ディレクトリのPyramidリポジトリにあるソースコードを参照してください。 &lt;<a class="reference external" href="https://github.com/Pylons/pyramid/">https://github.com/Pylons/pyramid/</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>。ソースコードをダウンロードした場合は、同じ場所にツアーがあります。</p>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Once you have a standard Python environment setup, getting started with Pyramid
-is a breeze. Unfortunately &quot;standard&quot; is not so simple in Python. For this
-Quick Tour, it means <a class="reference external" href="https://www.python.org/downloads/">Python</a>, <a class="reference external" href="https://packaging.python.org/en/latest/projects/#venv">venv</a> (or <a class="reference external" href="https://packaging.python.org/en/latest/projects/#virtualenv">virtualenv for
-Python 2.7</a>),
-<a class="reference external" href="https://packaging.python.org/en/latest/projects/#pip">pip</a>, and <a class="reference external" href="https://packaging.python.org/en/latest/projects/#easy-install">setuptools</a>.</p>
-<p>To save a little bit of typing and to be certain that we use the modules,
-scripts, and packages installed in our virtual environment, we'll set an
-environment variable, too.</p>
-<p>As an example, for Python 3.6+ on Linux:</p>
+<h2>インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>標準のPython環境設定を済ませたら、Pyramidを使い始めるのは簡単です。残念ながら&amp;quot;標準&amp;quot;はPythonではそれほど単純ではありません。このクイックツアーでは、Python &lt;<a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>&gt; <cite>_、</cite> venv &lt;<a class="reference external" href="https://packaging.python.org/en/latest/projects/#venv">https://packaging.python.org/en/latest/projects/#venv</a>&gt; <cite>_（または</cite> <cite>Python 2.7用のvirtualenv &lt;https://packaging.python.org/en/latest/projects/#virtualenv&gt; `_）、</cite> pip &lt;<a class="reference external" href="https://packaging.python.org/en/latest/projects/#pip">https://packaging.python.org/en/latest/projects/#pip</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_、<a href="#id3"><span class="problematic" id="id4">`</span></a>と <a href="#id5"><span class="problematic" id="id6">`</span></a>setuptools &lt;<a class="reference external" href="https://packaging.python.org/en/latest/projects/#easy-install">https://packaging.python.org/en/latest/projects/#easy-install</a>&gt; <a href="#id7"><span class="problematic" id="id8">`</span></a>_。</p>
+<p>ちょっとしたタイピングを省き、仮想環境にインストールされたモジュール、スクリプト、パッケージを確実に使用するために、環境変数も設定します。</p>
+<p>たとえば、LinuxのPython 3.6以降では、次のようになります。</p>
 <pre class="literal-block">
 # set an environment variable to where you want your virtual environment
 $ export VENV=~/env
@@ -96,7 +87,7 @@ $ $VENV/bin/pip install pyramid
 # or for a specific released version
 $ $VENV/bin/pip install &quot;pyramid==1.9.2&quot;
 </pre>
-<p>For Windows:</p>
+<p>Windowsの場合：</p>
 <pre class="literal-block">
 # set an environment variable to where you want your virtual environment
 c:\&gt; set VENV=c:\env
@@ -107,23 +98,15 @@ c:\&gt; %VENV%\Scripts\pip install pyramid
 # or for a specific released version
 c:\&gt; %VENV%\Scripts\pip install &quot;pyramid==1.9.2&quot;
 </pre>
-<p>Of course Pyramid runs fine on Python 2.7+, as do the examples in this <em>Quick
-Tour</em>. We're showing Python 3 for simplicity. (Pyramid had production support
-for Python 3 in October 2011.) Also for simplicity, the remaining examples will
-show only UNIX commands.</p>
+<p>もちろん、PyramidはPython 2.7以降でうまく動作します。このクイックツアーの例もそうです。簡単にするためにPython 3を公開しています。 Pyramidは2011年10月にPython 3をサポートしていました。簡単にするために、残りの例ではUNIXコマンドのみを表示します。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/requirements.html#qtut-requirements"><span class="std std-ref">Quick Tutorial section on Requirements</span></a>,
-<a class="reference internal" href="narr/install.html#installing-unix"><span class="std std-ref">インストール：app： `Pyramid`をUNIXシステムにインストールする</span></a>, <a class="reference internal" href="narr/install.html#installing-chapter"><span class="std std-ref">Before You Install</span></a>,
-<a class="reference internal" href="narr/install.html#venv-bin-pip-vs-source-bin-activate"><span class="std std-ref">Why use $VENV/bin/pip instead of source bin/activate, then pip</span></a>, and
-<a class="reference internal" href="narr/install.html#installing-windows"><span class="std std-ref">Installing Pyramid on a Windows System</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルセクションの要件&lt;qtut_requirements&gt; `、：ref：</cite> installing_unix`、：ref： <cite>あなたがインストールする前に&lt;installing_chapter&gt; `、：ref：`ソースbin / activateの代わりに$ VENV / bin / pipを使用してからpip &lt;venv-bin-pip-vs-source-bin-activate&gt; `、および：ref：</cite> WindowsシステムへのPyramidのインストール&lt;installing_windows&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>。</p>
 </div>
 </div>
 <div class="section" id="hello-world">
-<h2>Hello World<a class="headerlink" href="#hello-world" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Microframeworks have shown that learning starts best from a very small first
-step. Here's a tiny application in Pyramid:</p>
+<h2>こんにちは世界<a class="headerlink" href="#hello-world" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Microframeworksは、学習が非常に小さな第一歩から最も効果的に始まることを示しています。 Pyramidには小さなアプリケーションがあります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -157,44 +140,31 @@ step. Here's a tiny application in Pyramid:</p>
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>This simple example is easy to run. Save this as <code class="docutils literal notranslate"><span class="pre">app.py</span></code> and run it:</p>
+<p>この簡単な例は簡単に実行できます。これを `` app.py``として保存し、それを実行してください：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/python ./app.py
 </pre></div>
 </div>
-<p>Next open <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> in a browser, and you will see the <code class="docutils literal notranslate"><span class="pre">Hello</span>
-<span class="pre">World!</span></code> message.</p>
-<p>New to Python web programming? If so, some lines in the module merit
-explanation:</p>
+<p>次にhttp：// localhost：6543 /をブラウザで開き、 `` Hello World！ <a href="#id1"><span class="problematic" id="id2">``</span></a>というメッセージが表示されます。</p>
+<p>Python Webプログラミングの新機能？そうであれば、モジュール内のいくつかの行に説明があります：</p>
 <ol class="arabic simple">
 <li><em>Line 10</em>. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code> is Python's way of saying &quot;Start
 here when running from the command line&quot;.</li>
 <li><em>Lines 11-13</em>. Use Pyramid's <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> in a <a class="reference internal" href="glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a> to connect <a class="reference internal" href="glossary.html#term-view"><span class="xref std std-term">view</span></a>
 code to a particular URL <a class="reference internal" href="glossary.html#term-route"><span class="xref std std-term">route</span></a>.</li>
-<li><em>Lines 6-7</em>. Implement the view code that generates the <a class="reference internal" href="glossary.html#term-response"><span class="xref std std-term">response</span></a>.</li>
+<li><a href="#id1"><span class="problematic" id="id2">*</span></a>ライン6-7 <a href="#id3"><span class="problematic" id="id4">*</span></a>。 ：term： <a href="#id5"><span class="problematic" id="id6">`</span></a>response`を生成するビューコードを実装します。</li>
 <li><em>Lines 14-16</em>. Publish a <a class="reference internal" href="glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> app using an HTTP server.</li>
 </ol>
-<p>As shown in this example, the <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> plays a central role in
-Pyramid development. Building an application from loosely-coupled parts via
-<a class="reference internal" href="narr/configuration.html"><span class="doc">(機械翻訳) アプリケーション構成</span></a> is a central idea in Pyramid, one that we will
-revisit regurlarly in this <em>Quick Tour</em>.</p>
+<p>この例に示すように、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>configurator`はピラミッドの開発において中心的な役割を果たします。 doc： <a href="#id3"><span class="problematic" id="id4">`</span></a>../ narr / configuration`を介して疎結合部分からアプリケーションをビルドすることはピラミッドの中心的なアイデアです。このクイックツアーでは定期的に再考する予定です。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/hello_world.html#qtut-hello-world"><span class="std std-ref">Quick Tutorial Hello World</span></a>,
-<a class="reference internal" href="narr/firstapp.html#firstapp-chapter"><span class="std std-ref">(機械翻訳) あなたの最初の作成 Pyramid アプリケーション</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-cookbook/en/latest/sample_applications/single_file_tasks.html#single-file-tutorial" title="(in Pyramid Community Cookbook v0.2)"><span class="xref std std-ref">Todo List Application in One File</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルHello World &lt;qtut_hello_world&gt; `、：ref：</cite> firstapp_chapter`、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>1つのファイル内のTodoリストアプリケーション&lt;cookbook:single-file-tutorial&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
 </div>
 </div>
 <div class="section" id="handling-web-requests-and-responses">
-<h2>Handling web requests and responses<a class="headerlink" href="#handling-web-requests-and-responses" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Developing for the web means processing web requests. As this is a critical
-part of a web application, web developers need a robust, mature set of software
-for web requests.</p>
-<p>Pyramid has always fit nicely into the existing world of Python web development
-(virtual environments, packaging, cookiecutters, one of the first to embrace
-Python 3, etc.). Pyramid turned to the well-regarded <a class="reference internal" href="glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> Python
-library for request and response handling. In our example above, Pyramid hands
-<code class="docutils literal notranslate"><span class="pre">hello_world</span></code> a <code class="docutils literal notranslate"><span class="pre">request</span></code> that is <a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">based on WebOb</span></a>.</p>
-<p>Let's see some features of requests and responses in action:</p>
+<h2>Webリクエストとレスポンスの処理<a class="headerlink" href="#handling-web-requests-and-responses" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Web用に開発するとは、Web要求を処理することを意味します。これはWebアプリケーションの重要な部分であるため、Web開発者はWeb要求のための堅牢で成熟したソフトウェアを必要とします。</p>
+<p>Pyramidは、Python Web開発の既存の世界（仮想環境、パッケージ、cookiecutters、Python 3を最初に採用したものの1つなど）に常にうまく収まっています。ピラミッドは要求と応答の処理のためによく使われる：term： <cite>WebOb</cite> Pythonライブラリに目を向けました。上の例では、ピラミッドは `` hello_world``を `` request``と呼んでいます：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>WebOb &lt;webob_chapter&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
+<p>実際に要求と応答のいくつかの機能を見てみましょう：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="c1"># Some parameters from a request such as /?name=lisa</span>
     <span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">url</span>
@@ -207,34 +177,28 @@ library for request and response handling. In our example above, Pyramid hands
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>In this Pyramid view, we get the URL being visited from <code class="docutils literal notranslate"><span class="pre">request.url</span></code>. Also
-if you visited <a class="reference external" href="http://localhost:6543/?name=alice">http://localhost:6543/?name=alice</a> in a browser, the name is
-included in the body of the response:</p>
+<p>このピラミッドビューでは、 `` request.url``からURLを取得します。また、ブラウザでhttp：// localhost：6543 /？name = aliceにアクセスした場合、その名前はレスポンスの本文に含まれます：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>URL http://localhost:6543/?name=alice with name: alice
 </pre></div>
 </div>
-<p>Finally we set the response's content type, and return the Response.</p>
+<p>最後に、レスポンスのコンテンツタイプを設定し、レスポンスを返します。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/request_response.html#qtut-request-response"><span class="std std-ref">Quick Tutorial Request and Response</span></a> and
-<a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">(機械翻訳) 要求オブジェクトと応答オブジェクト</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルリクエストとレスポンス&lt;qtut_request_response&gt; `と：ref：</cite> webob_chapter`です。</p>
 </div>
 </div>
 <div class="section" id="views">
-<h2>Views<a class="headerlink" href="#views" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>For the examples above, the <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> function is a &quot;view&quot;. In Pyramid
-views are the primary way to accept web requests and return responses.</p>
-<p>So far our examples place everything in one file:</p>
+<h2>ビュー<a class="headerlink" href="#views" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>上の例では、 `` hello_world``関数は&amp;quot;view &amp;quot;です。ピラミッドビューでは、Web要求を受け入れて応答を返す主要な方法があります。</p>
+<p>これまでの例では、すべてを1つのファイルに格納しています。</p>
 <ul class="simple">
-<li>the view function</li>
-<li>its registration with the configurator</li>
-<li>the route to map it to an URL</li>
-<li>the WSGI application launcher</li>
+<li>ビュー関数</li>
+<li>コンフィギュレータへの登録</li>
+<li>それをURLにマップするルート</li>
+<li>WSGIアプリケーションランチャ</li>
 </ul>
-<p>Let's move the views out to their own <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module and change the
-<code class="docutils literal notranslate"><span class="pre">app.py</span></code> to scan that module, looking for decorators that set up the views.</p>
-<p>First our revised <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
+<p>ビューを独自の `` views.py``モジュールに移動し、 `` app.py``を変更してそのモジュールをスキャンし、ビューを設定するデコレータを探しましょう。</p>
+<p>最初に改訂された `` app.py``：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -262,11 +226,8 @@ views are the primary way to accept web requests and return responses.</p>
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>We added some more routes, but we also removed the view code. Our views and
-their registrations (via decorators) are now in a module <code class="docutils literal notranslate"><span class="pre">views.py</span></code>, which is
-scanned via <code class="docutils literal notranslate"><span class="pre">config.scan('views')</span></code>.</p>
-<p>We now have a <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module that is focused on handling requests and
-responses:</p>
+<p>ルートを追加しましたが、ビューコードも削除しました。ビューとその登録（デコレータ経由）は `` views.py``モジュールにあり、 `` config.scan（ &amp;#39;views&amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>でスキャンされます。</p>
+<p>要求と応答の処理に焦点を当てた `` views.py``モジュールが追加されました：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -332,49 +293,30 @@ responses:</p>
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>We have four views, each leading to the other. If you start at
-<a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a>, you get a response with a link to the next view. The
-<code class="docutils literal notranslate"><span class="pre">hello_view</span></code> (available at the URL <code class="docutils literal notranslate"><span class="pre">/howdy</span></code>) has a link to the
-<code class="docutils literal notranslate"><span class="pre">redirect_view</span></code>, which issues a redirect to the final view.</p>
-<p>Earlier we saw <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code> as one way to configure a view. This section
-introduces <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code>. Pyramid's configuration supports <a class="reference internal" href="glossary.html#term-imperative-configuration"><span class="xref std std-term">imperative
-configuration</span></a>, such as the <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code> in the previous example. You
-can also use <a class="reference internal" href="glossary.html#term-declarative-configuration"><span class="xref std std-term">declarative configuration</span></a> in which a Python
-<a class="reference internal" href="glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> is placed on the line above the view. Both approaches result
-in the same final configuration, thus usually it is simply a matter of taste.</p>
+<p>我々は4つの視点を持ち、それぞれが別の視点につながっています。 http：// localhost：6543 /で始めると、次のビューへのリンクを含む応答が得られます。 `` hello_view``（URL `` / howdy``にあります）は `` redirect_view``へのリンクを持ち、最終的なビューにリダイレクトします。</p>
+<p>以前は、 `` config.add_view``がビューを設定する一つの方法として見えました。このセクションでは、 `` &#64; view_config``について説明します。 Pyramidの設定は、前の例の `` config.add_view``のように、term： <a href="#id1"><span class="problematic" id="id2">`</span></a>必須の設定`をサポートしています。 Python：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>decorator`がビューの上の行に置かれている：term：<a href="#id5"><span class="problematic" id="id6">`</span></a>宣言的な設定 &amp;#39;を使うこともできます。どちらの方法も同じ最終的な構成になります。したがって、通常は単に味の問題です。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/views.html#qtut-views"><span class="std std-ref">Quick Tutorial Views</span></a>, <a class="reference internal" href="narr/views.html"><span class="doc">ビュー(Views)</span></a>,
-<a class="reference internal" href="narr/viewconfig.html"><span class="doc">(機械翻訳) 設定を表示</span></a>, and <a class="reference internal" href="narr/viewconfig.html#debugging-view-configuration"><span class="std std-ref">ビュー構成のデバッグ</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルビュー&lt;qtut_views&gt; `、：doc：</cite> ../ narr / views`、：doc： <cite>../ narr / viewconfig</cite>、および：ref：` debugging_view_configuration`です。</p>
 </div>
 </div>
 <div class="section" id="routing">
-<h2>Routing<a class="headerlink" href="#routing" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Writing web applications usually means sophisticated URL design. We just saw
-some Pyramid machinery for requests and views. Let's look at features that help
-with routing.</p>
-<p>Above we saw the basics of routing URLs to views in Pyramid:</p>
+<h2>ルーティング<a class="headerlink" href="#routing" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Webアプリケーションの作成は、通常、洗練されたURL設計を意味します。私たちは要求と見解のためにいくつかのピラミッド機械を見ただけです。ルーティングに役立つ機能を見てみましょう。</p>
+<p>上では、PyramidのビューへのURLのルーティングの基本を確認しました。</p>
 <ul class="simple">
-<li>Your project's &quot;setup&quot; code registers a route name to be used when matching
-part of the URL.</li>
-<li>Elsewhere a view is configured to be called for that route name.</li>
+<li>プロジェクトの&amp;quot;setup &amp;quot;コードは、URLの一部と一致するときに使用されるルート名を登録します。</li>
+<li>そのルート名に対してビューが呼び出されるように設定されています。</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Why do this twice? Other Python web frameworks let you create a route and
-associate it with a view in one step. As illustrated in
-<a class="reference internal" href="designdefense.html#routes-need-ordering"><span class="std std-ref">Routes need relative ordering</span></a>, multiple routes might match the same URL
-pattern. Rather than provide ways to help guess, Pyramid lets you be
-explicit in ordering. Pyramid also gives facilities to avoid the problem.</p>
+<p class="last">なぜこれを2回するのですか？他のPython Webフレームワークを使用すると、ルートを作成して1つのステップでビューに関連付けることができます。 ：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>routes_need_ordering`に示すように、複数のルートが同じURLパターンと一致する可能性があります。推測を支援する方法を提供するのではなく、Pyramidでは順序を明示することができます。ピラミッドは、この問題を回避するための設備も提供しています。</p>
 </div>
-<p>What if we want part of the URL to be available as data in my view? We can use
-this route declaration, for example:</p>
+<p>URLの一部をビューのデータとして利用できるようにするにはどうすればよいですか？このルート宣言は、たとえば次のように使用できます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy/{first}/{last}&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>With this, URLs such as <code class="docutils literal notranslate"><span class="pre">/howdy/amy/smith</span></code> will assign <code class="docutils literal notranslate"><span class="pre">amy</span></code> to <code class="docutils literal notranslate"><span class="pre">first</span></code>
-and <code class="docutils literal notranslate"><span class="pre">smith</span></code> to <code class="docutils literal notranslate"><span class="pre">last</span></code>. We can then use this data in our view:</p>
+<p>これにより、 `` / howdy / amy / smith`のようなURLは、 <a href="#id1"><span class="problematic" id="id2">``</span></a>最初に <a href="#id3"><span class="problematic" id="id4">``</span></a>に <a href="#id5"><span class="problematic" id="id6">``</span></a>、 <a href="#id7"><span class="problematic" id="id8">``</span></a>最後に <a href="#id9"><span class="problematic" id="id10">``</span></a>スミス <a href="#id11"><span class="problematic" id="id12">`</span></a>に割り当てられます。このデータをビューで使用することができます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>5
 6
 7
@@ -384,33 +326,21 @@ and <code class="docutils literal notranslate"><span class="pre">smith</span></c
 </span>    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p><code class="docutils literal notranslate"><span class="pre">request.matchdict</span></code> contains values from the URL that match the &quot;replacement
-patterns&quot; (the curly braces) in the route declaration. This information can
-then be used in your view.</p>
+<p>`` request.matchdict``には、ルート宣言の&amp;quot;置換パターン&amp;quot;（中括弧）と一致するURLの値が含まれています。この情報は、あなたのビューで使用することができます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/routing.html#qtut-routing"><span class="std std-ref">Quick Tutorial Routing</span></a>, <a class="reference internal" href="narr/urldispatch.html"><span class="doc">(機械翻訳) URLディスパッチ</span></a>,
-<a class="reference internal" href="narr/urldispatch.html#debug-routematch-section"><span class="std std-ref">ルートマッチングのデバッグ</span></a>, and <a class="reference internal" href="narr/router.html"><span class="doc">リクエスト処理(Request Processing)</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルルーティング&lt;qtut_routing&gt; `、：doc：</cite> ../ narr / urldispatch`、：ref： <cite>debug_routematch_section</cite>、：doc：` ../ narr / router`です。</p>
 </div>
 </div>
 <div class="section" id="templating">
-<h2>Templating<a class="headerlink" href="#templating" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Ouch. We have been making our own <code class="docutils literal notranslate"><span class="pre">Response</span></code> and filling the response body
-with HTML. You usually won't embed an HTML string directly in Python, but
-instead you will use a templating language.</p>
-<p>Pyramid doesn't mandate a particular database system, form library, and so on.
-It encourages replaceability. This applies equally to templating, which is
-fortunate: developers have strong views about template languages. That said,
-the Pylons Project officially supports bindings for Chameleon, Jinja2, and
-Mako. In this step let's use Chameleon.</p>
-<p>Let's add <code class="docutils literal notranslate"><span class="pre">pyramid_chameleon</span></code>, a Pyramid <a class="reference internal" href="glossary.html#term-add-on"><span class="xref std std-term">add-on</span></a> which enables
-Chameleon as a <a class="reference internal" href="glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> in our Pyramid application:</p>
+<h2>テンプレート<a class="headerlink" href="#templating" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ああ。私たちは独自の <a href="#id1"><span class="problematic" id="id2">``</span></a>レスポンス <a href="#id3"><span class="problematic" id="id4">``</span></a>を作り、レスポンスボディにHTMLを埋めました。通常、PythonではHTML文字列を直接埋め込むことはありませんが、代わりにテンプレート言語を使用します。</p>
+<p>Pyramidは、特定のデータベースシステム、フォームライブラリなどを強制するものではありません。それは交換可能性を奨励します。これは幸運なことにテンプレートにも当てはまります。開発者はテンプレート言語についての強い見解を持っています。つまり、Pylonsプロジェクトは、Chameleon、Jinja2、Makoのバインドを正式にサポートしています。このステップでは、カメレオンを使いましょう。</p>
+<p>私たちのPyramidアプリケーションで、カメレオンを：term： <cite>renderer &amp;#39;として有効にするPyramid：term：</cite> add-on`という `` pyramid_chameleon``を追加しましょう：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install pyramid_chameleon
 </pre></div>
 </div>
-<p>With the package installed, we can include the template bindings into our
-configuration in <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
+<p>パッケージがインストールされた状態で、テンプレートバインディングを設定に `` app.py``で含めることができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6
 7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy/{name}&#39;</span><span class="p">)</span>
@@ -418,7 +348,7 @@ configuration in <code class="docutils literal notranslate"><span class="pre">ap
 </span>        <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s1">&#39;views&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Now lets change our <code class="docutils literal notranslate"><span class="pre">views.py</span></code> file:</p>
+<p>`` views.py``ファイルを変更しましょう：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -432,10 +362,7 @@ configuration in <code class="docutils literal notranslate"><span class="pre">ap
 <span class="hll">    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">matchdict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
 </span></pre></div>
 </td></tr></table></div>
-<p>Ahh, that looks better. We have a view that is focused on Python code. Our
-<code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator specifies a <a class="reference internal" href="glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> that points to our
-template file. Our view then simply returns data which is then supplied to our
-template <code class="docutils literal notranslate"><span class="pre">hello_world.pt</span></code>:</p>
+<p>ああ、それは良く見えます。私たちはPythonコードに焦点を当てています。私たちの `` &#64; view_config``デコレータはテンプレートファイルを指すa：term： <cite>renderer`を指定します。私たちの見解はデータを返すだけで、テンプレート `</cite> hello_world.pt``に与えられます：</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -447,27 +374,19 @@ template <code class="docutils literal notranslate"><span class="pre">hello_worl
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>Since our view returned <code class="docutils literal notranslate"><span class="pre">dict(name=request.matchdict['name'])</span></code>, we can use
-<code class="docutils literal notranslate"><span class="pre">name</span></code> as a variable in our template via <code class="docutils literal notranslate"><span class="pre">${name}</span></code>.</p>
+<p>私たちのビューは `` dict（name = request.matchdict [&amp;#39;name&amp;#39;]） <a href="#id1"><span class="problematic" id="id2">``</span></a>を返すので、 `` $ {name} <a href="#id3"><span class="problematic" id="id4">``</span></a>を介してテンプレート内の変数として `` name``を使うことができます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/templating.html#qtut-templating"><span class="std std-ref">Quick Tutorial Templating</span></a>,
-<a class="reference internal" href="narr/templates.html"><span class="doc">(機械翻訳) テンプレート</span></a>, <a class="reference internal" href="narr/templates.html#debugging-templates"><span class="std std-ref">テンプレートのデバッグ</span></a>, and
-<a class="reference internal" href="narr/templates.html#available-template-system-bindings"><span class="std std-ref">利用可能なアドオンテンプレートシステムバインディング</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルテンプレート&lt;qtut_templating&gt; `、：doc：</cite> ../ narr / templates`、：ref： <cite>debugging_templates</cite>、：ref：` available_template_system_bindings`です。</p>
 </div>
 </div>
 <div class="section" id="templating-with-jinja2">
-<h2>Templating with Jinja2<a class="headerlink" href="#templating-with-jinja2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We just said Pyramid doesn't prefer one templating language over another. Time
-to prove it. Jinja2 is a popular templating system, modeled after Django's
-templates. Let's add <code class="docutils literal notranslate"><span class="pre">pyramid_jinja2</span></code>, a Pyramid <a class="reference internal" href="glossary.html#term-add-on"><span class="xref std std-term">add-on</span></a> which enables
-Jinja2 as a <a class="reference internal" href="glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> in our Pyramid applications:</p>
+<h2>Jinja2を使ったテンプレート<a class="headerlink" href="#templating-with-jinja2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>私たちは、ピラミッドがテンプレート言語を別のものよりも好まないと言っただけです。それを証明する時間。 Jinja2は、Djangoのテンプレートをモデルにした、人気のあるテンプレートシステムです。ピラミッドのアプリケーションでJinja2をterm： <cite>renderer &amp;#39;として使用できるようにするPyramid：term：</cite> add-on`を `` pyramid_jinja2``に追加しましょう：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install pyramid_jinja2
 </pre></div>
 </div>
-<p>With the package installed, we can include the template bindings into our
-configuration:</p>
+<p>パッケージがインストールされたら、テンプレートバインディングを設定に含めることができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6
 7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy/{name}&#39;</span><span class="p">)</span>
@@ -475,7 +394,7 @@ configuration:</p>
 </span>        <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s1">&#39;views&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The only change in our view is to point the renderer at the <code class="docutils literal notranslate"><span class="pre">.jinja2</span></code> file:</p>
+<p>ビューの唯一の変更点はレンダラーを `` .jinja2``ファイルで指すことです：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="nd">@view_config</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;hello_world.jinja2&#39;</span><span class="p">)</span>
@@ -483,7 +402,7 @@ configuration:</p>
     <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">matchdict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
 </pre></div>
 </td></tr></table></div>
-<p>Our Jinja2 template is very similar to our previous template:</p>
+<p>私たちのJinja2テンプレートは、以前のテンプレートに非常に似ています：</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -495,22 +414,15 @@ configuration:</p>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>Pyramid's templating add-ons register a new kind of renderer into your
-application. The renderer registration maps to different kinds of filename
-extensions. In this case, changing the extension from <code class="docutils literal notranslate"><span class="pre">.pt</span></code> to <code class="docutils literal notranslate"><span class="pre">.jinja2</span></code>
-passed the view response through the <code class="docutils literal notranslate"><span class="pre">pyramid_jinja2</span></code> renderer.</p>
+<p>Pyramidのテンプレートアドオンは、新しい種類のレンダラーをアプリケーションに登録します。レンダラー登録は、さまざまな種類のファイル拡張子にマップされます。この場合、拡張子を `` .pt``から `` .jinja2``に変更すると、 `` pyramid_jinja2``レンダラを通してビュー応答が渡されます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/jinja2.html#qtut-jinja2"><span class="std std-ref">Quick Tutorial Jinja2</span></a>, <a class="reference external" href="http://jinja.pocoo.org/">Jinja2 homepage</a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest/index.html#overview" title="(in pyramid_jinja2 v2.7)"><span class="xref std std-ref">pyramid_jinja2 Overview</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルJinja2 &lt;qtut_jinja2&gt; `、</cite> Jinja2ホームページ&lt;<a class="reference external" href="http://jinja.pocoo.org/">http://jinja.pocoo.org/</a>&gt; <cite>_、and：ref：</cite> pyramid_jinja2概要&lt;jinja2:overview&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>。</p>
 </div>
 </div>
 <div class="section" id="static-assets">
-<h2>Static assets<a class="headerlink" href="#static-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Of course the Web is more than just markup. You need static assets: CSS, JS,
-and images. Let's point our web app at a directory from which Pyramid will
-serve some static assets. First let's make another call to the
-<a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a> in <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
+<h2>静的資産<a class="headerlink" href="#static-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>もちろん、Webは単にマークアップ以上のものです。 CSS、JS、イメージなどの静的アセットが必要です。ピラミッドがいくつかの静的資産を提供するディレクトリにWebアプリケーションを向けてみましょう。まず、 `` app.py``の：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>configurator`をもう一度呼び出してみましょう：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6
 7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy/{name}&#39;</span><span class="p">)</span>
@@ -518,18 +430,15 @@ serve some static assets. First let's make another call to the
 </span>        <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;pyramid_jinja2&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>This tells our WSGI application to map requests under
-<a class="reference external" href="http://localhost:6543/static/">http://localhost:6543/static/</a> to files and directories inside a <code class="docutils literal notranslate"><span class="pre">static</span></code>
-directory alongside our Python module.</p>
-<p>Next make a directory named <code class="docutils literal notranslate"><span class="pre">static</span></code>, and place <code class="docutils literal notranslate"><span class="pre">app.css</span></code> inside:</p>
+<p>これは私たちのWSGIアプリケーションに、http：// localhost：6543 / static /の下のリクエストをPythonモジュールの横にある `` static``ディレクトリ内のファイルとディレクトリにマップするように指示します。</p>
+<p>次に `` static``という名前のディレクトリを作り、そこに `` app.css``を配置します：</p>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">body</span> <span class="p">{</span>
     <span class="k">margin</span><span class="p">:</span> <span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
     <span class="k">font-family</span><span class="p">:</span> <span class="kc">sans-serif</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>All we need to do now is point to it in the <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> of our Jinja2 template,
-<code class="docutils literal notranslate"><span class="pre">hello_world.jinja2</span></code>:</p>
+<p>今私たちがする必要があるのは、 `` &lt;head&gt; `` Jinja2テンプレート `` hello_world.jinja2``の <a href="#id1"><span class="problematic" id="id2">``</span></a>：</p>
 <div class="highlight-jinja notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">    &lt;title&gt;Hello World&lt;/title&gt;</span>
@@ -537,10 +446,7 @@ directory alongside our Python module.</p>
 </span><span class="x">&lt;/head&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>This link presumes that our CSS is at a URL starting with <code class="docutils literal notranslate"><span class="pre">/static/</span></code>. What if
-the site is later moved under <code class="docutils literal notranslate"><span class="pre">/somesite/static/</span></code>? Or perhaps a web developer
-changes the arrangement on disk? Pyramid provides a helper to allow flexibility
-on URL generation:</p>
+<p>このリンクは、CSSが `` / static / <a href="#id1"><span class="problematic" id="id2">``</span></a>で始まるURLにあると想定しています。サイトが後で `` / somesite / static / <a href="#id3"><span class="problematic" id="id4">``</span></a>の下で動かされるとどうなるでしょうか？あるいは、Web開発者がディスク上の配置を変更するのでしょうか？ Pyramidには、URL生成に柔軟性を持たせるためのヘルパーが用意されています。</p>
 <div class="highlight-jinja notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">    &lt;title&gt;Hello World&lt;/title&gt;</span>
@@ -548,22 +454,15 @@ on URL generation:</p>
 </span><span class="x">&lt;/head&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>By using <code class="docutils literal notranslate"><span class="pre">request.static_url</span></code> to generate the full URL to the static assets,
-you ensure that you stay in sync with the configuration and gain refactoring
-flexibility later.</p>
+<p>`` request.static_url``を使って静的アセットへの完全なURLを生成することで、コンフィグレーションとの同期を維持し、後でリファクタリングの柔軟性を得ることができます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/static_assets.html#qtut-static-assets"><span class="std std-ref">Quick Tutorial Static Assets</span></a>,
-<a class="reference internal" href="narr/assets.html"><span class="doc">(機械翻訳) 静的資産</span></a>, <a class="reference internal" href="narr/environment.html#preventing-http-caching"><span class="std std-ref">HTTPキャッシュの防止</span></a>, and
-<a class="reference internal" href="narr/viewconfig.html#influencing-http-caching"><span class="std std-ref">HTTPキャッシングへの影響</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアル静的アセット&lt;qtut_static_assets&gt; `、：doc：</cite> ../ narr / assets`、：ref： <cite>prevent_http_caching</cite>、および：ref：` influencing_http_caching`です。</p>
 </div>
 </div>
 <div class="section" id="returning-json">
-<h2>Returning JSON<a class="headerlink" href="#returning-json" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Modern web apps are more than rendered HTML. Dynamic pages now use JavaScript
-to update the UI in the browser by requesting server data as JSON. Pyramid
-supports this with a JSON renderer:</p>
+<h2>JSONを返す<a class="headerlink" href="#returning-json" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>現代のWebアプリケーションはレンダリングされたHTML以上のものです。動的ページでは、JSONとしてサーバーデータを要求することで、JavaScriptを使用してブラウザのUIを更新します。 PyramidはこれをJSONレンダラーでサポートしています：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
 10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@view_config</span><span class="p">(</span><span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello_json&#39;</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
@@ -571,11 +470,8 @@ supports this with a JSON renderer:</p>
     <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </td></tr></table></div>
-<p>This wires up a view that returns some data through the JSON <a class="reference internal" href="glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a>,
-which calls Python's JSON support to serialize the data into JSON, and sets the
-appropriate HTTP headers.</p>
-<p>We also need to add a route to <code class="docutils literal notranslate"><span class="pre">app.py</span></code> so that our app will know how to
-respond to a request for <code class="docutils literal notranslate"><span class="pre">hello.json</span></code>.</p>
+<p>これは、PythonのJSONサポートを呼び出してJSONにデータをシリアル化し、適切なHTTPヘッダーを設定する、JSON：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>renderer`を通していくつかのデータを返すビューを結び付けます。</p>
+<p>私たちのアプリが `` hello.json``のリクエストにどのように応答するかを知るために、 `` app.py``へのルートを追加する必要もあります。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6
 7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;/howdy/{name}&#39;</span><span class="p">)</span>
@@ -585,25 +481,18 @@ respond to a request for <code class="docutils literal notranslate"><span class=
 </td></tr></table></div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/json.html#qtut-json"><span class="std std-ref">Quick Tutorial JSON</span></a>, <a class="reference internal" href="narr/renderers.html#views-which-use-a-renderer"><span class="std std-ref">レンダラーを使用するビュー呼び出し可能コードの記述</span></a>,
-<a class="reference internal" href="narr/renderers.html#json-renderer"><span class="std std-ref">JSONレンダラー</span></a>, and <a class="reference internal" href="narr/renderers.html#adding-and-overriding-renderers"><span class="std std-ref">レンダラーの追加と変更</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルJSON &lt;qtut_json&gt; `、：ref：</cite> views_which_use_a_renderer`、：ref： <cite>json_renderer</cite>、：ref：` adding_and_overriding_renderers`です。</p>
 </div>
 </div>
 <div class="section" id="view-classes">
-<h2>View classes<a class="headerlink" href="#view-classes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>So far our views have been simple, free-standing functions. Many times your
-views are related. They may have different ways to look at or work on the same
-data, or they may be a REST API that handles multiple operations. Grouping
-these together as a <a class="reference internal" href="narr/views.html#class-as-view"><span class="std std-ref">view class</span></a> makes sense and achieves
-the following goals.</p>
+<h2>ビュークラス<a class="headerlink" href="#view-classes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>これまでのところ、われわれの見解は単純で自由な機能であった。あなたの意見は何度も関連しています。同じデータを表示または操作する方法が異なる場合や、複数の操作を処理するREST APIの場合があります。これらをまとめて：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>viewクラス&lt;class_as_view&gt;以下の目標を達成します。</p>
 <ul class="simple">
-<li>Group views</li>
-<li>Centralize some repetitive defaults</li>
-<li>Share some state and helpers</li>
+<li>グループビュー</li>
+<li>反復的なデフォルトを一元化する</li>
+<li>州とヘルパーを共有する</li>
 </ul>
-<p>The following shows a &quot;Hello World&quot; example with three operations: view a form,
-save a change, or press the delete button in our <code class="docutils literal notranslate"><span class="pre">views.py</span></code>:</p>
+<p>以下は、 &amp;quot;Hello World&amp;quot;の例です。フォームの表示、変更の保存、または `` views.py``の削除ボタンを押します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 7
  8
  9
@@ -653,52 +542,36 @@ save a change, or press the delete button in our <code class="docutils literal n
         <span class="k">return</span> <span class="nb">dict</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>As you can see, the three views are logically grouped together. Specifically:</p>
+<p>ご覧のとおり、3つのビューは論理的にグループ化されています。具体的には：</p>
 <ul class="simple">
-<li>The first view is returned when you go to <code class="docutils literal notranslate"><span class="pre">/howdy/amy</span></code>. This URL is mapped
-to the <code class="docutils literal notranslate"><span class="pre">hello</span></code> route that we centrally set using the optional
-<code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code>.</li>
-<li>The second view is returned when the form data contains a field with
-<code class="docutils literal notranslate"><span class="pre">form.edit</span></code>, such as clicking on <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;submit&quot;</span> <span class="pre">name=&quot;form.edit&quot;</span>
-<span class="pre">value=&quot;Save&quot;&gt;</span></code>. This rule is specified in the <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> for that
-view.</li>
-<li>The third view is returned when clicking on a button such as <code class="docutils literal notranslate"><span class="pre">&lt;input</span>
-<span class="pre">type=&quot;submit&quot;</span> <span class="pre">name=&quot;form.delete&quot;</span> <span class="pre">value=&quot;Delete&quot;&gt;</span></code>.</li>
+<li>`` / howdy / amy``に行くと最初のビューが返されます。このURLは、オプションで `` &#64; view_defaults``を使って集中的に設定する `` hello``ルートにマップされています。</li>
+<li>2番目のビューは、フォームデータに `` form.edit``を含むフィールドが含まれている場合に返されます。たとえば、 `` &lt;input type=&quot;submit&quot; name=&quot;form.edit&quot; value=&quot;Save&quot;&gt; <a href="#id1"><span class="problematic" id="id2">``</span></a>。このルールは、そのビューの `` &#64; view_config``で指定されます。</li>
+<li>3番目のビューは、 `` &lt;input type=&quot;submit&quot; name=&quot;form.delete&quot; value=&quot;Delete&quot;&gt; <a href="#id1"><span class="problematic" id="id2">``</span></a>。</li>
 </ul>
-<p>Only one route is needed, stated in one place atop the view class. Also, the
-assignment of <code class="docutils literal notranslate"><span class="pre">name</span></code> is done in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function. Our templates can
-then use <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">view.name</span> <span class="pre">}}</span></code>.</p>
-<p>Pyramid view classes, combined with built-in and custom predicates, have much
-more to offer:</p>
+<p>1つの経路だけが必要で、ビュークラスの上の1つの場所に記載されています。また、 `` name``の代入は `` __init__``関数で行われます。私たちのテンプレートは `` {{view.name}} <a href="#id1"><span class="problematic" id="id2">``</span></a>を使うことができます。</p>
+<p>ピラミッド・ビュー・クラスは、組み込みおよびカスタムの述部と組み合わされて、さらに多くの機能を提供します。</p>
 <ul class="simple">
-<li>All the same view configuration parameters as function views</li>
-<li>One route leading to multiple views, based on information in the request or
-data such as <code class="docutils literal notranslate"><span class="pre">request_param</span></code>, <code class="docutils literal notranslate"><span class="pre">request_method</span></code>, <code class="docutils literal notranslate"><span class="pre">accept</span></code>, <code class="docutils literal notranslate"><span class="pre">header</span></code>,
-<code class="docutils literal notranslate"><span class="pre">xhr</span></code>, <code class="docutils literal notranslate"><span class="pre">containment</span></code>, and <code class="docutils literal notranslate"><span class="pre">custom_predicates</span></code></li>
+<li>ファンクションビューと同じビュー構成パラメータ</li>
+<li>request_param`、 `` request_method``、 `` accept``、 `` header``、 `` xhr``、containmentなどのリクエストやデータの情報に基づいて、複数のビューにつながる1つのルート``、 `` custom_predicates``</li>
 </ul>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/view_classes.html#qtut-view-classes"><span class="std std-ref">Quick Tutorial View Classes</span></a>, <a class="reference internal" href="quick_tutorial/more_view_classes.html#qtut-more-view-classes"><span class="std std-ref">Quick
-Tutorial More View Classes</span></a>, and
-<a class="reference internal" href="narr/views.html#class-as-view"><span class="std std-ref">callableビューをクラスとして定義する(Defining a View Callable as a Class)</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルのビュークラス&lt;qtut_view_classes&gt; `、：ref：`クイックチュートリアル他のビュークラス&lt;qtut_more_view_classes&gt; `、：ref：</cite> class_as_view`です。</p>
 </div>
 </div>
 <div class="section" id="quick-project-startup-with-cookiecutters">
-<h2>Quick project startup with cookiecutters<a class="headerlink" href="#quick-project-startup-with-cookiecutters" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>So far we have done all of our <em>Quick Tour</em> as a single Python file. No Python
-packages, no structure. Most Pyramid projects, though, aren't developed this
-way.</p>
-<p>To ease the process of getting started, the Pylons Project provides <a class="reference internal" href="glossary.html#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a>s that generate sample Pyramid projects from project templates. These cookiecutters will install Pyramid and its dependencies as well.</p>
-<p>First you'll need to install cookiecutter.</p>
+<h2>cookiecuttersによるクイックプロジェクトの起動<a class="headerlink" href="#quick-project-startup-with-cookiecutters" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>これまでのところ、* Quick Tour <a href="#id1"><span class="problematic" id="id2">*</span></a>のすべてを単一のPythonファイルとして実行しました。 Pythonパッケージなし、構造体なし。しかし、ほとんどのピラミッドプロジェクトはこのように開発されていません。</p>
+<p>開始プロセスを簡単にするために、Pylonsプロジェクトは次のものを提供しています。プロジェクトテンプレートからサンプルPyramidプロジェクトを生成するterm： <cite>cookiecutter</cite> これらのcookiecuttersはPyramidとその依存関係もインストールします。</p>
+<p>まず、cookiecutterをインストールする必要があります。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install cookiecutter
 </pre></div>
 </div>
-<p>Let's use the cookiecutter <code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code> to create a starter Pyramid project in the current directory, entering values at the prompts as shown below for the following command.</p>
+<p>cookiecutterの `` pyramid-cookiecutter-starter``を使って、現在のディレクトリにピラミッドプロジェクトを作成し、次のコマンドのためにプロンプ​​トに値を入力してみましょう。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/cookiecutter gh:Pylons/pyramid-cookiecutter-starter --checkout <span class="m">1</span>.9-branch
 </pre></div>
 </div>
-<p>If prompted for the first item, accept the default <code class="docutils literal notranslate"><span class="pre">yes</span></code> by hitting return.</p>
+<p>最初の項目の入力を求められたら、returnキーを押してデフォルトの `` yes``を受け入れます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>You&#39;ve cloned ~/.cookiecutters/pyramid-cookiecutter-starter before.
 Is it okay to delete and re-clone it? [yes]: yes
 project_name [Pyramid Scaffold]: hello_world
@@ -710,7 +583,7 @@ Select template_language:
 Choose from 1, 2, 3 [1]: 1
 </pre></div>
 </div>
-<p>We then run through the following commands.</p>
+<p>次に、次のコマンドを実行します。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change directory into your newly created project.</span>
 $ <span class="nb">cd</span> hello_world
 <span class="c1"># Create a new virtual environment...</span>
@@ -723,52 +596,33 @@ $ env/bin/pip install -e <span class="s2">&quot;.[testing]&quot;</span>
 $ <span class="nb">export</span> <span class="nv">VENV</span><span class="o">=</span>~/hello_world/env
 </pre></div>
 </div>
-<p>We are moving in the direction of a full-featured Pyramid project, with a
-proper setup for Python standards (packaging) and Pyramid configuration. This
-includes a new way of running your application:</p>
+<p>Pythonの標準（パッケージング）とPyramidの設定を適切にセットアップして、完全機能を備えたPyramidプロジェクトの方向に向かっています。これには、アプリケーションを実行するための新しい方法が含まれます。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini
 </pre></div>
 </div>
-<p>Let's look at <code class="docutils literal notranslate"><span class="pre">pserve</span></code> and configuration in more depth.</p>
+<p>`` pserve``と設定をもっと深く見てみましょう。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/cookiecutters.html#qtut-cookiecutters"><span class="std std-ref">Quick Tutorial Cookiecutters</span></a>,
-<a class="reference internal" href="narr/project.html#project-narr"><span class="std std-ref">(機械翻訳) Pyramid プロジェクトの作成</span></a>, and
-<a class="reference internal" href="narr/cookiecutters.html"><span class="doc">(機械翻訳) ピラミッドのcookiecutters</span></a></p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルCookiecutters &lt;qtut_cookiecutters&gt; `、：ref：</cite> project_narr`、：doc： <a href="#id1"><span class="problematic" id="id2">`</span></a>../ narr / cookiecutters`です。</p>
 </div>
 </div>
 <div class="section" id="application-running-with-pserve">
-<h2>Application running with <code class="docutils literal notranslate"><span class="pre">pserve</span></code><a class="headerlink" href="#application-running-with-pserve" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Prior to the cookiecutter, our project mixed a number of operational details into our
-code. Why should my main code care which HTTP server I want and what port
-number to run on?</p>
-<p><code class="docutils literal notranslate"><span class="pre">pserve</span></code> is Pyramid's application runner, separating operational details from
-your code. When you install Pyramid, a small command program called <code class="docutils literal notranslate"><span class="pre">pserve</span></code>
-is written to your <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory. This program is an executable Python
-module. It's very small, getting most of its brains via import.</p>
-<p>You can run <code class="docutils literal notranslate"><span class="pre">pserve</span></code> with <code class="docutils literal notranslate"><span class="pre">--help</span></code> to see some of its options. Doing so
-reveals that you can ask <code class="docutils literal notranslate"><span class="pre">pserve</span></code> to watch your development files and reload
-the server when they change:</p>
+<h2>`` pserve``で動作するアプリケーション<a class="headerlink" href="#application-running-with-pserve" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>cookiecutterに入る前に、私たちのプロジェクトでは、いくつかの操作の詳細がコードに混在していました。なぜ私のメインコードは、私が欲しいHTTPサーバーと、実行するポート番号を気にする必要がありますか？</p>
+<p>`` pserve``はPyramidのアプリケーションランナーで、コードから操作の詳細を分離します。 Pyramidをインストールすると、 `` pserve``という小さなコマンドプログラムがあなたの `` bin``ディレクトリに書き出されます。このプログラムは実行可能なPythonモジュールです。それは非常に小さく、ほとんどの脳をインポートによって取得します。</p>
+<p>`` --help``で `` pserve``を実行すると、そのオプションのいくつかを見ることができます。そうすることで、 `` pserve``にあなたの開発ファイルを見て、変更時にサーバをリロードするように要求することができます：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini --reload
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">pserve</span></code> command has a number of other options and operations. Most of
-the work, though, comes from your project's wiring, as expressed in the
-configuration file you supply to <code class="docutils literal notranslate"><span class="pre">pserve</span></code>. Let's take a look at this
-configuration file.</p>
+<p>`` pserve``コマンドには他の多くのオプションと操作があります。しかし、ほとんどの作業は、あなたが `` pserve``に提供する設定ファイルで表現されているように、プロジェクトの配線から来ています。この設定ファイルを見てみましょう。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="narr/project.html#what-is-this-pserve-thing"><span class="std std-ref">この「pserve」は何ですか？</span></a></p>
+<p class="last">参照：：ref： <cite>what_is_this_pserve_thing</cite></p>
 </div>
 </div>
 <div class="section" id="configuration-with-ini-files">
-<h2>Configuration with <code class="docutils literal notranslate"><span class="pre">.ini</span></code> files<a class="headerlink" href="#configuration-with-ini-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Earlier in <em>Quick Tour</em> we first met Pyramid's configuration system. At that
-point we did all configuration in Python code. For example, the port number
-chosen for our HTTP server was right there in Python code. Our cookiecutter has
-moved this decision and more into the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file:</p>
+<h2>`` .ini``ファイルによる設定<a class="headerlink" href="#configuration-with-ini-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>クイックツアー*では、Pyramidの設定システムに初めて触れました。その時点で、私たちはすべての設定をPythonコードで行いました。たとえば、私たちのHTTPサーバー用に選択されたポート番号は、Pythonコードのところにありました。私たちのcookiecutterはこの決定を `` development.ini``ファイルに移しました：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1">###</span>
 <span class="c1"># app configuration</span>
 <span class="c1"># https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/environment.html</span>
@@ -830,47 +684,32 @@ moved this decision and more into the <code class="docutils literal notranslate"
 <span class="na">format</span> <span class="o">=</span> <span class="s">%(asctime)s %(levelname)-5.5s [%(name)s:%(lineno)s][%(threadName)s] %(message)s</span>
 </pre></div>
 </div>
-<p>Let's take a quick high-level look. First the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file is divided into
-sections:</p>
+<p>すばやく高レベルの外観を取ってみましょう。最初に `` .ini``ファイルはセクションに分割されます：</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> configures our WSGI app</li>
-<li><code class="docutils literal notranslate"><span class="pre">[server:main]</span></code> holds our WSGI server settings</li>
-<li>Various sections afterwards configure our Python logging system</li>
+<li>`` [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>はWSGIアプリケーションを設定します</li>
+<li>`` [server：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>はWSGIサーバー設定を保持しています</li>
+<li>その後のさまざまなセクションで、Pythonロギングシステムを設定します</li>
 </ul>
-<p>We have a few decisions made for us in this configuration:</p>
+<p>この構成では、いくつかの決定事項があります。</p>
 <ol class="arabic simple">
 <li><em>WSGI app:</em> What package has our WSGI application in it?
 <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">=</span> <span class="pre">egg:hello_world</span></code> in the app section tells the configuration what
 application to load.</li>
-<li><em>Easier development by automatic template reloading:</em> In development mode,
-you shouldn't have to restart the server when editing a Jinja2 template.
-<code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span> <span class="pre">=</span> <span class="pre">true</span></code> sets this policy, which might be
-different in production.</li>
-<li><em>Choice of web server:</em> <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">=</span> <span class="pre">egg:waitress#main</span></code> tells <code class="docutils literal notranslate"><span class="pre">pserve</span></code> to
-use the <code class="docutils literal notranslate"><span class="pre">waitress</span></code> server.</li>
-<li><em>Interfaces:</em> <code class="docutils literal notranslate"><span class="pre">listen</span> <span class="pre">=</span> <span class="pre">localhost:6543</span></code> tells <code class="docutils literal notranslate"><span class="pre">waitress</span></code> to listen on all interfaces on port 6543 for both IPv4 and IPv6.</li>
+<li><a href="#id1"><span class="problematic" id="id2">*</span></a>自動テンプレートリロードによる簡単な開発：<a href="#id3"><span class="problematic" id="id4">*</span></a>開発モードでは、Jinja2テンプレートを編集するときにサーバーを再起動する必要はありません。 `` pyramid.reload_templates = true``はこのポリシーを設定します。これは本番環境では異なる場合があります。</li>
+<li><em>ウェブサーバーの選択：</em> `` use = egg：waitress＃main``は `` pserve``に `` waitress``サーバーを使用するよう指示します。</li>
+<li><em>インタフェース：</em> `` listen = localhost：6543``は、IPv4とIPv6の両方についてポート6543上のすべてのインタフェースを待ち受けるように `` waitress``を指示します。</li>
 </ol>
-<p>Additionally the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> generated by this cookiecutter wired up
-Python's standard logging. We'll now see in the console, for example, a log on
-every request that comes in, as well as traceback information.</p>
+<p>さらに、このcookiecutterによって生成された `` development.ini``は、Pythonの標準ロギングをビルドしました。ここでは、コンソールに、たとえば、トレースバック情報だけでなく、来るすべてのリクエストのログが表示されます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/ini.html#qtut-ini"><span class="std std-ref">Quick Tutorial Application Configuration</span></a>,
-<a class="reference internal" href="narr/environment.html#environment-chapter"><span class="std std-ref">(機械翻訳) 環境変数と `` .ini``ファイル設定</span></a> and
-<a class="reference internal" href="narr/paste.html"><span class="doc">(機械翻訳) PasteDeploy設定ファイル</span></a></p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルアプリケーションの設定&lt;qtut_ini&gt; `、：ref：</cite> environment_chapter`と：doc： <cite>../ narr / paste</cite></p>
 </div>
 </div>
 <div class="section" id="easier-development-with-debugtoolbar">
-<h2>Easier development with <code class="docutils literal notranslate"><span class="pre">debugtoolbar</span></code><a class="headerlink" href="#easier-development-with-debugtoolbar" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>As we introduce the basics, we also want to show how to be productive in
-development and debugging. For example, we just discussed template reloading
-and earlier we showed <code class="docutils literal notranslate"><span class="pre">--reload</span></code> for application reloading.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> is a popular Pyramid add-on which makes several tools
-available in your browser. Adding it to your project illustrates several points
-about configuration.</p>
-<p>The cookiecutter <code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code> already configured our package to include the
-add-on <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> in its <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
+<h2>`` debugtoolbar``による簡単な開発<a class="headerlink" href="#easier-development-with-debugtoolbar" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>基本を紹介しながら、開発とデバッグの生産性を上げる方法も示したいと考えています。たとえば、テンプレートのリロードについて説明したところで、アプリケーションリロードのために `` --reload``を前に示しました。</p>
+<p>`` pyramid_debugtoolbar``は、あなたのブラウザでいくつかのツールを利用できる人気のPyramidアドオンです。プロジェクトに追加すると、構成に関するいくつかの点が示されます。</p>
+<p>cookiecutter `` pyramid-cookiecutter-starter``は `` setup.py``にアドオン `` pyramid_debugtoolbar``を追加するようにパッケージを設定しています：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
 12
 13
@@ -886,39 +725,26 @@ add-on <code class="docutils literal notranslate"><span class="pre">pyramid_debu
 <span class="p">]</span>
 </pre></div>
 </td></tr></table></div>
-<p>It was installed when you previously ran:</p>
+<p>以前に実行したときにインストールされました：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install -e <span class="s2">&quot;.[testing]&quot;</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> package is a Pyramid add-on, which means we need
-to include its configuration into our web application. The cookiecutter already took care of this for us in its <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> using the <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> facility:</p>
+<p>`` pyramid_debugtoolbar``パッケージはPyramidアドオンです。つまり、その設定をWebアプリケーションに含める必要があります。 cookiecutterは、 `` pyramid.includes``ファシリティを使って `` development.ini``で既にこれを世話してくれました：</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>14
 15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="na">pyramid.includes</span> <span class="o">=</span><span class="s"></span>
 <span class="s">    pyramid_debugtoolbar</span>
 </pre></div>
 </td></tr></table></div>
-<p>You'll now see a Pyramid logo on the right side of your browser window, which
-when clicked opens a new window that provides introspective access to debugging
-information. Even better, if your web application generates an error, you will
-see a nice traceback on the screen. When you want to disable this toolbar,
-there's no need to change code: you can remove it from <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> in
-the relevant <code class="docutils literal notranslate"><span class="pre">.ini</span></code> configuration file.</p>
+<p>ブラウザウィンドウの右側にピラミッドのロゴが表示されます。クリックすると、デバッグ情報への内密アクセスを可能にする新しいウィンドウが開きます。さらに、Webアプリケーションでエラーが発生した場合は、画面に素晴らしいトレースバックが表示されます。このツールバーを無効にしたい場合は、コードを変更する必要はありません。関連する `` .ini``設定ファイルの `` pyramid.includes``から削除することができます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/debugtoolbar.html#qtut-debugtoolbar"><span class="std std-ref">Quick Tutorial pyramid_debugtoolbar</span></a> and
-<a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-debugtoolbar/en/latest/index.html#overview" title="(in pyramid_debugtoolbar v4.5)"><span class="xref std std-ref">pyramid_debugtoolbar</span></a></p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルpyramid_debugtoolbar &lt;qtut_debugtoolbar&gt; `と：ref：</cite> pyramid_debugtoolbar &lt;toolbar:overview&gt; `</p>
 </div>
 </div>
 <div class="section" id="unit-tests-and-py-test">
-<h2>Unit tests and <code class="docutils literal notranslate"><span class="pre">py.test</span></code><a class="headerlink" href="#unit-tests-and-py-test" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Yikes! We got this far and we haven't yet discussed tests. This is particularly
-egregious, as Pyramid has had a deep commitment to full test coverage since
-before its release.</p>
-<p>Our <code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code> cookiecutter generated a <code class="docutils literal notranslate"><span class="pre">tests.py</span></code> module with
-one unit test and one functional test in it. It also configured <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> with test requirements:
-<code class="docutils literal notranslate"><span class="pre">py.test</span></code> as the test runner, <code class="docutils literal notranslate"><span class="pre">WebTest</span></code> for running view tests, and the
-<code class="docutils literal notranslate"><span class="pre">pytest-cov</span></code> tool which yells at us for code that isn't tested:</p>
+<h2>ユニットテストと `` py.test``<a class="headerlink" href="#unit-tests-and-py-test" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Yikes！私たちはこれを遠くに持っており、まだテストについて議論していません。これは、Pyramidがリリース前から完全なテストカバレッジに深いコミットメントを持っているため、特に厳しいです。</p>
+<p>我々の `` pyramid-cookiecutter-starter`` cookiecutterは、ユニットテストと機能テストを1つずつ持つ `` tests.py``モジュールを生成しました。また、テストランナーとして `` py.test``、ビューテストを実行するための `` WebTest``、私たちに叫ぶ `` pytest-cov``ツールといったテスト要件を持つ `` setup.py``を設定しましたテストされていないコードの場合：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>19
 20
 21
@@ -937,11 +763,11 @@ one unit test and one functional test in it. It also configured <code class="doc
     <span class="p">},</span>
 </pre></div>
 </td></tr></table></div>
-<p>We already installed the test requirements when we ran the command <code class="docutils literal notranslate"><span class="pre">$VENV/bin/pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">&quot;.[testing]&quot;</span></code>. We can now run all our tests:</p>
+<p>`` $ VENV / bin / pip install -e &amp;quot;コマンドを実行したときにテスト要件をインストールしました。[testing] &amp;quot; <a href="#id1"><span class="problematic" id="id2">``</span></a>。これですべてのテストを実行できます：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test --cov --cov-report<span class="o">=</span>term-missing
 </pre></div>
 </div>
-<p>This yields the following output.</p>
+<p>これにより、次の出力が得られます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=========================== test session starts ===========================
 platform darwin -- Python 3.6.0, pytest-3.0.5, py-1.4.32, pluggy-0.4.0
 rootdir: /Users/stevepiercy/hello_world, inifile: pytest.ini
@@ -962,7 +788,7 @@ TOTAL                                        11      0   100%
 ========================= 2 passed in 1.37 seconds =========================
 </pre></div>
 </div>
-<p>Our tests passed, and its coverage is complete. What did our test look like?</p>
+<p>私たちのテストは合格し、その適用範囲は完全です。私たちのテストはどのように見えましたか？</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1022,41 +848,29 @@ TOTAL                                        11      0   100%
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Pyramid&#39;</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Pyramid supplies helpers for test writing, which we use in the test setup and
-teardown. Our first test imports the view, makes a dummy request, and sees if the
-view returns what we expected. Our second test verifies that the response body from a request to the web root contains what we expected.</p>
+<p>ピラミッドは、テストのセットアップとティアダウンで使用するテストライターのためのヘルパーを提供します。私たちの最初のテストは、ビューをインポートし、ダミーリクエストを行い、ビューが期待したものを返すかどうかを確認します。私たちの2番目のテストでは、要求からWebルートへの応答本文に、期待した内容が含まれていることが検証されています。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/unit_testing.html#qtut-unit-testing"><span class="std std-ref">Quick Tutorial Unit Testing</span></a>, <a class="reference internal" href="quick_tutorial/functional_testing.html#qtut-functional-testing"><span class="std std-ref">Quick
-Tutorial Functional Testing</span></a>, and
-<a class="reference internal" href="narr/testing.html#testing-chapter"><span class="std std-ref">(機械翻訳) ユニット、統合、機能テスト</span></a></p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルユニットテスト&lt;qtut_unit_testing&gt; `、：ref：`クイックチュートリアル機能テスト&lt;qtut_functional_testing&gt; `、および：ref：</cite> testing_chapter`</p>
 </div>
 </div>
 <div class="section" id="logging">
-<h2>Logging<a class="headerlink" href="#logging" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>It's important to know what is going on inside our web application. In
-development we might need to collect some output. In production we might need
-to detect situations when other people use the site. We need <em>logging</em>.</p>
-<p>Fortunately Pyramid uses the normal Python approach to logging. The <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file for your project has a number of lines that configure the
-logging for you to some reasonable defaults. You then see messages sent by
-Pyramid (for example, when a new request comes in).</p>
-<p>Maybe you would like to log messages in your code? In your Python module,
-import and set up the logging in your <code class="docutils literal notranslate"><span class="pre">views.py</span></code>:</p>
+<h2>ロギング<a class="headerlink" href="#logging" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Webアプリケーション内で何が起こっているのかを知ることは重要です。開発時には、出力を収集する必要があります。プロダクションでは、他の人がサイトを使用している状況を検出する必要があります。 <a href="#id1"><span class="problematic" id="id2">*</span></a>ロギング*が必要です。</p>
+<p>幸いにもPyramidは通常のPythonのロギング手法を使用しています。あなたのプロジェクトの `` development.ini``ファイルには、いくつかの合理的なデフォルト値を設定する行がいくつかあります。次に、Pyramidによって送信されたメッセージが表示されます（たとえば、新しい要求が入った場合）。</p>
+<p>あなたのコードにメッセージを記録したいのですか？あなたのPythonモジュールでは、 `` views.py``でロギングをインポートして設定します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>You can now, in your code, log messages:</p>
+<p>あなたのコードでログメッセージを作成できるようになりました：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
 <span class="hll">    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Some Message&#39;</span><span class="p">)</span>
 </span></pre></div>
 </td></tr></table></div>
-<p>This will log <code class="docutils literal notranslate"><span class="pre">Some</span> <span class="pre">Message</span></code> at a <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> log level to the
-application-configured logger in your <code class="docutils literal notranslate"><span class="pre">development.ini</span></code>. What controls that?
-These emphasized sections in the configuration file:</p>
+<p>これは `` DEBUG``ログレベルの `` Some Message``を `` development.ini``のアプリケーション設定ロガーに記録します。それを制御するのは何ですか？設定ファイルのこれらの強調されたセクション</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>34
 35
 36
@@ -1092,28 +906,19 @@ These emphasized sections in the configuration file:</p>
 </span><span class="hll"><span class="na">qualname</span> <span class="o">=</span> <span class="s">hello_world</span>
 </span></pre></div>
 </td></tr></table></div>
-<p>Our application, a package named <code class="docutils literal notranslate"><span class="pre">hello_world</span></code>, is set up as a logger and
-configured to log messages at a <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> or higher level. When you visit
-<a class="reference external" href="http://localhost:6543">http://localhost:6543</a>, your console will now show:</p>
+<p>私たちのアプリケーション、 `` hello_world``という名前のパッケージは、ロガーとしてセットアップされ、 `` DEBUG`以上のレベルでメッセージを記録するように設定されています。 http：// localhost：6543にアクセスすると、コンソールに次のように表示されます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2016-12-25 03:03:57,059 DEBUG [hello_world.views:8][waitress] Some Message
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/logging.html#qtut-logging"><span class="std std-ref">Quick Tutorial Logging</span></a> and <a class="reference internal" href="narr/logging.html#logging-chapter"><span class="std std-ref">(機械翻訳) ロギング</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルロギング&lt;qtut_logging&gt; `と：ref：</cite> logging_chapter`です。</p>
 </div>
 </div>
 <div class="section" id="sessions">
-<h2>Sessions<a class="headerlink" href="#sessions" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>When people use your web application, they frequently perform a task that
-requires semi-permanent data to be saved. For example, a shopping cart. This is
-called a <a class="reference internal" href="glossary.html#term-session"><span class="xref std std-term">session</span></a>.</p>
-<p>Pyramid has basic built-in support for sessions. Third party packages such as
-<code class="docutils literal notranslate"><span class="pre">pyramid_redis_sessions</span></code> provide richer session support. Or you can create
-your own custom sessioning engine. Let's take a look at the <a class="reference internal" href="narr/sessions.html"><span class="doc">built-in
-sessioning support</span></a>. In our <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> we first import
-the kind of sessioning we want:</p>
+<h2>セッション<a class="headerlink" href="#sessions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Webアプリケーションを使用する人は、半永久的なデータを保存する必要があるタスクを頻繁に実行します。たとえば、ショッピングカートです。これは：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>session`と呼ばれます。</p>
+<p>Pyramidにはセッションのための基本的な組み込みサポートがあります。 `` pyramid_redis_sessions``のようなサードパーティパッケージは、より豊かなセッションサポートを提供します。または、独自のカスタムセッションエンジンを作成することもできます。 ：doc： <cite>組込みセッションサポート&amp;lt;../ narr / sessions&amp;gt;`を見てみましょう。私たちの `</cite> __init __。py``ではまず最初に必要なセッションをインポートします：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">pyramid.session</span> <span class="kn">import</span> <span class="n">SignedCookieSessionFactory</span>
@@ -1121,11 +926,9 @@ the kind of sessioning we want:</p>
 </td></tr></table></div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">As noted in the session docs, this example implementation is not intended
-for use in settings with security implications.</p>
+<p class="last">セッション文書でも指摘されているように、この実装例は、セキュリティの意味を持つ設定での使用を意図したものではありません。</p>
 </div>
-<p>Now make a &quot;factory&quot; and pass it to the <a class="reference internal" href="glossary.html#term-configurator"><span class="xref std std-term">configurator</span></a>'s
-<code class="docutils literal notranslate"><span class="pre">session_factory</span></code> argument:</p>
+<p>&amp;quot;factory &amp;quot;を作り、：term： <cite>configurator`の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>session_factory``引数に渡してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10
 11
 12
@@ -1135,8 +938,7 @@ for use in settings with security implications.</p>
 </span>    <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>Pyramid's <a class="reference internal" href="glossary.html#term-request"><span class="xref std std-term">request</span></a> object now has a <code class="docutils literal notranslate"><span class="pre">session</span></code> attribute that we can
-use in our view code in <code class="docutils literal notranslate"><span class="pre">views.py</span></code>:</p>
+<p>Pyramidの：term： <cite>request`オブジェクトには、</cite> <cite>views.py``のビューコードで使用できる</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>session``属性が追加されました：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 7
  8
  9
@@ -1154,7 +956,7 @@ use in our view code in <code class="docutils literal notranslate"><span class="
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="s1">&#39;hello_world&#39;</span><span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>We need to update our Jinja2 template <code class="docutils literal notranslate"><span class="pre">templates/mytemplate.jinja2</span></code> to show counter increment in the session:</p>
+<p>セッションのカウンタインクリメントを表示するには、Jinja2テンプレート `` templates / mytemplate.jinja2``を更新する必要があります：</p>
 <div class="highlight-jinja notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4
 5
 6
@@ -1168,31 +970,25 @@ use in our view code in <code class="docutils literal notranslate"><span class="
 </td></tr></table></div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/sessions.html#qtut-sessions"><span class="std std-ref">Quick Tutorial Sessions</span></a>, <a class="reference internal" href="narr/sessions.html#sessions-chapter"><span class="std std-ref">(機械翻訳) セッション</span></a>,
-<a class="reference internal" href="narr/sessions.html#flash-messages"><span class="std std-ref">フラッシュメッセージ</span></a>, <a class="reference internal" href="api/session.html#session-module"><span class="std std-ref">(機械翻訳) pyramid.session</span></a>, and
-<a class="reference internal" href="glossary.html#term-pyramid-redis-sessions"><span class="xref std std-term">pyramid_redis_sessions</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルセッション&lt;qtut_sessions&gt; `、：ref：</cite> sessions_chapter`、：ref： <cite>flash_messages</cite>、：ref：` session_module`、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid_redis_sessions`です。</p>
 </div>
 </div>
 <div class="section" id="databases">
-<h2>Databases<a class="headerlink" href="#databases" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Web applications mean data. Data means databases. Frequently SQL databases. SQL
-databases frequently mean an &quot;ORM&quot; (object-relational mapper.) In Python, ORM
-usually leads to the mega-quality <em>SQLAlchemy</em>, a Python package that greatly
-eases working with databases.</p>
-<p>Pyramid and SQLAlchemy are great friends. That friendship includes a cookiecutter!</p>
+<h2>データベース<a class="headerlink" href="#databases" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Webアプリケーションとは、データを意味します。データとはデータベースを意味します。頻繁にSQLデータベース。 SQLデータベースは、しばしば&amp;quot;ORM &amp;quot;（オブジェクト・リレーショナル・マッパー）を意味します。Pythonでは、ORMは通常、メガ・クオリティの* SQLAlchemy <a href="#id1"><span class="problematic" id="id2">*</span></a>をもたらします。</p>
+<p>PyramidとSQLAlchemyは素晴らしい友達です。その友情には調理師がいる！</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
 $ env/bin/cookiecutter gh:Pylons/pyramid-cookiecutter-alchemy --checkout <span class="m">1</span>.9-branch
 </pre></div>
 </div>
-<p>If prompted for the first item, accept the default <code class="docutils literal notranslate"><span class="pre">yes</span></code> by hitting return.</p>
+<p>最初の項目の入力を求められたら、returnキーを押してデフォルトの `` yes``を受け入れます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>You&#39;ve cloned ~/.cookiecutters/pyramid-cookiecutter-alchemy before.
 Is it okay to delete and re-clone it? [yes]: yes
 project_name [Pyramid Scaffold]: sqla_demo
 repo_name [sqla_demo]: sqla_demo
 </pre></div>
 </div>
-<p>We then run through the following commands as before.</p>
+<p>その後、以下のコマンドを実行します。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change directory into your newly created project.</span>
 $ <span class="nb">cd</span> sqla_demo
 <span class="c1"># Create a new virtual environment...</span>
@@ -1205,16 +1001,12 @@ $ env/bin/pip install -e <span class="s2">&quot;.[testing]&quot;</span>
 $ <span class="nb">export</span> <span class="nv">VENV</span><span class="o">=</span>~/sqla_demo/env
 </pre></div>
 </div>
-<p>We now have a working sample SQLAlchemy application with all dependencies
-installed. The sample project provides a console script to initialize a SQLite
-database with tables. Let's run it, then start the application:</p>
+<p>すべての依存関係がインストールされたSQLAlchemyアプリケーションのサンプルが用意されました。サンプルプロジェクトは、テーブルを使用してSQLiteデータベースを初期化するためのコンソールスクリプトを提供します。それを実行してから、アプリケーションを起動してみましょう：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/initialize_sqla_demo_db development.ini
 $ <span class="nv">$VENV</span>/bin/pserve development.ini
 </pre></div>
 </div>
-<p>The ORM eases the mapping of database structures into a programming language.
-SQLAlchemy uses &quot;models&quot; for this mapping. The cookiecutter generated a sample
-model:</p>
+<p>ORMは、データベース構造のプログラミング言語へのマッピングを容易にします。 SQLAlchemyはこのマッピングに&amp;quot;models &amp;quot;を使用します。 cookiecutterはサンプルモデルを生成しました：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
 12
 13
@@ -1226,28 +1018,19 @@ model:</p>
     <span class="n">value</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>View code, which mediates the logic between web requests and the rest of the
-system, can then easily get at the data thanks to SQLAlchemy:</p>
+<p>Web要求とシステムの残りの間のロジックを仲介するビューコードは、SQLAlchemyのおかげでデータに簡単にアクセスできます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>13</pre></div></td><td class="code"><div class="highlight"><pre><span></span>        <span class="n">one</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">MyModel</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;one&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/databases.html#qtut-databases"><span class="std std-ref">Quick Tutorial Databases</span></a>, <a class="reference external" href="http://www.sqlalchemy.org/">SQLAlchemy</a>, <a class="reference internal" href="narr/commandline.html#making-a-console-script"><span class="std std-ref">スクリプトをコンソールスクリプトにする</span></a>,
-<a class="reference internal" href="tutorials/wiki2/index.html#bfg-sql-wiki-tutorial"><span class="std std-ref">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-tm/en/latest/index.html#overview" title="(in pyramid_tm v2.2.1)"><span class="xref std std-ref">Application Transactions with
-pyramid_tm</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルデータベース&lt;qtut_databases&gt; `、</cite> SQLAlchemy &lt;<a class="reference external" href="http://www.sqlalchemy.org/">http://www.sqlalchemy.org/</a>&gt; <cite>_、：ref：</cite> making_a_console_script`、：ref： <cite>bfg_sql_wiki_tutorial</cite>、および：ref：` pyramid_tmによるアプリケーショントランザクション&lt;tm:overview&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>。</p>
 </div>
 </div>
 <div class="section" id="forms">
-<h2>Forms<a class="headerlink" href="#forms" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Developers have lots of opinions about web forms, thus there are many form
-libraries for Python. Pyramid doesn't directly bundle a form library, but
-<em>Deform</em> is a popular choice for forms, along with its related <em>Colander</em>
-schema system.</p>
-<p>As an example, imagine we want a form that edits a wiki page. The form should
-have two fields on it, one of them a required title and the other a rich text
-editor for the body. With Deform we can express this as a Colander schema:</p>
+<h2>フォーム<a class="headerlink" href="#forms" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>開発者はWebフォームに関する多くの意見を持っているため、Python用の多くのフォームライブラリがあります。 Pyramidはフォームライブラリを直接バンドルしませんが、* Deform <em>はフォームによく使われる選択肢で、関連する</em> Colander <a href="#id1"><span class="problematic" id="id2">*</span></a>スキーマシステムです。</p>
+<p>たとえば、wikiページを編集するフォームが必要な場合を考えてみましょう。フォームには2つのフィールドが必要です.1つは必須タイトル、もう1つは本文のリッチテキストエディタです。 Deformでは、これをColanderスキーマとして表現できます。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">WikiPage</span><span class="p">(</span><span class="n">colander</span><span class="o">.</span><span class="n">MappingSchema</span><span class="p">):</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">colander</span><span class="o">.</span><span class="n">SchemaNode</span><span class="p">(</span><span class="n">colander</span><span class="o">.</span><span class="n">String</span><span class="p">())</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">colander</span><span class="o">.</span><span class="n">SchemaNode</span><span class="p">(</span>
@@ -1256,12 +1039,11 @@ editor for the body. With Deform we can express this as a Colander schema:</p>
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>With this in place, we can render the HTML for a form, perhaps with form data
-from an existing page:</p>
+<p>これで、既存のページのフォームデータを使用して、フォームのHTMLをレンダリングできます。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">form</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wiki_form</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>We'd like to handle form submission, validation, and saving:</p>
+<p>フォームの提出、検証、および保存を処理したいと思います。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the form data that was posted</span>
 <span class="n">controls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 <span class="k">try</span><span class="p">:</span>
@@ -1277,21 +1059,16 @@ from an existing page:</p>
 <span class="n">page</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">appstruct</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Deform and Colander provide a very flexible combination for forms, widgets,
-schemas, and validation. Recent versions of Deform also include a <a class="reference external" href="https://docs.pylonsproject.org/projects/deform/en/latest/retail.html#retail" title="(in deform v2.0.7.dev0)"><span class="xref std std-ref">retail
-mode</span></a> for gaining Deform features on custom forms.</p>
-<p>Deform uses attractive CSS from Twitter Bootstrap and more powerful select, checkbox, and date and time widgets.</p>
+<p>DeformとColanderは、フォーム、ウィジェット、スキーマ、および検証に非常に柔軟な組み合わせを提供します。最近のバージョンのDeformには、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>小売モード&lt;deform:retail&gt;カスタムフォームでDeform機能を利用するためのものです。</p>
+<p>Deformは、Twitterブートストラップの魅力的なCSSと、より強力な選択、チェックボックス、日付と時刻のウィジェットを使用しています。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also:
-<a class="reference internal" href="quick_tutorial/forms.html#qtut-forms"><span class="std std-ref">Quick Tutorial Forms</span></a>, <a class="reference external" href="https://docs.pylonsproject.org/projects/deform/en/latest/index.html#overview" title="(in deform v2.0.7.dev0)"><span class="xref std std-ref">Deform</span></a>, and <a class="reference external" href="https://docs.pylonsproject.org/projects/colander/en/latest/index.html#overview" title="(in colander v1.5.1)"><span class="xref std std-ref">Colander</span></a>.</p>
+<p class="last">参照：：ref： <cite>クイックチュートリアルフォーム&lt;qtut_forms&gt; `、：ref：`変形&lt;deform:overview&gt; `、および：ref：</cite> Colander &lt;colander:overview&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>。</p>
 </div>
 </div>
 <div class="section" id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>This <em>Quick Tour</em> covered a little about a lot. We introduced a long list
-of concepts in Pyramid, many of which are expanded on more fully in the
-Pyramid developer docs.</p>
+<h2>結論<a class="headerlink" href="#conclusion" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この*クイックツアー*については少し詳しく説明しました。 Pyramidの概念の長いリストを紹介しましたが、その多くはPyramidの開発者ドキュメントに詳しく説明されています。</p>
 </div>
 </div>
 
@@ -1303,27 +1080,27 @@ Pyramid developer docs.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Quick Tour of Pyramid</a><ul>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#hello-world">Hello World</a></li>
-<li><a class="reference internal" href="#handling-web-requests-and-responses">Handling web requests and responses</a></li>
-<li><a class="reference internal" href="#views">Views</a></li>
-<li><a class="reference internal" href="#routing">Routing</a></li>
-<li><a class="reference internal" href="#templating">Templating</a></li>
-<li><a class="reference internal" href="#templating-with-jinja2">Templating with Jinja2</a></li>
-<li><a class="reference internal" href="#static-assets">Static assets</a></li>
-<li><a class="reference internal" href="#returning-json">Returning JSON</a></li>
-<li><a class="reference internal" href="#view-classes">View classes</a></li>
-<li><a class="reference internal" href="#quick-project-startup-with-cookiecutters">Quick project startup with cookiecutters</a></li>
-<li><a class="reference internal" href="#application-running-with-pserve">Application running with <code class="docutils literal notranslate"><span class="pre">pserve</span></code></a></li>
-<li><a class="reference internal" href="#configuration-with-ini-files">Configuration with <code class="docutils literal notranslate"><span class="pre">.ini</span></code> files</a></li>
-<li><a class="reference internal" href="#easier-development-with-debugtoolbar">Easier development with <code class="docutils literal notranslate"><span class="pre">debugtoolbar</span></code></a></li>
-<li><a class="reference internal" href="#unit-tests-and-py-test">Unit tests and <code class="docutils literal notranslate"><span class="pre">py.test</span></code></a></li>
-<li><a class="reference internal" href="#logging">Logging</a></li>
-<li><a class="reference internal" href="#sessions">Sessions</a></li>
-<li><a class="reference internal" href="#databases">Databases</a></li>
-<li><a class="reference internal" href="#forms">Forms</a></li>
-<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#">(機械翻訳)ピラミッドのクイックツアー</a><ul>
+<li><a class="reference internal" href="#installation">インストール</a></li>
+<li><a class="reference internal" href="#hello-world">こんにちは世界</a></li>
+<li><a class="reference internal" href="#handling-web-requests-and-responses">Webリクエストとレスポンスの処理</a></li>
+<li><a class="reference internal" href="#views">ビュー</a></li>
+<li><a class="reference internal" href="#routing">ルーティング</a></li>
+<li><a class="reference internal" href="#templating">テンプレート</a></li>
+<li><a class="reference internal" href="#templating-with-jinja2">Jinja2を使ったテンプレート</a></li>
+<li><a class="reference internal" href="#static-assets">静的資産</a></li>
+<li><a class="reference internal" href="#returning-json">JSONを返す</a></li>
+<li><a class="reference internal" href="#view-classes">ビュークラス</a></li>
+<li><a class="reference internal" href="#quick-project-startup-with-cookiecutters">cookiecuttersによるクイックプロジェクトの起動</a></li>
+<li><a class="reference internal" href="#application-running-with-pserve">`` pserve``で動作するアプリケーション</a></li>
+<li><a class="reference internal" href="#configuration-with-ini-files">`` .ini``ファイルによる設定</a></li>
+<li><a class="reference internal" href="#easier-development-with-debugtoolbar">`` debugtoolbar``による簡単な開発</a></li>
+<li><a class="reference internal" href="#unit-tests-and-py-test">ユニットテストと `` py.test``</a></li>
+<li><a class="reference internal" href="#logging">ロギング</a></li>
+<li><a class="reference internal" href="#sessions">セッション</a></li>
+<li><a class="reference internal" href="#databases">データベース</a></li>
+<li><a class="reference internal" href="#forms">フォーム</a></li>
+<li><a class="reference internal" href="#conclusion">結論</a></li>
 </ul>
 </li>
 </ul>

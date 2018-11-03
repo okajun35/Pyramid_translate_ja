@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>What&#39;s New in Pyramid 1.7 &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳)Pyramid 1.7の新機能 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="copyright" title="著作権" href="copyright.html" />
-    <link rel="next" title="What&#39;s New in Pyramid 1.6" href="whatsnew-1.6.html" />
-    <link rel="prev" title="What&#39;s New in Pyramid 1.8" href="whatsnew-1.8.html" />
+    <link rel="next" title="(機械翻訳)Pyramid 1.6の新機能" href="whatsnew-1.6.html" />
+    <link rel="prev" title="Pyramid 1.8の新機能" href="whatsnew-1.8.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="whatsnew-1.6.html" title="What&#39;s New in Pyramid 1.6"
+          <a href="whatsnew-1.6.html" title="(機械翻訳)Pyramid 1.6の新機能"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="whatsnew-1.8.html" title="What&#39;s New in Pyramid 1.8"
+          <a href="whatsnew-1.8.html" title="Pyramid 1.8の新機能"
              accesskey="P">前へ</a> |</li>
     	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,185 +69,84 @@
           <div class="body" role="main">
             
   <div class="section" id="what-s-new-in-pyramid-1-7">
-<h1>What's New in Pyramid 1.7<a class="headerlink" href="#what-s-new-in-pyramid-1-7" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>This article explains the new features in <span>Pyramid</span> version 1.7 as
-compared to its predecessor, <span>Pyramid</span> 1.6. It also documents backwards
-incompatibilities between the two versions and deprecations added to
-<span>Pyramid</span> 1.7, as well as software dependency changes and notable
-documentation additions.</p>
+<h1>(機械翻訳)Pyramid 1.7の新機能<a class="headerlink" href="#what-s-new-in-pyramid-1-7" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>この記事では、：app： <cite>Pyramid`バージョン1.7の新機能について説明しました：app：</cite> Pyramid` 1.6。また、app： <cite>Pyramid</cite> 1.7に追加された2つのバージョンと廃止予定との間の後方互換性も文書化されています。</p>
 <div class="section" id="backwards-incompatibilities">
-<h2>Backwards Incompatibilities<a class="headerlink" href="#backwards-incompatibilities" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>後方の非互換性<a class="headerlink" href="#backwards-incompatibilities" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p class="first">The default hash algorithm for
-<a class="reference internal" href="api/authentication.html#pyramid.authentication.AuthTktAuthenticationPolicy" title="pyramid.authentication.AuthTktAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.authentication.AuthTktAuthenticationPolicy</span></code></a> has changed from
-<code class="docutils literal notranslate"><span class="pre">md5</span></code> to <code class="docutils literal notranslate"><span class="pre">sha512</span></code>. If you are using the authentication policy and need to
-continue using <code class="docutils literal notranslate"><span class="pre">md5</span></code>, please explicitly set <code class="docutils literal notranslate"><span class="pre">hashalg='md5'</span></code>.</p>
-<p>If you are not currently specifying the <code class="docutils literal notranslate"><span class="pre">hashalg</span></code> option in your apps, then
-this change means any existing auth tickets (and associated cookies) will no
-longer be valid, users will be logged out, and have to login to their
-accounts again.</p>
-<p>This change has been issuing a DeprecationWarning since <span>Pyramid</span> 1.4.</p>
-<p>See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2496">https://github.com/Pylons/pyramid/pull/2496</a></p>
+<li><p class="first">class： <cite>pyramid.authentication.AuthTktAuthenticationPolicy`のデフォルトハッシュアルゴリズムが</cite> <cite>md5``から</cite> <cite>sha512``に変更されました。認証ポリシーを使用していて、 `</cite> md5``を引き続き使用する必要がある場合は、明示的に `` hashalg = &amp;#39;md5``を設定してください。</p>
+<p>あなたのアプリケーションで `` hashalg``オプションを現在指定していない場合、この変更は既存の認証チケット（および関連するCookie）が有効ではなくなり、ユーザーはログアウトされ、アカウントに再度ログインする必要があります。</p>
+<p>この変更により、app： <cite>Pyramid</cite> 1.4以降、DeprecationWarningが発行されています。</p>
+<p><a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2496を参照してください。</p>
 </li>
-<li><p class="first">Python 2.6 and 3.2 are no longer supported by Pyramid. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/issues/2368">https://github.com/Pylons/pyramid/issues/2368</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2256">https://github.com/Pylons/pyramid/pull/2256</a></p>
+<li><p class="first">Python 2.6と3.2はPyramidではサポートされなくなりました。 <a class="reference external" href="https://github.com/Pylons/pyramid/issues">https://github.com/Pylons/pyramid/issues</a>/2368およびhttps://github.com/Pylons/pyramid/pull/2256を参照してください。</p>
 </li>
-<li><p class="first">The <code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.session.check_csrf_token()</span></code> function no longer validates a
-csrf token in the query string of a request. Only headers and request bodies
-are supported. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2500">https://github.com/Pylons/pyramid/pull/2500</a></p>
+<li><p class="first">：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.session.check_csrf_token`関数は、リクエストのクエリ文字列のcsrfトークンを検証しなくなりました。ヘッダーとリクエストボディのみがサポートされています。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2500を参照してください。</p>
 </li>
-<li><p class="first">A global permission set via
-<a class="reference internal" href="api/config.html#pyramid.config.Configurator.set_default_permission" title="pyramid.config.Configurator.set_default_permission"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_default_permission()</span></code></a> will no longer
-affect exception views. A permission must be set explicitly on the view for
-it to be enforced. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2534">https://github.com/Pylons/pyramid/pull/2534</a></p>
+<li><p class="first">：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.set_default_permission`を介して設定されたグローバル権限は、もはや例外ビューに影響を与えません。権限は強制的にビューに明示的に設定する必要があります。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2534を参照してください。</p>
 </li>
 </ul>
 </div>
 <div class="section" id="feature-additions">
-<h2>Feature Additions<a class="headerlink" href="#feature-additions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>機能の追加<a class="headerlink" href="#feature-additions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p class="first">A new <a class="reference internal" href="narr/hooks.html#view-derivers"><span class="std std-ref">デリバーを見る</span></a> concept has been added to Pyramid to allow
-framework authors to inject elements into the standard Pyramid view pipeline
-and affect all views in an application. This is similar to a decorator except
-that it has access to options passed to <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code> and can affect
-other stages of the pipeline such as the raw response from a view or prior
-to security checks. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2021">https://github.com/Pylons/pyramid/pull/2021</a></p>
+<li><p class="first">新しい：ref： <cite>view_derivers`という概念がPyramidに追加され、フレームワークの作成者は要素を標準のPyramidビューパイプラインに挿入し、アプリケーション内のすべてのビューに影響を与えることができます。これはデコレータに似ていますが、 `</cite> config.add_view``に渡されるオプションにアクセスでき、ビューからの生のレスポンスやセキュリティチェックの前にパイプラインの他のステージに影響を与える可能性があります。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2021を参照してください。</p>
 </li>
-<li><p class="first">Added a <code class="docutils literal notranslate"><span class="pre">require_csrf</span></code> view option which will enforce CSRF checks on
-requests with an unsafe method as defined by RFC2616. If the CSRF check fails
-a <code class="docutils literal notranslate"><span class="pre">BadCSRFToken</span></code> exception will be raised and may be caught by exception
-views (the default response is a <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code>). This option should be
-used in place of the deprecated <code class="docutils literal notranslate"><span class="pre">check_csrf</span></code> view predicate which would
-normally result in unexpected <code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code> response to the client
-instead of a catchable exception.  See <a class="reference internal" href="narr/security.html#auto-csrf-checking"><span class="std std-ref">CSRFトークンの自動確認</span></a>,
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2413">https://github.com/Pylons/pyramid/pull/2413</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2500">https://github.com/Pylons/pyramid/pull/2500</a></p>
+<li><p class="first">`` require_csrf``ビューオプションを追加しました。このオプションは、RFC2616で定義されている安全でないメソッドを使って要求に対するCSRFチェックを強制します。 CSRFチェックが失敗した場合、 `` BadCSRFToken``例外が発生し、例外ビュー（デフォルトの応答は `` 400 Bad Request``です）によって捕捉されます。このオプションは、非推奨の `` check_csrf``ビュー述語の代わりに使用されるべきです。この述語は通常、キャッチ可能な例外の代わりに予期しない `` 404 Not Found``応答をクライアントに送ります。 See：ref： <cite>auto_csrf_checking</cite>、<a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2413およびhttps://github.com/Pylons/pyramid/pull/2500</p>
 </li>
-<li><p class="first">Added a new method,
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_csrf_default_options()</span></code>,
-for configuring CSRF checks used by the <code class="docutils literal notranslate"><span class="pre">require_csrf=True</span></code> view option.
-This method can be used to turn on CSRF checks globally for every view
-in the application. This should be considered a good default for websites
-built on Pyramid. It is possible to opt-out of CSRF checks on a per-view
-basis by setting <code class="docutils literal notranslate"><span class="pre">require_csrf=False</span></code> on those views.
-See <a class="reference internal" href="narr/security.html#auto-csrf-checking"><span class="std std-ref">CSRFトークンの自動確認</span></a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2413">https://github.com/Pylons/pyramid/pull/2413</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2518">https://github.com/Pylons/pyramid/pull/2518</a></p>
+<li><p class="first">`` require_csrf = True``ビューオプションで使用されるCSRFチェックを設定するための新しいメソッド：meth： <cite>pyramid.config.Configurator.set_csrf_default_options`を追加しました。このメソッドを使用すると、アプリケーションのすべてのビューでCSRFチェックをグローバルに有効にすることができます。これは、Pyramid上に構築されたウェブサイトのための良いデフォルトと見なされるべきです。これらのビューに対して `</cite> require_csrf = False``を設定することで、ビュー単位でCSRFチェックをオプトアウトすることができます。 See：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>auto_csrf_checking`とhttps://github.com/Pylons/pyramid/pull/2413とhttps://github.com/Pylons/pyramid/pull/2518</p>
 </li>
-<li><p class="first">Added an additional CSRF validation that checks the origin/referrer of a
-request and makes sure it matches the current <code class="docutils literal notranslate"><span class="pre">request.domain</span></code>. This
-particular check is only active when accessing a site over HTTPS as otherwise
-browsers don't always send the required information. If this additional CSRF
-validation fails a <code class="docutils literal notranslate"><span class="pre">BadCSRFOrigin</span></code> exception will be raised and may be
-caught by exception views (the default response is <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code>).
-Additional allowed origins may be configured by setting
-<code class="docutils literal notranslate"><span class="pre">pyramid.csrf_trusted_origins</span></code> to a list of domain names (with ports if on
-a non standard port) to allow. Subdomains are not allowed unless the domain
-name has been prefixed with a <code class="docutils literal notranslate"><span class="pre">.</span></code>. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2501">https://github.com/Pylons/pyramid/pull/2501</a></p>
+<li><p class="first">要求の起点/参照元をチェックし、現在の `` request.domain``と一致することを確認する追加のCSRF検証を追加しました。この特定のチェックは、HTTPS経由でサイトにアクセスする場合にのみ有効です。そうしないと、ブラウザが常に必要な情報を送信するとは限りません。この追加のCSRF検証に失敗した場合、 `` BadCSRFOrigin``例外が発生し、例外ビュー（デフォルトの応答は `` 400 Bad Request``です）によって捕捉される可能性があります。 `` pyramid.csrf_trusted_origins``を許可するドメイン名のリスト（非標準ポートの場合はポート付き）に設定することにより、追加の許可されたオリジンを設定することができます。サブドメインはドメイン名の前に `` .``が付いていなければ許されません。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2501を参照してください。</p>
 </li>
-<li><p class="first">Added a new <code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.session.check_csrf_origin()</span></code> API for validating the
-origin or referrer headers against the request's domain.
-See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2501">https://github.com/Pylons/pyramid/pull/2501</a></p>
+<li><p class="first">リクエストのドメインに対してオリジンまたはリファラーヘッダを検証するための新しい：func： <cite>pyramid.session.check_csrf_origin</cite> APIを追加しました。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2501を参照してください。</p>
 </li>
-<li><p class="first">Subclasses of <a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPException" title="pyramid.httpexceptions.HTTPException"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.httpexceptions.HTTPException</span></code></a> will now take
-into account the best match for the clients <code class="docutils literal notranslate"><span class="pre">Accept</span></code> header, and depending
-on what is requested will return <code class="docutils literal notranslate"><span class="pre">text/html</span></code>, <code class="docutils literal notranslate"><span class="pre">application/json</span></code> or
-<code class="docutils literal notranslate"><span class="pre">text/plain</span></code>. The default for <code class="docutils literal notranslate"><span class="pre">*/*</span></code> is still <code class="docutils literal notranslate"><span class="pre">text/html</span></code>, but if
-<code class="docutils literal notranslate"><span class="pre">application/json</span></code> is explicitly mentioned it will now receive a valid
-JSON response. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2489">https://github.com/Pylons/pyramid/pull/2489</a></p>
+<li><p class="first">：class： <cite>pyramid.httpexceptions.HTTPException`のサブクラスは、クライアントの</cite> Accept``ヘッダに最もよくマッチするものを考慮に入れ、要求されたものに応じて `` text / html``、 `` application / json``または `` text / plain``です。 `` * / * <a href="#id1"><span class="problematic" id="id2">``</span></a>のデフォルトは `` text / html``ですが、 `` application / json``が明示的に言及されると、有効なJSON応答を受け取るようになります。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2489を参照してください。</p>
 </li>
-<li><p class="first">A new event, <a class="reference internal" href="api/events.html#pyramid.events.BeforeTraversal" title="pyramid.events.BeforeTraversal"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.BeforeTraversal</span></code></a>, and interface
-<a class="reference internal" href="api/interfaces.html#pyramid.interfaces.IBeforeTraversal" title="pyramid.interfaces.IBeforeTraversal"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IBeforeTraversal</span></code></a> have been introduced that will
-notify listeners before traversal starts in the router.
-See <a class="reference internal" href="narr/router.html#router-chapter"><span class="std std-ref">リクエスト処理(Request Processing)</span></a> as well as
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2469">https://github.com/Pylons/pyramid/pull/2469</a> and
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/1876">https://github.com/Pylons/pyramid/pull/1876</a></p>
+<li><p class="first">：class： <cite>pyramid.events.BeforeTraversal`という新しいイベントと、interface：class：</cite> pyramid.interfaces.IBeforeTraversal`が導入されました。このイベントは、ルータ内でのトラバーサルの開始前にリスナーに通知します。参照：ref： <cite>router_chapter</cite>、<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2469">https://github.com/Pylons/pyramid/pull/2469</a>、<a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1876を参照してください。</p>
 </li>
-<li><p class="first">A new method, <a class="reference internal" href="api/request.html#pyramid.request.Request.invoke_exception_view" title="pyramid.request.Request.invoke_exception_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.invoke_exception_view()</span></code></a>, which
-can be used to invoke an exception view and get back a response. This is
-useful for rendering an exception view outside of the context of the
-<code class="docutils literal notranslate"><span class="pre">EXCVIEW</span></code> tween where you may need more control over the request.
-See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2393">https://github.com/Pylons/pyramid/pull/2393</a></p>
+<li><p class="first">新しいメソッド：meth： <cite>pyramid.request.Request.invoke_exception_view</cite>：例外ビューを呼び出して応答を返すために使用できます。これは、 &amp;quot;EXCVIEW&amp;quot;トゥイーンのコンテキスト外で例外ビューをレンダリングする場合に便利です。ここでは、リクエストをより詳細に制御する必要があります。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2393を参照してください。</p>
 </li>
-<li><p class="first">A global permission set via
-<a class="reference internal" href="api/config.html#pyramid.config.Configurator.set_default_permission" title="pyramid.config.Configurator.set_default_permission"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_default_permission()</span></code></a> will no longer
-affect exception views. A permission must be set explicitly on the view for
-it to be enforced. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2534">https://github.com/Pylons/pyramid/pull/2534</a></p>
+<li><p class="first">：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.set_default_permission`を介して設定されたグローバル権限は、もはや例外ビューに影響を与えません。権限は強制的にビューに明示的に設定する必要があります。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2534を参照してください。</p>
 </li>
-<li><p class="first">Allow a leading <code class="docutils literal notranslate"><span class="pre">=</span></code> on the key of the request param predicate.
-For example, <code class="docutils literal notranslate"><span class="pre">'=abc=1'</span></code> is equivalent down to
-<code class="docutils literal notranslate"><span class="pre">request.params['=abc']</span> <span class="pre">==</span> <span class="pre">'1'</span></code>.
-See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/1370">https://github.com/Pylons/pyramid/pull/1370</a></p>
+<li><p class="first">要求パラメタ述語のキーに先行する `` = <a href="#id1"><span class="problematic" id="id2">``</span></a>を許可します。たとえば、 `` &amp;#39;= abc = 1&amp;#39;``は `` request.params [&amp;#39; = abc &amp;#39;] ==&amp;#39; 1&amp;#39;``と同等です。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/1370を参照してください。</p>
 </li>
-<li><p class="first">Allow using variable substitutions like <code class="docutils literal notranslate"><span class="pre">%(LOGGING_LOGGER_ROOT_LEVEL)s</span></code>
-for logging sections of the .ini file and populate these variables from
-the <code class="docutils literal notranslate"><span class="pre">pserve</span></code> command line -- e.g.:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pserve</span> <span class="pre">development.ini</span> <span class="pre">LOGGING_LOGGER_ROOT_LEVEL=DEBUG</span></code></p>
-<p>This support is thanks to the new <code class="docutils literal notranslate"><span class="pre">global_conf</span></code> option on
-<a class="reference internal" href="api/paster.html#pyramid.paster.setup_logging" title="pyramid.paster.setup_logging"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.setup_logging()</span></code></a>.
-See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2399">https://github.com/Pylons/pyramid/pull/2399</a></p>
+<li><p class="first">.iniファイルのロギングセクションに <a href="#id1"><span class="problematic" id="id2">``</span></a>％（LOGGING_LOGGER_ROOT_LEVEL）s``のような変数置換を許可し、 `` pserve``コマンドラインからこれらの変数を設定します。</p>
+<p>`` pserve development.ini LOGGING_LOGGER_ROOT_LEVEL = DEBUG``</p>
+<p>このサポートは：func： <cite>pyramid.paster.setup_logging`の新しい</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>global_conf``オプションのおかげです。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2399を参照してください。</p>
 </li>
-<li><p class="first">The <a class="reference internal" href="api/tweens.html#pyramid.tweens.EXCVIEW" title="pyramid.tweens.EXCVIEW"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyramid.tweens.EXCVIEW</span></code></a> tween will now re-raise the original
-exception if no exception view could be found to handle it. This allows
-the exception to be handled upstream by another tween or middleware.
-See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2567">https://github.com/Pylons/pyramid/pull/2567</a></p>
+<li><p class="first">：attr： <cite>pyramid.tweens.EXCVIEW</cite> tweenは、それを処理するための例外ビューが見つからなければ元の例外を再起動します。これにより、例外が別のトゥイーンまたはミドルウェアによって上流側で処理されるようになります。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2567を参照してください。</p>
 </li>
 </ul>
 </div>
 <div class="section" id="deprecations">
-<h2>Deprecations<a class="headerlink" href="#deprecations" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>廃止<a class="headerlink" href="#deprecations" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">check_csrf</span></code> view predicate has been deprecated. Use the
-new <code class="docutils literal notranslate"><span class="pre">require_csrf</span></code> option or the <code class="docutils literal notranslate"><span class="pre">pyramid.require_default_csrf</span></code> setting
-to ensure that the <a class="reference internal" href="api/exceptions.html#pyramid.exceptions.BadCSRFToken" title="pyramid.exceptions.BadCSRFToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.exceptions.BadCSRFToken</span></code></a> exception is
-raised. See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2413">https://github.com/Pylons/pyramid/pull/2413</a></li>
-<li>Support for Python 3.3 will be removed in Pyramid 1.8.
-<a class="reference external" href="https://github.com/Pylons/pyramid/issues/2477">https://github.com/Pylons/pyramid/issues/2477</a></li>
+<li>`` check_csrf``ビュー述語は非推奨です。新しい `` require_csrf``オプションまたは `` pyramid.require_default_csrf``の設定を使って、：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.exceptions.BadCSRFToken`例外が発生するようにしてください。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2413を参照してください。</li>
+<li>Python 3.3のサポートはPyramid 1.8で削除されます。 <a class="reference external" href="https://github.com/Pylons/pyramid/issues/2477">https://github.com/Pylons/pyramid/issues/2477</a></li>
 </ul>
 </div>
 <div class="section" id="scaffolding-enhancements">
-<h2>Scaffolding Enhancements<a class="headerlink" href="#scaffolding-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>足場の強化<a class="headerlink" href="#scaffolding-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>A complete overhaul of the <code class="docutils literal notranslate"><span class="pre">alchemy</span></code> scaffold to show more modern best
-practices with regards to SQLAlchemy session management, as well as a more
-modular approach to configuration, separating routes into a separate module
-to illustrate uses of <a class="reference internal" href="api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a>.
-See <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2024">https://github.com/Pylons/pyramid/pull/2024</a></li>
+<li>SQLAlchemyのセッション管理に関してより現代的なベストプラクティスを示す「錬金術」足場の完全なオーバーホールと、よりモジュラーな構成へのアプローチ、ルートを別のモジュールに分けて：meth： <cite>ピラミッドの使い方を説明する。 config.Configurator.include</cite>。 <a class="reference external" href="https://github.com/Pylons/pyramid/pull">https://github.com/Pylons/pyramid/pull</a>/2024を参照してください。</li>
 </ul>
 </div>
 <div class="section" id="documentation-enhancements">
-<h2>Documentation Enhancements<a class="headerlink" href="#documentation-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A massive overhaul of the packaging and tools used in the documentation
-was completed in <a class="reference external" href="https://github.com/Pylons/pyramid/pull/2468">https://github.com/Pylons/pyramid/pull/2468</a>. A summary
-follows:</p>
+<h2>ドキュメントの機能拡張<a class="headerlink" href="#documentation-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このドキュメントで使用されているパッケージやツールの大規模な見直しはhttps://github.com/Pylons/pyramid/pull/2468で完了しました。要約は次のとおりです。</p>
 <ul class="simple">
-<li>All docs now recommend using <code class="docutils literal notranslate"><span class="pre">pip</span></code> instead of <code class="docutils literal notranslate"><span class="pre">easy_install</span></code>.</li>
-<li>The installation docs now expect the user to be using Python 3.4 or
-greater with access to the <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">venv</span></code> tool to create virtual
-environments.</li>
-<li>Tutorials now use <code class="docutils literal notranslate"><span class="pre">py.test</span></code> and <code class="docutils literal notranslate"><span class="pre">pytest-cov</span></code> instead of <code class="docutils literal notranslate"><span class="pre">nose</span></code> and
-<code class="docutils literal notranslate"><span class="pre">coverage</span></code>.</li>
-<li>Further updates to the scaffolds as well as tutorials and their src files.</li>
+<li>すべてのドキュメントは `` easy_install``の代わりに `` pip``を使うことを推奨しています。</li>
+<li>インストール文書では、ユーザがPython 3.4以降を使用して、仮想環境を作成するための `` python3 -m venv``ツールにアクセスできるようになりました。</li>
+<li>チュートリアルでは、 `` nose``と `` coverage&amp;#39;`の代わりに `` py.test``と `` pytest-cov``を使います。</li>
+<li>チュートリアルとそのsrcファイルだけでなく、足場への更なるアップデート。</li>
 </ul>
-<p>Along with the overhaul of the <code class="docutils literal notranslate"><span class="pre">alchemy</span></code> scaffold came a total overhaul
-of the <a class="reference internal" href="tutorials/wiki2/index.html#bfg-sql-wiki-tutorial"><span class="std std-ref">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</span></a> tutorial to introduce more modern
-features into the usage of SQLAlchemy with Pyramid and provide a better
-starting point for new projects. See
-<a class="reference external" href="https://github.com/Pylons/pyramid/pull/2024">https://github.com/Pylons/pyramid/pull/2024</a> for more. Highlights were:</p>
+<p>`` alchemy``のオーバーホールに加え、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>bfg_sql_wiki_tutorial`チュートリアルの全面的な見直しが行われ、Pyramidを使ったSQLAlchemyの使い方についてより現代的な機能を紹介し、新しいプロジェクトの出発点を提供しました。詳細についてはhttps://github.com/Pylons/pyramid/pull/2024をご覧ください。ハイライトは：</p>
 <ul class="simple">
-<li>New SQLAlchemy session management without any global <code class="docutils literal notranslate"><span class="pre">DBSession</span></code>. Replaced
-by a per-request <code class="docutils literal notranslate"><span class="pre">request.dbsession</span></code> property.</li>
-<li>A new authentication chapter demonstrating how to get simple authentication
-bootstrapped quickly in an application.</li>
-<li>Authorization was overhauled to show the use of per-route context factories
-which demonstrate object-level authorization on top of simple group-level
-authorization. Did you want to restrict page edits to only the owner but
-couldn't figure it out before? Here you go!</li>
-<li>The users and groups are stored in the database now instead of within
-tutorial-specific global variables.</li>
-<li>User passwords are stored using <code class="docutils literal notranslate"><span class="pre">bcrypt</span></code>.</li>
+<li>グローバルな `` DBSession``なしの新しいSQLAlchemyセッション管理。リクエストごとの `` request.dbsession``プロパティに置き換えられました。</li>
+<li>簡単な認証をアプリケーション内で迅速にブートストラップする方法を示す新しい認証の章。</li>
+<li>認可は、単純なグループレベルの認可の上にオブジェクトレベルの認可を示すルートごとのコンテキストファクトリの使用を示すために改訂されました。ページの編集を所有者だけに制限したいのですが、それを事前に把握できませんでしたか？どうぞ！</li>
+<li>ユーザーとグループは、チュートリアル固有のグローバル変数ではなく、データベースに格納されます。</li>
+<li>ユーザパスワードは `` bcrypt``を使って保存されます。</li>
 </ul>
 </div>
 </div>
@@ -260,22 +159,22 @@ tutorial-specific global variables.</li>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">What's New in Pyramid 1.7</a><ul>
-<li><a class="reference internal" href="#backwards-incompatibilities">Backwards Incompatibilities</a></li>
-<li><a class="reference internal" href="#feature-additions">Feature Additions</a></li>
-<li><a class="reference internal" href="#deprecations">Deprecations</a></li>
-<li><a class="reference internal" href="#scaffolding-enhancements">Scaffolding Enhancements</a></li>
-<li><a class="reference internal" href="#documentation-enhancements">Documentation Enhancements</a></li>
+<li><a class="reference internal" href="#">(機械翻訳)Pyramid 1.7の新機能</a><ul>
+<li><a class="reference internal" href="#backwards-incompatibilities">後方の非互換性</a></li>
+<li><a class="reference internal" href="#feature-additions">機能の追加</a></li>
+<li><a class="reference internal" href="#deprecations">廃止</a></li>
+<li><a class="reference internal" href="#scaffolding-enhancements">足場の強化</a></li>
+<li><a class="reference internal" href="#documentation-enhancements">ドキュメントの機能拡張</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="whatsnew-1.8.html"
-                        title="前の章へ">What's New in Pyramid 1.8</a></p>
+                        title="前の章へ">Pyramid 1.8の新機能</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="whatsnew-1.6.html"
-                        title="次の章へ">What's New in Pyramid 1.6</a></p>
+                        title="次の章へ">(機械翻訳)Pyramid 1.6の新機能</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -309,10 +208,10 @@ tutorial-specific global variables.</li>
           <a href="py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="whatsnew-1.6.html" title="What&#39;s New in Pyramid 1.6"
+          <a href="whatsnew-1.6.html" title="(機械翻訳)Pyramid 1.6の新機能"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="whatsnew-1.8.html" title="What&#39;s New in Pyramid 1.8"
+          <a href="whatsnew-1.8.html" title="Pyramid 1.8の新機能"
              >前へ</a> |</li>
     	<li><a href="index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
