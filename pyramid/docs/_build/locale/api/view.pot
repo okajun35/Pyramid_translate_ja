@@ -1,0 +1,176 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/view.rst:4
+msgid ":mod:`pyramid.view`"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.render_view_to_response:1
+msgid "Call the :term:`view callable` configured with a :term:`view configuration` that matches the :term:`view name` ``name`` registered against the specified ``context`` and ``request`` and return a :term:`response` object.  This function will return ``None`` if a corresponding :term:`view callable` cannot be found (when no :term:`view configuration` matches the combination of ``name`` / ``context`` / and ``request``)."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.render_view_to_response:9
+msgid "If `secure`` is ``True``, and the :term:`view callable` found is protected by a permission, the permission will be checked before calling the view function.  If the permission check disallows view execution (based on the current :term:`authorization policy`), a :exc:`pyramid.httpexceptions.HTTPForbidden` exception will be raised. The exception's ``args`` attribute explains why the view access was disallowed."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.render_view_to_response:17
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.render_view_to_iterable:23
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.render_view:21
+msgid "If ``secure`` is ``False``, no permission checking is done."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.render_view_to_iterable:1
+msgid "Call the :term:`view callable` configured with a :term:`view configuration` that matches the :term:`view name` ``name`` registered against the specified ``context`` and ``request`` and return an iterable object which represents the body of a response. This function will return ``None`` if a corresponding :term:`view callable` cannot be found (when no :term:`view configuration` matches the combination of ``name`` / ``context`` / and ``request``).  Additionally, this function will raise a :exc:`ValueError` if a view function is found and called but the view function's result does not have an ``app_iter`` attribute."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.render_view_to_iterable:12
+msgid "You can usually get the bytestring representation of the return value of this function by calling ``b''.join(iterable)``, or just use :func:`pyramid.view.render_view` instead."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.render_view_to_iterable:16
+msgid "If ``secure`` is ``True``, and the view is protected by a permission, the permission will be checked before the view function is invoked.  If the permission check disallows view execution (based on the current :term:`authentication policy`), a :exc:`pyramid.httpexceptions.HTTPForbidden` exception will be raised; its ``args`` attribute explains why the view access was disallowed."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.render_view:1
+msgid "Call the :term:`view callable` configured with a :term:`view configuration` that matches the :term:`view name` ``name`` registered against the specified ``context`` and ``request`` and unwind the view response's ``app_iter`` (see :ref:`the_response`) into a single bytestring.  This function will return ``None`` if a corresponding :term:`view callable` cannot be found (when no :term:`view configuration` matches the combination of ``name`` / ``context`` / and ``request``).  Additionally, this function will raise a :exc:`ValueError` if a view function is found and called but the view function's result does not have an ``app_iter`` attribute. This function will return ``None`` if a corresponding view cannot be found."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.render_view:14
+msgid "If ``secure`` is ``True``, and the view is protected by a permission, the permission will be checked before the view is invoked.  If the permission check disallows view execution (based on the current :term:`authorization policy`), a :exc:`pyramid.httpexceptions.HTTPForbidden` exception will be raised; its ``args`` attribute explains why the view access was disallowed."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:1
+msgid "A function, class or method :term:`decorator` which allows a developer to create view registrations nearer to a :term:`view callable` definition than use :term:`imperative configuration` to do the same."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:6
+msgid "For example, this code in a module ``views.py``::"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:15
+msgid "Might replace the following call to the :meth:`pyramid.config.Configurator.add_view` method::"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:27
+msgid ":class:`pyramid.view.view_config` supports the following keyword arguments: ``context``, ``exception``, ``permission``, ``name``, ``request_type``, ``route_name``, ``request_method``, ``request_param``, ``containment``, ``xhr``, ``accept``, ``header``, ``path_info``, ``custom_predicates``, ``decorator``, ``mapper``, ``http_cache``, ``require_csrf``, ``match_param``, ``check_csrf``, ``physical_path``, and ``view_options``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:35
+msgid "The meanings of these arguments are the same as the arguments passed to :meth:`pyramid.config.Configurator.add_view`.  If any argument is left out, its default will be the equivalent ``add_view`` default."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:39
+msgid "Two additional keyword arguments which will be passed to the :term:`venusian` ``attach`` function are ``_depth`` and ``_category``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:42
+msgid "``_depth`` is provided for people who wish to reuse this class from another decorator. The default value is ``0`` and should be specified relative to the ``view_config`` invocation. It will be passed in to the :term:`venusian` ``attach`` function as the depth of the callstack when Venusian checks if the decorator is being used in a class or module context. It's not often used, but it can be useful in this circumstance."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:49
+msgid "``_category`` sets the decorator category name. It can be useful in combination with the ``category`` argument of ``scan`` to control which views should be processed."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:53
+msgid "See the :py:func:`venusian.attach` function in Venusian for more information about the ``_depth`` and ``_category`` arguments."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:58
+msgid "See also :ref:`mapping_views_using_a_decorator_section` for details about using :class:`pyramid.view.view_config`."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_config:63
+msgid "``view_config`` will work ONLY on module top level members because of the limitation of ``venusian.Scanner.scan``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_defaults:1
+msgid "A class :term:`decorator` which, when applied to a class, will provide defaults for all view configurations that use the class.  This decorator accepts all the arguments accepted by :meth:`pyramid.view.view_config`, and each has the same meaning."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.view_defaults:6
+msgid "See :ref:`view_defaults` for more information."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.notfound_view_config:3
+msgid "An analogue of :class:`pyramid.view.view_config` which registers a :term:`Not Found View` using :meth:`pyramid.config.Configurator.add_notfound_view`."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.notfound_view_config:7
+msgid "The ``notfound_view_config`` constructor accepts most of the same arguments as the constructor of :class:`pyramid.view.view_config`.  It can be used in the same places, and behaves in largely the same way, except it always registers a not found exception view instead of a 'normal' view."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.notfound_view_config:12
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.forbidden_view_config:12
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.exception_view_config:14
+msgid "Example:"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.notfound_view_config:23
+msgid "All arguments except ``append_slash`` have the same meaning as :meth:`pyramid.view.view_config` and each predicate argument restricts the set of circumstances under which this notfound view will be invoked."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.notfound_view_config:28
+msgid "If ``append_slash`` is ``True``, when the Not Found View is invoked, and the current path info does not end in a slash, the notfound logic will attempt to find a :term:`route` that matches the request's path info suffixed with a slash.  If such a route exists, Pyramid will issue a redirect to the URL implied by the route; if it does not, Pyramid will return the result of the view callable provided as ``view``, as normal."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.notfound_view_config:35
+msgid "If the argument provided as ``append_slash`` is not a boolean but instead implements :class:`~pyramid.interfaces.IResponse`, the append_slash logic will behave as if ``append_slash=True`` was passed, but the provided class will be used as the response class instead of the default :class:`~pyramid.httpexceptions.HTTPFound` response class when a redirect is performed.  For example:"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.notfound_view_config:53
+msgid "The above means that a redirect to a slash-appended route will be attempted, but instead of :class:`~pyramid.httpexceptions.HTTPFound` being used, :class:`~pyramid.httpexceptions.HTTPMovedPermanently will be used` for the redirect response if a slash-appended route is found."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.notfound_view_config:58
+msgid "See :ref:`changing_the_notfound_view` for detailed usage information."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.notfound_view_config:60
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.forbidden_view_config:29
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.exception_view_config:29
+msgid "Added the ``_depth`` and ``_category`` arguments."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.forbidden_view_config:3
+msgid "An analogue of :class:`pyramid.view.view_config` which registers a :term:`forbidden view` using :meth:`pyramid.config.Configurator.add_forbidden_view`."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.forbidden_view_config:7
+msgid "The forbidden_view_config constructor accepts most of the same arguments as the constructor of :class:`pyramid.view.view_config`.  It can be used in the same places, and behaves in largely the same way, except it always registers a forbidden exception view instead of a 'normal' view."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.forbidden_view_config:23
+msgid "All arguments passed to this function have the same meaning as :meth:`pyramid.view.view_config` and each predicate argument restricts the set of circumstances under which this notfound view will be invoked."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.forbidden_view_config:27
+msgid "See :ref:`changing_the_forbidden_view` for detailed usage information."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.exception_view_config:3
+msgid "An analogue of :class:`pyramid.view.view_config` which registers an :term:`exception view` using :meth:`pyramid.config.Configurator.add_exception_view`."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.exception_view_config:7
+msgid "The ``exception_view_config`` constructor requires an exception context, and additionally accepts most of the same arguments as the constructor of :class:`pyramid.view.view_config`.  It can be used in the same places, and behaves in largely the same way, except it always registers an exception view instead of a \"normal\" view that dispatches on the request :term:`context`."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/view.py:docstring of pyramid.view.exception_view_config:25
+msgid "All arguments passed to this function have the same meaning as :meth:`pyramid.view.view_config`, and each predicate argument restricts the set of circumstances under which this exception view will be invoked."
+msgstr ""
+

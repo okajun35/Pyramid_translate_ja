@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="URL Dispatch" href="urldispatch.html" />
-    <link rel="prev" title="Startup" href="startup.html" />
+    <link rel="next" title="(機械翻訳) URLディスパッチ" href="urldispatch.html" />
+    <link rel="prev" title="(機械翻訳) 起動" href="startup.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="urldispatch.html" title="URL Dispatch"
+          <a href="urldispatch.html" title="(機械翻訳) URLディスパッチ"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="startup.html" title="Startup"
+          <a href="startup.html" title="(機械翻訳) 起動"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -91,7 +91,7 @@
 <li><p class="first">続いて、ルートが一致すると見つかったルートに関連付けられたルートオブジェクトが生成されます。 一致した <a class="reference internal" href="../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a> に関連する「ファクトリ」引数がある場合はこのファクトリを使用して、ルートオブジェクトを生成します。 それ以外の場合は、デフォルトの <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> が使用されます。</p>
 <p>ただし一致するルートがなく、引数「root_factory」が <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a>　に渡された場合はその呼び出し可能オブジェクトがrootオブジェクトを生成するために使用されます。 Configuratorコンストラクタに渡されたroot_factoryが「None」の場合、デフォルトのroot_factoryがrootオブジェクトを生成するために使用されます。</p>
 </li>
-<li><p class="first"><span>Pyramid</span> router は、 root オブジェクトおよびリクエストを備えた「traverser」関数を呼びます。関数traverserは <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a>  を見つけるために (root オブジェクトかサブオブジェクト上のいずれかの既存の``__getitem__`` を使用して) root オブジェクトをトラバースしようとします。 root オブジェクトに <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> メソッドがない場合、 root はそれ自身コンテキストであると仮定されます。正確なトラバーサルアルゴリズムは <a class="reference internal" href="traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a> で述べられています。トラバーサー機能は辞書を返します。それは他の補足情報と同様に <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> と <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> も含んでいます。</p>
+<li><p class="first"><span>Pyramid</span> router は、 root オブジェクトおよびリクエストを備えた「traverser」関数を呼びます。関数traverserは <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a>  を見つけるために (root オブジェクトかサブオブジェクト上のいずれかの既存の``__getitem__`` を使用して) root オブジェクトをトラバースしようとします。 root オブジェクトに <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> メソッドがない場合、 root はそれ自身コンテキストであると仮定されます。正確なトラバーサルアルゴリズムは <a class="reference internal" href="traversal.html#traversal-chapter"><span class="std std-ref">(機械翻訳) トラバーサル</span></a> で述べられています。トラバーサー機能は辞書を返します。それは他の補足情報と同様に <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> と <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> も含んでいます。</p>
 </li>
 <li><p class="first">そのリクエストは、トラバーサーから返された様々な (<code class="docutils literal notranslate"><span class="pre">context</span></code> や <code class="docutils literal notranslate"><span class="pre">view_name</span></code> などのような) 名前でデコレートされます。したがって、例えば <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> コード内で <code class="docutils literal notranslate"><span class="pre">request.context</span></code> などでアクセスできます。</p>
 </li>
@@ -110,7 +110,7 @@
 <li><p class="first"><a class="reference internal" href="../glossary.html#term-thread-local"><span class="xref std std-term">thread local</span></a> スタックが pop されます。</p>
 </li>
 </ol>
-<img alt="Pyramid Router" src="../_images/pyramid_router.svg" /><p>これは様々な詳細を省略した非常に高レベルの概観です。トラバーサル、URLディスパッチ、ビュー、イベント処理のような <span>Pyramid</span> router によって起動されたサブシステムに関するより詳細については、 <a class="reference internal" href="urldispatch.html#urldispatch-chapter"><span class="std std-ref">URL Dispatch</span></a>, <a class="reference internal" href="views.html#views-chapter"><span class="std std-ref">ビュー(Views)</span></a>, <a class="reference internal" href="events.html#events-chapter"><span class="std std-ref">Using Events</span></a> を見てください。</p>
+<img alt="Pyramid Router" src="../_images/pyramid_router.svg" /><p>これは様々な詳細を省略した非常に高レベルの概観です。トラバーサル、URLディスパッチ、ビュー、イベント処理のような <span>Pyramid</span> router によって起動されたサブシステムに関するより詳細については、 <a class="reference internal" href="urldispatch.html#urldispatch-chapter"><span class="std std-ref">(機械翻訳) URLディスパッチ</span></a>, <a class="reference internal" href="views.html#views-chapter"><span class="std std-ref">ビュー(Views)</span></a>, <a class="reference internal" href="events.html#events-chapter"><span class="std std-ref">(機械翻訳) イベントの使用</span></a> を見てください。</p>
 </div>
 
 
@@ -121,10 +121,10 @@
         <div class="sphinxsidebarwrapper">
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="startup.html"
-                        title="前の章へ">Startup</a></p>
+                        title="前の章へ">(機械翻訳) 起動</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="urldispatch.html"
-                        title="次の章へ">URL Dispatch</a></p>
+                        title="次の章へ">(機械翻訳) URLディスパッチ</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -158,17 +158,17 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="urldispatch.html" title="URL Dispatch"
+          <a href="urldispatch.html" title="(機械翻訳) URLディスパッチ"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="startup.html" title="Startup"
+          <a href="startup.html" title="(機械翻訳) 起動"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

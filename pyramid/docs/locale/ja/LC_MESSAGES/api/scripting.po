@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../api/scripting.rst:4
 msgid ":mod:`pyramid.scripting`"
-msgstr ""
+msgstr "(機械翻訳) :mod:`pyramid.scripting`"
 
 #: of pyramid.scripting.get_root:1
 msgid ""
@@ -29,7 +19,7 @@ msgid ""
 "is the application root object.  The ``closer`` returned is a callable "
 "(accepting no arguments) that should be called when your scripting "
 "application is finished using the root."
-msgstr ""
+msgstr "a：term： `router`インスタンスが` `app``引数として提供されたときに` `（root、close）` `で構成されるタプルを返します。返される `` root``はアプリケーションのルートオブジェクトです。返される `` close``は、スクリプトアプリケーションがルートを使って終了したときに呼び出されるべきcallable（引数を受け付けません）です。"
 
 #: of pyramid.scripting.get_root:7 pyramid.scripting.prepare:6
 msgid ""
@@ -37,7 +27,7 @@ msgid ""
 "compute the root. If ``request`` is None, a default will be constructed "
 "using the registry's :term:`Request Factory` via the "
 ":meth:`pyramid.interfaces.IRequestFactory.blank` method."
-msgstr ""
+msgstr "`` request``は：app： `Pyramid`アプリケーションルートファクトリに渡され、ルートを計算します。 `` request``がNoneの場合、：meth： `pyramid.interfaces.IRequestFactory.blank`メソッドを介してレジストリの：term：` Request Factory`を使ってデフォルトが構築されます。"
 
 #: of pyramid.scripting.prepare:1
 msgid ""
@@ -45,7 +35,7 @@ msgid ""
 " registry), making those objects 'current'.  It returns a dictionary "
 "useful for bootstrapping a Pyramid application in a scripting "
 "environment."
-msgstr ""
+msgstr "この関数はPyramidスレッドローカルスタック（要求とレジストリ）にデータをプッシュし、それらのオブジェクトを「最新」にします。スクリプティング環境でPyramidアプリケーションのブートストラップに役立つ辞書を返します。"
 
 #: of pyramid.scripting.prepare:11
 msgid ""
@@ -55,7 +45,7 @@ msgid ""
 " not want to use the last registry loaded, thus you can search the "
 "``global_registries`` and supply the appropriate one based on your own "
 "criteria."
-msgstr ""
+msgstr "`` registry``が指定されていない場合、最後に読み込まれた：attr： `pyramid.config.global_registries`のレジストリが使用されます。現在のプロセスで複数の：app： `Pyramid`アプリケーションをロードした場合、最後にロードされたレジストリを使用したくないので、` `global_registries``を検索し、独自の基準に基づいて適切なものを提供することができます。"
 
 #: of pyramid.scripting.prepare:18
 msgid ""
@@ -67,15 +57,15 @@ msgid ""
 "resolved registry object. ``request`` is the request object passed or the"
 " constructed request if no request is passed.  ``root_factory`` is the "
 "root factory used to construct the root."
-msgstr ""
+msgstr "この関数は、 `` root``、 `` close``、 `` registry``、 `` request``、 `` root_factory``で構成される辞書を返します。返される `` root``は、アプリケーションのルートリソースオブジェクトです。返される `` close``は、スクリプトアプリケーションがルートを使って終了したときに呼び出されるべきcallable（引数を受け付けません）です。 `` registry``は解決されたレジストリオブジェクトです。 `` request``は渡されたリクエストオブジェクトです。リクエストが渡されなかった場合は、構築されたリクエストです。 `` root_factory``は、ルートを構築するために使われるルートファクトリです。"
 
 #: of pyramid.scripting.prepare:28
 msgid ""
 "This function may be used as a context manager to call the ``closer`` "
 "automatically:"
-msgstr ""
+msgstr "この関数は、自動的に `` close``を呼び出すコンテキストマネージャとして使用できます："
 
 #: of pyramid.scripting.prepare:40
 msgid "Added the ability to use the return value as a context manager."
-msgstr ""
+msgstr "コンテクストマネージャーとして戻り値を使用する機能が追加されました。"
 

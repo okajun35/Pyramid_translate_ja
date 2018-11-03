@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/security.rst:7
 msgid "Security"
-msgstr ""
+msgstr "(機械翻訳) セキュリティ"
 
 #: ../../narr/security.rst:9
 msgid ""
@@ -33,7 +23,7 @@ msgid ""
 "groups that are in effect during the request. Authorization then "
 "determines access based on the :term:`principal` identifiers, the "
 "requested :term:`permission`, and a :term:`context`."
-msgstr ""
+msgstr "：app： `Pyramid`はオプションで宣言的なセキュリティシステムを提供します。セキュリティで：app： `Pyramid`は認証と認可に分かれています。 2つのシステムはterm： `principal`識別子で通信します。認証は単に：term： `request`で提供された資格証明が1つ以上の：term：` principal`識別子に解決されるメカニズムです。これらの識別子は、要求時に有効なユーザーとグループを表します。承認は：term： `principal`識別子、要求された：term：` permission`、およびa：term： `context`に基づいてアクセスを決定します。"
 
 #: ../../narr/security.rst:18
 msgid ""
@@ -42,7 +32,7 @@ msgid ""
 "invoked, the authorization system can use the credentials in the "
 ":term:`request` along with the :term:`context` resource to determine if "
 "access will be allowed.  Here's how it works at a high level:"
-msgstr ""
+msgstr "：app： `Pyramid`認可システムは：term：`認可ポリシー `に基づいてa：term：` view`が呼び出されるのを防ぐことができます。ビューが呼び出される前に、認証システムは：term： `context`リソースとともに、：term：` request`の資格情報を使用して、アクセスが許可されるかどうかを判断することができます。どのように高いレベルで動作するかは次のとおりです。"
 
 #: ../../narr/security.rst:24
 msgid ""
@@ -50,11 +40,11 @@ msgid ""
 "supplied authentication credentials, including a :term:`userid`.  If so, "
 "the application may have called :func:`pyramid.security.remember` to "
 "remember these."
-msgstr ""
+msgstr "ユーザーは以前にアプリケーションを訪れていてもいなくてもかまいませんし、：term： `userid`を含む認証資格情報を提供しているかもしれません。もしそうなら、アプリケーションはfunc： `pyramid.security.remember`を呼び出してこれらを覚えているかもしれません。"
 
 #: ../../narr/security.rst:29
 msgid "A :term:`request` is generated when a user visits the application."
-msgstr ""
+msgstr "A：term： `request`は、ユーザがアプリケーションを訪れたときに生成されます。"
 
 #: ../../narr/security.rst:31
 msgid ""
@@ -63,13 +53,13 @@ msgid ""
 " whether the application uses :term:`traversal` or :term:`URL dispatch`, "
 "but a context is ultimately found in either case.  See the "
 ":ref:`urldispatch_chapter` chapter for more information."
-msgstr ""
+msgstr "この要求に基づいて、a：term： `context`リソースは：term：` resource location`によって配置されます。コンテキストは、アプリケーションがterm： `traversal`または：term：` URL dispatch`を使用するかどうかによって異なって位置付けられますが、どちらの場合でもコンテキストは最終的に見つかります。詳細は、：ref： `urldispatch_chapter`の章を参照してください。"
 
 #: ../../narr/security.rst:37
 msgid ""
 "A :term:`view callable` is located by :term:`view lookup` using the "
 "context as well as other attributes of the request."
-msgstr ""
+msgstr "A：term： `view callable`は：term：` view lookup`によってコンテキストのほかにリクエストの他の属性を使用しています。"
 
 #: ../../narr/security.rst:40
 msgid ""
@@ -77,7 +67,7 @@ msgid ""
 "request. It will return some number of :term:`principal` identifiers. To "
 "do this, the policy would need to determine the authenticated "
 ":term:`userid` present in the request."
-msgstr ""
+msgstr "：term： `認証ポリシー`が有効な場合、要求に渡されます。いくつかの：term： `principal`識別子を返します。これを行うには、ポリシーは、リクエストに存在するauthenticated：term： `userid`を判断する必要があります。"
 
 #: ../../narr/security.rst:45
 msgid ""
@@ -87,17 +77,17 @@ msgid ""
 " the :term:`context`, some number of :term:`principal` identifiers "
 "returned by the authentication policy, and the :term:`permission` "
 "associated with the view; it will allow or deny access."
-msgstr ""
+msgstr "：term： `認可ポリシー`が有効であり、見つかったビューcallableに関連付けられた：term： `view configuration`に：term：` permission`が関連付けられている場合、認可ポリシーは次のように渡されます：term： `context`、認証ポリシーによって返されるterm：` principal`識別子、ビューに関連する：term： `permission`です。アクセスを許可または拒否します。"
 
 #: ../../narr/security.rst:52
 msgid "If the authorization policy allows access, the view callable is invoked."
-msgstr ""
+msgstr "権限ポリシーがアクセスを許可する場合、呼び出し可能なビューが呼び出されます。"
 
 #: ../../narr/security.rst:54
 msgid ""
 "If the authorization policy denies access, the view callable is not "
 "invoked. Instead the :term:`forbidden view` is invoked."
-msgstr ""
+msgstr "認可ポリシーがアクセスを拒否した場合、呼び出し可能なビューは呼び出されません。代わりに：term： `禁止されたビュー &#39;が呼び出されます。"
 
 #: ../../narr/security.rst:57
 msgid ""
@@ -106,11 +96,11 @@ msgid ""
 ":app:`Pyramid` comes with a variety of implementations of these policies."
 "  To provide maximal flexibility, :app:`Pyramid` also allows you to "
 "create custom authentication policies and authorization policies."
-msgstr ""
+msgstr "承認は、アプリケーションを変更して：term： `認証ポリシー`と：term： `認証ポリシー`を含むようにすることで可能になります。 ：app： `Pyramid`には、これらのポリシーのさまざまな実装が付属しています。最大限の柔軟性を提供するために、：app： `Pyramid`ではカスタム認証ポリシーと認証ポリシーを作成することもできます。"
 
 #: ../../narr/security.rst:69
 msgid "Enabling an Authorization Policy"
-msgstr ""
+msgstr "承認ポリシーの有効化"
 
 #: ../../narr/security.rst:71
 msgid ""
@@ -118,18 +108,18 @@ msgid ""
 "views are accessible by completely anonymous users.  In order to begin "
 "protecting views from execution based on security settings, you need to "
 "enable an authorization policy."
-msgstr ""
+msgstr "：app： `Pyramid`は、デフォルトでは、どの認可ポリシーも有効にしていません。すべてのビューには、完全に匿名のユーザーがアクセスできます。セキュリティ設定に基づいてビューを実行から保護するには、認可ポリシーを有効にする必要があります。"
 
 #: ../../narr/security.rst:77
 msgid "Enabling an Authorization Policy Imperatively"
-msgstr ""
+msgstr "権限付きポリシーを必然的に有効にする"
 
 #: ../../narr/security.rst:79
 msgid ""
 "Use the :meth:`~pyramid.config.Configurator.set_authorization_policy` "
 "method of the :class:`~pyramid.config.Configurator` to enable an "
 "authorization policy."
-msgstr ""
+msgstr "権限ポリシーを有効にするには、：class： `〜pyramid.config.Configurator`の：meth：`〜pyramid.config.Configurator.set_authorization_policy`メソッドを使用します。"
 
 #: ../../narr/security.rst:82
 msgid ""
@@ -138,11 +128,11 @@ msgid ""
 "depends upon authentication.  Use the "
 ":meth:`~pyramid.config.Configurator.set_authentication_policy` method "
 "during application setup to specify the authentication policy."
-msgstr ""
+msgstr "権限ポリシーを有効にするには、：term： `認証ポリシー &#39;も有効にする必要があります。これは、認証は一般に認証に依存するためです。アプリケーション設定中に：meth： `〜pyramid.config.Configurator.set_authentication_policy`メソッドを使用して、認証ポリシーを指定します。"
 
 #: ../../narr/security.rst:88 ../../narr/security.rst:797
 msgid "For example:"
-msgstr ""
+msgstr "例えば："
 
 #: ../../narr/security.rst:102
 msgid ""
@@ -150,7 +140,7 @@ msgid ""
 "also be passed to their respective methods mentioned above as "
 ":term:`dotted Python name` values, each representing the dotted name path"
 " to a suitable implementation global defined at Python module scope."
-msgstr ""
+msgstr "`` authentication_policy``と `` authorization_policy``引数は上記のそれぞれのメソッドに渡すこともできます：term：Pythonモジュールスコープで定義された適切な実装グローバルへの点線の名前パスを表す `dotted Python name`値。"
 
 #: ../../narr/security.rst:107
 msgid ""
@@ -160,7 +150,7 @@ msgid ""
 ":term:`principals <principal>` against the principals present in any "
 ":term:`ACL` found in the resource tree when attempting to call some "
 ":term:`view`."
-msgstr ""
+msgstr "上記の設定では、要求の環境で渡された\ &quot;auth ticket \&quot;クッキーの値をsingle：term： `userid`への参照を含むポリシーと比較し、そのuseridの：term：` principals <principal> &#39;：term： `view`を呼び出そうとしたときに、リソースツリーに見つかったany：term：` ACL`に存在するプリンシパルに対して。"
 
 #: ../../narr/security.rst:113
 msgid ""
@@ -169,18 +159,18 @@ msgid ""
 " with an authentication policy but without the authorization policy or "
 "vice versa. If you do this, you'll receive an error at application "
 "startup time."
-msgstr ""
+msgstr "さまざまな認証ポリシーと認証ポリシーを混在させることは可能ですが、Pyramidアプリケーションを認証ポリシーを使用して設定することはできますが、許可ポリシーは設定しないでください。これを行うと、アプリケーションの起動時にエラーが発生します。"
 
 #: ../../narr/security.rst:120
 msgid ""
 "See also the :mod:`pyramid.authorization` and "
 ":mod:`pyramid.authentication` modules for alternative implementations of "
 "authorization and authentication policies."
-msgstr ""
+msgstr "認証と認証ポリシーの代替実装については：mod： `pyramid.authorization`と：mod：` pyramid.authentication`モジュールも参照してください。"
 
 #: ../../narr/security.rst:131
 msgid "Protecting Views with Permissions"
-msgstr ""
+msgstr "アクセス権によるビューの保護"
 
 #: ../../narr/security.rst:133
 msgid ""
@@ -189,7 +179,7 @@ msgid ""
 ":term:`context`, you must pass a :term:`permission` to :term:`view "
 "configuration`.  Permissions are usually just strings, and they have no "
 "required composition: you can name permissions whatever you like."
-msgstr ""
+msgstr "特定のタイプのリソースが：term： `context`になったときに、ユーザのセキュリティ設定に基づいて呼び出しから` view callable`を保護するには、：term： `permission`を：term：` view configuration `。パーミッションは通常文字列であり、必要なコンポジションはありません。あなたが好きなようにパーミッションを指定することができます。"
 
 #: ../../narr/security.rst:139
 msgid ""
@@ -197,13 +187,13 @@ msgid ""
 "``add_entry.html`` when the context resource is of type ``Blog`` with the"
 " ``add`` permission using the "
 ":meth:`pyramid.config.Configurator.add_view` API:"
-msgstr ""
+msgstr "たとえば、次のビュー宣言は、コンテキストリソースが：meth： `pyramid.config.Configuratorを使用して` `add``パーミッションを持つ` `Blog``型である場合、` `add_entry.html``という名前のビューを保護します。 add_view` API："
 
 #: ../../narr/security.rst:153
 msgid ""
 "The equivalent view registration including the ``add`` permission name "
 "may be performed via the ``@view_config`` decorator:"
-msgstr ""
+msgstr "`` add``許可名を含む等価なビューの登録は、 `` @ view_config``デコレータを使って行うことができます："
 
 #: ../../narr/security.rst:167
 msgid ""
@@ -213,18 +203,18 @@ msgid ""
 "the ``add`` permission against the :term:`context` resource in order to "
 "be able to invoke the ``blog_entry_add_view`` view.  If they do not, the "
 ":term:`Forbidden view` will be invoked."
-msgstr ""
+msgstr "これらの様々なビュー構成ステートメントの結果、通常のアプリケーション操作中にビュー呼び出し可能なものが見つかったときに認証ポリシーが設定されている場合、要求側ユーザーは：term： `に対して` `add``アクセス権を持っている必要があります`` blog_entry_add_view``ビューを呼び出せるようにするために `` context``リソースを使います。そうでない場合、：term： `禁止されたビュー &#39;が呼び出されます。"
 
 #: ../../narr/security.rst:180
 msgid "Setting a Default Permission"
-msgstr ""
+msgstr "既定のアクセス許可の設定"
 
 #: ../../narr/security.rst:182
 msgid ""
 "If a permission is not supplied to a view configuration, the registered "
 "view will always be executable by entirely anonymous users: any "
 "authorization policy in effect is ignored."
-msgstr ""
+msgstr "ビュー構成に権限が与えられていない場合、登録ビューは常に完全に匿名ユーザーによって実行可能になります。有効な権限ポリシーはすべて無視されます。"
 
 #: ../../narr/security.rst:186
 msgid ""
@@ -233,24 +223,24 @@ msgid ""
 " permission.  If supplied, the default permission is used as the "
 "permission string to all view registrations which don't otherwise name a "
 "``permission`` argument."
-msgstr ""
+msgstr "\ &quot;デフォルトでセキュリティで保護されている\&quot;というアプリケーションを簡単に設定できるようにするため、：app： `Pyramid`では*デフォルトの権限を設定することができます。指定されていれば、デフォルトの許可は、それ以外の場合は `` permission``引数に名前を付けないすべてのビュー登録に対する許可文字列として使用されます。"
 
 #: ../../narr/security.rst:191
 msgid ""
 "The :meth:`pyramid.config.Configurator.set_default_permission` method "
 "supports configuring a default permission for an application."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.set_default_permission`メソッドは、アプリケーションのデフォルトパーミッションの設定をサポートしています。"
 
 #: ../../narr/security.rst:194
 msgid "When a default permission is registered:"
-msgstr ""
+msgstr "既定のアクセス許可が登録されている場合："
 
 #: ../../narr/security.rst:196
 msgid ""
 "If a view configuration names an explicit ``permission``, the default "
 "permission is ignored for that view registration, and the view-"
 "configuration-named permission is used."
-msgstr ""
+msgstr "ビュー構成が明示的に `` permission``という名前を付けると、そのビューの登録ではデフォルトの権限は無視され、view-configuration-namedの権限が使用されます。"
 
 #: ../../narr/security.rst:200
 msgid ""
@@ -258,7 +248,7 @@ msgid ""
 ":data:`pyramid.security.NO_PERMISSION_REQUIRED`, the default permission "
 "is ignored, and the view is registered *without* a permission (making it "
 "available to all callers regardless of their credentials)."
-msgstr ""
+msgstr "ビューの設定でpermission：data： `pyramid.security.NO_PERMISSION_REQUIRED`という名前が付けられた場合、デフォルトの権限は無視され、ビューは権限なしで*登録されます（資格に関係なくすべての発信者が利用できるようになります）。"
 
 #: ../../narr/security.rst:207
 msgid ""
@@ -267,11 +257,11 @@ msgid ""
 "views which are truly meant to be anonymously accessible, you will need "
 "to associate the view's configuration with the "
 ":data:`pyramid.security.NO_PERMISSION_REQUIRED` permission."
-msgstr ""
+msgstr "デフォルトのパーミッションを登録すると、* all *ビュー（term： `例外ビュー`ビュー）もパーミッションで保護されます。真に匿名でアクセスできるすべてのビューについて、ビューの設定を：data： `pyramid.security.NO_PERMISSION_REQUIRED`パーミッションに関連付ける必要があります。"
 
 #: ../../narr/security.rst:221
 msgid "Assigning ACLs to Your Resource Objects"
-msgstr ""
+msgstr "リソースオブジェクトへのACLの割り当て"
 
 #: ../../narr/security.rst:223
 msgid ""
@@ -282,19 +272,19 @@ msgid ""
 "the resource object. This attribute can be defined on the resource "
 "*instance* if you need instance-level security, or it can be defined on "
 "the resource *class* if you just need type-level security."
-msgstr ""
+msgstr "デフォルト：app： `Pyramid`：term：`認可ポリシー &#39;が、ユーザーがリソースに関して特定の許可を持っているかどうかを判断するとき、リソースに関連付けられた：term： `ACL`を検査します。 ACLは、リソースオブジェクトに `` __acl__``属性を追加することによってリソースに関連付けられます。この属性は、インスタンスレベルのセキュリティが必要な場合はリソース*インスタンス*で定義でき、タイプレベルのセキュリティが必要な場合はリソース*クラス*で定義できます。"
 
 #: ../../narr/security.rst:231
 msgid ""
 "For example, an ACL might be attached to the resource for a blog via its "
 "class:"
-msgstr ""
+msgstr "たとえば、ブログのリソースにクラスを介してACLを添付することができます。"
 
 #: ../../narr/security.rst:246
 msgid ""
 "Or, if your resources are persistent, an ACL might be specified via the "
 "``__acl__`` attribute of an *instance* of a resource:"
-msgstr ""
+msgstr "また、リソースが永続的である場合、ACLはリソースの*インスタンス*の `` __acl__``属性で指定することができます："
 
 #: ../../narr/security.rst:266
 msgid ""
@@ -303,14 +293,14 @@ msgid ""
 "individual resource instances with an ACL (as opposed to just decorating "
 "their class) in applications such as content management systems where "
 "fine-grained access is required on an object-by-object basis."
-msgstr ""
+msgstr "ACLがリソースのクラスにアタッチされているか、リソース自体のインスタンスにアタッチされているかにかかわらず、その効果は同じです。オブジェクト単位できめ細かなアクセスが必要なコンテンツ管理システムなどのアプリケーションでは、個々のリソースインスタンスをACLで修飾すると便利です（クラスを装飾するのではなく）。"
 
 #: ../../narr/security.rst:272
 msgid ""
 "Dynamic ACLs are also possible by turning the ACL into a callable on the "
 "resource. This may allow the ACL to dynamically generate rules based on "
 "properties of the instance."
-msgstr ""
+msgstr "動的ACLは、ACLをリソース上の呼び出し可能にすることによっても可能です。これにより、ACLはインスタンスのプロパティに基づいてルールを動的に生成できます。"
 
 #: ../../narr/security.rst:295
 msgid ""
@@ -318,15 +308,15 @@ msgid ""
 "``AttributeError`` occurring in ``fget`` or ``fset`` will be silently "
 "dismissed (this is consistent with Python ``getattr`` and ``hasattr`` "
 "behaviors). For dynamic ACLs, simply use callables, as documented above."
-msgstr ""
+msgstr "`` __acl__``をプロパティとして書くのは、 `` fget``や `` fset``で起こっている `` AttributeError``が黙って解消されるので、お勧めしません（これはPythonの `` getattr``と `` hasattr`` `行動）。ダイナミックACLの場合は、上記のとおり、単にコールアーブルを使用します。"
 
 #: ../../narr/security.rst:306
 msgid "Elements of an ACL"
-msgstr ""
+msgstr "ACLの要素"
 
 #: ../../narr/security.rst:308
 msgid "Here's an example ACL:"
-msgstr ""
+msgstr "次に、ACLの例を示します。"
 
 #: ../../narr/security.rst:322
 msgid ""
@@ -334,7 +324,7 @@ msgid ""
 "principal—a special system-defined principal indicating, literally, "
 "everyone—is allowed to view the blog, and the ``group:editors`` principal"
 " is allowed to add to and edit the blog."
-msgstr ""
+msgstr "ACLの例は、：data： `pyramid.security.Everyone`プリンシパル（文字通り全員を示す特別なシステム定義プリンシパル）がブログを閲覧することを許可され、` `group：editors``プリンシパルがブログに追加して編集する。"
 
 #: ../../narr/security.rst:327
 msgid ""
@@ -342,7 +332,7 @@ msgid ""
 "example, in the above code block, there are three ACEs: ``(Allow, "
 "Everyone, 'view')``, ``(Allow, 'group:editors', 'add')``, and ``(Allow, "
 "'group:editors', 'edit')``."
-msgstr ""
+msgstr "ACLの各要素は：term： `ACE`またはアクセス制御エントリです。例えば、上記のコードブロックには、 ``（許可、全員、 &#39;ビュー&#39;）、 ``（許可、 &#39;グループ：編集者&#39;、 &#39;追加&#39;）、 ``許可： &#39;グループ：編集者&#39;、 &#39;編集&#39;） ``。"
 
 #: ../../narr/security.rst:331
 msgid ""
@@ -350,7 +340,7 @@ msgid ""
 " :data:`pyramid.security.Deny`, representing the action to take when the "
 "ACE matches.  The second element is a :term:`principal`.  The third "
 "argument is a permission or sequence of permission names."
-msgstr ""
+msgstr "ACEの最初の要素は、data： `pyramid.security.Allow`、または：data：` pyramid.security.Deny`です。これは、ACEが一致したときに取るアクションを表します。 2番目の要素は：term： `principal`です。 3番目の引数は、パーミッション名のパーミッションまたはシーケンスです。"
 
 #: ../../narr/security.rst:336
 msgid ""
@@ -358,13 +348,13 @@ msgid ""
 "your authentication system provides group information and the effective "
 ":term:`authentication policy` policy is written to respect group "
 "information. See :ref:`extending_default_authentication_policies`."
-msgstr ""
+msgstr "プリンシパルは通常はユーザーIDですが、認証システムがグループ情報を提供し、有効：term： `認証ポリシー`ポリシーがグループ情報を考慮して記述されている場合は、グループIDでもかまいません。参照：ref： `extend_default_authentication_policies`を参照してください。"
 
 #: ../../narr/security.rst:341
 msgid ""
 "Each ACE in an ACL is processed by an authorization policy *in the order "
 "dictated by the ACL*.  So if you have an ACL like this:"
-msgstr ""
+msgstr "ACL内の各ACEは、ACL *で指定された順序で認可ポリシー*によって処理されます。したがって、次のようなACLがあるとします。"
 
 #: ../../narr/security.rst:356
 msgid ""
@@ -372,13 +362,13 @@ msgid ""
 "permission, even though later in the ACL you have an ACE that denies "
 "everyone the view permission.  On the other hand, if you have an ACL like"
 " this:"
-msgstr ""
+msgstr "既定の認可ポリシーでは、後でACLにすべてのユーザーにビューのアクセス許可を拒否するACEがあっても、すべてのユーザーに表示許可が許可されます。一方、次のようなACLがある場合は、"
 
 #: ../../narr/security.rst:372
 msgid ""
 "The authorization policy will deny everyone the view permission, even "
 "though later in the ACL, there is an ACE that allows everyone."
-msgstr ""
+msgstr "認可ポリシーは、後でACLにも、すべての人を許可するACEが存在するにもかかわらず、すべての人に表示許可を拒否します。"
 
 #: ../../narr/security.rst:375
 msgid ""
@@ -387,22 +377,22 @@ msgid ""
 "ACEs representing a number of different permission grants to a single "
 "``group:editors`` group, we can collapse this into a single ACE, as "
 "below."
-msgstr ""
+msgstr "ACEの3番目の引数は、1つのアクセス権名の代わりに一連のアクセス権名にすることもできます。したがって、単一の `` group：editors``グループにいくつかの異なる許可許可を表す複数のACEを作成するのではなく、これを以下のように単一のACEにすることができます。"
 
 #: ../../narr/security.rst:397
 msgid "Special Principal Names"
-msgstr ""
+msgstr "特別なプリンシパル名"
 
 #: ../../narr/security.rst:399
 msgid ""
 "Special principal names exist in the :mod:`pyramid.security` module.  "
 "They can be imported for use in your own code to populate ACLs, e.g., "
 ":data:`pyramid.security.Everyone`."
-msgstr ""
+msgstr "特殊なプリンシパル名は：mod： `pyramid.security`モジュールにあります。あなた自身のコードで使用するためにインポートすることができます（例：：data： `pyramid.security.Everyone`）。"
 
 #: ../../narr/security.rst:403
 msgid ":data:`pyramid.security.Everyone`"
-msgstr ""
+msgstr "：データ： `pyramid.security.Everyone`"
 
 #: ../../narr/security.rst:405
 msgid ""
@@ -410,32 +400,32 @@ msgid ""
 "under the hood (``system.Everyone``).  Every user *is* the principal "
 "named \"Everyone\" during every request, even if a security policy is not"
 " in use."
-msgstr ""
+msgstr "文字どおり、誰でも、何でも。このオブジェクトは実際にはフードの下の文字列です（ `` system.Everyone``）。すべてのユーザー*は、セキュリティポリシーが使用されていなくても、すべての要求中に\ &quot;Everyone \&quot;という名前のプリンシパルです。"
 
 #: ../../narr/security.rst:409
 msgid ":data:`pyramid.security.Authenticated`"
-msgstr ""
+msgstr "：データ： `pyramid.security.Authenticated`"
 
 #: ../../narr/security.rst:411
 msgid ""
 "Any user with credentials as determined by the current security policy.  "
 "You might think of it as any user that is \"logged in\".  This object is "
 "actually a string under the hood (``system.Authenticated``)."
-msgstr ""
+msgstr "現在のセキュリティポリシーによって決定された資格情報を持つすべてのユーザー。あなたは\ &quot;ログインしている\&quot;というユーザーと考えるかもしれません。このオブジェクトは実際にはフードの下にある文字列です（ `` system.Authenticated``）。"
 
 #: ../../narr/security.rst:420
 msgid "Special Permissions"
-msgstr ""
+msgstr "特別な許可"
 
 #: ../../narr/security.rst:422
 msgid ""
 "Special permission names exist in the :mod:`pyramid.security` module.  "
 "These can be imported for use in ACLs."
-msgstr ""
+msgstr "特殊なパーミッション名は：mod： `pyramid.security`モジュールにあります。これらは、ACLで使用するためにインポートできます。"
 
 #: ../../narr/security.rst:427
 msgid ":data:`pyramid.security.ALL_PERMISSIONS`"
-msgstr ""
+msgstr "：データ： `pyramid.security.ALL_PERMISSIONS`"
 
 #: ../../narr/security.rst:429
 msgid ""
@@ -445,11 +435,11 @@ msgid ""
 "that always returns ``True``, which, for all known authorization "
 "policies, has the effect of indicating that a given principal has any "
 "permission asked for by the system."
-msgstr ""
+msgstr "文字通り* all *権限を表すオブジェクト。 ``（許可、 &#39;fred&#39;、ALL_PERMISSIONS） ``のようなACLで役に立ちます。 `` ALL_PERMISSIONS``オブジェクトは、実際には、常に `` True``を返す `` __contains__``メソッドを持つスタンドインオブジェクトです。既知のすべての認可ポリシーに対して、与えられたプリンシパルが持っていることを示す効果がありますシステムによって要求されたすべての許可。"
 
 #: ../../narr/security.rst:441
 msgid "Special ACEs"
-msgstr ""
+msgstr "特別なACE"
 
 #: ../../narr/security.rst:443
 msgid ""
@@ -461,17 +451,17 @@ msgid ""
 "*only* ``fred`` the view permission for a particular resource, despite "
 "what inherited ACLs may say when the default authorization policy is in "
 "effect, might look like so:"
-msgstr ""
+msgstr "便宜上、用語： `ACE`は：data：` pyramid.security.DENY_ALL`のすべてのパーミッションの拒否を表すように定義されています。このACEは、ACLの* last * ACEとして使用され、継承された認可ポリシーが\ &quot;トラバーサルツリーの検索を中止する\&quot;（事実上すべての継承を破棄）するようにしばしば使用されます。例えば、デフォルトの認可ポリシーが有効なときに継承されたACLがどのようなことを言うかもしれないにもかかわらず、特定のリソースに対するビューのアクセス権のみを `` fred``で許可するACLは、次のようになります："
 
 #: ../../narr/security.rst:459
 msgid ""
 "Under the hood, the :data:`pyramid.security.DENY_ALL` ACE equals the "
 "following:"
-msgstr ""
+msgstr "フードの下では、：data： `pyramid.security.DENY_ALL` ACEは以下のようになります："
 
 #: ../../narr/security.rst:473
 msgid "ACL Inheritance and Location-Awareness"
-msgstr ""
+msgstr "ACLの継承とロケーション認識"
 
 #: ../../narr/security.rst:475
 msgid ""
@@ -480,7 +470,7 @@ msgid ""
 "consulted for an ACL.  If that object does not have an ACL, *its* parent "
 "is consulted for an ACL, ad infinitum, until we've reached the root and "
 "there are no more parents left."
-msgstr ""
+msgstr "default：term： `authorization policy`が設定されていますが、リソースオブジェクトがコンテキストのときにACLを持たない場合は、ACLの* parent *が参照されます。そのオブジェクトにACLがない場合、ルートに達して親がなくなるまで* its * parentはACL、ad infinitumについて調べられます。"
 
 #: ../../narr/security.rst:481
 msgid ""
@@ -488,7 +478,7 @@ msgid ""
 "resource objects must provide *location-awareness*.  Providing *location-"
 "awareness* means two things: the root object in the resource tree must "
 "have a ``__name__`` attribute and a ``__parent__`` attribute."
-msgstr ""
+msgstr "セキュリティ機構がACL継承を実行できるようにするには、リソースオブジェクトは* location-awareness *を提供する必要があります。 * location-awareness *を指定するとは、リソースツリーのルートオブジェクトに `` __name__``属性と `` __parent__``属性が必要です。"
 
 #: ../../narr/security.rst:493
 msgid ""
@@ -496,21 +486,21 @@ msgid ""
 " said to be *location-aware*.  Location-aware objects define a "
 "``__parent__`` attribute which points at their parent object.  The root "
 "object's ``__parent__`` is ``None``."
-msgstr ""
+msgstr "`` __parent__``属性と `` __name__``属性を持つオブジェクトは* location-aware *と言います。位置認識オブジェクトは親オブジェクトを指す `` __parent__``属性を定義します。ルートオブジェクトの `` __parent__``は `` None``です。"
 
 #: ../../narr/security.rst:500
 msgid ""
 "See also :ref:`location_module` for documentations of functions which use"
 " location-awareness."
-msgstr ""
+msgstr "ロケーション認識を使用する関数のドキュメントについては、：ref： `location_module`も参照してください。"
 
 #: ../../narr/security.rst:505
 msgid "See also :ref:`location_aware`."
-msgstr ""
+msgstr "参照：ref： `location_aware`も参照してください。"
 
 #: ../../narr/security.rst:511
 msgid "Changing the Forbidden View"
-msgstr ""
+msgstr "禁止されたビューの変更"
 
 #: ../../narr/security.rst:513
 msgid ""
@@ -520,11 +510,11 @@ msgid ""
 "within :ref:`hooks_chapter` for instructions on how to create a custom "
 "forbidden view and arrange for it to be called when view authorization is"
 " denied."
-msgstr ""
+msgstr "：app： `Pyramid`が許可拒否のためにビューの呼び出しを拒否したとき、特別な` `禁じられた` `ビューが呼び出されます。箱の外では、この禁止された表示は非常に明白です。ビューの許可が拒否されたときに呼び出されるように、カスタム禁止ビューを作成する方法については、ref： `hooks_chapter`を参照してください：ref：` changing_the_forbidden_​​view`：ref： `hooks_chapter`を参照してください。"
 
 #: ../../narr/security.rst:525
 msgid "Debugging View Authorization Failures"
-msgstr ""
+msgstr "ビュー認証エラーのデバッグ"
 
 #: ../../narr/security.rst:527
 msgid ""
@@ -532,7 +522,7 @@ msgid ""
 "inappropriately, start your application under a shell using the "
 "``PYRAMID_DEBUG_AUTHORIZATION`` environment variable set to ``1``.  For "
 "example:"
-msgstr ""
+msgstr "あなたの判断でアプリケーションがビューのアクセスを不適切に許可または拒否している場合は、 `` PYRAMID_DEBUG_AUTHORIZATION``環境変数を `` 1``に設定してシェルの下でアプリケーションを起動してください。例えば："
 
 #: ../../narr/security.rst:536
 msgid ""
@@ -540,24 +530,24 @@ msgid ""
 "message will be logged to the console (to stderr) about what ACE in which"
 " ACL permitted or denied the authorization based on authentication "
 "information."
-msgstr ""
+msgstr "トップレベルのビューレンダリング中に何らかの認可が行われると、認証情報に基づいて認可を許可または拒否されたACEのACEについてコンソール（stderr）にログが記録されます。"
 
 #: ../../narr/security.rst:540
 msgid ""
 "This behavior can also be turned on in the application ``.ini`` file by "
 "setting the ``pyramid.debug_authorization`` key to ``true`` within the "
 "application's configuration section, e.g.:"
-msgstr ""
+msgstr "この動作は、アプリケーションの設定セクション内で `` pyramid.debug_authorization``キーを `` true``に設定することで、アプリケーションの `` .ini``ファイルで有効にすることもできます。"
 
 #: ../../narr/security.rst:551
 msgid ""
 "With this debug flag turned on, the response sent to the browser will "
 "also contain security debugging information in its body."
-msgstr ""
+msgstr "このデバッグフラグをオンにすると、ブラウザに送信されるレスポンスにはセキュリティデバッグ情報も含まれます。"
 
 #: ../../narr/security.rst:555
 msgid "Debugging Imperative Authorization Failures"
-msgstr ""
+msgstr "強制的な認証失敗のデバッグ"
 
 #: ../../narr/security.rst:557
 msgid ""
@@ -574,11 +564,11 @@ msgid ""
 "Introspecting this information in the debugger or via print statements "
 "when a call to :meth:`~pyramid.request.Request.has_permission` fails is "
 "often useful."
-msgstr ""
+msgstr "：meth： `pyramid.request.Request.has_permission` APIは、ビュー関数内のセキュリティを必須にチェックするために使用されます。実質的にブーリアンであるオブジェクトのインスタンスを返します。しかし、これらのオブジェクトは生の `` True``や `False``オブジェクトではなく、許可が拒否された理由についての情報が添付されています。オブジェクトは、data： `pyramid.security.ACLAllowed`、：data：` pyramid.security.ACLDenied`、：data： `pyramid.security.Allowed`、または：data：` pyramid.security.Denied`のいずれかです。 ：ref： `security_module`に記述されています。最小限でも、これらのオブジェクトは `` msg``属性を持ちます。これは、なぜパーミッションが拒否されたのかを示す文字列です。 ：meth： `〜pyramid.request.Request.has_permission`への呼び出しが失敗したときに、デバッガやprint文でこの情報を調べることはしばしば役に立ちます。"
 
 #: ../../narr/security.rst:576
 msgid "Extending Default Authentication Policies"
-msgstr ""
+msgstr "デフォルトの認証ポリシーの拡張"
 
 #: ../../narr/security.rst:578
 msgid ""
@@ -587,7 +577,7 @@ msgid ""
 "policies. They differ on their mechanisms for tracking authentication "
 "credentials between requests, however they all interface with your "
 "application in mostly the same way."
-msgstr ""
+msgstr "Pyramidには、アプリケーションで使用するためのいくつかの認証ポリシーが組み込まれています。利用可能なポリシーについては、mod： `pyramid.authentication`を参照してください。要求間で認証資格情報を追跡するメカニズムは異なりますが、アプリケーションとのインターフェイスはほとんど同じです。"
 
 #: ../../narr/security.rst:584
 msgid ""
@@ -596,7 +586,7 @@ msgid ""
 ":meth:`pyramid.interfaces.IAuthenticationPolicy.effective_principals`. "
 "Similarly, :meth:`pyramid.request.Request.authenticated_userid` maps to "
 ":meth:`pyramid.interfaces.IAuthenticationPolicy.authenticated_userid`."
-msgstr ""
+msgstr "あなたの上で学んだ：ref： `assigning_acls`。それぞれ：term： `principal`は：term：` ACL`で使用され、：meth： `pyramid.interfaces.IAuthenticationPolicy.effective_principals`から返されたリストと照合されます。同様に、：meth： `pyramid.request.Request.authenticated_userid`は：meth：` pyramid.interfaces.IAuthenticationPolicy.authenticated_userid`にマップします。"
 
 #: ../../narr/security.rst:590
 msgid ""
@@ -609,7 +599,7 @@ msgid ""
 "their account?).  We then use that :term:`userid` to augment the "
 "``effective_principals`` with information about groups and other state "
 "for that user."
-msgstr ""
+msgstr "これらの値は、デフォルトの認証ポリシーをサブクラス化することで制御できます。例えば：class： `pyramid.authentication.AuthTktAuthenticationPolicy`をサブクラス化し、クッキーの値を盲目的に信頼することを避けるために：term：` userid`が有効であることを確認する前に、データベースに問い合わせる特別な機能を定義します。クッキーがまだ有効だが、ユーザーがアカウントを削除した場合）次に、その：term： `userid`を使って、` `effective_principals``を、そのユーザのグループや他の状態に関する情報で補強します。"
 
 #: ../../narr/security.rst:618
 msgid ""
@@ -617,11 +607,11 @@ msgid ""
 "are application-specific, whereas ``unauthenticated_userid``, "
 "``remember``, and ``forget`` are generic and focused on transport and "
 "serialization of data between consecutive requests."
-msgstr ""
+msgstr "ほとんどの場合、 `` authenticated_userid``と `` effective_principals``はアプリケーション固有ですが、 `` unauthenticated_userid``、 `` remember``、 `` forget``は一般的であり、連続したリクエスト。"
 
 #: ../../narr/security.rst:629
 msgid "Creating Your Own Authentication Policy"
-msgstr ""
+msgstr "独自の認証ポリシーの作成"
 
 #: ../../narr/security.rst:631
 msgid ""
@@ -631,25 +621,25 @@ msgid ""
 "\"horizontal and vertical\" of how your users authenticate.  Doing so is "
 "a matter of creating an instance of something that implements the "
 "following interface:"
-msgstr ""
+msgstr "：app： `Pyramid`には、いくつかの便利なセキュリティポリシーが付属しています（mod：` pyramid.authentication`参照）。ただし、ユーザーの認証方法の「水平および垂直」を制御する場合は、独自の認証ポリシーを作成する必要があります。そうすることは、次のインターフェースを実装するもののインスタンスを作成することです。"
 
 #: ../../narr/security.rst:692
 msgid ""
 "After you do so, you can pass an instance of such a class into the "
 ":class:`~pyramid.config.Configurator.set_authentication_policy` method at"
 " configuration time to use it."
-msgstr ""
+msgstr "その後、そのクラスのインスタンスを設定時に：class： `〜pyramid.config.Configurator.set_authentication_policy`メソッドに渡して使用することができます。"
 
 #: ../../narr/security.rst:702
 msgid "Creating Your Own Authorization Policy"
-msgstr ""
+msgstr "独自の認証ポリシーの作成"
 
 #: ../../narr/security.rst:704
 msgid ""
 "An authorization policy is a policy that allows or denies access after a "
 "user has been authenticated.  Most :app:`Pyramid` applications will use "
 "the default :class:`pyramid.authorization.ACLAuthorizationPolicy`."
-msgstr ""
+msgstr "認可ポリシーは、ユーザーが認証された後にアクセスを許可または拒否するポリシーです。 Most：app： `Pyramid`アプリケーションはデフォルト：class：` pyramid.authorization.ACLAuthorizationPolicy`を使用します。"
 
 #: ../../narr/security.rst:708
 msgid ""
@@ -659,7 +649,7 @@ msgid ""
 "might be desirable to construct an alternate authorization policy which "
 "allows the application to use an authorization mechanism that does not "
 "involve :term:`ACL` objects."
-msgstr ""
+msgstr "しかし、場合によっては、デフォルト：class： `〜pyramid.authorization.ACLAuthorizationPolicy`以外の別の認証ポリシーを使用できるようにすると便利です。例えば、アプリケーションがterm： `ACL`オブジェクトに関係しない認証機構を使用することを可能にする代替の認証ポリシーを構築することが望ましいかもしれません。"
 
 #: ../../narr/security.rst:714
 msgid ""
@@ -667,28 +657,28 @@ msgid ""
 "you'll need to create your own if you'd like to use a different one.  "
 "Creating and using your own authorization policy is a matter of creating "
 "an instance of an object that implements the following interface:"
-msgstr ""
+msgstr "：app： `Pyramid`はデフォルトの認証ポリシーが1つしかないので、別のものを使用するには独自のものを作成する必要があります。独自の認可ポリシーを作成して使用することは、次のインターフェースを実装するオブジェクトのインスタンスを作成することです。"
 
 #: ../../narr/security.rst:738
 msgid ""
 "After you do so, you can pass an instance of such a class into the "
 ":class:`~pyramid.config.Configurator.set_authorization_policy` method at "
 "configuration time to use it."
-msgstr ""
+msgstr "その後、このクラスのインスタンスを構成時に：class： `〜pyramid.config.Configurator.set_authorization_policy`メソッドに渡して使用することができます。"
 
 #: ../../narr/security.rst:745
 msgid "Admonishment Against Secret-Sharing"
-msgstr ""
+msgstr "シークレット・シェアリングに対する警戒"
 
 #: ../../narr/security.rst:747
 msgid ""
 "A \"secret\" is required by various components of Pyramid.  For example, "
 "the :term:`authentication policy` below uses a secret value ``seekrit``::"
-msgstr ""
+msgstr "\ &quot;秘密\&quot;は、Pyramidのさまざまなコンポーネントによって必要とされます。たとえば、以下の：term： `認証ポリシー`は秘密の値 `` seekrit`` ::を使用します。"
 
 #: ../../narr/security.rst:752
 msgid "A :term:`session factory` also requires a secret::"
-msgstr ""
+msgstr "A：term： `session factory`には秘密が必要です::"
 
 #: ../../narr/security.rst:756
 msgid ""
@@ -697,7 +687,7 @@ msgid ""
 "secret for both the authentication policy and the session factory defined"
 " above.  This is a bad idea, because in both cases, these secrets are "
 "used to sign the payload of the data."
-msgstr ""
+msgstr "複数のPyramidサブシステムに同じ秘密を使用するのは魅力的です。たとえば、上記で定義した認証ポリシーとセッションファクトリの両方の秘密として、 `` seekrit``という値を使うことができます。どちらの場合も、これらの秘密はデータのペイロードに署名するために使用されるため、これは悪い考えです。"
 
 #: ../../narr/security.rst:762
 msgid ""
@@ -708,11 +698,11 @@ msgid ""
 "drop the security of signing to zero. Keys should not be re-used across "
 "different contexts where an attacker has the possibility of providing a "
 "chosen plaintext."
-msgstr ""
+msgstr "署名の目的でアプリケーションの2つの異なる部分に同じ秘密を使用すると、攻撃者が選択した平文を署名することが可能になり、攻撃者がペイロードの内容を制御できるようになります。 2つの異なるサブシステムにわたって秘密を再使用すると、署名のセキュリティがゼロになる可能性があります。鍵は、攻撃者が選択した平文を提供する可能性のある別のコンテキストで再使用しないでください。"
 
 #: ../../narr/security.rst:774
 msgid "Preventing Cross-Site Request Forgery Attacks"
-msgstr ""
+msgstr "クロスサイトリクエスト偽造攻撃の防止"
 
 #: ../../narr/security.rst:776
 msgid ""
@@ -721,7 +711,7 @@ msgid ""
 "logged in to your website might inadvertantly load a URL because it is "
 "linked from, or embedded in, an attacker's website. If the URL is one "
 "that may modify or delete data, the consequences can be dire."
-msgstr ""
+msgstr "`クロスサイトリクエスト偽造<https://en.wikipedia.org/wiki/Cross-site_request_forgery>攻撃は、攻撃者のウェブサイトからリンクされているか、またはウェブサイトに埋め込まれているため、ウェブサイトにログインしているユーザーが誤ってURLを読み込んでしまう現象です。 URLがデータを変更または削除するURLである場合、その結果は致命的となる可能性があります。"
 
 #: ../../narr/security.rst:782
 msgid ""
@@ -729,7 +719,7 @@ msgid ""
 "browser and then requiring that it be present in all potentially unsafe "
 "requests. :app:`Pyramid` provides facilities to create and check CSRF "
 "tokens."
-msgstr ""
+msgstr "これらの攻撃のほとんどは、ブラウザに一意のトークンを発行してから、安全でない可能性があるすべての要求にそのトークンが存在することを要求することで回避できます。 ：app： `Pyramid`は、CSRFトークンを作成して確認するための機能を提供します。"
 
 #: ../../narr/security.rst:786
 msgid ""
@@ -743,17 +733,17 @@ msgid ""
 " for each user. You can also define your own implementation of "
 ":class:`pyramid.interfaces.ICSRFStoragePolicy` and register it with the "
 ":meth:`pyramid.config.Configurator.set_csrf_storage_policy` directive."
-msgstr ""
+msgstr "デフォルトでは、app： `Pyramid`には、セッションベースのCSRF実装であるclass：` pyramid.csrf.SessionCSRFStoragePolicy`があります。それを使用するには、：ref： `using_the_default_session_factory`または：ref：` using_alternate_session_factories`で説明されているように、まず：term： `session factory`を有効にする必要があります。代わりに、cookieベースの実装を使用することもできます：class： `pyramid.csrf.CookieCSRFStoragePolicy`これは、各ユーザにセッションを必要としないため、いくつかの柔軟性を提供します。独自の：class： `pyramid.interfaces.ICSRFStoragePolicy`の実装を定義し、：meth：` pyramid.config.Configurator.set_csrf_storage_policy`ディレクティブで登録することもできます。"
 
 #: ../../narr/security.rst:810
 msgid "Using the ``csrf.get_csrf_token`` Method"
-msgstr ""
+msgstr "`` csrf.get_csrf_token``メソッドの使用"
 
 #: ../../narr/security.rst:812
 msgid ""
 "To get the current CSRF token, use the "
 ":data:`pyramid.csrf.get_csrf_token` method."
-msgstr ""
+msgstr "現在のCSRFトークンを取得するには、：data： `pyramid.csrf.get_csrf_token`メソッドを使用します。"
 
 #: ../../narr/security.rst:820
 msgid ""
@@ -763,11 +753,11 @@ msgid ""
 "existing token will be returned. If no CSRF token previously existed for "
 "this user, then a new token will be set into the session and returned. "
 "The newly created token will be opaque and randomized."
-msgstr ""
+msgstr "`` get_csrf_token（） ``メソッドは単一の引数、つまり要求を受け入れます。 CSRF * token *文字列を返します。 `` get_csrf_token（） ``または `` new_csrf_token（） ``が以前にこのユーザに対して呼び出された場合、既存のトークンが返されます。以前にこのユーザーに対してCSRFトークンが存在しなかった場合、新しいトークンがセッションに設定され、返されます。新しく作成されたトークンは不透明でランダム化されます。"
 
 #: ../../narr/security.rst:830
 msgid "Using the ``get_csrf_token`` global in templates"
-msgstr ""
+msgstr "テンプレートで `` get_csrf_token``グローバルを使う"
 
 #: ../../narr/security.rst:832
 msgid ""
@@ -777,25 +767,25 @@ msgid ""
 " can use the returned token as the value of a hidden field in a form that"
 " posts to a method that requires elevated privileges, or supply it as a "
 "request header in AJAX requests."
-msgstr ""
+msgstr "テンプレートには、グローバルに挿入された `` get_csrf_token（） ``メソッドがあり、ビューコードを変更せずに現在のトークンを取得できます。このメソッドは引数を取らず、CSRFトークン文字列を返します。返されたトークンは、昇格された特権を必要とするメソッドに投稿するフォームの隠しフィールドの値として使用することも、AJAX要求の要求ヘッダーとして供給することもできます。"
 
 #: ../../narr/security.rst:839
 msgid "For example, include the CSRF token as a hidden field:"
-msgstr ""
+msgstr "たとえば、CSRFトークンを隠しフィールドとして含めます。"
 
 #: ../../narr/security.rst:848
 msgid "Or include it as a header in a jQuery AJAX request:"
-msgstr ""
+msgstr "または、これをjQuery AJAXリクエストのヘッダーとしてインクルードします。"
 
 #: ../../narr/security.rst:861
 msgid ""
 "The handler for the URL that receives the request should then require "
 "that the correct CSRF token is supplied."
-msgstr ""
+msgstr "要求を受け取るURLのハンドラは、正しいCSRFトークンが供給されることを要求する必要があります。"
 
 #: ../../narr/security.rst:868
 msgid "Using the ``csrf.new_csrf_token`` Method"
-msgstr ""
+msgstr "`` csrf.new_csrf_token``メソッドの使用"
 
 #: ../../narr/security.rst:870
 msgid ""
@@ -803,18 +793,18 @@ msgid ""
 "method.  This differs only from ``csrf.get_csrf_token()`` inasmuch as it "
 "clears any existing CSRF token, creates a new CSRF token, sets the token "
 "into the user, and returns the token."
-msgstr ""
+msgstr "明示的に新しいCSRFトークンを作成するには、 `` csrf.new_csrf_token（） ``メソッドを使用します。これは、既存のCSRFトークンをクリアし、新しいCSRFトークンを作成し、トークンをユーザに設定し、トークンを返すだけで、 `` csrf.get_csrf_token（） ``とだけ異なります。"
 
 #: ../../narr/security.rst:882
 msgid ""
 "It is not possible to force a new CSRF token from a template. If you want"
 " to regenerate your CSRF token then do it in the view code and return the"
 " new token as part of the context."
-msgstr ""
+msgstr "テンプレートから新しいCSRFトークンを強制することはできません。 CSRFトークンを再生成する場合は、ビューコードでそれを行い、新しいトークンをコンテキストの一部として返します。"
 
 #: ../../narr/security.rst:887
 msgid "Checking CSRF Tokens Manually"
-msgstr ""
+msgstr "CSRFトークンを手動で確認する"
 
 #: ../../narr/security.rst:889
 msgid ""
@@ -823,17 +813,17 @@ msgid ""
 "valid, it will return ``True``, otherwise it will raise "
 "``HTTPBadRequest``. Optionally, you can specify ``raises=False`` to have "
 "the check return ``False`` instead of raising an exception."
-msgstr ""
+msgstr "リクエスト処理コードでは、：func： `pyramid.csrf.check_csrf_token`を使用して、CSRFトークンの存在と有効性をチェックできます。トークンが有効であれば `` True``を返し、そうでなければ `` HTTPBadRequest``を送出します。オプションで、 `` raises = False``を指定すると、例外を発生させる代わりにチェックが `` False``を返すようにすることができます。"
 
 #: ../../narr/security.rst:895
 msgid ""
 "By default, it checks for a POST parameter named ``csrf_token`` or a "
 "header named ``X-CSRF-Token``."
-msgstr ""
+msgstr "デフォルトでは、 `` csrf_token``という名前のPOSTパラメータか `` X-CSRF-Token``というヘッダがあるかどうかを調べます。"
 
 #: ../../narr/security.rst:911
 msgid "Checking CSRF Tokens Automatically"
-msgstr ""
+msgstr "CSRFトークンの自動確認"
 
 #: ../../narr/security.rst:915
 msgid ""
@@ -843,7 +833,7 @@ msgid ""
 "application using the "
 ":meth:`pyramid.config.Configurator.set_default_csrf_options` directive. "
 "For example:"
-msgstr ""
+msgstr "：app： `Pyramid`は、RFC2616で定義されているような安全でないメソッドで、CSRFトークンを自動的にチェックします。他の要求は手動でチェックすることができます。この機能は、：meth： `pyramid.config.Configurator.set_default_csrf_options`指示文を使用してアプリケーションに対してグローバルにオンにすることができます。例えば："
 
 #: ../../narr/security.rst:928
 msgid ""
@@ -851,7 +841,7 @@ msgid ""
 "using the ``require_csrf`` view option. A value of ``True`` or ``False`` "
 "will override the default set by ``set_default_csrf_options``. For "
 "example:"
-msgstr ""
+msgstr "CSRF検査は、 `` require_csrf``ビューオプションを使用してビュー単位で明示的に有効または無効にすることができます。 `` True``または `` False``の値は、 `` set_default_csrf_options``で設定されたデフォルトを上書きします。例えば："
 
 #: ../../narr/security.rst:938
 msgid ""
@@ -861,7 +851,7 @@ msgid ""
 "``set_default_csrf_options``. The token is checked against the value in "
 "``request.POST`` which is the submitted form body. If this value is not "
 "present, then the header will be checked."
-msgstr ""
+msgstr "CSRFチェックがアクティブな場合、 `` set_default_csrf_options``によってオーバーライドされない限り、提供されたCSRFトークンを見つけるために使用されるトークンとヘッダは、それぞれ `` csrf_token``と `` X-CSRF-Token``です。トークンは、送信されたフォーム本体である `` request.POST``の値と照合されます。この値が存在しない場合、ヘッダーがチェックされます。"
 
 #: ../../narr/security.rst:944
 msgid ""
@@ -873,7 +863,7 @@ msgid ""
 "of domain names (and ports if they are non-standard). If a host in the "
 "list of domains starts with a ``.`` then that will allow all subdomains "
 "as well as the domain without the ``.``."
-msgstr ""
+msgstr "トークンベースのCSRFチェックに加えて、リクエストがHTTPSを使用している場合、自動CSRFチェックはリクエストのリファラーをチェックして、信頼できる発信元の1つに一致することを確認します。デフォルトでは、信頼できる唯一の原点は現在のホストですが、 `` pyramid.csrf_trusted_origins``をドメイン名のリスト（およびそれらが非標準の場合はポート）に設定することによって、追加の起点を設定することができます。ドメインのリストのホストが `` .``で始まっている場合、 `` .``のないドメインと同様に、すべてのサブドメインが許可されます。"
 
 #: ../../narr/security.rst:952
 msgid ""
@@ -882,24 +872,24 @@ msgid ""
 "exception may be caught and handled by an :term:`exception view` but, by "
 "default, will result in a ``400 Bad Request`` response being sent to the "
 "client."
-msgstr ""
+msgstr "CSRFチェックが失敗した場合、class： `pyramid.exceptions.BadCSRFToken`または：class：` pyramid.exceptions.BadCSRFOrigin`例外が送出されます。この例外は：term： `exception view`によって捕捉され、処理されるかもしれませんが、デフォルトでは、` `400 Bad Request``応答がクライアントに送られます。"
 
 #: ../../narr/security.rst:959
 msgid "Checking CSRF Tokens with a View Predicate"
-msgstr ""
+msgstr "ビュー・プレディケートによるCSRFトークンのチェック"
 
 #: ../../narr/security.rst:961
 msgid ""
 "Use the ``require_csrf`` option or read :ref:`auto_csrf_checking` instead"
 " to have :class:`pyramid.exceptions.BadCSRFToken` exceptions raised."
-msgstr ""
+msgstr "`` require_csrf``オプションを使うか、：ref： `auto_csrf_checking`を読んで：class：` pyramid.exceptions.BadCSRFToken`例外を発生させてください。"
 
 #: ../../narr/security.rst:965
 msgid ""
 "A convenient way to require a valid CSRF token for a particular view is "
 "to include ``check_csrf=True`` as a view predicate. See "
 ":meth:`pyramid.config.Configurator.add_view`."
-msgstr ""
+msgstr "特定のビューに対して有効なCSRFトークンを要求する便利な方法は、ビューの述語として `` check_csrf = True``を含めることです。参照：meth： `pyramid.config.Configurator.add_view`。"
 
 #: ../../narr/security.rst:976
 msgid ""
@@ -907,5 +897,5 @@ msgid ""
 "the predicate system, when it doesn't find a view, raises "
 "``HTTPNotFound`` instead of ``HTTPBadRequest``, so ``check_csrf=True`` "
 "behavior is different from calling :func:`pyramid.csrf.check_csrf_token`."
-msgstr ""
+msgstr "CSRFトークンの不一致は、他の述語ミスのように扱われ、ビューを見つけられない場合、述語システムは `` HTTPBadRequest``の代わりに `` HTTPNotFound``を発生させるので、 `` check_csrf = True``振る舞いは：func： `pyramid.csrf.check_csrf_token`とは異なります。"
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Unit, Integration, and Functional Testing &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) ユニット、統合、機能テスト &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Resources" href="resources.html" />
-    <link rel="prev" title="Virtual Hosting" href="vhosting.html" />
+    <link rel="next" title="(機械翻訳) リソース" href="resources.html" />
+    <link rel="prev" title="(機械翻訳) 仮想ホスティング" href="vhosting.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="resources.html" title="Resources"
+          <a href="resources.html" title="(機械翻訳) リソース"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="vhosting.html" title="Virtual Hosting"
+          <a href="vhosting.html" title="(機械翻訳) 仮想ホスティング"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,81 +69,20 @@
           <div class="body" role="main">
             
   <div class="section" id="unit-integration-and-functional-testing">
-<span id="testing-chapter"></span><span id="index-0"></span><h1>Unit, Integration, and Functional Testing<a class="headerlink" href="#unit-integration-and-functional-testing" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><em>Unit testing</em> is, not surprisingly, the act of testing a &quot;unit&quot; in your
-application.  In this context, a &quot;unit&quot; is often a function or a method of a
-class instance.  The unit is also referred to as a &quot;unit under test&quot;.</p>
-<p>The goal of a single unit test is to test <strong>only</strong> some permutation of the
-&quot;unit under test&quot;.  If you write a unit test that aims to verify the result of
-a particular codepath through a Python function, you need only be concerned
-about testing the code that <em>lives in the function body itself</em>. If the
-function accepts a parameter that represents a complex application &quot;domain
-object&quot; (such as a resource, a database connection, or an SMTP server), the
-argument provided to this function during a unit test <em>need not be</em> and likely
-<em>should not be</em> a &quot;real&quot; implementation object.  For example, although a
-particular function implementation may accept an argument that represents an
-SMTP server object, and the function may call a method of this object when the
-system is operating normally that would result in an email being sent, a unit
-test of this codepath of the function does <em>not</em> need to test that an email is
-actually sent.  It just needs to make sure that the function calls the method
-of the object provided as an argument that <em>would</em> send an email if the
-argument happened to be the &quot;real&quot; implementation of an SMTP server object.</p>
-<p>An <em>integration test</em>, on the other hand, is a different form of testing in
-which the interaction between two or more &quot;units&quot; is explicitly tested.
-Integration tests verify that the components of your application work together.
-You <em>might</em> make sure that an email was actually sent in an integration test.</p>
-<p>A <em>functional test</em> is a form of integration test in which the application is
-run &quot;literally&quot;.  You would <em>have to</em> make sure that an email was actually sent
-in a functional test, because it tests your code end to end.</p>
-<p>It is often considered best practice to write each type of tests for any given
-codebase.  Unit testing often provides the opportunity to obtain better
-&quot;coverage&quot;: it's usually possible to supply a unit under test with arguments
-and/or an environment which causes <em>all</em> of its potential codepaths to be
-executed.  This is usually not as easy to do with a set of integration or
-functional tests, but integration and functional testing provides a measure of
-assurance that your &quot;units&quot; work together, as they will be expected to when
-your application is run in production.</p>
-<p>The suggested mechanism for unit and integration testing of a <span>Pyramid</span>
-application is the Python <a class="reference external" href="https://docs.python.org/3/library/unittest.html#module-unittest" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code></a> module.  Although this module is
-named <a class="reference external" href="https://docs.python.org/3/library/unittest.html#module-unittest" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code></a>, it is actually capable of driving both unit and
-integration tests.  A good <a class="reference external" href="https://docs.python.org/3/library/unittest.html#module-unittest" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unittest</span></code></a> tutorial is available within <a class="reference external" href="http://www.diveintopython.net/unit_testing/index.html">Dive
-Into Python</a> by Mark
-Pilgrim.</p>
-<p><span>Pyramid</span> provides a number of facilities that make unit, integration, and
-functional tests easier to write.  The facilities become particularly useful
-when your code calls into <span>Pyramid</span>-related framework functions.</p>
+<span id="testing-chapter"></span><span id="index-0"></span><h1>(機械翻訳) ユニット、統合、機能テスト<a class="headerlink" href="#unit-integration-and-functional-testing" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>単体テスト*は、あなたのアプリケーションの&amp;quot;単位&amp;quot;をテストする行為であることは驚くべきことではありません。この文脈では、&amp;quot;単位&amp;quot;は、多くの場合、クラスインスタンスの関数またはメソッドです。このユニットは、「テスト中のユニット」とも呼ばれます。</p>
+<p>単体テストの目標は、<a href="#id1"><span class="problematic" id="id2">**</span></a>「テスト中のユニット」の一部の置換のみをテストすることです。 Python関数を使って特定のコードパスの結果を検証することを目的とした単体テストを書く場合、関数本体自体に存在する*コードをテストすることだけが必要です。関数が複雑なアプリケーション&amp;quot;ドメインオブジェクト&amp;quot;（リソース、データベース接続、SMTPサーバなど）を表すパラメータを受け入れる場合、ユニットテスト中にこの関数に渡される引数は*である必要はなく* &amp;quot;実&amp;quot;実装オブジェクトであってはなりません。たとえば、特定の関数実装では、SMTPサーバーオブジェクトを表す引数を受け入れることができますが、電子メールの送信につながるシステムが正常に動作しているときにこのオブジェクトのメソッドを呼び出すことができますが、このコードパスの単体テスト電子メールが実際に送信されることをテストする必要はありません。それは引数がSMTPサーバオブジェクトの &amp;quot;実際の&amp;quot;実装である場合に電子メールを送信する引数として提供されたオブジェクトのメソッドを関数が呼び出すことを保証するだけです。</p>
+<p>一方、<a href="#id1"><span class="problematic" id="id2">*</span></a>統合テスト*は、2つ以上の &amp;quot;ユニット&amp;quot;間の相互作用が明示的にテストされる異なるテスト形式です。統合テストでは、アプリケーションのコンポーネントが連携して動作することを確認します。あなたは電子メールが統合テストで実際に送られたかどうか確認するかもしれません。</p>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>機能テスト*は、アプリケーションが&amp;quot;文字通り&amp;quot;で動作する統合テストの一種です。あなたはコードテストの終わりをテストするので、電子メールが機能テストで実際に送信されたことを確認する必要があります。</p>
+<p>特定のコードベースに対してそれぞれのタイプのテストを記述することが、しばしばベストプラクティスと見なされます。単体テストは、しばしばより良い&amp;quot;カバレッジ&amp;quot;を得る機会を提供します：テスト対象のユニットに引数やその潜在的なコードパスの* all <a href="#id1"><span class="problematic" id="id2">*</span></a>を実行させる環境を与えることは通常可能です。これは通常、一連の統合テストや機能テストでは簡単ではありませんが、統合テストと機能テストは、アプリケーションが実稼働環境で実行されるときに期待されるように、 。</p>
+<p>a：app： <cite>Pyramid`アプリケーションのユニットテストと統合テストのために推奨されるメカニズムは、Python：mod：</cite> unittest`モジュールです。このモジュールの名前は：mod： <cite>unittest`ですが、実際にユニットテストと統合テストの両方を実行することができます。良い：mod： `unittest`チュートリアルは、</cite> Dive Into Python &lt;<a class="reference external" href="http://www.diveintopython.net/unit_testing/index.html">http://www.diveintopython.net/unit_testing/index.html</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_マーク・ピルグリム。</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はユニット、統合、機能テストを書くのを容易にする多くの機能を提供します。この機能は、コードが：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`関連のフレームワーク関数を呼び出すときに特に便利になります。</p>
 <div class="section" id="test-set-up-and-tear-down">
-<span id="test-setup-and-teardown"></span><span id="index-1"></span><h2>Test Set Up and Tear Down<a class="headerlink" href="#test-set-up-and-tear-down" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><span>Pyramid</span> uses a &quot;global&quot; (actually <a class="reference internal" href="../glossary.html#term-thread-local"><span class="xref std std-term">thread local</span></a>) data structure
-to hold two items: the current <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> and the current
-<a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a>.  These data structures are available via the
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.threadlocal.get_current_request()</span></code></a> and
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.threadlocal.get_current_registry()</span></code></a> functions, respectively. See
-<a class="reference internal" href="threadlocals.html#threadlocals-chapter"><span class="std std-ref">Thread Locals</span></a> for information about these functions and the data
-structures they return.</p>
-<p>If your code uses these <code class="docutils literal notranslate"><span class="pre">get_current_*</span></code> functions or calls <span>Pyramid</span>
-code which uses <code class="docutils literal notranslate"><span class="pre">get_current_*</span></code> functions, you will need to call
-<a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.setUp()</span></code></a> in your test setup and you will need to call
-<a class="reference internal" href="../api/testing.html#pyramid.testing.tearDown" title="pyramid.testing.tearDown"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.tearDown()</span></code></a> in your test teardown.
-<a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">setUp()</span></code></a> pushes a registry onto the <a class="reference internal" href="../glossary.html#term-thread-local"><span class="xref std std-term">thread local</span></a>
-stack, which makes the <code class="docutils literal notranslate"><span class="pre">get_current_*</span></code> functions work.  It returns a
-<a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> object which can be used to perform extra configuration
-required by the code under test.  <a class="reference internal" href="../api/testing.html#pyramid.testing.tearDown" title="pyramid.testing.tearDown"><code class="xref py py-func docutils literal notranslate"><span class="pre">tearDown()</span></code></a> pops the
-thread local stack.</p>
-<p>Normally when a Configurator is used directly with the <code class="docutils literal notranslate"><span class="pre">main</span></code> block of a
-Pyramid application, it defers performing any &quot;real work&quot; until its <code class="docutils literal notranslate"><span class="pre">.commit</span></code>
-method is called (often implicitly by the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.make_wsgi_app()</span></code></a> method).  The Configurator
-returned by <a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">setUp()</span></code></a> is an <em>autocommitting</em> Configurator,
-however, which performs all actions implied by methods called on it
-immediately.  This is more convenient for unit testing purposes than needing to
-call <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.commit()</span></code></a> in each test after adding extra
-configuration statements.</p>
-<p>The use of the <a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">setUp()</span></code></a> and
-<a class="reference internal" href="../api/testing.html#pyramid.testing.tearDown" title="pyramid.testing.tearDown"><code class="xref py py-func docutils literal notranslate"><span class="pre">tearDown()</span></code></a> functions allows you to supply each unit test
-method in a test case with an environment that has an isolated registry and an
-isolated request for the duration of a single test.  Here's an example of using
-this feature:</p>
+<span id="test-setup-and-teardown"></span><span id="index-1"></span><h2>テストのセットアップとティアダウン<a class="headerlink" href="#test-set-up-and-tear-down" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <cite>Pyramid`は現在の：term：</cite> request`と現在の：term： <cite>アプリケーションレジストリ &amp;#39;の2つの項目を保持するためにグローバル構造体（実際にはterm：</cite> thread local`）を使います。これらのデータ構造は、それぞれ：func： <cite>pyramid.threadlocal.get_current_request`と：func：</cite> pyramid.threadlocal.get_current_registry`関数を介して利用できます。これらの関数とそれらが返すデータ構造については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>threadlocals_chapter`を参照してください。</p>
+<p>あなたのコードがこれらの `` <a href="#id1"><span class="problematic" id="id2">get_current_</span></a> * <a href="#id1"><span class="problematic" id="id2">``</span></a>関数を使用するか、 `` <a href="#id3"><span class="problematic" id="id4">get_current_</span></a> * <a href="#id3"><span class="problematic" id="id4">``</span></a>関数を使用するapp： <cite>Pyramid`コードを呼び出す場合は、テスト設定でfunc：</cite> pyramid.testing.setUp`を呼び出す必要がありますあなたのテストティアダウンで：func： <cite>pyramid.testing.tearDown`を呼び出す必要があります。 ：func： `〜pyramid.testing.setUp`はレジストリを：term：</cite> thread local`スタックにプッシュします。これは `` <a href="#id5"><span class="problematic" id="id6">get_current_</span></a> * <a href="#id5"><span class="problematic" id="id6">``</span></a>関数を動作させます。テスト中のコードで必要とされる余分な設定を行うために使用できる：term： <a href="#id7"><span class="problematic" id="id8">`</span></a>Configurator`オブジェクトを返します。 ：func： <a href="#id9"><span class="problematic" id="id10">`</span></a>〜pyramid.testing.tearDown`は、スレッドローカルスタックをポップします。</p>
+<p>通常、ConfiguratorをPyramidアプリケーションの `` main``ブロックと直接使用すると、 `` .commit``メソッドが呼び出されるまで（通常は：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>によって暗黙的にpyramid.config.Configurator.make_wsgi_app`メソッド）。 ：func： <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.testing.setUp`は* autocommitting * Configuratorですが、直ちに呼び出されるメソッドが暗示するすべてのアクションを実行します。これは、単体テストの目的のために、追加の設定文を追加した後に各テストで：meth： <a href="#id5"><span class="problematic" id="id6">`</span></a>pyramid.config.Configurator.commit`を呼び出すよりも便利です。</p>
+<p>：func： <cite>〜pyramid.testing.setUp`関数と：func：</cite>〜pyramid.testing.tearDown`関数を使用すると、テストケース内の各ユニットテストメソッドを独立したレジストリを持つ環境に提供することができます。単一のテスト期間中の独立したリクエストこの機能の使用例を次に示します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -163,19 +102,9 @@ this feature:</p>
         <span class="n">testing</span><span class="o">.</span><span class="n">tearDown</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>The above will make sure that <a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_registry()</span></code></a>
-called within a test case method of <code class="docutils literal notranslate"><span class="pre">MyTest</span></code> will return the
-<a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> associated with the <code class="docutils literal notranslate"><span class="pre">config</span></code> Configurator
-instance.  Each test case method attached to <code class="docutils literal notranslate"><span class="pre">MyTest</span></code> will use an isolated
-registry.</p>
-<p>The <a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">setUp()</span></code></a> and <a class="reference internal" href="../api/testing.html#pyramid.testing.tearDown" title="pyramid.testing.tearDown"><code class="xref py py-func docutils literal notranslate"><span class="pre">tearDown()</span></code></a>
-functions accept various arguments that influence the environment of the test.
-See the <a class="reference internal" href="../api/testing.html#testing-module"><span class="std std-ref">pyramid.testing</span></a> API for information about the extra arguments
-supported by these functions.</p>
-<p>If you also want to make <a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a>
-return something other than <code class="docutils literal notranslate"><span class="pre">None</span></code> during the course of a single test, you
-can pass a <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object into the <a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.setUp()</span></code></a> within
-the <code class="docutils literal notranslate"><span class="pre">setUp</span></code> method of your test:</p>
+<p>上記のことは： `` myTest``のテストケースメソッド内で呼び出された：func： <cite>〜pyramid.threadlocal.get_current_registry`が、</cite> <cite>config``のコンフィグレータインスタンスに関連する：term：`アプリケーションレジストリ `を返すことを確認します。 `</cite> MyTest``に添付された各テストケースメソッドは、独立したレジストリを使用します。</p>
+<p>：func： <cite>〜pyramid.testing.setUp`と：func：</cite>〜pyramid.testing.tearDown`関数は、テストの環境に影響を与えるさまざまな引数を受け取ります。これらの関数でサポートされている余分な引数については、：ref： <cite>testing_module</cite> APIを参照してください。</p>
+<p>：func： <cite>〜pyramid.threadlocal.get_current_request`を1回のテストの途中で</cite> <cite>None``以外のものに戻したい場合、：term：</cite> request`オブジェクトを：func：あなたのテストの `` setUp``メソッドの中で `` pyramid.testing.setUp`：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -197,22 +126,11 @@ the <code class="docutils literal notranslate"><span class="pre">setUp</span></c
         <span class="n">testing</span><span class="o">.</span><span class="n">tearDown</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>If you pass a <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object into <a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.setUp()</span></code></a> within
-your test case's <code class="docutils literal notranslate"><span class="pre">setUp</span></code>, any test method attached to the <code class="docutils literal notranslate"><span class="pre">MyTest</span></code> test
-case that directly or indirectly calls
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a> will receive the request
-object.  Otherwise, during testing,
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a> will return <code class="docutils literal notranslate"><span class="pre">None</span></code>. We use a
-&quot;dummy&quot; request implementation supplied by
-<a class="reference internal" href="../api/testing.html#pyramid.testing.DummyRequest" title="pyramid.testing.DummyRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.testing.DummyRequest</span></code></a> because it's easier to construct than a
-&quot;real&quot; <span>Pyramid</span> request object.</p>
+<p>：term： <cite>request`オブジェクトをテストケースの</cite> <cite>setUp``内で：func：</cite> pyramid.testing.setUp`に渡すと、直接的または間接的に呼び出す `` MyTest``テストケースに添付されたテストメソッド：func： <cite>〜pyramid.threadlocal.get_current_request`はリクエストオブジェクトを受け取ります。さもなければ、テストの間、：func： `〜pyramid.threadlocal.get_current_request`は</cite> <cite>None``を返します。私たちは：class： `pyramid.testing.DummyRequest`によって提供される&amp;quot;ダミー &amp;quot;リクエスト実装を使用します。なぜなら、&amp;quot; real &amp;quot;：app：</cite> Pyramid`リクエストオブジェクトより構築が簡単だからです。</p>
 <div class="section" id="test-setup-using-a-context-manager">
-<h3>Test setup using a context manager<a class="headerlink" href="#test-setup-using-a-context-manager" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>An alternative style of setting up a test configuration is to use the <code class="docutils literal notranslate"><span class="pre">with</span></code>
-statement and <a class="reference internal" href="../api/testing.html#pyramid.testing.testConfig" title="pyramid.testing.testConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.testConfig()</span></code></a> to create a <a class="reference internal" href="../glossary.html#term-context-manager"><span class="xref std std-term">context manager</span></a>.
-The context manager will call <a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.setUp()</span></code></a> before the code
-under test and <a class="reference internal" href="../api/testing.html#pyramid.testing.tearDown" title="pyramid.testing.tearDown"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.tearDown()</span></code></a> afterwards.</p>
-<p>This style is useful for small self-contained tests. For example:</p>
+<h3>コンテキストマネージャを使用したテストのセットアップ<a class="headerlink" href="#test-setup-using-a-context-manager" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>テスト設定を設定するもう一つの方法は、 `` with``文と：func： <cite>pyramid.testing.testConfig`を使って：term：</cite> context manager`を作成することです。コンテキストマネージャは、テスト対象コードの前に：func： <cite>pyramid.testing.setUp`を呼び出し、後で：func：</cite> pyramid.testing.tearDown`を呼び出します。</p>
+<p>このスタイルは、自己完結型の小さなテストに役立ちます。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -234,28 +152,14 @@ under test and <a class="reference internal" href="../api/testing.html#pyramid.t
 </td></tr></table></div>
 </div>
 <div class="section" id="what">
-<h3>What?<a class="headerlink" href="#what" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Thread local data structures are always a bit confusing, especially when
-they're used by frameworks.  Sorry.  So here's a rule of thumb: if you don't
-<em>know</em> whether you're calling code that uses the
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_registry()</span></code></a> or
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a> functions, or you don't care
-about any of this, but you still want to write test code, just always call
-<a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.setUp()</span></code></a> in your test's <code class="docutils literal notranslate"><span class="pre">setUp</span></code> method and
-<a class="reference internal" href="../api/testing.html#pyramid.testing.tearDown" title="pyramid.testing.tearDown"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.tearDown()</span></code></a> in your tests' <code class="docutils literal notranslate"><span class="pre">tearDown</span></code> method.  This
-won't really hurt anything if the application you're testing does not call any
-<code class="docutils literal notranslate"><span class="pre">get_current*</span></code> function.</p>
+<h3>何？<a class="headerlink" href="#what" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>スレッドローカルデータ構造は、特にフレームワークで使用されている場合は、常に混乱します。ごめんなさい。だから、経験則があります：：func： <cite>〜pyramid.threadlocal.get_current_registry`または：func：</cite>〜pyramid.threadlocal.get_current_request`関数を使うコードを呼び出しているかどうかを知りません。あなたはこれについて何も気にしませんが、テストコードを書こうと思っています。テストの `` setUp``メソッドと：func： <cite>pyramid.testingでfunc：</cite> pyramid.testing.setUp`を必ず呼び出してください。あなたのテストの `` tearDown``メソッドで <cite>tearDown`を実行します。テストしているアプリケーションが `</cite> get_current * <a href="#id1"><span class="problematic" id="id2">``</span></a>関数を呼び出さなければ、これは本当に何かを傷つけることはありません。</p>
 </div>
 </div>
 <div class="section" id="using-the-configurator-and-pyramid-testing-apis-in-unit-tests">
-<span id="index-2"></span><h2>Using the <code class="docutils literal notranslate"><span class="pre">Configurator</span></code> and <code class="docutils literal notranslate"><span class="pre">pyramid.testing</span></code> APIs in Unit Tests<a class="headerlink" href="#using-the-configurator-and-pyramid-testing-apis-in-unit-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Configurator</span></code> API and the <a class="reference internal" href="../api/testing.html#module-pyramid.testing" title="pyramid.testing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.testing</span></code></a> module provide a number
-of functions which can be used during unit testing.  These functions make
-<a class="reference internal" href="../glossary.html#term-configuration-declaration"><span class="xref std std-term">configuration declaration</span></a> calls to the current <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application
-registry</span></a>, but typically register a &quot;stub&quot; or &quot;dummy&quot; feature in place of the
-&quot;real&quot; feature that the code would call if it was being run normally.</p>
-<p>For example, let's imagine you want to unit test a <span>Pyramid</span> view
-function.</p>
+<span id="index-2"></span><h2>ユニットテストでの `` Configurator``と `` pyramid.testing`` APIの使用<a class="headerlink" href="#using-the-configurator-and-pyramid-testing-apis-in-unit-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` Configurator`` APIと：mod： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.testing`モジュールは、ユニットテスト時に使用できるいくつかの関数を提供します。これらの関数は：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>構成宣言`をcurrent：term： <a href="#id5"><span class="problematic" id="id6">`</span></a>アプリケーションレジストリ &amp;#39;に呼び出しますが、通常、&amp;quot;実在する&amp;quot;機能の代わりに&amp;quot;スタブ&amp;quot;または&amp;quot;ダミー&amp;quot;コードが正常に実行されていれば、コードが呼び出されます。</p>
+<p>たとえば、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`ビュー関数をユニットテストするとします。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -271,27 +175,10 @@ function.</p>
 </td></tr></table></div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">This code implies that you have defined a renderer imperatively in a
-relevant <a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.config.Configurator</span></code></a> instance, otherwise it would
-fail when run normally.</p>
+<p class="last">このコードは、関連する：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator`インスタンスでレンダラーを必須指定として定義したことを意味します。それ以外の場合は、正常に実行されたときに失敗します。</p>
 </div>
-<p>Without doing anything special during a unit test, the call to
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.has_permission" title="pyramid.request.Request.has_permission"><code class="xref py py-meth docutils literal notranslate"><span class="pre">has_permission()</span></code></a> in this view function will
-always return a <code class="docutils literal notranslate"><span class="pre">True</span></code> value.  When a <span>Pyramid</span> application starts
-normally, it will populate an <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> using
-<a class="reference internal" href="../glossary.html#term-configuration-declaration"><span class="xref std std-term">configuration declaration</span></a> calls made against a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a>.
-But if this application registry is not created and populated (e.g., by
-initializing the configurator with an authorization policy), like when you
-invoke application code via a unit test, <span>Pyramid</span> API functions will tend
-to either fail or return default results.  So how do you test the branch of the
-code in this view function that raises
-<a class="reference internal" href="../api/httpexceptions.html#pyramid.httpexceptions.HTTPForbidden" title="pyramid.httpexceptions.HTTPForbidden"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HTTPForbidden</span></code></a>?</p>
-<p>The testing API provided by <span>Pyramid</span> allows you to simulate various
-application registry registrations for use under a unit testing framework
-without needing to invoke the actual application configuration implied by its
-<code class="docutils literal notranslate"><span class="pre">main</span></code> function.  For example, if you wanted to test the above <code class="docutils literal notranslate"><span class="pre">view_fn</span></code>
-(assuming it lived in the package named <code class="docutils literal notranslate"><span class="pre">my.package</span></code>), you could write a
-<a class="reference external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestCase</span></code></a> that used the testing API.</p>
+<p>ユニットテスト中に何も特別なことをしなければ、このビュー関数の：meth： <cite>〜pyramid.request.Request.has_permission`の呼び出しは常に</cite> <cite>True``値を返します。 a：app： `Pyramid`アプリケーションが正常に起動すると、a：term：</cite> Configurator`に対して：term： <cite>構成宣言`呼び出しを使用して：term： `アプリケーションレジストリ &amp;#39;を生成します。しかし、このアプリケーションレジストリが作成され、実装されていない（例えば、コンフィグレータを認証ポリシーで初期化するなど）場合、ユニットテストでアプリケーションコードを呼び出すときのように、：app： `Pyramid</cite> API関数は失敗するか、結果。ですから、このビュー関数内でコードの枝をテストするにはどうすればよいでしょう：exc： <cite>〜pyramid.httpexceptions.HTTPForbidden</cite>？</p>
+<p>：app： <cite>Pyramid`によって提供されるテストAPIは、</cite> <cite>main``関数が暗示する実際のアプリケーション設定を呼び出す必要なしに、ユニットテストフレームワークで使用するためのさまざまなアプリケーションレジストリ登録をシミュレートすることを可能にします。たとえば、上記の `</cite> view_fn``（ `` my.package``という名前のパッケージにあると仮定して）をテストしたい場合、テストAPIを使った：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>unittest.TestCase`を書くことができます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -347,84 +234,33 @@ without needing to invoke the actual application configuration implied by its
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;greeting&#39;</span><span class="p">:</span><span class="s1">&#39;hello&#39;</span><span class="p">})</span>
 </pre></div>
 </td></tr></table></div>
-<p>In the above example, we create a <code class="docutils literal notranslate"><span class="pre">MyTest</span></code> test case that inherits from
-<a class="reference external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.TestCase</span></code></a>.  If it's in our <span>Pyramid</span> application, it will
-be found when <code class="docutils literal notranslate"><span class="pre">py.test</span></code> is run.  It has two test methods.</p>
-<p>The first test method, <code class="docutils literal notranslate"><span class="pre">test_view_fn_forbidden</span></code> tests the <code class="docutils literal notranslate"><span class="pre">view_fn</span></code> when
-the authentication policy forbids the current user the <code class="docutils literal notranslate"><span class="pre">edit</span></code> permission. Its
-third line registers a &quot;dummy&quot; &quot;non-permissive&quot; authorization policy using the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.testing_securitypolicy" title="pyramid.config.Configurator.testing_securitypolicy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">testing_securitypolicy()</span></code></a> method, which is a
-special helper method for unit testing.</p>
-<p>We then create a <a class="reference internal" href="../api/testing.html#pyramid.testing.DummyRequest" title="pyramid.testing.DummyRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.testing.DummyRequest</span></code></a> object which simulates a
-WebOb request object API.  A <a class="reference internal" href="../api/testing.html#pyramid.testing.DummyRequest" title="pyramid.testing.DummyRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.testing.DummyRequest</span></code></a> is a request
-object that requires less setup than a &quot;real&quot; <span>Pyramid</span> request.  We call
-the function being tested with the manufactured request.  When the function is
-called, <a class="reference internal" href="../api/request.html#pyramid.request.Request.has_permission" title="pyramid.request.Request.has_permission"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.has_permission()</span></code></a> will call the &quot;dummy&quot;
-authentication policy we've registered through
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.testing_securitypolicy" title="pyramid.config.Configurator.testing_securitypolicy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">testing_securitypolicy()</span></code></a>, which denies
-access.  We check that the view function raises a
-<a class="reference internal" href="../api/httpexceptions.html#pyramid.httpexceptions.HTTPForbidden" title="pyramid.httpexceptions.HTTPForbidden"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HTTPForbidden</span></code></a> error.</p>
-<p>The second test method, named <code class="docutils literal notranslate"><span class="pre">test_view_fn_allowed</span></code>, tests the alternate
-case, where the authentication policy allows access.  Notice that we pass
-different values to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.testing_securitypolicy" title="pyramid.config.Configurator.testing_securitypolicy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">testing_securitypolicy()</span></code></a>
-to obtain this result.  We assert at the end of this that the view function
-returns a value.</p>
-<p>Note that the test calls the <a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.setUp()</span></code></a> function in its
-<code class="docutils literal notranslate"><span class="pre">setUp</span></code> method and the <a class="reference internal" href="../api/testing.html#pyramid.testing.tearDown" title="pyramid.testing.tearDown"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.tearDown()</span></code></a> function in its
-<code class="docutils literal notranslate"><span class="pre">tearDown</span></code> method.  We assign the result of <a class="reference internal" href="../api/testing.html#pyramid.testing.setUp" title="pyramid.testing.setUp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.setUp()</span></code></a> as
-<code class="docutils literal notranslate"><span class="pre">config</span></code> on the unittest class.  This is a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> object and
-all methods of the configurator can be called as necessary within tests. If you
-use any of the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> APIs during testing, be
-sure to use this pattern in your test case's <code class="docutils literal notranslate"><span class="pre">setUp</span></code> and <code class="docutils literal notranslate"><span class="pre">tearDown</span></code>; these
-methods make sure you're using a &quot;fresh&quot; <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> per test
-run.</p>
-<p>See the <a class="reference internal" href="../api/testing.html#testing-module"><span class="std std-ref">pyramid.testing</span></a> chapter for the entire <span>Pyramid</span>-specific
-testing API.  This chapter describes APIs for registering a security policy,
-registering resources at paths, registering event listeners, registering views
-and view permissions, and classes representing &quot;dummy&quot; implementations of a
-request and a resource.</p>
+<p>上記の例では、class： <cite>unittest.TestCase`を継承した</cite> <cite>MyTest``テストケースを作成します。 ：app： `Pyramid`アプリケーションにある場合、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>py.test``が実行されたときに見つかるでしょう。それは2つのテスト方法を持っています。</p>
+<p>最初のテスト方法である `` test_view_fn_forbidden``は、認証ポリシーが現在のユーザに対して `` edit``パーミッションを禁止するときに `` view_fn``をテストします。その3行目は：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.testing_securitypolicy`メソッドを使用してダミー&amp;quot;非許可&amp;quot;認可ポリシーを登録します。これはユニットテストの特別なヘルパーメソッドです。</p>
+<p>次に、WebObリクエストオブジェクトAPIをシミュレートする：class： <cite>pyramid.testing.DummyRequest`オブジェクトを作成します。 A：class： `pyramid.testing.DummyRequest`は、</cite> <cite>real ：app：</cite> Pyramid`リクエストより少ない設定しか必要としないリクエストオブジェクトです。製造された要求でテストされる関数を呼び出します。関数が呼び出されると、：meth： <cite>pyramid.request.Request.has_permission`は、アクセスを拒否するmeth：</cite>〜pyramid.config.Configurator.testing_securitypolicy`によって登録したダミー。 view関数が：exc： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.httpexceptions.HTTPForbidden`エラーを発生させることを確認します。</p>
+<p>`` test_view_fn_allowed``という名前の第2のテストメソッドは、認証ポリシーがアクセスを許可する代替ケースをテストします。この結果を得るために：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.testing_securitypolicy`に異なる値を渡すことに注目してください。この最後に、view関数が値を返すと主張します。</p>
+<p>このテストでは、 `` setUp``メソッドの：func： <cite>pyramid.testing.setUp`関数と</cite> <cite>tearDown``メソッドの：func：</cite> pyramid.testing.tearDown`関数を呼び出します。 unittestクラスで：func： <cite>pyramid.testing.setUp`の結果を</cite> <cite>config``として割り当てます。これは：term： `Configurator`オブジェクトであり、コンフィグレータのすべてのメソッドはテストの中で必要に応じて呼び出すことができます。テスト中に：class： `〜pyramid.config.Configurator</cite> APIのいずれかを使用する場合は、テストケースの` <cite>setUp``と</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>tearDown``で必ずこのパターンを使用してください。これらのメソッドは、テストごとに&amp;quot;fresh &amp;quot;：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>application registry`を使用していることを確認します。</p>
+<p>app： <cite>Pyramid`固有のテストAPIについては、：ref：</cite> testing_module`の章を参照してください。この章では、セキュリティポリシーの登録、パスへのリソースの登録、イベントリスナーの登録、ビューとビューのアクセス権の登録、リクエストとリソースの &amp;quot;ダミー&amp;quot;実装を表すクラスについて説明します。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also the various methods of the <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> documented in
-<span class="xref std std-ref">configuration_module</span> that begin with the <code class="docutils literal notranslate"><span class="pre">testing_</span></code> prefix.</p>
+<p class="last">接頭辞 <cite>testing_`で始まる：ref：</cite> configuration_module`には、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Configurator`のさまざまなメソッドもあります。</p>
 </div>
 </div>
 <div class="section" id="creating-integration-tests">
-<span id="integration-tests"></span><span id="index-3"></span><h2>Creating Integration Tests<a class="headerlink" href="#creating-integration-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In <span>Pyramid</span>, a <em>unit test</em> typically relies on &quot;mock&quot; or &quot;dummy&quot;
-implementations to give the code under test enough context to run.</p>
-<p>&quot;Integration testing&quot; implies another sort of testing.  In the context of a
-<span>Pyramid</span> integration test, the test logic exercises the functionality of
-the code under test <em>and</em> its integration with the rest of the <span>Pyramid</span>
-framework.</p>
-<p>Creating an integration test for a <span>Pyramid</span> application usually means
-invoking the application's <code class="docutils literal notranslate"><span class="pre">includeme</span></code> function via
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> within the test's setup code.  This
-causes the entire <span>Pyramid</span> environment to be set up, simulating what
-happens when your application is run &quot;for real&quot;.  This is a heavy-hammer way of
-making sure that your tests have enough context to run properly, and tests your
-code's integration with the rest of <span>Pyramid</span>.</p>
+<span id="integration-tests"></span><span id="index-3"></span><h2>統合テストの作成<a class="headerlink" href="#creating-integration-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>In：app： <cite>Pyramid</cite>、* unitテスト*は、通常、テスト対象のコードに実行可能なコンテキストを与えるために、&amp;quot;模擬 &amp;quot;または&amp;quot;ダミー &amp;quot;実装に依存します。</p>
+<p>&amp;quot;統合テスト&amp;quot;は別の種類のテストを意味します。 a：app： <cite>Pyramid`統合テストのコンテキストでは、テストロジックは、テスト中のコードの機能を実行し、他の：app：</cite> Pyramid`フレームワークとの統合を実行します。</p>
+<p>a：app： <cite>Pyramid`アプリケーションの統合テストを作成することは、通常、テストのセットアップコード内で：meth：</cite> pyramid.config.Configurator.include`を介してアプリケーションの `` includeme``関数を呼び出すことを意味します。これにより、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`環境全体が設定され、アプリケーションが実行されるときに何が起きるかがシミュレートされます。これは、テストに適切なコンテキストがあることを確認し、コードの統合をapp： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`の他の部分と一緒にテストすることを重大なものにしています。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="advconfig.html#including-configuration"><span class="std std-ref">Including Configuration from External Sources</span></a></p>
+<p class="last">参照：ref： <cite>including_configuration</cite></p>
 </div>
-<p>Writing unit tests that use the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> API to
-set up the right &quot;mock&quot; registrations is often preferred to creating
-integration tests.  Unit tests will run faster (because they do less for each
-test) and are usually easier to reason about.</p>
+<p>：class： <cite>〜pyramid.config.Configurator</cite> APIを使って正しい&amp;quot;模擬 &amp;quot;登録を設定する単体テストを書くことは、しばしば統合テストの作成よりも好まれます。単体テストはより速く実行されます（テストごとに少ないため）、通常は推論が簡単です。</p>
 </div>
 <div class="section" id="creating-functional-tests">
-<span id="functional-tests"></span><span id="index-4"></span><h2>Creating Functional Tests<a class="headerlink" href="#creating-functional-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Functional tests test your literal application.</p>
-<p>In Pyramid, functional tests are typically written using the <a class="reference internal" href="../glossary.html#term-webtest"><span class="xref std std-term">WebTest</span></a>
-package, which provides APIs for invoking HTTP(S) requests to your application.
-We also like <code class="docutils literal notranslate"><span class="pre">py.test</span></code> and <code class="docutils literal notranslate"><span class="pre">pytest-cov</span></code> to provide simple testing and
-coverage reports.</p>
-<p>Regardless of which testing <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a> you use, be sure to add a
-<code class="docutils literal notranslate"><span class="pre">tests_require</span></code> dependency on that package to your application's <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>
-file. Using the project <code class="docutils literal notranslate"><span class="pre">myproject</span></code> generated by the starter cookiecutter as
-described in <a class="reference internal" href="project.html"><span class="doc">Creating a Pyramid Project</span></a>, we would insert the following code immediately
-following the <code class="docutils literal notranslate"><span class="pre">requires</span></code> block in the file <code class="docutils literal notranslate"><span class="pre">myproject/setup.py</span></code>.</p>
+<span id="functional-tests"></span><span id="index-4"></span><h2>機能テストの作成<a class="headerlink" href="#creating-functional-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>機能テストはリテラルアプリケーションをテストします。</p>
+<p>Pyramidでは、機能テストは通常​​、アプリケーションにHTTP（S）要求を呼び出すためのAPIを提供する：term： <cite>WebTest`パッケージを使用して記述されます。簡単なテストとカバレッジレポートを提供するために `</cite> py.test``と `` pytest-cov``も好きです。</p>
+<p>どんなtesting：term： <cite>package`を使用する場合でも、そのパッケージの</cite> <cite>setup.py``ファイルに</cite> <cite>tests_require``の依存関係を必ず追加してください。 `</cite> myproject / setup.py``ファイルの `` requires``ブロックの直後に次のコードを挿入します： `` myproject / setup.py``ファイルに以下のコードを挿入します。 。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
 12
 13
@@ -452,7 +288,7 @@ following the <code class="docutils literal notranslate"><span class="pre">requi
 </span><span class="hll"><span class="p">]</span>
 </span></pre></div>
 </td></tr></table></div>
-<p>Remember to change the dependency.</p>
+<p>依存関係を変更することを忘れないでください。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>42
 43
 44
@@ -464,14 +300,11 @@ following the <code class="docutils literal notranslate"><span class="pre">requi
 </span>    <span class="n">install_requires</span><span class="o">=</span><span class="n">requires</span><span class="p">,</span>
 </pre></div>
 </td></tr></table></div>
-<p>As always, whenever you change your dependencies, make sure to run the correct
-<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span></code> command.</p>
+<p>依存関係を変更するときはいつも正しい `` pip install -e``コマンドを実行してください。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$VENV</span>/bin/pip install -e <span class="s2">&quot;.[testing]&quot;</span>
 </pre></div>
 </div>
-<p>In your <code class="docutils literal notranslate"><span class="pre">MyPackage</span></code> project, your <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a> is named <code class="docutils literal notranslate"><span class="pre">myproject</span></code>
-which contains a <code class="docutils literal notranslate"><span class="pre">views</span></code> module, which in turn contains a <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a>
-function <code class="docutils literal notranslate"><span class="pre">my_view</span></code> that returns an HTML body when the root URL is invoked:</p>
+<p>あなたの `` MyPackage``プロジェクトでは、あなたの：term： <cite>package`は</cite> <cite>myproject``という名前で、</cite> <cite>views``モジュールを含みます。これは：term：</cite> view`関数 `` my_view``ルートURLが呼び出されたときにHTML本文を返します。</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -487,8 +320,7 @@ function <code class="docutils literal notranslate"><span class="pre">my_view</s
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
-<p>The following example functional test demonstrates invoking the above
-<a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a>:</p>
+<p>次の機能テストの例は、上記の呼び出しを示しています：term： <cite>view</cite>：</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -512,14 +344,8 @@ function <code class="docutils literal notranslate"><span class="pre">my_view</s
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
-<p>When this test is run, each test method creates a &quot;real&quot; <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a>
-application using the <code class="docutils literal notranslate"><span class="pre">main</span></code> function in your <code class="docutils literal notranslate"><span class="pre">myproject.__init__</span></code> module,
-using <a class="reference internal" href="../glossary.html#term-webtest"><span class="xref std std-term">WebTest</span></a> to wrap that WSGI application.  It assigns the result to
-<code class="docutils literal notranslate"><span class="pre">self.testapp</span></code>.  In the test named <code class="docutils literal notranslate"><span class="pre">test_root</span></code>, the <code class="docutils literal notranslate"><span class="pre">TestApp</span></code>'s <code class="docutils literal notranslate"><span class="pre">GET</span></code>
-method is used to invoke the root URL.  Finally, an assertion is made that the
-returned HTML contains the text <code class="docutils literal notranslate"><span class="pre">Pyramid</span></code>.</p>
-<p>See the <a class="reference internal" href="../glossary.html#term-webtest"><span class="xref std std-term">WebTest</span></a> documentation for further information about the methods
-available to a <a class="reference external" href="http://webtest.pythonpaste.org/en/latest/api.html#webtest.app.TestApp" title="(in WebTest v2.0.33.dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">webtest.app.TestApp</span></code></a> instance.</p>
+<p>このテストを実行すると、各テストメソッドは、 `` myproject .__ init__``モジュールの `` main``関数を使ってterm： <cite>WebTest`を使って&amp;quot; real ：term： `WSGI`アプリケーションを生成します： WSGIアプリケーションをラップします。結果を `</cite> self.testapp``に代入します。 `` test_root``という名前のテストでは、 `` TestApp``の `` GET``メソッドを使ってルートURLを呼び出します。最後に、返されたHTMLに `` Pyramid``という文字列が含まれていると主張します。</p>
+<p>class： <cite>webtest.app.TestApp`インスタンスで利用できるメソッドの詳細については、：term：</cite> WebTest`のドキュメントを参照してください。</p>
 </div>
 </div>
 
@@ -531,25 +357,25 @@ available to a <a class="reference external" href="http://webtest.pythonpaste.or
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Unit, Integration, and Functional Testing</a><ul>
-<li><a class="reference internal" href="#test-set-up-and-tear-down">Test Set Up and Tear Down</a><ul>
-<li><a class="reference internal" href="#test-setup-using-a-context-manager">Test setup using a context manager</a></li>
-<li><a class="reference internal" href="#what">What?</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) ユニット、統合、機能テスト</a><ul>
+<li><a class="reference internal" href="#test-set-up-and-tear-down">テストのセットアップとティアダウン</a><ul>
+<li><a class="reference internal" href="#test-setup-using-a-context-manager">コンテキストマネージャを使用したテストのセットアップ</a></li>
+<li><a class="reference internal" href="#what">何？</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#using-the-configurator-and-pyramid-testing-apis-in-unit-tests">Using the <code class="docutils literal notranslate"><span class="pre">Configurator</span></code> and <code class="docutils literal notranslate"><span class="pre">pyramid.testing</span></code> APIs in Unit Tests</a></li>
-<li><a class="reference internal" href="#creating-integration-tests">Creating Integration Tests</a></li>
-<li><a class="reference internal" href="#creating-functional-tests">Creating Functional Tests</a></li>
+<li><a class="reference internal" href="#using-the-configurator-and-pyramid-testing-apis-in-unit-tests">ユニットテストでの `` Configurator``と `` pyramid.testing`` APIの使用</a></li>
+<li><a class="reference internal" href="#creating-integration-tests">統合テストの作成</a></li>
+<li><a class="reference internal" href="#creating-functional-tests">機能テストの作成</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="vhosting.html"
-                        title="前の章へ">Virtual Hosting</a></p>
+                        title="前の章へ">(機械翻訳) 仮想ホスティング</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="resources.html"
-                        title="次の章へ">Resources</a></p>
+                        title="次の章へ">(機械翻訳) リソース</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -583,17 +409,17 @@ available to a <a class="reference external" href="http://webtest.pythonpaste.or
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="resources.html" title="Resources"
+          <a href="resources.html" title="(機械翻訳) リソース"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="vhosting.html" title="Virtual Hosting"
+          <a href="vhosting.html" title="(機械翻訳) 仮想ホスティング"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

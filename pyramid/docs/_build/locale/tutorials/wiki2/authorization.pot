@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../tutorials/wiki2/authorization.rst:5
+msgid "Adding authorization"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:7
+msgid "In the last chapter we built :term:`authentication` into our wiki. We also went one step further and used the ``request.user`` object to perform some explicit :term:`authorization` checks. This is fine for a lot of applications, but :app:`Pyramid` provides some facilities for cleaning this up and decoupling the constraints from the view function itself."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:13
+msgid "We will implement access control with the following steps:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:15
+msgid "Update the :term:`authentication policy` to break down the :term:`userid` into a list of :term:`principals <principal>` (``security.py``)."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:17
+msgid "Define an :term:`authorization policy` for mapping users, resources and permissions (``security.py``)."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:19
+msgid "Add new :term:`resource` definitions that will be used as the :term:`context` for the wiki pages (``routes.py``)."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:21
+msgid "Add an :term:`ACL` to each resource (``routes.py``)."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:22
+msgid "Replace the inline checks on the views with :term:`permission` declarations (``views/default.py``)."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:27
+msgid "Add user principals"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:29
+msgid "A :term:`principal` is a level of abstraction on top of the raw :term:`userid` that describes the user in terms of its capabilities, roles, or other identifiers that are easier to generalize. The permissions are then written against the principals without focusing on the exact user involved."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:34
+msgid ":app:`Pyramid` defines two builtin principals used in every application: :attr:`pyramid.security.Everyone` and :attr:`pyramid.security.Authenticated`. On top of these we have already mentioned the required principals for this application in the original design. The user has two possible roles: ``editor`` or ``basic``. These will be prefixed by the string ``role:`` to avoid clashing with any other types of principals."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:41
+msgid "Open the file ``tutorial/security.py`` and edit it as follows:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:48
+msgid "Only the highlighted lines need to be added."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:50
+msgid "Note that the role comes from the ``User`` object. We also add the ``user.id`` as a principal for when we want to allow that exact user to edit pages which they have created."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:56
+msgid "Add the authorization policy"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:58
+msgid "We already added the :term:`authorization policy` in the previous chapter because :app:`Pyramid` requires one when adding an :term:`authentication policy`. However, it was not used anywhere, so we'll mention it now."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:63
+msgid "In the file ``tutorial/security.py``, notice the following lines:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:71
+msgid "We're using the :class:`pyramid.authorization.ACLAuthorizationPolicy`, which will suffice for most applications. It uses the :term:`context` to define the mapping between a :term:`principal` and :term:`permission` for the current request via the ``__acl__``."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:78
+msgid "Add resources and ACLs"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:80
+msgid "Resources are the hidden gem of :app:`Pyramid`. You've made it!"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:82
+msgid "Every URL in a web application represents a :term:`resource` (the \"R\" in Uniform Resource Locator). Often the resource is something in your data model, but it could also be an abstraction over many models."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:86
+msgid "Our wiki has two resources:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:88
+msgid "A ``NewPage``. Represents a potential ``Page`` that does not exist. Any logged-in user, having either role of ``basic`` or ``editor``, can create pages."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:92
+msgid "A ``PageResource``. Represents a ``Page`` that is to be viewed or edited. ``editor`` users, as well as the original creator of the ``Page``, may edit the ``PageResource``. Anyone may view it."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:98
+msgid "The wiki data model is simple enough that the ``PageResource`` is mostly redundant with our ``models.Page`` SQLAlchemy class. It is completely valid to combine these into one class. However, for this tutorial, they are explicitly separated to make clear the distinction between the parts about which :app:`Pyramid` cares versus application-defined objects."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:104
+msgid "There are many ways to define these resources, and they can even be grouped into collections with a hierarchy. However, we're keeping it simple here!"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:107
+msgid "Open the file ``tutorial/routes.py`` and edit the following lines:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:114
+msgid "The highlighted lines need to be edited or added."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:116
+msgid "The ``NewPage`` class has an ``__acl__`` on it that returns a list of mappings from :term:`principal` to :term:`permission`. This defines *who* can do *what* with that :term:`resource`. In our case we want to allow only those users with the principals of either ``role:editor`` or ``role:basic`` to have the ``create`` permission:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:128
+msgid "The ``NewPage`` is loaded as the :term:`context` of the ``add_page`` route by declaring a ``factory`` on the route:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:137
+msgid "The ``PageResource`` class defines the :term:`ACL` for a ``Page``. It uses an actual ``Page`` object to determine *who* can do *what* to the page."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:146
+msgid "The ``PageResource`` is loaded as the :term:`context` of the ``view_page`` and ``edit_page`` routes by declaring a ``factory`` on the routes:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:157
+msgid "Add view permissions"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:159
+msgid "At this point we've modified our application to load the ``PageResource``, including the actual ``Page`` model in the ``page_factory``. The ``PageResource`` is now the :term:`context` for all ``view_page`` and ``edit_page`` views. Similarly the ``NewPage`` will be the context for the ``add_page`` view."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:165
+msgid "Open the file ``tutorial/views/default.py``."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:167
+msgid "First, you can drop a few imports that are no longer necessary:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:175
+msgid "Edit the ``view_page`` view to declare the ``view`` permission, and remove the explicit checks within the view:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:184
+msgid "The work of loading the page has already been done in the factory, so we can just pull the ``page`` object out of the ``PageResource``, loaded as ``request.context``. Our factory also guarantees we will have a ``Page``, as it raises the ``HTTPNotFound`` exception if no ``Page`` exists, again simplifying the view logic."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:190
+msgid "Edit the ``edit_page`` view to declare the ``edit`` permission:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:198
+msgid "Edit the ``add_page`` view to declare the ``create`` permission:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:206
+msgid "Note the ``pagename`` here is pulled off of the context instead of ``request.matchdict``. The factory has done a lot of work for us to hide the actual route pattern."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:210
+msgid "The ACLs defined on each :term:`resource` are used by the :term:`authorization policy` to determine if any :term:`principal` is allowed to have some :term:`permission`. If this check fails (for example, the user is not logged in) then an ``HTTPForbidden`` exception will be raised automatically. Thus we're able to drop those exceptions and checks from the views themselves. Rather we've defined them in terms of operations on a resource."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:217
+msgid "The final ``tutorial/views/default.py`` should look like the following:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:224
+msgid "Viewing the application in a browser"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:226
+msgid "We can finally examine our application in a browser (See :ref:`wiki2-start-the-application`).  Launch a browser and visit each of the following URLs, checking that the result is as expected:"
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:230
+msgid "http://localhost:6543/ invokes the ``view_wiki`` view.  This always redirects to the ``view_page`` view of the ``FrontPage`` page object.  It is executable by any user."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:234
+msgid "http://localhost:6543/FrontPage invokes the ``view_page`` view of the ``FrontPage`` page object. There is a \"Login\" link in the upper right corner while the user is not authenticated, else it is a \"Logout\" link when the user is authenticated."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:239
+msgid "http://localhost:6543/FrontPage/edit_page invokes the ``edit_page`` view for the ``FrontPage`` page object.  It is executable by only the ``editor`` user. If a different user (or the anonymous user) invokes it, then a login form will be displayed. Supplying the credentials with the username ``editor`` and password ``editor`` will display the edit page form."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:245
+msgid "http://localhost:6543/add_page/SomePageName invokes the ``add_page`` view for a page. If the page already exists, then it redirects the user to the ``edit_page`` view for the page object. It is executable by either the ``editor`` or ``basic`` user.  If a different user (or the anonymous user) invokes it, then a login form will be displayed. Supplying the credentials with either the username ``editor`` and password ``editor``, or username ``basic`` and password ``basic``, will display the edit page form."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:253
+msgid "http://localhost:6543/SomePageName/edit_page invokes the ``edit_page`` view for an existing page, or generates an error if the page does not exist. It is editable by the ``basic`` user if the page was created by that user in the previous step. If, instead, the page was created by the ``editor`` user, then the login page should be shown for the ``basic`` user."
+msgstr ""
+
+#: ../../tutorials/wiki2/authorization.rst:259
+msgid "After logging in (as a result of hitting an edit or add page and submitting the login form with the ``editor`` credentials), we'll see a \"Logout\" link in the upper right hand corner.  When we click it, we're logged out, redirected back to the front page, and a \"Login\" link is shown in the upper right hand corner."
+msgstr ""
+

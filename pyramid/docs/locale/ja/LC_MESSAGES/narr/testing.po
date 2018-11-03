@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/testing.rst:9
 msgid "Unit, Integration, and Functional Testing"
-msgstr ""
+msgstr "(機械翻訳) ユニット、統合、機能テスト"
 
 #: ../../narr/testing.rst:11
 msgid ""
@@ -28,7 +18,7 @@ msgid ""
 "your application.  In this context, a \"unit\" is often a function or a "
 "method of a class instance.  The unit is also referred to as a \"unit "
 "under test\"."
-msgstr ""
+msgstr "*単体テスト*は、あなたのアプリケーションの\ &quot;単位\&quot;をテストする行為であることは驚くべきことではありません。この文脈では、\ &quot;単位\&quot;は、多くの場合、クラスインスタンスの関数またはメソッドです。このユニットは、「テスト中のユニット」とも呼ばれます。"
 
 #: ../../narr/testing.rst:15
 msgid ""
@@ -49,7 +39,7 @@ msgid ""
 "method of the object provided as an argument that *would* send an email "
 "if the argument happened to be the \"real\" implementation of an SMTP "
 "server object."
-msgstr ""
+msgstr "単体テストの目標は、**「テスト中のユニット」の一部の置換のみをテストすることです。 Python関数を使って特定のコードパスの結果を検証することを目的とした単体テストを書く場合、関数本体自体に存在する*コードをテストすることだけが必要です。関数が複雑なアプリケーション\ &quot;ドメインオブジェクト\&quot;（リソース、データベース接続、SMTPサーバなど）を表すパラメータを受け入れる場合、ユニットテスト中にこの関数に渡される引数は*である必要はなく* &quot;実\&quot;実装オブジェクトであってはなりません。たとえば、特定の関数実装では、SMTPサーバーオブジェクトを表す引数を受け入れることができますが、電子メールの送信につながるシステムが正常に動作しているときにこのオブジェクトのメソッドを呼び出すことができますが、このコードパスの単体テスト電子メールが実際に送信されることをテストする必要はありません。それは引数がSMTPサーバオブジェクトの &quot;実際の&quot;実装である場合に電子メールを送信する引数として提供されたオブジェクトのメソッドを関数が呼び出すことを保証するだけです。"
 
 #: ../../narr/testing.rst:31
 msgid ""
@@ -58,7 +48,7 @@ msgid ""
 "tested. Integration tests verify that the components of your application "
 "work together. You *might* make sure that an email was actually sent in "
 "an integration test."
-msgstr ""
+msgstr "一方、*統合テスト*は、2つ以上の &quot;ユニット&quot;間の相互作用が明示的にテストされる異なるテスト形式です。統合テストでは、アプリケーションのコンポーネントが連携して動作することを確認します。あなたは電子メールが統合テストで実際に送られたかどうか確認するかもしれません。"
 
 #: ../../narr/testing.rst:36
 msgid ""
@@ -66,7 +56,7 @@ msgid ""
 "application is run \"literally\".  You would *have to* make sure that an "
 "email was actually sent in a functional test, because it tests your code "
 "end to end."
-msgstr ""
+msgstr "*機能テスト*は、アプリケーションが\ &quot;文字通り\&quot;で動作する統合テストの一種です。あなたはコードテストの終わりをテストするので、電子メールが機能テストで実際に送信されたことを確認する必要があります。"
 
 #: ../../narr/testing.rst:40
 msgid ""
@@ -79,7 +69,7 @@ msgid ""
 "testing provides a measure of assurance that your \"units\" work "
 "together, as they will be expected to when your application is run in "
 "production."
-msgstr ""
+msgstr "特定のコードベースに対してそれぞれのタイプのテストを記述することが、しばしばベストプラクティスと見なされます。単体テストは、しばしばより良い\ &quot;カバレッジ\&quot;を得る機会を提供します：テスト対象のユニットに引数やその潜在的なコードパスの* all *を実行させる環境を与えることは通常可能です。これは通常、一連の統合テストや機能テストでは簡単ではありませんが、統合テストと機能テストは、アプリケーションが実稼働環境で実行されるときに期待されるように、 。"
 
 #: ../../narr/testing.rst:49
 msgid ""
@@ -90,7 +80,7 @@ msgid ""
 " is available within `Dive Into Python "
 "<http://www.diveintopython.net/unit_testing/index.html>`_ by Mark "
 "Pilgrim."
-msgstr ""
+msgstr "a：app： `Pyramid`アプリケーションのユニットテストと統合テストのために推奨されるメカニズムは、Python：mod：` unittest`モジュールです。このモジュールの名前は：mod： `unittest`ですが、実際にユニットテストと統合テストの両方を実行することができます。良い：mod： `unittest`チュートリアルは、` Dive Into Python <http://www.diveintopython.net/unit_testing/index.html> `_マーク・ピルグリム。"
 
 #: ../../narr/testing.rst:56
 msgid ""
@@ -98,11 +88,11 @@ msgid ""
 "integration, and functional tests easier to write.  The facilities become"
 " particularly useful when your code calls into :app:`Pyramid`-related "
 "framework functions."
-msgstr ""
+msgstr "：app： `Pyramid`はユニット、統合、機能テストを書くのを容易にする多くの機能を提供します。この機能は、コードが：app： `Pyramid`関連のフレームワーク関数を呼び出すときに特に便利になります。"
 
 #: ../../narr/testing.rst:68
 msgid "Test Set Up and Tear Down"
-msgstr ""
+msgstr "テストのセットアップとティアダウン"
 
 #: ../../narr/testing.rst:70
 msgid ""
@@ -113,7 +103,7 @@ msgid ""
 ":func:`pyramid.threadlocal.get_current_registry` functions, respectively."
 " See :ref:`threadlocals_chapter` for information about these functions "
 "and the data structures they return."
-msgstr ""
+msgstr "：app： `Pyramid`は現在の：term：` request`と現在の：term： `アプリケーションレジストリ &#39;の2つの項目を保持するためにグローバル構造体（実際にはterm：` thread local`）を使います。これらのデータ構造は、それぞれ：func： `pyramid.threadlocal.get_current_request`と：func：` pyramid.threadlocal.get_current_registry`関数を介して利用できます。これらの関数とそれらが返すデータ構造については、ref： `threadlocals_chapter`を参照してください。"
 
 #: ../../narr/testing.rst:78
 msgid ""
@@ -126,7 +116,7 @@ msgid ""
 "returns a :term:`Configurator` object which can be used to perform extra "
 "configuration required by the code under test.  "
 ":func:`~pyramid.testing.tearDown` pops the thread local stack."
-msgstr ""
+msgstr "あなたのコードがこれらの `` get_current_ * ``関数を使用するか、 `` get_current_ * ``関数を使用するapp： `Pyramid`コードを呼び出す場合は、テスト設定でfunc：` pyramid.testing.setUp`を呼び出す必要がありますあなたのテストティアダウンで：func： `pyramid.testing.tearDown`を呼び出す必要があります。 ：func： `〜pyramid.testing.setUp`はレジストリを：term：` thread local`スタックにプッシュします。これは `` get_current_ * ``関数を動作させます。テスト中のコードで必要とされる余分な設定を行うために使用できる：term： `Configurator`オブジェクトを返します。 ：func： `〜pyramid.testing.tearDown`は、スレッドローカルスタックをポップします。"
 
 #: ../../narr/testing.rst:88
 msgid ""
@@ -140,7 +130,7 @@ msgid ""
 " unit testing purposes than needing to call "
 ":meth:`pyramid.config.Configurator.commit` in each test after adding "
 "extra configuration statements."
-msgstr ""
+msgstr "通常、ConfiguratorをPyramidアプリケーションの `` main``ブロックと直接使用すると、 `` .commit``メソッドが呼び出されるまで（通常は：meth： `によって暗黙的に\ pyramid.config.Configurator.make_wsgi_app`メソッド）。 ：func： `〜pyramid.testing.setUp`は* autocommitting * Configuratorですが、直ちに呼び出されるメソッドが暗示するすべてのアクションを実行します。これは、単体テストの目的のために、追加の設定文を追加した後に各テストで：meth： `pyramid.config.Configurator.commit`を呼び出すよりも便利です。"
 
 #: ../../narr/testing.rst:98
 msgid ""
@@ -149,7 +139,7 @@ msgid ""
 "unit test method in a test case with an environment that has an isolated "
 "registry and an isolated request for the duration of a single test.  "
 "Here's an example of using this feature:"
-msgstr ""
+msgstr "：func： `〜pyramid.testing.setUp`関数と：func：`〜pyramid.testing.tearDown`関数を使用すると、テストケース内の各ユニットテストメソッドを独立したレジストリを持つ環境に提供することができます。単一のテスト期間中の独立したリクエストこの機能の使用例を次に示します。"
 
 #: ../../narr/testing.rst:117
 msgid ""
@@ -158,7 +148,7 @@ msgid ""
 "case method of ``MyTest`` will return the :term:`application registry` "
 "associated with the ``config`` Configurator instance.  Each test case "
 "method attached to ``MyTest`` will use an isolated registry."
-msgstr ""
+msgstr "上記のことは： `` myTest``のテストケースメソッド内で呼び出された：func： `〜pyramid.threadlocal.get_current_registry`が、` `config``のコンフィグレータインスタンスに関連する：term：`アプリケーションレジストリ `を返すことを確認します。 `` MyTest``に添付された各テストケースメソッドは、独立したレジストリを使用します。"
 
 #: ../../narr/testing.rst:123
 msgid ""
@@ -166,7 +156,7 @@ msgid ""
 "functions accept various arguments that influence the environment of the "
 "test. See the :ref:`testing_module` API for information about the extra "
 "arguments supported by these functions."
-msgstr ""
+msgstr "：func： `〜pyramid.testing.setUp`と：func：`〜pyramid.testing.tearDown`関数は、テストの環境に影響を与えるさまざまな引数を受け取ります。これらの関数でサポートされている余分な引数については、：ref： `testing_module` APIを参照してください。"
 
 #: ../../narr/testing.rst:128
 msgid ""
@@ -174,7 +164,7 @@ msgid ""
 " return something other than ``None`` during the course of a single test,"
 " you can pass a :term:`request` object into the "
 ":func:`pyramid.testing.setUp` within the ``setUp`` method of your test:"
-msgstr ""
+msgstr "：func： `〜pyramid.threadlocal.get_current_request`を1回のテストの途中で` `None``以外のものに戻したい場合、：term：` request`オブジェクトを：func：あなたのテストの `` setUp``メソッドの中で `` pyramid.testing.setUp`："
 
 #: ../../narr/testing.rst:147
 msgid ""
@@ -187,11 +177,11 @@ msgid ""
 " use a \"dummy\" request implementation supplied by "
 ":class:`pyramid.testing.DummyRequest` because it's easier to construct "
 "than a \"real\" :app:`Pyramid` request object."
-msgstr ""
+msgstr "：term： `request`オブジェクトをテストケースの` `setUp``内で：func：` pyramid.testing.setUp`に渡すと、直接的または間接的に呼び出す `` MyTest``テストケースに添付されたテストメソッド：func： `〜pyramid.threadlocal.get_current_request`はリクエストオブジェクトを受け取ります。さもなければ、テストの間、：func： `〜pyramid.threadlocal.get_current_request`は` `None``を返します。私たちは：class： `pyramid.testing.DummyRequest`によって提供される&quot;ダミー &quot;リクエスト実装を使用します。なぜなら、\&quot; real \ &quot;：app：` Pyramid`リクエストオブジェクトより構築が簡単だからです。"
 
 #: ../../narr/testing.rst:158
 msgid "Test setup using a context manager"
-msgstr ""
+msgstr "コンテキストマネージャを使用したテストのセットアップ"
 
 #: ../../narr/testing.rst:160
 msgid ""
@@ -200,15 +190,15 @@ msgid ""
 ":term:`context manager`. The context manager will call "
 ":func:`pyramid.testing.setUp` before the code under test and "
 ":func:`pyramid.testing.tearDown` afterwards."
-msgstr ""
+msgstr "テスト設定を設定するもう一つの方法は、 `` with``文と：func： `pyramid.testing.testConfig`を使って：term：` context manager`を作成することです。コンテキストマネージャは、テスト対象コードの前に：func： `pyramid.testing.setUp`を呼び出し、後で：func：` pyramid.testing.tearDown`を呼び出します。"
 
 #: ../../narr/testing.rst:165
 msgid "This style is useful for small self-contained tests. For example:"
-msgstr ""
+msgstr "このスタイルは、自己完結型の小さなテストに役立ちます。例えば："
 
 #: ../../narr/testing.rst:181
 msgid "What?"
-msgstr ""
+msgstr "何？"
 
 #: ../../narr/testing.rst:183
 msgid ""
@@ -222,11 +212,11 @@ msgid ""
 " and :func:`pyramid.testing.tearDown` in your tests' ``tearDown`` method."
 "  This won't really hurt anything if the application you're testing does "
 "not call any ``get_current*`` function."
-msgstr ""
+msgstr "スレッドローカルデータ構造は、特にフレームワークで使用されている場合は、常に混乱します。ごめんなさい。だから、経験則があります：：func： `〜pyramid.threadlocal.get_current_registry`または：func：`〜pyramid.threadlocal.get_current_request`関数を使うコードを呼び出しているかどうかを知りません。あなたはこれについて何も気にしませんが、テストコードを書こうと思っています。テストの `` setUp``メソッドと：func： `pyramid.testingでfunc：` pyramid.testing.setUp`を必ず呼び出してください。あなたのテストの `` tearDown``メソッドで `tearDown`を実行します。テストしているアプリケーションが `` get_current * ``関数を呼び出さなければ、これは本当に何かを傷つけることはありません。"
 
 #: ../../narr/testing.rst:199
 msgid "Using the ``Configurator`` and ``pyramid.testing`` APIs in Unit Tests"
-msgstr ""
+msgstr "ユニットテストでの `` Configurator``と `` pyramid.testing`` APIの使用"
 
 #: ../../narr/testing.rst:201
 msgid ""
@@ -236,20 +226,20 @@ msgid ""
 ":term:`application registry`, but typically register a \"stub\" or "
 "\"dummy\" feature in place of the \"real\" feature that the code would "
 "call if it was being run normally."
-msgstr ""
+msgstr "`` Configurator`` APIと：mod： `pyramid.testing`モジュールは、ユニットテスト時に使用できるいくつかの関数を提供します。これらの関数は：term： `構成宣言`をcurrent：term： `アプリケーションレジストリ &#39;に呼び出しますが、通常、\&quot;実在する\ &quot;機能の代わりに\&quot;スタブ\ &quot;または\&quot;ダミー\ &quot;コードが正常に実行されていれば、コードが呼び出されます。"
 
 #: ../../narr/testing.rst:207
 msgid ""
 "For example, let's imagine you want to unit test a :app:`Pyramid` view "
 "function."
-msgstr ""
+msgstr "たとえば、app： `Pyramid`ビュー関数をユニットテストするとします。"
 
 #: ../../narr/testing.rst:222
 msgid ""
 "This code implies that you have defined a renderer imperatively in a "
 "relevant :class:`pyramid.config.Configurator` instance, otherwise it "
 "would fail when run normally."
-msgstr ""
+msgstr "このコードは、関連する：class： `pyramid.config.Configurator`インスタンスでレンダラーを必須指定として定義したことを意味します。それ以外の場合は、正常に実行されたときに失敗します。"
 
 #: ../../narr/testing.rst:226
 msgid ""
@@ -264,7 +254,7 @@ msgid ""
 ":app:`Pyramid` API functions will tend to either fail or return default "
 "results.  So how do you test the branch of the code in this view function"
 " that raises :exc:`~pyramid.httpexceptions.HTTPForbidden`?"
-msgstr ""
+msgstr "ユニットテスト中に何も特別なことをしなければ、このビュー関数の：meth： `〜pyramid.request.Request.has_permission`の呼び出しは常に` `True``値を返します。 a：app： `Pyramid`アプリケーションが正常に起動すると、a：term：` Configurator`に対して：term： `構成宣言`呼び出しを使用して：term： `アプリケーションレジストリ &#39;を生成します。しかし、このアプリケーションレジストリが作成され、実装されていない（例えば、コンフィグレータを認証ポリシーで初期化するなど）場合、ユニットテストでアプリケーションコードを呼び出すときのように、：app： `Pyramid` API関数は失敗するか、結果。ですから、このビュー関数内でコードの枝をテストするにはどうすればよいでしょう：exc： `〜pyramid.httpexceptions.HTTPForbidden`？"
 
 #: ../../narr/testing.rst:238
 msgid ""
@@ -275,14 +265,14 @@ msgid ""
 " above ``view_fn`` (assuming it lived in the package named "
 "``my.package``), you could write a :class:`unittest.TestCase` that used "
 "the testing API."
-msgstr ""
+msgstr "：app： `Pyramid`によって提供されるテストAPIは、` `main``関数が暗示する実際のアプリケーション設定を呼び出す必要なしに、ユニットテストフレームワークで使用するためのさまざまなアプリケーションレジストリ登録をシミュレートすることを可能にします。たとえば、上記の `` view_fn``（ `` my.package``という名前のパッケージにあると仮定して）をテストしたい場合、テストAPIを使った：class： `unittest.TestCase`を書くことができます。"
 
 #: ../../narr/testing.rst:276
 msgid ""
 "In the above example, we create a ``MyTest`` test case that inherits from"
 " :class:`unittest.TestCase`.  If it's in our :app:`Pyramid` application, "
 "it will be found when ``py.test`` is run.  It has two test methods."
-msgstr ""
+msgstr "上記の例では、class： `unittest.TestCase`を継承した` `MyTest``テストケースを作成します。 ：app： `Pyramid`アプリケーションにある場合、` `py.test``が実行されたときに見つかるでしょう。それは2つのテスト方法を持っています。"
 
 #: ../../narr/testing.rst:280
 msgid ""
@@ -292,7 +282,7 @@ msgid ""
 "authorization policy using the "
 ":meth:`~pyramid.config.Configurator.testing_securitypolicy` method, which"
 " is a special helper method for unit testing."
-msgstr ""
+msgstr "最初のテスト方法である `` test_view_fn_forbidden``は、認証ポリシーが現在のユーザに対して `` edit``パーミッションを禁止するときに `` view_fn``をテストします。その3行目は：meth： `〜pyramid.config.Configurator.testing_securitypolicy`メソッドを使用してダミー\&quot;非許可\ &quot;認可ポリシーを登録します。これはユニットテストの特別なヘルパーメソッドです。"
 
 #: ../../narr/testing.rst:286
 msgid ""
@@ -306,7 +296,7 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.testing_securitypolicy`, which denies"
 " access.  We check that the view function raises a "
 ":exc:`~pyramid.httpexceptions.HTTPForbidden` error."
-msgstr ""
+msgstr "次に、WebObリクエストオブジェクトAPIをシミュレートする：class： `pyramid.testing.DummyRequest`オブジェクトを作成します。 A：class： `pyramid.testing.DummyRequest`は、` `real \：app：` Pyramid`リクエストより少ない設定しか必要としないリクエストオブジェクトです。製造された要求でテストされる関数を呼び出します。関数が呼び出されると、：meth： `pyramid.request.Request.has_permission`は、アクセスを拒否するmeth：`〜pyramid.config.Configurator.testing_securitypolicy`によって登録したダミー\ 。 view関数が：exc： `〜pyramid.httpexceptions.HTTPForbidden`エラーを発生させることを確認します。"
 
 #: ../../narr/testing.rst:296
 msgid ""
@@ -316,7 +306,7 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.testing_securitypolicy` to obtain "
 "this result.  We assert at the end of this that the view function returns"
 " a value."
-msgstr ""
+msgstr "`` test_view_fn_allowed``という名前の第2のテストメソッドは、認証ポリシーがアクセスを許可する代替ケースをテストします。この結果を得るために：meth： `〜pyramid.config.Configurator.testing_securitypolicy`に異なる値を渡すことに注目してください。この最後に、view関数が値を返すと主張します。"
 
 #: ../../narr/testing.rst:302
 msgid ""
@@ -330,7 +320,7 @@ msgid ""
 " this pattern in your test case's ``setUp`` and ``tearDown``; these "
 "methods make sure you're using a \"fresh\" :term:`application registry` "
 "per test run."
-msgstr ""
+msgstr "このテストでは、 `` setUp``メソッドの：func： `pyramid.testing.setUp`関数と` `tearDown``メソッドの：func：` pyramid.testing.tearDown`関数を呼び出します。 unittestクラスで：func： `pyramid.testing.setUp`の結果を` `config``として割り当てます。これは：term： `Configurator`オブジェクトであり、コンフィグレータのすべてのメソッドはテストの中で必要に応じて呼び出すことができます。テスト中に：class： `〜pyramid.config.Configurator` APIのいずれかを使用する場合は、テストケースの` `setUp``と` `tearDown``で必ずこのパターンを使用してください。これらのメソッドは、テストごとに\ &quot;fresh \&quot;：term： `application registry`を使用していることを確認します。"
 
 #: ../../narr/testing.rst:312
 msgid ""
@@ -340,24 +330,24 @@ msgid ""
 "registering event listeners, registering views and view permissions, and "
 "classes representing \"dummy\" implementations of a request and a "
 "resource."
-msgstr ""
+msgstr "app： `Pyramid`固有のテストAPIについては、：ref：` testing_module`の章を参照してください。この章では、セキュリティポリシーの登録、パスへのリソースの登録、イベントリスナーの登録、ビューとビューのアクセス権の登録、リクエストとリソースの &quot;ダミー&quot;実装を表すクラスについて説明します。"
 
 #: ../../narr/testing.rst:320
 msgid ""
 "See also the various methods of the :term:`Configurator` documented in "
 ":ref:`configuration_module` that begin with the ``testing_`` prefix."
-msgstr ""
+msgstr "接頭辞 `testing_`で始まる：ref：` configuration_module`には、：term： `Configurator`のさまざまなメソッドもあります。"
 
 #: ../../narr/testing.rst:329
 msgid "Creating Integration Tests"
-msgstr ""
+msgstr "統合テストの作成"
 
 #: ../../narr/testing.rst:331
 msgid ""
 "In :app:`Pyramid`, a *unit test* typically relies on \"mock\" or "
 "\"dummy\" implementations to give the code under test enough context to "
 "run."
-msgstr ""
+msgstr "In：app： `Pyramid`、* unitテスト*は、通常、テスト対象のコードに実行可能なコンテキストを与えるために、&quot;模擬 &quot;または&quot;ダミー &quot;実装に依存します。"
 
 #: ../../narr/testing.rst:334
 msgid ""
@@ -365,7 +355,7 @@ msgid ""
 "of a :app:`Pyramid` integration test, the test logic exercises the "
 "functionality of the code under test *and* its integration with the rest "
 "of the :app:`Pyramid` framework."
-msgstr ""
+msgstr "\ &quot;統合テスト\&quot;は別の種類のテストを意味します。 a：app： `Pyramid`統合テストのコンテキストでは、テストロジックは、テスト中のコードの機能を実行し、他の：app：` Pyramid`フレームワークとの統合を実行します。"
 
 #: ../../narr/testing.rst:339
 msgid ""
@@ -377,11 +367,11 @@ msgid ""
 "is a heavy-hammer way of making sure that your tests have enough context "
 "to run properly, and tests your code's integration with the rest of "
 ":app:`Pyramid`."
-msgstr ""
+msgstr "a：app： `Pyramid`アプリケーションの統合テストを作成することは、通常、テストのセットアップコード内で：meth：` pyramid.config.Configurator.include`を介してアプリケーションの `` includeme``関数を呼び出すことを意味します。これにより、app： `Pyramid`環境全体が設定され、アプリケーションが実行されるときに何が起きるかがシミュレートされます。これは、テストに適切なコンテキストがあることを確認し、コードの統合をapp： `Pyramid`の他の部分と一緒にテストすることを重大なものにしています。"
 
 #: ../../narr/testing.rst:349
 msgid "See also :ref:`including_configuration`"
-msgstr ""
+msgstr "参照：ref： `including_configuration`"
 
 #: ../../narr/testing.rst:351
 msgid ""
@@ -389,15 +379,15 @@ msgid ""
 " to set up the right \"mock\" registrations is often preferred to "
 "creating integration tests.  Unit tests will run faster (because they do "
 "less for each test) and are usually easier to reason about."
-msgstr ""
+msgstr "：class： `〜pyramid.config.Configurator` APIを使って正しい&quot;模擬 &quot;登録を設定する単体テストを書くことは、しばしば統合テストの作成よりも好まれます。単体テストはより速く実行されます（テストごとに少ないため）、通常は推論が簡単です。"
 
 #: ../../narr/testing.rst:362
 msgid "Creating Functional Tests"
-msgstr ""
+msgstr "機能テストの作成"
 
 #: ../../narr/testing.rst:364
 msgid "Functional tests test your literal application."
-msgstr ""
+msgstr "機能テストはリテラルアプリケーションをテストします。"
 
 #: ../../narr/testing.rst:366
 msgid ""
@@ -405,7 +395,7 @@ msgid ""
 ":term:`WebTest` package, which provides APIs for invoking HTTP(S) "
 "requests to your application. We also like ``py.test`` and ``pytest-cov``"
 " to provide simple testing and coverage reports."
-msgstr ""
+msgstr "Pyramidでは、機能テストは通常​​、アプリケーションにHTTP（S）要求を呼び出すためのAPIを提供する：term： `WebTest`パッケージを使用して記述されます。簡単なテストとカバレッジレポートを提供するために `` py.test``と `` pytest-cov``も好きです。"
 
 #: ../../narr/testing.rst:371
 msgid ""
@@ -415,17 +405,17 @@ msgid ""
 "starter cookiecutter as described in :doc:`project`, we would insert the "
 "following code immediately following the ``requires`` block in the file "
 "``myproject/setup.py``."
-msgstr ""
+msgstr "どんなtesting：term： `package`を使用する場合でも、そのパッケージの` `setup.py``ファイルに` `tests_require``の依存関係を必ず追加してください。 `` myproject / setup.py``ファイルの `` requires``ブロックの直後に次のコードを挿入します： `` myproject / setup.py``ファイルに以下のコードを挿入します。 。"
 
 #: ../../narr/testing.rst:383
 msgid "Remember to change the dependency."
-msgstr ""
+msgstr "依存関係を変更することを忘れないでください。"
 
 #: ../../narr/testing.rst:391
 msgid ""
 "As always, whenever you change your dependencies, make sure to run the "
 "correct ``pip install -e`` command."
-msgstr ""
+msgstr "依存関係を変更するときはいつも正しい `` pip install -e``コマンドを実行してください。"
 
 #: ../../narr/testing.rst:398
 msgid ""
@@ -433,13 +423,13 @@ msgid ""
 "``myproject`` which contains a ``views`` module, which in turn contains a"
 " :term:`view` function ``my_view`` that returns an HTML body when the "
 "root URL is invoked:"
-msgstr ""
+msgstr "あなたの `` MyPackage``プロジェクトでは、あなたの：term： `package`は` `myproject``という名前で、` `views``モジュールを含みます。これは：term：` view`関数 `` my_view``ルートURLが呼び出されたときにHTML本文を返します。"
 
 #: ../../narr/testing.rst:406
 msgid ""
 "The following example functional test demonstrates invoking the above "
 ":term:`view`:"
-msgstr ""
+msgstr "次の機能テストの例は、上記の呼び出しを示しています：term： `view`："
 
 #: ../../narr/testing.rst:414
 msgid ""
@@ -449,11 +439,11 @@ msgid ""
 "the result to ``self.testapp``.  In the test named ``test_root``, the "
 "``TestApp``'s ``GET`` method is used to invoke the root URL.  Finally, an"
 " assertion is made that the returned HTML contains the text ``Pyramid``."
-msgstr ""
+msgstr "このテストを実行すると、各テストメソッドは、 `` myproject .__ init__``モジュールの `` main``関数を使ってterm： `WebTest`を使って\&quot; real \：term： `WSGI`アプリケーションを生成します： WSGIアプリケーションをラップします。結果を `` self.testapp``に代入します。 `` test_root``という名前のテストでは、 `` TestApp``の `` GET``メソッドを使ってルートURLを呼び出します。最後に、返されたHTMLに `` Pyramid``という文字列が含まれていると主張します。"
 
 #: ../../narr/testing.rst:421
 msgid ""
 "See the :term:`WebTest` documentation for further information about the "
 "methods available to a :class:`webtest.app.TestApp` instance."
-msgstr ""
+msgstr "class： `webtest.app.TestApp`インスタンスで利用できるメソッドの詳細については、：term：` WebTest`のドキュメントを参照してください。"
 

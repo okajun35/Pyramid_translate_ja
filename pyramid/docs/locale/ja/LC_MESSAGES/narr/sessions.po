@@ -7,27 +7,17 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/sessions.rst:7
 msgid "Sessions"
-msgstr ""
+msgstr "(機械翻訳) セッション"
 
 #: ../../narr/sessions.rst:9
 msgid ""
 "A :term:`session` is a namespace which is valid for some period of "
 "continual activity that can be used to represent a user's interaction "
 "with a web application."
-msgstr ""
+msgstr "A：term： `session`は、Webアプリケーションとのユーザーの対話を表現するために使用できる一定期間の継続的な活動に対して有効な名前空間です。"
 
 #: ../../narr/sessions.rst:13
 msgid ""
@@ -35,24 +25,24 @@ msgid ""
 "implementations :app:`Pyramid` provides out of the box, how to store and "
 "retrieve data from sessions, and a session-specific feature: flash "
 "messages."
-msgstr ""
+msgstr "この章では、セッションの設定方法、セッションの実装方法について説明します。app： `Pyramid`は、即座に提供され、セッションからのデータの保存および取得方法、およびセッション固有の機能です。"
 
 #: ../../narr/sessions.rst:23
 msgid "Using the Default Session Factory"
-msgstr ""
+msgstr "デフォルトセッションファクトリの使用"
 
 #: ../../narr/sessions.rst:25
 msgid ""
 "In order to use sessions, you must set up a :term:`session factory` "
 "during your :app:`Pyramid` configuration."
-msgstr ""
+msgstr "セッションを使用するには、：app： `Pyramid`設定中に：term：` session factory`を設定する必要があります。"
 
 #: ../../narr/sessions.rst:28
 msgid ""
 "A very basic, insecure sample session factory implementation is provided "
 "in the :app:`Pyramid` core.  It uses a cookie to store session "
 "information.  This implementation has the following limitations:"
-msgstr ""
+msgstr "非常に基本的で安全でないサンプルセッションファクトリの実装は、：app： `Pyramid`コアで提供されています。セッション情報を保存するためにクッキーを使用します。この実装には次の制限があります。"
 
 #: ../../narr/sessions.rst:32
 msgid ""
@@ -60,27 +50,27 @@ msgid ""
 "*not* encrypted, so it can be viewed by anyone with access to the cookie "
 "storage of the user's browser or anyone with access to the network along "
 "which the cookie travels."
-msgstr ""
+msgstr "この実装で使用されるクッキー内のセッション情報は暗号化されていない*ため、ユーザーのブラウザのクッキーストレージまたはクッキーが移動するネットワークにアクセスできる人は誰でも閲覧できます。"
 
 #: ../../narr/sessions.rst:37
 msgid ""
 "The maximum number of bytes that are storable in a serialized "
 "representation of the session is fewer than 4000.  This is suitable only "
 "for very small data sets."
-msgstr ""
+msgstr "セッションのシリアライズされた表現で格納可能な最大バイト数は4000未満です。これは非常に小さいデータセットにのみ適しています。"
 
 #: ../../narr/sessions.rst:41
 msgid ""
 "It is digitally signed, however, and thus its data cannot easily be "
 "tampered with."
-msgstr ""
+msgstr "しかし、それはデジタル署名されているため、そのデータを簡単に改ざんすることはできません。"
 
 #: ../../narr/sessions.rst:44
 msgid ""
 "You can configure this session factory in your :app:`Pyramid` application"
 " by using the :meth:`pyramid.config.Configurator.set_session_factory` "
 "method."
-msgstr ""
+msgstr "このセッションファクトリは：app： `Pyramid`アプリケーションで：meth：` pyramid.config.Configurator.set_session_factory`メソッドを使って設定できます。"
 
 #: ../../narr/sessions.rst:59
 msgid ""
@@ -97,18 +87,18 @@ msgid ""
 "on the server) for anything but the most basic of applications where "
 "\"session security doesn't matter\", and you are sure your application "
 "has no cross-site scripting vulnerabilities."
-msgstr ""
+msgstr "デフォルトでは：func： `〜pyramid.session.SignedCookieSessionFactory`実装は*暗号化されていません*。アプリケーションのユーザーとユーザーのネットワークトラフィックにアクセスできる第三者が情報を簡単に読むことができるため、セッションオブジェクトに機密情報を保存するときには使用しないでください。セッションデータがCookieに暗号化されて保存されているため、このセッション実装を使用してアプリケーションでクロスサイトスクリプティングの脆弱性を誤って作成した場合、悪意のあるユーザーが現在のユーザーのクロスサイトスクリプティングトークン。要するに、\ &quot;セッションセキュリティは重要ではない\&quot;というアプリケーションの最も基本的なもの以外は、別のセッションファクトリ実装（好ましくはサーバー上にセッションデータを保持するもの）を使用してください。アプリケーションには、サイトスクリプティングの脆弱性。"
 
 #: ../../narr/sessions.rst:77
 msgid "Using a Session Object"
-msgstr ""
+msgstr "セッションオブジェクトの使用"
 
 #: ../../narr/sessions.rst:79
 msgid ""
 "Once a session factory has been configured for your application, you can "
 "access session objects provided by the session factory via the "
 "``session`` attribute of any :term:`request` object.  For example:"
-msgstr ""
+msgstr "アプリケーション用にセッションファクトリがコンフィグレーションされたら、any：term： `request`オブジェクトの` `session``属性を介して、セッションファクトリによって提供されるセッションオブジェクトにアクセスできます。例えば："
 
 #: ../../narr/sessions.rst:98
 msgid ""
@@ -116,70 +106,70 @@ msgid ""
 "session``. Subsequent invocations produce ``Fred was in the session``, "
 "assuming of course that the client side maintains the session's identity "
 "across multiple requests."
-msgstr ""
+msgstr "このビューが初めて呼び出されると、「フレッドはセッションに参加していません」と表示されます。その後の呼び出しでは、クライアント側が複数の要求にまたがってセッションの識別情報を保持していることを前提として、「Fredがセッション中です。"
 
 #: ../../narr/sessions.rst:102
 msgid ""
 "You can use a session much like a Python dictionary.  It supports all "
 "dictionary methods, along with some extra attributes and methods."
-msgstr ""
+msgstr "あなたはPython辞書のようにセッションを使うことができます。それはいくつかの追加の属性とメソッドと共に、すべての辞書メソッドをサポートしています。"
 
 #: ../../narr/sessions.rst:105
 msgid "Extra attributes:"
-msgstr ""
+msgstr "追加属性："
 
 #: ../../narr/sessions.rst:108
 msgid "``created``"
-msgstr ""
+msgstr "``作られた ``"
 
 #: ../../narr/sessions.rst:108
 msgid "An integer timestamp indicating the time that this session was created."
-msgstr ""
+msgstr "このセッションが作成された時刻を示す整数のタイムスタンプ。"
 
 #: ../../narr/sessions.rst:112
 msgid "``new``"
-msgstr ""
+msgstr "「新」"
 
 #: ../../narr/sessions.rst:111
 msgid ""
 "A boolean.  If ``new`` is True, this session is new.  Otherwise, it has "
 "been constituted from data that was already serialized."
-msgstr ""
+msgstr "ブール値`` new``がTrueの場合、このセッションは新規です。それ以外の場合は、既にシリアライズされたデータから構成されています。"
 
 #: ../../narr/sessions.rst:114
 msgid "Extra methods:"
-msgstr ""
+msgstr "余分な方法："
 
 #: ../../narr/sessions.rst:118
 msgid "``changed()``"
-msgstr ""
+msgstr "`` changed（） ``"
 
 #: ../../narr/sessions.rst:117
 msgid ""
 "Call this when you mutate a mutable value in the session namespace. See "
 "the gotchas below for details on when and why you should call this."
-msgstr ""
+msgstr "セッションネームスペース内の変更可能な値を変更するときにこれを呼び出します。これをいつ、なぜ呼び出すべきかについての詳細は、下の問題点を参照してください。"
 
 #: ../../narr/sessions.rst:122
 msgid "``invalidate()``"
-msgstr ""
+msgstr "`` invalidate（） ``"
 
 #: ../../narr/sessions.rst:121
 msgid ""
 "Call this when you want to invalidate the session (dump all data, and "
 "perhaps set a clearing cookie)."
-msgstr ""
+msgstr "セッションを無効にする（すべてのデータをダンプし、おそらくクリアクッキーを設定する）ときにこれを呼び出します。"
 
 #: ../../narr/sessions.rst:124
 msgid ""
 "The formal definition of the methods and attributes supported by the "
 "session object are in the :class:`pyramid.interfaces.ISession` "
 "documentation."
-msgstr ""
+msgstr "セッションオブジェクトがサポートするメソッドと属性の正式な定義は：class： `pyramid.interfaces.ISession`のドキュメントにあります。"
 
 #: ../../narr/sessions.rst:127
 msgid "Some gotchas:"
-msgstr ""
+msgstr "いくつかの問題："
 
 #: ../../narr/sessions.rst:129
 msgid ""
@@ -188,7 +178,7 @@ msgid ""
 "strings, lists, dictionaries, tuples, integers, etc.  If you place an "
 "object in a session data key or value that is not pickleable, an error "
 "will be raised when the session is serialized."
-msgstr ""
+msgstr "セッションデータのキーと値は* pickleable *でなければなりません。これは、通常、文字列、リスト、辞書、タプル、整数などのオブジェクトの基本型のインスタンスであることを意味します。オブジェクトをpickleableではないセッションデータキーまたは値に配置すると、エラーが発生しますセッションがシリアライズされるときに発生します。"
 
 #: ../../narr/sessions.rst:135
 msgid ""
@@ -202,69 +192,69 @@ msgid ""
 "``changed()`` is unnecessary. There is no harm in calling ``changed()`` "
 "in either case, so when in doubt, call it after you've changed sessioning"
 " data."
-msgstr ""
+msgstr "セッションオブジェクトに変更可能な値（リストや辞書など）を入れた後、その値を変更する場合は、セッションオブジェクトの `` changed（） ``メソッドを呼び出す必要があります。この場合、セッションは変更されたことを知る方法がありません。しかし、セッションオブジェクトを直接変更する場合（例えば、 `` __setitem__``）、キーを削除する場合（ `` del``や `` pop``など）には、セッションは自動的にそのデータを再シリアライズする必要があるため、 `` changed（） ``を呼び出すことは不要です。いずれにしても `` changed（） ``を呼び出すことには何の害もないので、疑わしいときはセッションデータを変更した後に呼び出してください。"
 
 #: ../../narr/sessions.rst:152
 msgid "Using Alternate Session Factories"
-msgstr ""
+msgstr "代替セッションファクトリの使用"
 
 #: ../../narr/sessions.rst:154
 msgid "The following session factories exist at the time of this writing."
-msgstr ""
+msgstr "この執筆時点では、以下のセッションファクトリが存在します。"
 
 #: ../../narr/sessions.rst:157
 msgid "Session Factory"
-msgstr ""
+msgstr "セッションファクトリー"
 
 #: ../../narr/sessions.rst:157
 msgid "Backend"
-msgstr ""
+msgstr "バックエンド"
 
 #: ../../narr/sessions.rst:157
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../../narr/sessions.rst:159
 msgid "pyramid_nacl_session_"
-msgstr ""
+msgstr "pyramid_nacl_session_"
 
 #: ../../narr/sessions.rst:159
 msgid "PyNaCl_"
-msgstr ""
+msgstr "PyNaCl_"
 
 #: ../../narr/sessions.rst:159
 msgid ""
 "Defines an encrypting, pickle-based cookie serializer, using PyNaCl to "
 "generate the symmetric encryption for the cookie state."
-msgstr ""
+msgstr "PyNaClを使用してCookie状態の対称暗号化を生成する、暗号化されたpickleベースのCookieシリアライザを定義します。"
 
 #: ../../narr/sessions.rst:165
 msgid "pyramid_redis_sessions_"
-msgstr ""
+msgstr "pyramid_redis_sessions_"
 
 #: ../../narr/sessions.rst:165
 msgid "Redis_"
-msgstr ""
+msgstr "Redis_"
 
 #: ../../narr/sessions.rst:165
 msgid "Server-side session library for Pyramid, using Redis for storage."
-msgstr ""
+msgstr "Pyramid用のサーバー側のセッションライブラリ。Redisをストレージに使用します。"
 
 #: ../../narr/sessions.rst:168
 msgid "pyramid_beaker_"
-msgstr ""
+msgstr "ピラミッドビーカー_"
 
 #: ../../narr/sessions.rst:168
 msgid "Beaker_"
-msgstr ""
+msgstr "ビーカー_"
 
 #: ../../narr/sessions.rst:168
 msgid "Session factory for Pyramid backed by the Beaker sessioning system."
-msgstr ""
+msgstr "ビーカーのセッションシステムに支えられたピラミッドのセッションファクトリ。"
 
 #: ../../narr/sessions.rst:186
 msgid "Creating Your Own Session Factory"
-msgstr ""
+msgstr "独自のセッションファクトリーを作成する"
 
 #: ../../narr/sessions.rst:188
 msgid ""
@@ -275,11 +265,11 @@ msgid ""
 " :class:`pyramid.interfaces.ISessionFactory` and "
 ":class:`pyramid.interfaces.ISession`. You might use the cookie "
 "implementation in the :mod:`pyramid.session` module as inspiration."
-msgstr ""
+msgstr "もし：app： `Pyramid`のためのデフォルトやその他のセッションの実装があなたに合っていないなら、：term：` session factory`を実装することであなた自身のセッションオブジェクトを作成できます。あなたのセッションファクトリは：term： `session`を返すべきです。両方の型のインタフェースはclass： `pyramid.interfaces.ISessionFactory`と：class：` pyramid.interfaces.ISession`で利用できます。 ：mod： `pyramid.session`モジュールのcookie実装をインスピレーションとして使うかもしれません。"
 
 #: ../../narr/sessions.rst:202
 msgid "Flash Messages"
-msgstr ""
+msgstr "フラッシュメッセージ"
 
 #: ../../narr/sessions.rst:204
 msgid ""
@@ -288,7 +278,7 @@ msgid ""
 ":term:`session factory` as described in "
 ":ref:`using_the_default_session_factory` or "
 ":ref:`using_alternate_session_factories`."
-msgstr ""
+msgstr "\ &quot;Flash messages \&quot;は：term： `session`に格納されたメッセージ文字列の単なるキューです。フラッシュメッセージを使用するには、：ref： `using_the_default_session_factory`または：ref：` using_alternate_session_factories`で説明されているように、：term： `session factory`を有効にする必要があります。"
 
 #: ../../narr/sessions.rst:209
 msgid ""
@@ -297,34 +287,34 @@ msgid ""
 "code to log messages for single-time display without having direct access"
 " to an HTML template. The user interface consists of a number of methods "
 "of the :term:`session` object."
-msgstr ""
+msgstr "Flashリダイレクトは、内部リダイレクトを実行した後でステータスメッセージを1回だけユーザに表示し、HTMLテンプレートに直接アクセスせずにメッセージをログに記録できるようにします。ユーザインタフェースは、：term： `session`オブジェクトのいくつかのメソッドで構成されています。"
 
 #: ../../narr/sessions.rst:219
 msgid "Using the ``session.flash`` Method"
-msgstr ""
+msgstr "`` session.flash``メソッドの使用"
 
 #: ../../narr/sessions.rst:221
 msgid ""
 "To add a message to a flash message queue, use a session object's "
 "``flash()`` method:"
-msgstr ""
+msgstr "フラッシュメッセージキューにメッセージを追加するには、セッションオブジェクトの `` flash（） ``メソッドを使用します："
 
 #: ../../narr/sessions.rst:228
 msgid ""
 "The ``flash()`` method appends a message to a flash queue, creating the "
 "queue if necessary."
-msgstr ""
+msgstr "`` flash（） ``メソッドはフラッシュキューにメッセージを追加し、必要に応じてキューを作成します。"
 
 #: ../../narr/sessions.rst:231
 msgid "``flash()`` accepts three arguments:"
-msgstr ""
+msgstr "`` flash（） ``は3つの引数を受け取ります："
 
 #: ../../narr/sessions.rst:235
 msgid ""
 "The ``message`` argument is required.  It represents a message you wish "
 "to later display to a user.  It is usually a string but the ``message`` "
 "you provide is not modified in any way."
-msgstr ""
+msgstr "`` message``引数が必要です。後でユーザーに表示したいメッセージを表します。通常は文字列ですが、あなたが提供する `` message``は決して変更されません。"
 
 #: ../../narr/sessions.rst:239
 msgid ""
@@ -336,43 +326,43 @@ msgid ""
 "examined via ``peek_flash()`` separately.  ``queue`` defaults to the "
 "empty string.  The empty string represents the default flash message "
 "queue."
-msgstr ""
+msgstr "`` queue``引数は、あなたが提供するメッセージを追加するキューを選択することを可能にします。これを使用して、さまざまな種類のメッセージをフラッシュストレージにプッシュして、後でページの別の場所に表示することができます。キューには任意の名前を渡すことができますが、文字列でなければなりません。各キューは独立していて、 `` pop_flash（） ``でポップするか、 `` peek_flash（） ``で個別に調べることができます。 `` queue``はデフォルトで空文字列になります。空の文字列は、デフォルトのフラッシュメッセージキューを表します。"
 
 #: ../../narr/sessions.rst:251
 msgid ""
 "The ``allow_duplicate`` argument defaults to ``True``.  If this is "
 "``False``, and you attempt to add a message value which is already "
 "present in the queue, it will not be added."
-msgstr ""
+msgstr "`` allow_duplicate``引数のデフォルトは `` True``です。これが `` False``で、既にキューに存在するメッセージ値を追加しようとすると、追加されません。"
 
 #: ../../narr/sessions.rst:259
 msgid "Using the ``session.pop_flash`` Method"
-msgstr ""
+msgstr "`` session.pop_flash``メソッドの使用"
 
 #: ../../narr/sessions.rst:261
 msgid ""
 "Once one or more messages have been added to a flash queue by the "
 "``session.flash()`` API, the ``session.pop_flash()`` API can be used to "
 "pop an entire queue and return it for use."
-msgstr ""
+msgstr "1つまたは複数のメッセージが `` session.flash（） `APIによってフラッシュキューに追加されると、` `session.pop_flash（）` `APIを使用してキュー全体をポップし、使用するために返すことができます。"
 
 #: ../../narr/sessions.rst:265
 msgid ""
 "To pop a particular queue of messages from the flash object, use the "
 "session object's ``pop_flash()`` method. This returns a list of the "
 "messages that were added to the flash queue, and empties the queue."
-msgstr ""
+msgstr "特定のキューのメッセージをフラッシュオブジェクトからポップするには、セッションオブジェクトの `` pop_flash（） ``メソッドを使用します。これにより、フラッシュキューに追加されたメッセージのリストが返され、キューが空になります。"
 
 #: ../../narr/sessions.rst:282
 msgid ""
 "Calling ``session.pop_flash()`` again like above without a corresponding "
 "call to ``session.flash()`` will return an empty list, because the queue "
 "has already been popped."
-msgstr ""
+msgstr "上記のように `` session.pop_flash（） ``をもう一度呼び出すと、 `` session.flash（） ``に対応する呼び出しは、キューが既にポップされているので空のリストを返します。"
 
 #: ../../narr/sessions.rst:298
 msgid "Using the ``session.peek_flash`` Method"
-msgstr ""
+msgstr "`` session.peek_flash``メソッドの使用"
 
 #: ../../narr/sessions.rst:300
 msgid ""
@@ -380,5 +370,5 @@ msgid ""
 "``session.flash()`` API, the ``session.peek_flash()`` API can be used to "
 "\"peek\" at that queue.  Unlike ``session.pop_flash()``, the queue is not"
 " popped from flash storage."
-msgstr ""
+msgstr "1つまたは複数のメッセージが `` session.flash（） `APIによってフラッシュキューに追加されると、` `session.peek_flash（）` `APIを使ってそのキューで\&quot; peek \ &quot;を使うことができます。 `` session.pop_flash（） ``とは異なり、キューはフラッシュストレージからポップされません。"
 

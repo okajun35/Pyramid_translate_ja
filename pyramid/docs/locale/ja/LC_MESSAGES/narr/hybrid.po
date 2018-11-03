@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/hybrid.rst:4
 msgid "Combining Traversal and URL Dispatch"
-msgstr ""
+msgstr "(機械翻訳) トラバーサルとURLディスパッチの組み合わせ"
 
 #: ../../narr/hybrid.rst:6
 msgid ""
@@ -30,7 +20,7 @@ msgid ""
 "it's useful to use *both* traversal and URL dispatch together within the "
 "same application. :app:`Pyramid` makes this possible via *hybrid* "
 "applications."
-msgstr ""
+msgstr "most：app： `Pyramid`アプリケーションを書くと、term：` resource location`サブシステム：トラバーサルまたはURLディスパッチのいずれかを使用できます。しかし、限られた一連の問題を解決するには、同じアプリケーション内でトラバーサルとURLの両方のディスパッチを併用すると便利です。 ：app： `Pyramid`は*ハイブリッドアプリケーションを介してこれを可能にします。"
 
 #: ../../narr/hybrid.rst:14
 msgid ""
@@ -40,11 +30,11 @@ msgid ""
 "matching, root factories, and the :term:`traversal` algorithm, and the "
 "potential interactions between them.  Therefore, we don't recommend "
 "creating an application that relies on hybrid behavior unless you must."
-msgstr ""
+msgstr "\ &quot;ハイブリッド\&quot; URLディスパッチ+トラバースアプリケーションの動作について推論するのは難しいことです。 URLのディスパッチとトラバースを一緒に使うことを成功させるためには、URLパターンマッチング、ルートファクトリ、：term： `traversal`アルゴリズム、およびそれらの間の潜在的な相互作用を理解する必要があります。したがって、必要がない限りハイブリッド動作に依存するアプリケーションを作成することはお勧めしません。"
 
 #: ../../narr/hybrid.rst:22
 msgid "A Review of Non-Hybrid Applications"
-msgstr ""
+msgstr "非ハイブリッドアプリケーションのレビュー"
 
 #: ../../narr/hybrid.rst:24
 msgid ""
@@ -54,18 +44,18 @@ msgid ""
 ":term:`traversal`.  This chapter details how you might combine these two "
 "dispatch mechanisms, but we'll review how they work in isolation before "
 "trying to combine them."
-msgstr ""
+msgstr "：app： `Pyramid`は、\&quot;デュアルモード\ &quot;フレームワークです。このチュートリアルでは、term：` URL dispatch` *または*のいずれかを使ってアプリケーションを作成する方法を説明しています。 ：用語：トラバーサル。この章では、これらの2つのディスパッチメカニズムをどのように組み合わせるかについて詳しく説明しますが、それらを組み合わせようとする前に、どのように孤立して動作しているかを見ていきます。"
 
 #: ../../narr/hybrid.rst:31
 msgid "URL Dispatch Only"
-msgstr ""
+msgstr "URLディスパッチのみ"
 
 #: ../../narr/hybrid.rst:33
 msgid ""
 "An application that uses :term:`URL dispatch` exclusively to map URLs to "
 "code will often have statements like this within its application startup "
 "configuration:"
-msgstr ""
+msgstr "URLをコードにマップするために：term： `URL dispatch`を使用するアプリケーションは、アプリケーション開始構成内で次のようなステートメントを持つことがよくあります："
 
 #: ../../narr/hybrid.rst:48
 msgid ""
@@ -77,17 +67,17 @@ msgid ""
 " associated view callable.  The presence of calls to "
 ":meth:`~pyramid.config.Configurator.add_route` signify that an "
 "application is using URL dispatch."
-msgstr ""
+msgstr "それぞれ：term： `ルート`は、1つまたは複数のビュー呼び出し可能変数に対応します。呼び出し可能な各ビューは：meth： `〜pyramid.config.Configurator.add_view`への呼び出し中にその名前と一致する` `route_name``パラメータを渡すことによってルートに関連付けられます。リクエスト中にルートがマッチした場合、：term： `view lookup`を使用して、関連するビューを呼び出し可能に照合します。 ：meth： `〜pyramid.config.Configurator.add_route`への呼び出しは、アプリケーションがURLディスパッチを使用していることを示します。"
 
 #: ../../narr/hybrid.rst:58
 msgid "Traversal Only"
-msgstr ""
+msgstr "トラバーサルのみ"
 
 #: ../../narr/hybrid.rst:60
 msgid ""
 "An application that uses only traversal will have view configuration "
 "declarations that look like this:"
-msgstr ""
+msgstr "トラバースのみを使用するアプリケーションでは、次のようなビュー構成宣言があります。"
 
 #: ../../narr/hybrid.rst:71
 msgid ""
@@ -96,18 +86,18 @@ msgid ""
 "URL ``/foobar`` is visited.  Likewise, the view "
 "``mypackage.views.bazbuz`` will be called when the URL ``/bazbuz`` is "
 "visited."
-msgstr ""
+msgstr "上記の設定をアプリケーションに適用すると、 `` / foobar``というURLにアクセスしたときに上で呼び出せる `` mypackage.views.foobar``ビューが呼び出されます。同様に、 `` mypackage.views.bazbuz``というビューは `` / bazbuz``というURLが訪れると呼び出されます。"
 
 #: ../../narr/hybrid.rst:76
 msgid ""
 "Typically, an application that uses traversal exclusively won't perform "
 "any calls to :meth:`pyramid.config.Configurator.add_route` in its startup"
 " code."
-msgstr ""
+msgstr "通常、トラバーサルを排他的に使用するアプリケーションは、起動コードに：meth： `pyramid.config.Configurator.add_route`を呼び出すことはありません。"
 
 #: ../../narr/hybrid.rst:83
 msgid "Hybrid Applications"
-msgstr ""
+msgstr "ハイブリッドアプリケーション"
 
 #: ../../narr/hybrid.rst:85
 msgid ""
@@ -116,7 +106,7 @@ msgid ""
 "concepts of traversal and URL dispatch when building an application, the "
 "result of which is a hybrid application.  In a hybrid application, "
 "traversal is performed *after* a particular route has matched."
-msgstr ""
+msgstr "トラバーサルまたはURLディスパッチだけで、：app： `Pyramid`アプリケーションを作成することができます。ただし、アプリケーションを構築するときに、トラバーサルとURLディスパッチのコンセプトを組み合わせることも可能で、その結果はハイブリッドアプリケーションになります。ハイブリッドアプリケーションでは、特定のルートが一致した後にトラバーサルが実行されます。"
 
 #: ../../narr/hybrid.rst:91
 msgid ""
@@ -129,19 +119,19 @@ msgid ""
 "request, and after the route pattern has matched, most of the \"normal\" "
 "rules of traversal with respect to :term:`resource location` and "
 ":term:`view lookup` apply."
-msgstr ""
+msgstr "ハイブリッドアプリケーションは、\ &quot;純粋な\&quot;トラバーサルベースのアプリケーションに似ていますが、\ &quot;純粋な\&quot; URLディスパッチベースのアプリケーションと似ています。しかし、「純粋な」トラバーサルベースのアプリケーションとは異なり、ハイブリッドアプリケーションでは、「トラバーサル」は、ルートが既に一致した後にリクエスト中に実行されます。これは、ルートの `` pattern``引数を表すURLパターンがリクエストの `` PATH_INFO``と一致しなければならないことを意味し、ルートパターンがマッチした後、\ &quot;通常\ ：term： `resource location`と：term：` view lookup`が適用されます。"
 
 #: ../../narr/hybrid.rst:100
 msgid ""
 "There are only four real differences between a purely traversal-based "
 "application and a hybrid application:"
-msgstr ""
+msgstr "純粋にトラバーサルベースのアプリケーションとハイブリッドアプリケーションの間には、4つの大きな違いがあります。"
 
 #: ../../narr/hybrid.rst:103
 msgid ""
 "In a purely traversal-based application, no routes are defined.  In a "
 "hybrid application, at least one route will be defined."
-msgstr ""
+msgstr "純粋にトラバーサルベースのアプリケーションでは、経路は定義されていません。ハイブリッドアプリケーションでは、少なくとも1つのルートが定義されます。"
 
 #: ../../narr/hybrid.rst:106
 msgid ""
@@ -149,7 +139,7 @@ msgid ""
 "implied by the :term:`root factory` provided at startup time.  In a "
 "hybrid application, the :term:`root` object at which traversal begins may"
 " be varied on a per-route basis."
-msgstr ""
+msgstr "完全にトラバーサルベースのアプリケーションでは、使用されるルートオブジェクトはグローバルであり、起動時に提供される：term： `ルートファクトリ &#39;によって暗示されます。ハイブリッドアプリケーションでは、トラバーサルが始まる：term： `ルート`オブジェクトは、ルートごとに変化する可能性があります。"
 
 #: ../../narr/hybrid.rst:111
 msgid ""
@@ -158,7 +148,7 @@ msgid ""
 "path.  In a hybrid application, the traversal path is not the entire "
 "``PATH_INFO`` string, but a portion of the URL determined by a matching "
 "pattern in the matched route configuration's pattern."
-msgstr ""
+msgstr "純粋にトラバーサルベースのアプリケーションでは、基礎となる：term： `WSGI`環境の` `PATH_INFO``がトラバーサルパスとして卸売されています。ハイブリッドアプリケーションでは、トラバーサルパスは `` PATH_INFO``文字列全体ではなく、一致したルート設定のパターンで一致するパターンによって決定されたURLの一部です。"
 
 #: ../../narr/hybrid.rst:117
 msgid ""
@@ -167,26 +157,26 @@ msgid ""
 "lookup`. In a hybrid application, when a route is matched, only view "
 "configurations which mention that route's name as a ``route_name`` are "
 "considered during :term:`view lookup`."
-msgstr ""
+msgstr "純粋にトラバーサルベースのアプリケーションでは、 `` route_name``引数に言及していないビュー設定は：term： `view lookup`の間に考慮されます。ハイブリッドアプリケーションでは、ルートが一致すると、そのルートの名前を `` route_name``として記述するビュー設定だけが：term： `view lookup`の間に考慮されます。"
 
 #: ../../narr/hybrid.rst:123
 msgid ""
 "More generally, a hybrid application *is* a traversal-based application "
 "except:"
-msgstr ""
+msgstr "より一般的には、ハイブリッドアプリケーション*は以下を除くトラバーサルベースのアプリケーションです。"
 
 #: ../../narr/hybrid.rst:125
 msgid ""
 "the traversal *root* is chosen based on the route configuration of the "
 "route that matched, instead of from the ``root_factory`` supplied during "
 "application startup configuration."
-msgstr ""
+msgstr "traversal * root *は、アプリケーションの起動時に提供される `` root_factory``からではなく、一致したルートのルート設定に基づいて選択されます。"
 
 #: ../../narr/hybrid.rst:129
 msgid ""
 "the traversal *path* is chosen based on the route configuration of the "
 "route that matched, rather than from the ``PATH_INFO`` of a request."
-msgstr ""
+msgstr "traversal * path *はリクエストの `` PATH_INFO``ではなく、マッチしたルートのルート設定に基づいて選択されます。"
 
 #: ../../narr/hybrid.rst:132
 msgid ""
@@ -194,7 +184,7 @@ msgid ""
 "route matches are limited to those which specifically name a "
 "``route_name`` in their configuration that is the same as the matched "
 "route's ``name``."
-msgstr ""
+msgstr "ルートが一致したときにterm： `view lookup`の間に選択されるビューのセットは、その設定において、マッチしたルートの` `name``と同じである` `route_name``を特に指定するものに限定されます。"
 
 #: ../../narr/hybrid.rst:136
 msgid ""
@@ -202,11 +192,11 @@ msgid ""
 "that implies a particular :term:`root factory` and which also includes a "
 "``pattern`` argument that contains a special dynamic part: either "
 "``*traverse`` or ``*subpath``."
-msgstr ""
+msgstr "ハイブリッドモードアプリケーションを作成するには、特定の：term： `ルートファクトリ &#39;を意味する：term：`ルート設定 `を使用し、特殊な動的部分を含む` `pattern``引数も含みます：` `* traverse ``または `` * subpath``を使用します。"
 
 #: ../../narr/hybrid.rst:142
 msgid "The Root Object for a Route Match"
-msgstr ""
+msgstr "ルートマッチのルートオブジェクト"
 
 #: ../../narr/hybrid.rst:144
 msgid ""
@@ -214,20 +204,20 @@ msgid ""
 " after a route has matched.  Traversal, by definition, must always begin "
 "at a root object.  Therefore it's important to know *which* root object "
 "will be traversed after a route has matched."
-msgstr ""
+msgstr "ハイブリッドアプリケーションとは、ルートが一致した後、要求中にトラバーサルが実行されることを意味します。トラバーサルは定義上、常にルートオブジェクトから始まる必要があります。したがって、ルートがマッチした後、どのルートオブジェクトがトラバースされるかを知ることが重要です。"
 
 #: ../../narr/hybrid.rst:149
 msgid ""
 "Figuring out which :term:`root` object results from a particular route "
 "match is straightforward.  When a route is matched:"
-msgstr ""
+msgstr "term： `ルート`オブジェクトが特定のルートマッチからどのような結果を出すのかは簡単です。経路が一致した場合："
 
 #: ../../narr/hybrid.rst:152
 msgid ""
 "If the route's configuration has a ``factory`` argument which points to a"
 " :term:`root factory` callable, that callable will be called to generate "
 "a :term:`root` object."
-msgstr ""
+msgstr "ルートの設定が：term： `ルートファクトリー`を指す `` factory``引数を持つ場合、そのcallableは：term： `ルート`オブジェクトを生成するために呼び出されます。"
 
 #: ../../narr/hybrid.rst:156
 msgid ""
@@ -236,7 +226,7 @@ msgid ""
 "object.  The global root factory is the callable implied by the "
 "``root_factory`` argument passed to the "
 ":class:`~pyramid.config.Configurator` at application startup time."
-msgstr ""
+msgstr "ルートの設定に `` factory``引数がない場合、：global：：term： `ルートファクトリ`が呼び出されて：term： `ルート`オブジェクトが生成されます。グローバルルートファクトリは、アプリケーションの起動時に：class： `〜pyramid.config.Configurator`に渡される` `root_factory``引数によって暗示される呼び出し可能です。"
 
 #: ../../narr/hybrid.rst:162
 msgid ""
@@ -244,25 +234,25 @@ msgid ""
 ":class:`~pyramid.config.Configurator` at startup time, a *default* root "
 "factory is used.  The default root factory is used to generate a root "
 "object."
-msgstr ""
+msgstr "起動時に `` root_factory``引数が：class： `〜pyramid.config.Configurator`に与えられない場合、* default *ルートファクトリが使用されます。デフォルトルートファクトリは、ルートオブジェクトを生成するために使用されます。"
 
 #: ../../narr/hybrid.rst:168
 msgid ""
 "Root factories related to a route were explained previously within "
 ":ref:`route_factories`.  Both the global root factory and default root "
 "factory were explained previously within :ref:`the_resource_tree`."
-msgstr ""
+msgstr "ルートに関連するルートファクトリについては、ref： `route_factories`で前に説明しました。グローバルルートファクトリとデフォルトルートファクトリの両方は、ref： `the_resource_tree`の中で前に説明しました。"
 
 #: ../../narr/hybrid.rst:178
 msgid "Using ``*traverse`` in a Route Pattern"
-msgstr ""
+msgstr "ルートパターンで `` * traverse``を使う"
 
 #: ../../narr/hybrid.rst:180
 msgid ""
 "A hybrid application most often implies the inclusion of a route "
 "configuration that contains the special token ``*traverse`` at the end of"
 " a route's pattern:"
-msgstr ""
+msgstr "ハイブリッドアプリケーションは、ルートのパターンの終わりに特別なトークン `` * traverse``を含むルート設定を含めることを最も頻繁に意味します："
 
 #: ../../narr/hybrid.rst:188
 msgid ""
@@ -270,20 +260,20 @@ msgid ""
 "configuration implies a \"remainder\" *capture* value.  When it is used, "
 "it will match the remainder of the path segments of the URL.  This "
 "remainder becomes the path used to perform traversal."
-msgstr ""
+msgstr "ルートの構成におけるパターンの最後にある `` * traverse``トークンは\ &quot;remainder \&quot; * capture *値を意味します。これを使用すると、URLのパスセグメントの残りの部分と一致します。この残りは、トラバーサルを実行するために使用されるパスになります。"
 
 #: ../../narr/hybrid.rst:195
 msgid ""
 "The ``*remainder`` route pattern syntax is explained in more detail "
 "within :ref:`route_pattern_syntax`."
-msgstr ""
+msgstr "`` * remainder``のルートパターンの構文についてはref： `route_pattern_syntax`で詳しく説明しています。"
 
 #: ../../narr/hybrid.rst:198
 msgid ""
 "A hybrid mode application relies more heavily on :term:`traversal` to do "
 ":term:`resource location` and :term:`view lookup` than most examples "
 "indicate within :ref:`urldispatch_chapter`."
-msgstr ""
+msgstr "ハイブリッドモードのアプリケーションは、term： `traversal`を行うためにもっと重く依存します：term：` resource location`と：term： `view lookup`ほとんどの例は：ref：` urldispatch_chapter`を示します。"
 
 #: ../../narr/hybrid.rst:202
 msgid ""
@@ -297,7 +287,7 @@ msgid ""
 ":term:`context` resource, :term:`view lookup` will be invoked in almost "
 "exactly the same way it would have been invoked in a \"pure\" traversal-"
 "based application."
-msgstr ""
+msgstr "上記のルートのパターンは `` * traverse`で終わるので、リクエスト中にこのルート設定が一致すると、：app： `Pyramid`は：term：` traversal`を：term： `root`に対して使用しようとします。 ：term： `ルートファクト`によって暗示されたオブジェクトで、ルートの設定によって暗示されています。このルートには `` root_factory``引数は明示的に指定されていないので、アプリケーションの*グローバル*ルートファクトリーか* default *ルートファクトリーのいずれかになります。一度：term： `traversal`がa：term：` context`リソースを見つけました：term： `view lookup`は\&quot;純粋な &quot;トラバーサルベースのアプリケーションで呼び出されたのとほぼ同じ方法で呼び出されます。"
 
 #: ../../narr/hybrid.rst:212
 msgid ""
@@ -307,14 +297,14 @@ msgid ""
 "route configuration with a custom root factory in order to create a "
 "useful hybrid application.  To that end, let's imagine that we've created"
 " a root factory that looks like so in a module named ``routes.py``:"
-msgstr ""
+msgstr "このアプリケーションでは* global：：term： `ルートファクトリ &#39;が設定されていないと仮定しましょう。 * default *：term： `ルートファクトリ`はトラバースできません。有用な `` __getitem__``メソッドはありません。したがって、便利なハイブリッドアプリケーションを作成するために、このルート構成をカスタムルートファクトリに関連付ける必要があります。そのために、 `` routes.py``という名前のモジュールのように見えるルートファクトリを作成したとしましょう："
 
 #: ../../narr/hybrid.rst:236
 msgid ""
 "Above we've defined a (bogus) resource tree that can be traversed, and a "
 "``root_factory`` function that can be used as part of a particular route "
 "configuration statement:"
-msgstr ""
+msgstr "上では、横断可能な（偽の）リソースツリーと、特定のルート設定ステートメントの一部として使用できる `` root_factory``関数を定義しています。"
 
 #: ../../narr/hybrid.rst:246
 msgid ""
@@ -325,7 +315,7 @@ msgid ""
 "something nominally useful. Since traversal uses ``__getitem__`` to walk "
 "the resources of a resource tree, using traversal against the root "
 "resource implied by our route statement is a reasonable thing to do."
-msgstr ""
+msgstr "上記の `` factory``は、定義した関数を指しています。 `` Resource``クラスのインスタンスをこのルートが一致するたびにルートオブジェクトとして返します。 `` Resource``クラスのインスタンスは、名目上有用な何かを行う `` __getitem__``メソッドを持っているので、ツリートラバーサルに使うことができます。トラバーサルはリソースツリーのリソースを歩くために `` __getitem__``を使うので、ルートステートメントが意味するルートリソースに対してトラバーサルを使うのは合理的なことです。"
 
 #: ../../narr/hybrid.rst:256
 msgid ""
@@ -335,7 +325,7 @@ msgid ""
 " route's configuration. Every hybrid route configuration that is matched,"
 " but which does *not* name a ``factory`` attribute, will use the  global "
 "``root_factory`` function to generate a root object."
-msgstr ""
+msgstr "`` root_factory``関数を：class： `〜pyramid.config.Configurator`コンストラクタの` `root_factory``引数として、ルートの設定内の特定のルートに関連付けるのではなく、それを使用することもできました。マッチするが、 `` factory``属性に名前をつけないハイブリッドルート設定は、グローバルな `` root_factory``関数を使ってルートオブジェクトを生成します。"
 
 #: ../../narr/hybrid.rst:263
 msgid ""
@@ -347,7 +337,7 @@ msgid ""
 " object returned from the root factory.  In the above example, the "
 ":term:`root` object found will be the instance named ``root`` in "
 "``routes.py``."
-msgstr ""
+msgstr "上記の `` home``という名前のルート設定がリクエスト中にマッチすると、生成されたmatchdictはパターン `` {foo} / {bar} / * traverse``に基づいています。パターン内の `` * traverse``要素が意味する\ &quot;キャプチャ値\&quot;は、ルートファクトリから返されたルートオブジェクトから開始して、コンテキストリソースを見つけるためにリソースツリーを走査するために使用されます。上の例では、：term： `ルート`オブジェクトは `` routes.py``の `` root``というインスタンスになります。"
 
 #: ../../narr/hybrid.rst:271
 msgid ""
@@ -356,7 +346,7 @@ msgid ""
 "traversal path used against the root object will be ``a/b/c``.  As a "
 "result, :app:`Pyramid` will attempt to traverse through the edges "
 "``'a'``, ``'b'``, and ``'c'``, beginning at the root object."
-msgstr ""
+msgstr "パターン `` {foo} / {bar} / * traverse`を持つルートに一致したURLが `` http：// example.com / one / two / a / b / c``である場合、トラバーサルパスルートオブジェクトに対して `` a / b / c``が使用されます。その結果、：app： `Pyramid`は、ルートオブジェクトから始まり、` `&#39;a&#39;``、` `b&#39;``、および` `c&#39;``をたどることを試みます。"
 
 #: ../../narr/hybrid.rst:276
 msgid ""
@@ -366,7 +356,7 @@ msgid ""
 ":term:`view name` resulting from traversal will be the empty string.  If "
 "you need a refresher about why this outcome is presumed, see "
 ":ref:`traversal_algorithm`."
-msgstr ""
+msgstr "上記の例では、この特定のトラバーサルステップのセットは、ビューの：term： `context`リソースが、私たちの偽のリソースツリーで` `&#39;c&#39;``という名前の` `Resource``オブジェクトであることを意味します、トラバーサルの結果である：term： `view name`は空文字列になります。なぜこの結果が推測されるのかを見直す必要がある場合は、：ref： `traversal_algorithm`を参照してください。"
 
 #: ../../narr/hybrid.rst:282
 msgid ""
@@ -375,7 +365,7 @@ msgid ""
 " caveat: in order for view lookup to work, we need to define a view "
 "configuration that will match when :term:`view lookup` is invoked after a"
 " route matches:"
-msgstr ""
+msgstr "この時点で、適切なview呼び出し可能なものが見つけられ、：term： `view lookup`：ref：` view_configuration`で説明されているように呼び出されますが、注意が必要です：ビューの参照が機能するためには、 when：term： `view lookup`が、ルートがマッチした後に呼び出されるときにマッチする設定です："
 
 #: ../../narr/hybrid.rst:295
 msgid ""
@@ -384,7 +374,7 @@ msgid ""
 "``route_name`` argument are meant to associate a particular view "
 "declaration with a route, using the route's name, in order to indicate "
 "that the view should *only be invoked when the route matches*."
-msgstr ""
+msgstr "上記の：meth： `〜pyramid.config.Configurator.add_view`の呼び出しには` `route_name``引数が含まれています。 `` route_name``引数を含むビュー設定は、特定のビュー宣言をルートと関連付けて、ルートが*と一致したときだけビューを呼び出さなければならないことを示すためのものです。"
 
 #: ../../narr/hybrid.rst:301
 msgid ""
@@ -392,31 +382,31 @@ msgid ""
 "``route_name`` attribute, which refers to the value of an existing "
 "route's ``name`` argument.  In the above example, the route name is "
 "``home``, referring to the name of the route defined above it."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_view`は、既存のルートの` `name``引数の値を参照する` `route_name``属性を渡すことができます。上の例では、ルート名は `` home``であり、上に定義されたルートの名前を参照しています。"
 
 #: ../../narr/hybrid.rst:306
 msgid ""
 "The above ``mypackage.views.myview`` view callable will be invoked when "
 "the following conditions are met:"
-msgstr ""
+msgstr "上記の `` mypackage.views.myview``ビューは以下の条件が満たされたとき呼び出されます："
 
 #: ../../narr/hybrid.rst:309 ../../narr/hybrid.rst:332
 msgid "The route named \"home\" is matched."
-msgstr ""
+msgstr "\ &quot;home \&quot;という名前のルートが一致しています。"
 
 #: ../../narr/hybrid.rst:311
 msgid "The :term:`view name` resulting from traversal is the empty string."
-msgstr ""
+msgstr "：term：トラバーサルの結果である `view name`は空文字列です。"
 
 #: ../../narr/hybrid.rst:313 ../../narr/hybrid.rst:336
 msgid "The :term:`context` resource is any object."
-msgstr ""
+msgstr "：term： `context`リソースは任意のオブジェクトです。"
 
 #: ../../narr/hybrid.rst:315
 msgid ""
 "It is also possible to declare alternative views that may be invoked when"
 " a hybrid route is matched:"
-msgstr ""
+msgstr "ハイブリッドルートが一致したときに呼び出される代替ビューを宣言することもできます。"
 
 #: ../../narr/hybrid.rst:327
 msgid ""
@@ -424,11 +414,11 @@ msgid ""
 "different view and, more importantly, a different :term:`view name`.  The"
 " above ``mypackage.views.another_view`` view will be invoked when the "
 "following conditions are met:"
-msgstr ""
+msgstr "上記の `` mypackage.views.another_view``の `` add_view``呼び出しは、異なるビューと、もっと重要なことに、異なる：term： `view name`という名前を付けます。上記の `` mypackage.views.another_view``ビューは、以下の条件が満たされたときに呼び出されます："
 
 #: ../../narr/hybrid.rst:334
 msgid "The :term:`view name` resulting from traversal is ``another``."
-msgstr ""
+msgstr "：term： `view name`は` `another``です。"
 
 #: ../../narr/hybrid.rst:338
 msgid ""
@@ -437,25 +427,25 @@ msgid ""
 "tree, the ``mypackage.views.another_view`` view callable will be called "
 "instead of the ``mypackage.views.myview`` view callable because the "
 ":term:`view name` will be ``another`` instead of the empty string."
-msgstr ""
+msgstr "例えば、前述のリソースツリーを使用するアプリケーションに `` http：// example.com / one / two / a / another``というURLが提供されている場合、 `` mypackage.views.another_view``ビューは呼び出し可能です：term： `view name`は空文字列の代わりに` `another``となるので、` `mypackage.views.myview``ビューの代わりに呼び出すことができます。"
 
 #: ../../narr/hybrid.rst:344
 msgid ""
 "More complicated matching can be composed.  All arguments to *route* "
 "configuration statements and *view* configuration statements are "
 "supported in hybrid applications (such as :term:`predicate` arguments)."
-msgstr ""
+msgstr "より複雑なマッチングを構成することができます。 * route *設定ステートメントと* view *設定ステートメントのすべての引数は、ハイブリッドアプリケーションでサポートされています（term： `述語`引数など）。"
 
 #: ../../narr/hybrid.rst:349
 msgid "Using the ``traverse`` Argument in a Route Definition"
-msgstr ""
+msgstr "ルート定義における `` traverse``引数の使用"
 
 #: ../../narr/hybrid.rst:351
 msgid ""
 "Rather than using the ``*traverse`` remainder marker in a pattern, you "
 "can use the ``traverse`` argument to the "
 ":meth:`~pyramid.config.Configurator.add_route` method."
-msgstr ""
+msgstr "パターンに `` * traverse``の余りマーカーを使うのではなく、：meth： `〜pyramid.config.Configurator.add_route`メソッドの` `traverse``引数を使うことができます。"
 
 #: ../../narr/hybrid.rst:355
 msgid ""
@@ -463,19 +453,19 @@ msgid ""
 "limited to being the remainder segments of a request URL when a route "
 "matches. However, when you use the ``traverse`` argument or attribute, "
 "you have more control over how to compose a traversal path."
-msgstr ""
+msgstr "`` * traverse``の余りマーカーを使うと、トラバーサルパスは、ルートが一致したときのリクエストURLの残りのセグメントに限定されます。しかし、 `` traverse``引数や属性を使うと、トラバーサルパスをどのように構成するかをもっと制御できます。"
 
 #: ../../narr/hybrid.rst:360
 msgid ""
 "Here's a use of the ``traverse`` pattern in a call to "
 ":meth:`~pyramid.config.Configurator.add_route`:"
-msgstr ""
+msgstr "以下は、：meth： `〜pyramid.config.Configurator.add_route`の呼び出しにおける` `traverse``パターンの使用方法です："
 
 #: ../../narr/hybrid.rst:369
 msgid ""
 "The syntax of the ``traverse`` argument is the same as it is for "
 "``pattern``."
-msgstr ""
+msgstr "`` traverse`引数の構文は `` pattern``の構文と同じです。"
 
 #: ../../narr/hybrid.rst:371
 msgid ""
@@ -488,7 +478,7 @@ msgid ""
 " name ``1`` during the traversal phase.  If the ``1`` object exists, it "
 "will become the :term:`context` of the request. The "
 ":ref:`traversal_chapter` chapter has more information about traversal."
-msgstr ""
+msgstr "上記のように `` / articles / {article} / edit``が提供され、 `` traverse``引数が `` / {article} ``である場合、リクエストが来たら`` article``の一致値が `` 1``（リクエストURIが `` / articles / 1 / edit``のとき）にルートが一致するようにするために、トラバーサルパスは次のように生成されます。 `` / 1``です。つまり、ルートオブジェクトの `` __getitem__``はトラバーサルフェーズ中に名前が `` 1``で呼び出されます。 `` 1``オブジェクトが存在する場合、要求の：term： `context`になります。 ：ref： `traversal_chapter`の章には、トラバースに関する詳細があります。"
 
 #: ../../narr/hybrid.rst:380
 msgid ""
@@ -496,24 +486,24 @@ msgid ""
 " in the pattern argument, a runtime error will occur.  The ``traverse`` "
 "pattern should not contain segment markers that do not exist in the "
 "``path``."
-msgstr ""
+msgstr "トラバーサルパスにパターン引数に存在しないセグメントマーカー名が含まれていると、実行時エラーが発生します。 `` traverse``パターンは `` path``に存在しないセグメントマーカーを含んではいけません。"
 
 #: ../../narr/hybrid.rst:384
 msgid ""
 "Note that the ``traverse`` argument is ignored when attached to a route "
 "that has a ``*traverse`` remainder marker in its pattern."
-msgstr ""
+msgstr "`` traverse``引数はパターンに `` * traverse``残余マーカがあるルートにアタッチされているときは無視されることに注意してください。"
 
 #: ../../narr/hybrid.rst:387
 msgid ""
 "Traversal will begin at the root object implied by this route (either the"
 " global root, or the object returned by the ``factory`` associated with "
 "this route)."
-msgstr ""
+msgstr "トラバーサルは、このルートが意味するルートオブジェクト（グローバルルートまたはこのルートに関連付けられた `` factory``によって返されるオブジェクト）から始まります。"
 
 #: ../../narr/hybrid.rst:395
 msgid "Making Global Views Match"
-msgstr ""
+msgstr "グローバルビューを一致させる"
 
 #: ../../narr/hybrid.rst:397
 msgid ""
@@ -525,11 +515,11 @@ msgid ""
 "be found if the route named ``abc`` below is matched and the "
 "``PATH_INFO`` is ``/abc/bazbuz``, even though the view configuration "
 "statement does not have the ``route_name=\"abc\"`` attribute."
-msgstr ""
+msgstr "デフォルトでは、パターンに `` * traverse``があるルートが一致したときに、ビュールックアップ中に `` route_name``を記述したビュー設定だけが見付かります。ルート定義に `` use_global_views``フラグを追加することで、ルートと一致する `` route_name``属性のないビューを許可することができます。たとえば、以下の `` abc``という名前のルートがマッチし、 `` / abc / bazbuz``が `` PATH_INFO``である場合、 `` myproject.views.bazbuz``のビューが見つかります。 view構成ステートメントに `` route_name = \ &quot;abc \&quot; ``属性がありません。"
 
 #: ../../narr/hybrid.rst:420
 msgid "Using ``*subpath`` in a Route Pattern"
-msgstr ""
+msgstr "ルートパターンで `` * subpath``を使う"
 
 #: ../../narr/hybrid.rst:422
 msgid ""
@@ -539,7 +529,7 @@ msgid ""
 "decorator and the :class:`pyramid.static.static_view` helper attempt to "
 "compute ``PATH_INFO`` from the request's subpath when its ``use_subpath``"
 " argument is ``True``, so it's useful to be able to influence this value."
-msgstr ""
+msgstr "トラバースに影響を与えたいという非常にまれなケースがあります：term： `subpath`ルートが実際にトラバーサルを実行せずにマッチするときです。たとえば、：func： `pyramid.wsgi.wsgiapp2`デコレータと：class：` pyramid.static.static_view`ヘルパーは、 `` use_subpath``引数が `` use_subpath``のときに要求のサブパスから `` PATH_INFO``を計算しようとします。 `True``なので、この値に影響を与えることは有益です。"
 
 #: ../../narr/hybrid.rst:429
 msgid ""
@@ -547,18 +537,18 @@ msgid ""
 " the traversal algorithm will return a :term:`subpath` list implied by "
 "the capture value of ``*subpath``.  You'll see this pattern most commonly"
 " in route declarations that look like this:"
-msgstr ""
+msgstr "`` * subpath``がパターン内に存在する場合、パスは実際にはトラバースされませんが、トラバーサルアルゴリズムは `` * subpath``のキャプチャ値が暗示する：term： `subpath`リストを返します。ルートの宣言では、このようなパターンが最も一般的です。"
 
 #: ../../narr/hybrid.rst:444
 msgid ""
 "``mypackage.views.www`` is an instance of "
 ":class:`pyramid.static.static_view`. This effectively tells the static "
 "helper to traverse everything in the subpath as a filename."
-msgstr ""
+msgstr "`` mypackage.views.www``は、class： `pyramid.static.static_view`のインスタンスです。これにより、静的ヘルパーは、サブパス内のすべてをファイル名としてトラバースするように効果的に指示します。"
 
 #: ../../narr/hybrid.rst:455
 msgid "Generating Hybrid URLs"
-msgstr ""
+msgstr "ハイブリッドURLの生成"
 
 #: ../../narr/hybrid.rst:459
 msgid ""
@@ -567,7 +557,7 @@ msgid ""
 " keyword arguments that make it easier to generate route-prefixed URLs "
 "that contain paths to traversal resources: ``route_name``, ``route_kw``, "
 "and ``route_remainder_name``."
-msgstr ""
+msgstr "：meth： `pyramid.request.Request.resource_url`メソッドと：meth：` pyramid.request.Request.resource_path`メソッドは、トラバーサルリソースへのパスを含むルートプレフィックス付きURLを生成しやすくするオプションのキーワード引数を受け入れます： `` route_name``、 `` route_kw``、および `` route_remainder_name``です。"
 
 #: ../../narr/hybrid.rst:465
 msgid ""
@@ -575,13 +565,13 @@ msgid ""
 "stararg remainder pattern, such as ``*traverse``, ``*subpath``, or "
 "``*fred``) can be used as the target name for ``request.resource_url(...,"
 " route_name=)`` and ``request.resource_path(..., route_name=)``."
-msgstr ""
+msgstr "`` * remainder``パターン（ `` * traverse``、 `` * subpath``、 `` * fred``などの任意の残りのパターン）を含むパターンを持つルートは、 `` request.resource_url（...、route_name =） ``と `` request.resource_path（...、route_name =） ``のターゲット名です。"
 
 #: ../../narr/hybrid.rst:470
 msgid ""
 "For example, let's imagine you have a route defined in your Pyramid "
 "application like so:"
-msgstr ""
+msgstr "たとえば、Pyramidアプリケーションで定義されているルートが次のようになっているとします。"
 
 #: ../../narr/hybrid.rst:477
 msgid ""
@@ -589,13 +579,13 @@ msgid ""
 "you can use the following incantation, assuming that the variable ``a`` "
 "below points to a resource that is a child of the root with a "
 "``__name__`` of ``a``:"
-msgstr ""
+msgstr "`` http：// example.com / mysection / a / ``というURLを生成したい場合、下記の変数 `` a``が以下のリソースを指していると仮定すると、ルートの子で `` __name__``の `` a``："
 
 #: ../../narr/hybrid.rst:485
 msgid ""
 "You can generate only the path portion ``/mysection/a/`` assuming the "
 "same:"
-msgstr ""
+msgstr "パス部分 `` / mysection / a / ``のみを生成することができます。"
 
 #: ../../narr/hybrid.rst:491
 msgid ""
@@ -605,7 +595,7 @@ msgid ""
 "``http://example.com/mysection/``, and the above call to "
 "``request.resource_path`` would generate ``/mysection/``. See "
 ":ref:`virtual_root_support` for more information."
-msgstr ""
+msgstr "パスは仮想ホストを認識しているので、 `` X-Vhm-Root``環境変数がリクエストに存在し、 `` / a``に設定されている場合、上記の `` request.resource_url``の呼び出しは`` http：// example.com / mysection / ``を生成し、上記の `` request.resource_path``の呼び出しは `` / mysection / ``を生成します。詳細は、：ref： `virtual_root_support`を参照してください。"
 
 #: ../../narr/hybrid.rst:497
 msgid ""
@@ -613,17 +603,17 @@ msgid ""
 "filled in to succesfully generate the URL, you can pass these as the "
 "``route_kw`` argument to ``resource_url`` and ``resource_path``.  For "
 "example, assuming that the route definition is like so:"
-msgstr ""
+msgstr "使用しようとしているルートが簡単な動的パーツの値を入力してURLを生成する必要がある場合は、これらを `` resource_url``と `` resource_path``の `` route_kw``引数として渡すことができます。たとえば、ルート定義が次のようになっていると仮定します。"
 
 #: ../../narr/hybrid.rst:506
 msgid "You can pass ``route_kw`` in to fill in ``{id}`` above:"
-msgstr ""
+msgstr "上記の `` {id} ``を記入するために `` route_kw``を渡すことができます："
 
 #: ../../narr/hybrid.rst:512
 msgid ""
 "If you pass ``route_kw`` but do not pass ``route_name``, ``route_kw`` "
 "will be ignored."
-msgstr ""
+msgstr "`` route_kw``を渡しても `` route_name``を渡さなければ、 `` route_kw``は無視されます。"
 
 #: ../../narr/hybrid.rst:515
 msgid ""
@@ -633,17 +623,17 @@ msgid ""
 "(such as ``*subpath``), you can tell ``resource_url`` or "
 "``resource_path`` to use that instead of ``traverse`` by passing "
 "``route_remainder_name``.  For example, if you have the following route:"
-msgstr ""
+msgstr "デフォルトでは、この機能は、フードの下で `` route_url``を呼び出し、リソースパスの値を `` traverse``としてその関数に渡すことによって機能します。あなたのルートに `` * starpath``などの別の `` * stararg``残余名がある場合、 `` resource_url``や `` resource_path``に `` traverse``の代わりに `` traverse``を使用するように伝えることができます`` route_remainder_name``を渡します。たとえば、次のルートがあるとします。"
 
 #: ../../narr/hybrid.rst:526
 msgid "You can fill in the ``*subpath`` value using ``resource_url`` by doing:"
-msgstr ""
+msgstr "以下のようにして `` resource_url``を使って `` * subpath``の値を入力することができます："
 
 #: ../../narr/hybrid.rst:533
 msgid ""
 "If you pass ``route_remainder_name`` but do not pass ``route_name``, "
 "``route_remainder_name`` will be ignored."
-msgstr ""
+msgstr "`` route_remainder_name``を渡しても `` route_name``を渡さなければ、 `` route_remainder_name``は無視されます。"
 
 #: ../../narr/hybrid.rst:536
 msgid ""
@@ -651,14 +641,14 @@ msgid ""
 "``route_name`` argument points at a route that does not have a remainder "
 "stararg, an error will not be raised, but the generated URL will not "
 "contain any remainder information either."
-msgstr ""
+msgstr "`` route_name``引数が残りのstarargを持たないルートを指しているときに `` resource_path``または `` resource_url``を使用しようとすると、エラーは発生しませんが、生成されたURLには含まれません残りのいずれかの情報。"
 
 #: ../../narr/hybrid.rst:541
 msgid ""
 "All other values that are normally passable to ``resource_path`` and "
 "``resource_url`` (such as ``query``, ``anchor``, ``host``, ``port``, and "
 "positional elements) work as you might expect in this configuration."
-msgstr ""
+msgstr "通常、 `` resource_path``と `` resource_url``（ `` query``、 `` anchor``、 `` host``、 `` port``、および位置要素など）に渡される他のすべての値は、この構成で期待どおりに動作します。"
 
 #: ../../narr/hybrid.rst:545
 msgid ""
@@ -666,5 +656,5 @@ msgid ""
 "feature (see :ref:`overriding_resource_url_generation`) implemented on "
 "resource objects.  Any  ``__resource_url__`` supplied by your resource "
 "will be ignored when you pass ``route_name``."
-msgstr ""
+msgstr "この機能はリソースオブジェクトに実装された `` __resource_url__``機能（：ref： `overriding_resource_url_generation`参照）と互換性がないことに注意してください。あなたのリソースによって提供される `` __resource_url__``は `` route_name``を渡すと無視されます。"
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyramid.tweens &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) pyramid.tweens &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="pyramid.url" href="url.html" />
-    <link rel="prev" title="pyramid.traversal" href="traversal.html" />
+    <link rel="next" title="(機械翻訳) pyramid.url" href="url.html" />
+    <link rel="prev" title="(機械翻訳) pyramid.traversal" href="traversal.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,13 +54,13 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="url.html" title="pyramid.url"
+          <a href="url.html" title="(機械翻訳) pyramid.url"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="traversal.html" title="pyramid.traversal"
+          <a href="traversal.html" title="(機械翻訳) pyramid.traversal"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,45 +70,33 @@
           <div class="body" role="main">
             
   <div class="section" id="module-pyramid.tweens">
-<span id="pyramid-tweens"></span><span id="tweens-module"></span><h1><a class="reference internal" href="#module-pyramid.tweens" title="pyramid.tweens"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.tweens</span></code></a><a class="headerlink" href="#module-pyramid.tweens" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="pyramid-tweens"></span><span id="tweens-module"></span><h1>(機械翻訳) <a class="reference internal" href="#module-pyramid.tweens" title="pyramid.tweens"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.tweens</span></code></a><a class="headerlink" href="#module-pyramid.tweens" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="function">
 <dt id="pyramid.tweens.excview_tween_factory">
 <code class="descname">excview_tween_factory</code><span class="sig-paren">(</span><em>handler</em>, <em>registry</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/tweens.html#excview_tween_factory"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.tweens.excview_tween_factory" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A <a class="reference internal" href="../glossary.html#term-tween"><span class="xref std std-term">tween</span></a> factory which produces a tween that catches an
-exception raised by downstream tweens (or the main Pyramid request
-handler) and, if possible, converts it into a Response using an
-<a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a>.</p>
+<dd><p>A：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>tween`ファクトリ。下流のtweens（またはメインのPyramidリクエストハンドラ）が生成した例外をキャッチし、可能であれば：term：<a href="#id3"><span class="problematic" id="id4">`</span></a>例外ビュー &amp;#39;を使用してレスポンスに変換します。</p>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 1.9 で変更: </span>The <code class="docutils literal notranslate"><span class="pre">request.response</span></code> will be remain unchanged even if the tween
-handles an exception. Previously it was deleted after handling an
-exception.</p>
-<p>Also, <code class="docutils literal notranslate"><span class="pre">request.exception</span></code> and <code class="docutils literal notranslate"><span class="pre">request.exc_info</span></code> are only set if
-the tween handles an exception and returns a response otherwise they
-are left at their original values.</p>
+<p><span class="versionmodified">バージョン 1.9 で変更: </span>トゥイーンが例外を処理しても `` request.response``は変更されません。以前は、例外処理後に削除されていました。</p>
+<p>また、 `` request.exception``と `` request.exc_info``は、トゥイーンが例外を処理して応答を返す場合にのみ設定され、それ以外の場合は元の値になります。</p>
 </div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyramid.tweens.MAIN">
 <code class="descname">MAIN</code><a class="headerlink" href="#pyramid.tweens.MAIN" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Constant representing the main Pyramid handling function, for use in
-<code class="docutils literal notranslate"><span class="pre">under</span></code> and <code class="docutils literal notranslate"><span class="pre">over</span></code> arguments to
-<a class="reference internal" href="config.html#pyramid.config.Configurator.add_tween" title="pyramid.config.Configurator.add_tween"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_tween()</span></code></a>.</p>
+<dd><p>：meth： <cite>pyramid.config.Configurator.add_tween`への</cite> <cite>under``と</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>over``の引数で使用する主なPyramidハンドリング関数を表す定数です。</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyramid.tweens.INGRESS">
 <code class="descname">INGRESS</code><a class="headerlink" href="#pyramid.tweens.INGRESS" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Constant representing the request ingress, for use in <code class="docutils literal notranslate"><span class="pre">under</span></code> and
-<code class="docutils literal notranslate"><span class="pre">over</span></code> arguments to <a class="reference internal" href="config.html#pyramid.config.Configurator.add_tween" title="pyramid.config.Configurator.add_tween"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_tween()</span></code></a>.</p>
+<dd><p>：meth： <cite>pyramid.config.Configurator.add_tween`への</cite> <cite>under``と</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>over``引数での使用のために、要求入力を表す定数です。</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyramid.tweens.EXCVIEW">
 <code class="descname">EXCVIEW</code><a class="headerlink" href="#pyramid.tweens.EXCVIEW" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Constant representing the exception view tween, for use in <code class="docutils literal notranslate"><span class="pre">under</span></code>
-and <code class="docutils literal notranslate"><span class="pre">over</span></code> arguments to
-<a class="reference internal" href="config.html#pyramid.config.Configurator.add_tween" title="pyramid.config.Configurator.add_tween"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_tween()</span></code></a>.</p>
+<dd><p>例外ビューtweenを表す定数で、：meth： <cite>pyramid.config.Configurator.add_tween`の</cite> <cite>under``と</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>over``引数で使用されます。</p>
 </dd></dl>
 
 </div>
@@ -121,10 +109,10 @@ and <code class="docutils literal notranslate"><span class="pre">over</span></co
         <div class="sphinxsidebarwrapper">
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="traversal.html"
-                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.traversal</span></code></a></p>
+                        title="前の章へ">(機械翻訳) <code class="docutils literal notranslate"><span class="pre">pyramid.traversal</span></code></a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="url.html"
-                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.url</span></code></a></p>
+                        title="次の章へ">(機械翻訳)  <code class="docutils literal notranslate"><span class="pre">pyramid.url</span></code></a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -158,18 +146,18 @@ and <code class="docutils literal notranslate"><span class="pre">over</span></co
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="url.html" title="pyramid.url"
+          <a href="url.html" title="(機械翻訳) pyramid.url"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="traversal.html" title="pyramid.traversal"
+          <a href="traversal.html" title="(機械翻訳) pyramid.traversal"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

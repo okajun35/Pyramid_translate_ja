@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Creating Pyramid Scaffolds &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) ピラミッド足場の作成 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Upgrading Pyramid" href="upgrading.html" />
-    <link rel="prev" title="Pyramid cookiecutters" href="cookiecutters.html" />
+    <link rel="next" title="(機械翻訳) ピラミッドのアップグレード" href="upgrading.html" />
+    <link rel="prev" title="(機械翻訳) ピラミッドのcookiecutters" href="cookiecutters.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="upgrading.html" title="Upgrading Pyramid"
+          <a href="upgrading.html" title="(機械翻訳) ピラミッドのアップグレード"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="cookiecutters.html" title="Pyramid cookiecutters"
+          <a href="cookiecutters.html" title="(機械翻訳) ピラミッドのcookiecutters"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,33 +69,16 @@
           <div class="body" role="main">
             
   <div class="section" id="creating-pyramid-scaffolds">
-<span id="scaffolding-chapter"></span><h1>Creating Pyramid Scaffolds<a class="headerlink" href="#creating-pyramid-scaffolds" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="scaffolding-chapter"></span><h1>(機械翻訳) ピラミッド足場の作成<a class="headerlink" href="#creating-pyramid-scaffolds" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="deprecated">
-<p><span class="versionmodified">バージョン 1.8 で撤廃: </span>Scaffolds and the <code class="docutils literal notranslate"><span class="pre">pcreate</span></code> script used to generate <span>Pyramid</span> projects from scaffolds have been deprecated. Use <a class="reference internal" href="cookiecutters.html#cookiecutters"><span class="std std-ref">Pyramid cookiecutters</span></a> instead.</p>
+<p><span class="versionmodified">バージョン 1.8 で撤廃: </span>Scaffoldsと、 `` pcreate``スクリプトは、足場からapp： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`プロジェクトを生成するのに使用されていました。代わりに：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>cookiecutters`を使用してください。</p>
 </div>
-<p>You can extend Pyramid by creating a <a class="reference internal" href="../glossary.html#term-scaffold"><span class="xref std std-term">scaffold</span></a> template.  A scaffold
-template is useful if you'd like to distribute a customizable configuration of
-Pyramid to other users.  Once you've created a scaffold, and someone has
-installed the distribution that houses the scaffold, they can use the
-<code class="docutils literal notranslate"><span class="pre">pcreate</span></code> script to create a custom version of your scaffold's template.
-Pyramid itself uses scaffolds to allow people to bootstrap new projects.  For
-example, <code class="docutils literal notranslate"><span class="pre">pcreate</span> <span class="pre">-s</span> <span class="pre">alchemy</span> <span class="pre">MyStuff</span></code> causes Pyramid to render the
-<code class="docutils literal notranslate"><span class="pre">alchemy</span></code> scaffold template to the <code class="docutils literal notranslate"><span class="pre">MyStuff</span></code> directory.</p>
+<p>Pyramidを拡張するには：term： <cite>scaffold`テンプレートを作成します。 Scaffoldテンプレートは、Pyramidのカスタマイズ可能な設定を他のユーザに配布したい場合に便利です。足場を作成し、誰かが足場を格納しているディストリビューションをインストールしたら、 `</cite> pcreate``スクリプトを使ってあなたの足場のテンプレートのカスタム版を作成できます。ピラミッド自体は足場を使って人々が新しいプロジェクトをブートストラップすることを可能にします。例えば、 `` pcreate -s alchemy MyStuff``は、 `` alchemy``スカホールドテンプレートを `` MyStuff``ディレクトリに描画します。</p>
 <div class="section" id="basics">
-<h2>Basics<a class="headerlink" href="#basics" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A scaffold template is just a bunch of source files and directories on disk. A
-small definition class points at this directory.  It is in turn pointed at by a
-<a class="reference internal" href="../glossary.html#term-setuptools"><span class="xref std std-term">setuptools</span></a> &quot;entry point&quot; which registers the scaffold so it can be
-found by the <code class="docutils literal notranslate"><span class="pre">pcreate</span></code> command.</p>
-<p>To create a scaffold template, create a Python <a class="reference internal" href="../glossary.html#term-distribution"><span class="xref std std-term">distribution</span></a> to house
-the scaffold which includes a <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> that relies on the <code class="docutils literal notranslate"><span class="pre">setuptools</span></code>
-package.  See <a class="reference external" href="https://packaging.python.org/tutorials/distributing-packages/">Packaging and Distributing Projects</a> for more information
-about how to do this.  For example, we'll pretend the distribution you create
-is named <code class="docutils literal notranslate"><span class="pre">CoolExtension</span></code>, and it has a package directory within it named
-<code class="docutils literal notranslate"><span class="pre">coolextension</span></code>.</p>
-<p>Once you've created the distribution, put a &quot;scaffolds&quot; directory within your
-distribution's package directory, and create a file within that directory named
-<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> with something like the following:</p>
+<h2>基本<a class="headerlink" href="#basics" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>足場テンプレートは、ディスク上のソースファイルとディレクトリの束です。小さな定義クラスはこのディレクトリを指します。これは、 `` setuptools`` &amp;quot;エントリーポイント&amp;quot;によって指示されます。これは足場を登録して `` pcreate``コマンドで見つけることができます。</p>
+<p>足場テンプレートを作成するには、 `` setuptools``パッケージに依存する `` setup.py``を含む足場を格納するPython：term： <cite>distribution`を作成します。 `プロジェクトのパッケージングと配布&lt;https://packaging.python.org/tutorials/distributing-packages/&gt; `_これを行う方法の詳細については_を参照してください。たとえば、作成したディストリビューションの名前は `</cite> CoolExtension``で、パッケージディレクトリは `` coolextension``という名前です。</p>
+<p>ディストリビューションを作成したら、ディストリビューションのパッケージディレクトリに&amp;quot;scaffolds &amp;quot;ディレクトリを置いて、そのディレクトリ内に `` __init __。py``という名前のファイルを次のように作成します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -111,40 +94,22 @@ distribution's package directory, and create a file within that directory named
     <span class="n">summary</span> <span class="o">=</span> <span class="s1">&#39;My cool extension&#39;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Once this is done, within the <code class="docutils literal notranslate"><span class="pre">scaffolds</span></code> directory, create a template
-directory.  Our example used a template directory named
-<code class="docutils literal notranslate"><span class="pre">coolextension_scaffold</span></code>.</p>
-<p>As you create files and directories within the template directory, note that:</p>
+<p>これが完了したら、 `` scaffolds``ディレクトリ内にテンプレートディレクトリを作成します。この例では、 `` coolextension_scaffold``というテンプレートディレクトリを使用しました。</p>
+<p>テンプレートディレクトリ内にファイルとディレクトリを作成するときは、次の点に注意してください。</p>
 <ul class="simple">
-<li>Files which have a name which are suffixed with the value <code class="docutils literal notranslate"><span class="pre">_tmpl</span></code> will be
-rendered, and replacing any instance of the literal string <code class="docutils literal notranslate"><span class="pre">{{var}}</span></code> with
-the string value of the variable named <code class="docutils literal notranslate"><span class="pre">var</span></code> provided to the scaffold.</li>
-<li>Files and directories with filenames that contain the string <code class="docutils literal notranslate"><span class="pre">+var+</span></code> will
-have that string replaced with the value of the <code class="docutils literal notranslate"><span class="pre">var</span></code> variable provided to
-the scaffold.</li>
-<li>Files that start with a dot (e.g., <code class="docutils literal notranslate"><span class="pre">.env</span></code>) are ignored and will not be
-copied over to the destination directory. If you want to include a file with
-a leading dot, then you must replace the dot with <code class="docutils literal notranslate"><span class="pre">+dot+</span></code> (e.g.,
-<code class="docutils literal notranslate"><span class="pre">+dot+env</span></code>).</li>
+<li>末尾に `` _tmpl``という名前のファイルがレンダリングされ、リテラル文字列 `` {{var}} <a href="#id1"><span class="problematic" id="id2">``</span></a>のインスタンスが `` var``という名前の変数の文字列値に置き換えられます足場に提供される。</li>
+<li>文字列 `` + var + <a href="#id1"><span class="problematic" id="id2">``</span></a>を含むファイル名とディレクトリ名は、その文字列を足場に与えられた `` var``変数の値で置き換えます。</li>
+<li>ドットで始まるファイル（例： `` .env``）は無視され、コピー先のディレクトリにコピーされません。先頭にドットを含むファイルをインクルードする場合は、ドットを `` +ドット+ <code class="docutils literal notranslate"><span class="pre">（例えば</span> <span class="pre">``</span> <span class="pre">+</span> <span class="pre">dot</span> <span class="pre">+</span> <span class="pre">env</span></code>）に置き換える必要があります。</li>
 </ul>
-<p>Otherwise, files and directories which live in the template directory will be
-copied directly without modification to the <code class="docutils literal notranslate"><span class="pre">pcreate</span></code> output location.</p>
-<p>The variables provided by the default <code class="docutils literal notranslate"><span class="pre">PyramidTemplate</span></code> include <code class="docutils literal notranslate"><span class="pre">project</span></code>
-(the project name provided by the user as an argument to <code class="docutils literal notranslate"><span class="pre">pcreate</span></code>),
-<code class="docutils literal notranslate"><span class="pre">package</span></code> (a lowercasing and normalizing of the project name provided by the
-user), <code class="docutils literal notranslate"><span class="pre">random_string</span></code> (a long random string), and <code class="docutils literal notranslate"><span class="pre">package_logger</span></code> (the
-name of the package's logger).</p>
-<p>See Pyramid's &quot;scaffolds&quot; package
-(<a class="reference external" href="https://github.com/Pylons/pyramid/tree/master/pyramid/scaffolds">https://github.com/Pylons/pyramid/tree/master/pyramid/scaffolds</a>) for concrete
-examples of scaffold directories (<code class="docutils literal notranslate"><span class="pre">zodb</span></code>, <code class="docutils literal notranslate"><span class="pre">alchemy</span></code>, and <code class="docutils literal notranslate"><span class="pre">starter</span></code>, for
-example).</p>
-<p>After you've created the template directory, add the following to the
-<code class="docutils literal notranslate"><span class="pre">entry_points</span></code> value of your distribution's <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
+<p>それ以外の場合は、テンプレートディレクトリにあるファイルとディレクトリはそのまま出力先の `` pcreate``にコピーされます。</p>
+<p>デフォルトの `` PyramidTemplate``が提供する変数には、 `` project``（ユーザが `` pcreate``の引数として提供するプロジェクト名）、 `` package``（プロジェクト名の小文字化と正規化`` random_string``（長いランダムな文字列）、 `` package_logger``（パッケージのロガーの名前）のうちの1つです。</p>
+<p>scaffoldディレクトリ（ `` zodb``、 `` alchemy``、 `` alchemy``）の具体的な例については、Pyramidの&amp;quot;scaffolds &amp;quot;パッケージ（<a class="reference external" href="https://github.com/Pylons/pyramid/tree/master/pyramid/scaffolds">https://github.com/Pylons/pyramid/tree/master/pyramid/scaffolds</a>） `` starter``など）。</p>
+<p>テンプレートディレクトリを作成したら、あなたのディストリビューションの `` setup.py``の `` entry_points``値に以下を追加してください：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pyramid.scaffold]</span>
 <span class="na">coolextension</span><span class="o">=</span><span class="s">coolextension.scaffolds:CoolExtensionTemplate</span>
 </pre></div>
 </div>
-<p>For example:</p>
+<p>例えば：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span>
       <span class="o">...</span><span class="p">,</span>
       <span class="n">entry_points</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
@@ -154,22 +119,12 @@ example).</p>
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>Run your distribution's <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">develop</span></code> or <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">install</span></code> command.
-After that, you should be able to see your scaffolding template listed when you
-run <code class="docutils literal notranslate"><span class="pre">pcreate</span> <span class="pre">-l</span></code>.  It will be named <code class="docutils literal notranslate"><span class="pre">coolextension</span></code> because that's the name
-we gave it in the entry point setup.  Running <code class="docutils literal notranslate"><span class="pre">pcreate</span> <span class="pre">-s</span> <span class="pre">coolextension</span>
-<span class="pre">MyStuff</span></code> will then render your scaffold to an output directory named
-<code class="docutils literal notranslate"><span class="pre">MyStuff</span></code>.</p>
-<p>See the module documentation for <a class="reference internal" href="../api/scaffolds.html#module-pyramid.scaffolds" title="pyramid.scaffolds"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.scaffolds</span></code></a> for information about
-the API of the <a class="reference internal" href="../api/scaffolds.html#pyramid.scaffolds.Template" title="pyramid.scaffolds.Template"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.scaffolds.Template</span></code></a> class and related classes.
-You can override methods of this class to get special behavior.</p>
+<p>あなたのディストリビューションの `` setup.py development`や `` setup.py install``コマンドを実行してください。その後、 `` pcreate -l``を実行したときに表示される足場テンプレートを見ることができます。これはエントリポイントの設定で与えた名前なので、「coolextension」という名前になります。 `` pcreate -s coolextension MyStuff``を実行すると、足場を `` MyStuff``という出力ディレクトリにレンダリングします。</p>
+<p>：class： <cite>pyramid.scaffolds.Template`クラスと関連クラスのAPIについては、mod：</cite> pyramid.scaffolds`のモジュールドキュメントを参照してください。このクラスのメソッドをオーバーライドして特別な動作を得ることができます。</p>
 </div>
 <div class="section" id="supporting-older-pyramid-versions">
-<h2>Supporting Older Pyramid Versions<a class="headerlink" href="#supporting-older-pyramid-versions" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Because different versions of Pyramid handled scaffolding differently, if you
-want to have extension scaffolds that can work across Pyramid 1.0.X, 1.1.X,
-1.2.X and 1.3.X, you'll need to use something like this bit of horror while
-defining your scaffold template:</p>
+<h2>古いピラミッドバージョンをサポートする<a class="headerlink" href="#supporting-older-pyramid-versions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>さまざまなバージョンのPyramidが足場を別々に扱っていたため、Pyramid 1.0.X、1.1.X、1.2.X、1.3.Xで機能する拡張スカフォールドを使用するには、このホラービットを使用する必要があります。足場テンプレートを定義する：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -205,21 +160,15 @@ defining your scaffold template:</p>
     <span class="n">template_renderer</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">paste_script_template_renderer</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>And then in the setup.py of the package that contains your scaffold, define
-the template as a target of both <code class="docutils literal notranslate"><span class="pre">paste.paster_create_template</span></code> (for
-<code class="docutils literal notranslate"><span class="pre">paster</span> <span class="pre">create</span></code>) and <code class="docutils literal notranslate"><span class="pre">pyramid.scaffold</span></code> (for <code class="docutils literal notranslate"><span class="pre">pcreate</span></code>).</p>
+<p>そして、足場が入っているパッケージのsetup.pyで、テンプレートを `` paste.paster_create_template``（ `` paster create``用）と `` pyramid.scaffold``（ ` `` pcreate``）。</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[paste.paster_create_template]</span>
 <span class="na">coolextension</span><span class="o">=</span><span class="s">coolextension.scaffolds:CoolExtensionTemplate</span>
 <span class="k">[pyramid.scaffold]</span>
 <span class="na">coolextension</span><span class="o">=</span><span class="s">coolextension.scaffolds:CoolExtensionTemplate</span>
 </pre></div>
 </div>
-<p>Doing this hideousness will allow your scaffold to work as a <code class="docutils literal notranslate"><span class="pre">paster</span> <span class="pre">create</span></code>
-target (under 1.0, 1.1, or 1.2) or as a <code class="docutils literal notranslate"><span class="pre">pcreate</span></code> target (under 1.3).  If an
-invoker tries to run <code class="docutils literal notranslate"><span class="pre">paster</span> <span class="pre">create</span></code> against a scaffold defined this way
-under 1.3, an error is raised instructing them to use <code class="docutils literal notranslate"><span class="pre">pcreate</span></code> instead.</p>
-<p>If you want to support Pyramid 1.3 only, it's much cleaner, and the API is
-stable:</p>
+<p>この恐ろしさを実行することで、あなたの足場が「ペースト作成」ターゲット（1.0,1.1、または1.2）または「pcreate」ターゲット（1.3以下）として機能するようになります。呼び出し側が1.3でこのように定義された足場に対して `` paster create``を実行しようとすると、代わりに `` pcreate``を使うように指示するエラーが発生します。</p>
+<p>Pyramid 1.3のみをサポートしたい場合は、よりクリーンでAPIが安定しています：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -231,19 +180,11 @@ stable:</p>
     <span class="n">summary</span> <span class="o">=</span> <span class="s1">&#39;My cool_extension&#39;</span>
 </pre></div>
 </td></tr></table></div>
-<p>You only need to specify a <code class="docutils literal notranslate"><span class="pre">paste.paster_create_template</span></code> entry point target
-in your <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> if you want your scaffold to be consumable by users of
-Pyramid 1.0, 1.1, or 1.2.  To support only 1.3, specifying only the
-<code class="docutils literal notranslate"><span class="pre">pyramid.scaffold</span></code> entry point is good enough.  If you want to support both
-<code class="docutils literal notranslate"><span class="pre">paster</span> <span class="pre">create</span></code> and <code class="docutils literal notranslate"><span class="pre">pcreate</span></code> (meaning you want to support Pyramid 1.2 and
-some older version), you'll need to define both.</p>
+<p>Pyramid 1.0,1.1、または1.2のユーザが足場を消耗させたい場合は、 `` setup.py``に `` paste.paster_create_template``エントリーポイントターゲットを指定する必要があります。 1.3のみをサポートするには、 `` pyramid.scaffold``エントリポイントだけを指定すれば十分です。 `` paster create``と `` pcreate``（Pyramid 1.2と古いバージョンをサポートしたいという意味）の両方をサポートしたい場合、両方を定義する必要があります。</p>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Existing third-party distributions which house scaffolding are available via
-<a class="reference internal" href="../glossary.html#term-pypi"><span class="xref std std-term">PyPI</span></a>.  The <code class="docutils literal notranslate"><span class="pre">pyramid_jqm</span></code>, <code class="docutils literal notranslate"><span class="pre">pyramid_zcml</span></code>, and <code class="docutils literal notranslate"><span class="pre">pyramid_jinja2</span></code>
-packages house scaffolds.  You can install and examine these packages to see
-how they work in the quest to develop your own scaffolding.</p>
+<h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>スキャフォールディングを格納している既存のサードパーティのディストリビューションは：term： <cite>PyPI`で利用可能です。 `</cite> pyramid_jqm``、 `` pyramid_zcml``、 `` pyramid_jinja2``パッケージには足場があります。これらのパッケージをインストールして調べることで、独自の足場を開発するためにどのように動作するかを確認することができます。</p>
 </div>
 </div>
 
@@ -255,20 +196,20 @@ how they work in the quest to develop your own scaffolding.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Creating Pyramid Scaffolds</a><ul>
-<li><a class="reference internal" href="#basics">Basics</a></li>
-<li><a class="reference internal" href="#supporting-older-pyramid-versions">Supporting Older Pyramid Versions</a></li>
-<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) ピラミッド足場の作成</a><ul>
+<li><a class="reference internal" href="#basics">基本</a></li>
+<li><a class="reference internal" href="#supporting-older-pyramid-versions">古いピラミッドバージョンをサポートする</a></li>
+<li><a class="reference internal" href="#examples">例</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="cookiecutters.html"
-                        title="前の章へ">Pyramid cookiecutters</a></p>
+                        title="前の章へ">(機械翻訳) ピラミッドのcookiecutters</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="upgrading.html"
-                        title="次の章へ">Upgrading Pyramid</a></p>
+                        title="次の章へ">(機械翻訳) ピラミッドのアップグレード</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -302,17 +243,17 @@ how they work in the quest to develop your own scaffolding.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="upgrading.html" title="Upgrading Pyramid"
+          <a href="upgrading.html" title="(機械翻訳) ピラミッドのアップグレード"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="cookiecutters.html" title="Pyramid cookiecutters"
+          <a href="cookiecutters.html" title="(機械翻訳) ピラミッドのcookiecutters"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Using the Zope Component Architecture in Pyramid &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) Zopeコンポーネントアーキテクチャの使用：app： Pyramid &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="API Documentation" href="../api/index.html" />
-    <link rel="prev" title="Thread Locals" href="threadlocals.html" />
+    <link rel="next" title="（機械翻訳）APIドキュメント" href="../api/index.html" />
+    <link rel="prev" title="(機械翻訳) スレッドローカル" href="threadlocals.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="../api/index.html" title="API Documentation"
+          <a href="../api/index.html" title="（機械翻訳）APIドキュメント"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="threadlocals.html" title="Thread Locals"
+          <a href="threadlocals.html" title="(機械翻訳) スレッドローカル"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,14 +69,9 @@
           <div class="body" role="main">
             
   <div class="section" id="using-the-zope-component-architecture-in-pyramid">
-<span id="zca-chapter"></span><span id="index-0"></span><h1>Using the Zope Component Architecture in <span>Pyramid</span><a class="headerlink" href="#using-the-zope-component-architecture-in-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Under the hood, <span>Pyramid</span> uses a <a class="reference internal" href="../glossary.html#term-zope-component-architecture"><span class="xref std std-term">Zope Component Architecture</span></a>
-component registry as its <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a>. The Zope Component
-Architecture is referred to colloquially as the &quot;ZCA.&quot;</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">zope.component</span></code> API used to access data in a traditional Zope
-application can be opaque.  For example, here is a typical &quot;unnamed utility&quot;
-lookup using the <a class="reference external" href="https://zopecomponent.readthedocs.io/en/latest/api/utility.html#zope.component.getUtility" title="(in zope.component v4.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">zope.component.getUtility()</span></code></a> global API as it might
-appear in a traditional Zope application:</p>
+<span id="zca-chapter"></span><span id="index-0"></span><h1>(機械翻訳) Zopeコンポーネントアーキテクチャの使用：app： <cite>Pyramid</cite><a class="headerlink" href="#using-the-zope-component-architecture-in-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>フードの下では、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は：term：<a href="#id3"><span class="problematic" id="id4">`</span></a>アプリケーションレジストリ &amp;#39;として：term： <a href="#id5"><span class="problematic" id="id6">`</span></a>Zope Component Architecture`コンポーネントレジストリを使用します。 Zopeコンポーネントアーキテクチャは、「ZCA」と呼ばれています。</p>
+<p>伝統的なZopeアプリケーションのデータにアクセスするために使用される `` zope.component`` APIは不透明です。たとえば、従来のZopeアプリケーションでは、：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>zope.component.getUtility`グローバルAPIを使用する典型的な&amp;quot;無名ユーティリティ&amp;quot;ルックアップがあります。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.interfaces</span> <span class="kn">import</span> <span class="n">ISettings</span>
@@ -84,83 +79,35 @@ appear in a traditional Zope application:</p>
 <span class="n">settings</span> <span class="o">=</span> <span class="n">getUtility</span><span class="p">(</span><span class="n">ISettings</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>After this code runs, <code class="docutils literal notranslate"><span class="pre">settings</span></code> will be a Python dictionary.  But it's
-unlikely that any &quot;civilian&quot; will be able to figure this out just by reading
-the code casually.  When the <code class="docutils literal notranslate"><span class="pre">zope.component.getUtility</span></code> API is used by a
-developer, the conceptual load on a casual reader of code is high.</p>
-<p>While the ZCA is an excellent tool with which to build a <em>framework</em> such as
-<span>Pyramid</span>, it is not always the best tool with which to build an
-<em>application</em> due to the opacity of the <code class="docutils literal notranslate"><span class="pre">zope.component</span></code> APIs.  Accordingly,
-<span>Pyramid</span> tends to hide the presence of the ZCA from application
-developers.  You needn't understand the ZCA to create a <span>Pyramid</span>
-application; its use is effectively only a framework implementation detail.</p>
-<p>However, developers who are already used to writing <a class="reference internal" href="../glossary.html#term-zope"><span class="xref std std-term">Zope</span></a> applications
-often still wish to use the ZCA while building a <span>Pyramid</span> application.
-<span>Pyramid</span> makes this possible.</p>
+<p>このコードが実行されると、 `` settings``はPython辞書になります。しかし、「市民」はコードを気軽に読んでこれを理解することはできないだろう。開発者が `` zope.component.getUtility`` APIを使うと、普通のコードリーダーの概念的な負荷が高くなります。</p>
+<p>ZCAは、app： <cite>Pyramid`のような*フレームワークを構築するための優れたツールですが、</cite> <cite>zope.componentの不透明さのために*アプリケーション*を構築するのに必ずしも最適なツールではありません`</cite> APIs。したがって、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、アプリケーション開発者からZCAの存在を隠す傾向があります。 app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`アプリケーションを作成するためにZCAを理解する必要はありません。その使用は効果的にフレームワーク実装の詳細です。</p>
+<p>しかし、既に：term： <cite>Zope`アプリケーションを作成するのに慣れている開発者は、：app：</cite> Pyramid`アプリケーションを構築しながらZCAを使用したいことがあります。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はこれを可能にします。</p>
 <div class="section" id="using-the-zca-global-api-in-a-pyramid-application">
-<span id="index-1"></span><h2>Using the ZCA global API in a <span>Pyramid</span> application<a class="headerlink" href="#using-the-zca-global-api-in-a-pyramid-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference internal" href="../glossary.html#term-zope"><span class="xref std std-term">Zope</span></a> uses a single ZCA registry—the &quot;global&quot; ZCA registry—for all Zope
-applications that run in the same Python process, effectively making it
-impossible to run more than one Zope application in a single process.</p>
-<p>However, for ease of deployment, it's often useful to be able to run more than
-a single application per process.  For example, use of a <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a>
-&quot;composite&quot; allows you to run separate individual WSGI applications in the same
-process, each answering requests for some URL prefix.  This makes it possible
-to run, for example, a TurboGears application at <code class="docutils literal notranslate"><span class="pre">/turbogears</span></code> and a
-<span>Pyramid</span> application at <code class="docutils literal notranslate"><span class="pre">/pyramid</span></code>, both served up using the same
-<a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> server within a single Python process.</p>
-<p>Most production Zope applications are relatively large, making it impractical
-due to memory constraints to run more than one Zope application per Python
-process.  However, a <span>Pyramid</span> application may be very small and consume
-very little memory, so it's a reasonable goal to be able to run more than one
-<span>Pyramid</span> application per process.</p>
-<p>In order to make it possible to run more than one <span>Pyramid</span> application in
-a single process, <span>Pyramid</span> defaults to using a separate ZCA registry <em>per
-application</em>.</p>
-<p>While this services a reasonable goal, it causes some issues when trying to use
-patterns which you might use to build a typical <a class="reference internal" href="../glossary.html#term-zope"><span class="xref std std-term">Zope</span></a> application to
-build a <span>Pyramid</span> application.  Without special help, ZCA &quot;global&quot; APIs
-such as <a class="reference external" href="https://zopecomponent.readthedocs.io/en/latest/api/utility.html#zope.component.getUtility" title="(in zope.component v4.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">zope.component.getUtility()</span></code></a> and
-<a class="reference external" href="https://zopecomponent.readthedocs.io/en/latest/api/sitemanager.html#zope.component.getSiteManager" title="(in zope.component v4.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">zope.component.getSiteManager()</span></code></a> will use the ZCA &quot;global&quot; registry.
-Therefore, these APIs will appear to fail when used in a <span>Pyramid</span>
-application, because they'll be consulting the ZCA global registry rather than
-the component registry associated with your <span>Pyramid</span> application.</p>
-<p>There are three ways to fix this: by disusing the ZCA global API entirely, by
-using <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.hook_zca" title="pyramid.config.Configurator.hook_zca"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.hook_zca()</span></code></a> or by passing the ZCA global
-registry to the <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> constructor at startup time.  We'll
-describe all three methods in this section.</p>
+<span id="index-1"></span><h2>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションでZCAグローバルAPIを使用する<a class="headerlink" href="#using-the-zca-global-api-in-a-pyramid-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Zope`は、同じPythonプロセスで動作するすべてのZopeアプリケーションに対して、単一のZCAレジストリ（グローバルなZCAレジストリ）を使用するため、1つのプロセスで複数のZopeアプリケーションを実行できなくなります。</p>
+<p>ただし、展開を容易にするために、プロセスごとに複数のアプリケーションを実行できることが有用なことがよくあります。たとえば、：term： <cite>PasteDeploy</cite> &amp;quot; composite &amp;quot;を使用すると、同じプロセスで個々のWSGIアプリケーションを個別に実行できます。それぞれのURL接頭辞の要求に応答します。これにより、例えば、 `` / turbogears``のTurboGearsアプリケーションと `` / pyramid``の `` app： `` Pyramid``アプリケーションを同じterm： <a href="#id1"><span class="problematic" id="id2">`</span></a>WSGI`サーバを使って起動することができます単一のPythonプロセス内で実行できます。</p>
+<p>ほとんどのプロダクションZopeアプリケーションは比較的大きく、Pythonプロセスごとに2つ以上のZopeアプリケーションを実行するためのメモリの制約のために実用的ではありません。しかし、a：app： <cite>Pyramid`アプリケーションは非常に小さく、メモリをほとんど消費しないので、プロセスごとにapp：</cite> Pyramid`アプリケーションを複数実行することが合理的な目標です。</p>
+<p>複数の：app： <cite>Pyramid`アプリケーションを1つのプロセスで実行できるようにするには、：app：</cite> Pyramid`はデフォルトでアプリケーションごとに別々のZCAレジストリ*を使用します。</p>
+<p>このサービスは妥当な目標ですが、典​​型的な：term： <cite>Zope`アプリケーションをビルドしてa：app：</cite> Pyramid`アプリケーションを構築するために使用するパターンを使用しようとすると、いくつかの問題が発生します。特別な助けがなければ、：func： <cite>zope.component.getUtility`や：func：</cite> zope.component.getSiteManager`などのZCA &amp;quot;グローバル&amp;quot; APIは、ZCA &amp;quot;グローバル&amp;quot;レジストリを使用します。したがって、これらのAPIは、：app： <cite>Pyramid`アプリケーションで使用されたときに失敗するように見えます。これは、あなたの：app：</cite> Pyramid`アプリケーションに関連するコンポーネントレジストリではなく、ZCAグローバルレジストリを参照するためです。</p>
+<p>これを修正するには、：meth： <cite>pyramid.config.Configurator.hook_zca`を使用するか、起動時に：term：</cite> Configurator`コンストラクタにZCAグローバルレジストリを渡すことによって、ZCAグローバルAPIを完全に無効にする方法があります。このセクションでは、3つの方法すべてについて説明します。</p>
 <div class="section" id="disusing-the-global-zca-api">
-<span id="index-2"></span><span id="id1"></span><h3>Disusing the global ZCA API<a class="headerlink" href="#disusing-the-global-zca-api" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ZCA &quot;global&quot; API functions such as <code class="docutils literal notranslate"><span class="pre">zope.component.getSiteManager</span></code>,
-<code class="docutils literal notranslate"><span class="pre">zope.component.getUtility</span></code>, <a class="reference external" href="https://zopecomponent.readthedocs.io/en/latest/api/adapter.html#zope.component.getAdapter" title="(in zope.component v4.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">zope.component.getAdapter()</span></code></a>, and
-<a class="reference external" href="https://zopecomponent.readthedocs.io/en/latest/api/adapter.html#zope.component.getMultiAdapter" title="(in zope.component v4.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">zope.component.getMultiAdapter()</span></code></a> aren't strictly necessary.  Every
-component registry has a method API that offers the same functionality; it can
-be used instead.  For example, presuming the <code class="docutils literal notranslate"><span class="pre">registry</span></code> value below is a Zope
-Component Architecture component registry, the following bit of code is
-equivalent to <code class="docutils literal notranslate"><span class="pre">zope.component.getUtility(IFoo)</span></code>:</p>
+<span id="index-2"></span><span id="id1"></span><h3>グローバルZCA APIの廃止<a class="headerlink" href="#disusing-the-global-zca-api" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` zope.component.getSiteManager``、 `` zope.component.getUtility``、：func： <cite>zope.component.getAdapter</cite>、：：func：` zope.componentのようなZCA &amp;quot;グローバル&amp;quot; API関数です。 getMultiAdapter`は厳密には必要ではありません。すべてのコンポーネントレジストリには、同じ機能を提供するメソッドAPIがあります。代わりに使用することができます。たとえば、以下の `` registry``値がZope Component Architectureのコンポーネントレジストリであると仮定すると、以下のコードは `` zope.component.getUtility（IFoo） <a href="#id1"><span class="problematic" id="id2">``</span></a>に相当します：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">registry</span><span class="o">.</span><span class="n">getUtility</span><span class="p">(</span><span class="n">IFoo</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The full method API is documented in the <code class="docutils literal notranslate"><span class="pre">zope.component</span></code> package, but it
-largely mirrors the &quot;global&quot; API almost exactly.</p>
-<p>If you are willing to disuse the &quot;global&quot; ZCA APIs and use the method interface
-of a registry instead, you need only know how to obtain the <span>Pyramid</span>
-component registry.</p>
-<p>There are two ways of doing so:</p>
+<p>完全なメソッドAPIは、 `` zope.component``パッケージに記述されていますが、大体&amp;quot;グローバル&amp;quot; APIをほぼ正確に反映しています。</p>
+<p>代わりに&amp;quot;グローバル&amp;quot; ZCA APIを廃止し、代わりにレジストリのメソッドインタフェースを使用する場合は、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`コンポーネントレジストリの取得方法だけが必要です。</p>
+<p>これを行うには2通りの方法があります：</p>
 <ul class="simple">
-<li>use the <a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.threadlocal.get_current_registry()</span></code></a> function within
-<span>Pyramid</span> view or resource code.  This will always return the &quot;current&quot;
-<span>Pyramid</span> application registry.</li>
-<li>use the attribute of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object named <code class="docutils literal notranslate"><span class="pre">registry</span></code> in your
-<span>Pyramid</span> view code, e.g., <code class="docutils literal notranslate"><span class="pre">request.registry</span></code>.  This is the ZCA
-component registry related to the running <span>Pyramid</span> application.</li>
+<li>app： <cite>Pyramid`ビューまたはリソースコード内で：func：</cite> pyramid.threadlocal.get_current_registry`関数を使用してください。これは常に&amp;quot;現在の：：app：` Pyramid`アプリケーションレジストリを返します。</li>
+<li>：app： <cite>Pyramid`のビューコードで、</cite> <cite>request.registry``のように</cite> <cite>registry``という名前の：term：</cite> request`オブジェクトの属性を使います。これは、running：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションに関連するZCAコンポーネントレジストリです。</li>
 </ul>
-<p>See <a class="reference internal" href="threadlocals.html#threadlocals-chapter"><span class="std std-ref">Thread Locals</span></a> for more information about
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.threadlocal.get_current_registry()</span></code></a>.</p>
+<p>func： <cite>pyramid.threadlocal.get_current_registry`の詳細については、ref：</cite> threadlocals_chapter`を参照してください。</p>
 </div>
 <div class="section" id="enabling-the-zca-global-api-by-using-hook-zca">
-<span id="hook-zca"></span><span id="index-3"></span><h3>Enabling the ZCA global API by using <code class="docutils literal notranslate"><span class="pre">hook_zca</span></code><a class="headerlink" href="#enabling-the-zca-global-api-by-using-hook-zca" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Consider the following bit of idiomatic <span>Pyramid</span> startup code:</p>
+<span id="hook-zca"></span><span id="index-3"></span><h3>`` hook_zca``を使ってZCAグローバルAPIを有効にする<a class="headerlink" href="#enabling-the-zca-global-api-by-using-hook-zca" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`スタートアップコード：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -174,24 +121,10 @@ component registry related to the running <span>Pyramid</span> application.</li>
     <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>When the <code class="docutils literal notranslate"><span class="pre">app</span></code> function above is run, a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> is constructed.
-When the configurator is created, it creates a <em>new</em> <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application
-registry</span></a> (a ZCA component registry).  A new registry is constructed whenever
-the <code class="docutils literal notranslate"><span class="pre">registry</span></code> argument is omitted, when a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> constructor
-is called, or when a <code class="docutils literal notranslate"><span class="pre">registry</span></code> argument with a value of <code class="docutils literal notranslate"><span class="pre">None</span></code> is passed
-to a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> constructor.</p>
-<p>During a request, the application registry created by the Configurator is &quot;made
-current&quot;.  This means calls to
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_registry()</span></code></a> in the thread handling the
-request will return the component registry associated with the application.</p>
-<p>As a result, application developers can use <code class="docutils literal notranslate"><span class="pre">get_current_registry</span></code> to get the
-registry and thus get access to utilities and such, as per
-<a class="reference internal" href="#disusing-the-global-zca-api"><span class="std std-ref">Disusing the global ZCA API</span></a>.  But they still cannot use the global ZCA
-API.  Without special treatment, the ZCA global APIs will always return the
-global ZCA registry (the one in <code class="docutils literal notranslate"><span class="pre">zope.component.globalregistry.base</span></code>).</p>
-<p>To &quot;fix&quot; this and make the ZCA global APIs use the &quot;current&quot; <span>Pyramid</span>
-registry, you need to call <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.hook_zca" title="pyramid.config.Configurator.hook_zca"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hook_zca()</span></code></a> within
-your setup code. For example:</p>
+<p>上記の `` app``関数が実行されると、a：term： <cite>Configurator`が構築されます。コンフィギュレータが作成されると、* new：：term： `application registry`（ZCAコンポーネントレジストリ）が作成されます。新しいレジストリは、 `</cite> registry``引数が省略された場合、a：term： <cite>Configurator`コンストラクタが呼び出された場合、または</cite> <cite>None``の値を持つ</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>registry``引数が：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>Configurator`コンストラクタです。</p>
+<p>要求中、コンフィギュレータによって作成されたアプリケーションレジストリは&amp;quot;made current &amp;quot;です。これは、要求を処理するスレッドの：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.threadlocal.get_current_registry`への呼び出しが、アプリケーションに関連するコンポーネントレジストリを返すことを意味します。</p>
+<p>結果として、アプリケーション開発者は `` get_current_registry``を使ってレジストリを取得し、per：ref： <cite>disusing_the_global_zca_api`のようにユーティリティなどにアクセスすることができます。しかし、彼らはまだグローバルZCA APIを使用することはできません。 ZCAのグローバルAPIは特別な処理をしなければ、常にグローバルなZCAレジストリ（ `</cite> zope.component.globalregistry.base``のもの）を返します。</p>
+<p>これを修正してZCAグローバルAPIに&amp;quot;現在の：app：` Pyramid`レジストリを使用させるには、セットアップコード内で：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.hook_zca`を呼び出す必要があります。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -207,9 +140,7 @@ your setup code. For example:</p>
     <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>We've added a line to our original startup code, line number 5, which calls
-<code class="docutils literal notranslate"><span class="pre">config.hook_zca()</span></code>.  The effect of this line under the hood is that an
-analogue of the following code is executed:</p>
+<p>元のスタートアップコードの行番号5に、 `` config.hook_zca（） <a href="#id1"><span class="problematic" id="id2">``</span></a>を呼び出す行を追加しました。フードの下のこの行の効果は、次のコードのアナログが実行されることです。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">zope.component</span> <span class="kn">import</span> <span class="n">getSiteManager</span>
@@ -217,19 +148,12 @@ analogue of the following code is executed:</p>
 <span class="n">getSiteManager</span><span class="o">.</span><span class="n">sethook</span><span class="p">(</span><span class="n">get_current_registry</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>This causes the ZCA global API to start using the <span>Pyramid</span> application
-registry in threads which are running a <span>Pyramid</span> request.</p>
-<p>Calling <code class="docutils literal notranslate"><span class="pre">hook_zca</span></code> is usually sufficient to &quot;fix&quot; the problem of being able
-to use the global ZCA API within a <span>Pyramid</span> application.  However, it
-also means that a Zope application that is running in the same process may
-start using the <span>Pyramid</span> global registry instead of the Zope global
-registry, effectively inverting the original problem.  In such a case, follow
-the steps in the next section, <a class="reference internal" href="#using-the-zca-global-registry"><span class="std std-ref">Enabling the ZCA global API by using the ZCA global registry</span></a>.</p>
+<p>これにより、ZCAグローバルAPIは、：app： <cite>Pyramid`アプリケーションレジストリを、：app：</cite> Pyramid`要求を実行しているスレッドで使用し始めます。</p>
+<p>`` hook_zca``を呼び出すことは、通常は：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーション内でグローバルZCA APIを使用できるという問題を修正するには十分です。ただし、同じプロセスで実行されているZopeアプリケーションが、Zopeグローバルレジストリの代わりに：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`グローバルレジストリを使用して元の問題を効果的に反転させることも意味します。このような場合は、次のセクション：ref： <a href="#id5"><span class="problematic" id="id6">`</span></a>using_the_zca_global_registry`の手順に従ってください。</p>
 </div>
 <div class="section" id="enabling-the-zca-global-api-by-using-the-zca-global-registry">
-<span id="using-the-zca-global-registry"></span><span id="index-4"></span><h3>Enabling the ZCA global API by using the ZCA global registry<a class="headerlink" href="#enabling-the-zca-global-api-by-using-the-zca-global-registry" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You can tell your <span>Pyramid</span> application to use the ZCA global registry at
-startup time instead of constructing a new one:</p>
+<span id="using-the-zca-global-registry"></span><span id="index-4"></span><h3>ZCAグローバルレジストリを使用してZCAグローバルAPIを有効にする<a class="headerlink" href="#enabling-the-zca-global-api-by-using-the-zca-global-registry" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションに、起動時に新しいレジストリを作成する代わりにZCAグローバルレジストリを使用するよう指示できます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -249,16 +173,8 @@ startup time instead of constructing a new one:</p>
     <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>Lines 5, 6, and 7 above are the interesting ones.  Line 5 retrieves the global
-ZCA component registry.  Line 6 creates a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a>, passing the
-global ZCA registry into its constructor as the <code class="docutils literal notranslate"><span class="pre">registry</span></code> argument.  Line 7
-&quot;sets up&quot; the global registry with Pyramid-specific registrations; this is code
-that is normally executed when a registry is constructed rather than created,
-but we must call it &quot;by hand&quot; when we pass an explicit registry.</p>
-<p>At this point, <span>Pyramid</span> will use the ZCA global registry rather than
-creating a new application-specific registry.  Since by default the ZCA global
-API will use this registry, things will work as you might expect in a Zope app
-when you use the global ZCA API.</p>
+<p>上の行5,6、および7は興味深いものです。 5行目は、グローバルZCAコンポーネントレジストリを取得します。 6行目はa：term： <cite>Configurator`を作成し、グローバルZCAレジストリをそのコンストラクタに</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>registry``引数として渡します。 7行目は、ピラミッド固有の登録を持つグローバルレジストリを &amp;quot;設定&amp;quot;します。これは、レジストリが作成されるのではなく構築されたときに通常実行されるコードですが、明示的なレジストリを渡すときに&amp;quot;手で&amp;quot;呼び出す必要があります。</p>
+<p>この時点で、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は新しいアプリケーション固有のレジストリを作成するのではなく、ZCAグローバルレジストリを使用します。デフォルトではZCAグローバルAPIはこのレジストリを使用するため、グローバルZCA APIを使用するときにZopeアプリケーションで期待されるように機能します。</p>
 </div>
 </div>
 </div>
@@ -271,11 +187,11 @@ when you use the global ZCA API.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Using the Zope Component Architecture in <span>Pyramid</span></a><ul>
-<li><a class="reference internal" href="#using-the-zca-global-api-in-a-pyramid-application">Using the ZCA global API in a <span>Pyramid</span> application</a><ul>
-<li><a class="reference internal" href="#disusing-the-global-zca-api">Disusing the global ZCA API</a></li>
-<li><a class="reference internal" href="#enabling-the-zca-global-api-by-using-hook-zca">Enabling the ZCA global API by using <code class="docutils literal notranslate"><span class="pre">hook_zca</span></code></a></li>
-<li><a class="reference internal" href="#enabling-the-zca-global-api-by-using-the-zca-global-registry">Enabling the ZCA global API by using the ZCA global registry</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) Zopeコンポーネントアーキテクチャの使用：app： <cite>Pyramid</cite></a><ul>
+<li><a class="reference internal" href="#using-the-zca-global-api-in-a-pyramid-application">：app： `Pyramid`アプリケーションでZCAグローバルAPIを使用する</a><ul>
+<li><a class="reference internal" href="#disusing-the-global-zca-api">グローバルZCA APIの廃止</a></li>
+<li><a class="reference internal" href="#enabling-the-zca-global-api-by-using-hook-zca">`` hook_zca``を使ってZCAグローバルAPIを有効にする</a></li>
+<li><a class="reference internal" href="#enabling-the-zca-global-api-by-using-the-zca-global-registry">ZCAグローバルレジストリを使用してZCAグローバルAPIを有効にする</a></li>
 </ul>
 </li>
 </ul>
@@ -284,10 +200,10 @@ when you use the global ZCA API.</p>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="threadlocals.html"
-                        title="前の章へ">Thread Locals</a></p>
+                        title="前の章へ">(機械翻訳) スレッドローカル</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="../api/index.html"
-                        title="次の章へ">API Documentation</a></p>
+                        title="次の章へ">（機械翻訳）APIドキュメント</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -321,17 +237,17 @@ when you use the global ZCA API.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="../api/index.html" title="API Documentation"
+          <a href="../api/index.html" title="（機械翻訳）APIドキュメント"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="threadlocals.html" title="Thread Locals"
+          <a href="threadlocals.html" title="(機械翻訳) スレッドローカル"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

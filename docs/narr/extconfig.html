@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Extending Pyramid Configuration &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) ピラミッド構成の拡張 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Pyramid cookiecutters" href="cookiecutters.html" />
-    <link rel="prev" title="Advanced Configuration" href="advconfig.html" />
+    <link rel="next" title="(機械翻訳) ピラミッドのcookiecutters" href="cookiecutters.html" />
+    <link rel="prev" title="(機械翻訳) 高度な設定" href="advconfig.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="cookiecutters.html" title="Pyramid cookiecutters"
+          <a href="cookiecutters.html" title="(機械翻訳) ピラミッドのcookiecutters"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="advconfig.html" title="Advanced Configuration"
+          <a href="advconfig.html" title="(機械翻訳) 高度な設定"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,23 +69,12 @@
           <div class="body" role="main">
             
   <div class="section" id="extending-pyramid-configuration">
-<span id="extconfig-narr"></span><span id="index-0"></span><h1>Extending Pyramid Configuration<a class="headerlink" href="#extending-pyramid-configuration" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Pyramid allows you to extend its Configurator with custom directives.  Custom
-directives can use other directives, they can add a custom <a class="reference internal" href="../glossary.html#term-action"><span class="xref std std-term">action</span></a>, they
-can participate in <a class="reference internal" href="../glossary.html#term-conflict-resolution"><span class="xref std std-term">conflict resolution</span></a>, and they can provide some
-number of <a class="reference internal" href="../glossary.html#term-introspectable"><span class="xref std std-term">introspectable</span></a> objects.</p>
+<span id="extconfig-narr"></span><span id="index-0"></span><h1>(機械翻訳) ピラミッド構成の拡張<a class="headerlink" href="#extending-pyramid-configuration" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Pyramidでは、カスタムディレクティブを使用してConfiguratorを拡張できます。カスタムディレクティブは他のディレクティブを使用することができ、custom：term： <cite>action`を追加することができます：term：</cite> conflict resolution`に参加でき、いくつかの：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>introspectable`オブジェクトを提供できます。</p>
 <div class="section" id="adding-methods-to-the-configurator-via-add-directive">
-<span id="add-directive"></span><span id="index-1"></span><h2>Adding Methods to the Configurator via <code class="docutils literal notranslate"><span class="pre">add_directive</span></code><a class="headerlink" href="#adding-methods-to-the-configurator-via-add-directive" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Framework extension writers can add arbitrary methods to a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a>
-by using the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_directive" title="pyramid.config.Configurator.add_directive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_directive()</span></code></a> method of the
-configurator. Using <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_directive" title="pyramid.config.Configurator.add_directive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_directive()</span></code></a> makes it
-possible to extend a Pyramid configurator in arbitrary ways, and allows it to
-perform application-specific tasks more succinctly.</p>
-<p>The <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_directive" title="pyramid.config.Configurator.add_directive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_directive()</span></code></a> method accepts two
-positional arguments: a method name and a callable object.  The callable object
-is usually a function that takes the configurator instance as its first
-argument and accepts other arbitrary positional and keyword arguments. For
-example:</p>
+<span id="add-directive"></span><span id="index-1"></span><h2>`` add_directive``を使ってコンフィグレータにメソッドを追加する<a class="headerlink" href="#adding-methods-to-the-configurator-via-add-directive" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>フレームワーク拡張の作者は、コンフィグレータの：meth： <cite>pyramid.config.Configurator.add_directive`メソッドを使って：term：</cite> Configurator`に任意のメソッドを追加できます。 ：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.add_directive`を使うと、Pyramidコンフィギュレータを任意の方法で拡張することができ、アプリケーション固有のタスクをより簡潔に実行することができます。</p>
+<p>：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.add_directive`メソッドは、メソッド名と呼び出し可能オブジェクトという2つの位置引数を受け取ります。呼び出し可能オブジェクトは、通常、最初の引数としてコンフィギュレータインスタンスを取り、他の任意の位置引数とキーワード引数を受け入れる関数です。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -107,9 +96,7 @@ example:</p>
                          <span class="n">add_newrequest_subscriber</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Once <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_directive" title="pyramid.config.Configurator.add_directive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_directive()</span></code></a> is called, a user can
-then call the added directive by its given name as if it were a built-in method
-of the Configurator:</p>
+<p>一旦：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.add_directive`が呼び出されると、ユーザはConfiguredatorの組み込みメソッドであるかのように、指定された名前で追加されたディレクティブを呼び出すことができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -119,11 +106,7 @@ of the Configurator:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">add_newrequest_subscriber</span><span class="p">(</span><span class="n">mysubscriber</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>A call to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_directive" title="pyramid.config.Configurator.add_directive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_directive()</span></code></a> is often &quot;hidden&quot;
-within an <code class="docutils literal notranslate"><span class="pre">includeme</span></code> function within a &quot;frameworky&quot; package meant to be
-included as per <a class="reference internal" href="advconfig.html#including-configuration"><span class="std std-ref">Including Configuration from External Sources</span></a> via
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">include()</span></code></a>.  For example, if you put this
-code in a package named <code class="docutils literal notranslate"><span class="pre">pyramid_subscriberhelpers</span></code>:</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.add_directive`への呼び出しは、per：ref：</cite> including_configurationとしてインクルードされることを意図した&amp;quot;frameworky &amp;quot;パッケージ内の `` includeme``関数内ではしばしば&amp;quot;隠されています&amp;quot; <cite>via：meth：</cite>〜pyramid.config.Configurator.include`。たとえば、このコードを `` pyramid_subscriberhelpers``というパッケージに入れた場合、</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">includeme</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
@@ -131,8 +114,7 @@ code in a package named <code class="docutils literal notranslate"><span class="
                          <span class="n">add_newrequest_subscriber</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The user of the add-on package <code class="docutils literal notranslate"><span class="pre">pyramid_subscriberhelpers</span></code> would then be able
-to install it and subsequently do:</p>
+<p>アドオンパッケージの `` pyramid_subscriberhelpers``のユーザーは、それをインストールして、次に実行できます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -150,16 +132,9 @@ to install it and subsequently do:</p>
 </td></tr></table></div>
 </div>
 <div class="section" id="using-config-action-in-a-directive">
-<h2>Using <code class="docutils literal notranslate"><span class="pre">config.action</span></code> in a Directive<a class="headerlink" href="#using-config-action-in-a-directive" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If a custom directive can't do its work exclusively in terms of existing
-configurator methods (such as
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_subscriber" title="pyramid.config.Configurator.add_subscriber"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_subscriber()</span></code></a> as above), the directive may
-need to make use of the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.action" title="pyramid.config.Configurator.action"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.action()</span></code></a> method. This
-method adds an entry to the list of &quot;actions&quot; that Pyramid will attempt to
-process when <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.commit()</span></code></a> is called. An action is
-simply a dictionary that includes a <a class="reference internal" href="../glossary.html#term-discriminator"><span class="xref std std-term">discriminator</span></a>, possibly a callback
-function, and possibly other metadata used by Pyramid's action system.</p>
-<p>Here's an example directive which uses the &quot;action&quot; method:</p>
+<h2>ディレクティブで `` config.action``を使う<a class="headerlink" href="#using-config-action-in-a-directive" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>カスタムディレクティブが既存のコンフィグレーターメソッド（上記のように：meth： <cite>pyramid.config.Configurator.add_subscriber`のような）に関して独占的にその作業を行うことができない場合、ディレクティブは：meth：`ピラミッド.config.Configurator.action`メソッド。このメソッドは、：meth： `pyramid.config.Configurator.commit`が呼び出されたときに、Pyramidが処理しようとする&amp;quot; actions &amp;quot;のリストにエントリを追加します。アクションとは：term： `discriminator</cite>、おそらくコールバック関数、そして恐らくピラミッドのアクションシステムによって使用される他のメタデータを含む辞書です。</p>
+<p>&amp;quot;アクション&amp;quot;メソッドを使用するディレクティブの例を次に示します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -177,66 +152,22 @@ function, and possibly other metadata used by Pyramid's action system.</p>
     <span class="n">config</span><span class="o">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s1">&#39;add_jammyjam&#39;</span><span class="p">,</span> <span class="n">add_jammyjam</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Fancy, but what does it do?  The action method accepts a number of arguments.
-In the above directive named <code class="docutils literal notranslate"><span class="pre">add_jammyjam</span></code>, we call
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.action" title="pyramid.config.Configurator.action"><code class="xref py py-meth docutils literal notranslate"><span class="pre">action()</span></code></a> with two arguments: the string
-<code class="docutils literal notranslate"><span class="pre">jammyjam</span></code> is passed as the first argument named <code class="docutils literal notranslate"><span class="pre">discriminator</span></code>, and the
-closure function named <code class="docutils literal notranslate"><span class="pre">register</span></code> is passed as the second argument named
-<code class="docutils literal notranslate"><span class="pre">callable</span></code>.</p>
-<p>When the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.action" title="pyramid.config.Configurator.action"><code class="xref py py-meth docutils literal notranslate"><span class="pre">action()</span></code></a> method is called, it
-appends an action to the list of pending configuration actions.  All pending
-actions with the same discriminator value are potentially in conflict with one
-another (see <a class="reference internal" href="advconfig.html#conflict-detection"><span class="std std-ref">Conflict Detection</span></a>).  When the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commit()</span></code></a> method of the Configurator is
-called (either explicitly or as the result of calling
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">make_wsgi_app()</span></code></a>), conflicting actions are
-potentially automatically resolved as per <a class="reference internal" href="advconfig.html#automatic-conflict-resolution"><span class="std std-ref">Automatic Conflict Resolution</span></a>.
-If a conflict cannot be automatically resolved, a
-<code class="xref py py-exc docutils literal notranslate"><span class="pre">pyramid.exceptions.ConfigurationConflictError</span></code> is raised and application
-startup is prevented.</p>
-<p>In our above example, therefore, if a consumer of our <code class="docutils literal notranslate"><span class="pre">add_jammyjam</span></code>
-directive did this:</p>
+<p>ファンシーですが、それは何ですか？アクションメソッドはいくつかの引数を受け取ります。 `` add_jammyjam``という名前の上記のディレクティブでは、meth： <cite>〜pyramid.config.Configurator.action`を2つの引数で呼び出します。文字列</cite> <cite>jammyjam``が</cite> discriminator`という名前の最初の引数として渡され、 `` registerable``という名前のクロージャー関数は `` callable``という名前の第2引数として渡されます。</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.action`メソッドが呼び出されると、保留中の設定アクションのリストにアクションが追加されます。同一のディスクリミネータ値を持つすべての保留中のアクションは潜在的に互いに衝突します（参照：ref： `conflict_detection</cite>）。コンフィグレータの：meth： <cite>〜pyramid.config.Configurator.commit`メソッドが（明示的にまたは：meth：</cite>〜pyramid.config.Configurator.make_wsgi_app`を呼び出した結果として）呼び出されると、競合するアクションは自動的に可能性があります：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>automatic_conflict_resolution`に従って解決されます。競合を自動的に解決できない場合、a：exc： <a href="#id3"><span class="problematic" id="id4">`</span></a>pyramid.exceptions.ConfigurationConflictError`が発生し、アプリケーションの起動が妨げられます。</p>
+<p>したがって、上記の例では、 `` add_jammyjam``ディレクティブの消費者がこれを行った場合、</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_jammyjam</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_jammyjam</span><span class="p">(</span><span class="s1">&#39;second&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When the action list was committed resulting from the set of calls above, our
-user's application would not start, because the discriminators of the actions
-generated by the two calls are in direct conflict.  Automatic conflict
-resolution cannot resolve the conflict (because no <code class="docutils literal notranslate"><span class="pre">config.include</span></code> is
-involved), and the user provided no intermediate
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.commit()</span></code></a> call between the calls to
-<code class="docutils literal notranslate"><span class="pre">add_jammyjam</span></code> to ensure that the successive calls did not conflict with each
-other.</p>
-<p>This demonstrates the purpose of the discriminator argument to the action
-method: it's used to indicate a uniqueness constraint for an action.  Two
-actions with the same discriminator will conflict unless the conflict is
-automatically or manually resolved. A discriminator can be any hashable object,
-but it is generally a string or a tuple.  <em>You use a discriminator to
-declaratively ensure that the user doesn't provide ambiguous configuration
-statements.</em></p>
-<p>But let's imagine that a consumer of <code class="docutils literal notranslate"><span class="pre">add_jammyjam</span></code> used it in such a way
-that no configuration conflicts are generated.</p>
+<p>上記の一連の呼び出しの結果、アクションリストがコミットされたとき、2つの呼び出しによって生成されたアクションの弁別子が直接衝突するため、ユーザーのアプリケーションは起動しません。自動的な競合解決は競合を解決できません（ `` config.include``が含まれていないので）、ユーザは `` add_jammyjam``の呼び出しの間にintermediate：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.commit`呼び出しを渡さなかった連続するコールが相互に競合していないことを確認してください。</p>
+<p>これは、アクションメソッドの識別子引数の目的を示しています。アクションの一意性制約を示すために使用されます。競合が自動的にまたは手動で解決されない限り、同じディスクリミネータを使用する2つのアクションは競合します。 discriminatorは任意のハッシュ可能なオブジェクトですが、一般的には文字列またはタプルです。 <em>あなたは、ユーザーがあいまいな構成ステートメントを提供しないことを宣言的に保証するために弁別子を​​使用します。</em></p>
+<p>しかし、 `` add_jammyjam``の消費者が、設定の競合が発生しないような方法でそれを使用したとしましょう。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_jammyjam</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>What happens now?  When the <code class="docutils literal notranslate"><span class="pre">add_jammyjam</span></code> method is called, an action is
-appended to the pending actions list.  When the pending configuration actions
-are processed during <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commit()</span></code></a>, and no
-conflicts occur, the <em>callable</em> provided as the second argument to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.action" title="pyramid.config.Configurator.action"><code class="xref py py-meth docutils literal notranslate"><span class="pre">action()</span></code></a> method within <code class="docutils literal notranslate"><span class="pre">add_jammyjam</span></code> is
-called with no arguments.  The callable in <code class="docutils literal notranslate"><span class="pre">add_jammyjam</span></code> is the <code class="docutils literal notranslate"><span class="pre">register</span></code>
-closure function.  It simply sets the value <code class="docutils literal notranslate"><span class="pre">config.registry.jammyjam</span></code> to
-whatever the user passed in as the <code class="docutils literal notranslate"><span class="pre">jammyjam</span></code> argument to the
-<code class="docutils literal notranslate"><span class="pre">add_jammyjam</span></code> function.  Therefore, the result of the user's call to our
-directive will set the <code class="docutils literal notranslate"><span class="pre">jammyjam</span></code> attribute of the registry to the string
-<code class="docutils literal notranslate"><span class="pre">first</span></code>.  <em>A callable is used by a directive to defer the result of a user's
-call to the directive until conflict detection has had a chance to do its job</em>.</p>
-<p>Other arguments exist to the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.action" title="pyramid.config.Configurator.action"><code class="xref py py-meth docutils literal notranslate"><span class="pre">action()</span></code></a>
-method, including <code class="docutils literal notranslate"><span class="pre">args</span></code>, <code class="docutils literal notranslate"><span class="pre">kw</span></code>, <code class="docutils literal notranslate"><span class="pre">order</span></code>, and <code class="docutils literal notranslate"><span class="pre">introspectables</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">args</span></code> and <code class="docutils literal notranslate"><span class="pre">kw</span></code> exist as values, which if passed will be used as arguments
-to the <code class="docutils literal notranslate"><span class="pre">callable</span></code> function when it is called back.  For example, our
-directive might use them like so:</p>
+<p>今、何が起きた？ `` add_jammyjam``メソッドが呼び出されると、アクションが保留アクションリストに追加されます。保留中の設定アクションが：meth： <cite>〜pyramid.config.Configurator.commit`の間に処理され、競合が発生しなければ、* callable *は：meth：</cite>〜pyramid.config.Configurator.actionの第2引数として提供されます`add_jammyjam``内の`メソッドは引数なしで呼び出されます。 `` add_jammyjam``の呼び出し可能な関数は、 `` register``クロージャ関数です。 `` config.registry.jammyjam``の値を、 `` add_jammyjam``関数の `` jammyjam``引数として渡した値に設定します。したがって、ユーザの指令の呼び出しの結果は、レジストリの `` jammyjam``属性を文字列 `` first``に設定します。 * callableは、矛盾の検出がその仕事をする機会があるまで、ディレクティブがユーザーの呼び出し結果を延期するためにディレクティブによって使用されます*。</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.action`メソッドには、</cite> <cite>args`</cite>、` <cite>kw`</cite>、` <cite>order`</cite>、` <a href="#id1"><span class="problematic" id="id2">`</span></a>introspectables``などの引数があります。</p>
+<p>`` args``と `` kw``は値として存在し、渡された場合、 `` callable``関数がコールバックされたときに引数として使用されます。例えば、私たちの指令は以下のようにそれらを使用するかもしれません：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -250,95 +181,53 @@ directive might use them like so:</p>
     <span class="n">config</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="s1">&#39;jammyjam&#39;</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">,),</span> <span class="n">kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;two&#39;</span><span class="p">:</span><span class="s1">&#39;two&#39;</span><span class="p">})</span>
 </pre></div>
 </td></tr></table></div>
-<p>In the above example, when this directive is used to generate an action, and
-that action is committed, <code class="docutils literal notranslate"><span class="pre">config.registry.jammyjam_args</span></code> will be set to
-<code class="docutils literal notranslate"><span class="pre">('one',)</span></code> and <code class="docutils literal notranslate"><span class="pre">config.registry.jammyjam_kw</span></code> will be set to
-<code class="docutils literal notranslate"><span class="pre">{'two':'two'}</span></code>.  <code class="docutils literal notranslate"><span class="pre">args</span></code> and <code class="docutils literal notranslate"><span class="pre">kw</span></code> are honestly not very useful when your
-<code class="docutils literal notranslate"><span class="pre">callable</span></code> is a closure function, because you already usually have access to
-every local in the directive without needing them to be passed back.  They can
-be useful, however, if you don't use a closure as a callable.</p>
-<p><code class="docutils literal notranslate"><span class="pre">order</span></code> is a crude order control mechanism.  <code class="docutils literal notranslate"><span class="pre">order</span></code> defaults to the
-integer <code class="docutils literal notranslate"><span class="pre">0</span></code>; it can be set to any other integer.  All actions that share an
-order will be called before other actions that share a higher order.  This
-makes it possible to write a directive with callable logic that relies on the
-execution of the callable of another directive being done first.  For example,
-Pyramid's <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> directive registers an
-action with a higher order than the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> method.  Due to this, the
-<code class="docutils literal notranslate"><span class="pre">add_view</span></code> method's callable can assume that, if a <code class="docutils literal notranslate"><span class="pre">route_name</span></code> was passed
-to it, that a route by this name was already registered by <code class="docutils literal notranslate"><span class="pre">add_route</span></code>, and
-if such a route has not already been registered, it's a configuration error (a
-view that names a nonexistent route via its <code class="docutils literal notranslate"><span class="pre">route_name</span></code> parameter will never
-be called).</p>
+<p>上記の例では、このディレクティブがアクションの生成に使用され、そのアクションがコミットされると、 `` config.registry.jammyjam_args``は <a href="#id1"><span class="problematic" id="id2">``</span></a>（ &amp;#39;one&amp;#39;、 <a href="#id3"><span class="problematic" id="id4">``</span></a>） <a href="#id5"><span class="problematic" id="id6">``</span></a>と `` config.registry .jammyjam_kw``は `` {&amp;#39;two&amp;#39;： &amp;#39;two&amp;#39;} <a href="#id7"><span class="problematic" id="id8">``</span></a>に設定されます。 `` callable``がクロージャー関数の場合、 `` args``と `` kw``は正直なところあまり有用ではありません。ただし、クロージャを呼び出し可能として使用しない場合は便利です。</p>
+<p>「注文」は原注管理メカニズムです。 `` order``はデフォルトで整数 `` 0``になります。他の任意の整数に設定することができます。オーダーを共有するすべてのアクションは、上位のオーダーを共有する他のアクションの前に呼び出されます。これにより、最初に実行される別のディレクティブの呼び出し可能な呼び出しに依存する呼び出し可能なロジックを持つディレクティブを書くことができます。たとえば、Pyramidの：meth： <cite>pyramid.config.Configurator.add_view`ディレクティブは、：meth：</cite> pyramid.config.Configurator.add_route`メソッドよりも上位のアクションを登録します。このため、 `` add_view``メソッドの呼び出し可能メソッドは、 `` route_name``が渡された場合、この名前のルートが `` add_route``によって既に登録されていると仮定し、そのようなルートがまだ登録されていない場合は、設定エラーです（存在しないルートに `` route_name``パラメータで名前を付けるビューは呼び出されません）。</p>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 1.6 で変更: </span>As of Pyramid 1.6 it is possible for one action to invoke another. See
-<a class="reference internal" href="#ordering-actions"><span class="std std-ref">Ordering Actions</span></a> for more information.</p>
+<p><span class="versionmodified">バージョン 1.6 で変更: </span>Pyramid 1.6以降、あるアクションが別のアクションを呼び出すことは可能です。詳細は、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>ordering_actions`を参照してください。</p>
 </div>
-<p>Finally, <code class="docutils literal notranslate"><span class="pre">introspectables</span></code> is a sequence of <a class="reference internal" href="../glossary.html#term-introspectable"><span class="xref std std-term">introspectable</span></a> objects.
-You can pass a sequence of introspectables to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.action" title="pyramid.config.Configurator.action"><code class="xref py py-meth docutils literal notranslate"><span class="pre">action()</span></code></a> method, which allows you to augment
-Pyramid's configuration introspection system.</p>
+<p>最後に、 `` introspectables``はterm： <a href="#id1"><span class="problematic" id="id2">`</span></a>introspectable`オブジェクトのシーケンスです。イントロスペクティブのシーケンスを：meth： <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.config.Configurator.action`メソッドに渡すことができます。これにより、Pyramidの設定イントロスペクションシステムを拡張することができます。</p>
 </div>
 <div class="section" id="ordering-actions">
-<span id="id1"></span><h2>Ordering Actions<a class="headerlink" href="#ordering-actions" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In Pyramid every <a class="reference internal" href="../glossary.html#term-action"><span class="xref std std-term">action</span></a> has an inherent ordering relative to other
-actions. The logic within actions is deferred until a call to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.commit()</span></code></a> (which is automatically invoked by
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.make_wsgi_app()</span></code></a>). This means you may call
-<code class="docutils literal notranslate"><span class="pre">config.add_view(route_name='foo')</span></code> <strong>before</strong> <code class="docutils literal notranslate"><span class="pre">config.add_route('foo',</span>
-<span class="pre">'/foo')</span></code> because nothing actually happens until commit-time. During a commit
-cycle, conflicts are resolved, and actions are ordered and executed.</p>
-<p>By default, almost every action in Pyramid has an <code class="docutils literal notranslate"><span class="pre">order</span></code> of
-<a class="reference internal" href="../api/config.html#pyramid.config.PHASE3_CONFIG" title="pyramid.config.PHASE3_CONFIG"><code class="xref py py-const docutils literal notranslate"><span class="pre">pyramid.config.PHASE3_CONFIG</span></code></a>. Every action within the same order-level
-will be executed in the order it was called. This means that if an action must
-be reliably executed before or after another action, the <code class="docutils literal notranslate"><span class="pre">order</span></code> must be
-defined explicitly to make this work. For example, views are dependent on
-routes being defined. Thus the action created by
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> has an <code class="docutils literal notranslate"><span class="pre">order</span></code> of
-<a class="reference internal" href="../api/config.html#pyramid.config.PHASE2_CONFIG" title="pyramid.config.PHASE2_CONFIG"><code class="xref py py-const docutils literal notranslate"><span class="pre">pyramid.config.PHASE2_CONFIG</span></code></a>.</p>
+<span id="id1"></span><h2>オーダーアクション<a class="headerlink" href="#ordering-actions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Pyramidではevery：term： <cite>action`は他のアクションとの相対的な順序付けを持っています。アクション内のロジックは、：meth： `pyramid.config.Configurator.commit`（これは自動的に：meth：</cite> pyramid.config.Configurator.make_wsgi_app`によって呼び出されます）の呼び出しまで延期されます。つまり、コミット時まで何も起こらないので、config.add_route（ &amp;#39;foo&amp;#39;、 &amp;#39;/ foo&amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>の前に `` config.add_view（route_name = &amp;#39;foo&amp;#39;） `` ** ** before ** <a href="#id3"><span class="problematic" id="id4">``</span></a>を呼び出すことができます。コミット・サイクル中に競合が解決され、アクションが順序付けられ実行されます。</p>
+<p>デフォルトでは、Pyramidのほとんどのアクションは：const： <cite>pyramid.config.PHASE3_CONFIG`の</cite> <cite>order``を持っています。同じオーダー・レベル内のすべてのアクションは、呼び出された順に実行されます。これは、アクションが別のアクションの前または後に確実に実行されなければならない場合、この動作をさせるために `</cite> order``を明示的に定義する必要があることを意味します。たとえば、ビューは定義されているルートに依存します。したがって、：meth： <cite>pyramid.config.Configurator.add_route`によって作成されるアクションは：const：</cite> pyramid.config.PHASE2_CONFIG`の `` order``を持ちます。</p>
 <div class="section" id="pre-defined-phases">
-<h3>Pre-defined Phases<a class="headerlink" href="#pre-defined-phases" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference internal" href="../api/config.html#pyramid.config.PHASE0_CONFIG" title="pyramid.config.PHASE0_CONFIG"><code class="xref py py-const docutils literal notranslate"><span class="pre">pyramid.config.PHASE0_CONFIG</span></code></a></p>
+<h3>事前定義されたフェーズ<a class="headerlink" href="#pre-defined-phases" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：const： <cite>pyramid.config.PHASE0_CONFIG</cite></p>
 <ul class="simple">
-<li>This phase is reserved for developers who want to execute actions prior to
-Pyramid's core directives.</li>
+<li>このフェーズは、Pyramidのコアディレクティブの前にアクションを実行したい開発者のために予約されています。</li>
 </ul>
-<p><a class="reference internal" href="../api/config.html#pyramid.config.PHASE1_CONFIG" title="pyramid.config.PHASE1_CONFIG"><code class="xref py py-const docutils literal notranslate"><span class="pre">pyramid.config.PHASE1_CONFIG</span></code></a></p>
+<p>：const： <cite>pyramid.config.PHASE1_CONFIG</cite></p>
 <ul class="simple">
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_renderer" title="pyramid.config.Configurator.add_renderer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_renderer()</span></code></a></li>
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route_predicate" title="pyramid.config.Configurator.add_route_predicate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route_predicate()</span></code></a></li>
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_subscriber_predicate" title="pyramid.config.Configurator.add_subscriber_predicate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_subscriber_predicate()</span></code></a></li>
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view_predicate" title="pyramid.config.Configurator.add_view_predicate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view_predicate()</span></code></a></li>
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view_deriver" title="pyramid.config.Configurator.add_view_deriver"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view_deriver()</span></code></a></li>
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.override_asset" title="pyramid.config.Configurator.override_asset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.override_asset()</span></code></a></li>
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_authorization_policy" title="pyramid.config.Configurator.set_authorization_policy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_authorization_policy()</span></code></a></li>
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_default_csrf_options" title="pyramid.config.Configurator.set_default_csrf_options"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_default_csrf_options()</span></code></a></li>
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_default_permission" title="pyramid.config.Configurator.set_default_permission"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_default_permission()</span></code></a></li>
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_view_mapper" title="pyramid.config.Configurator.set_view_mapper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_view_mapper()</span></code></a></li>
+<li>：meth： <cite>pyramid.config.Configurator.add_renderer</cite></li>
+<li>：meth： <cite>pyramid.config.Configurator.add_route_predicate</cite></li>
+<li>：meth： <cite>pyramid.config.Configurator.add_subscriber_predicate</cite></li>
+<li>：meth： <cite>pyramid.config.Configurator.add_view_predicate</cite></li>
+<li>：meth： <cite>pyramid.config.Configurator.add_view_deriver</cite></li>
+<li>：meth： <cite>pyramid.config.Configurator.override_asset</cite></li>
+<li>：meth： <cite>pyramid.config.Configurator.set_authorization_policy</cite></li>
+<li>：meth： <cite>pyramid.config.Configurator.set_default_csrf_options</cite></li>
+<li>：meth： <cite>pyramid.config.Configurator.set_default_permission</cite></li>
+<li>：meth： <cite>pyramid.config.Configurator.set_view_mapper</cite></li>
 </ul>
-<p><a class="reference internal" href="../api/config.html#pyramid.config.PHASE2_CONFIG" title="pyramid.config.PHASE2_CONFIG"><code class="xref py py-const docutils literal notranslate"><span class="pre">pyramid.config.PHASE2_CONFIG</span></code></a></p>
+<p>：const： <cite>pyramid.config.PHASE2_CONFIG</cite></p>
 <ul class="simple">
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a></li>
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_authentication_policy" title="pyramid.config.Configurator.set_authentication_policy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_authentication_policy()</span></code></a></li>
+<li>：meth： <cite>pyramid.config.Configurator.add_route</cite></li>
+<li>：meth： <cite>pyramid.config.Configurator.set_authentication_policy</cite></li>
 </ul>
-<p><a class="reference internal" href="../api/config.html#pyramid.config.PHASE3_CONFIG" title="pyramid.config.PHASE3_CONFIG"><code class="xref py py-const docutils literal notranslate"><span class="pre">pyramid.config.PHASE3_CONFIG</span></code></a></p>
+<p>：const： <cite>pyramid.config.PHASE3_CONFIG</cite></p>
 <ul class="simple">
-<li>The default for all builtin or custom directives unless otherwise specified.</li>
+<li>特に指定しない限り、すべての組み込みディレクティブまたはカスタムディレクティブのデフォルトです。</li>
 </ul>
 </div>
 <div class="section" id="calling-actions-from-actions">
-<h3>Calling Actions from Actions<a class="headerlink" href="#calling-actions-from-actions" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>アクションからアクションを呼び出す<a class="headerlink" href="#calling-actions-from-actions" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.6 で追加.</span></p>
 </div>
-<p>Pyramid's configurator allows actions to be added during a commit-cycle as long
-as they are added to the current or a later <code class="docutils literal notranslate"><span class="pre">order</span></code> phase. This means that
-your custom action can defer decisions until commit-time and then do things
-like invoke <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a>. It can also provide
-better conflict detection if your addon needs to call more than one other
-action.</p>
-<p>For example, let's make an addon that invokes <code class="docutils literal notranslate"><span class="pre">add_route</span></code> and <code class="docutils literal notranslate"><span class="pre">add_view</span></code>,
-but we want it to conflict with any other call to our addon:</p>
+<p>Pyramidのコンフィギュレータは、現在または後の `` order``フェーズに追加されている限り、コミットサイクル中にアクションを追加することを許可します。これは、カスタムアクションがコミット時まで決定を延期し、次に：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.add_route`のようなものを実行することを意味します。アドオンが複数の他のアクションを呼び出す必要がある場合は、より優れた競合検出を提供することもできます。</p>
+<p>例えば、 `` add_route``と `` add_view``を呼び出すaddonを作ってみましょう。しかし、addonへの他の呼び出しと競合するようにしましょう：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -360,13 +249,7 @@ but we want it to conflict with any other call to our addon:</p>
     <span class="n">config</span><span class="o">.</span><span class="n">action</span><span class="p">((</span><span class="s1">&#39;auto route&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">register</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">PHASE0_CONFIG</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Now someone else can use your addon and be informed if there is a conflict
-between this route and another, or two calls to <code class="docutils literal notranslate"><span class="pre">add_auto_route</span></code>. Notice how
-we had to invoke our action <strong>before</strong> <code class="docutils literal notranslate"><span class="pre">add_view</span></code> or <code class="docutils literal notranslate"><span class="pre">add_route</span></code>. If we
-tried to invoke this afterward, the subsequent calls to <code class="docutils literal notranslate"><span class="pre">add_view</span></code> and
-<code class="docutils literal notranslate"><span class="pre">add_route</span></code> would cause conflicts because that phase had already been
-executed, and the configurator cannot go back in time to add more views during
-that commit-cycle.</p>
+<p>他の誰かがあなたのアドオンを使用し、このルートと別のルートとの間に矛盾があるかどうか、あるいは `` add_auto_route``を2回呼び出すことができます。 ** ** `` add_view``または `` add_route``の前にアクション**を呼び出さなければならなかったことに注目してください。これを後で呼び出そうとすると、その後の `` add_view``と `` add_route``の呼び出しは、そのフェーズがすでに実行されているためにコンフリクトを引き起こし、コンフィギュレータはそのコミット時にビューを追加することができません。サイクル。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -389,28 +272,13 @@ that commit-cycle.</p>
 </div>
 </div>
 <div class="section" id="adding-configuration-introspection">
-<span id="introspection"></span><h2>Adding Configuration Introspection<a class="headerlink" href="#adding-configuration-introspection" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="introspection"></span><h2>構成イントロスペクションの追加<a class="headerlink" href="#adding-configuration-introspection" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.3 で追加.</span></p>
 </div>
-<p>Pyramid provides a configuration introspection system that can be used by
-debugging tools to provide visibility into the configuration of a running
-application.</p>
-<p>All built-in Pyramid directives (such as
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> and
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a>) register a set of
-introspectables when called.  For example, when you register a view via
-<code class="docutils literal notranslate"><span class="pre">add_view</span></code>, the directive registers at least one introspectable: an
-introspectable about the view registration itself, providing human-consumable
-values for the arguments passed into it.  You can later use the introspection
-query system to determine whether a particular view uses a renderer, or whether
-a particular view is limited to a particular request method, or against which
-routes a particular view is registered.  The Pyramid &quot;debug toolbar&quot; makes use
-of the introspection system in various ways to display information to Pyramid
-developers.</p>
-<p>Introspection values are set when a sequence of <a class="reference internal" href="../glossary.html#term-introspectable"><span class="xref std std-term">introspectable</span></a> objects
-is passed to the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.action" title="pyramid.config.Configurator.action"><code class="xref py py-meth docutils literal notranslate"><span class="pre">action()</span></code></a> method. Here's an
-example of a directive which uses introspectables:</p>
+<p>Pyramidは、デバッグツールで実行中のアプリケーションの構成を可視化するために使用できる構成イントロスペクションシステムを提供します。</p>
+<p>すべての組み込みピラミッド指令（：meth： <cite>pyramid.config.Configurator.add_view`と：meth：</cite> pyramid.config.Configurator.add_route`）は、呼び出し時にイントロスペクタブルのセットを登録します。例えば、 `` add_view``を介してビューを登録すると、ディレクティブは少なくとも1つのイントロスペクタブルを登録します。ビューの登録自体についてイントロスペクトし、引き渡された引数に人間が消費可能な値を提供します。後でイントロスペクションクエリシステムを使用して、特定のビューがレンダラーを使用するかどうか、または特定のビューが特定のリクエストメソッドに限定されているかどうか、または特定のビューが登録されているルートを判断できます。 Pyramid &amp;quot;デバッグツールバー&amp;quot;は、イントロスペクションシステムをさまざまな方法で使用して、Pyramid開発者に情報を表示します。</p>
+<p>イントロスペクション値は：term： <cite>introspectable`オブジェクトのシーケンスが：meth：</cite>〜pyramid.config.Configurator.action`メソッドに渡されるときに設定されます。イントロスペクタブルを使用するディレクティブの例を次に示します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -438,39 +306,16 @@ example of a directive which uses introspectables:</p>
     <span class="n">config</span><span class="o">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s1">&#39;add_jammyjam&#39;</span><span class="p">,</span> <span class="n">add_jammyjam</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>If you notice, the above directive uses the <code class="docutils literal notranslate"><span class="pre">introspectable</span></code> attribute of a
-Configurator (<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.introspectable" title="pyramid.config.Configurator.introspectable"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyramid.config.Configurator.introspectable</span></code></a>) to create an
-introspectable object.  The introspectable object's constructor requires at
-least four arguments: the <code class="docutils literal notranslate"><span class="pre">category_name</span></code>, the <code class="docutils literal notranslate"><span class="pre">discriminator</span></code>, the
-<code class="docutils literal notranslate"><span class="pre">title</span></code>, and the <code class="docutils literal notranslate"><span class="pre">type_name</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">category_name</span></code> is a string representing the logical category for this
-introspectable.  Usually the category_name is a pluralization of the type of
-object being added via the action.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">discriminator</span></code> is a value unique <strong>within the category</strong> (unlike the
-action discriminator, which must be unique within the entire set of actions).
-It is typically a string or tuple representing the values unique to this
-introspectable within the category.  It is used to generate links and as part
-of a relationship-forming target for other introspectables.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">title</span></code> is a human-consumable string that can be used by introspection
-system frontends to show a friendly summary of this introspectable.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">type_name</span></code> is a value that can be used to subtype this introspectable
-within its category for sorting and presentation purposes.  It can be any
-value.</p>
-<p>An introspectable is also dictionary-like.  It can contain any set of key/value
-pairs, typically related to the arguments passed to its related directive.
-While the <code class="docutils literal notranslate"><span class="pre">category_name</span></code>, <code class="docutils literal notranslate"><span class="pre">discriminator</span></code>, <code class="docutils literal notranslate"><span class="pre">title</span></code>, and <code class="docutils literal notranslate"><span class="pre">type_name</span></code>
-are <em>metadata</em> about the introspectable, the values provided as key/value pairs
-are the actual data provided by the introspectable.  In the above example, we
-set the <code class="docutils literal notranslate"><span class="pre">value</span></code> key to the value of the <code class="docutils literal notranslate"><span class="pre">value</span></code> argument passed to the
-directive.</p>
-<p>Our directive above mutates the introspectable, and passes it in to the
-<code class="docutils literal notranslate"><span class="pre">action</span></code> method as the first element of a tuple as the value of the
-<code class="docutils literal notranslate"><span class="pre">introspectable</span></code> keyword argument.  This associates this introspectable with
-the action.  Introspection tools will then display this introspectable in their
-index.</p>
+<p>気づいた場合、上記のディレクティブはConfigurator（：attr： <cite>pyramid.config.Configurator.introspectable</cite>）の` <a href="#id1"><span class="problematic" id="id2">`</span></a>introspectable``属性を使用してイントロスペクティブオブジェクトを作成します。イントロスペクショナブルオブジェクトのコンストラクタには、少なくとも &amp;quot;category_name&amp;quot;、 &amp;quot;discriminator&amp;quot;、 &amp;quot;title&amp;quot;、および &amp;quot;type_name&amp;quot;の4つの引数が必要です。</p>
+<p>`` category_name``は、このintrospectableの論理カテゴリを表す文字列です。通常、category_nameはアクションを介して追加されるオブジェクトの型の複数形です。</p>
+<p>「弁別子」は**カテゴリ内の一意の値**です（アクション識別子の違いは、アクション全体で一意でなければなりません）。これは、通常、カテゴリ内のこのイントロスペクタブルに固有の値を表す文字列またはタプルです。これは、リンクを生成するため、および他のイントロスペクタブルのための関係形成ターゲットの一部として使用されます。</p>
+<p>`` title``は、人間を消耗させる文字列であり、イントロスペクションシステムフロントエンドがこのイントロスペクトラブルのフレンドリな要約を示すために使用できます。</p>
+<p>`` type_name``は、ソートやプレゼンテーションの目的で、このカテゴリの中でこのイントロスペクタブルをサブタイプ化するために使用できる値です。任意の値にすることができます。</p>
+<p>イントロスペクターは辞書のようなものです。これは、関連する指令に渡される引数に通常関連する、キーと値のペアの任意のセットを含むことができます。 &amp;quot;category_name&amp;quot;、 &amp;quot;discriminator&amp;quot;、 &amp;quot;title&amp;quot;、および &amp;quot;type_name&amp;quot;はintrospectableに関する* metadata <a href="#id1"><span class="problematic" id="id2">*</span></a>ですが、キーと値のペアとして提供される値は、introspectableによって提供される実際のデータです。上記の例では、 `` value``キーをディレクティブに渡される `` value``引数の値に設定します。</p>
+<p>上のディレクティブは、イントロスペクターブルを変更し、 `` introspectable``キーワード引数の値としてタプルの最初の要素として <a href="#id1"><span class="problematic" id="id2">``</span></a>アクション <a href="#id3"><span class="problematic" id="id4">``</span></a>メソッドに渡します。これは、このイントロスペクタブルをアクションに関連付けます。イントロスペクションツールは、このイントロスペクタブルをインデックスに表示します。</p>
 <div class="section" id="introspectable-relationships">
-<h3>Introspectable Relationships<a class="headerlink" href="#introspectable-relationships" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Two introspectables may have relationships between each other.</p>
+<h3>イントロスペクティブな関係<a class="headerlink" href="#introspectable-relationships" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>2人のイントロスペクターは、お互いの間に関係を持っているかもしれません。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -510,30 +355,10 @@ index.</p>
     <span class="n">config</span><span class="o">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s1">&#39;add_jammyjam&#39;</span><span class="p">,</span> <span class="n">add_jammyjam</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>In the above example, the <code class="docutils literal notranslate"><span class="pre">add_jammyjam</span></code> directive registers two
-introspectables: the first is related to the <code class="docutils literal notranslate"><span class="pre">value</span></code> passed to the directive,
-and the second is related to the <code class="docutils literal notranslate"><span class="pre">template</span></code> passed to the directive. If you
-believe a concept within a directive is important enough to have its own
-introspectable, you can cause the same directive to register more than one
-introspectable, registering one introspectable for the &quot;main idea&quot; and another
-for a related concept.</p>
-<p>The call to <code class="docutils literal notranslate"><span class="pre">intr.relate</span></code> above
-(<a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.IIntrospectable.relate" title="pyramid.interfaces.IIntrospectable.relate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.interfaces.IIntrospectable.relate()</span></code></a>) is passed two arguments: a
-category name and a directive.  The example above effectively indicates that
-the directive wishes to form a relationship between the <code class="docutils literal notranslate"><span class="pre">intr</span></code> introspectable
-and the <code class="docutils literal notranslate"><span class="pre">tmpl_intr</span></code> introspectable; the arguments passed to <code class="docutils literal notranslate"><span class="pre">relate</span></code> are
-the category name and discriminator of the <code class="docutils literal notranslate"><span class="pre">tmpl_intr</span></code> introspectable.</p>
-<p>Relationships need not be made between two introspectables created by the same
-directive.  Instead a relationship can be formed between an introspectable
-created in one directive and another introspectable created in another by
-calling <code class="docutils literal notranslate"><span class="pre">relate</span></code> on either side with the other directive's category name and
-discriminator.  An error will be raised at configuration commit time if you
-attempt to relate an introspectable with another nonexistent introspectable,
-however.</p>
-<p>Introspectable relationships will show up in frontend system renderings of
-introspection values.  For example, if a view registration names a route name,
-the introspectable related to the view callable will show a reference to the
-route to which it relates and vice versa.</p>
+<p>上記の例では、 `` add_jammyjam``ディレクティブは2つのイントロスペクタブルを登録します。最初のものはディレクティブに渡される `` value``に関連し、2番目はディレクティブに渡される `` template``に関連します。ディレクティブ内のコンセプトがイントロスペクト可能なほど重要であると信じる場合は、同じディレクティブに複数のイントロスペクタブルを登録させ、1つのイントロスペクタブルを &amp;quot;メインアイデア&amp;quot;に登録し、もう1つを関連コンセプトに登録することができます。</p>
+<p>上記の `` intr.relate``（：meth： <cite>pyramid.interfaces.IIntrospectable.relate</cite>）の呼び出しには、カテゴリ名とディレクティブという2つの引数が渡されます。上記の例は、 `` intr``イントロスペクターと `` tmpl_intr``イントロスペクターの間に関係を形成することを望んでいます。 `` relate``に渡される引数は `` tmpl_intr``のイントロスペクタブルのカテゴリ名と識別子です。</p>
+<p>同じディレクティブで作成された2つのイントロスペクタブルの間で、関係を作成する必要はありません。代わりに、一方のディレクティブのカテゴリ名とディスクリミネータのどちらかで `` relate``を呼び出すことで、一方のディレクティブで作成されたイントロスペクタブルと別のディレクティブで作成されたもう一方のイントロスペクサブルとの間に関係を形成できます。ただし、イントロスペクターと存在しない別のイントロスペクターを関連付けると、構成コミット時にエラーが発生します。</p>
+<p>イントロスペクション可能な関係は、イントロスペクション値のフロントエンドシステムレンダリングで表示されます。たとえば、ビュー登録がルート名の名前を付ける場合、コール可能ビューに関連するイントロスペクタブルは、それが関連するルートへの参照を示し、逆も同様です。</p>
 </div>
 </div>
 </div>
@@ -546,16 +371,16 @@ route to which it relates and vice versa.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Extending Pyramid Configuration</a><ul>
-<li><a class="reference internal" href="#adding-methods-to-the-configurator-via-add-directive">Adding Methods to the Configurator via <code class="docutils literal notranslate"><span class="pre">add_directive</span></code></a></li>
-<li><a class="reference internal" href="#using-config-action-in-a-directive">Using <code class="docutils literal notranslate"><span class="pre">config.action</span></code> in a Directive</a></li>
-<li><a class="reference internal" href="#ordering-actions">Ordering Actions</a><ul>
-<li><a class="reference internal" href="#pre-defined-phases">Pre-defined Phases</a></li>
-<li><a class="reference internal" href="#calling-actions-from-actions">Calling Actions from Actions</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) ピラミッド構成の拡張</a><ul>
+<li><a class="reference internal" href="#adding-methods-to-the-configurator-via-add-directive">`` add_directive``を使ってコンフィグレータにメソッドを追加する</a></li>
+<li><a class="reference internal" href="#using-config-action-in-a-directive">ディレクティブで `` config.action``を使う</a></li>
+<li><a class="reference internal" href="#ordering-actions">オーダーアクション</a><ul>
+<li><a class="reference internal" href="#pre-defined-phases">事前定義されたフェーズ</a></li>
+<li><a class="reference internal" href="#calling-actions-from-actions">アクションからアクションを呼び出す</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#adding-configuration-introspection">Adding Configuration Introspection</a><ul>
-<li><a class="reference internal" href="#introspectable-relationships">Introspectable Relationships</a></li>
+<li><a class="reference internal" href="#adding-configuration-introspection">構成イントロスペクションの追加</a><ul>
+<li><a class="reference internal" href="#introspectable-relationships">イントロスペクティブな関係</a></li>
 </ul>
 </li>
 </ul>
@@ -564,10 +389,10 @@ route to which it relates and vice versa.</p>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="advconfig.html"
-                        title="前の章へ">Advanced Configuration</a></p>
+                        title="前の章へ">(機械翻訳) 高度な設定</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="cookiecutters.html"
-                        title="次の章へ">Pyramid cookiecutters</a></p>
+                        title="次の章へ">(機械翻訳) ピラミッドのcookiecutters</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -601,17 +426,17 @@ route to which it relates and vice versa.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="cookiecutters.html" title="Pyramid cookiecutters"
+          <a href="cookiecutters.html" title="(機械翻訳) ピラミッドのcookiecutters"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="advconfig.html" title="Advanced Configuration"
+          <a href="advconfig.html" title="(機械翻訳) 高度な設定"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>URL Dispatch &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) URLディスパッチ &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -69,40 +69,20 @@
           <div class="body" role="main">
             
   <div class="section" id="url-dispatch">
-<span id="urldispatch-chapter"></span><span id="index-0"></span><h1>URL Dispatch<a class="headerlink" href="#url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> provides a simple way to map URLs to <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> code
-using a simple pattern matching language.  An ordered set of patterns is
-checked one by one.  If one of the patterns matches the path information
-associated with a request, a particular <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> is invoked.  A
-view callable is a specific bit of code, defined in your application, that
-receives the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> and returns a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> object.</p>
+<span id="urldispatch-chapter"></span><span id="index-0"></span><h1>(機械翻訳) URLディスパッチ<a class="headerlink" href="#url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>：term： <cite>URL dispatch`は、簡単なパターンマッチング言語を使ってURLを：term：</cite> view`コードにマップする簡単な方法を提供します。パターンの順序付けられたセットが1つずつチェックされます。パターンの1つが要求に関連するパス情報と一致する場合、特定の：term： <cite>view callable`が呼び出されます。ビュー呼び出し可能とは、アプリケーションで定義された：term： `request`を受け取り、：term：</cite> response`オブジェクトを返すコードの特定のビットです。</p>
 <div class="section" id="high-level-operational-overview">
-<h2>High-Level Operational Overview<a class="headerlink" href="#high-level-operational-overview" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If any route configuration is present in an application, the <span>Pyramid</span>
-<a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">Router</span></a> checks every incoming request against an ordered set of URL
-matching patterns present in a <em>route map</em>.</p>
-<p>If any route pattern matches the information in the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a>,
-<span>Pyramid</span> will invoke the <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> process to find a matching
-view.</p>
-<p>If no route pattern in the route map matches the information in the
-<a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> provided in your application, <span>Pyramid</span> will fail over to
-using <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> to perform resource location and view lookup.</p>
+<h2>高度な運用概要<a class="headerlink" href="#high-level-operational-overview" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アプリケーションにルートコンフィグレーションがある場合、：app： <cite>Pyramid</cite>：term：` Router`は、<a href="#id1"><span class="problematic" id="id2">*</span></a>ルートマップ*に存在するURLマッチングパターンの順序付けられたセットに対してすべての着信要求をチェックします。</p>
+<p>ルートパターンが：term： <cite>request`の情報と一致する場合、：app：</cite> Pyramid`は：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>view lookup`プロセスを呼び出して、一致するビューを探します。</p>
+<p>ルートマップのルートパターンが、アプリケーション内で提供された：term： <cite>request`の情報と一致しない場合、：app：</cite> Pyramid`は：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>traversal`を使用してフェイルオーバし、リソースの場所とビューの参照を実行します。</p>
 </div>
 <div class="section" id="route-configuration">
-<span id="index-1"></span><h2>Route Configuration<a class="headerlink" href="#route-configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference internal" href="../glossary.html#term-route-configuration"><span class="xref std std-term">Route configuration</span></a> is the act of adding a new <a class="reference internal" href="../glossary.html#term-route"><span class="xref std std-term">route</span></a> to an
-application.  A route has a <em>name</em>, which acts as an identifier to be used for
-URL generation.  The name also allows developers to associate a view
-configuration with the route.  A route also has a <em>pattern</em>, meant to match
-against the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> portion of a URL (the portion following the scheme
-and port, e.g., <code class="docutils literal notranslate"><span class="pre">/foo/bar</span></code> in the URL <code class="docutils literal notranslate"><span class="pre">http://localhost:8080/foo/bar</span></code>). It
-also optionally has a <code class="docutils literal notranslate"><span class="pre">factory</span></code> and a set of <a class="reference internal" href="../glossary.html#term-route-predicate"><span class="xref std std-term">route predicate</span></a>
-attributes.</p>
+<span id="index-1"></span><h2>ルート設定<a class="headerlink" href="#route-configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：term： <cite>ルート設定`は、新しい：term： `ルート`をアプリケーションに追加する行為です。ルートには* name *があり、URL生成に使用される識別子として機能します。開発者はこの名前を使用して、ビュー設定をルートに関連付けることもできます。ルートには、URLの `</cite> PATH_INFO`部分（スキームとポートに続く部分、例えば `` / foo / bar``のURL http：//にある部分と一致する*パターン* / localhost：8080 / foo / bar``）。オプションで、 `` factory``と `` term： `` `` `` `` `` <cite>述語</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>の属性を持っています。</p>
 <div class="section" id="configuring-a-route-to-match-a-view">
-<span id="config-add-route"></span><span id="index-2"></span><h3>Configuring a Route to Match a View<a class="headerlink" href="#configuring-a-route-to-match-a-view" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> method adds a single
-<a class="reference internal" href="../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a> to the <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a>.  Here's an
-example:</p>
+<span id="config-add-route"></span><span id="index-2"></span><h3>ビューと一致するようにルートを設定する<a class="headerlink" href="#configuring-a-route-to-match-a-view" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.add_route`メソッドは：term：<a href="#id3"><span class="problematic" id="id4">`</span></a>アプリケーションレジストリ <a href="#id5"><span class="problematic" id="id6">`</span></a>に単一の：term：<a href="#id7"><span class="problematic" id="id8">`</span></a>ルート設定 &amp;#39;を追加します。ここに例があります：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;config&quot; below is presumed to be an instance of the</span>
 <span class="c1"># pyramid.config.Configurator class; &quot;myview&quot; is assumed</span>
 <span class="c1"># to be a &quot;view callable&quot; function</span>
@@ -111,26 +91,13 @@ example:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">myview</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;myroute&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> added to the configuration by way of
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a> becomes associated with a route
-via its <code class="docutils literal notranslate"><span class="pre">route_name</span></code> predicate, that view callable will always be found and
-invoked when the associated route pattern matches during a request.</p>
-<p>More commonly, you will not use any <code class="docutils literal notranslate"><span class="pre">add_view</span></code> statements in your project's
-&quot;setup&quot; code. You will instead use <code class="docutils literal notranslate"><span class="pre">add_route</span></code> statements, and use a
-<a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a> to associate view callables with routes.  For example, if this is
-a portion of your project's <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>:</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.add_view`を経由して設定に追加されたa：term：</cite> view callable`は、 `` route_name``述部を介してルートに関連付けられ、そのビューは常に見つかるでしょうリクエスト中に関連するルートパターンが一致したときに呼び出されます。</p>
+<p>より一般的には、プロジェクトの&amp;quot;setup &amp;quot;コードで `` add_view``文を使用しません。あなたは代わりに `` add_route``ステートメントを使い、：term： <cite>scan`を使ってview呼び出し可能なものをルートに関連づけます。たとえば、これがプロジェクトの `</cite> __init __。py``の一部である場合：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;myroute&#39;</span><span class="p">,</span> <span class="s1">&#39;/prefix/{one}/{two}&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s1">&#39;mypackage&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that we don't call <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a> in this
-setup code.  However, the above <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a> execution
-<code class="docutils literal notranslate"><span class="pre">config.scan('mypackage')</span></code> will pick up each <a class="reference internal" href="../glossary.html#term-configuration-decoration"><span class="xref std std-term">configuration
-decoration</span></a>, including any objects decorated with the
-<a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.view.view_config</span></code></a> decorator in the <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> Python
-package.  For example, if you have a <code class="docutils literal notranslate"><span class="pre">views.py</span></code> in your package, a scan will
-pick up any of its configuration decorators, so we can add one there that
-references <code class="docutils literal notranslate"><span class="pre">myroute</span></code> as a <code class="docutils literal notranslate"><span class="pre">route_name</span></code> parameter:</p>
+<p>この設定コードでは、meth： <cite>〜pyramid.config.Configurator.add_view`を呼び出さないことに注意してください。しかし、上の：term： `scan`を実行する</cite> <cite>config.scan（ &amp;#39;mypackage&amp;#39;）</cite> <cite>は：class：</cite> pyramid.view.view_config `` mypackage`` Pythonパッケージの <a href="#id1"><span class="problematic" id="id2">``</span></a>デコレータ <a href="#id3"><span class="problematic" id="id4">``</span></a>たとえば、あなたのパッケージに `` views.py``がある場合、スキャンはその設定デコレータのどれかを拾うので、 `` myroute``を `` route_name``パラメータとして参照するものを追加できます：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.view</span> <span class="kn">import</span> <span class="n">view_config</span>
 <span class="kn">from</span> <span class="nn">pyramid.response</span> <span class="kn">import</span> <span class="n">Response</span>
 
@@ -139,157 +106,97 @@ references <code class="docutils literal notranslate"><span class="pre">myroute<
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;OK&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The above combination of <code class="docutils literal notranslate"><span class="pre">add_route</span></code> and <code class="docutils literal notranslate"><span class="pre">scan</span></code> is completely equivalent to
-using the previous combination of <code class="docutils literal notranslate"><span class="pre">add_route</span></code> and <code class="docutils literal notranslate"><span class="pre">add_view</span></code>.</p>
+<p>上記の `` add_route``と `` scan``の組み合わせは、 `` add_route``と `` add_view``の前の組み合わせを使うのと全く同じです。</p>
 </div>
 <div class="section" id="route-pattern-syntax">
-<span id="index-3"></span><span id="id1"></span><h3>Route Pattern Syntax<a class="headerlink" href="#route-pattern-syntax" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="index-3"></span><span id="id1"></span><h3>ルートパターンの構文<a class="headerlink" href="#route-pattern-syntax" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>The syntax of the pattern matching language used by <span>Pyramid</span> URL dispatch
 in the <em>pattern</em> argument is straightforward.  It is close to that of the
 <a class="reference internal" href="../glossary.html#term-routes"><span class="xref std std-term">Routes</span></a> system used by <a class="reference internal" href="../glossary.html#term-pylons"><span class="xref std std-term">Pylons</span></a>.</p>
-<p>The <em>pattern</em> used in route configuration may start with a slash character.  If
-the pattern does not start with a slash character, an implicit slash will be
-prepended to it at matching time.  For example, the following patterns are
-equivalent:</p>
+<p>ルート設定で使用される*パターン*は、スラッシュ文字で始まることがあります。パターンがスラッシュ文字で始まらない場合は、暗黙のスラッシュが一致する時刻にその前に追加されます。たとえば、次のパターンは同等です。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{foo}/bar/baz
 </pre></div>
 </div>
-<p>and:</p>
+<p>そして：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/{foo}/bar/baz
 </pre></div>
 </div>
-<p>If a pattern is a valid URL it won't be matched against an incoming request.
-Instead it can be useful for generating external URLs. See <a class="reference internal" href="#external-route-narr"><span class="std std-ref">External
-routes</span></a> for details.</p>
-<p>A pattern segment (an individual item between <code class="docutils literal notranslate"><span class="pre">/</span></code> characters in the pattern)
-may either be a literal string (e.g., <code class="docutils literal notranslate"><span class="pre">foo</span></code>) <em>or</em> it may be a replacement
-marker (e.g., <code class="docutils literal notranslate"><span class="pre">{foo}</span></code>), or a certain combination of both. A replacement
-marker does not need to be preceded by a <code class="docutils literal notranslate"><span class="pre">/</span></code> character.</p>
-<p>A replacement marker is in the format <code class="docutils literal notranslate"><span class="pre">{name}</span></code>, where this means &quot;accept any
-characters up to the next slash character and use this as the <code class="docutils literal notranslate"><span class="pre">name</span></code>
-<a class="reference internal" href="../glossary.html#term-matchdict"><span class="xref std std-term">matchdict</span></a> value.&quot;</p>
-<p>A replacement marker in a pattern must begin with an uppercase or lowercase
-ASCII letter or an underscore, and can be composed only of uppercase or
-lowercase ASCII letters, underscores, and numbers.  For example: <code class="docutils literal notranslate"><span class="pre">a</span></code>,
-<code class="docutils literal notranslate"><span class="pre">a_b</span></code>, <code class="docutils literal notranslate"><span class="pre">_b</span></code>, and <code class="docutils literal notranslate"><span class="pre">b9</span></code> are all valid replacement marker names, but <code class="docutils literal notranslate"><span class="pre">0a</span></code>
-is not.</p>
+<p>パターンが有効なURLである場合、それは着信要求と照合されません。代わりに、外部URLを生成するのに便利です。参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>外部ルート&lt;external_route_narr&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>を参照してください。</p>
+<p>パターンセグメント（パターン内の `` / <code class="docutils literal notranslate"><span class="pre">文字間の個々の項目）はリテラル文字列（例えば</span> <span class="pre">``</span> <span class="pre">foo</span></code>）*か代替マーカ（例えば `` {foo} <a href="#id1"><span class="problematic" id="id2">``</span></a>）、または両方の特定の組み合わせです。置換マーカーの前に `` / <a href="#id3"><span class="problematic" id="id4">``</span></a>文字を付ける必要はありません。</p>
+<p>置換マーカーは、 `` {name} <code class="docutils literal notranslate"><span class="pre">の形式になっています。これは、次のスラッシュ文字までの任意の文字を受け入れ、これを</span> <span class="pre">``</span> <span class="pre">name</span></code>：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>matchdict`の値として使用することを意味します。</p>
+<p>パターン内の置換マーカーは、大文字または小文字のASCII文字またはアンダースコアで始まり、大文字または小文字のASCII文字、アンダースコア、および数字のみで構成する必要があります。たとえば、 `` a``、 `` a_b``、 <cite>_b`</cite>、` <cite>b9``はすべて有効な置換マーカー名ですが、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>0a``はそうではありません。</p>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 1.2 で変更: </span>A replacement marker could not start with an underscore until Pyramid 1.2.
-Previous versions required that the replacement marker start with an
-uppercase or lowercase letter.</p>
+<p><span class="versionmodified">バージョン 1.2 で変更: </span>ピラミッド1.2までは、置換マーカーはアンダースコアで開始できませんでした。以前のバージョンでは、置換マーカーが大文字または小文字で始まる必要がありました。</p>
 </div>
-<p>A matchdict is the dictionary representing the dynamic parts extracted from a
-URL based on the routing pattern.  It is available as <code class="docutils literal notranslate"><span class="pre">request.matchdict</span></code>.
-For example, the following pattern defines one literal segment (<code class="docutils literal notranslate"><span class="pre">foo</span></code>) and
-two replacement markers (<code class="docutils literal notranslate"><span class="pre">baz</span></code>, and <code class="docutils literal notranslate"><span class="pre">bar</span></code>):</p>
+<p>matchdictは、ルーティングパターンに基づいてURLから抽出された動的部分を表す辞書です。これは `` request.matchdict``として利用できます。たとえば、次のパターンは、リテラルセグメント（ `` foo``）と置換マーカー（ `` baz``、 `` bar``）を定義します。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/{baz}/{bar}
 </pre></div>
 </div>
-<p>The above pattern will match these URLs, generating the following matchdicts:</p>
+<p>上記のパターンはこれらのURLと一致し、次のmatchdictsを生成します：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/1/2        -&gt; {&#39;baz&#39;:u&#39;1&#39;, &#39;bar&#39;:u&#39;2&#39;}
 foo/abc/def    -&gt; {&#39;baz&#39;:u&#39;abc&#39;, &#39;bar&#39;:u&#39;def&#39;}
 </pre></div>
 </div>
-<p>It will not match the following patterns however:</p>
+<p>ただし、以下のパターンとは一致しません。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/1/2/        -&gt; No match (trailing slash)
 bar/abc/def     -&gt; First segment literal mismatch
 </pre></div>
 </div>
-<p>The match for a segment replacement marker in a segment will be done only up to
-the first non-alphanumeric character in the segment in the pattern.  So, for
-instance, if this route pattern was used:</p>
+<p>セグメント内のセグメント置換マーカーの一致は、パターン内のセグメント内の最初の非英数字文字までにのみ行われます。たとえば、このルートパターンが使用された場合は、次のようになります。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/{name}.html
 </pre></div>
 </div>
-<p>The literal path <code class="docutils literal notranslate"><span class="pre">/foo/biz.html</span></code> will match the above route pattern, and the
-match result will be <code class="docutils literal notranslate"><span class="pre">{'name':u'biz'}</span></code>.  However, the literal path
-<code class="docutils literal notranslate"><span class="pre">/foo/biz</span></code> will not match, because it does not contain a literal <code class="docutils literal notranslate"><span class="pre">.html</span></code> at
-the end of the segment represented by <code class="docutils literal notranslate"><span class="pre">{name}.html</span></code> (it only contains
-<code class="docutils literal notranslate"><span class="pre">biz</span></code>, not <code class="docutils literal notranslate"><span class="pre">biz.html</span></code>).</p>
-<p>To capture both segments, two replacement markers can be used:</p>
+<p>リテラルパス `` / foo / biz.html``は上記のルートパターンと一致し、一致結果は `` {&amp;#39;name&amp;#39;：u&amp;#39;biz &amp;#39;} <code class="docutils literal notranslate"><span class="pre">になります。しかし、リテラルパス</span> <span class="pre">``</span> <span class="pre">/</span> <span class="pre">foo</span> <span class="pre">/</span> <span class="pre">biz``は</span> <span class="pre">``</span> <span class="pre">{name}</span> <span class="pre">.html``で表されるセグメントの最後にリテラル</span> <span class="pre">``</span> <span class="pre">.html``を含んでいないので一致しません</span></code> biz.html`ではなく `` biz``を含みます）。</p>
+<p>両方のセグメントをキャプチャするには、2つの置換マーカーを使用できます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/{name}.{ext}
 </pre></div>
 </div>
-<p>The literal path <code class="docutils literal notranslate"><span class="pre">/foo/biz.html</span></code> will match the above route pattern, and the
-match result will be <code class="docutils literal notranslate"><span class="pre">{'name':</span> <span class="pre">'biz',</span> <span class="pre">'ext':</span> <span class="pre">'html'}</span></code>. This occurs because
-there is a literal part of <code class="docutils literal notranslate"><span class="pre">.</span></code> (period) between the two replacement markers
-<code class="docutils literal notranslate"><span class="pre">{name}</span></code> and <code class="docutils literal notranslate"><span class="pre">{ext}</span></code>.</p>
-<p>Replacement markers can optionally specify a regular expression which will be
-used to decide whether a path segment should match the marker.  To specify that
-a replacement marker should match only a specific set of characters as defined
-by a regular expression, you must use a slightly extended form of replacement
-marker syntax.  Within braces, the replacement marker name must be followed by
-a colon, then directly thereafter, the regular expression. The <em>default</em>
-regular expression associated with a replacement marker <code class="docutils literal notranslate"><span class="pre">[^/]+</span></code> matches one
-or more characters which are not a slash.  For example, under the hood, the
-replacement marker <code class="docutils literal notranslate"><span class="pre">{foo}</span></code> can more verbosely be spelled as <code class="docutils literal notranslate"><span class="pre">{foo:[^/]+}</span></code>.
-You can change this to be an arbitrary regular expression to match an arbitrary
-sequence of characters, such as <code class="docutils literal notranslate"><span class="pre">{foo:\d+}</span></code> to match only digits.</p>
-<p>It is possible to use two replacement markers without any literal characters
-between them, for instance <code class="docutils literal notranslate"><span class="pre">/{foo}{bar}</span></code>. However, this would be a
-nonsensical pattern without specifying a custom regular expression to restrict
-what each marker captures.</p>
-<p>Segments must contain at least one character in order to match a segment
-replacement marker.  For example, for the URL <code class="docutils literal notranslate"><span class="pre">/abc/</span></code>:</p>
+<p>リテラルパス `` / foo / biz.html``は上記のルートパターンと一致し、 `` {&amp;#39;name&amp;#39;： &amp;#39;biz&amp;#39;、 &amp;#39;ext&amp;#39;： &amp;#39;html&amp;#39;} <a href="#id1"><span class="problematic" id="id2">``</span></a>となります。これは、2つの置換マーカー `` {name} <a href="#id3"><span class="problematic" id="id4">``</span></a>と `` {ext} <a href="#id5"><span class="problematic" id="id6">``</span></a>の間に `` .``（ピリオド）のリテラル部分があるために発生します。</p>
+<p>置換マーカは、パスセグメントがマーカと一致するかどうかを判断するために使用される正規表現をオプションで指定できます。置換マーカーが正規表現で定義されている特定の文字セットのみと一致するように指定するには、若干拡張された置換マーカー構文を使用する必要があります。中カッコ内では、置換マーカー名の後にコロンを続け、その後すぐに正規表現を続けなければなりません。置換マーカー `` [^ /] + <a href="#id1"><span class="problematic" id="id2">``</span></a>に関連付けられた*デフォルトの正規表現は、スラッシュではない1つ以上の文字と一致します。例えば、フードの下では、置換マーカー `` {foo} <a href="#id3"><span class="problematic" id="id4">``</span></a>は `` {foo：[^ /] +} <a href="#id5"><span class="problematic" id="id6">``</span></a>と綴ることができます。これを任意の正規表現に変更して、 `` {foo：d +} <a href="#id7"><span class="problematic" id="id8">``</span></a>のような任意の文字列を数字だけにマッチさせることができます。</p>
+<p>2つの置換マーカー、例えば `` / {foo} {bar} <a href="#id1"><span class="problematic" id="id2">``</span></a>のようなリテラル文字を使用することはできません。しかし、これは、カスタム正規表現を指定せずに無意味なパターンになり、各マーカーがキャプチャするものを制限します。</p>
+<p>セグメントには、セグメント置換マーカーを一致させるための文字が少なくとも1つ含まれている必要があります。たとえば、URL &amp;quot;/ abc /` <a href="#id1"><span class="problematic" id="id2">`</span></a>の場合、次のようになります。</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">/abc/{foo}</span></code> will not match.</li>
-<li><code class="docutils literal notranslate"><span class="pre">/{foo}/</span></code> will match.</li>
+<li>`` / abc / {foo} <a href="#id1"><span class="problematic" id="id2">``</span></a>は一致しません。</li>
+<li>`` / {foo} / <a href="#id1"><span class="problematic" id="id2">``</span></a>が一致します。</li>
 </ul>
-<p>Note that values representing matched path segments will be URL-unquoted and
-decoded from UTF-8 into Unicode within the matchdict.  So for instance, the
-following pattern:</p>
+<p>マッチしたパスセグメントを表す値は、URLで引用されず、マッチディック内でUTF-8からUnicodeにデコードされることに注意してください。例えば、次のようなパターンです：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/{bar}
 </pre></div>
 </div>
-<p>When matching the following URL:</p>
+<p>次のURLと一致する場合：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>http://example.com/foo/La%20Pe%C3%B1a
 </pre></div>
 </div>
-<p>The matchdict will look like so (the value is URL-decoded / UTF-8 decoded):</p>
+<p>matchdictは以下のようになります（値はURLデコード/ UTF-8デコードされます）。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&#39;bar&#39;:u&#39;La Pe\xf1a&#39;}
 </pre></div>
 </div>
-<p>Literal strings in the path segment should represent the <em>decoded</em> value of the
-<code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> provided to Pyramid.  You don't want to use a URL-encoded value
-or a bytestring representing the literal encoded as UTF-8 in the pattern. For
-example, rather than this:</p>
+<p>パスセグメントのリテラル文字列は、Pyramidに提供される `` PATH_INFO``の*デコードされた*値を表す必要があります。パターンでUTF-8としてエンコードされたリテラルを表すURLエンコードされた値またはバイトを使用したくない。例えば、これよりもむしろ：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/Foo%20Bar/{baz}
 </pre></div>
 </div>
-<p>You'll want to use something like this:</p>
+<p>次のようなものを使いたいでしょう：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/Foo Bar/{baz}
 </pre></div>
 </div>
-<p>For patterns that contain &quot;high-order&quot; characters in its literals, you'll want
-to use a Unicode value as the pattern as opposed to any URL-encoded or
-UTF-8-encoded value.  For example, you might be tempted to use a bytestring
-pattern like this:</p>
+<p>リテラルに&amp;quot;高位&amp;quot;文字を含むパターンの場合、URLエンコードまたはUTF-8エンコードの値とは対照的に、Unicode値をパターンとして使用することをお勧めします。たとえば、次のようなバイトテストパターンを使用したくなるかもしれません：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/La Pe\xc3\xb1a/{x}
 </pre></div>
 </div>
-<p>But this will either cause an error at startup time or it won't match properly.
-You'll want to use a Unicode value as the pattern instead rather than raw
-bytestring escapes.  You can use a high-order Unicode value as the pattern by
-using <a class="reference external" href="https://www.python.org/dev/peps/pep-0263/">Python source file encoding</a> plus the &quot;real&quot; character in the
-Unicode pattern in the source, like so:</p>
+<p>しかし、起動時にエラーが発生するか、正しく一致しません。バイナリのエスケープ文字ではなく、パターンとしてUnicode値を使用したいと思うでしょう。 <a href="#id1"><span class="problematic" id="id2">`</span></a>Pythonのソースファイルのエンコーディングを使って、高次のUnicode値をパターンとして使うことができます&lt;<a class="reference external" href="https://www.python.org/dev/peps/pep-0263/">https://www.python.org/dev/peps/pep-0263/</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_ソースにUnicodeパターンの&amp;quot;実&amp;quot;文字を追加します。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/La Peña/{x}
 </pre></div>
 </div>
-<p>Or you can ignore source file encoding and use equivalent Unicode escape
-characters in the pattern.</p>
+<p>または、ソースファイルのエンコードを無視して、パターン内の同等のUnicodeエスケープ文字を使用することもできます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/La Pe\xf1a/{x}
 </pre></div>
 </div>
-<p>Dynamic segment names cannot contain high-order characters, so this applies
-only to literals in the pattern.</p>
-<p>If the pattern has a <code class="docutils literal notranslate"><span class="pre">*</span></code> in it, the name which follows it is considered a
-&quot;remainder match&quot;.  A remainder match <em>must</em> come at the end of the pattern.
-Unlike segment replacement markers, it does not need to be preceded by a slash.
-For example:</p>
+<p>ダイナミックセグメント名には高次の文字を含めることはできないため、パターンのリテラルにのみ適用されます。</p>
+<p>パターンの中に `` * <a href="#id1"><span class="problematic" id="id2">``</span></a>がある場合、それに続く名前は&amp;quot;剰余一致&amp;quot;とみなされます。残りのマッチ*はパターンの最後に来なければなりません。セグメント置換マーカーとは異なり、前にスラッシュを付ける必要はありません。例えば：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/{baz}/{bar}*fizzle
 </pre></div>
 </div>
-<p>The above pattern will match these URLs, generating the following matchdicts:</p>
+<p>上記のパターンはこれらのURLと一致し、次のmatchdictsを生成します：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/1/2/           -&gt;
          {&#39;baz&#39;:u&#39;1&#39;, &#39;bar&#39;:u&#39;2&#39;, &#39;fizzle&#39;:()}
 
@@ -297,161 +204,86 @@ foo/abc/def/a/b/c  -&gt;
          {&#39;baz&#39;:u&#39;abc&#39;, &#39;bar&#39;:u&#39;def&#39;, &#39;fizzle&#39;:(u&#39;a&#39;, u&#39;b&#39;, u&#39;c&#39;)}
 </pre></div>
 </div>
-<p>Note that when a <code class="docutils literal notranslate"><span class="pre">*stararg</span></code> remainder match is matched, the value put into
-the matchdict is turned into a tuple of path segments representing the
-remainder of the path.  These path segments are URL-unquoted and decoded from
-UTF-8 into Unicode.  For example, for the following pattern:</p>
+<p>`` * stararg``の剰余一致がマッチすると、matchdictに入れられた値はパスの残りを表すパスセグメントのタプルに変換されます。これらのパスセグメントは、URLを引用符で囲まずにUTF-8からUnicodeにデコードされます。たとえば、次のパターンの場合：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/*fizzle
 </pre></div>
 </div>
-<p>When matching the following path:</p>
+<p>次のパスに一致する場合：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/foo/La%20Pe%C3%B1a/a/b/c
 </pre></div>
 </div>
-<p>Will generate the following matchdict:</p>
+<p>次の対戦を生成します：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&#39;fizzle&#39;:(u&#39;La Pe\xf1a&#39;, u&#39;a&#39;, u&#39;b&#39;, u&#39;c&#39;)}
 </pre></div>
 </div>
-<p>By default, the <code class="docutils literal notranslate"><span class="pre">*stararg</span></code> will parse the remainder sections into a tuple
-split by segment. Changing the regular expression used to match a marker can
-also capture the remainder of the URL, for example:</p>
+<p>デフォルトでは、 `` * stararg``は残りのセクションをセグメントごとに分割したタプルに解析します。マーカーの一致に使用する正規表現を変更すると、URLの残りの部分を取得することもできます。たとえば、次のようになります。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/{baz}/{bar}{fizzle:.*}
 </pre></div>
 </div>
-<p>The above pattern will match these URLs, generating the following matchdicts:</p>
+<p>上記のパターンはこれらのURLと一致し、次のmatchdictsを生成します：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foo/1/2/           -&gt; {&#39;baz&#39;:u&#39;1&#39;, &#39;bar&#39;:u&#39;2&#39;, &#39;fizzle&#39;:u&#39;&#39;}
 foo/abc/def/a/b/c  -&gt; {&#39;baz&#39;:u&#39;abc&#39;, &#39;bar&#39;:u&#39;def&#39;, &#39;fizzle&#39;: u&#39;a/b/c&#39;}
 </pre></div>
 </div>
-<p>This occurs because the default regular expression for a marker is <code class="docutils literal notranslate"><span class="pre">[^/]+</span></code>
-which will match everything up to the first <code class="docutils literal notranslate"><span class="pre">/</span></code>, while <code class="docutils literal notranslate"><span class="pre">{fizzle:.*}</span></code> will
-result in a regular expression match of <code class="docutils literal notranslate"><span class="pre">.*</span></code> capturing the remainder into a
-single value.</p>
+<p>これは、マーカのデフォルトの正規表現は `` [^ /] + <a href="#id1"><span class="problematic" id="id2">``</span></a>であり、 `` {<cite>fizzle：。*}</cite> &amp;#39;が最初の `` / <a href="#id3"><span class="problematic" id="id4">``</span></a>まですべてにマッチし、 <cite>。*</cite> <a href="#id5"><span class="problematic" id="id6">`</span></a>の残りの部分を単一の値にキャプチャします。</p>
 </div>
 <div class="section" id="route-declaration-ordering">
-<span id="index-4"></span><h3>Route Declaration Ordering<a class="headerlink" href="#route-declaration-ordering" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Route configuration declarations are evaluated in a specific order when a
-request enters the system. As a result, the order of route configuration
-declarations is very important.  The order in which route declarations are
-evaluated is the order in which they are added to the application at startup
-time.  (This is unlike a different way of mapping URLs to code that
-<span>Pyramid</span> provides, named <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>, which does not depend on
-pattern ordering).</p>
-<p>For routes added via the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-mod docutils literal notranslate"><span class="pre">add_route</span></code></a> method,
-the order that routes are evaluated is the order in which they are added to the
-configuration imperatively.</p>
-<p>For example, route configuration statements with the following patterns might
-be added in the following order:</p>
+<span id="index-4"></span><h3>ルート宣言の発注<a class="headerlink" href="#route-declaration-ordering" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ルート構成宣言は、要求がシステムに入力されたときに特定の順序で評価されます。その結果、ルート設定宣言の順序は非常に重要です。ルート宣言が評価される順序は、起動時にアプリケーションに追加される順序です。 （これは、app： <cite>Pyramid`が提供する、term：</cite> traversal`という、パターンの順序付けに依存しないコードにURLをマッピングする別の方法とは異なります）。</p>
+<p>：mod： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.add_route`メソッドで追加されたルートの場合、ルートが評価される順序は、それらがコンフィグレーションに必須で追加される順序です。</p>
+<p>たとえば、次のパターンのルート設定文を次の順序で追加することができます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>members/{def}
 members/abc
 </pre></div>
 </div>
-<p>In such a configuration, the <code class="docutils literal notranslate"><span class="pre">members/abc</span></code> pattern would <em>never</em> be matched.
-This is because the match ordering will always match <code class="docutils literal notranslate"><span class="pre">members/{def}</span></code> first;
-the route configuration with <code class="docutils literal notranslate"><span class="pre">members/abc</span></code> will never be evaluated.</p>
+<p>このような構成では、 `` members / abc``パターンは決して*マッチしません。これは、一致順序が常に `` members / {def} <a href="#id1"><span class="problematic" id="id2">``</span></a>と最初に一致するためです。 `` members / abc``によるルート設定は決して評価されません。</p>
 </div>
 <div class="section" id="route-configuration-arguments">
-<span id="index-5"></span><h3>Route Configuration Arguments<a class="headerlink" href="#route-configuration-arguments" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Route configuration <code class="docutils literal notranslate"><span class="pre">add_route</span></code> statements may specify a large number of
-arguments.  They are documented as part of the API documentation at
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a>.</p>
-<p>Many of these arguments are <a class="reference internal" href="../glossary.html#term-route-predicate"><span class="xref std std-term">route predicate</span></a> arguments.  A route
-predicate argument specifies that some aspect of the request must be true for
-the associated route to be considered a match during the route matching
-process.  Examples of route predicate arguments are <code class="docutils literal notranslate"><span class="pre">pattern</span></code>, <code class="docutils literal notranslate"><span class="pre">xhr</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">request_method</span></code>.</p>
-<p>Other arguments are <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">factory</span></code>.  These arguments represent
-neither predicates nor view configuration information.</p>
+<span id="index-5"></span><h3>ルート設定引数<a class="headerlink" href="#route-configuration-arguments" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ルート設定 `` add_route``文は、多数の引数を指定するかもしれません。それらはAPIドキュメントの一部として：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.add_route`で文書化されています。</p>
+<p>これらの引数の多くは、term： <cite>ルート述語`の引数です。ルート述部の引数は、ルートマッチングプロセス中に関連するルートが一致とみなされるためには、要求の一部の側面が真でなければならないことを指定します。ルート述語引数の例は、 `</cite> pattern``、 `` xhr``、 `` request_method``です。</p>
+<p>他の引数は `` name``と `` factory``です。これらの引数は、述部も構成情報も表示しません。</p>
 </div>
 </div>
 <div class="section" id="route-matching">
-<span id="index-6"></span><h2>Route Matching<a class="headerlink" href="#route-matching" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The main purpose of route configuration is to match (or not match) the
-<code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> present in the WSGI environment provided during a request
-against a URL path pattern.  <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> represents the path portion of the
-URL that was requested.</p>
-<p>The way that <span>Pyramid</span> does this is very simple.  When a request enters
-the system, for each route configuration declaration present in the system,
-<span>Pyramid</span> checks the request's <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> against the pattern
-declared.  This checking happens in the order that the routes were declared
-via <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a>.</p>
-<p>When a route configuration is declared, it may contain <a class="reference internal" href="../glossary.html#term-route-predicate"><span class="xref std std-term">route predicate</span></a>
-arguments.  All route predicates associated with a route declaration must be
-<code class="docutils literal notranslate"><span class="pre">True</span></code> for the route configuration to be used for a given request during a
-check.  If any predicate in the set of <a class="reference internal" href="../glossary.html#term-route-predicate"><span class="xref std std-term">route predicate</span></a> arguments
-provided to a route configuration returns <code class="docutils literal notranslate"><span class="pre">False</span></code> during a check, that route
-is skipped and route matching continues through the ordered set of routes.</p>
-<p>If any route matches, the route matching process stops and the <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view
-lookup</span></a> subsystem takes over to find the most reasonable view callable for the
-matched route.  Most often, there's only one view that will match (a view
-configured with a <code class="docutils literal notranslate"><span class="pre">route_name</span></code> argument matching the matched route).  To gain
-a better understanding of how routes and views are associated in a real
-application, you can use the <code class="docutils literal notranslate"><span class="pre">pviews</span></code> command, as documented in
-<a class="reference internal" href="commandline.html#displaying-matching-views"><span class="std std-ref">Displaying Matching Views for a Given URL</span></a>.</p>
-<p>If no route matches after all route patterns are exhausted, <span>Pyramid</span>
-falls back to <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> to do <a class="reference internal" href="../glossary.html#term-resource-location"><span class="xref std std-term">resource location</span></a> and
-<a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a>.</p>
+<span id="index-6"></span><h2>ルートマッチング<a class="headerlink" href="#route-matching" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ルート設定の主な目的は、要求中に提供されたWSGI環境に存在する `` PATH_INFO``をURLパスパターンと照合する（または一致させない）ことです。 `` PATH_INFO``は要求されたURLのパス部分を表します。</p>
+<p>方法：アプリ： <cite>ピラミッド`これは非常に簡単です。リクエストがシステムに入ると、システムに存在する各ルート設定宣言に対して、：app： `Pyramid`はリクエストの</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>PATH_INFO``を宣言されたパターンと照合します。このチェックはルートが：meth： <a href="#id3"><span class="problematic" id="id4">`</span></a>pyramid.config.Configurator.add_route`で宣言された順序で行われます。</p>
+<p>ルート設定が宣言されると、それは：term： <cite>ルート述語`引数を含むかもしれません。ルート宣言に関連付けられたすべてのルート述語は、チェック中に特定の要求に使用されるルート構成に対して &amp;quot;True&amp;quot;でなければなりません。ルートコンフィグレーションに与えられた：term： `ルート述語`引数の中の述語が、チェックの間に `</cite> False``を返した場合、そのルートはスキップされ、順序付けられたルートセットを通ってルートマッチングが続けられます。</p>
+<p>いずれかのルートが一致すると、ルートマッチングプロセスが停止し、：term： <cite>view lookup`サブシステムが引き継ぎ、一致したルートで呼び出し可能な最も合理的なビューを見つけます。ほとんどの場合、一致するビューは1つだけです（一致したルートと一致する `</cite> route_name``引数で設定されたビュー）。実際のアプリケーションで経路とビューがどのように関連付けられているかをよりよく理解するためには、：ref： <cite>displaying_matching_views`で説明されているように</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>pviews``コマンドを使用できます。</p>
+<p>すべてのルートパターンが使い果たされた後にルートが一致しない場合、：app： <cite>Pyramid`は：term：</cite> traversal`に戻ります：term： <cite>resource location`と：term：</cite> view lookup`。</p>
 <div class="section" id="the-matchdict">
-<span id="matchdict"></span><span id="index-7"></span><h3>The Matchdict<a class="headerlink" href="#the-matchdict" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>When the URL pattern associated with a particular route configuration is
-matched by a request, a dictionary named <code class="docutils literal notranslate"><span class="pre">matchdict</span></code> is added as an attribute
-of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  Thus, <code class="docutils literal notranslate"><span class="pre">request.matchdict</span></code> will contain the
-values that match replacement patterns in the <code class="docutils literal notranslate"><span class="pre">pattern</span></code> element.  The keys in
-a matchdict will be strings.  The values will be Unicode objects.</p>
+<span id="matchdict"></span><span id="index-7"></span><h3>マッチディック<a class="headerlink" href="#the-matchdict" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>特定の経路構成に関連するURLパターンが要求によって照合されると、：term： <cite>request`オブジェクトの属性として</cite> <cite>matchdict``という辞書が追加されます。したがって、 `</cite> request.matchdict``は、 `` pattern``要素の置換パターンと一致する値を含みます。 matchdictのキーは文字列です。値はUnicodeオブジェクトになります。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">If no route URL pattern matches, the <code class="docutils literal notranslate"><span class="pre">matchdict</span></code> object attached to the
-request will be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p class="last">ルートURLパターンが一致しない場合、要求に添付された `` matchdict``オブジェクトは `` None``になります。</p>
 </div>
 </div>
 <div class="section" id="the-matched-route">
-<span id="matched-route"></span><span id="index-8"></span><h3>The Matched Route<a class="headerlink" href="#the-matched-route" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>When the URL pattern associated with a particular route configuration is
-matched by a request, an object named <code class="docutils literal notranslate"><span class="pre">matched_route</span></code> is added as an
-attribute of the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  Thus, <code class="docutils literal notranslate"><span class="pre">request.matched_route</span></code> will
-be an object implementing the <a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.IRoute" title="pyramid.interfaces.IRoute"><code class="xref py py-class docutils literal notranslate"><span class="pre">IRoute</span></code></a> interface
-which matched the request.  The most useful attribute of the route object is
-<code class="docutils literal notranslate"><span class="pre">name</span></code>, which is the name of the route that matched.</p>
+<span id="matched-route"></span><span id="index-8"></span><h3>マッチしたルート<a class="headerlink" href="#the-matched-route" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>特定のルート構成に関連付けられたURLパターンがリクエストによって照合されると、 `` matched_route``という名前のオブジェクトが：term： <cite>request`オブジェクトの属性として追加されます。したがって、 `</cite> request.matched_route``はリクエストにマッチした：class： <cite>〜pyramid.interfaces.IRoute`インターフェースを実装するオブジェクトになります。ルートオブジェクトの最も有用な属性は `</cite> name``です。これはマッチしたルートの名前です。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">If no route URL pattern matches, the <code class="docutils literal notranslate"><span class="pre">matched_route</span></code> object attached to
-the request will be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p class="last">ルートURLパターンが一致しない場合、要求に添付された `` matched_route``オブジェクトは `` None``になります。</p>
 </div>
 </div>
 </div>
 <div class="section" id="routing-examples">
-<h2>Routing Examples<a class="headerlink" href="#routing-examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Let's check out some examples of how route configuration statements might be
-commonly declared, and what will happen if they are matched by the information
-present in a request.</p>
+<h2>ルーティングの例<a class="headerlink" href="#routing-examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ルート設定ステートメントが一般的にどのように宣言されるのか、リクエスト内に存在する情報と一致する場合どうなるかの例を見てみましょう。</p>
 <div class="section" id="example-1">
-<span id="urldispatch-example1"></span><h3>Example 1<a class="headerlink" href="#example-1" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The simplest route declaration which configures a route match to <em>directly</em>
-result in a particular view callable being invoked:</p>
+<span id="urldispatch-example1"></span><h3>例1<a class="headerlink" href="#example-1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>直接*へのルートマッチを設定する最も簡単なルート宣言は、呼び出し可能な特定のビューを呼び出します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;idea&#39;</span><span class="p">,</span> <span class="s1">&#39;site/{id}&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>When a route configuration with a <code class="docutils literal notranslate"><span class="pre">view</span></code> attribute is added to the system,
-and an incoming request matches the <em>pattern</em> of the route configuration, the
-<a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> named as the <code class="docutils literal notranslate"><span class="pre">view</span></code> attribute of the route
-configuration will be invoked.</p>
-<p>Recall that the <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> is equivalent to calling <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code>,
-because the <code class="docutils literal notranslate"><span class="pre">config.scan()</span></code> call will import <code class="docutils literal notranslate"><span class="pre">mypackage.views</span></code>, shown
-below, and execute <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code> under the hood. Each view then maps the
-route name to the matching view callable. In the case of the above example,
-when the URL of a request matches <code class="docutils literal notranslate"><span class="pre">/site/{id}</span></code>, the view callable at the
-Python dotted path name <code class="docutils literal notranslate"><span class="pre">mypackage.views.site_view</span></code> will be called with the
-request.  In other words, we've associated a view callable directly with a
-route pattern.</p>
-<p>When the <code class="docutils literal notranslate"><span class="pre">/site/{id}</span></code> route pattern matches during a request, the
-<code class="docutils literal notranslate"><span class="pre">site_view</span></code> view callable is invoked with that request as its sole argument.
-When this route matches, a <code class="docutils literal notranslate"><span class="pre">matchdict</span></code> will be generated and attached to the
-request as <code class="docutils literal notranslate"><span class="pre">request.matchdict</span></code>.  If the specific URL matched is <code class="docutils literal notranslate"><span class="pre">/site/1</span></code>,
-the <code class="docutils literal notranslate"><span class="pre">matchdict</span></code> will be a dictionary with a single key, <code class="docutils literal notranslate"><span class="pre">id</span></code>; the value
-will be the string <code class="docutils literal notranslate"><span class="pre">'1'</span></code>, ex.: <code class="docutils literal notranslate"><span class="pre">{'id':'1'}</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">mypackage.views</span></code> module referred to above might look like so:</p>
+<p>`` view``属性を持つルート設定がシステムに追加され、入ってくるリクエストがルート設定の*パターン*と一致すると、：term： <cite>view callable`の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>view``属性としてルート設定が呼び出されます。</p>
+<p>`` &#64; view_config``は `` config.add_view``を呼び出すのと同じことを思い出してください。 `` config.scan（） <a href="#id1"><span class="problematic" id="id2">``</span></a>の呼び出しは以下に示す `` mypackage.views``をインポートし、 `` config.add_view``を実行します。各ビューは、ルート名を呼び出し可能なビューにマップします。上記の例の場合、リクエストのURLが `` / site / {id} <a href="#id3"><span class="problematic" id="id4">``</span></a>にマッチすると、Pythonの点線のパス名 `` mypackage.views.site_view``で呼び出せるビューがリクエストと共に呼び出されます。つまり、呼び出し可能なビューをルートパターンに直接関連付けました。</p>
+<p>リクエスト中に `` / site / {id} <a href="#id1"><span class="problematic" id="id2">``</span></a>のルートパターンが一致すると、callableの `` site_view``ビューがそのリクエストを唯一の引数として呼び出されます。このルートが一致すると、 `` matchdict``が生成され、 `` request.matchdict``としてリクエストに添付されます。一致する特定のURLが `` / site / 1``の場合、 `` matchdict``は単一のキー、 `` id``を持つ辞書になります。値は文字列 `` &amp;#39;1&amp;#39; <a href="#id3"><span class="problematic" id="id4">``</span></a>、例： `` {&amp;#39;id&amp;#39;： &amp;#39;1&amp;#39;} <a href="#id5"><span class="problematic" id="id6">``</span></a>になります。</p>
+<p>上記の `` mypackage.views``モジュールは以下のようになります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -465,15 +297,12 @@ will be the string <code class="docutils literal notranslate"><span class="pre">
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">matchdict</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
 </pre></div>
 </td></tr></table></div>
-<p>The view has access to the matchdict directly via the request, and can access
-variables within it that match keys present as a result of the route pattern.</p>
-<p>See <a class="reference internal" href="views.html#views-chapter"><span class="std std-ref">ビュー(Views)</span></a>, and <a class="reference internal" href="viewconfig.html#view-config-chapter"><span class="std std-ref">View Configuration</span></a> for more
-information about views.</p>
+<p>ビューはリクエストを介して直接matchdictにアクセスし、ルートパターンの結果として存在するキーに一致する変数にアクセスできます。</p>
+<p>view：ref： <cite>views_chapter</cite>、および：ref：` view_config_chapter`を参照してください。</p>
 </div>
 <div class="section" id="example-2">
-<h3>Example 2<a class="headerlink" href="#example-2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Below is an example of a more complicated set of route statements you might add
-to your application:</p>
+<h3>例2<a class="headerlink" href="#example-2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下は、アプリケーションに追加する複雑なルートステートメントの例です。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -483,7 +312,7 @@ to your application:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>Here is an example of a corresponding <code class="docutils literal notranslate"><span class="pre">mypackage.views</span></code> module:</p>
+<p>対応する `` mypackage.views``モジュールの例を以下に示します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -517,51 +346,30 @@ to your application:</p>
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;The tag is {}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tag</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
-<p>The above configuration will allow <span>Pyramid</span> to service URLs in these
-forms:</p>
+<p>上記の設定では、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`が次の形式のURLを扱うことができます：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/ideas/{idea}
 /users/{user}
 /tags/{tag}
 </pre></div>
 </div>
 <ul class="simple">
-<li>When a URL matches the pattern <code class="docutils literal notranslate"><span class="pre">/ideas/{idea}</span></code>, the view callable
-available at the dotted Python pathname <code class="docutils literal notranslate"><span class="pre">mypackage.views.idea_view</span></code> will
-be called.  For the specific URL <code class="docutils literal notranslate"><span class="pre">/ideas/1</span></code>, the <code class="docutils literal notranslate"><span class="pre">matchdict</span></code> generated
-and attached to the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> will consist of <code class="docutils literal notranslate"><span class="pre">{'idea':'1'}</span></code>.</li>
-<li>When a URL matches the pattern <code class="docutils literal notranslate"><span class="pre">/users/{user}</span></code>, the view callable
-available at the dotted Python pathname <code class="docutils literal notranslate"><span class="pre">mypackage.views.user_view</span></code> will be
-called.  For the specific URL <code class="docutils literal notranslate"><span class="pre">/users/1</span></code>, the <code class="docutils literal notranslate"><span class="pre">matchdict</span></code> generated and
-attached to the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> will consist of <code class="docutils literal notranslate"><span class="pre">{'user':'1'}</span></code>.</li>
-<li>When a URL matches the pattern <code class="docutils literal notranslate"><span class="pre">/tags/{tag}</span></code>, the view callable available
-at the dotted Python pathname <code class="docutils literal notranslate"><span class="pre">mypackage.views.tag_view</span></code> will be called.
-For the specific URL <code class="docutils literal notranslate"><span class="pre">/tags/1</span></code>, the <code class="docutils literal notranslate"><span class="pre">matchdict</span></code> generated and attached to
-the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> will consist of <code class="docutils literal notranslate"><span class="pre">{'tag':'1'}</span></code>.</li>
+<li>URLがパターン `` / ideas / {idea} <a href="#id1"><span class="problematic" id="id2">``</span></a>にマッチすると、ドット付きのPythonパス名 `` mypackage.views.idea_view`で呼び出し可能なビューが呼び出されます。特定のURL `` / ideas / 1``に対して、：term： <cite>request`に生成され添付される</cite> <cite>matchdict``は</cite> <cite>{&amp;#39;idea&amp;#39;： &amp;#39;1&amp;#39;}</cite> <a href="#id3"><span class="problematic" id="id4">`</span></a>で構成されます。</li>
+<li>URLがパターン `` / users / {user} <a href="#id1"><span class="problematic" id="id2">``</span></a>と一致すると、点線のPythonパス名 `` mypackage.views.user_view``で呼び出されるビューが呼び出されます。特定のURL `` / users / 1``に対して生成され、：term： <cite>request`に添付された</cite> <cite>matchdict``は</cite> <cite>{&amp;#39;user&amp;#39;： &amp;#39;1&amp;#39;}</cite> <a href="#id3"><span class="problematic" id="id4">`</span></a>で構成されます。</li>
+<li>URLがパターン `` / tags / {tag} <a href="#id1"><span class="problematic" id="id2">``</span></a>にマッチすると、点線のPythonパス名 `` mypackage.views.tag_view`で呼び出されるビューが呼び出されます。特定のURL &amp;quot;/ tags / 1&amp;quot;の場合、：term： <cite>request`に生成され添付される</cite> <cite>matchdict``は</cite> <cite>{&amp;#39;tag&amp;#39;： &amp;#39;1&amp;#39;}</cite> <a href="#id3"><span class="problematic" id="id4">`</span></a>で構成されます。</li>
 </ul>
-<p>In this example we've again associated each of our routes with a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view
-callable</span></a> directly.  In all cases, the request, which will have a <code class="docutils literal notranslate"><span class="pre">matchdict</span></code>
-attribute detailing the information found in the URL by the process will be
-passed to the view callable.</p>
+<p>この例では、それぞれのルートを：term： <cite>view callable`に直接関連づけました。すべての場合、プロセスによってURLにある情報を詳述する `</cite> matchdict``属性を持つリクエストは、呼び出し可能なビューに渡されます。</p>
 </div>
 <div class="section" id="example-3">
-<h3>Example 3<a class="headerlink" href="#example-3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource object passed in to a view found as the result of
-URL dispatch will, by default, be an instance of the object returned by the
-<a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> configured at startup time (the <code class="docutils literal notranslate"><span class="pre">root_factory</span></code> argument
-to the <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> used to configure the application).</p>
-<p>You can override this behavior by passing in a <code class="docutils literal notranslate"><span class="pre">factory</span></code> argument to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a> method for a particular route.
-The <code class="docutils literal notranslate"><span class="pre">factory</span></code> should be a callable that accepts a <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> and returns
-an instance of a class that will be the context resource used by the view.</p>
-<p>An example of using a route with a factory:</p>
+<h3>例3<a class="headerlink" href="#example-3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>URLディスパッチの結果として見つかるビューに渡される：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>context`リソースオブジェクトは、デフォルトで起動時に設定された：term：<a href="#id3"><span class="problematic" id="id4">`</span></a>ルートファクトリ &amp;#39;によって返されるオブジェクトのインスタンスになります（ ` root_factory`引数をアプリケーションの設定に使用する：term： <a href="#id5"><span class="problematic" id="id6">`</span></a>Configurator &amp;#39;に置き換えます）。</p>
+<p>特定のルートの：meth： <cite>〜pyramid.config.Configurator.add_route`メソッドに</cite> <cite>factory``引数を渡すことで、この動作を無効にすることができます。 `</cite> factory``は：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>request`を受け取り、ビューが使うコンテキストリソースとなるクラスのインスタンスを返します。</p>
+<p>ファクトリでルートを使用する例：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;idea&#39;</span><span class="p">,</span> <span class="s1">&#39;ideas/{idea}&#39;</span><span class="p">,</span> <span class="n">factory</span><span class="o">=</span><span class="s1">&#39;myproject.resources.Idea&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>The above route will manufacture an <code class="docutils literal notranslate"><span class="pre">Idea</span></code> resource as a <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a>,
-assuming that <code class="docutils literal notranslate"><span class="pre">mypackage.resources.Idea</span></code> resolves to a class that accepts a
-request in its <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.  For example:</p>
+<p>上記のルートは `` Idea``リソースを：term： <cite>context`として作ります。</cite> <cite>mypackage.resources.Idea``は、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>__init__``でリクエストを受け付けるクラスに解決されると仮定します。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Idea</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -569,9 +377,7 @@ request in its <code class="docutils literal notranslate"><span class="pre">__in
         <span class="k">pass</span>
 </pre></div>
 </td></tr></table></div>
-<p>In a more complicated application, this root factory might be a class
-representing a <a class="reference internal" href="../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> model. The view <code class="docutils literal notranslate"><span class="pre">mypackage.views.idea_view</span></code>
-might look like this:</p>
+<p>もっと複雑なアプリケーションでは、このルートファクトリは：term： <cite>SQLAlchemy`モデルを表すクラスであるかもしれません。 `</cite> mypackage.views.idea_view``というビューは次のようになります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -581,112 +387,87 @@ might look like this:</p>
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">idea</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Here, <code class="docutils literal notranslate"><span class="pre">request.context</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">Idea</span></code>. If indeed the resource
-object is a SQLAlchemy model, you do not even have to perform a query in the
-view callable, since you have access to the resource via <code class="docutils literal notranslate"><span class="pre">request.context</span></code>.</p>
-<p>See <a class="reference internal" href="#route-factories"><span class="std std-ref">Route Factories</span></a> for more details about how to use route factories.</p>
+<p>ここで、 `` request.context``は `` Idea``のインスタンスです。実際にリソースオブジェクトがSQLAlchemyモデルである場合、あなたは `` request.context``を介してリソースにアクセスできるので、呼び出し可能なビューでクエリを実行する必要はありません。</p>
+<p>ルートファクトリの使用方法の詳細については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>route_factories`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="matching-the-root-url">
-<span id="index-9"></span><h2>Matching the Root URL<a class="headerlink" href="#matching-the-root-url" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>It's not entirely obvious how to use a route pattern to match the root URL
-(&quot;/&quot;).  To do so, give the empty string as a pattern in a call to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a>:</p>
+<span id="index-9"></span><h2>ルートURLの照合<a class="headerlink" href="#matching-the-root-url" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ルートパターン（&amp;quot;/ &amp;quot;）にマッチさせるためにルートパターンを使用する方法は完全にはっきりしていません。これを行うには、空の文字列をパターンとして、：meth： <cite>〜pyramid.config.Configurator.add_route</cite>：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Or provide the literal string <code class="docutils literal notranslate"><span class="pre">/</span></code> as the pattern:</p>
+<p>あるいは、リテラル文字列 `` / <a href="#id1"><span class="problematic" id="id2">``</span></a>をパターンとして提供してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="section" id="generating-route-urls">
-<span id="index-10"></span><span id="id2"></span><h2>Generating Route URLs<a class="headerlink" href="#generating-route-urls" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Use the <a class="reference internal" href="../api/request.html#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_url()</span></code></a> method to generate URLs based
-on route patterns.  For example, if you've configured a route with the <code class="docutils literal notranslate"><span class="pre">name</span></code>
-&quot;foo&quot; and the <code class="docutils literal notranslate"><span class="pre">pattern</span></code> &quot;{a}/{b}/{c}&quot;, you might do this.</p>
+<span id="index-10"></span><span id="id2"></span><h2>ルートURLの生成<a class="headerlink" href="#generating-route-urls" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ルートパターンに基づいてURLを生成するには、：meth： <cite>pyramid.request.Request.route_url`メソッドを使用します。たとえば、 ``名前 `</cite> &amp;quot;foo &amp;quot;と <a href="#id1"><span class="problematic" id="id2">``</span></a>パターン `` &amp;quot;{a} / {b} / {c} &amp;quot;の経路を設定した場合、これを行うかもしれません。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;3&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>This would return something like the string <code class="docutils literal notranslate"><span class="pre">http://example.com/1/2/3</span></code> (at
-least if the current protocol and hostname implied <code class="docutils literal notranslate"><span class="pre">http://example.com</span></code>).</p>
-<p>To generate only the <em>path</em> portion of a URL from a route, use the
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.route_path" title="pyramid.request.Request.route_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_path()</span></code></a> API instead of
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">route_url()</span></code></a>.</p>
+<p>これは、少なくとも現在のプロトコルとホスト名が `` http：// example.com``を暗示している場合は、文字列 `` http：// example.com / 1/2 / 3``のようなものを返します。</p>
+<p>ルートからURLの* path <a href="#id1"><span class="problematic" id="id2">*</span></a>部分だけを生成するには、：meth： <cite>〜pyramid.request.Request.route_url`の代わりに：meth：</cite> pyramid.request.Request.route_path` APIを使用します。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">route_path</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;3&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This will return the string <code class="docutils literal notranslate"><span class="pre">/1/2/3</span></code> rather than a full URL.</p>
-<p>Replacement values passed to <code class="docutils literal notranslate"><span class="pre">route_url</span></code> or <code class="docutils literal notranslate"><span class="pre">route_path</span></code> must be Unicode or
-bytestrings encoded in UTF-8.  One exception to this rule exists: if you're
-trying to replace a &quot;remainder&quot; match value (a <code class="docutils literal notranslate"><span class="pre">*stararg</span></code> replacement value),
-the value may be a tuple containing Unicode strings or UTF-8 strings.</p>
-<p>Note that URLs and paths generated by <code class="docutils literal notranslate"><span class="pre">route_url</span></code> and <code class="docutils literal notranslate"><span class="pre">route_path</span></code> are
-always URL-quoted string types (they contain no non-ASCII characters).
-Therefore, if you've added a route like so:</p>
+<p>これは完全なURLではなく、 `` / 1/2 / 3``という文字列を返します。</p>
+<p>`` route_url``または `` route_path``に渡される置換値は、Unicodeか、UTF-8でエンコードされたバイト列でなければなりません。このルールの例外の1つは存在します。&amp;quot;剰余&amp;quot;の一致値（ `` * stararg``の置換値）を置き換える場合、値はUnicode文字列またはUTF-8文字列を含むタプルです。</p>
+<p>`` route_url``と `` route_path``で生成されるURLとパスは、常にURL引用文字列型です（非ASCII文字は含まれません）。したがって、次のようなルートを追加した場合は、</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;la&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;/La Peña/{city}&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>And you later generate a URL using <code class="docutils literal notranslate"><span class="pre">route_path</span></code> or <code class="docutils literal notranslate"><span class="pre">route_url</span></code> like so:</p>
+<p>そして、後であなたは `` route_path``や `` route_url``を使ってURLを生成します：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">route_path</span><span class="p">(</span><span class="s1">&#39;la&#39;</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;Québec&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You will wind up with the path encoded to UTF-8 and URL-quoted like so:</p>
+<p>あなたはUTF-8にコード化されたパスとURL引用符で囲まれたようになります：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/La%20Pe%C3%B1a/Qu%C3%A9bec
 </pre></div>
 </div>
-<p>If you have a <code class="docutils literal notranslate"><span class="pre">*stararg</span></code> remainder dynamic part of your route pattern:</p>
+<p>あなたのルートパターンの `` * stararg``の残りの動的部分がある場合：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;a/b/c/*foo&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>And you later generate a URL using <code class="docutils literal notranslate"><span class="pre">route_path</span></code> or <code class="docutils literal notranslate"><span class="pre">route_url</span></code> using a
-<em>string</em> as the replacement value:</p>
+<p>そして、後であなたは、* string <a href="#id1"><span class="problematic" id="id2">*</span></a>を置換値として使って、 `` route_path``または `` route_url``を使ってURLを生成します：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">route_path</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="n">foo</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;Québec/biz&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The value you pass will be URL-quoted except for embedded slashes in the
-result:</p>
+<p>渡す値は、結果に埋め込まれたスラッシュを除いて、URLで引用されます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/a/b/c/Qu%C3%A9bec/biz
 </pre></div>
 </div>
-<p>You can get a similar result by passing a tuple composed of path elements:</p>
+<p>パス要素で構成されるタプルを渡すことで、同様の結果が得られます。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">route_path</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="n">foo</span><span class="o">=</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;Québec&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;biz&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Each value in the tuple will be URL-quoted and joined by slashes in this case:</p>
+<p>タプルの各値はURLで引用され、この場合はスラッシュで結合されます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/a/b/c/Qu%C3%A9bec/biz
 </pre></div>
 </div>
 </div>
 <div class="section" id="static-routes">
-<span id="static-route-narr"></span><span id="index-11"></span><h2>Static Routes<a class="headerlink" href="#static-routes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Routes may be added with a <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword argument.  For example:</p>
+<span id="static-route-narr"></span><span id="index-11"></span><h2>静的ルート<a class="headerlink" href="#static-routes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ルートは `` static``キーワード引数で追加することができます。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">()</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">,</span> <span class="s1">&#39;/page/{action}&#39;</span><span class="p">,</span> <span class="n">static</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Routes added with a <code class="docutils literal notranslate"><span class="pre">True</span></code> <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword argument will never be
-considered for matching at request time.  Static routes are useful for URL
-generation purposes only.  As a result, it is usually nonsensical to provide
-other non-<code class="docutils literal notranslate"><span class="pre">name</span></code> and non-<code class="docutils literal notranslate"><span class="pre">pattern</span></code> arguments to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">static</span></code> is passed as
-<code class="docutils literal notranslate"><span class="pre">True</span></code>, as none of the other arguments will ever be employed.  A single
-exception to this rule is use of the <code class="docutils literal notranslate"><span class="pre">pregenerator</span></code> argument, which is not
-ignored when <code class="docutils literal notranslate"><span class="pre">static</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<p><a class="reference internal" href="#external-route-narr"><span class="std std-ref">External routes</span></a> are implicitly static.</p>
+<p>`` True`` `` static``キーワード引数で追加された経路は、リクエスト時にはマッチングのために決して考慮されません。静的ルートは、URL生成目的にのみ役立ちます。結果として、 `` static``が次のように渡されるとき、meth： <cite>〜pyramid.config.Configurator.add_route`に他の非</cite> <cite>name``引数と非 ``pattern``引数を与えるのは無意味です他の議論のどれも採用されることはないので、「真」となる。このルールの例外は、 `</cite> pregenerator``引数の使用です。これは `` static``が `` True``のとき無視されません。</p>
+<p>：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>外部ルート&lt;external_route_narr&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>は暗黙的に静的です。</p>
 <div class="versionadded">
-<p><span class="versionmodified">バージョン 1.1 で追加: </span>the <code class="docutils literal notranslate"><span class="pre">static</span></code> argument to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a>.</p>
+<p><span class="versionmodified">バージョン 1.1 で追加: </span>：meth： <cite>〜pyramid.config.Configurator.add_route`の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>static``引数です。</p>
 </div>
 </div>
 <div class="section" id="external-routes">
-<span id="external-route-narr"></span><h2>External Routes<a class="headerlink" href="#external-routes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="external-route-narr"></span><h2>外部ルート<a class="headerlink" href="#external-routes" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
 </div>
-<p>Route patterns that are valid URLs, are treated as external routes. Like
-<a class="reference internal" href="#static-route-narr"><span class="std std-ref">static routes</span></a> they are useful for URL generation
-purposes only and are never considered for matching at request time.</p>
+<p>有効なURLであるルートパターンは外部ルートとして扱われます。同様に：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>静的ルート&lt;static_route_narr&gt;それらはURL生成の目的のみに有用であり、要求時に照合することは決して考えられません。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -698,30 +479,13 @@ purposes only and are never considered for matching at request time.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;https://youtube.com/watch/oHg5SJYRHA0&quot;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Most pattern replacements and calls to
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_url()</span></code></a> will work as expected. However, calls
-to <a class="reference internal" href="../api/request.html#pyramid.request.Request.route_path" title="pyramid.request.Request.route_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_path()</span></code></a> against external patterns will
-raise an exception, and passing <code class="docutils literal notranslate"><span class="pre">_app_url</span></code> to
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">route_url()</span></code></a> to generate a URL against a route
-that has an external pattern will also raise an exception.</p>
+<p>ほとんどのパターンの置き換えと：meth： <cite>pyramid.request.Request.route_url`への呼び出しは期待通りに動作します。しかし、外部パターンに対して：meth： `pyramid.request.Request.route_path`を呼び出すと例外が発生し、</cite> _app_url``を：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.request.Request.route_url`に渡してURLを生成します外部パターンを持つルートも例外を発生させます。</p>
 </div>
 <div class="section" id="redirecting-to-slash-appended-routes">
-<span id="index-12"></span><span id="id3"></span><h2>Redirecting to Slash-Appended Routes<a class="headerlink" href="#redirecting-to-slash-appended-routes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>For behavior like Django's <code class="docutils literal notranslate"><span class="pre">APPEND_SLASH=True</span></code>, use the <code class="docutils literal notranslate"><span class="pre">append_slash</span></code>
-argument to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_notfound_view" title="pyramid.config.Configurator.add_notfound_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_notfound_view()</span></code></a> or the
-equivalent <code class="docutils literal notranslate"><span class="pre">append_slash</span></code> argument to the
-<a class="reference internal" href="../api/view.html#pyramid.view.notfound_view_config" title="pyramid.view.notfound_view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.view.notfound_view_config</span></code></a> decorator.</p>
-<p>Adding <code class="docutils literal notranslate"><span class="pre">append_slash=True</span></code> is a way to automatically redirect requests where
-the URL lacks a trailing slash, but requires one to match the proper route.
-When configured, along with at least one other route in your application, this
-view will be invoked if the value of <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> does not already end in a
-slash, and if the value of <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> <em>plus</em> a slash matches any route's
-pattern.  In this case it does an HTTP redirect to the slash-appended
-<code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code>. In addition you may pass anything that implements
-<a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.IResponse" title="pyramid.interfaces.IResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IResponse</span></code></a> which will then be used in place of the
-default class (<a class="reference internal" href="../api/httpexceptions.html#pyramid.httpexceptions.HTTPFound" title="pyramid.httpexceptions.HTTPFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.httpexceptions.HTTPFound</span></code></a>).</p>
-<p>Let's use an example.  If the following routes are configured in your
-application:</p>
+<span id="index-12"></span><span id="id3"></span><h2>スラッシュが追加されたルートにリダイレクトする<a class="headerlink" href="#redirecting-to-slash-appended-routes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Djangoの `` APPEND_SLASH = True``のような振る舞いについては、：meth： <cite>pyramid.config.Configurator.add_notfound_view`または：class：</cite> pyramidに相当する `` append_slash``引数に `` append_slash``引数を使用してください。 view.notfound_view_config`デコレータ。</p>
+<p>`` append_slash = True``を追加すると、URLに末尾のスラッシュがない場合に自動的にリクエストをリダイレクトすることができますが、適切なルートに一致するリクエストが必要です。設定時に、アプリケーション内の他の少なくとも1つのルートとともに、このビューは `` PATH_INFO``の値がスラッシュで終わっていない場合に呼び出され、 `` PATH_INFO`` * plus * aスラッシュは任意のルートのパターンに一致します。この場合、スラッシュが付加された `` PATH_INFO``にHTTPリダイレクトを行います。さらに、class： <cite>pyramid.interfaces.IResponse`を実装しているものを渡すこともできます。これはデフォルトのクラス（：class：</cite> pyramid.httpexceptions.HTTPFound`）の代わりに使用されます。</p>
+<p>例を使ってみましょう。アプリケーションに次のルートが設定されている場合：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -759,21 +523,9 @@ application:</p>
     <span class="n">config</span><span class="o">.</span><span class="n">add_notfound_view</span><span class="p">(</span><span class="n">notfound</span><span class="p">,</span> <span class="n">append_slash</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>If a request enters the application with the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> value of
-<code class="docutils literal notranslate"><span class="pre">/no_slash</span></code>, the first route will match and the browser will show &quot;No slash&quot;.
-However, if a request enters the application with the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> value of
-<code class="docutils literal notranslate"><span class="pre">/no_slash/</span></code>, <em>no</em> route will match, and the slash-appending not found view
-will not find a matching route with an appended slash.  As a result, the
-<code class="docutils literal notranslate"><span class="pre">notfound</span></code> view will be called and it will return a &quot;Not found&quot; body.</p>
-<p>If a request enters the application with the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> value of
-<code class="docutils literal notranslate"><span class="pre">/has_slash/</span></code>, the second route will match.  If a request enters the
-application with the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> value of <code class="docutils literal notranslate"><span class="pre">/has_slash</span></code>, a route <em>will</em> be
-found by the slash-appending <a class="reference internal" href="../glossary.html#term-not-found-view"><span class="xref std std-term">Not Found View</span></a>.  An HTTP redirect to
-<code class="docutils literal notranslate"><span class="pre">/has_slash/</span></code> will be returned to the user's browser.  As a result, the
-<code class="docutils literal notranslate"><span class="pre">notfound</span></code> view will never actually be called.</p>
-<p>The following application uses the <a class="reference internal" href="../api/view.html#pyramid.view.notfound_view_config" title="pyramid.view.notfound_view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.view.notfound_view_config</span></code></a>
-and <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.view.view_config</span></code></a> decorators and a <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a> to do
-exactly the same job:</p>
+<p>要求が `` / no_slash``の `` PATH_INFO``値を持つアプリケーションに入ると、最初の経路が一致し、ブラウザに&amp;quot;スラッシュなし&amp;quot;と表示されます。しかし、要求が `` / no_slash / <a href="#id1"><span class="problematic" id="id2">``</span></a>の値を持つアプリケーションを入力すると、* no <a href="#id3"><span class="problematic" id="id4">*</span></a>のルートが一致し、スラッシュを追加していないビューはスラッシュが付加された一致するルートを見つけられません。その結果、 `` notfound``ビューが呼び出され、&amp;quot;Not found &amp;quot;ボディが返されます。</p>
+<p>リクエストが `` / has_slash / <a href="#id1"><span class="problematic" id="id2">``</span></a>の `` PATH_INFO``値を持つアプリケーションに入ると、2番目のルートが一致します。要求が `` / has_slash``の `` PATH_INFO``値を持つアプリケーションに入ると、ルート*はスラッシュ - 追加：term： <cite>Not Found View`によって見つけられます。 `</cite> / has_slash / <a href="#id3"><span class="problematic" id="id4">``</span></a>へのHTTPリダイレクトがユーザのブラウザに返されます。その結果、 `` notfound``ビューは実際には決して呼び出されません。</p>
+<p>次のアプリケーションは、：class： <cite>pyramid.view.notfound_view_config`と：class：</cite> pyramid.view.view_config`デコレータと、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>scan`を使って、まったく同じ仕事をします：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -817,23 +569,13 @@ exactly the same job:</p>
 </td></tr></table></div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">You <strong>should not</strong> rely on this mechanism to redirect <code class="docutils literal notranslate"><span class="pre">POST</span></code> requests.
-The redirect  of the slash-appending <a class="reference internal" href="../glossary.html#term-not-found-view"><span class="xref std std-term">Not Found View</span></a> will turn a
-<code class="docutils literal notranslate"><span class="pre">POST</span></code> request into a <code class="docutils literal notranslate"><span class="pre">GET</span></code>, losing any <code class="docutils literal notranslate"><span class="pre">POST</span></code> data in the original
-request.</p>
+<p class="last">あなたは `` POST``要求をリダイレクトするためにこのメカニズムに依存してはいけません。 slash-appending：term： <cite>Not Found View`のリダイレクトは、</cite> <cite>POST``要求を</cite> <cite>GET``に変換し、元の要求の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>POST``データを失います。</p>
 </div>
-<p>See <a class="reference internal" href="../api/view.html#view-module"><span class="std std-ref">pyramid.view</span></a> and <a class="reference internal" href="hooks.html#changing-the-notfound-view"><span class="std std-ref">Changing the Not Found View</span></a> for a more
-general description of how to configure a view and/or a <a class="reference internal" href="../glossary.html#term-not-found-view"><span class="xref std std-term">Not Found View</span></a>.</p>
+<p>ビューや：term： <cite>Not Found View`の設定方法のより一般的な説明については：ref：</cite> view_module`と：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>changing_the_notfound_view`を参照してください。</p>
 </div>
 <div class="section" id="debugging-route-matching">
-<span id="debug-routematch-section"></span><span id="index-13"></span><h2>Debugging Route Matching<a class="headerlink" href="#debugging-route-matching" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>It's useful to be able to take a peek under the hood when requests that enter
-your application aren't matching your routes as you expect them to.  To debug
-route matching, use the <code class="docutils literal notranslate"><span class="pre">PYRAMID_DEBUG_ROUTEMATCH</span></code> environment variable or
-the <code class="docutils literal notranslate"><span class="pre">pyramid.debug_routematch</span></code> configuration file setting (set either to
-<code class="docutils literal notranslate"><span class="pre">true</span></code>). Details of the route matching decision for a particular request to
-the <span>Pyramid</span> application will be printed to the <code class="docutils literal notranslate"><span class="pre">stderr</span></code> of the console
-which you started the application from.  For example:</p>
+<span id="debug-routematch-section"></span><span id="index-13"></span><h2>ルートマッチングのデバッグ<a class="headerlink" href="#debugging-route-matching" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>あなたのアプリケーションに入ってくるリクエストが期待どおりにあなたのルートに合っていないときに、ボンネットの下で覗くことができると便利です。ルートマッチングをデバッグするには、 `` PYRAMID_DEBUG_ROUTEMATCH``環境変数か `` pyramid.debug_routematch``設定ファイルの設定（ `` true``にセット）を使います。 ：app： <cite>Pyramid`アプリケーションへの特定の要求に対するルートマッチングの決定の詳細は、あなたがアプリケーションを起動したコンソールの</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>stderr``に出力されます。例えば：</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -855,32 +597,16 @@ serving on 0.0.0.0:6543 view at http://127.0.0.1:6543
                             route_name: &#39;static/&#39;, ....
 </pre></div>
 </td></tr></table></div>
-<p>See <a class="reference internal" href="environment.html#environment-chapter"><span class="std std-ref">Environment Variables and .ini File Settings</span></a> for more information about how and where to set
-these values.</p>
-<p>You can also use the <code class="docutils literal notranslate"><span class="pre">proutes</span></code> command to see a display of all the routes
-configured in your application. For more information, see
-<a class="reference internal" href="commandline.html#displaying-application-routes"><span class="std std-ref">Displaying All Application Routes</span></a>.</p>
+<p>これらの値の設定方法と場所の詳細については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>environment_chapter`を参照してください。</p>
+<p>`` proutes``コマンドを使って、アプリケーションで設定されたすべてのルートの表示を見ることもできます。詳細は、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>displaying_application_routes`を参照してください。</p>
 </div>
 <div class="section" id="using-a-route-prefix-to-compose-applications">
-<span id="route-prefix"></span><h2>Using a Route Prefix to Compose Applications<a class="headerlink" href="#using-a-route-prefix-to-compose-applications" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="route-prefix"></span><h2>ルートプレフィックスを使用したアプリケーションの作成<a class="headerlink" href="#using-a-route-prefix-to-compose-applications" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.2 で追加.</span></p>
 </div>
-<p>The <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> method allows configuration
-statements to be included from separate files.  See
-<a class="reference internal" href="extending.html#building-an-extensible-app"><span class="std std-ref">Rules for Building an Extensible Application</span></a> for information about this method.  Using
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> allows you to build your
-application from small and potentially reusable components.</p>
-<p>The <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> method accepts an argument
-named <code class="docutils literal notranslate"><span class="pre">route_prefix</span></code> which can be useful to authors of URL-dispatch-based
-applications.  If <code class="docutils literal notranslate"><span class="pre">route_prefix</span></code> is supplied to the include method, it must
-be a string.  This string represents a route prefix that will be prepended to
-all route patterns added by the <em>included</em> configuration.  Any calls to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> within the included callable will
-have their pattern prefixed with the value of <code class="docutils literal notranslate"><span class="pre">route_prefix</span></code>. This can be
-used to help mount a set of routes at a different location than the included
-callable's author intended while still maintaining the same route names.  For
-example:</p>
+<p>：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.include`メソッドを使うと、設定文を別々のファイルからインクルードすることができます。このメソッドについては、ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>building_an_extensible_app`を参照してください。 ：meth： <a href="#id5"><span class="problematic" id="id6">`</span></a>pyramid.config.Configurator.include`を使うと、小さくて潜在的に再利用可能なコンポーネントからアプリケーションを構築することができます。</p>
+<p>：meth： <cite>pyramid.config.Configurator.include`メソッドは、</cite> <cite>route_prefix``という名前の引数を受け取ります。これは、URLディスパッチベースのアプリケーションの作成者にとって有用なものです。 `</cite> route_prefix``がインクルードメソッドに与えられている場合は、文字列でなければなりません。この文字列は、* included <a href="#id1"><span class="problematic" id="id2">*</span></a>設定で追加されたすべてのルートパターンの先頭に付加されるルートプレフィックスを表します。インクルードされた呼び出し可能ファイル内の：meth： <cite>pyramid.config.Configurator.add_route`への呼び出しには、</cite> <a href="#id3"><span class="problematic" id="id4">`</span></a>route_prefix``の値の接頭辞が付きます。これは、同じルート名を維持しながら、インクルードされた呼び出し可能な作成者とは異なる場所に一連のルートをマウントするのに役立ちます。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -898,15 +624,8 @@ example:</p>
     <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="n">users_include</span><span class="p">,</span> <span class="n">route_prefix</span><span class="o">=</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>In the above configuration, the <code class="docutils literal notranslate"><span class="pre">show_users</span></code> route will have an effective
-route pattern of <code class="docutils literal notranslate"><span class="pre">/users/show</span></code> instead of <code class="docutils literal notranslate"><span class="pre">/show</span></code> because the
-<code class="docutils literal notranslate"><span class="pre">route_prefix</span></code> argument will be prepended to the pattern.  The route will
-then only match if the URL path is <code class="docutils literal notranslate"><span class="pre">/users/show</span></code>, and when the
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_url()</span></code></a> function is called with the route
-name <code class="docutils literal notranslate"><span class="pre">show_users</span></code>, it will generate a URL with that same path.</p>
-<p>Route prefixes are recursive, so if a callable executed via an include itself
-turns around and includes another callable, the second-level route prefix will
-be prepended with the first:</p>
+<p>上記の設定では、 `` show_users``ルートは `` / show``の代わりに `` / users / show``の効果的なルートパターンを持ちます。これは `` route_prefix``引数がパターンの前に付加されるからです。 URLパスが `` / users / show``である場合にのみルートが一致し、 `` show_users``：meth： <cite>pyramid.request.Request.route_url`関数がルート名</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>show_users``で呼び出されると、ルートは一致しますその同じパスを持つURLを生成します。</p>
+<p>ルートプレフィックスは再帰的なものなので、インクルード自体を介して実行された呼び出し可能なものがターンアラウンドし、別の呼び出し可能コードを含む場合、第2レベルのルートプレフィックスには最初のものが付加されます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -932,15 +651,8 @@ be prepended with the first:</p>
     <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="n">users_include</span><span class="p">,</span> <span class="n">route_prefix</span><span class="o">=</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>In the above configuration, the <code class="docutils literal notranslate"><span class="pre">show_users</span></code> route will still have an
-effective route pattern of <code class="docutils literal notranslate"><span class="pre">/users/show</span></code>.  The <code class="docutils literal notranslate"><span class="pre">show_times</span></code> route, however,
-will have an effective pattern of <code class="docutils literal notranslate"><span class="pre">/users/timing/times</span></code>.</p>
-<p>Route prefixes have no impact on the requirement that the set of route <em>names</em>
-in any given Pyramid configuration must be entirely unique.  If you compose
-your URL dispatch application out of many small subapplications using
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a>, it's wise to use a dotted name for
-your route names so they'll be unlikely to conflict with other packages that
-may be added in the future.  For example:</p>
+<p>上記の設定では、 `` show_users``ルートは `` / users / show``という有効なルートパターンを持っています。しかし、 `` show_times``ルートは `` / users / timing / times``の有効なパターンを持ちます。</p>
+<p>ルート接頭辞は、与えられたピラミッド構成における経路*名前*のセットが完全に一意でなければならないという要件に影響を与えません。 ：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.include`を使用して、多くの小さなサブアプリケーションからURLディスパッチアプリケーションを作成する場合は、ルート名にドット付きの名前を使用することをお勧めします。そうすれば、他のパッケージと競合する可能性は低くなります将来追加される予定です。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -968,19 +680,10 @@ may be added in the future.  For example:</p>
 </td></tr></table></div>
 </div>
 <div class="section" id="custom-route-predicates">
-<span id="index-14"></span><span id="id4"></span><h2>Custom Route Predicates<a class="headerlink" href="#custom-route-predicates" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Each of the predicate callables fed to the <code class="docutils literal notranslate"><span class="pre">custom_predicates</span></code> argument of
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a> must be a callable accepting two
-arguments.  The first argument passed to a custom predicate is a dictionary
-conventionally named <code class="docutils literal notranslate"><span class="pre">info</span></code>.  The second argument is the current
-<a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">info</span></code> dictionary has a number of contained values, including <code class="docutils literal notranslate"><span class="pre">match</span></code>
-and <code class="docutils literal notranslate"><span class="pre">route</span></code>. <code class="docutils literal notranslate"><span class="pre">match</span></code> is a dictionary which represents the arguments matched
-in the URL by the route. <code class="docutils literal notranslate"><span class="pre">route</span></code> is an object representing the route which
-was matched (see <a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.IRoute" title="pyramid.interfaces.IRoute"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IRoute</span></code></a> for the API of such a route
-object).</p>
-<p><code class="docutils literal notranslate"><span class="pre">info['match']</span></code> is useful when predicates need access to the route match.
-For example:</p>
+<span id="index-14"></span><span id="id4"></span><h2>カスタムルート条件<a class="headerlink" href="#custom-route-predicates" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：meth： <cite>〜pyramid.config.Configurator.add_route`の</cite> <cite>custom_predicates``引数に与えられた述語呼び出し可能ファイルのそれぞれは、2つの引数を受け入れる呼び出し可能でなければなりません。カスタム述語に渡される最初の引数は、通常は `</cite> info``という名前の辞書です。 2番目の引数は、現在の：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>request`オブジェクトです。</p>
+<p>`` info``辞書には、 `` match``と `` route``を含むいくつかの値が含まれています。 `` match``は、ルートでURLにマッチした引数を表す辞書です。 `` route``は、一致したルートを表すオブジェクトです（このようなルートオブジェクトのAPIについては、class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.interfaces.IRoute`を参照してください）。</p>
+<p>`` info [&amp;#39;match&amp;#39;] <a href="#id1"><span class="problematic" id="id2">``</span></a>は述語が経路マッチにアクセスする必要があるときに便利です。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1002,16 +705,8 @@ For example:</p>
                  <span class="n">custom_predicates</span><span class="o">=</span><span class="p">(</span><span class="n">num_one_two_or_three</span><span class="p">,))</span>
 </pre></div>
 </td></tr></table></div>
-<p>The above <code class="docutils literal notranslate"><span class="pre">any_of</span></code> function generates a predicate which ensures that the
-match value named <code class="docutils literal notranslate"><span class="pre">segment_name</span></code> is in the set of allowable values
-represented by <code class="docutils literal notranslate"><span class="pre">allowed</span></code>.  We use this <code class="docutils literal notranslate"><span class="pre">any_of</span></code> function to generate a
-predicate function named <code class="docutils literal notranslate"><span class="pre">num_one_two_or_three</span></code>, which ensures that the
-<code class="docutils literal notranslate"><span class="pre">num</span></code> segment is one of the values <code class="docutils literal notranslate"><span class="pre">one</span></code>, <code class="docutils literal notranslate"><span class="pre">two</span></code>, or <code class="docutils literal notranslate"><span class="pre">three</span></code> , and use
-the result as a custom predicate by feeding it inside a tuple to the
-<code class="docutils literal notranslate"><span class="pre">custom_predicates</span></code> argument to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a>.</p>
-<p>A custom route predicate may also <em>modify</em> the <code class="docutils literal notranslate"><span class="pre">match</span></code> dictionary.  For
-instance, a predicate might do some type conversion of values:</p>
+<p>上記の `` any_of``関数は、 `` segment_name``という名前の一致値が `` allowed``で表される許容値の集合にあることを保証する述語を生成します。この `` any_of``関数を使って `` num_one_two_or_three``という名前の述語関数を生成します。これは `` num``セグメントが `` one``、 `` two``、 `` <cite>three_``を呼び出し、それをタプルの中で</cite> <cite>custom_predicates``の引数：meth：</cite>〜pyramid.config.Configurator.add_route`に渡すことで、結果をカスタム述語として使用します。</p>
+<p>カスタム経路述語は `` match``辞書を変更することもできます*。たとえば、述部は値の型変換を行うことがあります。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1043,11 +738,8 @@ instance, a predicate might do some type conversion of values:</p>
                  <span class="n">custom_predicates</span><span class="o">=</span><span class="p">(</span><span class="n">ymd_to_int</span><span class="p">,))</span>
 </pre></div>
 </td></tr></table></div>
-<p>Note that a conversion predicate is still a predicate, so it must return
-<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. A predicate that does <em>only</em> conversion, such as the one
-we demonstrate above, should unconditionally return <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<p>To avoid the try/except uncertainty, the route pattern can contain regular
-expressions specifying requirements for that marker. For instance:</p>
+<p>変換述語は依然として述語なので、 `` True``または `` False``を返す必要があることに注意してください。上記のような*変換のみを行う述語は、無条件に `` True``を返すべきです。</p>
+<p>トライ/不確実性を避けるために、ルートパターンにはそのマーカーの要件を指定する正規表現を含めることができます。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1073,29 +765,13 @@ expressions specifying requirements for that marker. For instance:</p>
                  <span class="n">custom_predicates</span><span class="o">=</span><span class="p">(</span><span class="n">ymd_to_int</span><span class="p">,))</span>
 </pre></div>
 </td></tr></table></div>
-<p>Now the try/except is no longer needed because the route will not match at all
-unless these markers match <code class="docutils literal notranslate"><span class="pre">\d+</span></code> which requires them to be valid digits for
-an <code class="docutils literal notranslate"><span class="pre">int</span></code> type conversion.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">match</span></code> dictionary passed within <code class="docutils literal notranslate"><span class="pre">info</span></code> to each predicate attached to a
-route will be the same dictionary.  Therefore, when registering a custom
-predicate which modifies the <code class="docutils literal notranslate"><span class="pre">match</span></code> dict, the code registering the predicate
-should usually arrange for the predicate to be the <em>last</em> custom predicate in
-the custom predicate list.  Otherwise, custom predicates which fire subsequent
-to the predicate which performs the <code class="docutils literal notranslate"><span class="pre">match</span></code> modification will receive the
-<em>modified</em> match dictionary.</p>
+<p>これらのマーカーが `` d + <a href="#id1"><span class="problematic" id="id2">``</span></a>にマッチしない限り、ルートがまったくマッチしないため、try / exceptはもう必要ありません。 `` int``型変換の有効数字にする必要があります。</p>
+<p>ルートに付けられた各述語に `` info``の中で渡される `` match``辞書は、同じ辞書になります。したがって、 `` match``を変更するカスタム述部を登録するとき、述部を登録するコードは通常、<em>。*カスタム述部である述部をカスタム述部リストに配置する必要があります。さもなければ、 `` match``を実行する述語に続いて発生するカスタム述語は、</em> modified <a href="#id1"><span class="problematic" id="id2">*</span></a>一致辞書を受け取ります。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">It is a poor idea to rely on ordering of custom predicates to build a
-conversion pipeline, where one predicate depends on the side effect of
-another.  For instance, it's a poor idea to register two custom predicates,
-one which handles conversion of a value to an int, the next which handles
-conversion of that integer to some custom object.  Just do all that in a
-single custom predicate.</p>
+<p class="last">1つの述部が別の述部の副作用に依存する変換パイプラインを構築するために、カスタム述部の順序付けに依存することは賢明ではありません。たとえば、値のintへの変換を処理する2つのカスタム述部を登録することはお勧めできません。次に、その整数の一部のカスタム・オブジェクトへの変換を処理する次の述部を登録します。単一のカスタム述語ですべてを行うだけです。</p>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">route</span></code> object in the <code class="docutils literal notranslate"><span class="pre">info</span></code> dict is an object that has two useful
-attributes: <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">pattern</span></code>.  The <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute is the route name.
-The <code class="docutils literal notranslate"><span class="pre">pattern</span></code> attribute is the route pattern.  Here's an example of using the
-route in a set of route predicates:</p>
+<p>`` info`` dictの `` route``オブジェクトは、 `` name``と `` pattern``の2つの有用な属性を持つオブジェクトです。 `` name``属性はルート名です。 `` pattern``属性はルートパターンです。一連のルート述語でルートを使用する例を次に示します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1113,13 +789,9 @@ route in a set of route predicates:</p>
                  <span class="n">custom_predicates</span><span class="o">=</span><span class="p">(</span><span class="n">twenty_ten</span><span class="p">,))</span>
 </pre></div>
 </td></tr></table></div>
-<p>The above predicate, when added to a number of route configurations ensures
-that the year match argument is '2010' if and only if the route name is 'ymd',
-'ym', or 'y'.</p>
-<p>You can also caption the predicates by setting the <code class="docutils literal notranslate"><span class="pre">__text__</span></code> attribute. This
-will help you with the <code class="docutils literal notranslate"><span class="pre">pviews</span></code> command (see
-<a class="reference internal" href="commandline.html#displaying-application-routes"><span class="std std-ref">Displaying All Application Routes</span></a>) and the <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code>.</p>
-<p>If a predicate is a class, just add <code class="docutils literal notranslate"><span class="pre">__text__</span></code> property in a standard manner.</p>
+<p>上記の述語をいくつかのルート構成に追加すると、ルート名が &amp;#39;ymd&amp;#39;、 &amp;#39;ym&amp;#39;、または &amp;#39;y&amp;#39;の場合にのみ、年一致引数が &amp;#39;2010&amp;#39;になります。</p>
+<p>`` __text__``属性を設定することで、述語に字幕を付けることもできます。これは `` pviews``コマンド（：ref： <cite>displaying_application_routes`を参照）と</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid_debugtoolbar``を手伝ってくれます。</p>
+<p>述語がクラスの場合、標準的な方法で `` __text__``プロパティを追加するだけです。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1133,8 +805,7 @@ will help you with the <code class="docutils literal notranslate"><span class="p
     <span class="n">__text__</span> <span class="o">=</span> <span class="s1">&#39;my custom class predicate&#39;</span>
 </pre></div>
 </td></tr></table></div>
-<p>If a predicate is a method, you'll need to assign it after method declaration
-(see <a class="reference external" href="https://www.python.org/dev/peps/pep-0232/">PEP 232</a>).</p>
+<p>述語がメソッドの場合、メソッド宣言の後にそれを割り当てる必要があります（ <a href="#id1"><span class="problematic" id="id2">`</span></a>PEP 232 &lt;<a class="reference external" href="https://www.python.org/dev/peps/pep-0232/">https://www.python.org/dev/peps/pep-0232/</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_）。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">custom_predicate</span><span class="p">():</span>
@@ -1142,8 +813,7 @@ will help you with the <code class="docutils literal notranslate"><span class="p
 <span class="n">custom_predicate</span><span class="o">.</span><span class="n">__text__</span> <span class="o">=</span> <span class="s1">&#39;my custom method predicate&#39;</span>
 </pre></div>
 </td></tr></table></div>
-<p>If a predicate is a classmethod, using <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code> will not work, but you
-can still easily do it by wrapping it in a classmethod call.</p>
+<p>述語がクラスメソッドである場合、 `` &#64; classmethod``を使っても動作しませんが、classmethodコールでそれをラップすることで簡単に行うことができます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1153,23 +823,15 @@ can still easily do it by wrapping it in a classmethod call.</p>
 <span class="n">classmethod_predicate</span> <span class="o">=</span> <span class="nb">classmethod</span><span class="p">(</span><span class="n">classmethod_predicate</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The same will work with <code class="docutils literal notranslate"><span class="pre">staticmethod</span></code>, using <code class="docutils literal notranslate"><span class="pre">staticmethod</span></code> instead of
-<code class="docutils literal notranslate"><span class="pre">classmethod</span></code>.</p>
+<p>同じことが `` staticmethod``では `` classmethod``の代わりに `` staticmethod``を使って動作します。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.IRoute" title="pyramid.interfaces.IRoute"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IRoute</span></code></a> for more API documentation
-about route objects.</p>
+<p class="last">ルートオブジェクトに関するAPIドキュメントの詳細は、class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.interfaces.IRoute`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="route-factories">
-<span id="index-15"></span><span id="id5"></span><h2>Route Factories<a class="headerlink" href="#route-factories" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Although it is not a particularly common need in basic applications, a &quot;route&quot;
-configuration declaration can mention a &quot;factory&quot;.  When a route matches a
-request, and a factory is attached to the route, the <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a>
-passed at startup time to the <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> is ignored. Instead the
-factory associated with the route is used to generate a <a class="reference internal" href="../glossary.html#term-root"><span class="xref std std-term">root</span></a> object.
-This object will usually be used as the <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource of the view
-callable ultimately found via <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a>.</p>
+<span id="index-15"></span><span id="id5"></span><h2>ルートファクトリー<a class="headerlink" href="#route-factories" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>基本的なアプリケーションでは特に一般的なニーズではありませんが、&amp;quot;route &amp;quot;構成宣言では&amp;quot;factory &amp;quot;と言います。ルートが要求と一致し、そのルートにファクトリが添付されている場合、起動時に：term： <cite>Configurator`に渡される：term：`ルートファクトリ &amp;#39;は無視されます。代わりにルートに関連付けられたファクトリを使用して：term： `ルート`オブジェクトを生成します。このオブジェクトは通常：term： `view lookup`を介して最終的に見つけられるcallableのview：term：</cite> context`リソースとして使用されます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;/abc&#39;</span><span class="p">,</span>
@@ -1177,13 +839,9 @@ callable ultimately found via <a class="reference internal" href="../glossary.ht
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;myproject.views.theview&#39;</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The factory can either be a Python object or a <a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted Python name</span></a> (a
-string) which points to such a Python object, as it is above.</p>
-<p>In this way, each route can use a different factory, making it possible to
-supply a different <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource object to the view related to each
-particular route.</p>
-<p>A factory must be a callable which accepts a request and returns an arbitrary
-Python object.  For example, the below class can be used as a factory:</p>
+<p>ファクトリは、上記のように、Pythonオブジェクトまたは：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>点線のPython名`（文字列）のいずれかで、そのようなPythonオブジェクトを指します。</p>
+<p>このように、各ルートは異なるファクトリを使用することができ、異なる：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>context`リソースオブジェクトをそれぞれの特定のルートに関連するビューに供給することができます。</p>
+<p>ファクトリは、要求を受け取り、任意のPythonオブジェクトを返す呼び出し可能なものでなければなりません。たとえば、以下のクラスはファクトリとして使用できます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mine</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -1191,25 +849,13 @@ Python object.  For example, the below class can be used as a factory:</p>
         <span class="k">pass</span>
 </pre></div>
 </td></tr></table></div>
-<p>A route factory is actually conceptually identical to the <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a>
-described at <a class="reference internal" href="traversal.html#the-resource-tree"><span class="std std-ref">The Resource Tree</span></a>.</p>
-<p>Supplying a different resource factory for each route is useful when you're
-trying to use a <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-authorization-policy"><span class="xref std std-term">authorization policy</span></a> to provide
-declarative, &quot;context sensitive&quot; security checks. Each resource can maintain a
-separate <a class="reference internal" href="../glossary.html#term-acl"><span class="xref std std-term">ACL</span></a>, as documented in <a class="reference internal" href="#using-security-with-urldispatch"><span class="std std-ref">Using Pyramid Security with URL Dispatch</span></a>.
-It is also useful when you wish to combine URL dispatch with <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>
-as documented within <a class="reference internal" href="hybrid.html#hybrid-chapter"><span class="std std-ref">Combining Traversal and URL Dispatch</span></a>.</p>
+<p>ルートファクトリは、実際には：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>the_resource_tree`に記述されている：term：<a href="#id3"><span class="problematic" id="id4">`</span></a>ルートファクトリ &amp;#39;と概念的には同じです。</p>
+<p>宣言的なcontext sensitive security checkを提供するために、：app： <cite>Pyramid</cite>：term：<cite>認可ポリシー `を使用しようとしているとき、それぞれのルートに対して異なるリソースファクトリを提供することは便利です。各リソースは、：ref： `using_security_with_urldispatch`に記載されているように、別名：term：</cite> ACL`を保持することができます。これは：ref： <cite>hybrid_chapter`の中で文書化されているようにURLディスパッチを：term：</cite> traversal`と組み合わせたい場合にも便利です。</p>
 </div>
 <div class="section" id="using-pyramid-security-with-url-dispatch">
-<span id="using-security-with-urldispatch"></span><span id="index-16"></span><h2>Using <span>Pyramid</span> Security with URL Dispatch<a class="headerlink" href="#using-pyramid-security-with-url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><span>Pyramid</span> provides its own security framework which consults an
-<a class="reference internal" href="../glossary.html#term-authorization-policy"><span class="xref std std-term">authorization policy</span></a> before allowing any application code to be called.
-This framework operates in terms of an access control list, which is stored as
-an <code class="docutils literal notranslate"><span class="pre">__acl__</span></code> attribute of a resource object.  A common thing to want to do is
-to attach an <code class="docutils literal notranslate"><span class="pre">__acl__</span></code> to the resource object dynamically for declarative
-security purposes.  You can use the <code class="docutils literal notranslate"><span class="pre">factory</span></code> argument that points at a
-factory which attaches a custom <code class="docutils literal notranslate"><span class="pre">__acl__</span></code> to an object at its creation time.</p>
-<p>Such a <code class="docutils literal notranslate"><span class="pre">factory</span></code> might look like so:</p>
+<span id="using-security-with-urldispatch"></span><span id="index-16"></span><h2>使用：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`セキュリティとURLディスパッチ<a class="headerlink" href="#using-pyramid-security-with-url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <cite>Pyramid`はアプリケーションコードの呼び出しを許可する前に：term：`認可ポリシー `を調べる独自のセキュリティフレームワークを提供します。このフレームワークは、リソースオブジェクトの `</cite> __acl__``属性として格納されているアクセス制御リストの観点から動作します。一般的なことは、宣言的なセキュリティ目的のためにリソースオブジェクトに `` __acl__``を動的に付加することです。ファクトリを指す `` factory``引数は、作成時にカスタム `` __acl__``をオブジェクトに付加して使うことができます。</p>
+<p>そのような「工場」は次のように見えるかもしれません：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1223,60 +869,29 @@ factory which attaches a custom <code class="docutils literal notranslate"><span
            <span class="bp">self</span><span class="o">.</span><span class="n">__acl__</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="n">Allow</span><span class="p">,</span> <span class="s1">&#39;editor&#39;</span><span class="p">,</span> <span class="s1">&#39;view&#39;</span><span class="p">)</span> <span class="p">]</span>
 </pre></div>
 </td></tr></table></div>
-<p>If the route <code class="docutils literal notranslate"><span class="pre">archives/{article}</span></code> is matched, and the article number is
-<code class="docutils literal notranslate"><span class="pre">1</span></code>, <span>Pyramid</span> will generate an <code class="docutils literal notranslate"><span class="pre">Article</span></code> <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource
-with an ACL on it that allows the <code class="docutils literal notranslate"><span class="pre">editor</span></code> principal the <code class="docutils literal notranslate"><span class="pre">view</span></code> permission.
-Obviously you can do more generic things than inspect the route's match dict to
-see if the <code class="docutils literal notranslate"><span class="pre">article</span></code> argument matches a particular string. Our sample
-<code class="docutils literal notranslate"><span class="pre">Article</span></code> factory class is not very ambitious.</p>
+<p>： <cite>archives / {article}</cite> <cite>が一致し、アーティクル番号が</cite> <cite>1``の場合、：app：</cite> Pyramid`はACLを持つ `` Article``：term： <cite>context`リソースを生成します``編集 ``プリンシパルの `</cite> view``パーミッションを許可します。明らかに、 `` article``引数が特定の文字列にマッチするかどうかを調べるために、ルートの一致を調べるよりも一般的なことができます。サンプルの `` Article``工場クラスはあまり野心的ではありません。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">See <a class="reference internal" href="security.html#security-chapter"><span class="std std-ref">Security</span></a> for more information about <span>Pyramid</span>
-security and ACLs.</p>
+<p class="last">詳細は：ref： <cite>security_chapter`を参照してください：app：</cite> Pyramid`セキュリティとACL。</p>
 </div>
 </div>
 <div class="section" id="route-view-callable-registration-and-lookup-details">
-<span id="index-17"></span><h2>Route View Callable Registration and Lookup Details<a class="headerlink" href="#route-view-callable-registration-and-lookup-details" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>When a request enters the system which matches the pattern of the route, the
-usual result is simple: the view callable associated with the route is
-invoked with the request that caused the invocation.</p>
-<p>For most usage, you needn't understand more than this. How it works is an
-implementation detail.  In the interest of completeness, however, we'll explain
-how it <em>does</em> work in this section.  You can skip it if you're uninterested.</p>
-<p>When a view is associated with a route configuration, <span>Pyramid</span> ensures
-that a <a class="reference internal" href="../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a> is registered that will always be found
-when the route pattern is matched during a request.  To do so:</p>
+<span id="index-17"></span><h2>ルートビュー呼び出し可能な登録と参照の詳細<a class="headerlink" href="#route-view-callable-registration-and-lookup-details" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>リクエストがルートのパターンに一致するシステムに入ると、通常の結果は簡単です。ルートに関連付けられたコール可能なビューが、呼び出しの原因となったリクエストとともに呼び出されます。</p>
+<p>ほとんどの場合、これ以上理解する必要はありません。どのように動作するかは実装の詳細です。しかし、完全性のために、このセクションでどのように*動作するかを説明します。あなたが無関心なら、あなたはそれをスキップすることができます。</p>
+<p>ビューがルート設定に関連付けられている場合、：app： <cite>Pyramid`はa：term：</cite> view configuration`が登録されていることを確認します。これはリクエスト中にルートパターンが一致したときに常に見つけられます。そうするには：</p>
 <ul class="simple">
-<li>A special route-specific <a class="reference internal" href="../glossary.html#term-interface"><span class="xref std std-term">interface</span></a> is created at startup time for
-each route configuration declaration.</li>
-<li>When an <code class="docutils literal notranslate"><span class="pre">add_view</span></code> statement mentions a <code class="docutils literal notranslate"><span class="pre">route</span> <span class="pre">name</span></code> attribute, a
-<a class="reference internal" href="../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a> is registered at startup time.  This view
-configuration uses a route-specific interface as a <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> type.</li>
-<li>At runtime, when a request causes any route to match, the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a>
-object is decorated with the route-specific interface.</li>
-<li>The fact that the request is decorated with a route-specific interface causes
-the <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> machinery to always use the view callable registered
-using that interface by the route configuration to service requests that
-match the route pattern.</li>
+<li>特別なルート特有の：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>interface`は各ルート設定宣言のために起動時に作成されます。</li>
+<li>`` add_view``文が `` route name``属性を記述すると、起動時に：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>view configuration`が登録されます。このビュー構成では、経路指定インタフェースを：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>request`型として使用します。</li>
+<li>実行時に、要求によって任意のルートが一致すると、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>request`オブジェクトがルート固有のインタフェースで修飾されます。</li>
+<li>要求が経路特有のインタフェースで装飾されているという事実は、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>view lookup`機構が、経路構成に一致する要求を処理するために経路構成によってそのインタフェースを使用して呼び出された呼び出し可能なビューを常に使用するようにします。</li>
 </ul>
-<p>As we can see from the above description, technically, URL dispatch doesn't
-actually map a URL pattern directly to a view callable.  Instead URL dispatch
-is a <a class="reference internal" href="../glossary.html#term-resource-location"><span class="xref std std-term">resource location</span></a> mechanism.  A <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-resource-location"><span class="xref std std-term">resource
-location</span></a> subsystem (i.e., <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> or <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>) finds a
-<a class="reference internal" href="../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> object that is the <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> of a <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a>. Once
-the <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> is determined, a separate subsystem named <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view
-lookup</span></a> is then responsible for finding and invoking a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>
-based on information available in the context and the request.  When URL
-dispatch is used, the resource location and view lookup subsystems provided by
-<span>Pyramid</span> are still being utilized, but in a way which does not require a
-developer to understand either of them in detail.</p>
-<p>If no route is matched using <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>, <span>Pyramid</span> falls back to
-<a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> to handle the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a>.</p>
+<p>上の説明からわかるように、技術的には、URLディスパッチはURLパターンを直接ビュー呼び出し可能にマップしません。代わりに、URLディスパッチは：term： <cite>resource location`メカニズムです。 A：app： `Pyramid</cite>：term：` resource location`サブシステム（：term： <cite>URL dispatch`または：term：</cite> traversal`）は：term： <cite>context`であるa：term：</cite> resource`オブジェクトを検索します。 <cite>の：term：`要求 &amp;#39; ：term： `context`が決定されると、term：</cite> view lookup`という独立したサブシステムは、コンテキストと要求で利用可能な情報に基づいて：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>view callable`を見つけて呼び出します。 URLディスパッチが使用されると、：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid &amp;#39;によって提供されるリソースロケーションとビュールックアップサブシステムはまだ使用されていますが、開発者がどちらかを詳細に理解する必要はありません。</p>
+<p>：term： <cite>URL dispatch`を使用してルートが一致しない場合、：app：</cite> Pyramid`はterm： <cite>traversal`に落ちて：term：</cite> request`を処理します。</p>
 </div>
 <div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A tutorial showing how <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> can be used to create a
-<span>Pyramid</span> application exists in <a class="reference internal" href="../tutorials/wiki2/index.html#bfg-sql-wiki-tutorial"><span class="std std-ref">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</span></a>.</p>
+<h2>参考文献<a class="headerlink" href="#references" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ref： <cite>bfg_sql_wiki_tutorial`に：app：</cite> Pyramid`アプリケーションを作成するためのterm： <a href="#id1"><span class="problematic" id="id2">`</span></a>URL dispatch`の使い方を示すチュートリアルです。</p>
 </div>
 </div>
 
@@ -1288,38 +903,38 @@ developer to understand either of them in detail.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">URL Dispatch</a><ul>
-<li><a class="reference internal" href="#high-level-operational-overview">High-Level Operational Overview</a></li>
-<li><a class="reference internal" href="#route-configuration">Route Configuration</a><ul>
-<li><a class="reference internal" href="#configuring-a-route-to-match-a-view">Configuring a Route to Match a View</a></li>
-<li><a class="reference internal" href="#route-pattern-syntax">Route Pattern Syntax</a></li>
-<li><a class="reference internal" href="#route-declaration-ordering">Route Declaration Ordering</a></li>
-<li><a class="reference internal" href="#route-configuration-arguments">Route Configuration Arguments</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) URLディスパッチ</a><ul>
+<li><a class="reference internal" href="#high-level-operational-overview">高度な運用概要</a></li>
+<li><a class="reference internal" href="#route-configuration">ルート設定</a><ul>
+<li><a class="reference internal" href="#configuring-a-route-to-match-a-view">ビューと一致するようにルートを設定する</a></li>
+<li><a class="reference internal" href="#route-pattern-syntax">ルートパターンの構文</a></li>
+<li><a class="reference internal" href="#route-declaration-ordering">ルート宣言の発注</a></li>
+<li><a class="reference internal" href="#route-configuration-arguments">ルート設定引数</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#route-matching">Route Matching</a><ul>
-<li><a class="reference internal" href="#the-matchdict">The Matchdict</a></li>
-<li><a class="reference internal" href="#the-matched-route">The Matched Route</a></li>
+<li><a class="reference internal" href="#route-matching">ルートマッチング</a><ul>
+<li><a class="reference internal" href="#the-matchdict">マッチディック</a></li>
+<li><a class="reference internal" href="#the-matched-route">マッチしたルート</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#routing-examples">Routing Examples</a><ul>
-<li><a class="reference internal" href="#example-1">Example 1</a></li>
-<li><a class="reference internal" href="#example-2">Example 2</a></li>
-<li><a class="reference internal" href="#example-3">Example 3</a></li>
+<li><a class="reference internal" href="#routing-examples">ルーティングの例</a><ul>
+<li><a class="reference internal" href="#example-1">例1</a></li>
+<li><a class="reference internal" href="#example-2">例2</a></li>
+<li><a class="reference internal" href="#example-3">例3</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#matching-the-root-url">Matching the Root URL</a></li>
-<li><a class="reference internal" href="#generating-route-urls">Generating Route URLs</a></li>
-<li><a class="reference internal" href="#static-routes">Static Routes</a></li>
-<li><a class="reference internal" href="#external-routes">External Routes</a></li>
-<li><a class="reference internal" href="#redirecting-to-slash-appended-routes">Redirecting to Slash-Appended Routes</a></li>
-<li><a class="reference internal" href="#debugging-route-matching">Debugging Route Matching</a></li>
-<li><a class="reference internal" href="#using-a-route-prefix-to-compose-applications">Using a Route Prefix to Compose Applications</a></li>
-<li><a class="reference internal" href="#custom-route-predicates">Custom Route Predicates</a></li>
-<li><a class="reference internal" href="#route-factories">Route Factories</a></li>
-<li><a class="reference internal" href="#using-pyramid-security-with-url-dispatch">Using <span>Pyramid</span> Security with URL Dispatch</a></li>
-<li><a class="reference internal" href="#route-view-callable-registration-and-lookup-details">Route View Callable Registration and Lookup Details</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#matching-the-root-url">ルートURLの照合</a></li>
+<li><a class="reference internal" href="#generating-route-urls">ルートURLの生成</a></li>
+<li><a class="reference internal" href="#static-routes">静的ルート</a></li>
+<li><a class="reference internal" href="#external-routes">外部ルート</a></li>
+<li><a class="reference internal" href="#redirecting-to-slash-appended-routes">スラッシュが追加されたルートにリダイレクトする</a></li>
+<li><a class="reference internal" href="#debugging-route-matching">ルートマッチングのデバッグ</a></li>
+<li><a class="reference internal" href="#using-a-route-prefix-to-compose-applications">ルートプレフィックスを使用したアプリケーションの作成</a></li>
+<li><a class="reference internal" href="#custom-route-predicates">カスタムルート条件</a></li>
+<li><a class="reference internal" href="#route-factories">ルートファクトリー</a></li>
+<li><a class="reference internal" href="#using-pyramid-security-with-url-dispatch">使用：app： `Pyramid`セキュリティとURLディスパッチ</a></li>
+<li><a class="reference internal" href="#route-view-callable-registration-and-lookup-details">ルートビュー呼び出し可能な登録と参照の詳細</a></li>
+<li><a class="reference internal" href="#references">参考文献</a></li>
 </ul>
 </li>
 </ul>
@@ -1373,7 +988,7 @@ developer to understand either of them in detail.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

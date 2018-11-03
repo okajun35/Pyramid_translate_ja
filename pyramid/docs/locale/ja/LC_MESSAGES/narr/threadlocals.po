@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/threadlocals.rst:9
 msgid "Thread Locals"
-msgstr ""
+msgstr "(機械翻訳) スレッドローカル"
 
 #: ../../narr/threadlocals.rst:11
 msgid ""
@@ -29,18 +19,18 @@ msgid ""
 "true global variable, one thread or process serving the application may "
 "receive a different value than another thread or process when that "
 "variable is \"thread local\"."
-msgstr ""
+msgstr "A：term： `thread local`変数は、それを使用するアプリケーションにとっては「グローバル変数」であるように見える変数です。ただし、真のグローバル変数とは異なり、アプリケーションに対応するスレッドまたはプロセスは、その変数が「スレッドローカル」である場合、別のスレッドまたはプロセスとは異なる値を受け取ることがあります。"
 
 #: ../../narr/threadlocals.rst:16
 msgid ""
 "When a request is processed, :app:`Pyramid` makes two :term:`thread "
 "local` variables available to the application: a \"registry\" and a "
 "\"request\"."
-msgstr ""
+msgstr "リクエストが処理されるとき、：app： `Pyramid`は、アプリケーションに利用可能な2つのterm：` thread local`変数を作成します：\ &quot;レジストリ\&quot;と\ &quot;要求\&quot;。"
 
 #: ../../narr/threadlocals.rst:20
 msgid "Why and How :app:`Pyramid` Uses Thread Local Variables"
-msgstr ""
+msgstr "理由と方法：app： `Pyramid`はスレッドローカル変数を使用します"
 
 #: ../../narr/threadlocals.rst:22
 msgid ""
@@ -51,7 +41,7 @@ msgid ""
 "a thread local or a global is usually just a way to avoid passing some "
 "value around between functions, which is itself usually a very bad idea, "
 "at least if code readability counts as an important concern."
-msgstr ""
+msgstr "スレッド地方はどのように有益でしょう：app： `Pyramid`とアプリケーション開発者：app：` Pyramid`？まあ、通常、彼らは明らかに**ではありません**。どのアプリケーションでもグローバルまたはスレッドのローカル変数を使用すると、通常、カジュアルな読者にとっては理解するのがずっと難しくなります。スレッドのローカルまたはグローバルの使用は、通常、コード間の可読性が重要な問題とみなされる場合には、通常は非常に悪い考えである関数間で値を渡すことを避けるための方法です。"
 
 #: ../../narr/threadlocals.rst:30
 msgid ""
@@ -66,7 +56,7 @@ msgid ""
 "it then uses the authentication policy to retrieve the authenticated user"
 " id.  This is how :app:`Pyramid` allows arbitrary authentication policies"
 " to be \"plugged in\"."
-msgstr ""
+msgstr "しかし歴史的な理由から、スレッドローカル変数は、実際には：app： `Pyramid` API関数によって参照されます。例えば：func： `〜pyramid.security.authenticated_userid`（1.5で廃止予定）という名前の：mod：` pyramid.security`関数の実装は、スレッドlocal：term： `アプリケーションレジストリ`をもちろん取得します：term： `認証ポリシー`を見つける。これは、：func： `pyramid.threadlocal.get_current_registry`関数を使ってアプリケーションのレジストリを取得し、そこから認証ポリシーを検索します。認証ポリシーを使用して、認証されたユーザーIDを取得します。 app： `Pyramid`は、任意の認証ポリシーを\&quot;プラグイン\ &quot;にすることができます。"
 
 #: ../../narr/threadlocals.rst:41
 msgid ""
@@ -78,7 +68,7 @@ msgid ""
 "Both ``get_current_*`` functions retrieve an object from a thread-local "
 "data structure.  These API functions are documented in "
 ":ref:`threadlocal_module`."
-msgstr ""
+msgstr "彼らがそうする必要があるとき、：app： `Pyramid`内部は：term：` request`と：term： `application registry`：：func：`〜pyramid.threadlocal.get_current_request`と：func ： `〜pyramid.threadlocal.get_current_registry`。前者は\ &quot;現在の\&quot;要求を返します。後者は\ &quot;現在の\&quot;レジストリを返します。両方の `` get_current_ * ``関数は、スレッドローカルデータ構造からオブジェクトを取得します。これらのAPI関数は：ref： `threadlocal_module`に記述されています。"
 
 #: ../../narr/threadlocals.rst:49
 msgid ""
@@ -88,7 +78,7 @@ msgid ""
 ":app:`Pyramid` could not handle multiple simultaneous requests or allow "
 "more than one :app:`Pyramid` application instance to exist in a single "
 "Python process."
-msgstr ""
+msgstr "これらの値は真のグローバルではなくスレッドローカルです。一つのPythonプロセスが複数の同時リクエスト、あるいは複数の：app： `Pyramid`アプリケーションを扱うかもしれないからです。それらが真のグローバルであれば、：app： `Pyramid`は複数の同時リクエストを処理できないか、複数の：app：` Pyramid`アプリケーションインスタンスを単一のPythonプロセスに存在させることができませんでした。"
 
 #: ../../narr/threadlocals.rst:55
 msgid ""
@@ -97,7 +87,7 @@ msgid ""
 ":term:`WSGI` app with help from the :func:`pyramid.wsgi.wsgiapp2` "
 "decorator), these variables are managed in a *stack* during normal system"
 " operations.  The stack instance itself is a :class:`threading.local`."
-msgstr ""
+msgstr "one：app： `Pyramid`アプリケーションは、それ自身の：term：` view`コードから別の*：app： `Pyramid`アプリケーションを呼び出すことができます（おそらく、：term：` WSGI` app： ： `pyramid.wsgi.wsgiapp2`デコレータ）、これらの変数は通常のシステム操作中に* stack *で管理されます。スタックインスタンス自体は：class： `threading.local`です。"
 
 #: ../../narr/threadlocals.rst:61
 msgid ""
@@ -108,7 +98,7 @@ msgid ""
 "the stack are considered \"current\".  Therefore, when the system is "
 "operating normally, the very definition of \"current\" is defined "
 "entirely by the behavior of a pyramid :term:`Router`."
-msgstr ""
+msgstr "通常の操作の間、スレッドローカルスタックは：term： `Router`オブジェクトによって管理されます。要求の開始時に、ルータはアプリケーションのレジストリと要求をスタックにプッシュします。リクエストの最後に、スタックがポップされます。スタックの一番上の要求とレジストリは\ &quot;現在の\&quot;とみなされます。したがって、システムが正常に動作しているとき、\ &quot;現在の\&quot;の定義はピラミッド：用語：ルータの動作によって完全に定義されます。"
 
 #: ../../narr/threadlocals.rst:69
 msgid ""
@@ -120,7 +110,7 @@ msgid ""
 "functions). These functions push and pop the threadlocal stack when the "
 "system is under test.  See :ref:`test_setup_and_teardown` for the "
 "definitions of these functions."
-msgstr ""
+msgstr "しかし、ユニットテスト中には、ルータコードは一切呼び出されず、\ &quot;current \&quot;の定義は：meth： `pyramid.config.Configurator.begin`と：meth：`ピラミッドの呼び出しの境界によって定義されます。 config.Configurator.end`メソッド（または：func： `pyramid.testing.setUp`関数と：func：` pyramid.testing.tearDown`関数の呼び出しの間）を呼び出します。これらの関数は、システムがテスト中のときにスレッドローカルスタックをプッシュしてポップします。これらの関数の定義については：ref： `test_setup_and_teardown`を参照してください。"
 
 #: ../../narr/threadlocals.rst:78
 msgid ""
@@ -133,11 +123,11 @@ msgid ""
 "function to always return ``None``, and should expect the "
 ":func:`~pyramid.threadlocal.get_current_registry` function to return "
 "exactly the same :term:`application registry` for every request."
-msgstr ""
+msgstr "app： `Pyramid`機構を使用するスクリプトでは、実際にWSGIサーバを起動したり、HTTP経由でリクエストを受け取ることはありません。例えば、：mod：` pyramid.scripting` APIを使用するスクリプトは、決してルータコードを実行させません。しかし、：mod： `pyramid.scripting` APIはもちろん、スレッドローカルスタックにいくつかの値をプッシュします。このようなスクリプトは：func： `〜pyramid.threadlocal.get_current_request`関数が常に` `None``を返すよう期待し、：func：`〜pyramid.threadlocal.get_current_registry`関数がまったく同じ：term：リクエストごとに「アプリケーションレジストリ」を作成します。"
 
 #: ../../narr/threadlocals.rst:89
 msgid "Why You Shouldn't Abuse Thread Locals"
-msgstr ""
+msgstr "なぜあなたはスレッドローカルを乱用してはならないのですか？"
 
 #: ../../narr/threadlocals.rst:91
 msgid ""
@@ -148,7 +138,7 @@ msgid ""
 "``get_current_request`` or ``get_current_registry`` in application code "
 "because its usage makes it possible to write code that can be neither "
 "easily tested nor scripted.  Inappropriate usage is defined as follows:"
-msgstr ""
+msgstr "おそらくテストではなく、：func： `〜pyramid.threadlocal.get_current_request`や：func：`〜pyramid.threadlocal.get_current_registry`関数を使うことはほとんどありません。特に、アプリケーションコードで `` get_current_request``や `` get_current_registry``を使うのはほとんどの場合間違いです。なぜなら、その使い方で簡単にテストもスクリプト化もできないコードを書くことができるからです。不適切な使い方は次のように定義されています："
 
 #: ../../narr/threadlocals.rst:99
 msgid ""
@@ -156,14 +146,14 @@ msgid ""
 ":term:`view callable`, or within code called by a view callable. View "
 "callables already have access to the request (it's passed in to each as "
 "``request``)."
-msgstr ""
+msgstr "`` get_current_request``は、：term： `view callable`の本体の中で、あるいはview callableによって呼び出されるコードの中で決して呼び出されるべきではありません。ビュー呼び出し可能な呼び出しはすでにリクエストにアクセスしています（ `` request``として渡されます）。"
 
 #: ../../narr/threadlocals.rst:104
 msgid ""
 "``get_current_request`` should never be called in :term:`resource` code. "
 "If a resource needs access to the request, it should be passed the "
 "request by a :term:`view callable`."
-msgstr ""
+msgstr "`` get_current_request``はterm： `resource`のコードで決して呼び出されるべきではありません。リソースがリクエストにアクセスする必要がある場合は、：term： `view callable`によってリクエストを渡す必要があります。"
 
 #: ../../narr/threadlocals.rst:108
 msgid ""
@@ -177,7 +167,7 @@ msgid ""
 " arguments; this is why they exist. Don't try to \"save typing\" or "
 "create \"nicer APIs\" by using this function in the place where a request"
 " is required; this will only lead to sadness later."
-msgstr ""
+msgstr "`` get_current_request``関数は、APIデザインを作成する際に一連の関数呼び出しでリクエストを渡すよりも、呼び出しを考える方が\ &quot;簡単&quot;または\ &quot;よりエレガントな\&quot;という理由で呼び出されるべきではありません。実際にはビジネスを知らない場所でリクエストを取得するためにこの関数を呼び出すことに頼るのではなく、リクエストから導出されたデータを渡すことはほとんど確実です。パラメータは、関数の引数として渡すためのものです。これが存在する理由です。リクエストが必要な場所でこの関数を使用することで、「入力を保存する」または「より良いAPI」を作成しないでください。これは後で悲しみにつながるだけです。"
 
 #: ../../narr/threadlocals.rst:118
 msgid ""
@@ -187,7 +177,7 @@ msgid ""
 ":app:`Pyramid`, and making it dependent on :app:`Pyramid` (rather than "
 "making your :app:`pyramid` application depend upon it) means you're "
 "forming a dependency in the wrong direction."
-msgstr ""
+msgstr "第三者のライブラリコードのアプリケーション固有のフォーク内で、 `` get_current_request``と `` get_current_registry``のどちらも呼び出されるべきではありません。あなたが作ったライブラリは、app： `Pyramid`とは関係がありません：app：` Pyramid`に依存するようにしてください（あなたの：app： `pyramid`アプリケーションがそれに依存するのではなく）間違った方向への依存関係を形成する。"
 
 #: ../../narr/threadlocals.rst:125
 msgid ""
@@ -206,7 +196,7 @@ msgid ""
 "After some period of time, the older implementation code is disused and "
 "the hack that uses ``get_current_request`` is removed.  This would be an "
 "appropriate place to use the ``get_current_request``."
-msgstr ""
+msgstr "非常に限られた状況では、アプリケーションコード*内での：func： `〜pyramid.threadlocal.get_current_request`関数の使用はまだ有効です。経験則として、 `` get_current_request``の使用法は、コード内で有用です**は最終的に削除されることを意図しています**。たとえば、リクエストオブジェクトを渡すことを想定しているAPIを非難したいと思うかもしれません。しかし、古いAPIを廃止している間は、古いAPIの実装を一定期間維持する必要があります。したがって、古いAPIを実装するコードを呼び出す新しいAPIの\ &quot;ファサード\&quot;実装を記述します。新しいAPIは要求を必要としないため、ファサード実装は古いAPI実装に渡す必要があるときにリクエストへのローカルアクセスを持ちません。しばらくすると、古い実装コードが使われなくなり、 `` get_current_request``を使ったハックが取り除かれます。これは `` get_current_request``を使うのに適した場所です。"
 
 #: ../../narr/threadlocals.rst:140
 msgid ""
@@ -215,5 +205,5 @@ msgid ""
 " of the :meth:`pyramid.config.Configurator.begin` method during a test "
 "(or via :func:`pyramid.testing.setUp`) when you do not pass one in is "
 "available to you via this API."
-msgstr ""
+msgstr "：func： `〜pyramid.threadlocal.get_current_registry`関数の使用は、テストシナリオに限定する必要があります。レジストリは、テスト中に：meth： `pyramid.config.Configurator.begin`メソッドを使用して現在（または：func：` pyramid.testing.setUp`経由で）、あなたが渡していないときに、このAPI"
 

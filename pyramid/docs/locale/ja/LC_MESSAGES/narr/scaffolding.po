@@ -7,27 +7,17 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/scaffolding.rst:4
 msgid "Creating Pyramid Scaffolds"
-msgstr ""
+msgstr "(機械翻訳) ピラミッド足場の作成"
 
 #: ../../narr/scaffolding.rst:8
 msgid ""
 "Scaffolds and the ``pcreate`` script used to generate :app:`Pyramid` "
 "projects from scaffolds have been deprecated. Use :ref:`cookiecutters` "
 "instead."
-msgstr ""
+msgstr "Scaffoldsと、 `` pcreate``スクリプトは、足場からapp： `Pyramid`プロジェクトを生成するのに使用されていました。代わりに：ref： `cookiecutters`を使用してください。"
 
 #: ../../narr/scaffolding.rst:10
 msgid ""
@@ -40,11 +30,11 @@ msgid ""
 "bootstrap new projects.  For example, ``pcreate -s alchemy MyStuff`` "
 "causes Pyramid to render the ``alchemy`` scaffold template to the "
 "``MyStuff`` directory."
-msgstr ""
+msgstr "Pyramidを拡張するには：term： `scaffold`テンプレートを作成します。 Scaffoldテンプレートは、Pyramidのカスタマイズ可能な設定を他のユーザに配布したい場合に便利です。足場を作成し、誰かが足場を格納しているディストリビューションをインストールしたら、 `` pcreate``スクリプトを使ってあなたの足場のテンプレートのカスタム版を作成できます。ピラミッド自体は足場を使って人々が新しいプロジェクトをブートストラップすることを可能にします。例えば、 `` pcreate -s alchemy MyStuff``は、 `` alchemy``スカホールドテンプレートを `` MyStuff``ディレクトリに描画します。"
 
 #: ../../narr/scaffolding.rst:20
 msgid "Basics"
-msgstr ""
+msgstr "基本"
 
 #: ../../narr/scaffolding.rst:22
 msgid ""
@@ -52,7 +42,7 @@ msgid ""
 "disk. A small definition class points at this directory.  It is in turn "
 "pointed at by a :term:`setuptools` \"entry point\" which registers the "
 "scaffold so it can be found by the ``pcreate`` command."
-msgstr ""
+msgstr "足場テンプレートは、ディスク上のソースファイルとディレクトリの束です。小さな定義クラスはこのディレクトリを指します。これは、 `` setuptools`` &quot;エントリーポイント&quot;によって指示されます。これは足場を登録して `` pcreate``コマンドで見つけることができます。"
 
 #: ../../narr/scaffolding.rst:27
 msgid ""
@@ -63,27 +53,27 @@ msgid ""
 "more information about how to do this.  For example, we'll pretend the "
 "distribution you create is named ``CoolExtension``, and it has a package "
 "directory within it named ``coolextension``."
-msgstr ""
+msgstr "足場テンプレートを作成するには、 `` setuptools``パッケージに依存する `` setup.py``を含む足場を格納するPython：term： `distribution`を作成します。 `プロジェクトのパッケージングと配布<https://packaging.python.org/tutorials/distributing-packages/> `_これを行う方法の詳細については_を参照してください。たとえば、作成したディストリビューションの名前は `` CoolExtension``で、パッケージディレクトリは `` coolextension``という名前です。"
 
 #: ../../narr/scaffolding.rst:35
 msgid ""
 "Once you've created the distribution, put a \"scaffolds\" directory "
 "within your distribution's package directory, and create a file within "
 "that directory named ``__init__.py`` with something like the following:"
-msgstr ""
+msgstr "ディストリビューションを作成したら、ディストリビューションのパッケージディレクトリに\ &quot;scaffolds \&quot;ディレクトリを置いて、そのディレクトリ内に `` __init __。py``という名前のファイルを次のように作成します："
 
 #: ../../narr/scaffolding.rst:50
 msgid ""
 "Once this is done, within the ``scaffolds`` directory, create a template "
 "directory.  Our example used a template directory named "
 "``coolextension_scaffold``."
-msgstr ""
+msgstr "これが完了したら、 `` scaffolds``ディレクトリ内にテンプレートディレクトリを作成します。この例では、 `` coolextension_scaffold``というテンプレートディレクトリを使用しました。"
 
 #: ../../narr/scaffolding.rst:54
 msgid ""
 "As you create files and directories within the template directory, note "
 "that:"
-msgstr ""
+msgstr "テンプレートディレクトリ内にファイルとディレクトリを作成するときは、次の点に注意してください。"
 
 #: ../../narr/scaffolding.rst:56
 msgid ""
@@ -91,14 +81,14 @@ msgid ""
 "be rendered, and replacing any instance of the literal string ``{{var}}``"
 " with the string value of the variable named ``var`` provided to the "
 "scaffold."
-msgstr ""
+msgstr "末尾に `` _tmpl``という名前のファイルがレンダリングされ、リテラル文字列 `` {{var}} ``のインスタンスが `` var``という名前の変数の文字列値に置き換えられます足場に提供される。"
 
 #: ../../narr/scaffolding.rst:60
 msgid ""
 "Files and directories with filenames that contain the string ``+var+`` "
 "will have that string replaced with the value of the ``var`` variable "
 "provided to the scaffold."
-msgstr ""
+msgstr "文字列 `` + var + ``を含むファイル名とディレクトリ名は、その文字列を足場に与えられた `` var``変数の値で置き換えます。"
 
 #: ../../narr/scaffolding.rst:64
 msgid ""
@@ -106,14 +96,14 @@ msgid ""
 "copied over to the destination directory. If you want to include a file "
 "with a leading dot, then you must replace the dot with ``+dot+`` (e.g., "
 "``+dot+env``)."
-msgstr ""
+msgstr "ドットで始まるファイル（例： `` .env``）は無視され、コピー先のディレクトリにコピーされません。先頭にドットを含むファイルをインクルードする場合は、ドットを `` +ドット+ ``（例えば `` + dot + env``）に置き換える必要があります。"
 
 #: ../../narr/scaffolding.rst:69
 msgid ""
 "Otherwise, files and directories which live in the template directory "
 "will be copied directly without modification to the ``pcreate`` output "
 "location."
-msgstr ""
+msgstr "それ以外の場合は、テンプレートディレクトリにあるファイルとディレクトリはそのまま出力先の `` pcreate``にコピーされます。"
 
 #: ../../narr/scaffolding.rst:72
 msgid ""
@@ -122,7 +112,7 @@ msgid ""
 "``pcreate``), ``package`` (a lowercasing and normalizing of the project "
 "name provided by the user), ``random_string`` (a long random string), and"
 " ``package_logger`` (the name of the package's logger)."
-msgstr ""
+msgstr "デフォルトの `` PyramidTemplate``が提供する変数には、 `` project``（ユーザが `` pcreate``の引数として提供するプロジェクト名）、 `` package``（プロジェクト名の小文字化と正規化`` random_string``（長いランダムな文字列）、 `` package_logger``（パッケージのロガーの名前）のうちの1つです。"
 
 #: ../../narr/scaffolding.rst:78
 msgid ""
@@ -130,17 +120,17 @@ msgid ""
 "(https://github.com/Pylons/pyramid/tree/master/pyramid/scaffolds) for "
 "concrete examples of scaffold directories (``zodb``, ``alchemy``, and "
 "``starter``, for example)."
-msgstr ""
+msgstr "scaffoldディレクトリ（ `` zodb``、 `` alchemy``、 `` alchemy``）の具体的な例については、Pyramidの\ &quot;scaffolds \&quot;パッケージ（https://github.com/Pylons/pyramid/tree/master/pyramid/scaffolds） `` starter``など）。"
 
 #: ../../narr/scaffolding.rst:83
 msgid ""
 "After you've created the template directory, add the following to the "
 "``entry_points`` value of your distribution's ``setup.py``:"
-msgstr ""
+msgstr "テンプレートディレクトリを作成したら、あなたのディストリビューションの `` setup.py``の `` entry_points``値に以下を追加してください："
 
 #: ../../narr/scaffolding.rst:91
 msgid "For example:"
-msgstr ""
+msgstr "例えば："
 
 #: ../../narr/scaffolding.rst:103
 msgid ""
@@ -150,7 +140,7 @@ msgid ""
 "because that's the name we gave it in the entry point setup.  Running "
 "``pcreate -s coolextension MyStuff`` will then render your scaffold to an"
 " output directory named ``MyStuff``."
-msgstr ""
+msgstr "あなたのディストリビューションの `` setup.py development`や `` setup.py install``コマンドを実行してください。その後、 `` pcreate -l``を実行したときに表示される足場テンプレートを見ることができます。これはエントリポイントの設定で与えた名前なので、「coolextension」という名前になります。 `` pcreate -s coolextension MyStuff``を実行すると、足場を `` MyStuff``という出力ディレクトリにレンダリングします。"
 
 #: ../../narr/scaffolding.rst:110
 msgid ""
@@ -158,11 +148,11 @@ msgid ""
 " about the API of the :class:`pyramid.scaffolds.Template` class and "
 "related classes. You can override methods of this class to get special "
 "behavior."
-msgstr ""
+msgstr "：class： `pyramid.scaffolds.Template`クラスと関連クラスのAPIについては、mod：` pyramid.scaffolds`のモジュールドキュメントを参照してください。このクラスのメソッドをオーバーライドして特別な動作を得ることができます。"
 
 #: ../../narr/scaffolding.rst:115
 msgid "Supporting Older Pyramid Versions"
-msgstr ""
+msgstr "古いピラミッドバージョンをサポートする"
 
 #: ../../narr/scaffolding.rst:117
 msgid ""
@@ -170,14 +160,14 @@ msgid ""
 " you want to have extension scaffolds that can work across Pyramid 1.0.X,"
 " 1.1.X, 1.2.X and 1.3.X, you'll need to use something like this bit of "
 "horror while defining your scaffold template:"
-msgstr ""
+msgstr "さまざまなバージョンのPyramidが足場を別々に扱っていたため、Pyramid 1.0.X、1.1.X、1.2.X、1.3.Xで機能する拡張スカフォールドを使用するには、このホラービットを使用する必要があります。足場テンプレートを定義する："
 
 #: ../../narr/scaffolding.rst:143
 msgid ""
 "And then in the setup.py of the package that contains your scaffold, "
 "define the template as a target of both ``paste.paster_create_template`` "
 "(for ``paster create``) and ``pyramid.scaffold`` (for ``pcreate``)."
-msgstr ""
+msgstr "そして、足場が入っているパッケージのsetup.pyで、テンプレートを `` paste.paster_create_template``（ `` paster create``用）と `` pyramid.scaffold``（ ` `` pcreate``）。"
 
 #: ../../narr/scaffolding.rst:154
 msgid ""
@@ -186,13 +176,13 @@ msgid ""
 "(under 1.3).  If an invoker tries to run ``paster create`` against a "
 "scaffold defined this way under 1.3, an error is raised instructing them "
 "to use ``pcreate`` instead."
-msgstr ""
+msgstr "この恐ろしさを実行することで、あなたの足場が「ペースト作成」ターゲット（1.0,1.1、または1.2）または「pcreate」ターゲット（1.3以下）として機能するようになります。呼び出し側が1.3でこのように定義された足場に対して `` paster create``を実行しようとすると、代わりに `` pcreate``を使うように指示するエラーが発生します。"
 
 #: ../../narr/scaffolding.rst:159
 msgid ""
 "If you want to support Pyramid 1.3 only, it's much cleaner, and the API "
 "is stable:"
-msgstr ""
+msgstr "Pyramid 1.3のみをサポートしたい場合は、よりクリーンでAPIが安定しています："
 
 #: ../../narr/scaffolding.rst:171
 msgid ""
@@ -202,11 +192,11 @@ msgid ""
 " the ``pyramid.scaffold`` entry point is good enough.  If you want to "
 "support both ``paster create`` and ``pcreate`` (meaning you want to "
 "support Pyramid 1.2 and some older version), you'll need to define both."
-msgstr ""
+msgstr "Pyramid 1.0,1.1、または1.2のユーザが足場を消耗させたい場合は、 `` setup.py``に `` paste.paster_create_template``エントリーポイントターゲットを指定する必要があります。 1.3のみをサポートするには、 `` pyramid.scaffold``エントリポイントだけを指定すれば十分です。 `` paster create``と `` pcreate``（Pyramid 1.2と古いバージョンをサポートしたいという意味）の両方をサポートしたい場合、両方を定義する必要があります。"
 
 #: ../../narr/scaffolding.rst:179
 msgid "Examples"
-msgstr ""
+msgstr "例"
 
 #: ../../narr/scaffolding.rst:181
 msgid ""
@@ -215,5 +205,5 @@ msgid ""
 "``pyramid_jinja2`` packages house scaffolds.  You can install and examine"
 " these packages to see how they work in the quest to develop your own "
 "scaffolding."
-msgstr ""
+msgstr "スキャフォールディングを格納している既存のサードパーティのディストリビューションは：term： `PyPI`で利用可能です。 `` pyramid_jqm``、 `` pyramid_zcml``、 `` pyramid_jinja2``パッケージには足場があります。これらのパッケージをインストールして調べることで、独自の足場を開発するためにどのように動作するかを確認することができます。"
 

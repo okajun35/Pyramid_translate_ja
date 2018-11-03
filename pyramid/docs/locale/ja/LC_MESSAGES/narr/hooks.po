@@ -7,59 +7,49 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/hooks.rst:4
 msgid "Using Hooks"
-msgstr ""
+msgstr "(機械翻訳) フックの使用"
 
 #: ../../narr/hooks.rst:6
 msgid ""
 "\"Hooks\" can be used to influence the behavior of the :app:`Pyramid` "
 "framework in various ways."
-msgstr ""
+msgstr "\ &quot;Hooks \&quot;は：app： `Pyramid`フレームワークの動作にさまざまな形で影響を与えるために使用できます。"
 
 #: ../../narr/hooks.rst:15
 msgid "Changing the Not Found View"
-msgstr ""
+msgstr "見つからないビューの変更"
 
 #: ../../narr/hooks.rst:17
 msgid ""
 "When :app:`Pyramid` can't map a URL to view code, it invokes a :term:`Not"
 " Found View`, which is a :term:`view callable`. The default Not Found "
 "View can be overridden through application configuration."
-msgstr ""
+msgstr "：app： `Pyramid`がURLをコードを見るためにマップすることができないとき、：term：` Not Found View`を呼び出します。これは：term： `view callable`です。既定の[見つからない]ビューは、アプリケーション構成によって上書きできます。"
 
 #: ../../narr/hooks.rst:21
 msgid ""
 "If your application uses :term:`imperative configuration`, you can "
 "replace the Not Found View by using the "
 ":meth:`pyramid.config.Configurator.add_notfound_view` method:"
-msgstr ""
+msgstr "アプリケーションでterm： `imperative configuration`を使用している場合は、：meth：` pyramid.config.Configurator.add_notfound_view`メソッドを使用してNot Found Viewを置き換えることができます："
 
 #: ../../narr/hooks.rst:35
 msgid "The :term:`Not Found View` callable is a view callable like any other."
-msgstr ""
+msgstr "：term： `Not Found View`呼び出し可能とは、他の呼び出し可能なビューと同じです。"
 
 #: ../../narr/hooks.rst:37
 msgid ""
 "If your application instead uses :class:`pyramid.view.view_config` "
 "decorators and a :term:`scan`, you can replace the Not Found View by "
 "using the :class:`pyramid.view.notfound_view_config` decorator:"
-msgstr ""
+msgstr "あなたのアプリケーションが：class： `pyramid.view.view_config`デコレータとa：term：` scan`を代わりに使用している場合は、：class： `pyramid.view.notfound_view_config`デコレータを使用して、"
 
 #: ../../narr/hooks.rst:54
 msgid "This does exactly what the imperative example above showed."
-msgstr ""
+msgstr "これは、上記の必須の例が示したこととまったく同じです。"
 
 #: ../../narr/hooks.rst:56
 msgid ""
@@ -70,7 +60,7 @@ msgid ""
 ":class:`pyramid.view.view_config`, respectively.  This means that Not "
 "Found Views can carry predicates limiting their applicability.  For "
 "example:"
-msgstr ""
+msgstr "アプリケーションは、必要に応じて複数の*見つからなかったビューを定義することができます。 meth： `pyramid.config.Configurator.add_notfound_view`と：class：` pyramid.view.notfound_view_config`は、class： `pyramid.config.Configurator.add_view`と：class：` pyramid &#39;と同じ引数を取ります。 view.view_config`と呼びます。これは、Not Found Viewsが述語を適用してその適用性を制限できることを意味します。例えば："
 
 #: ../../narr/hooks.rst:80
 msgid ""
@@ -78,7 +68,7 @@ msgid ""
 "and the request method was ``GET``.  The ``notfound_post`` view will be "
 "called when a view could not be found and the request method was "
 "``POST``."
-msgstr ""
+msgstr "`` notfound_get``ビューは、ビューが見つからず、リクエストメソッドが `` GET``であるときに呼び出されます。ビューが見つからず、リクエストメソッドが `` POST``だったときに `` notfound_post``ビューが呼び出されます。"
 
 #: ../../narr/hooks.rst:84
 msgid ""
@@ -88,7 +78,7 @@ msgid ""
 "action.  The ``context`` (if used in the call signature) will be the "
 "instance of the :exc:`~pyramid.httpexceptions.HTTPNotFound` exception "
 "that caused the view to be called."
-msgstr ""
+msgstr "他のビューと同様、Not Found Viewは、少なくとも `` request``パラメータ、あるいは `` context``と `` request``の両方を受け入れなければなりません。 `` request``は、拒否されたアクションを表すcurrent：term： `request`です。 `` context``（コールシグネチャで使用されている場合）は、ビューを呼び出す原因となった：exc： `〜pyramid.httpexceptions.HTTPNotFound`例外のインスタンスになります。"
 
 #: ../../narr/hooks.rst:91
 msgid ""
@@ -96,13 +86,13 @@ msgid ""
 ":class:`pyramid.view.notfound_view_config` can be used to automatically "
 "redirect requests to slash-appended routes. See "
 ":ref:`redirecting_to_slash_appended_routes` for examples."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_notfound_view`と：class：` pyramid.view.notfound_view_config`はリクエストをスラッシュで追加されたルートに自動的にリダイレクトするために使用できます。例については：ref： `redirecting_to_slash_appended_routes`を参照してください。"
 
 #: ../../narr/hooks.rst:96
 msgid ""
 "Here's some sample code that implements a minimal :term:`Not Found View` "
 "callable:"
-msgstr ""
+msgstr "以下は、minimal：termを実装するサンプルコードです： `Not Found View`呼び出し可能："
 
 #: ../../narr/hooks.rst:109
 msgid ""
@@ -114,7 +104,7 @@ msgid ""
 "Found exception was raised.  This message has different values depending "
 "on whether the ``pyramid.debug_notfound`` environment setting is true or "
 "false."
-msgstr ""
+msgstr "見つからないビューの呼び出し可能関数が呼び出されると、a：term： `request`が渡されます。要求の `` exception``属性は、Not Found Viewが呼び出される原因となった：exc： `〜pyramid.httpexceptions.HTTPNotFound`例外のインスタンスになります。 `` request.exception.message``の値は、Not Found例外が発生した理由を説明する値になります。このメッセージは、 `` pyramid.debug_notfound``環境設定が真であるか偽であるかによって異なる値を持ちます。"
 
 #: ../../narr/hooks.rst:119
 msgid ""
@@ -124,7 +114,7 @@ msgid ""
 ":exc:`~pyramid.httpexceptions.HTTPNotFound` exception instance.  If "
 "available, the resource context will still be available as "
 "``request.context``."
-msgstr ""
+msgstr "Not Found View呼び出し可能関数が：ref： `request_and_context_view_definitions`に記述されているように引数リストを受け入れると、ビュー呼び出し可能関数の最初の引数として渡される` `context``は、：exc：`〜pyramid.httpexceptions.HTTPNotFound`例外ですインスタンス。可能であれば、リソースコンテキストは `` request.context``として利用できます。"
 
 #: ../../narr/hooks.rst:128
 msgid ""
@@ -132,11 +122,11 @@ msgid ""
 ":exc:`~pyramid.httpexceptions.HTTPNotFound` exception is raised. If the "
 "exception is returned from a view then it will be treated as a regular "
 "response object and it will not trigger the custom view."
-msgstr ""
+msgstr "：term： `Not Found View`呼び出しは、a：exc：`〜pyramid.httpexceptions.HTTPNotFound`例外が発生したときにのみ呼び出されます。ビューから例外が返された場合、それは通常のレスポンスオブジェクトとして扱われ、カスタムビューはトリガされません。"
 
 #: ../../narr/hooks.rst:139
 msgid "Changing the Forbidden View"
-msgstr ""
+msgstr "禁止されたビューの変更"
 
 #: ../../narr/hooks.rst:141
 msgid ""
@@ -144,7 +134,7 @@ msgid ""
 ":term:`authorization policy` in use, it invokes a :term:`forbidden view`."
 " The default forbidden response has a 403 status code and is very plain, "
 "but the view which generates it can be overridden as necessary."
-msgstr ""
+msgstr "：app： `Pyramid`は、使用中の：term：`認可ポリシー `に基づいてビューの実行を認可できないとき、：term：`禁止ビュー &#39;を呼び出します。禁止されたデフォルトの応答は403ステータスコードを持ち、非常に単純ですが、それを生成するビューは必要に応じてオーバーライドできます。"
 
 #: ../../narr/hooks.rst:146
 msgid ""
@@ -153,21 +143,21 @@ msgid ""
 " consists of using the "
 ":meth:`pyramid.config.Configurator.add_forbidden_view` API or the "
 ":class:`pyramid.view.forbidden_view_config` decorator."
-msgstr ""
+msgstr "：term： `禁じられたビュー` callableは、他のものと同様に呼び出し可能なビューです。 ：term： `view configuration`は：meth：` pyramid.config.Configurator.add_forbidden_​​view` APIまたは：class： `pyramid.view.forbidden_​​view_config`デコレータを使用して構成されます。"
 
 #: ../../narr/hooks.rst:151
 msgid ""
 "For example, you can add a forbidden view by using the "
 ":meth:`pyramid.config.Configurator.add_forbidden_view` method to register"
 " a forbidden view:"
-msgstr ""
+msgstr "たとえば、禁止されたビューを登録するために、：meth： `pyramid.config.Configurator.add_forbidden_​​view`メソッドを使用して、禁止されたビューを追加することができます："
 
 #: ../../narr/hooks.rst:165
 msgid ""
 "If instead you prefer to use decorators and a :term:`scan`, you can use "
 "the :class:`pyramid.view.forbidden_view_config` decorator to mark a view "
 "callable as a forbidden view:"
-msgstr ""
+msgstr "デコレータとa：term： `scan`を使いたい場合は、：class：` pyramid.view.forbidden_​​view_config`デコレータを使用して、呼び出し可能なビューを禁止ビューとしてマークすることができます："
 
 #: ../../narr/hooks.rst:182
 msgid ""
@@ -178,11 +168,11 @@ msgid ""
 "router when the view was denied (which you normally would expect) is "
 "available as ``request.context``.  The ``request`` is the  current "
 ":term:`request` representing the denied action."
-msgstr ""
+msgstr "他のビューと同様に、禁止されたビューは少なくとも `` request``パラメータ、あるいは `` context``と `` request``の両方を受け入れなければなりません。禁じられたビュー呼び出し可能オブジェクトが `` context``と `` request``の両方を受け入れるならば、HTTP Exceptionはコンテキストとして渡されます。ビューが拒否されたとき（通常はあなたが期待する）ルータが見つけた ``コンテキスト ``は `` request.context``として利用できます。 `` request``は、拒否されたアクションを表すcurrent：term： `request`です。"
 
 #: ../../narr/hooks.rst:189
 msgid "Here's some sample code that implements a minimal forbidden view:"
-msgstr ""
+msgstr "禁止されていない最小限のビューを実装するサンプルコードを次に示します。"
 
 #: ../../narr/hooks.rst:202
 msgid ""
@@ -195,7 +185,7 @@ msgid ""
 "extended information about the forbidden exception.  These messages have "
 "different values depending on whether the ``pyramid.debug_authorization``"
 " environment setting is true or false."
-msgstr ""
+msgstr "禁止ビュー呼び出し可能関数が呼び出されると、a：term： `request`が渡されます。要求の `` exception``属性は：for：exc： `〜pyramid.httpexceptions.HTTPForbidden`例外のインスタンスになり、禁止されたビューが呼び出されます。 `` request.exception.message``の値は、禁止された例外が発生した理由を説明する値になります。また、 `` request.exception.result``は、禁止された例外に関する拡張情報になります。これらのメッセージは、 `` pyramid.debug_authorization``環境設定が真であるか偽であるかによって、値が異なります。"
 
 #: ../../narr/hooks.rst:214
 msgid ""
@@ -203,11 +193,11 @@ msgid ""
 ":exc:`~pyramid.httpexceptions.HTTPForbidden` exception is raised. If the "
 "exception is returned from a view then it will be treated as a regular "
 "response object and it will not trigger the custom view."
-msgstr ""
+msgstr "：term： `forbidden view`呼び出しは、a：exc：`〜pyramid.httpexceptions.HTTPForbidden`例外が発生したときにのみ呼び出されます。ビューから例外が返された場合、それは通常のレスポンスオブジェクトとして扱われ、カスタムビューはトリガされません。"
 
 #: ../../narr/hooks.rst:225
 msgid "Changing the Request Factory"
-msgstr ""
+msgstr "リクエストファクトリの変更"
 
 #: ../../narr/hooks.rst:227
 msgid ""
@@ -216,7 +206,7 @@ msgid ""
 "been passed.  By default, an instance of the "
 ":class:`pyramid.request.Request` class is created to represent the "
 "request object."
-msgstr ""
+msgstr "：app： `Pyramid`は：term：` WSGI`サーバからのリクエストを処理するたびに、渡されたWSGI環境に基づいて：term： `request`オブジェクトを作成します。デフォルトでは：class： `pyramid.request.Request`クラスのインスタンスが作成され、リクエストオブジェクトを表します。"
 
 #: ../../narr/hooks.rst:232
 msgid ""
@@ -225,7 +215,7 @@ msgid ""
 "argument to the constructor of the :term:`configurator`.  This argument "
 "can be either a callable or a :term:`dotted Python name` representing a "
 "callable."
-msgstr ""
+msgstr "app： `Pyramid`が要求オブジェクトインスタンスを作成するために使用するクラス（別名\&quot; factory \ &quot;）は、` `request_factory``引数を：term：` configurator`のコンストラクタに渡すことによって変更できます。この引数は、呼び出し可能かa：term：呼び出し可能を表す `ドット付きPython名`のいずれかです。"
 
 #: ../../narr/hooks.rst:247
 msgid ""
@@ -233,11 +223,11 @@ msgid ""
 "you've already constructed a :term:`configurator`, it can also be "
 "registered via the "
 ":meth:`pyramid.config.Configurator.set_request_factory` method:"
-msgstr ""
+msgstr "命令型の設定をしていて、：term： `configurator`を既に構築した後、それをやりたいのであれば、：meth：` pyramid.config.Configurator.set_request_factory`メソッドで登録することもできます："
 
 #: ../../narr/hooks.rst:269
 msgid "Adding Methods or Properties to a Request Object"
-msgstr ""
+msgstr "リクエストオブジェクトへのメソッドまたはプロパティの追加"
 
 #: ../../narr/hooks.rst:273
 msgid ""
@@ -245,7 +235,7 @@ msgid ""
 " :ref:`changing the request factory <changing_the_request_factory>` is "
 "not that extensible, especially if you want to build composable features "
 "(e.g., Pyramid add-ons and plugins)."
-msgstr ""
+msgstr "各Pyramidアプリケーションはterm： `request`ファクトリ、：ref：`要求ファクトリを変更する<changing_the_request_factory> `は拡張可能ではありません（特に、Pyramidアドオンやプラグインなど）。"
 
 #: ../../narr/hooks.rst:278
 msgid ""
@@ -253,13 +243,13 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_request_method` API. This allows "
 "you to specify a callable that will be available on the request object, "
 "but will not actually execute the function until accessed."
-msgstr ""
+msgstr "lazyプロパティは、：meth： `pyramid.config.Configurator.add_request_method` APIを介して要求オブジェクトに登録できます。これにより、要求オブジェクトで使用できる呼び出し可能オブジェクトを指定できますが、アクセスされるまで関数を実際には実行しません。"
 
 #: ../../narr/hooks.rst:285
 msgid ""
 "This will silently override methods and properties from :term:`request "
 "factory` that have the same name."
-msgstr ""
+msgstr "これは、同じ名前を持つ：term： `request factory`からメソッドとプロパティを暗黙にオーバーライドします。"
 
 #: ../../narr/hooks.rst:304
 msgid ""
@@ -267,27 +257,27 @@ msgid ""
 "is added as a property and its result is cached per-request by setting "
 "``reify=True``. This way, we eliminate the overhead of running the "
 "function multiple times."
-msgstr ""
+msgstr "上記の例では、 `` total``がメソッドとして追加されています。しかし、 `` prop``はプロパティとして追加され、その結果は `` reify = True``を設定することによって要求ごとにキャッシュされます。このようにして、関数を複数回実行するオーバーヘッドを排除します。"
 
 #: ../../narr/hooks.rst:342
 msgid ""
 "To not cache the result of ``request.prop``, set ``property=True`` "
 "instead of ``reify=True``."
-msgstr ""
+msgstr "`` request.prop``の結果をキャッシュしないようにするには、 `` reify = True``の代わりに `` property = True``を設定します。"
 
 #: ../../narr/hooks.rst:345
 msgid ""
 "Here is an example of passing a class to "
 "``Configurator.add_request_method``:"
-msgstr ""
+msgstr "`` Configurator.add_request_method``にクラスを渡す例です："
 
 #: ../../narr/hooks.rst:370
 msgid "We attach and cache an object named ``extra`` to the ``request`` object."
-msgstr ""
+msgstr "`` extra``という名前のオブジェクトを `` request``オブジェクトに添付してキャッシュします。"
 
 #: ../../narr/hooks.rst:415
 msgid "Changing the Response Factory"
-msgstr ""
+msgstr "レスポンスファクトリの変更"
 
 #: ../../narr/hooks.rst:419
 msgid ""
@@ -295,7 +285,7 @@ msgid ""
 ":term:`response` object.  By default, an instance of the "
 ":class:`pyramid.response.Response` class is created to represent the "
 "response object."
-msgstr ""
+msgstr "：app： `Pyramid`はビューから応答を返すたびに：term：` response`オブジェクトを作成します。デフォルトでは：class： `pyramid.response.Response`クラスのインスタンスがレスポンスオブジェクトを表すために作成されます。"
 
 #: ../../narr/hooks.rst:424
 msgid ""
@@ -304,13 +294,13 @@ msgid ""
 " argument to the constructor of the :term:`configurator`.  This argument "
 "can be either a callable or a :term:`dotted Python name` representing a "
 "callable."
-msgstr ""
+msgstr "app： `Pyramid`がレスポンスオブジェクトのインスタンスを作成するために使うfactoryは：class：` pyramid.interfaces.IResponseFactory`引数を：term： `configurator`のコンストラクタに渡すことで変更できます。この引数は、呼び出し可能かa：term：呼び出し可能を表す `ドット付きPython名`のいずれかです。"
 
 #: ../../narr/hooks.rst:429
 msgid ""
 "The factory takes a single positional argument, which is a "
 ":term:`Request` object. The argument may be ``None``."
-msgstr ""
+msgstr "ファクトリは：term： `Request`オブジェクトの1つの位置引数をとります。引数は `` None``です。"
 
 #: ../../narr/hooks.rst:442
 msgid ""
@@ -318,11 +308,11 @@ msgid ""
 "you've already constructed a :term:`configurator`, it can also be "
 "registered via the "
 ":meth:`pyramid.config.Configurator.set_response_factory` method:"
-msgstr ""
+msgstr "命令型の設定をしていて、：term： `configurator`を既に構築した後に、それをやりたいのであれば、：meth：` pyramid.config.Configurator.set_response_factory`メソッドで登録することもできます："
 
 #: ../../narr/hooks.rst:465
 msgid "Using the Before Render Event"
-msgstr ""
+msgstr "Before Renderイベントの使用"
 
 #: ../../narr/hooks.rst:467
 msgid ""
@@ -330,13 +320,13 @@ msgid ""
 "introspect and modify the set of :term:`renderer globals` before they are"
 " passed to a :term:`renderer`.  This event object iself has a dictionary-"
 "like interface that can be used for this purpose.  For example:"
-msgstr ""
+msgstr "：class： `pyramid.events.BeforeRender`イベントのサブスクライバは、：term：` renderer globals`のセットをイントロスペクトして変更してから：term： `renderer`に渡します。このイベントオブジェクトiselfは、この目的のために使用できる辞書のようなインターフェイスを備えています。例えば："
 
 #: ../../narr/hooks.rst:482
 msgid ""
 "An object of this type is sent as an event just before a :term:`renderer`"
 " is invoked."
-msgstr ""
+msgstr "この型のオブジェクトは、a：term： `renderer`が呼び出される直前のイベントとして送信されます。"
 
 #: ../../narr/hooks.rst:485
 msgid ""
@@ -346,36 +336,36 @@ msgid ""
 "  The set of keys added to the renderer globals dictionary by all "
 ":class:`pyramid.events.BeforeRender` subscribers and renderer globals "
 "factories must be unique."
-msgstr ""
+msgstr "サブスクライバが既にレンダラグローバルディクショナリに存在するキーを追加しようとすると、：exc： `KeyError`が送出されます。イベントのサブスクライバは相対的な順序付けを持たないため、この制限が適用されます。レンダラーグローバルディクショナリにall：class： `pyramid.events.BeforeRender`サブスクライバおよびレンダラグローバルファクトリに追加されたキーのセットは一意でなければなりません。"
 
 #: ../../narr/hooks.rst:492
 msgid ""
 "The dictionary returned from the view is accessible through the "
 ":attr:`rendering_val` attribute of a "
 ":class:`~pyramid.events.BeforeRender` event."
-msgstr ""
+msgstr "ビューから返された辞書は：class： `〜pyramid.events.BeforeRender`イベントの：attr：` rendering_val`属性からアクセスできます。"
 
 #: ../../narr/hooks.rst:496
 msgid ""
 "Suppose you return ``{'mykey': 'somevalue', 'mykey2': 'somevalue2'}`` "
 "from your view callable, like so:"
-msgstr ""
+msgstr "`` {&#39;mykey&#39;： &#39;somevalue&#39;、 &#39;mykey2&#39;： &#39;somevalue2&#39;} ``を呼び出し可能なビューから返すとします："
 
 #: ../../narr/hooks.rst:508
 msgid ""
 ":attr:`rendering_val` can be used to access these values from the "
 ":class:`~pyramid.events.BeforeRender` object:"
-msgstr ""
+msgstr "：attr： `rendering_val`は：class：`〜pyramid.events.BeforeRender`オブジェクトからこれらの値にアクセスするために使用できます："
 
 #: ../../narr/hooks.rst:522
 msgid ""
 "See the API documentation for the :class:`~pyramid.events.BeforeRender` "
 "event interface at :class:`pyramid.interfaces.IBeforeRender`."
-msgstr ""
+msgstr "：class： `pyramid.interfaces.IBeforeRender`の：class：`〜pyramid.events.BeforeRender`イベントインタフェースに関するAPIのドキュメントを参照してください。"
 
 #: ../../narr/hooks.rst:531
 msgid "Using Response Callbacks"
-msgstr ""
+msgstr "応答コールバックの使用"
 
 #: ../../narr/hooks.rst:533
 msgid ""
@@ -384,19 +374,19 @@ msgid ""
 "application to register an action to be performed against whatever "
 "response object is returned by a view, usually in order to mutate the "
 "response."
-msgstr ""
+msgstr "他の多くのWebフレームワークとは異なり、：app： `Pyramid`は、グローバルレスポンスオブジェクトを熱心に作成しません。 a：term： `response callback &#39;を追加すると、通常、応答を変更するために、アプリケーションがビューによって返されるどんな応答オブジェクトに対しても実行されるアクションを登録することができます。"
 
 #: ../../narr/hooks.rst:538
 msgid ""
 "The :meth:`pyramid.request.Request.add_response_callback` method is used "
 "to register a response callback."
-msgstr ""
+msgstr "：meth： `pyramid.request.Request.add_response_callback`メソッドは、応答コールバックを登録するために使用されます。"
 
 #: ../../narr/hooks.rst:541
 msgid ""
 "A response callback is a callable which accepts two positional "
 "parameters: ``request`` and ``response``.  For example:"
-msgstr ""
+msgstr "応答コールバックは、 `` request``と `` response``という2つの位置パラメータを受け入れる呼び出し可能なコールバックです。例えば："
 
 #: ../../narr/hooks.rst:553
 msgid ""
@@ -407,7 +397,7 @@ msgid ""
 ":attr:`request.exception` attribute of the request when it enters a "
 "response callback will be an exception object instead of its default "
 "value of ``None``."
-msgstr ""
+msgstr "未処理の例外がアプリケーションコードで発生した場合、または：term： `view callable`によって返された応答オブジェクトが無効な場合は、応答コールバックは呼び出されません。ただし、応答コールバック*は、：term： `exception view`が正常にレンダリングされたときに*呼び出されます。そのような場合、リクエストのレスポンスコールバックに入るときの：attr： `request.exception`属性はデフォルト値の` `None``ではなく例外オブジェクトになります。"
 
 #: ../../narr/hooks.rst:560
 msgid ""
@@ -416,7 +406,7 @@ msgid ""
 ":class:`~pyramid.events.NewResponse` event is sent.  Errors raised by "
 "response callbacks are not handled specially.  They will be propagated to"
 " the caller of the :app:`Pyramid` router application."
-msgstr ""
+msgstr "応答コールバックは、追加された順に（最初から最後に追加された順に）呼び出されます。すべての応答コールバックは*：class： `〜pyramid.events.NewResponse`イベントが送信される前に呼び出されます。応答コールバックによって発生したエラーは特別に処理されません。彼らは：app： `Pyramid`ルータアプリケーションの呼び出し側に伝播します。"
 
 #: ../../narr/hooks.rst:566
 msgid ""
@@ -424,11 +414,11 @@ msgid ""
 "response callback to happen as the result of *every* request, you must "
 "re-register the callback into every new request (perhaps within a "
 "subscriber of a :class:`~pyramid.events.NewRequest` event)."
-msgstr ""
+msgstr "応答コールバックは、* single *要求の存続期間を持ちます。 *すべての*リクエストの結果として応答コールバックが必要な場合は、（：class： `〜pyramid.events.NewRequest`イベントのサブスクライバ内の）新しいリクエストごとにコールバックを再登録する必要があります。"
 
 #: ../../narr/hooks.rst:577
 msgid "Using Finished Callbacks"
-msgstr ""
+msgstr "終了コールバックの使用"
 
 #: ../../narr/hooks.rst:579
 msgid ""
@@ -436,19 +426,19 @@ msgid ""
 "unconditionally by the :app:`Pyramid` :term:`router` at the very end of "
 "request processing. A finished callback can be used to perform an action "
 "at the end of a request unconditionally."
-msgstr ""
+msgstr "A：term： `終了コールバック`は、リクエスト処理の最後で、：app： `Pyramid`：term：` router`によって無条件に呼び出される関数です。完了コールバックを使用して、要求の最後に無条件にアクションを実行できます。"
 
 #: ../../narr/hooks.rst:584
 msgid ""
 "The :meth:`pyramid.request.Request.add_finished_callback` method is used "
 "to register a finished callback."
-msgstr ""
+msgstr "：meth： `pyramid.request.Request.add_finished_callback`メソッドは、終了したコールバックを登録するために使用されます。"
 
 #: ../../narr/hooks.rst:587
 msgid ""
 "A finished callback is a callable which accepts a single positional "
 "parameter: ``request``.  For example:"
-msgstr ""
+msgstr "完成したコールバックは、単一の位置パラメータ： `` request``を受け入れる呼び出し可能な呼び出しです。例えば："
 
 #: ../../narr/hooks.rst:602
 msgid ""
@@ -456,7 +446,7 @@ msgid ""
 "recently-added).  Finished callbacks (unlike a :term:`response callback`)"
 " are *always* called, even if an exception happens in application code "
 "that prevents a response from being generated."
-msgstr ""
+msgstr "完成したコールバックは、追加された順に呼び出されます（最初から最後まで追加された）。応答が生成されないようにするアプリケーションコード内で例外が発生しても、終了コールバック（a：term： `応答コールバック（））は*常に呼び出されます。"
 
 #: ../../narr/hooks.rst:607
 msgid ""
@@ -469,13 +459,13 @@ msgid ""
 "callback will have no meaningful effect, because response processing will"
 " have already occurred, and the request's scope will expire almost "
 "immediately after all finished callbacks have been processed."
-msgstr ""
+msgstr "要求に関連付けられた完了コールバックのセットは、その要求の処理中に非常に遅い*と呼ばれます。それらは本質的に要求の前に：term： `router`によって呼び出される最後のものです。これらは、ルータ要求処理コード内の最上位の `` finally： ``ブロックで既に応答処理が行われた後に呼び出されます。結果として、完了したコールバックに与えられた `` request``に対して実行された突然変異は、応答処理が既に発生しており、完了したすべてのコールバックが処理された直後にリクエストの有効範囲が失効するため、意味のある効果はありません。"
 
 #: ../../narr/hooks.rst:617
 msgid ""
 "Errors raised by finished callbacks are not handled specially.  They will"
 " be propagated to the caller of the :app:`Pyramid` router application."
-msgstr ""
+msgstr "終了コールバックによって発生したエラーは特別に処理されません。彼らは：app： `Pyramid`ルータアプリケーションの呼び出し側に伝播します。"
 
 #: ../../narr/hooks.rst:620
 msgid ""
@@ -483,11 +473,11 @@ msgid ""
 "finished callback to happen as the result of *every* request, you must "
 "re-register the callback into every new request (perhaps within a "
 "subscriber of a :class:`~pyramid.events.NewRequest` event)."
-msgstr ""
+msgstr "終了コールバックは、* single *要求の存続期間を持ちます。すべての*要求の結果として終了コールバックが必要な場合は、（：class： `〜pyramid.events.NewRequest`イベントのサブスクライバ内の）新しいリクエストごとにコールバックを再登録する必要があります。"
 
 #: ../../narr/hooks.rst:631
 msgid "Changing the Traverser"
-msgstr ""
+msgstr "トラバーサの変更"
 
 #: ../../narr/hooks.rst:633
 msgid ""
@@ -495,13 +485,13 @@ msgid ""
 "explained in :ref:`traversal_algorithm`.  Though it is rarely necessary, "
 "this default algorithm can be swapped out selectively for a different "
 "traversal pattern via configuration."
-msgstr ""
+msgstr "app： `Pyramid`が使うデフォルト：term：` traversal`アルゴリズムは：ref： `traversal_algorithm`で説明されています。ほとんどの場合は必要ではありませんが、このデフォルトアルゴリズムは、コンフィギュレーションを介して異なるトラバーサルパターンに対して選択的にスワップアウトできます。"
 
 #: ../../narr/hooks.rst:646
 msgid ""
 "In the example above, ``myapp.traversal.Traverser`` is assumed to be a "
 "class that implements the following interface:"
-msgstr ""
+msgstr "上記の例では、 `` myapp.traversal.Traverser``は次のインタフェースを実装するクラスとみなされています："
 
 #: ../../narr/hooks.rst:680
 msgid ""
@@ -512,7 +502,7 @@ msgid ""
 " factory returned an object that implemented that class or interface, a "
 "custom traverser would be used.  Otherwise the default traverser would be"
 " used.  For example:"
-msgstr ""
+msgstr "複数のトラバーサルアルゴリズムを同時にアクティブにすることができます。たとえば、：term： `root factory`が複数の型のオブジェクトを条件付きで返した場合、代替のトラバーサアダプタは特定のクラスまたはインタフェースの1つのみであると主張することができます。ルートファクトリがそのクラスまたはインターフェイスを実装したオブジェクトを返すと、カスタムトラバーサが使用されます。それ以外の場合は、デフォルトのトラバーサが使用されます。例えば："
 
 #: ../../narr/hooks.rst:696
 msgid ""
@@ -522,11 +512,11 @@ msgid ""
 "factory` returned an instance of the ``myapp.resources.MyRoot`` object.  "
 "Otherwise it would use the default :app:`Pyramid` traverser to do "
 "traversal."
-msgstr ""
+msgstr "ピラミッドの ​​`` __init __。py``ファイルの `` main``関数に上記のスタンザが追加された場合、：app： `Pyramid`は`：myapp.traversal.Traverser``を使用します：application：term： ` root factory`は `` myapp.resources.MyRoot``オブジェクトのインスタンスを返しました。それ以外の場合は、デフォルト：app： `Pyramid`トラバーサを使用してトラバーサルを行います。"
 
 #: ../../narr/hooks.rst:708
 msgid "Changing How :meth:`pyramid.request.Request.resource_url` Generates a URL"
-msgstr ""
+msgstr "How：meth： `pyramid.request.Request.resource_url` URLを生成します。"
 
 #: ../../narr/hooks.rst:710
 msgid ""
@@ -536,7 +526,7 @@ msgid ""
 " traversal is done will have been modified, the URLs it generates by "
 "default may be incorrect when used against resources derived from your "
 "custom traverser."
-msgstr ""
+msgstr "：ref： `changing_the_traverser`で説明されているようにトラバーサを追加すると、：meth：` pyramid.request.Request.resource_url` APIを使い続けると便利なことがよくあります。ただし、トラバーサルが行われる方法は変更されるため、カスタムトラバーサから派生したリソースに対して使用されると、デフォルトで生成されるURLが正しくない可能性があります。"
 
 #: ../../narr/hooks.rst:716
 msgid ""
@@ -544,11 +534,11 @@ msgid ""
 ":meth:`~pyramid.request.Request.resource_url` generates a URL for a "
 "specific type of resource by adding a call to "
 ":meth:`pyramid.config.Configurator.add_resource_url_adapter`."
-msgstr ""
+msgstr "トラバーサを追加した場合、以下を変更することができます：meth： `〜pyramid.request.Request.resource_url`：meth：` pyramid.config.Configurator.add_resource_url_adapterの呼び出しを追加することにより、特定のタイプのリソースのURLを生成します`。"
 
 #: ../../narr/hooks.rst:721
 msgid "For example:"
-msgstr ""
+msgstr "例えば："
 
 #: ../../narr/hooks.rst:731
 msgid ""
@@ -561,13 +551,13 @@ msgid ""
 "for this resource url factory to be found.  If the ``resource_iface`` "
 "argument is omitted, this resource URL adapter will be used for *all* "
 "resources."
-msgstr ""
+msgstr "上記の例では、 `` myapp.traversal.ResourceURLAdapter``クラスは：term： `resource`が` `resource_url &#39;&#39;に渡されるときにいつでも：meth：`〜pyramid.request.Request.resource_url`にサービスを提供するために使われます。 ``は `` myapp.resources.MyRoot``クラスのものです。 `` resource_iface``引数 `` MyRoot``は、このリソースurlファクトリが見つかるためにリソースが所有しなければならないインタフェースのタイプを表します。 `` resource_iface``引数を省略すると、このリソースURLアダプタは* all *リソースに使用されます。"
 
 #: ../../narr/hooks.rst:739
 msgid ""
 "The API that must be implemented by a class that provides "
 ":class:`~pyramid.interfaces.IResourceURL` is as follows:"
-msgstr ""
+msgstr "class： `〜pyramid.interfaces.IResourceURL`を提供するクラスによって実装されなければならないAPIは以下の通りです："
 
 #: ../../narr/hooks.rst:757
 msgid ""
@@ -575,17 +565,17 @@ msgid ""
 ":class:`pyramid.traversal.ResourceURL` in the `traversal module "
 "<https://github.com/Pylons/pyramid/blob/master/pyramid/traversal.py>`_ of"
 " the :term:`Pylons` GitHub Pyramid repository."
-msgstr ""
+msgstr "デフォルトコンテキストURLジェネレータは、 `traversalモジュールのクラス：class：` pyramid.traversal.ResourceURL`として閲覧することができます<https://github.com/Pylons/pyramid/blob/master/pyramid/traversal.py> `term：` Pylons` GitHub Pyramidリポジトリ。"
 
 #: ../../narr/hooks.rst:762
 msgid ""
 "See :meth:`pyramid.config.Configurator.add_resource_url_adapter` for more"
 " information."
-msgstr ""
+msgstr "詳細は、meth： `pyramid.config.Configurator.add_resource_url_adapter`を参照してください。"
 
 #: ../../narr/hooks.rst:772
 msgid "Changing How Pyramid Treats View Responses"
-msgstr ""
+msgstr "ピラミッドが応答を見る方法を変える"
 
 #: ../../narr/hooks.rst:776
 msgid ""
@@ -593,7 +583,7 @@ msgid ""
 " callable on a per-type basis by using a hook involving "
 ":meth:`pyramid.config.Configurator.add_response_adapter` or the "
 ":class:`~pyramid.response.response_adapter` decorator."
-msgstr ""
+msgstr "meth： `pyramid.config.Configurator.add_response_adapter`または：class：`〜pyramid.response.response_adapter &#39;を含むフックを使用して、Pyramidがタイプごとに呼び出し可能なビューを呼び出した結果をどのように扱うかを制御することは可能です`デコレータ。"
 
 #: ../../narr/hooks.rst:781
 msgid ""
@@ -612,7 +602,7 @@ msgid ""
 "return arbitrary values from a view callable by providing an adapter "
 "which converts the arbitrary return value into something that implements "
 ":class:`~pyramid.interfaces.IResponse`."
-msgstr ""
+msgstr "Pyramidは、さまざまな場所で、view：callableを呼び出した結果を：class： `〜pyramid.interfaces.IResponse`インタフェースに適応させて、ビュー呼び出し可能オブジェクトが返すオブジェクトが\&quot; true \ &quot;応答オブジェクトであることを保証します。大部分の時間は、この適応の結果は結果オブジェクトそのものです。このマニュアルに含まれている説明文を読んでいる &quot;一般市民&quot;が作成したビュー呼び出し可能ファイルは、常に：class： `〜ピラミッドを実装するものを返します。 interfaces.IResponse`インタフェースを使用します。最も一般的には、これは：class： `pyramid.response.Response`クラスまたはサブクラスのインスタンスになります。民間人が：term： `renderer`を使うように設定されていないビュー呼び出し可能オブジェクトから非応答オブジェクトを返すと、通常、ルータはエラーを発生させると予想します。しかしPyramidは、任意の戻り値を：class： `〜pyramid.interfaces.IResponse`を実装するものに変換するアダプタを提供することで、呼び出し可能なビューから任意の値を返すことができます。"
 
 #: ../../narr/hooks.rst:796
 msgid ""
@@ -620,14 +610,14 @@ msgid ""
 "objects (without requiring a :term:`renderer` to convert a string to a "
 "response object), you can register an adapter which converts the string "
 "to a Response:"
-msgstr ""
+msgstr "たとえば、ビュー呼び出し可能オブジェクトが（文字列をレスポンスオブジェクトに変換するために：term： `rendererを必要とせずに）ベア文字列オブジェクトを返すようにしたい場合は、文字列をレスポンスに変換するアダプタを登録できます："
 
 #: ../../narr/hooks.rst:813
 msgid ""
 "Likewise, if you want to be able to return a simplified kind of response "
 "object from view callables, you can use the IResponse hook to register an"
 " adapter to the more complex IResponse interface:"
-msgstr ""
+msgstr "同様に、ビューコールバックから単純化された種類の応答オブジェクトを返すには、IResponseフックを使用して、より複雑なIResponseインターフェイスにアダプタを登録します。"
 
 #: ../../narr/hooks.rst:834
 msgid ""
@@ -637,7 +627,7 @@ msgid ""
 "outlined in :class:`pyramid.interfaces.IResponse` and you'll have to "
 "ensure that it uses ``zope.interface.implementer(IResponse)`` as a class "
 "decorator."
-msgstr ""
+msgstr "：class： `pyramid.response.Response`オブジェクトを任意の容量で使うのではなく、独自のResponseオブジェクトを実装したい場合は、そのオブジェクトが以下で説明するすべての属性とメソッドを実装していることを確認する必要があります：class： `pyramid.interfaces.IResponse`と` `zope.interface.implementer（IResponse）` `をクラスデコレータとして使用するようにする必要があります。"
 
 #: ../../narr/hooks.rst:851
 msgid ""
@@ -646,7 +636,7 @@ msgid ""
 ":class:`~pyramid.interfaces.IResponse` (via "
 "``zope.interface.implementer(IResponse)``) , an adapter needn't be "
 "registered for the object; Pyramid will use it directly."
-msgstr ""
+msgstr "呼び出し可能なビューによって代替の応答オブジェクト実装が返されたとき、そのオブジェクトが：class： `〜pyramid.interfaces.IResponse`（` `zope.interface.implementer（IResponse）` &#39;を介して）を実装していると主張する場合、オブジェクトのために登録されていない。ピラミッドはそれを直接使用します。"
 
 #: ../../narr/hooks.rst:857
 msgid ""
@@ -656,35 +646,35 @@ msgid ""
 "instances of subclasses of the class) will natively provide IResponse.  "
 "The adapter registered for ``webob.Response`` simply returns the response"
 " object."
-msgstr ""
+msgstr "`` webob.Response``のIResponseアダプタ（：class： `pyramid.response.Response`）は、起動時にPyramidによって本質的にこのクラスのインスタンス（およびサブクラスのインスタンス）によって登録されます）は、ネイティブにIResponseを提供します。 `` webob.Response``に登録されたアダプタは単にレスポンスオブジェクトを返します。"
 
 #: ../../narr/hooks.rst:863
 msgid ""
 "Instead of using "
 ":meth:`pyramid.config.Configurator.add_response_adapter`, you can use the"
 " :class:`pyramid.response.response_adapter` decorator:"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_response_adapter`を使う代わりに、：class：` pyramid.response.response_adapter`デコレータを使うことができます："
 
 #: ../../narr/hooks.rst:877
 msgid "The above example, when scanned, has the same effect as:"
-msgstr ""
+msgstr "上記の例では、スキャンしたときと同じ効果があります。"
 
 #: ../../narr/hooks.rst:883
 msgid ""
 "The :class:`~pyramid.response.response_adapter` decorator will have no "
 "effect until activated by a :term:`scan`."
-msgstr ""
+msgstr "：class： `〜pyramid.response.response_adapter`デコレータは：term：` scan`によって起動されるまで効果を持ちません。"
 
 #: ../../narr/hooks.rst:892
 msgid "Using a View Mapper"
-msgstr ""
+msgstr "ビューマッパーの使用"
 
 #: ../../narr/hooks.rst:894
 msgid ""
 "The default calling conventions for view callables are documented in the "
 ":ref:`views_chapter` chapter.  You can change the way users define view "
 "callables by employing a :term:`view mapper`."
-msgstr ""
+msgstr "view callablesのデフォルトの呼び出し規約は、：ref： `views_chapter`の章に記述されています。 ：term： `view mapper`を使って、ユーザがビュー呼び出し可能関数を定義する方法を変更することができます。"
 
 #: ../../narr/hooks.rst:898
 msgid ""
@@ -693,28 +683,28 @@ msgid ""
 ":term:`view callable` object.  The returned callable should itself return"
 " another callable which can be called with the \"internal calling "
 "protocol\" ``(context, request)``."
-msgstr ""
+msgstr "ビューマッパーは、キーワード引数のセットを受け入れ、呼び出し可能なオブジェクトを返すオブジェクトです。返された呼び出し可能関数は：term： `view callable`オブジェクトで呼び出されます。返された呼び出し可能コードは、それ自身\ &quot;内部呼び出しプロトコル\&quot; ``（コンテキスト、要求） `&#39;で呼び出すことができる別の呼び出し可能コードを返さなければなりません。"
 
 #: ../../narr/hooks.rst:904
 msgid "You can use a view mapper in a number of ways:"
-msgstr ""
+msgstr "ビューマッパーは、さまざまな方法で使用できます。"
 
 #: ../../narr/hooks.rst:906
 msgid ""
 "by setting a ``__view_mapper__`` attribute (which is the view mapper "
 "object) on the view callable itself"
-msgstr ""
+msgstr "`` __view_mapper__``属性（ビューマッパーオブジェクト）をビューの呼び出し可能なもの自体に設定することで"
 
 #: ../../narr/hooks.rst:909
 msgid ""
 "by passing the mapper object to "
 ":meth:`pyramid.config.Configurator.add_view` (or its declarative and "
 "decorator equivalents) as the ``mapper`` argument"
-msgstr ""
+msgstr "マッパーオブジェクトを `` mapper``引数として：meth： `pyramid.config.Configurator.add_view`（またはその宣言とデコレータの同等物）に渡すことで、"
 
 #: ../../narr/hooks.rst:912
 msgid "by registering a *default* view mapper"
-msgstr ""
+msgstr "*デフォルト*ビューマッパーを登録することで"
 
 #: ../../narr/hooks.rst:914
 msgid ""
@@ -728,29 +718,29 @@ msgid ""
 " after popping the ``action`` out of it.  This somewhat emulates the "
 "Pylons style of calling action methods with routing parameters pulled out"
 " of the route matching dict as keyword arguments."
-msgstr ""
+msgstr "以下に、Pylons \ &quot;controller \&quot;をエミュレートするビューマッパーの例を示します。マッパーはいくつかのキーワード引数で初期化されます。 `` __call__``メソッドはビューオブジェクト（クラスになります）を受け入れます。どの属性をアクションメソッドとして使用するかを決定するために渡される `` attr``キーワード引数を使用します。それが返すラッパーメソッドは、 ``（context、request） ``を受け取り、 `` action``をポップした後：：term： `matchdict`で暗黙指定されたキーワード引数を持つアクションメソッドを呼び出した結果を返します。これは、パス引数dictをキーワード引数として引き出したルーティングパラメータを使用して、Pylonsスタイルの呼び出しメソッドをエミュレートします。"
 
 #: ../../narr/hooks.rst:946
 msgid "A user might make use of these framework components like so:"
-msgstr ""
+msgstr "ユーザーは、次のようにこれらのフレームワークコンポーネントを利用することができます。"
 
 #: ../../narr/hooks.rst:970
 msgid ""
 "The :meth:`pyramid.config.Configurator.set_view_mapper` method can be "
 "used to set a *default* view mapper (overriding the superdefault view "
 "mapper used by Pyramid itself)."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.set_view_mapper`メソッドは、*デフォルト*のビューマッパーを設定するために使用できます（Pyramid自身が使用するスーパーディファクトビューマッパーをオーバーライドします）。"
 
 #: ../../narr/hooks.rst:974
 msgid ""
 "A *single* view registration can use a view mapper by passing the mapper "
 "as the ``mapper`` argument to "
 ":meth:`~pyramid.config.Configurator.add_view`."
-msgstr ""
+msgstr "*単一ビューの登録では、mapperを `` mapper``引数として：meth： `〜pyramid.config.Configurator.add_view`に渡すことによって、ビューマッパーを使用できます。"
 
 #: ../../narr/hooks.rst:983
 msgid "Registering Configuration Decorators"
-msgstr ""
+msgstr "設定デコレータの登録"
 
 #: ../../narr/hooks.rst:985
 msgid ""
@@ -758,14 +748,14 @@ msgid ""
 "behavior of the functions or classes they're decorating.  Instead when a "
 ":term:`scan` is performed, a modified version of the function or class is"
 " registered with :app:`Pyramid`."
-msgstr ""
+msgstr "：class： `〜pyramid.view.view_config`のようなデコレータは、装飾している関数やクラスの動作を変更しません。代わりにa：term： `scan`が実行されると、関数またはクラスの修正版が：app：` Pyramid`で登録されます。"
 
 #: ../../narr/hooks.rst:990
 msgid ""
 "You may wish to have your own decorators that offer such behaviour. This "
 "is possible by using the :term:`Venusian` package in the same way that it"
 " is used by :app:`Pyramid`."
-msgstr ""
+msgstr "そのような動作を提供する独自のデコレータを使用することをお勧めします。これは、：term： `Venusian`パッケージを：app：` Pyramid`によって使用されるのと同じ方法で使用することで可能です。"
 
 #: ../../narr/hooks.rst:994
 msgid ""
@@ -777,39 +767,39 @@ msgid ""
 "application's configuration is at least partially completed. A normal "
 "decorator would fail as it would be executed before the configuration had"
 " even begun."
-msgstr ""
+msgstr "例として、あなたが：term： `Zope Component Architecture` \&quot; utility \ &quot;で囲んでいる関数を：term：`アプリケーションレジストリ `で囲んで登録するデコレータを書いたとしましょう：app：` Pyramid `。アプリケーションレジストリとレジストリ内のユーティリティは、アプリケーションの構成が少なくとも部分的に完了すると利用可能になる可能性があります。通常のデコレータは、設定が開始される前に実行されるので失敗します。"
 
 #: ../../narr/hooks.rst:1002
 msgid ""
 "However, using :term:`Venusian`, the decorator could be written as "
 "follows:"
-msgstr ""
+msgstr "しかし、term： `Venusian`を使うと、デコレータは次のように書くことができます："
 
 #: ../../narr/hooks.rst:1024
 msgid ""
 "This decorator could then be used to register functions throughout your "
 "code:"
-msgstr ""
+msgstr "このデコレータを使用して、コード全体に関数を登録することができます。"
 
 #: ../../narr/hooks.rst:1033
 msgid ""
 "However, the utility would only be looked up when a :term:`scan` was "
 "performed, enabling you to set up the utility in advance:"
-msgstr ""
+msgstr "ただし、ユーティリティは：term： `scan`が実行されたときにのみ検索され、事前にユーティリティーを設定することができます。"
 
 #: ../../narr/hooks.rst:1062
 msgid ""
 "For full details, please read the :ref:`Venusian documentation "
 "<venusian:venusian>`."
-msgstr ""
+msgstr "詳細については、：ref： `Venusian documentation <venusian:venusian> `。"
 
 #: ../../narr/hooks.rst:1068
 msgid "Registering Tweens"
-msgstr ""
+msgstr "Tweensの登録"
 
 #: ../../narr/hooks.rst:1070
 msgid "Tweens"
-msgstr ""
+msgstr "トゥイーンズ"
 
 #: ../../narr/hooks.rst:1073
 msgid ""
@@ -824,11 +814,11 @@ msgid ""
 "which they have access to the Pyramid :term:`request`, :term:`response`, "
 "and :term:`application registry`, as well as the Pyramid rendering "
 "machinery."
-msgstr ""
+msgstr "A：term： `tween`（単語間の&quot; \ &quot;の短縮形）は、ピラミッドルータのメインリクエスト処理関数と、アップストリームWSGIコンポーネントの間にあるコードです。app：` Pyramid`を\ &quot;app \&quot;これはPyramidフレームワーク拡張がPyramid固有のビュータイミングをサポートするために使用する機能です。たとえば、例外が上流のWSGIアプリケーションに返される前にその例外を調べます。 Tweensはterm： `WSGI`：term：` middleware`のように動作しますが、Pyramid：term： `request`、：term：` response`にアクセスできるコンテキストで動作する利点があります。 and：term： `アプリケーションレジストリ`とピラミッドレンダリング機構。"
 
 #: ../../narr/hooks.rst:1085
 msgid "Creating a Tween"
-msgstr ""
+msgstr "トゥイーンの作成"
 
 #: ../../narr/hooks.rst:1087
 msgid ""
@@ -839,7 +829,7 @@ msgid ""
 " the Pyramid :term:`application registry` represented by this "
 "Configurator.  A tween factory must return the tween (a callable object) "
 "when it is called."
-msgstr ""
+msgstr "トゥイーンを作成するには、\ &quot;トゥイーンファクトリー\&quot;を作成する必要があります。トゥイーンファクトリは、 `` handler``と `` registry``という2つの引数を受け入れる、グローバルにインポート可能な呼び出し可能でなければなりません。 `` handler``はメインのPyramidリクエスト処理関数か別のトゥイーンのいずれかになります。 `` registry``は、このコンフィギュレータが表すPyramid：term： `アプリケーションレジストリ &#39;になります。トゥイーンファクトリは、呼び出されたときにトゥイーン（呼び出し可能なオブジェクト）を返さなければなりません。"
 
 #: ../../narr/hooks.rst:1094
 msgid ""
@@ -847,24 +837,24 @@ msgid ""
 ":term:`request` created by Pyramid's router when it receives a WSGI "
 "request. A tween should return a :term:`response`, usually the one "
 "generated by the downstream Pyramid application."
-msgstr ""
+msgstr "トゥイーンは単一の引数 `` request``で呼び出されます。これはPyramidのルータがWSGI要求を受け取ったときに作成される：term： `request`です。トゥイーンは：term： `response`を返します。通常は、下流のPyramidアプリケーションによって生成されます。"
 
 #: ../../narr/hooks.rst:1099
 msgid "You can write the tween factory as a simple closure-returning function:"
-msgstr ""
+msgstr "トゥイーンファクトリを単純なクロージャー戻り関数として書くことができます："
 
 #: ../../narr/hooks.rst:1120
 msgid ""
 "Alternatively, the tween factory can be a class with the ``__call__`` "
 "magic method:"
-msgstr ""
+msgstr "あるいは、tweenファクトリは `` __call__``という魔法のメソッドを持つクラスにすることができます："
 
 #: ../../narr/hooks.rst:1144
 msgid ""
 "You should avoid mutating any state on the tween instance. The tween is "
 "invoked once per request and any shared mutable state needs to be "
 "carefully handled to avoid any race conditions."
-msgstr ""
+msgstr "トゥイーンインスタンス上の状態を変更するのは避けてください。トゥイーンは要求ごとに1回呼び出され、競合状態を避けるために共有される可変状態を注意深く処理する必要があります。"
 
 #: ../../narr/hooks.rst:1148
 msgid ""
@@ -872,13 +862,13 @@ msgid ""
 "conditionally omit the tween from the request processing pipeline (see "
 "the following timing tween example), whereas the class style makes it "
 "easier to have shared mutable state and allows subclassing."
-msgstr ""
+msgstr "クロージャースタイルは少し良くなり、要求処理パイプラインからトゥイーンを条件付きで省略することができます（次のタイミングトゥイーンの例を参照）。一方、クラススタイルでは、共有可能な可変状態を簡単にでき、サブクラス化が可能です。"
 
 #: ../../narr/hooks.rst:1153
 msgid ""
 "Here's a complete example of a tween that logs the time spent processing "
 "each request:"
-msgstr ""
+msgstr "各リクエストの処理に要した時間を記録するトゥイーンの完全な例を次に示します。"
 
 #: ../../narr/hooks.rst:1184
 msgid ""
@@ -891,18 +881,18 @@ msgid ""
 "the user has said they want to do timing, so the tween factory returns "
 "the timing tween; it otherwise just returns the handler it has been "
 "provided, preventing any timing."
-msgstr ""
+msgstr "上記の例では、トゥイーンファクトリは `` timing_tween``トゥイーンを定義し、 `` asbool（registry.settings.get（ &#39;do_timing&#39;）） ``が真であればそれを返します。さもなければ、単に与えられたハンドラを返します。 `` registry.settings``属性は、ユーザが提供する配備設定（通常は `` .ini``ファイル）のハンドルです。この場合、ユーザが `` do_timing``設定を定義し、その設定が `` True``であると、ユーザはタイミングを実行すると言っているので、トゥイーン工場はタイミングトゥイーンを返します。さもなければ、提供されたハンドラを返すだけで、タイミングを妨げることになります。"
 
 #: ../../narr/hooks.rst:1193
 msgid ""
 "The example timing tween simply records the start time, calls the "
 "downstream handler, logs the number of seconds consumed by the downstream"
 " handler, and returns the response."
-msgstr ""
+msgstr "サンプルのタイミングトゥイーンは、開始時間を記録し、ダウンストリームハンドラを呼び出し、ダウンストリームハンドラが消費した秒数を記録し、応答を返します。"
 
 #: ../../narr/hooks.rst:1198
 msgid "Registering an Implicit Tween Factory"
-msgstr ""
+msgstr "暗黙的なTweenファクトリの登録"
 
 #: ../../narr/hooks.rst:1200
 msgid ""
@@ -910,13 +900,13 @@ msgid ""
 "implicit tween chain using the "
 ":meth:`pyramid.config.Configurator.add_tween` method using its "
 ":term:`dotted Python name`."
-msgstr ""
+msgstr "トゥイーンファクトリを作成したら、：term： `dotted Python name`を使用して、：meth：` pyramid.config.Configurator.add_tween`メソッドを使用して暗黙のトゥイーンチェーンに登録できます。"
 
 #: ../../narr/hooks.rst:1204
 msgid ""
 "Here's an example of registering a tween factory as an \"implicit\" tween"
 " in a Pyramid application:"
-msgstr ""
+msgstr "次に、ピラミッドアプリケーションでトゥイーンファクトリを\ &quot;暗黙的\&quot;トゥイーンとして登録する例を示します。"
 
 #: ../../narr/hooks.rst:1214
 msgid ""
@@ -928,7 +918,7 @@ msgid ""
 "``timing_tween_factory`` tween factory was defined in a module named "
 "``myapp.tweens``, so the tween factory is importable as "
 "``myapp.tweens.timing_tween_factory``."
-msgstr ""
+msgstr "：term： `dotted Python name`を：meth：` pyramid.config.Configurator.add_tween`の最初の引数として使う必要があることに注意してください。これはツイーン工場を指している必要があります。トゥイーンファクトリオブジェクト自体をメソッドに渡すことはできません。それは、term： `dotted Python name`で、グローバルにインポート可能なオブジェクトを指している必要があります。上記の例では、 `` timing_tween_factory`` tweenファクトリが `` myapp.tweens``というモジュールに定義されていると仮定しています。したがって、トゥイーンファクトリは `` myapp.tweens.timing_tween_factory``としてインポートできます。"
 
 #: ../../narr/hooks.rst:1222
 msgid ""
@@ -939,7 +929,7 @@ msgid ""
 "to supply an explicit tween list, reordering or disincluding implicitly "
 "added tweens.  See :ref:`explicit_tween_ordering` for more information "
 "about explicit tween ordering."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_tween`を使用すると、ユーザーが構成に明示的なトゥイーンリストを提供していない限り、起動時にシステムにtweenファクトリを使用するよう指示されます。これは\ &quot;暗黙的な\&quot;トゥイーンの意味です。ユーザーは、暗黙的に追加されたトゥイーンを並べ替えたり、並べ替えたりすることにより、明示的なトゥイーンリストを指定することができます。明示的なトゥイーンの順序付けの詳細については、ref： `explicit_tween_ordering`を参照してください。"
 
 #: ../../narr/hooks.rst:1230
 msgid ""
@@ -953,18 +943,18 @@ msgid ""
 "tween factories have been called. The Pyramid router will use the "
 "outermost tween produced by this chain (the tween generated by the very "
 "last tween factory added) as its request handler function.  For example:"
-msgstr ""
+msgstr "単一のアプリケーション構成内で：meth： `pyramid.config.Configurator.add_tween`を複数回呼び出すと、アプリケーション起動時にトゥイーンが連鎖します。 `` add_tween`を介して追加された* first * tweenファクトリは、ピラミッド例外ビューのtweenファクトリを `` handler``引数として呼び出されます。その後、その直後に追加されたtweenファクトリが最初に呼び出されますトゥイーンのファクトリが呼び出されてしまうまで、無限に無限になります。ピラミッドルータは、このチェーンによって生成された最も外側のトゥイーン（最後に追加されたトゥイーンファクトリによって生成されたトゥイーン）をその要求ハンドラ関数として使用します。例えば："
 
 #: ../../narr/hooks.rst:1249 ../../narr/hooks.rst:1301
 #: ../../narr/hooks.rst:1323
 msgid ""
 "The above example will generate an implicit tween chain that looks like "
 "this::"
-msgstr ""
+msgstr "上記の例では、次のような暗黙のトゥイーンチェーンが生成されます::"
 
 #: ../../narr/hooks.rst:1258
 msgid "Suggesting Implicit Tween Ordering"
-msgstr ""
+msgstr "暗黙的なTweenオーダーの提案"
 
 #: ../../narr/hooks.rst:1260
 msgid ""
@@ -977,35 +967,35 @@ msgid ""
 " hints are only used when an explicit tween ordering is not used. See "
 ":ref:`explicit_tween_ordering` for a description of how to set an "
 "explicit tween ordering."
-msgstr ""
+msgstr "デフォルトでは、上で説明したように、チェーンの順序は、：meth： `pyramid.config.Configurator.add_tween`への呼び出しの相対順序によって完全に制御されます。しかし、 `` add_tween``の呼び出し側は、 `` under``または `` over``（または両方）の引数を：meth： `〜pyramid.configに与えることで、暗黙のトゥイーンチェーンの順序付けに影響を与えるオプションのヒントを提供できます.Configurator.add_tween`。これらのヒントは、明示的なトゥイーンの順序付けが使用されていない場合にのみ使用されます。明示的なトゥイーンの順序付けを設定する方法については、ref： `explicit_tween_ordering`を参照してください。"
 
 #: ../../narr/hooks.rst:1269
 msgid "Allowable values for ``under`` or ``over`` (or both) are:"
-msgstr ""
+msgstr "`` under``または `` over``（または両方）の許容値は以下のとおりです："
 
 #: ../../narr/hooks.rst:1271
 msgid "``None`` (the default),"
-msgstr ""
+msgstr "`` None``（デフォルト）、"
 
 #: ../../narr/hooks.rst:1273
 msgid ""
 "a :term:`dotted Python name` to a tween factory: a string representing "
 "the predicted dotted name of a tween factory added in a call to "
 "``add_tween`` in the same configuration session,"
-msgstr ""
+msgstr "a：term： `dotted Python name`をトゥイーンファクトリに：同じコンフィグレーションセッションで` `add_tween``への呼び出しで追加されたトゥイーンファクトリの予測されたドット名を表す文字列、"
 
 #: ../../narr/hooks.rst:1277
 msgid ""
 "one of the constants :attr:`pyramid.tweens.MAIN`, "
 ":attr:`pyramid.tweens.INGRESS`, or :attr:`pyramid.tweens.EXCVIEW`, or"
-msgstr ""
+msgstr "attr： `pyramid.tweens.MAIN`、：attr：` pyramid.tweens.INGRESS`、または：attr： `pyramid.tweens.EXCVIEW`、または次のいずれかです。"
 
 #: ../../narr/hooks.rst:1280
 msgid ""
 "an iterable of any combination of the above. This allows the user to "
 "specify fallbacks if the desired tween is not included, as well as "
 "compatibility with multiple other tweens."
-msgstr ""
+msgstr "上記の任意の組み合わせの繰り返し可能なもの。これにより、必要なトゥイーンが含まれていない場合や複数の他のトゥイーンとの互換性がある場合にフォールバックを指定することができます。"
 
 #: ../../narr/hooks.rst:1284
 msgid ""
@@ -1013,7 +1003,7 @@ msgid ""
 "``under`` means \"closer to the main Pyramid application than\". You can "
 "think of an onion with outer layers over the inner layers, the "
 "application being under all the layers at the center."
-msgstr ""
+msgstr "効果的には、 &quot;over&quot;は\ &quot;要求入力より\&quot;に近いことを意味し、 &quot;under&quot;は\ &quot;主ピラミッドアプリケーションに\&quot;より近いことを意味します。あなたは内側のレイヤー上の外側のレイヤーを持つタマネギを考えることができ、そのアプリケーションは中央のすべてのレイヤーの下にあります。"
 
 #: ../../narr/hooks.rst:1289
 msgid ""
@@ -1021,7 +1011,7 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.add_tween` will attempt to place the "
 "tween factory represented by ``myapp.tween_factory`` directly \"above\" "
 "(in ``ptweens`` order) the main Pyramid request handler."
-msgstr ""
+msgstr "たとえば、次のように：meth： `〜pyramid.config.Configurator.add_tween`を呼び出すと、` `myapp.tween_factory``で表されるトゥイーンファクトリを直接\&quot;上に\ &quot;（` `ptweens``順序）主ピラミッド要求ハンドラ。"
 
 #: ../../narr/hooks.rst:1308
 msgid ""
@@ -1029,13 +1019,13 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.add_tween` will attempt to place this"
 " tween factory \"above\" the main handler but \"below\" a separately "
 "added tween factory:"
-msgstr ""
+msgstr "同様に、meth： `〜pyramid.config.Configurator.add_tween`を呼び出すと、メインのハンドラの上にこのトゥイーンファクトリを配置しようと試みますが、別途追加されたトゥイーンファクトリの下に\"
 
 #: ../../narr/hooks.rst:1331
 msgid ""
 "Specifying neither ``over`` nor ``under`` is equivalent to specifying "
 "``under=INGRESS``."
-msgstr ""
+msgstr "`` over``と `` under``のどちらも指定しない場合、 `` under = INGRESS``を指定するのと同じです。"
 
 #: ../../narr/hooks.rst:1334
 msgid ""
@@ -1048,11 +1038,11 @@ msgid ""
 "``INGRESS``. If any of these is not in the current configuration, this "
 "constraint will only organize itself based on the tweens that are "
 "present."
-msgstr ""
+msgstr "`` under``（または `` over``）のすべてのオプションが現在の設定で見つからない場合、それはエラーです。一部のオプションが純粋に他のトゥイーンとの互換性のために指定されている場合は、 `` MAIN`または `` INGRESS``のフォールバックを追加してください。例えば、 `` under =（ &#39;someothertween&#39;、 &#39;someothertween2&#39;、INGRESS） ``などです。この制約は、トゥイーンが `` someothertween``トゥイーン、 `` someothertween```トゥイーン、 `` INGRESS``の下に置かれることを要求します。これらのいずれかが現在の構成にない場合、この制約は存在するトゥイーンに基づいて構成されます。"
 
 #: ../../narr/hooks.rst:1346
 msgid "Explicit Tween Ordering"
-msgstr ""
+msgstr "明示的なTweenの注文"
 
 #: ../../narr/hooks.rst:1348
 msgid ""
@@ -1067,7 +1057,7 @@ msgid ""
 "``pyramid.tweens`` settings value.  When used, this settings value must "
 "be a list of Python dotted names which will override the ordering (and "
 "inclusion) of tween factories in the implicit tween chain.  For example:"
-msgstr ""
+msgstr "明示的なトゥイーンの順序は、明らかにベストエフォートのみです。ピラミッドは、：meth： `〜pyramid.config.Configurator.add_tween`の呼び出しによって提供されるヒントを使用して、最高のトゥイーンの暗黙の順序を提供しようとします。しかし、それは単なるベストエフォート型なので、非常に正確なトゥイーンの注文が必要な場合は、それを得るための唯一の確実な方法は、明示的なトゥイーンの注文を使用することです。展開するユーザは、 `` pyramid.tweens``設定値を使って：meth： `〜pyramid.config.Configurator.add_tween`を呼び出すことによって暗黙のトゥイーンのインクルードと順序付けをオーバーライドすることができます。この設定値を使用する場合は、暗黙のトゥイーンチェーン内のトゥイーンファクトリの順序付け（および包含）を無効にする、Pythonのドット付きの名前のリストでなければなりません。例えば："
 
 #: ../../narr/hooks.rst:1372
 msgid ""
@@ -1082,7 +1072,7 @@ msgid ""
 "the tween factory declared directly \"below\" it, ad infinitum.  The "
 "\"main\" Pyramid request handler is implicit, and always \"at the "
 "bottom\"."
-msgstr ""
+msgstr "上記の設定では、設定中に：meth： `pyramid.config.Configurator.add_tween`への呼び出しは無視され、ユーザは` `pyramid.tweens``設定でリストアップしたトゥイーンファクトリを使用するようにシステムに指示しています：meth： `pyramid.config.Configurator.add_tween`を使って追加されたトゥイーンファクトリの代わりに、（それぞれ：a：term：` dotted Python name`がトゥイーンファクトリを指しています）。 `` pyramid.tweens``リストの* first * tweenファクトリは、effective：app： `Pyramid`リクエスト処理関数のプロデューサとして使用されます。これは、広告の無限に直接\ &quot;下に\&quot;宣言されたトゥウィーン工場をラップします。 \ &quot;メイン\&quot;ピラミッド要求ハンドラは暗黙的で、常に\ &quot;下に\&quot;あります。"
 
 #: ../../narr/hooks.rst:1385
 msgid ""
@@ -1093,11 +1083,11 @@ msgid ""
 ":func:`pyramid.tweens.excview_tween_factory` function must be added to "
 "the ``pyramid.tweens`` configuration setting list explicitly.  If it is "
 "not present, Pyramid will not perform exception view handling."
-msgstr ""
+msgstr "Pyramid自身の：term： `例外ビュー`処理ロジックは、：func： `pyramid.tweens.excview_tween_factory`というトゥイーンファクトリ関数として実装されています。 Pyramidの例外ビューの処理が望まれ、 `` pyramid.tweens``設定でtweenファクトリが指定されている場合、 `` pyramid.tweens``設定に：func： `pyramid.tweens.excview_tween_factory`関数を追加する必要がありますリストを明示的に設定する。存在しない場合、Pyramidは例外ビュー処理を実行しません。"
 
 #: ../../narr/hooks.rst:1394
 msgid "Tween Conflicts and Ordering Cycles"
-msgstr ""
+msgstr "ツイーン競合と注文サイクル"
 
 #: ../../narr/hooks.rst:1396
 msgid ""
@@ -1110,33 +1100,33 @@ msgid ""
 "other tween factory it conflicts with, but with a different ``__name__`` "
 "attribute; or (c) call :meth:`pyramid.config.Configurator.commit` between"
 " calls to :meth:`pyramid.config.Configurator.add_tween`."
-msgstr ""
+msgstr "ピラミッドは、構成の競合検出を使用して、同じトゥイーンファクトリがトゥイーンチェーンに複数回追加されるのを防ぎます。同じトゥイーンファクトリをコンフィグレーションに複数回追加する場合は、次のいずれかを行う必要があります。（a）グローバルにインポート可能なインスタンスオブジェクトであるトゥイーンファクトリを使用します。 （b）他のトゥイーンファクトリと同じロジックを持つが、違う `` __name__``属性を持つトゥイーンファクトリとして関数またはクラスを使用する。または（c）：meth： `pyramid.config.Configurator.add_tween`の呼び出しの間に：meth：` pyramid.config.Configurator.commit`を呼び出します。"
 
 #: ../../narr/hooks.rst:1406
 msgid ""
 "If a cycle is detected in implicit tween ordering when ``over`` and "
 "``under`` are used in any call to ``add_tween``, an exception will be "
 "raised at startup time."
-msgstr ""
+msgstr "`` over``と `` under``が `` add_tween``の呼び出しで使用されたときに暗黙的なトゥイーンの順序でサイクルが検出されると、起動時に例外が発生します。"
 
 #: ../../narr/hooks.rst:1411
 msgid "Displaying Tween Ordering"
-msgstr ""
+msgstr "Tweenオーダーの表示"
 
 #: ../../narr/hooks.rst:1413
 msgid ""
 "The ``ptweens`` command-line utility can be used to report the current "
 "implict and explicit tween chains used by an application.  See "
 ":ref:`displaying_tweens`."
-msgstr ""
+msgstr "`` ptweens``コマンドラインユーティリティは、アプリケーションで使用されている現在の暗黙のトーンチェーンと明示的なトゥイーンチェーンを報告するために使用できます。参照：ref： `displaying_tweens`を参照してください。"
 
 #: ../../narr/hooks.rst:1420
 msgid "Adding a Third Party View, Route, or Subscriber Predicate"
-msgstr ""
+msgstr "第三者のビュー、ルート、またはサブスクライバの述語を追加する"
 
 #: ../../narr/hooks.rst:1427
 msgid "View and Route Predicates"
-msgstr ""
+msgstr "述語の表示とルーティング"
 
 #: ../../narr/hooks.rst:1429
 msgid ""
@@ -1144,11 +1134,11 @@ msgid ""
 "the set of circumstances under which a view or route will match.  For "
 "example, the ``request_method`` view predicate can be used to ensure a "
 "view callable is only invoked when the request's method is ``POST``:"
-msgstr ""
+msgstr "構成時に使用されるビューおよびルート述部を使用すると、ビューまたはルートが一致する一連の状況を絞り込むことができます。例えば、 `` request_method``のビュー述語は、ビューの呼び出し可能メソッドがリクエストのメソッドが `` POST``である場合にのみ呼び出されるようにするために使用できます："
 
 #: ../../narr/hooks.rst:1440
 msgid "Likewise, a similar predicate can be used as a *route* predicate:"
-msgstr ""
+msgstr "同様に、類似の述語を*経路*述語として使用することができます。"
 
 #: ../../narr/hooks.rst:1446
 msgid ""
@@ -1157,20 +1147,20 @@ msgid ""
 " using one of :meth:`pyramid.config.Configurator.add_view_predicate` or "
 ":meth:`pyramid.config.Configurator.add_route_predicate`.  The former adds"
 " a view predicate, the latter a route predicate."
-msgstr ""
+msgstr "他の多くの組み込み述語が存在します（ `` request_param`など）。サードパーティの述語は、：meth： `pyramid.config.Configurator.add_view_predicate`または：meth：` pyramid.config.Configurator.add_route_predicate`のいずれかを使用して、利用可能な述語のリストに追加できます。前者はビュー述語を追加し、後者はルート述語を追加します。"
 
 #: ../../narr/hooks.rst:1452
 msgid ""
 "When using one of those APIs, you pass a *name* and a *factory* to add a "
 "predicate during Pyramid's configuration stage.  For example:"
-msgstr ""
+msgstr "これらのAPIのいずれかを使用する場合は、* name *と* factory *を渡してPyramidの設定段階で述語を追加します。例えば："
 
 #: ../../narr/hooks.rst:1459
 msgid ""
 "The above example adds a new predicate named ``content_type`` to the list"
 " of available predicates for views.  This will allow the following view "
 "configuration statement to work:"
-msgstr ""
+msgstr "上記の例では、 `` content_type``という名前の新しい述語を、ビューの利用可能な述語のリストに追加しています。これにより、次のビュー構成ステートメントを実行できます。"
 
 #: ../../narr/hooks.rst:1469
 msgid ""
@@ -1178,7 +1168,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_view_predicate`, the name, is a "
 "string representing the name that is expected to be passed to "
 "``view_config`` (or its imperative analogue ``add_view``)."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_view_predicate`の最初の引数は、` `view_config``（またはその必須の` `add_view``）に渡されると予想される名前を表す文字列です。"
 
 #: ../../narr/hooks.rst:1473
 msgid ""
@@ -1187,7 +1177,7 @@ msgid ""
 "factory.  A view or route predicate factory is most often a class with a "
 "constructor (``__init__``), a ``text`` method, a ``phash`` method, and a "
 "``__call__`` method. For example:"
-msgstr ""
+msgstr "2番目の引数は、ビューまたはルート述語ファクトリです。または、：term： `dotted Python name`は、ビューまたはルート述語ファクトリを参照します。ビューまたはルート述語ファクトリは、コンストラクタ（ `` __init__``）、 `` text``メソッド、 `` phash``メソッド、 `` __call__``メソッドを持つクラスが最もよく使用されます。例えば："
 
 #: ../../narr/hooks.rst:1494
 msgid ""
@@ -1196,13 +1186,13 @@ msgid ""
 "``view_config`` (or ``add_view``).  In the example above, it will be the "
 "string ``File``.  The second argument, ``config``, will be the "
 "Configurator instance at the time of configuration."
-msgstr ""
+msgstr "述語ファクトリのコンストラクタは、 `` val``と `` config``の2つの引数をとります。 `` val``引数は `` view_config``（または `` add_view``）に渡される引数になります。上記の例では、文字列 `` File``になります。第2引数 `` config``は、設定時のコンフィギュレータインスタンスになります。"
 
 #: ../../narr/hooks.rst:1500
 msgid ""
 "The ``text`` method must return a string.  It should be useful to "
 "describe the behavior of the predicate in error messages."
-msgstr ""
+msgstr "`` text``メソッドは文字列を返す必要があります。エラー・メッセージ内の述部の動作を記述すると便利です。"
 
 #: ../../narr/hooks.rst:1503
 msgid ""
@@ -1213,13 +1203,13 @@ msgid ""
 "should return a string with the name and the value serialized.  The "
 "result of ``phash`` is not seen in output anywhere, it just informs the "
 "uniqueness constraints for view configuration."
-msgstr ""
+msgstr "`` phash``メソッドは、文字列または一連の文字列を返す必要があります。 `` text``は述語の名前とコンストラクタに渡される値を一意的に記述する限り、 `` text``とほとんど同じです。 `` text``がより一般的であるか、そうしたことを記述していない場合、 `` phash``は、名前と値を直列化した文字列を返さなければなりません。 `` phash``の結果はどこにも出力されません。ビュー構成の一意性の制約を通知するだけです。"
 
 #: ../../narr/hooks.rst:1511
 msgid ""
 "The ``__call__`` method differs depending on whether the predicate is "
 "used as a :term:`view predicate` or a :term:`route predicate`:"
-msgstr ""
+msgstr "`` __call__``メソッドは、述語が：term： `view述語`またはa：term： `` `` `` `` `` `` ``"
 
 #: ../../narr/hooks.rst:1514
 msgid ""
@@ -1228,7 +1218,7 @@ msgid ""
 "``match`` and ``route``. ``info['match']`` is the matchdict containing "
 "the patterns matched in the route pattern. ``info['route']`` is the "
 ":class:`pyramid.interfaces.IRoute` object for the current route."
-msgstr ""
+msgstr "ルート述語として使用されるとき、 `` __call__``シグネチャは ``（info、request） ``です。 `` info``オブジェクトは `` match``と `` route``の2つのキーを含む辞書です。 `` info [&#39;match&#39;] ``はルートパターンにマッチしたパターンを含むmatchdictです。 `` info [&#39;route&#39;] ``は現在のルートの：class： `pyramid.interfaces.IRoute`オブジェクトです。"
 
 #: ../../narr/hooks.rst:1520
 msgid ""
@@ -1236,13 +1226,13 @@ msgid ""
 "request)``. The ``context`` is the result of :term:`traversal` performed "
 "using either the route's :term:`root factory` or the app's :term:`default"
 " root factory`."
-msgstr ""
+msgstr "ビュー述語として使用する場合、 `` __call__``シグニチャは ``（context、request） ``です。 `` context``は、ルート：term： `ルートファクトリ`またはアプリの：term： `デフォルトルートファクトリ`のいずれかを使って実行されるterm： `traversal`の結果です。"
 
 #: ../../narr/hooks.rst:1525
 msgid ""
 "In both cases the ``__call__`` method is expected to return ``True`` or "
 "``False``."
-msgstr ""
+msgstr "どちらの場合も `` __call__``メソッドは `` True``または `` False``を返すと予想されます。"
 
 #: ../../narr/hooks.rst:1528
 msgid ""
@@ -1251,11 +1241,11 @@ msgid ""
 "``context`` argument specially (many predicates do not need this "
 "argument) and you'll need to call ``add_view_predicate`` and "
 "``add_route_predicate`` separately with the same factory."
-msgstr ""
+msgstr "ビュー述語とルート述語の両方と同じ述語ファクトリを使うことは可能ですが、 `` info``や `` context``引数を特別に扱う必要があります（多くの述語はこの引数を必要としません）同じファクトリで `` add_view_predicate``と `` add_route_predicate``を別々に呼び出す必要があります。"
 
 #: ../../narr/hooks.rst:1537
 msgid "Subscriber Predicates"
-msgstr ""
+msgstr "購読者の述語"
 
 #: ../../narr/hooks.rst:1539
 msgid ""
@@ -1263,39 +1253,39 @@ msgid ""
 " They narrow the set of circumstances in which a subscriber will be "
 "called. There are several minor differences between a subscriber "
 "predicate and a view or route predicate:"
-msgstr ""
+msgstr "サブスクライバ述語は、ビューとルート述語とほぼ同じように動作します。加入者が呼び出される一連の状況を絞り込みます。サブスクライバ述語とビューまたはルート述語の間には、いくつかの小さな違いがあります。"
 
 #: ../../narr/hooks.rst:1544
 msgid ""
 "There are no default subscriber predicates.  You must register one to use"
 " one."
-msgstr ""
+msgstr "デフォルトのサブスクライバ述語はありません。あなたは1つを使用して登録する必要があります。"
 
 #: ../../narr/hooks.rst:1547
 msgid ""
 "The ``__call__`` method of a subscriber predicate accepts a single "
 "``event`` object instead of a ``context`` and a ``request``."
-msgstr ""
+msgstr "サブスクライバ述語の `` __call__``メソッドは、 `` context``と `` request``の代わりに単一の `` event``オブジェクトを受け取ります。"
 
 #: ../../narr/hooks.rst:1550
 msgid ""
 "Not every subscriber predicate can be used with every event type.  Some "
 "subscriber predicates will assume a certain event type."
-msgstr ""
+msgstr "すべてのイベントタイプですべてのサブスクライバ述語を使用できるわけではありません。一部のサブスクライバ述部では、特定のイベントタイプが想定されます。"
 
 #: ../../narr/hooks.rst:1553
 msgid ""
 "Here's an example of a subscriber predicate that can be used in "
 "conjunction with a subscriber that subscribes to the "
 ":class:`pyramid.events.NewRequest` event type."
-msgstr ""
+msgstr "：class： `pyramid.events.NewRequest`イベントタイプにサブスクライブするサブスクライバと一緒に使用できるサブスクライバ述語の例を次に示します。"
 
 #: ../../narr/hooks.rst:1572
 msgid ""
 "Once you've created a subscriber predicate, it may be registered via "
 ":meth:`pyramid.config.Configurator.add_subscriber_predicate`.  For "
 "example:"
-msgstr ""
+msgstr "サブスクライバ述語を作成したら、それは：meth： `pyramid.config.Configurator.add_subscriber_predicate`で登録することができます。例えば："
 
 #: ../../narr/hooks.rst:1580
 msgid ""
@@ -1304,20 +1294,20 @@ msgid ""
 ":class:`pyramid.events.subscriber`.  Here's an example of using the "
 "previously registered ``request_path_startswith`` predicate in a call to "
 ":meth:`~pyramid.config.Configurator.add_subscriber`:"
-msgstr ""
+msgstr "サブスクライバ述語が登録されると、それを：meth： `pyramid.config.Configurator.add_subscriber`または：class：` pyramid.events.subscriber`への呼び出しで使用できます。ここには、以前に登録された `` request_path_startswith``述語を：meth： `〜pyramid.config.Configurator.add_subscriber`の呼び出しで使用する例があります："
 
 #: ../../narr/hooks.rst:1599
 msgid ""
 "Here's the same subscriber/predicate/event-type combination used via "
 ":class:`~pyramid.events.subscriber`."
-msgstr ""
+msgstr "class： `〜pyramid.events.subscriber`を介して使用されるのと同じサブスクライバ/述語/イベントタイプの組み合わせがあります。"
 
 #: ../../narr/hooks.rst:1611
 msgid ""
 "In either of the above configurations, the ``yosubscriber`` callable will"
 " only be called if the request path starts with ``/add_yo``.  Otherwise "
 "the event subscriber will not be called."
-msgstr ""
+msgstr "上記のいずれの設定においても、 `` yosubscriber``呼び出し可能ファイルは、リクエストパスが `` / add_yo``で始まる場合にのみ呼び出されます。そうしないと、イベント加入者は呼び出されません。"
 
 #: ../../narr/hooks.rst:1615
 msgid ""
@@ -1334,11 +1324,11 @@ msgid ""
 "make every predicate make sense for every event type; it is the "
 "responsibility of the predicate consumer to use predicates that make "
 "sense for a particular event type registration."
-msgstr ""
+msgstr "あなたが定義した `` request_path_startswith``サブスクライバは、 `` request``属性を持つイベントでは使用できますが、そうでないものには使用できないことに注意してください。たとえば、述語は：class： `pyramid.events.NewRequest`と：class：` pyramid.events.ContextFound`イベントに登録されたサブスクライバで使用できますが、class： `に登録されたサブスクライバでは使用できません。後者のタイプのイベントには `` request``属性がないため、pyramid.events.ApplicationCreatedを呼び出す必要があります。ルートとビュー述語とは異なり、すべてのタイプのサブスクライバ述語が必ずしもすべてのサブスクライバ登録で使用するために適用可能ではありません。すべての述語をすべてのイベントタイプに対して意味を持たせることは、述語作成者の責任ではありません。特定のイベント・タイプ登録に合った述部を使用するのは、述部コンシューマーの責任です。"
 
 #: ../../narr/hooks.rst:1635
 msgid "View Derivers"
-msgstr ""
+msgstr "デリバーを見る"
 
 #: ../../narr/hooks.rst:1639
 msgid ""
@@ -1351,7 +1341,7 @@ msgid ""
 "``decorator`` argument to :meth:`pyramid.config.Configurator.add_view`, "
 "except that they have the option to execute for every view in the "
 "application."
-msgstr ""
+msgstr "：app： `Pyramid`によって処理されるすべてのURLはカスタムビューのパイプラインと照合されます。これがどのように動作するかについては：ref： `router_chapter`を参照してください。ビューパイプライン自体はユーザ提供の：term： `view callable`から構築され、それは：term：` view derivers <view deriver> `。ビュー・デリバは、ビュー・パイプラインの構成可能な要素であり、追加された機能を持つビューをラップするために使用されます。ビューデリバーは：meth： `pyramid.config.Configurator.add_view`の` `decorator``引数に非常によく似ていますが、アプリケーション内のすべてのビューに対して実行するオプションがあります。"
 
 #: ../../narr/hooks.rst:1648
 msgid ""
@@ -1359,22 +1349,22 @@ msgid ""
 " Unlike tweens or WSGI middleware which are scoped to the application "
 "itself, a view deriver is invoked once per view in the application, and "
 "can use configuration options from the view to customize its behavior."
-msgstr ""
+msgstr "ビューのミドルウェアとして、：term： `view deriver &#39;を考えることは有益です。アプリケーション自体に適用されるトゥイーンまたはWSGIミドルウェアとは異なり、ビュー・デリバはアプリケーションのビューごとに1回呼び出され、ビューの構成オプションを使用してその動作をカスタマイズできます。"
 
 #: ../../narr/hooks.rst:1654
 msgid "Built-in View Derivers"
-msgstr ""
+msgstr "ビルトインビューデリバー"
 
 #: ../../narr/hooks.rst:1656
 msgid ""
 "There are several built-in view derivers that :app:`Pyramid` will "
 "automatically apply to any view. Below they are defined in order from "
 "furthest to closest to the user-defined :term:`view callable`:"
-msgstr ""
+msgstr "app： `Pyramid`は自動的にどのビューにも適用されます。以下は、ユーザ定義の最も近いものから順に定義されています。term： `view callable`："
 
 #: ../../narr/hooks.rst:1660
 msgid "``secured_view``"
-msgstr ""
+msgstr "`` secured_view``"
 
 #: ../../narr/hooks.rst:1662
 msgid ""
@@ -1383,17 +1373,17 @@ msgid ""
 "defined if a default permission was assigned via "
 ":meth:`pyramid.config.Configurator.set_default_permission` unless the "
 "view is an :term:`exception view`."
-msgstr ""
+msgstr "ビューに定義された `` permission``を強制します。パーミッションが定義されていない場合、この要素はno-opです。ビューが：term： `exception view`でない限り、デフォルトのパーミッションが：meth：` pyramid.config.Configurator.set_default_permission`によって割り当てられた場合、常にパーミッションが定義されます。"
 
 #: ../../narr/hooks.rst:1668
 msgid ""
 "This element will also output useful debugging information when "
 "``pyramid.debug_authorization`` is enabled."
-msgstr ""
+msgstr "この要素は、 `` pyramid.debug_authorization``が有効になっているときに有用なデバッグ情報も出力します。"
 
 #: ../../narr/hooks.rst:1671
 msgid "``csrf_view``"
-msgstr ""
+msgstr "`` csrf_view``"
 
 #: ../../narr/hooks.rst:1673
 msgid ""
@@ -1402,19 +1392,19 @@ msgid ""
 "always be a ``require_csrf`` option if a default value was assigned via "
 ":meth:`pyramid.config.Configurator.set_default_csrf_options` unless the "
 "view is an :term:`exception view`."
-msgstr ""
+msgstr "要求で提供されたCSRFトークンをチェックするために使用されます。 `` require_csrf``の表示オプションが `` True``でなければ、この要素はno-opです。ビューが：term： `exception view`でない限り、デフォルト値が：meth：` pyramid.config.Configurator.set_default_csrf_options`によって割り当てられた場合、 `` require_csrf``オプションが常にあることに注意してください。"
 
 #: ../../narr/hooks.rst:1679
 msgid "``owrapped_view``"
-msgstr ""
+msgstr "`` owrapped_view``"
 
 #: ../../narr/hooks.rst:1681
 msgid "Invokes the wrapped view defined by the ``wrapper`` option."
-msgstr ""
+msgstr "`` wrapper``オプションで定義されたラップビューを呼び出します。"
 
 #: ../../narr/hooks.rst:1683
 msgid "``http_cached_view``"
-msgstr ""
+msgstr "`` http_cached_view``"
 
 #: ../../narr/hooks.rst:1685
 msgid ""
@@ -1422,29 +1412,29 @@ msgid ""
 "``http_cache`` option. This element is a no-op if the "
 "``pyramid.prevent_http_cache`` setting is enabled or the ``http_cache`` "
 "option is ``None``."
-msgstr ""
+msgstr "`` http_cache``オプションで定義されたレスポンスにキャッシュコントロールヘッダを適用します。 `` pyramid.prevent_http_cache``が有効になっているか、 `` http_cache``オプションが `` None``であれば、この要素はno-opです。"
 
 #: ../../narr/hooks.rst:1689
 msgid "``decorated_view``"
-msgstr ""
+msgstr "`` decorated_view``"
 
 #: ../../narr/hooks.rst:1691
 msgid "Wraps the view with the decorators from the ``decorator`` option."
-msgstr ""
+msgstr "`` decorator``オプションのデコレータでビューをラップします。"
 
 #: ../../narr/hooks.rst:1693
 msgid "``rendered_view``"
-msgstr ""
+msgstr "`rendered_view``"
 
 #: ../../narr/hooks.rst:1695
 msgid ""
 "Adapts the result of the :term:`view callable` into a :term:`response` "
 "object. Below this point the result may be any Python object."
-msgstr ""
+msgstr "：term： `view callable`の結果を：term：` response`オブジェクトに適用します。この点の下には、結果としてPythonオブジェクトがあります。"
 
 #: ../../narr/hooks.rst:1698
 msgid "``mapped_view``"
-msgstr ""
+msgstr "`` mapped_view``"
 
 #: ../../narr/hooks.rst:1700
 msgid ""
@@ -1453,7 +1443,7 @@ msgid ""
 "always the closest deriver to the user-defined view and standardizes the "
 "view pipeline interface to accept ``(context, request)`` from all "
 "previous view derivers."
-msgstr ""
+msgstr "`` mapper``オプションまたはアプリケーションのデフォルトビューマッパーによって定義された：term： `view mapper`を：term：` view callable`に適用します。これは、常にユーザー定義ビューに最も近いデリバであり、ビューパイプラインインターフェイスを標準化して、以前のすべてのビューデリバーから ``（コンテキスト、要求）を受け入れるようにします。"
 
 #: ../../narr/hooks.rst:1708
 msgid ""
@@ -1463,11 +1453,11 @@ msgid ""
 "response returned from the view. This is possibly a dictionary for a "
 "renderer but it may be any Python object that may be adapted into a "
 "response."
-msgstr ""
+msgstr "`` rendered_view``で `` under &#39;&#39;に定義されたビューデリバーは、有効なレスポンスオブジェクトを受け取ることが保証されていません。むしろ、彼らは：term： `view mapper`から結果を受け取ります。これは、元の応答がビューから返された可能性が高いです。これはおそらくレンダラーの辞書ですが、レスポンスに適合させることができる任意のPythonオブジェクトである可能性があります。"
 
 #: ../../narr/hooks.rst:1715
 msgid "Custom View Derivers"
-msgstr ""
+msgstr "カスタムビューデリバー"
 
 #: ../../narr/hooks.rst:1717
 msgid ""
@@ -1482,7 +1472,7 @@ msgid ""
 "instance of :class:`pyramid.interfaces.IViewDeriverInfo`. For example, "
 "below is a callable that can provide timing information for the view "
 "pipeline:"
-msgstr ""
+msgstr "アプリケーションのすべてのビューに影響するカスタムビューデリバーを定義することは可能です。これには多くの用途がありますが、ほとんどの場合、監視とセキュリティに重点が置かれます。 custom：term： `view deriver`を登録するには、：class：` pyramid.interfaces.IViewDeriver`インターフェースに準拠した呼び出し可能ファイルを作成し、それを以下のようにアプリケーションに登録してください：meth： `pyramid.config .Configurator.add_view_deriver`。呼び出し可能オブジェクトはラップされる `` view``と：class： `pyramid.interfaces.IViewDeriverInfo`のインスタンスである` `info``オブジェクトを受け入れるべきです。たとえば、ビューパイプラインのタイミング情報を提供できる呼び出し可能コードは次のとおりです。"
 
 #: ../../narr/hooks.rst:1748
 msgid ""
@@ -1491,17 +1481,17 @@ msgid ""
 "``timing_view`` custom view deriver as registered above will only be "
 "active for any view defined with a ``timed=True`` value passed as one of "
 "its ``view_config`` keywords."
-msgstr ""
+msgstr "timing_viewに `` timed`を設定すると、Pyramidは `` timed``が有効な `` view_config``キーワード引数であることを示します。上記で登録された `` timing_view``カスタムビューデリバは、 `` view_config``キーワードの1つとして渡される `` timed = True``値で定義されたビューに対してのみアクティブになります。"
 
 #: ../../narr/hooks.rst:1753
 msgid "For example, this view configuration will *not* be a timed view:"
-msgstr ""
+msgstr "たとえば、このビューの設定は、時間切れのビューではありません。"
 
 #: ../../narr/hooks.rst:1762
 msgid ""
 "But this view *will* have timing information added to the response "
 "headers:"
-msgstr ""
+msgstr "しかし、このビューでは、応答ヘッダーにタイミング情報が追加されます。"
 
 #: ../../narr/hooks.rst:1771
 msgid ""
@@ -1509,11 +1499,11 @@ msgid ""
 "passed to :meth:`pyramid.config.Configurator.add_view` in order to decide"
 " what to do, and they have a chance to affect every view in the "
 "application."
-msgstr ""
+msgstr "ビューデリバーは、何をすべきかを決めるために：meth： `pyramid.config.Configurator.add_view`に渡されるほとんどのオプションにアクセスできるという点で独特です。アプリケーションのすべてのビューに影響を及ぼす可能性があります。"
 
 #: ../../narr/hooks.rst:1778
 msgid "Exception Views and View Derivers"
-msgstr ""
+msgstr "例外ビューとビューデリバー"
 
 #: ../../narr/hooks.rst:1780
 msgid ""
@@ -1523,7 +1513,7 @@ msgid ""
 " For example, the ``csrf_view`` and ``secured_view`` built-in view "
 "derivers will not perform security checks on exception views unless "
 "explicitly told to do so."
-msgstr ""
+msgstr "A：term： `view deriver`は：term：` exception view`を含む任意のビューをラップする機会があります。一般的にはこれは問題ありませんが、例外を処理する際には、特定のビュー・デリバリが特定の処理を行うことを避けたい場合があります。例えば、 `` csrf_view``と `` secured_view``の組み込みビューデリバは、明示的に指示されない限り、例外ビューに対するセキュリティチェックを実行しません。"
 
 #: ../../narr/hooks.rst:1786
 msgid ""
@@ -1531,11 +1521,11 @@ msgid ""
 ":class:`pyramid.interfaces.IViewDeriverInfo` object when wrapping the "
 "view to determine whether you are wrapping an exception view or a normal "
 "view."
-msgstr ""
+msgstr "例外ビューまたは通常ビューをラップするかどうかを判断するためにビューをラップするときは、：class： `pyramid.interfaces.IViewDeriverInfo`オブジェクトで` `info.exception_only``をチェックすることができます。"
 
 #: ../../narr/hooks.rst:1791
 msgid "Ordering View Derivers"
-msgstr ""
+msgstr "デリバリービューの注文"
 
 #: ../../narr/hooks.rst:1793
 msgid ""
@@ -1546,7 +1536,7 @@ msgid ""
 " specify an ordering. There should rarely be a reason to worry about the "
 "ordering of the derivers except when the deriver depends on other "
 "operations in the view pipeline."
-msgstr ""
+msgstr "デフォルトでは、すべての新しいビュー・ディリバは、 `` decorated_view``と `` rendered_view``の組み込み関数の間に追加されます。 `` over``と `` under``オプションを使ってこの順序をカスタマイズすることが可能です。各オプションは、順序を指定するために他のビュー・デリバーの名前を使用できます。デリバリがビューパイプライン内の他の操作に依存する場合を除いて、デリバリの順序について心配する必要はほとんどありません。"
 
 #: ../../narr/hooks.rst:1800
 msgid ""
@@ -1555,7 +1545,7 @@ msgid ""
 "be satisfied, else a :class:`pyramid.exceptions.ConfigurationError` will "
 "be raised. This may be used to define fallback constraints if another "
 "deriver is missing."
-msgstr ""
+msgstr "`` over``と `` under``の両方は、制約の繰り返し可能性もあります。どちらのオプションでも、1つまたは複数の制約が定義されている場合、少なくとも1つは満たされなければなりません。それ以外の場合は：class： `pyramid.exceptions.ConfigurationError`が発生します。これは、別のデリバーがない場合、フォールバック制約を定義するために使用できます。"
 
 #: ../../narr/hooks.rst:1805
 msgid ""
@@ -1563,7 +1553,7 @@ msgid ""
 ":attr:`pyramid.viewderivers.VIEW`, which may be used when specifying "
 "constraints at the edges of the view pipeline. For example, to add a "
 "deriver at the start of the pipeline you may use ``under=INGRESS``."
-msgstr ""
+msgstr "attr： `pyramid.viewderivers.INGRESS`と：attr：` pyramid.viewderivers.VIEW`の2つのセンチネル値が存在し、ビューパイプラインのエッジで制約を指定するときに使用されます。たとえば、パイプラインの始めにderiverを追加するには、 `` under = INGRESS``を使用します。"
 
 #: ../../narr/hooks.rst:1810
 msgid ""
@@ -1573,7 +1563,7 @@ msgid ""
 "original view callable was, it can be found as ``info.original_view`` on "
 "the provided :class:`pyramid.interfaces.IViewDeriverInfo` object passed "
 "to every view deriver."
-msgstr ""
+msgstr "`` mapped_view``の下に：term： `view mapper`がuser-defined：term：` view callable`のシグネチャに密接に結びついているように、ビュー・デリバを追加することはできません。元のビューの呼び出し可能性を知る必要がある場合は、提供された：class： `pyramid.interfaces.IViewDeriverInfo`オブジェクト上の` `info.original_view``で見つけることができます。"
 
 #: ../../narr/hooks.rst:1819
 msgid ""
@@ -1586,5 +1576,5 @@ msgid ""
 "must specify a valid ``under`` constraint as well, such as "
 "``under=INGRESS`` to fall between INGRESS and ``secured_view`` at the "
 "beginning of the view pipeline."
-msgstr ""
+msgstr "任意のビュー・デリバーのデフォルトの制約は、 `` over = &#39;rendered_view&#39;``と `` under =&#39; decorated_view&#39;``です。これらの制約をエスケープするときは、デリバ間の循環依存性を避けるように注意する必要があります。たとえば、 `` secured_view``の前に新しいビュー・デリバを追加したい場合、 `` over = &#39;secured_view&#39;``を指定するだけでは不十分です。デフォルトは ``装飾されたビュー ``の下にもあります。充足できないサイクル。 `` under = INGRESS``がビューパイプラインの始めにINGRESSと `` secured_view``の間に入るような、有効な `` under``制約も指定する必要があります。"
 

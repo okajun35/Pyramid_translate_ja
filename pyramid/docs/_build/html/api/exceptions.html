@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyramid.exceptions &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) pyramid.exceptions &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="pyramid.httpexceptions" href="httpexceptions.html" />
-    <link rel="prev" title="pyramid.events" href="events.html" />
+    <link rel="next" title="(機械翻訳) pyramid.httpexceptions" href="httpexceptions.html" />
+    <link rel="prev" title="(機械翻訳) pyramid.events" href="events.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,13 +54,13 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="httpexceptions.html" title="pyramid.httpexceptions"
+          <a href="httpexceptions.html" title="(機械翻訳) pyramid.httpexceptions"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="events.html" title="pyramid.events"
+          <a href="events.html" title="(機械翻訳) pyramid.events"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,45 +70,30 @@
           <div class="body" role="main">
             
   <div class="section" id="module-pyramid.exceptions">
-<span id="pyramid-exceptions"></span><span id="exceptions-module"></span><h1><a class="reference internal" href="#module-pyramid.exceptions" title="pyramid.exceptions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.exceptions</span></code></a><a class="headerlink" href="#module-pyramid.exceptions" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="pyramid-exceptions"></span><span id="exceptions-module"></span><h1>(機械翻訳) <a class="reference internal" href="#module-pyramid.exceptions" title="pyramid.exceptions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.exceptions</span></code></a><a class="headerlink" href="#module-pyramid.exceptions" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="exception">
 <dt id="pyramid.exceptions.BadCSRFOrigin">
 <em class="property">exception </em><code class="descname">BadCSRFOrigin</code><span class="sig-paren">(</span><em>detail=None</em>, <em>headers=None</em>, <em>comment=None</em>, <em>body_template=None</em>, <em>json_formatter=None</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/exceptions.html#BadCSRFOrigin"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.exceptions.BadCSRFOrigin" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>This exception indicates the request has failed cross-site request forgery
-origin validation.</p>
+<dd><p>この例外は、要求がクロスサイト要求の偽造元検証に失敗したことを示します。</p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="pyramid.exceptions.BadCSRFToken">
 <em class="property">exception </em><code class="descname">BadCSRFToken</code><span class="sig-paren">(</span><em>detail=None</em>, <em>headers=None</em>, <em>comment=None</em>, <em>body_template=None</em>, <em>json_formatter=None</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/exceptions.html#BadCSRFToken"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.exceptions.BadCSRFToken" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>This exception indicates the request has failed cross-site request
-forgery token validation.</p>
+<dd><p>この例外は、要求がクロスサイト要求偽造トークンの検証に失敗したことを示します。</p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="pyramid.exceptions.PredicateMismatch">
 <em class="property">exception </em><code class="descname">PredicateMismatch</code><span class="sig-paren">(</span><em>detail=None</em>, <em>headers=None</em>, <em>comment=None</em>, <em>body_template=None</em>, <em>json_formatter=None</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/exceptions.html#PredicateMismatch"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.exceptions.PredicateMismatch" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>This exception is raised by multiviews when no view matches
-all given predicates.</p>
-<p>This exception subclasses the <code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPNotFound</span></code> exception for a
-specific reason: if it reaches the main exception handler, it should
-be treated as <code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPNotFound`</span></code> by any exception view
-registrations. Thus, typically, this exception will not be seen
-publicly.</p>
-<p>However, this exception will be raised if the predicates of all
-views configured to handle another exception context cannot be
-successfully matched.  For instance, if a view is configured to
-handle a context of <code class="docutils literal notranslate"><span class="pre">HTTPForbidden</span></code> and the configured with
-additional predicates, then <a class="reference internal" href="#pyramid.exceptions.PredicateMismatch" title="pyramid.exceptions.PredicateMismatch"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredicateMismatch</span></code></a> will be
-raised if:</p>
+<dd><p>この例外は、指定されたすべての述語に一致するビューがない場合、マルチビューによって生成されます。</p>
+<p>この例外は、特定の理由で：class： <cite>HTTPNotFound`例外をサブクラス化します。例外ハンドラがメインの例外ハンドラに到達した場合、例外ビューの登録によって：class：</cite> HTTPNotFound``として扱われます。したがって、通常、この例外は公開されません。</p>
+<p>ただし、この例外は、別の例外コンテキストを処理するように構成されたすべてのビューの述語を正常に照合できない場合に発生します。たとえば、ビューが `` HTTPForbidden``のコンテキストと追加の述部で設定されたコンテキストを処理するように設定されている場合、class： <a href="#id1"><span class="problematic" id="id2">`</span></a>PredicateMismatch`は次の場合に生成されます：</p>
 <ul class="simple">
-<li>An original view callable has raised <code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPForbidden</span></code> (thus
-invoking an exception view); and</li>
-<li>The given request fails to match all predicates for said
-exception view associated with <code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPForbidden</span></code>.</li>
+<li>呼び出し可能な元のビューでは、：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>HTTPForbidden`（例外ビューを呼び出す）が発生しました。そして</li>
+<li>指定された要求は、class： <a href="#id1"><span class="problematic" id="id2">`</span></a>HTTPForbidden`に関連付けられた前記例外ビューのすべての述語に一致しません。</li>
 </ul>
-<p>The same applies to any type of exception being handled by an
-exception view.</p>
+<p>同じことが、例外ビューで処理されるすべてのタイプの例外に適用されます。</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -126,20 +111,13 @@ exception view.</p>
 <dl class="exception">
 <dt id="pyramid.exceptions.ConfigurationError">
 <em class="property">exception </em><code class="descname">ConfigurationError</code><a class="reference internal" href="../_modules/pyramid/exceptions.html#ConfigurationError"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.exceptions.ConfigurationError" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Raised when inappropriate input values are supplied to an API
-method of a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a></p>
+<dd><p>不適切な入力値がa：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Configurator`のAPIメソッドに供給された場合に発生します。</p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="pyramid.exceptions.URLDecodeError">
 <em class="property">exception </em><code class="descname">URLDecodeError</code><a class="reference internal" href="../_modules/pyramid/exceptions.html#URLDecodeError"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.exceptions.URLDecodeError" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>This exception is raised when <span>Pyramid</span> cannot
-successfully decode a URL or a URL path segment.  This exception
-behaves just like the Python builtin
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#UnicodeDecodeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code></a>. It is a subclass of the builtin
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#UnicodeDecodeError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code></a> exception only for identity purposes,
-mostly so an exception view can be registered when a URL cannot be
-decoded.</p>
+<dd><p>この例外は、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`がURLまたはURLパスセグメントを正常にデコードできない場合に発生します。この例外は、Pythonの組み込み関数：exc： <a href="#id3"><span class="problematic" id="id4">`</span></a>UnicodeDecodeError`と同じように動作します。これは、identity：目的のためだけに組み込み：exc： <a href="#id5"><span class="problematic" id="id6">`</span></a>UnicodeDecodeError`例外のサブクラスです。ほとんどの場合、URLをデコードできないときに例外ビューを登録することができます。</p>
 </dd></dl>
 
 </div>
@@ -152,10 +130,10 @@ decoded.</p>
         <div class="sphinxsidebarwrapper">
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="events.html"
-                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.events</span></code></a></p>
+                        title="前の章へ">(機械翻訳) <code class="docutils literal notranslate"><span class="pre">pyramid.events</span></code></a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="httpexceptions.html"
-                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.httpexceptions</span></code></a></p>
+                        title="次の章へ">(機械翻訳) <code class="docutils literal notranslate"><span class="pre">pyramid.httpexceptions</span></code></a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -189,18 +167,18 @@ decoded.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="httpexceptions.html" title="pyramid.httpexceptions"
+          <a href="httpexceptions.html" title="(機械翻訳) pyramid.httpexceptions"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="events.html" title="pyramid.events"
+          <a href="events.html" title="(機械翻訳) pyramid.events"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

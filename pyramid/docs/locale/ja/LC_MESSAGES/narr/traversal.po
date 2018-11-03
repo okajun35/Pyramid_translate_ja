@@ -7,36 +7,26 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/traversal.rst:4
 msgid "Traversal"
-msgstr ""
+msgstr "(機械翻訳) トラバーサル"
 
 #: ../../narr/traversal.rst:6
 msgid ""
 "This chapter explains the technical details of how traversal works in "
 "Pyramid."
-msgstr ""
+msgstr "この章では、Pyramidでのトラバーサルの仕組みに関する技術的な詳細について説明します。"
 
 #: ../../narr/traversal.rst:8
 msgid "For a quick example, see :doc:`hellotraversal`."
-msgstr ""
+msgstr "簡単な例については、doc： `hellotraversal`を参照してください。"
 
 #: ../../narr/traversal.rst:10
 msgid ""
 "For more about *why* you might use traversal, see "
 ":doc:`muchadoabouttraversal`."
-msgstr ""
+msgstr "*なぜ*あなたがトラバーサルを使うかもしれないかについては、：doc： `muchadoabouttraversal`を参照してください。"
 
 #: ../../narr/traversal.rst:12
 msgid ""
@@ -51,7 +41,7 @@ msgid ""
 "of the :term:`request`.  Then, the :term:`view lookup` subsystem is used "
 "to find some view code willing to \"publish\" this resource by generating"
 " a :term:`response`."
-msgstr ""
+msgstr "A：term： `traversal`はURL（Universal Resource Locator）を使って：term：` resource`を検索します。これはネストされた辞書のようなオブジェクトのセットです。トラバーサルは、URLのパス部分の各セグメントを使用して：term： `リソースツリー &#39;をナビゲートすることによって行われます。これは、ファイルシステム内のファイルやディレクトリを参照すると考えることができます。 Traversalは、ファイルシステム\ &quot;ディレクトリ\&quot;または\ &quot;ファイル\&quot;に類似した、公開されたリソースが見つかるまでパスを移動します。トラバーサルの結果として見つかったリソースは：term： `request`の：term：` context`になります。次に、：term： `view lookup`サブシステムを使用して、：term：` response`を生成することによって、このリソースを &quot;公開&quot;するためのいくつかのビューコードを見つけます。"
 
 #: ../../narr/traversal.rst:25
 msgid ""
@@ -60,11 +50,11 @@ msgid ""
 "use :term:`URL dispatch` to map URLs to code instead of traversal, as new"
 " Pyramid developers tend to find URL dispatch slightly easier to "
 "understand.  If you use URL dispatch, you needn't read this chapter."
-msgstr ""
+msgstr "：term： `Traversal`を使用してURLをコードにマップすることはオプションです。最初のPyramidアプリケーションを作成している場合は、新しいPyramid開発者がURLのディスパッチをやや簡単に理解する傾向があるため、term： `URL dispatch`を使用して、URLをトラバーサルではなくコードにマッピングする方が理にかなっています。 URLディスパッチを使用する場合は、この章を読む必要はありません。"
 
 #: ../../narr/traversal.rst:35
 msgid "Traversal Details"
-msgstr ""
+msgstr "トラバーサルの詳細"
 
 #: ../../narr/traversal.rst:37
 msgid ""
@@ -75,25 +65,25 @@ msgid ""
 "hostname and port number, but before any query string elements or "
 "fragment element.  For example the ``PATH_INFO`` portion of the URL "
 "``http://example.com:8080/a/b/c?foo=1`` is ``/a/b/c``."
-msgstr ""
+msgstr "：term： `Traversal`はa：term：` request`オブジェクトの情報に依存します。 Every：term： `request`オブジェクトは：term：` WSGI`環境の `` PATH_INFO``部分にURLパス情報を含みます。 `` PATH_INFO``文字列は、ホスト名とポート番号の後、しかしクエリ文字列要素またはフラグメント要素の前にあるリクエストURLの部分です。例えば、http：//example.com：8080 / a / b / c？foo = 1`というURLの `` PATH_INFO``部分は `` / a / b / c``です。"
 
 #: ../../narr/traversal.rst:44
 msgid ""
 "Traversal treats the ``PATH_INFO`` segment of a URL as a sequence of path"
 " segments.  For example, the ``PATH_INFO`` string ``/a/b/c`` is converted"
 " to the sequence ``['a', 'b', 'c']``."
-msgstr ""
+msgstr "トラバーサルはURLの `` PATH_INFO``セグメントを一連のパスセグメントとして扱います。たとえば、 `` PATH_INFO``の文字列 `` / a / b / c``は `` [&#39;a&#39;、 &#39;b&#39;、 &#39;c&#39;] ``のシーケンスに変換されます。"
 
 #: ../../narr/traversal.rst:48
 msgid ""
 "This path sequence is then used to descend through the :term:`resource "
 "tree`, looking up a resource for each path segment. Each lookup uses the "
 "``__getitem__`` method of a resource in the tree."
-msgstr ""
+msgstr "このパスシーケンスは：term： `リソースツリー &#39;を介して下降し、各パスセグメントのリソースを検索します。各ルックアップは、ツリー内のリソースの `` __getitem__``メソッドを使用します。"
 
 #: ../../narr/traversal.rst:52
 msgid "For example, if the path info sequence is ``['a', 'b', 'c']``:"
-msgstr ""
+msgstr "たとえば、パス情報シーケンスが `` [&#39;a&#39;、 &#39;b&#39;、 &#39;c&#39;] ``："
 
 #: ../../narr/traversal.rst:54
 msgid ""
@@ -101,7 +91,7 @@ msgid ""
 "application by calling the :term:`root factory`. The :term:`root factory`"
 " can be configured to return whatever object is appropriate as the "
 "traversal root of your application."
-msgstr ""
+msgstr "：term： `Traversal`は：term：`ルートファクトリ `を呼び出すことによってアプリケーションの：term：`ルート `リソースを取得することから始まります。 ：term： `root factory`は、アプリケーションのトラバーサルルートとして適切なオブジェクトを返すように設定できます。"
 
 #: ../../narr/traversal.rst:59
 msgid ""
@@ -109,28 +99,28 @@ msgid ""
 "sequence and is used as a key to lookup the corresponding resource in the"
 " root. This invokes the root resource's ``__getitem__`` method using that"
 " value (``'a'``) as an argument."
-msgstr ""
+msgstr "次に、最初の要素（ `` a &#39;``）がパスセグメントシーケンスからポップされ、ルート内の対応するリソースを検索するためのキーとして使用されます。これは、その値（ `` &#39;a```）を引数としてルートリソースの `` __getitem__``メソッドを呼び出します。"
 
 #: ../../narr/traversal.rst:64
 msgid ""
 "If the root resource \"contains\" a resource with key ``'a'``, its "
 "``__getitem__`` method will return it. The :term:`context` temporarily "
 "becomes the \"A\" resource."
-msgstr ""
+msgstr "ルートリソースがキー &quot;` &#39;a``を持つリソースを &quot;含んでいる&quot;場合、その `` __getitem__``メソッドはそれを返します。 ：term： `context`は一時的に\&quot; A \ &quot;リソースになります。"
 
 #: ../../narr/traversal.rst:68
 msgid ""
 "The next segment (``'b'``) is popped from the path sequence, and the "
 "\"A\" resource's ``__getitem__`` is called with that value (``'b'``) as "
 "an argument; we'll presume it succeeds."
-msgstr ""
+msgstr "次のセグメント（ `` b&#39;``）はパスシーケンスからポップされ、その値（ `` b&#39;``）を引数として\ &quot;A \&quot;リソースの `` __getitem__``が呼び出されます。我々はそれが成功すると推定するでしょう。"
 
 #: ../../narr/traversal.rst:72
 msgid ""
 "The \"A\" resource's ``__getitem__`` returns another resource, which "
 "we'll call \"B\".  The :term:`context` temporarily becomes the \"B\" "
 "resource."
-msgstr ""
+msgstr "\ &quot;A \&quot;リソースの `` __getitem__``は\ &quot;B \&quot;と呼ばれる別のリソースを返します。 ：term： `context`は一時的に\&quot; B \ &quot;リソースになります。"
 
 #: ../../narr/traversal.rst:75
 msgid ""
@@ -141,7 +131,7 @@ msgid ""
 "``__getitem__`` method, or if its ``__getitem__`` method raises a "
 ":exc:`KeyError`, traversal ends immediately, and that resource becomes "
 "the :term:`context`."
-msgstr ""
+msgstr "トラバーサルは、パスセグメントシーケンスが使い果たされるか、path要素をリソースに解決できなくなるまで続きます。どちらの場合でも、：term： `context`リソースは、トラバーサルが正常に解決された最後のオブジェクトです。トラバーサル中に見つかったリソースが `` __getitem__``メソッドを持たない場合、または `` __getitem__``メソッドがa：exc： `KeyError`を発生させた場合、トラバーサルは直ちに終了し、そのリソースは：term：` context`になります。"
 
 #: ../../narr/traversal.rst:82
 msgid ""
@@ -150,7 +140,7 @@ msgid ""
 ":term:`view name` is the *next* remaining path segment element. If the "
 ":term:`traversal` expends all of the path segments, then the :term:`view "
 "name` is the empty string (``''``)."
-msgstr ""
+msgstr "a：term： `traversal`の結果には：term：` view name`も含まれます。パスセグメントシーケンスが使い尽くされる前にトラバーサルが終了した場合、：term： `view name`は* next *残りのパスセグメント要素です。 ：term： `traversal`がすべてのパスセグメントを費やした場合、：term：` view name`は空の文字列（ `` &#39;`` `）です。"
 
 #: ../../narr/traversal.rst:88
 msgid ""
@@ -159,11 +149,11 @@ msgid ""
 "lookup` subsystem to find a :term:`view callable`.  How :app:`Pyramid` "
 "performs view lookup is explained within the :ref:`view_config_chapter` "
 "chapter."
-msgstr ""
+msgstr "コンテキストリソースと、：term： `view name`は、：term：` view callable`を見つけるために：term： `view lookup`サブシステムによって同じリクエスト内で後で使用されます。方法：app： `Pyramid`がビューの参照を行う方法については、：ref：` view_config_chapter`の章で説明しています。"
 
 #: ../../narr/traversal.rst:101
 msgid "The Resource Tree"
-msgstr ""
+msgstr "リソースツリー"
 
 #: ../../narr/traversal.rst:103
 msgid ""
@@ -171,7 +161,7 @@ msgid ""
 "that begins with a :term:`root` resource. In order to use "
 ":term:`traversal` to resolve URLs to code, your application must supply a"
 " :term:`resource tree` to :app:`Pyramid`."
-msgstr ""
+msgstr "リソースツリーは、：term： `root`リソースで始まるネストされた辞書的なリソースオブジェクトのセットです。 ：term： `traversal`を使用してURLをコード化するためには、アプリケーションで：term：`リソースツリー &#39;を：app： `Pyramid`に指定する必要があります。"
 
 #: ../../narr/traversal.rst:108
 msgid ""
@@ -179,7 +169,7 @@ msgid ""
 ":term:`Router` is configured with a callback known as a :term:`root "
 "factory`. The root factory is supplied by the application at startup time"
 " as the ``root_factory`` argument to the :term:`Configurator`."
-msgstr ""
+msgstr "アプリケーションのルートリソースを提供するには、：app： `Pyramid`：term：` Router`はa：term： `ルートファクトリ &#39;と呼ばれるコールバックで設定されます。ルートファクトリは起動時に：term： `Configurator`の` `root_factory``引数としてアプリケーションから提供されます。"
 
 #: ../../narr/traversal.rst:113
 msgid ""
@@ -187,14 +177,14 @@ msgid ""
 "object, and returns the root object of the :term:`resource tree`. A "
 "function or class is typically used as an application's root factory. "
 "Here's an example of a simple root factory class:"
-msgstr ""
+msgstr "ルートファクトリは：term： `request`オブジェクトを受け取り、：term：` resource tree`のルートオブジェクトを返すPython呼び出し可能オブジェクトです。関数またはクラスは、通常、アプリケーションのルートファクトリとして使用されます。単純なルートファクトリクラスの例を次に示します。"
 
 #: ../../narr/traversal.rst:125
 msgid ""
 "Here's an example of using this root factory within startup "
 "configuration, by passing it to an instance of a :term:`Configurator` "
 "named ``config``:"
-msgstr ""
+msgstr "以下は、このルートファクトリをスタートアップコンフィギュレーション内で、 `term：` config`という名前のインスタンスに渡すことによって使用する例です："
 
 #: ../../narr/traversal.rst:133
 msgid ""
@@ -205,7 +195,7 @@ msgid ""
 "known as the global root factory.  A root factory can alternatively be "
 "passed to the ``Configurator`` as a :term:`dotted Python name` which can "
 "refer to a root factory defined in a different module."
-msgstr ""
+msgstr "：class： `〜pyramid.config.Configurator`コンストラクタの` `root_factory``引数は、要求がアプリケーションに入るたびにルートリソースを生成するために呼び出される、このルートファクトリを登録します。この方法で登録されたルートファクトリは、グローバルルートファクトリとも呼ばれます。ルートファクトリは、別のモジュールに定義されているルートファクトリを参照できる：term： `dotted Python name`として` `Configurator``に渡すこともできます。"
 
 #: ../../narr/traversal.rst:140
 msgid ""
@@ -214,7 +204,7 @@ msgid ""
 "specified is ``None``, a :term:`default root factory` is used.  The "
 "default root factory always returns a resource that has no child "
 "resources; it is effectively empty."
-msgstr ""
+msgstr "もし：term： `root factory`が：app：` Pyramid`：term： `Configurator`コンストラクタに渡された場合、または` `None``の` `root_factory``値がa：term：` defaultルートファクトリ &#39;が使用される。デフォルトルートファクトリは、常に子リソースを持たないリソースを返します。効果的に空です。"
 
 #: ../../narr/traversal.rst:145
 msgid ""
@@ -223,7 +213,7 @@ msgid ""
 "associated with a database connection or another persistence mechanism.  "
 "The above ``Root`` class is analogous to the default root factory present"
 " in Pyramid. The default root factory is very simple and not very useful."
-msgstr ""
+msgstr "通常、トラバーサルベースのアプリケーションのルートファクトリは、上記の ``ルート ``クラスより複雑です。特に、データベース接続または別の永続化メカニズムに関連付けられている可能性があります。上記の `` Root``クラスはPyramidにあるデフォルトルートファクトリに似ています。デフォルトのルート・ファクトリーは非常にシンプルであまり役に立ちません。"
 
 #: ../../narr/traversal.rst:153
 msgid ""
@@ -231,7 +221,7 @@ msgid ""
 "have state that lasts longer than the execution of a single process), "
 "they become analogous to the concept of :term:`domain model` objects used"
 " by many other frameworks."
-msgstr ""
+msgstr "リソースツリーに含まれる項目が「永続的」（単一のプロセスの実行よりも長く持続する状態）の場合、他の多くのフレームワークで使用されるterm： `domain model`オブジェクトの概念に似ています。"
 
 #: ../../narr/traversal.rst:158
 msgid ""
@@ -243,14 +233,14 @@ msgid ""
 "the two types of resources because the presence of this method is how "
 "Python itself typically determines whether an object is \"containerish\" "
 "or not (dictionary objects are \"containerish\")."
-msgstr ""
+msgstr "リソースツリーは、* container *リソースと* leaf *リソースで構成されます。 * container *リソースは* container *リソースと* leaf *リソースの間に1つの違いがあります：* container *リソースは* leaf *リソースが存在しないときには `` __getitem__``メソッドを持っています。このメソッドの存在は、オブジェクトが\ &quot;containerish \&quot;であるかどうかをPython自体がどのように判断するかである（辞書オブジェクトは\ &quot;containerish \&quot;です）ので、 &quot;__getitem__``メソッドは、 &quot;）。"
 
 #: ../../narr/traversal.rst:167
 msgid ""
 "Each container resource is presumed to be willing to return a child "
 "resource or raise a ``KeyError`` based on a name passed to its "
 "``__getitem__``."
-msgstr ""
+msgstr "各コンテナリソースは、子リソースを返すか、 `` __getitem__``に渡された名前に基づいて `` KeyError``を発生させることが想定されています。"
 
 #: ../../narr/traversal.rst:170
 msgid ""
@@ -259,14 +249,14 @@ msgid ""
 "some historical inequity, you should subclass these resource types and "
 "cause their ``__getitem__`` methods to simply raise a ``KeyError``.  Or "
 "just disuse them and think up another strategy."
-msgstr ""
+msgstr "リーフレベルのインスタンスは `` __getitem__``を持たなくてはなりません。歴史的な不平等を通って `` __getitem__``を持つインスタンスがすでに存在する場合、これらのリソースタイプをサブクラス化し、 `` __getitem__``メソッドで単に `` KeyError``を発生させるべきです。または、それらを廃止し、別の戦略を考え直してください。"
 
 #: ../../narr/traversal.rst:176
 msgid ""
 "Usually the traversal root is a *container* resource, and as such it "
 "contains other resources.  However, it doesn't *need* to be a container. "
 "Your resource tree can be as shallow or as deep as you require."
-msgstr ""
+msgstr "通常、トラバーサルルートは*コンテナ*リソースであるため、他のリソースも含まれています。しかし、コンテナである必要はありません。あなたのリソースツリーは、あなたが必要とするほど浅くても深くてもかまいません。"
 
 #: ../../narr/traversal.rst:180
 msgid ""
@@ -278,11 +268,11 @@ msgid ""
 "called with the very next path segment, and it is expected to return "
 "another resource.  This happens *ad infinitum* until all path segments "
 "are exhausted."
-msgstr ""
+msgstr "一般に、リソースツリーは、現在の要求の `` PATH_INFO``で記述された一連のパス要素を使用してルートリソースからトラバースされます。パスセグメントがある場合、ルートリソースの `` __getitem__``は次のパスセグメントとともに呼び出され、別のリソースを返すことが期待されます。結果のリソースの `` __getitem__``は、次のパスセグメントで呼び出され、別のリソースを返すことが期待されます。これは、すべての経路セグメントが使い果たされるまで、*無限に*起こります。"
 
 #: ../../narr/traversal.rst:195
 msgid "The Traversal Algorithm"
-msgstr ""
+msgstr "トラバーサルアルゴリズム"
 
 #: ../../narr/traversal.rst:197
 msgid ""
@@ -291,7 +281,7 @@ msgid ""
 " the algorithm works, and some example traversal scenarios that might "
 "help you understand how the algorithm operates against a specific "
 "resource tree."
-msgstr ""
+msgstr "このセクションでは、app： `Pyramid`トラバーサルアルゴリズムについて説明します。アルゴリズムの説明、アルゴリズムの仕組みの図、アルゴリズムが特定のリソースツリーに対してどのように動作するかを理解するのに役立つトラバーサルシナリオの例を提供します。"
 
 #: ../../narr/traversal.rst:202
 msgid ""
@@ -303,35 +293,35 @@ msgid ""
 "fundamental behavior of view lookup in the examples in the next few "
 "sections to give you an idea of how traversal and view lookup cooperate, "
 "because they are almost always used together."
-msgstr ""
+msgstr "term： `view lookup`についても少し話します。 ：ref： `view_config_chapter`章では、term：` view lookup`について詳しく説明しています。これは、ビューに関する情報源です。技術的には：term： `view lookup`は：app：` Pyramid`サブシステムであり、完全にトラバーサルから分離されています。しかし、次のいくつかのセクションの例では、ほとんどの場合、一緒に使用されるため、トラバーサルとビューの参照がどのように連携するかを理解するために、ビューのルックアップの基本的な動作について説明します。"
 
 #: ../../narr/traversal.rst:219
 msgid "A Description of the Traversal Algorithm"
-msgstr ""
+msgstr "トラバーサルアルゴリズムの説明"
 
 #: ../../narr/traversal.rst:221
 msgid ""
 "When a user requests a page from your traversal-powered application, the "
 "system uses this algorithm to find a :term:`context` resource and a "
 ":term:`view name`."
-msgstr ""
+msgstr "ユーザーがトラバーサル型アプリケーションからページをリクエストすると、システムはこのアルゴリズムを使用して：term： `context`リソースと：term：` view name`を検索します。"
 
 #: ../../narr/traversal.rst:224
 msgid ""
 "The request for the page is presented to the :app:`Pyramid` "
 ":term:`router` in terms of a standard :term:`WSGI` request, which is "
 "represented by a WSGI environment and a WSGI ``start_response`` callable."
-msgstr ""
+msgstr "ページのリクエストは、標準：用語：WSGIの要求（WSGI環境で表され、WSGIの `start_response`呼び出し可能）の観点から：app：` Pyramid`：term： `router` 。"
 
 #: ../../narr/traversal.rst:228
 msgid "The router creates a :term:`request` object based on the WSGI environment."
-msgstr ""
+msgstr "ルータはWSGI環境に基づいて：term： `request`オブジェクトを作成します。"
 
 #: ../../narr/traversal.rst:230
 msgid ""
 "The :term:`root factory` is called with the :term:`request`.  It returns "
 "a :term:`root` resource."
-msgstr ""
+msgstr "：term： `root`は：term：` request`で呼び出されます。 ：term： `root`リソースを返します。"
 
 #: ../../narr/traversal.rst:233
 msgid ""
@@ -339,7 +329,7 @@ msgid ""
 "determine the path segments to traverse.  The leading slash is stripped "
 "off ``PATH_INFO``, and the remaining path segments are split on the slash"
 " character to form a traversal sequence."
-msgstr ""
+msgstr "ルータは、WSGI環境の `` PATH_INFO``情報を使用して、トラバースするパスセグメントを決定します。先頭のスラッシュは `` PATH_INFO``から取り除かれ、残りのパスセグメントはスラッシュ文字で分割され、トラバーサルシーケンスを形成します。"
 
 #: ../../narr/traversal.rst:238
 msgid ""
@@ -352,13 +342,13 @@ msgid ""
 " decodeable using the UTF-8 decoding, a :exc:`TypeError` is raised.  A "
 "segment will be fully URL-unquoted and UTF8-decoded before it is passed "
 "in to the ``__getitem__`` of any resource during traversal."
-msgstr ""
+msgstr "トラバーサルアルゴリズムは、デフォルトでは、最初のURLを引用符で囲まずに、自然なバイト文字列（ `` str``型）表現から `` PATH_INFO``から派生した各パスセグメントをUnicodeデコードしようとします。 URLの引用符は、Pythonの標準ライブラリ `` urllib.unquote``を使って行います。 URLでデコードされた文字列からUnicodeへの変換は、UTF-8エンコーディングを使用して試みられます。 `` PATH_INFO``中のURLで引用されていないパスセグメントがUTF-8デコードを使ってデコードできない場合、a：exc： `TypeError`が送出されます。セグメントは完全なURL引用符で囲まれておらず、UTF8でデコードされてから、トラバース中に任意のリソースの `` __getitem__``に渡されます。"
 
 #: ../../narr/traversal.rst:248
 msgid ""
 "Thus a request with a ``PATH_INFO`` variable of ``/a/b/c`` maps to the "
 "traversal sequence ``[u'a', u'b', u'c']``."
-msgstr ""
+msgstr "このように、 `` / a / b / c``の `` PATH_INFO``変数を持つリクエストはトラバーサルシーケンス `` [u&#39;a、u&#39;b &#39;、u&#39;c&#39;] ``にマップされます。"
 
 #: ../../narr/traversal.rst:251
 msgid ""
@@ -371,7 +361,7 @@ msgid ""
 "``'b'``.  If resource \"A\" returns a resource \"B\" when asked for "
 "``'b'``, resource B's ``__getitem__`` is then asked for the name ``'c'``,"
 " and may return resource \"C\"."
-msgstr ""
+msgstr "：term： `Traversal`はルートファクトリから返されたルートリソースから始まります。トラバーサルシーケンス `` [u&#39;a &#39;、u&#39;b&#39;、u&#39;c &#39;] ``に対して、ルートリソースの `` __getitem__``は ``&#39; a``という名前で呼び出されます。トラバーサルはシーケンスを通って続きます。この例では、名前が `` a``であるルートリソースの `` __getitem__``がリソース（別名リソース\ &quot;A \&quot;）を返した場合、そのリソースの `` __getitem__``は `` &#39; b&#39;``。リソース\ &quot;A \&quot;が `` &#39;b&#39;``を要求されたときにリソース\ &quot;B \&quot;を返した場合、リソースBの `` __getitem__``には ``&#39; c&#39;``という名前が尋ねられ、リソース\ &quot;C \&quot;"
 
 #: ../../narr/traversal.rst:261
 msgid ""
@@ -382,7 +372,7 @@ msgid ""
 "prefixed with the set of characters ``@@`` (indicating that the "
 "characters following the ``@@`` token should be treated as a :term:`view "
 "name`)."
-msgstr ""
+msgstr "トラバーサルは、（a）パス全体が使い果たされたとき、（b）リソースが &quot;__getitem__&quot;から：exc： `KeyError`を発生したとき、（c）最後でないパス要素トラバーサルが（d）任意のパス要素の先頭に文字 `` @@ ``が付加されている場合（ `@@`の後に続く文字が `` @@@ &#39; ``トークンは：term： `view name`として扱われるべきです）。"
 
 #: ../../narr/traversal.rst:268
 msgid ""
@@ -392,7 +382,7 @@ msgid ""
 "is deemed to be the empty string (``''``).  However, if the path was "
 "*not* exhausted before traversal terminated, the first remaining path "
 "segment is treated as the view name."
-msgstr ""
+msgstr "前のステップでトラバーサルが終了した場合、トラバーサル中に最後に見つかったリソースは：term： `context`とみなされます。トラバーサルが終了したときにパスが使い果たされた場合、：term： `view name`は空文字列（` `&#39;` ``）とみなされます。ただし、トラバーサルが終了する前にパスが使い果たされなかった場合は、残りの最初のパスセグメントがビュー名として扱われます。"
 
 #: ../../narr/traversal.rst:275
 msgid ""
@@ -400,7 +390,7 @@ msgid ""
 "deemed the :term:`subpath`.  The subpath is always a sequence of path "
 "segments that come from ``PATH_INFO`` that are \"left over\" after "
 "traversal has completed."
-msgstr ""
+msgstr "：term： `view name`の後に続くパス要素は：term：` subpath`とみなされます。サブパスは常にトラバーサルが完了した後に残された `` PATH_INFO``からのパスセグメントのシーケンスです。"
 
 #: ../../narr/traversal.rst:280
 msgid ""
@@ -410,11 +400,11 @@ msgid ""
 "obtained to its caller, the :app:`Pyramid` :term:`Router`, which "
 "subsequently invokes :term:`view lookup` with the context and view name "
 "information."
-msgstr ""
+msgstr "：term： `context`リソース、：term：` view name`、および：term： `subpath`のような関連する属性が見つかると、：term：` traversal`のジョブは終了します。これは、取得した情報を呼び出し元に返す：app： `Pyramid`：term：` Router`です。その後、コンテキストとビュー名の情報を使ってterm： `view lookup`を呼び出します。"
 
 #: ../../narr/traversal.rst:286
 msgid "The traversal algorithm exposes two special cases:"
-msgstr ""
+msgstr "トラバーサルアルゴリズムは、2つの特殊なケースを公開します。"
 
 #: ../../narr/traversal.rst:288
 msgid ""
@@ -423,7 +413,7 @@ msgid ""
 "lookup machinery should lookup the :term:`default view`.  The default "
 "view is a view that is registered with no name or a view which is "
 "registered with a name that equals the empty string."
-msgstr ""
+msgstr "あなたはしばしば：term： `view name`で終わることになります。これは、特定のトラバーサルの結果としての空文字列です。これは、ビュー参照機構が：term： `default view`を参照すべきであることを示します。デフォルトのビューは、名前なしで登録されたビューまたは空の文字列と同じ名前で登録されたビューです。"
 
 #: ../../narr/traversal.rst:294
 msgid ""
@@ -432,7 +422,7 @@ msgid ""
 "characters is considered the :term:`view name` immediately and traversal "
 "stops there.  This allows you to address views that may have the same "
 "names as resource names in the tree unambiguously."
-msgstr ""
+msgstr "パスセグメント要素が特殊文字 `` @@ ``（ゴーグルとみなす）で始まる場合、そのセグメントの値からゴーグル文字を差し引いた値は：term： `view name`とみなされ、トラバーサルはそこで停止します。これにより、ツリー内のリソース名と同じ名前を持つビューに明白に対処することができます。"
 
 #: ../../narr/traversal.rst:300
 msgid ""
@@ -440,18 +430,18 @@ msgid ""
 " virtual root is used during \"virtual hosting\".  See the "
 ":ref:`vhosting_chapter` chapter for information.  We won't speak more "
 "about it in this chapter."
-msgstr ""
+msgstr "最後に、トラバーサルは：term： `virtual root`を探す責任があります。仮想ルートは\ &quot;仮想ホスティング\&quot;の間に使用されます。詳細については、：ref： `vhosting_chapter`の章を参照してください。この章ではこれ以上は話しません。"
 
 #: ../../narr/traversal.rst:310
 msgid "Traversal Algorithm Examples"
-msgstr ""
+msgstr "トラバーサルアルゴリズムの例"
 
 #: ../../narr/traversal.rst:312
 msgid ""
 "No one can be expected to understand the traversal algorithm by analogy "
 "and description alone, so let's examine some traversal scenarios that use"
 " concrete URLs and resource tree compositions."
-msgstr ""
+msgstr "アナロジーと記述のみでトラバーサルアルゴリズムを理解することは誰も期待できないので、具体的なURLとリソースツリーの構成を使用するいくつかのトラバーサルシナリオを検討してみましょう。"
 
 #: ../../narr/traversal.rst:316
 msgid ""
@@ -460,54 +450,54 @@ msgid ""
 "``PATH_INFO`` in that case is ``/foo/bar/baz/biz/buz.txt``. Let's further"
 " pretend that when this request comes in, we're traversing the following "
 "resource tree:"
-msgstr ""
+msgstr "ユーザーが `` http：// example.com / foo / bar / baz / biz / buz.txt` &#39;を尋ねるとしましょう。その場合のリクエストの `` PATH_INFO``は `` / foo / bar / baz / biz / buz.txt``です。このリクエストが来ると、次のリソースツリーをたどっているとします。"
 
 #: ../../narr/traversal.rst:329
 msgid "Here's what happens:"
-msgstr ""
+msgstr "ここで何が起こるのですか？"
 
 #: ../../narr/traversal.rst:331
 msgid ""
 ":term:`traversal` traverses the root, and attempts to find \"foo\", which"
 " it finds."
-msgstr ""
+msgstr "：term： `traversal`はルートをトラバースし、見つかった\&quot; foo \ &quot;を探します。"
 
 #: ../../narr/traversal.rst:334 ../../narr/traversal.rst:381
 msgid ""
 ":term:`traversal` traverses \"foo\", and attempts to find \"bar\", which "
 "it finds."
-msgstr ""
+msgstr "：term： `traversal`は\&quot; foo \ &quot;をトラバースし、\&quot; bar \ &quot;を見つけようとします。"
 
 #: ../../narr/traversal.rst:337
 msgid ""
 ":term:`traversal` traverses \"bar\", and attempts to find \"baz\", which "
 "it does not find (the \"bar\" resource raises a :exc:`KeyError` when "
 "asked for \"baz\")."
-msgstr ""
+msgstr "：term： `traversal`は&quot; bar &quot;をトラバースし、見つからない&quot; baz &quot;を探します（\&quot; bar \ &quot;リソースは\&quot; bazを要求されたとき：exc： `KeyError` \ &quot;）。"
 
 #: ../../narr/traversal.rst:340
 msgid ""
 "The fact that it does not find \"baz\" at this point does not signify an "
 "error condition.  It signifies the following:"
-msgstr ""
+msgstr "この時点で\ &quot;baz \&quot;が見つからないという事実は、エラー状態を意味するものではありません。それは以下を意味します："
 
 #: ../../narr/traversal.rst:343
 msgid ""
 "The :term:`context` is the \"bar\" resource (the context is the last "
 "resource found during traversal)."
-msgstr ""
+msgstr "：term： `context`は、\&quot; bar \ &quot;リソースです（コンテキストは、トラバース中に見つかった最後のリソースです）。"
 
 #: ../../narr/traversal.rst:346
 msgid "The :term:`view name` is ``baz``."
-msgstr ""
+msgstr "：term： `view name`は` `baz``です。"
 
 #: ../../narr/traversal.rst:348
 msgid "The :term:`subpath` is ``('biz', 'buz.txt')``."
-msgstr ""
+msgstr "：term： `subpath`は` `（ &#39;biz&#39;、 &#39;buz.txt&#39;）` `です。"
 
 #: ../../narr/traversal.rst:350 ../../narr/traversal.rst:403
 msgid "At this point, traversal has ended, and :term:`view lookup` begins."
-msgstr ""
+msgstr "この時点で、トラバーサルが終了し、term： `view lookup`が始まります。"
 
 #: ../../narr/traversal.rst:352
 msgid ""
@@ -516,67 +506,67 @@ msgid ""
 "context is a ``Bar`` type (because \"bar\" happens to be an instance of "
 "the class ``Bar``). Using the :term:`view name` (``baz``) and the type, "
 "view lookup asks the :term:`application registry` this question:"
-msgstr ""
+msgstr "それは\ &quot;コンテキスト\&quot;リソースなので、ビュールックアップ機構は\ &quot;bar \&quot;を調べて\ &quot;type \&quot;を探します。コンテキストが `` Bar``型であることを発見したとします（ &quot;bar \&quot;はクラス `` Bar``のインスタンスであるため）。 ：term： `view name`（` `baz``）と型を使って、view lookupは：term：`アプリケーションレジストリ `にこの質問をします："
 
 #: ../../narr/traversal.rst:358
 msgid ""
 "Please find me a :term:`view callable` registered using a :term:`view "
 "configuration` with the name \"baz\" that can be used for the class "
 "``Bar``."
-msgstr ""
+msgstr "私は：term： `view callable`を：term：` view configuration`を使って\ &quot;baz \&quot;という名前で登録してください。これはクラス `` Bar``に使用できます。"
 
 #: ../../narr/traversal.rst:361
 msgid ""
 "Let's say that view lookup finds no matching view type.  In this "
 "circumstance, the :app:`Pyramid` :term:`router` returns the result of the"
 " :term:`Not Found View` and the request ends."
-msgstr ""
+msgstr "ビュールックアップで一致するビュータイプが見つからないとします。この状況では、：app： `Pyramid`：term：` router`は：term： `Not Found View`の結果を返し、要求は終了します。"
 
 #: ../../narr/traversal.rst:365
 msgid "However, for this tree:"
-msgstr ""
+msgstr "ただし、このツリーの場合："
 
 #: ../../narr/traversal.rst:379
 msgid "The user asks for ``http://example.com/foo/bar/baz/biz/buz.txt``"
-msgstr ""
+msgstr "ユーザーは `` http：// example.com / foo / bar / baz / biz / buz.txt``を要求します"
 
 #: ../../narr/traversal.rst:384
 msgid ""
 ":term:`traversal` traverses \"bar\", and attempts to find \"baz\", which "
 "it finds."
-msgstr ""
+msgstr "：term： `traversal`は\ barをトラバースし、\ bazを見つけることを試みます。"
 
 #: ../../narr/traversal.rst:387
 msgid ""
 ":term:`traversal` traverses \"baz\", and attempts to find \"biz\", which "
 "it finds."
-msgstr ""
+msgstr "：term： `traversal`は\ baz \をトラバースし、\ bizを見つけようとします。"
 
 #: ../../narr/traversal.rst:390
 msgid ""
 ":term:`traversal` traverses \"biz\", and attempts to find \"buz.txt\", "
 "which it does not find."
-msgstr ""
+msgstr "：term： `traversal`は\&quot; biz \ &quot;をトラバースし、見つからない\&quot; buz.txt \ &quot;を探します。"
 
 #: ../../narr/traversal.rst:393
 msgid ""
 "The fact that it does not find a resource related to \"buz.txt\" at this "
 "point does not signify an error condition.  It signifies the following:"
-msgstr ""
+msgstr "この時点で\ &quot;buz.txt \&quot;に関連するリソースが見つからないということは、エラー状態を意味するものではありません。それは以下を意味します："
 
 #: ../../narr/traversal.rst:396
 msgid ""
 "The :term:`context` is the \"biz\" resource (the context is the last "
 "resource found during traversal)."
-msgstr ""
+msgstr "：term： `context`は、\&quot; biz \ &quot;リソースです（コンテキストは、トラバース中に見つかった最後のリソースです）。"
 
 #: ../../narr/traversal.rst:399
 msgid "The :term:`view name` is \"buz.txt\"."
-msgstr ""
+msgstr "：term： `view name`は\&quot; buz.txt \ &quot;です。"
 
 #: ../../narr/traversal.rst:401
 msgid "The :term:`subpath` is an empty sequence ( ``()`` )."
-msgstr ""
+msgstr "：term： `subpath`は空のシーケンスです（` `（）` `）。"
 
 #: ../../narr/traversal.rst:405
 msgid ""
@@ -586,14 +576,14 @@ msgid ""
 "the Python class ``Biz``).  Using the :term:`view name` (``buz.txt``) and"
 " the type, view lookup asks the :term:`application registry` this "
 "question:"
-msgstr ""
+msgstr "それは\ &quot;context \&quot;リソースなので、ビュー参照機構は\ &quot;biz \&quot;リソースを調べて、\ &quot;type \&quot;が何であるかを調べます。そのリソースが &quot;Biz&quot;型であると判断したとします（\ &quot;biz \&quot;はPythonクラス &quot;Biz&quot;のインスタンスなので）。 ：term： `view name`（` `buz.txt``）と型を使って、view lookupは：term：`アプリケーションレジストリ `にこの質問をします："
 
 #: ../../narr/traversal.rst:411
 msgid ""
 "Please find me a :term:`view callable` registered with a :term:`view "
 "configuration` with the name ``buz.txt`` that can be used for class "
 "``Biz``."
-msgstr ""
+msgstr "私は：term： `view callable`をクラス` `Biz``に使うことができる` `buz.txt``という名前の：term：` view configuration`で登録しました。"
 
 #: ../../narr/traversal.rst:414
 msgid ""
@@ -602,12 +592,12 @@ msgid ""
 "The view callable is then called with the current :term:`WebOb` "
 ":term:`request` as the sole argument, ``request``.  It is expected to "
 "return a response."
-msgstr ""
+msgstr "その質問がアプリケーションレジストリによって回答されたとしましょう。このような状況では、アプリケーションレジストリは：term： `view callable`を返します。呼び出し可能なビューはcurrent：term： `WebOb`：term：` request`を唯一の引数 `` request``で呼び出されます。それは応答を返すことが期待されます。"
 
 msgid ""
 "The Example View Callables Accept Only a Request; How Do I Access the "
 "Context Resource?"
-msgstr ""
+msgstr "Example Callableは要求のみを受け入れます。コンテキストリソースにアクセスするにはどうすればよいですか？"
 
 #: ../../narr/traversal.rst:422
 msgid ""
@@ -625,11 +615,11 @@ msgid ""
 "request object, e.g., ``request.view_name``.  Other "
 ":app:`Pyramid`-specific request attributes are also available as "
 "described in :ref:`special_request_attributes`."
-msgstr ""
+msgstr "このドキュメントの例のほとんどは、ビュー呼び出し可能関数は通常：term： `request`オブジェクトだけを渡すと仮定しています。時には、あなたのビュー呼び出し可能ファイルは：term： `context`リソースにアクセスする必要があります。特に、：term：` traversal`を使用する場合。 ：ref： `request_and_context_view_definitions`で説明されている` `（context、request）` `呼び出し規約のようなビュー呼び出し可能な呼び出し可能な引数リストを、サポートされている代替ビュー呼び出し可能な引数リストを使用することができます。しかし、あなたがしたくない場合は、あなたは必要ありません。要求のみを受け付けるビュー呼び出し可能な呼び出しでは、トラバーサルによって見つかった：term： `context`リソースは、リクエストオブジェクトの` `context``属性として利用できます。例えば、` `request.context``です。 ：term： `view name`はリクエストオブジェクトの` `view_name``属性として利用できます。たとえば、` `request.view_name``です。その他：app： `Pyramid`固有のリクエスト属性は：ref：` special_request_attributes`で説明されているように利用できます。"
 
 #: ../../narr/traversal.rst:442
 msgid "Using Resource Interfaces in View Configuration"
-msgstr ""
+msgstr "ビュー構成でのリソースインタフェースの使用"
 
 #: ../../narr/traversal.rst:444
 msgid ""
@@ -644,21 +634,21 @@ msgid ""
 "resource type.  For example, if two resource objects of different Python "
 "class types share the same interface, you can use the same view "
 "configuration to specify both of them as a ``context``."
-msgstr ""
+msgstr "ビューをPythonリソース* class *に名前を付ける `` context``で登録するのではなく、：term： `interface`である` `context``で呼び出し可能なビューを任意に登録することができます。インタフェースは任意のリソースオブジェクトに任意にアタッチできます。ビュールックアップはコンテキストインタフェースを特別に扱うため、リソースのアイデンティティーはそれを実装するクラスのアイデンティティと離れることがあります。その結果、ビューをインタフェースに関連付けることで、リソースタイプの2つ以上の異なる実装間で単一のビューを共有するための柔軟性を高めることができます。たとえば、異なるPythonクラス型の2つのリソースオブジェクトが同じインタフェースを共有する場合、同じビュー構成を使用して、両方を「コンテキスト」として指定できます。"
 
 #: ../../narr/traversal.rst:455
 msgid ""
 "In order to make use of interfaces in your application during view "
 "dispatch, you must create an interface and mark up your resource classes "
 "or instances with interface declarations that refer to this interface."
-msgstr ""
+msgstr "ビューディスパッチ中にアプリケーションでインターフェイスを使用するには、インターフェイスを作成し、このインターフェイスを参照するインターフェイス宣言でリソースクラスまたはインスタンスをマークアップする必要があります。"
 
 #: ../../narr/traversal.rst:459
 msgid ""
 "To attach an interface to a resource *class*, you define the interface "
 "and use the :func:`zope.interface.implementer` class decorator to "
 "associate the interface with the class."
-msgstr ""
+msgstr "リソースを* class *リソースに接続するには、インタフェースを定義し、：func： `zope.interface.implementer`クラスデコレータを使用してインタフェースをクラスに関連付けます。"
 
 #: ../../narr/traversal.rst:476
 msgid ""
@@ -666,7 +656,7 @@ msgid ""
 " and use the :func:`zope.interface.alsoProvides` function to associate "
 "the interface with the instance.  This function mutates the instance in "
 "such a way that the interface is attached to it."
-msgstr ""
+msgstr "リソースをインスタンス*に接続するには、インタフェースを定義し、：func： `zope.interface.alsoProvides`関数を使用してインタフェースをインスタンスに関連付けます。この関数は、インタフェースがそれに接続されるようにインスタンスを変更します。"
 
 #: ../../narr/traversal.rst:498
 msgid ""
@@ -677,7 +667,7 @@ msgid ""
 "and its module is named \"resources.py\", the interface declaration below"
 " will associate the ``mypackage.views.hello_world`` view with resources "
 "that implement, or provide, this interface."
-msgstr ""
+msgstr "インタフェースをリソースインスタンスまたはリソースクラスのいずれかに関連付ける方法に関係なく、そのインタフェースをビュー呼び出し可能に関連付けるコードは同じです。上記のIHelloインタフェースがアプリケーションのルートにあり、そのモジュールの名前が &quot;resources.py&quot;であると仮定すると、下のインタフェース宣言は `` mypackage.views.hello_world``を関連付けますこのインタフェースを実装または提供するリソースを持つビュー"
 
 #: ../../narr/traversal.rst:514
 msgid ""
@@ -685,7 +675,7 @@ msgid ""
 " this interface, and a view named ``hello.html`` is looked up against it "
 "as per the URL, the ``mypackage.views.hello_world`` view callable will be"
 " invoked."
-msgstr ""
+msgstr "：term： `context`であると判断されたリソースはこのインタフェースを提供し、` `hello.html``という名前のビューはURLごとに参照され、` `mypackage.views.hello_world` `view callableが呼び出されます。"
 
 #: ../../narr/traversal.rst:518
 msgid ""
@@ -698,40 +688,40 @@ msgid ""
 " ``context`` of interface implemented by the resource's class, and both "
 "view configurations are otherwise identical, the view registered for the "
 "context's class will \"win\"."
-msgstr ""
+msgstr "ビューがリソース・クラスに対して登録され、ビューがリソース・クラスが実装するインタフェースに対しても登録されている場合は、あいまいさがあります。リソースクラスに登録されたビューは、リソースクラスがインプリメントする任意のインタフェースに登録されたビューよりも優先されます。したがって、1つのビュー構成がリソースのクラス型の両方の「コンテキスト」に名前を付け、別のビュー構成がリソースのクラスによって実装されるインタフェースの「コンテキスト」に名前を付け、両方のビュー構成がそれ以外の場合は同じです。コンテキストのクラスに登録されているビューは\ &quot;勝つ\&quot;でしょう。"
 
 #: ../../narr/traversal.rst:527
 msgid ""
 "For more information about defining resources with interfaces for use "
 "within view configuration, see "
 ":ref:`resources_which_implement_interfaces`."
-msgstr ""
+msgstr "ビュー構成内で使用するためのインタフェースを持つリソースの定義の詳細については、：ref： `resources_which_implement_interfaces`を参照してください。"
 
 #: ../../narr/traversal.rst:532
 msgid "References"
-msgstr ""
+msgstr "参考文献"
 
 #: ../../narr/traversal.rst:534
 msgid ""
 "A tutorial showing how :term:`traversal` can be used within a "
 ":app:`Pyramid` application exists in :ref:`bfg_wiki_tutorial`."
-msgstr ""
+msgstr "チュートリアル：term： `traversal`は、：app：` Pyramid`アプリケーション内で使用できます：ref： `bfg_wiki_tutorial`にあります。"
 
 #: ../../narr/traversal.rst:537
 msgid ""
 "See the :ref:`view_config_chapter` chapter for detailed information about"
 " :term:`view lookup`."
-msgstr ""
+msgstr "詳細については、：ref： `view_config_chapter`の章を参照してください：term：` view lookup`。"
 
 #: ../../narr/traversal.rst:540
 msgid ""
 "The :mod:`pyramid.traversal` module contains API functions that deal with"
 " traversal, such as traversal invocation from within application code."
-msgstr ""
+msgstr "：mod： `pyramid.traversal`モジュールには、アプリケーションコード内からのトラバーサル呼び出しなど、トラバーサルを処理するAPI関数が含まれています。"
 
 #: ../../narr/traversal.rst:543
 msgid ""
 "The :meth:`pyramid.request.Request.resource_url` method generates a URL "
 "when given a resource retrieved from a resource tree."
-msgstr ""
+msgstr "：meth： `pyramid.request.Request.resource_url`メソッドは、リソースツリーから取得したリソースが与えられたときにURLを生成します。"
 

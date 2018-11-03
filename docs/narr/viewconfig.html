@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>View Configuration &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) 設定を表示 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Static Assets" href="assets.html" />
-    <link rel="prev" title="Templates" href="templates.html" />
+    <link rel="next" title="(機械翻訳) 静的資産" href="assets.html" />
+    <link rel="prev" title="(機械翻訳) テンプレート" href="templates.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="assets.html" title="Static Assets"
+          <a href="assets.html" title="(機械翻訳) 静的資産"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="templates.html" title="Templates"
+          <a href="templates.html" title="(機械翻訳) テンプレート"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,213 +69,86 @@
           <div class="body" role="main">
             
   <div class="section" id="view-lookup">
-<span id="view-configuration"></span><span id="view-config-chapter"></span><span id="id1"></span><h1>View Configuration<a class="headerlink" href="#view-lookup" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p id="index-0"><a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">View lookup</span></a> is the <span>Pyramid</span> subsystem responsible for finding and
-invoking a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>.  <a class="reference internal" href="../glossary.html#term-view-configuration"><span class="xref std std-term">View configuration</span></a> controls how
-<a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> operates in your application.  During any given request,
-view configuration information is compared against request data by the view
-lookup subsystem in order to find the &quot;best&quot; view callable for that request.</p>
-<p>In earlier chapters, you have been exposed to a few simple view configuration
-declarations without much explanation. In this chapter we will explore the
-subject in detail.</p>
+<span id="view-configuration"></span><span id="view-config-chapter"></span><span id="id1"></span><h1>(機械翻訳) 設定を表示<a class="headerlink" href="#view-lookup" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p id="index-0">：term： <cite>View lookup`は：app：</cite> Pyramid`サブシステムで、：term： <cite>view callable`を見つけて呼び出します。 ：term： `View configuration`は、アプリケーションでどのようにterm：</cite> view lookup`が動作するかを制御します。任意の所与の要求の間、ビュー構成情報は、ビュールックアップサブシステムによって要求データと比較され、その要求に対してコール可能な「最良の」ビューを見つける。</p>
+<p>これまでの章では、あまり説明のない簡単なビュー構成宣言に慣れてきました。この章では、主題について詳しく説明します。</p>
 <div class="section" id="mapping-a-resource-or-url-pattern-to-a-view-callable">
-<span id="index-1"></span><h2>Mapping a Resource or URL Pattern to a View Callable<a class="headerlink" href="#mapping-a-resource-or-url-pattern-to-a-view-callable" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A developer makes a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> available for use within a
-<span>Pyramid</span> application via <a class="reference internal" href="../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a>.  A view
-configuration associates a view callable with a set of statements that
-determine the set of circumstances which must be true for the view callable to
-be invoked.</p>
-<p>A view configuration statement is made about information present in the
-<a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource (or exception) and the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a>.</p>
-<p>View configuration is performed in one of two ways:</p>
+<span id="index-1"></span><h2>リソースまたはURLパターンをビュー呼び出し可能にマッピングする<a class="headerlink" href="#mapping-a-resource-or-url-pattern-to-a-view-callable" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>開発者は：term： <cite>view callable`を：term：</cite> view configuration`を介してa：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーション内で利用できるようにします。ビュー構成では、呼び出し可能なビューを呼び出すために真でなければならない状況のセットを決定する一連のステートメントと、呼び出し可能なビューを関連付けます。</p>
+<p>ビュー設定ステートメントは、：term： <cite>context`リソース（または例外）と：term：</cite> request`に存在する情報について行われます。</p>
+<p>ビュー構成は、次の2つの方法のいずれかで実行されます。</p>
 <ul class="simple">
-<li>By running a <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a> against application source code which has a
-<a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.view.view_config</span></code></a> decorator attached to a Python object as
-per <a class="reference internal" href="#mapping-views-using-a-decorator-section"><span class="std std-ref">Adding View Configuration Using the &#64;view_config Decorator</span></a>.</li>
-<li>By using the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> method as per
-<a class="reference internal" href="#mapping-views-using-imperative-config-section"><span class="std std-ref">Adding View Configuration Using add_view()</span></a>.</li>
+<li>Pythonオブジェクトに：ref： <cite>mapping_views_using_a_decorator_section`として添付された：class：</cite> pyramid.view.view_config`デコレータを持つアプリケーションソースコードに対して：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>scan`を実行します。</li>
+<li>：meth： <cite>pyramid.config.Configurator.add_view`メソッドを：ref：</cite> mapping_views_using_imperative_config_section`として使用します。</li>
 </ul>
 <div class="section" id="view-configuration-parameters">
-<span id="index-2"></span><span id="id2"></span><h3>View Configuration Parameters<a class="headerlink" href="#view-configuration-parameters" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>All forms of view configuration accept the same general types of arguments.</p>
-<p>Many arguments supplied during view configuration are <a class="reference internal" href="../glossary.html#term-view-predicate"><span class="xref std std-term">view predicate</span></a>
-arguments.  View predicate arguments used during view configuration are used to
-narrow the set of circumstances in which <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> will find a
-particular view callable.</p>
-<p><a class="reference internal" href="../glossary.html#term-view-predicate"><span class="xref std std-term">View predicate</span></a> attributes are an important part of view configuration
-that enables the <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> subsystem to find and invoke the
-appropriate view.  The greater the number of predicate attributes possessed by
-a view's configuration, the more specific the circumstances need to be before
-the registered view callable will be invoked.  The fewer the number of
-predicates which are supplied to a particular view configuration, the more
-likely it is that the associated view callable will be invoked.  A view with
-five predicates will always be found and evaluated before a view with two, for
-example.</p>
-<p>This does not mean however, that <span>Pyramid</span> &quot;stops looking&quot; when it finds a
-view registration with predicates that don't match.  If one set of view
-predicates does not match, the &quot;next most specific&quot; view (if any) is consulted
-for predicates, and so on, until a view is found, or no view can be matched up
-with the request.  The first view with a set of predicates all of which match
-the request environment will be invoked.</p>
-<p>If no view can be found with predicates which allow it to be matched up with
-the request, <span>Pyramid</span> will return an error to the user's browser,
-representing a &quot;not found&quot; (404) page.  See <a class="reference internal" href="hooks.html#changing-the-notfound-view"><span class="std std-ref">Changing the Not Found View</span></a>
-for more information about changing the default <a class="reference internal" href="../glossary.html#term-not-found-view"><span class="xref std std-term">Not Found View</span></a>.</p>
-<p>Other view configuration arguments are non-predicate arguments.  These tend to
-modify the response of the view callable or prevent the view callable from
-being invoked due to an authorization policy.  The presence of non-predicate
-arguments in a view configuration does not narrow the circumstances in which
-the view callable will be invoked.</p>
+<span id="index-2"></span><span id="id2"></span><h3>設定パラメータの表示<a class="headerlink" href="#view-configuration-parameters" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>すべての形式のビュー構成は、同じ一般的な型の引数を受け入れます。</p>
+<p>ビュー設定中に提供される多くの引数は、term： <a href="#id1"><span class="problematic" id="id2">`</span></a>view述語`引数です。ビュー設定時に使用されるビュー述語引数は、term： <a href="#id3"><span class="problematic" id="id4">`</span></a>view lookup`が特定のビューを呼び出し可能にする状況のセットを絞り込むために使用されます。</p>
+<p>：term： <cite>View predicate`属性は：term：</cite> view lookup`サブシステムが適切なビューを見つけて呼び出すことを可能にするビュー設定の重要な部分です。ビューの構成が保持する述部属性の数が多いほど、登録ビューの呼び出し可能性が呼び出される前に状況がより具体的になる必要があります。特定のビュー構成に供給される述部の数が少ないほど、関連するビュー呼び出し可能関数が呼び出される可能性が高くなります。 5つの述部を持つビューは、たとえば2つのビューの前に常に見つけられ、評価されます。</p>
+<p>しかし、これは：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、一致しない述語を持つビュー登録を見つけたときに&amp;quot;探していることを止める&amp;quot;という意味ではありません。 1組のビュー述語が一致しない場合は、ビューが見つかるまで、またはビューと一致するビューが見つからなくなるまで、述語には&amp;quot;次の最も特殊な&amp;quot;ビュー（存在する場合）が参照されます。要求環境にすべて一致する一連の述部を持つ最初のビューが呼び出されます。</p>
+<p>要求と一致させることができる述語を持つビューが見つからない場合、：app： <cite>Pyramid`は、ユーザのブラウザに&amp;quot;見つからない&amp;quot;（404）ページを表すエラーを返します。デフォルト：term： `Not Found View`の変更については、ref：</cite> changing_the_notfound_view`を参照してください。</p>
+<p>他のビュー設定引数は、述語でない引数です。これらは、呼び出し可能なビューの応答を変更するか、または呼び出しポリシーが許可ポリシーのために呼び出されないようにします。ビュー構成内に述語でない引数が存在しても、ビュー呼び出し可能関数が呼び出される状況は限定されません。</p>
 <div class="section" id="non-predicate-arguments">
-<span id="nonpredicate-view-args"></span><h4>Non-Predicate Arguments<a class="headerlink" href="#non-predicate-arguments" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="nonpredicate-view-args"></span><h4>非述語引数<a class="headerlink" href="#non-predicate-arguments" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">permission</span></code></dt>
-<dd><p class="first">The name of a <a class="reference internal" href="../glossary.html#term-permission"><span class="xref std std-term">permission</span></a> that the user must possess in order to
-invoke the <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>.  See <a class="reference internal" href="#view-security-section"><span class="std std-ref">Configuring View Security</span></a> for more
-information about view security and permissions.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">permission</span></code> is not supplied, no permission is registered for this view
-(it's accessible by any caller).</p>
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a>許可 ``</dt>
+<dd><p class="first">：term： <cite>view callable`を呼び出すためにユーザが所有しなければならないa：term：</cite> permission`の名前。ビューのセキュリティと権限の詳細については、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>view_security_section`を参照してください。</p>
+<p class="last">`` permission``が指定されていない場合、このビューにはアクセス権が登録されていません（呼び出し元からアクセス可能です）。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">attr</span></code></dt>
-<dd><p class="first">The view machinery defaults to using the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method of the
-<a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> (or the function itself, if the view callable is a
-function) to obtain a response.  The <code class="docutils literal notranslate"><span class="pre">attr</span></code> value allows you to vary the
-method attribute used to obtain the response.  For example, if your view was
-a class, and the class has a method named <code class="docutils literal notranslate"><span class="pre">index</span></code> and you wanted to use
-this method instead of the class's <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method to return the
-response, you'd say <code class="docutils literal notranslate"><span class="pre">attr=&quot;index&quot;</span></code> in the view configuration for the view.
-This is most useful when the view definition is a class.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">attr</span></code> is not supplied, <code class="docutils literal notranslate"><span class="pre">None</span></code> is used (implying the function itself
-if the view is a function, or the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> callable attribute if the view
-is a class).</p>
+<dt>`` attr``</dt>
+<dd><p class="first">ビュー機構は、デフォルトで：term： <cite>view callable`（ビュー呼び出し可能関数が関数の場合は関数自体）の</cite> <cite>__call__``メソッドを使用して応答を取得します。 `</cite> attr``値は、レスポンスを取得するために使用されるメソッド属性を変更することを可能にします。たとえば、ビューがクラスで、クラスに `` index``という名前のメソッドがあり、クラスの `` __call__``メソッドの代わりにこのメソッドを使用してレスポンスを返す場合は、 <a href="#id1"><span class="problematic" id="id2">``</span></a>ビューのビュー構成では、attr = &amp;quot;index &amp;quot; <a href="#id3"><span class="problematic" id="id4">``</span></a>これは、ビュー定義がクラスである場合に最も便利です。</p>
+<p class="last">`` attr``が与えられていなければ `` None``が使われます（ビューが関数の場合は関数そのものを意味し、ビューがクラスの場合は `` __call__``の呼び出し可能な属性を意味します）。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">renderer</span></code></dt>
-<dd><p class="first">Denotes the <a class="reference internal" href="../glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> implementation which will be used to construct a
-<a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> from the associated view callable's return value.</p>
+<dt>レンダラー</dt>
+<dd><p class="first">関連するビュー呼び出し可能戻り値から：term： <cite>response`を構築するために使用される：term：</cite> renderer`実装を示します。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="renderers.html#renderers-chapter"><span class="std std-ref">Renderers</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>renderers_chapter`を参照してください。</p>
 </div>
-<p>This is either a single string term (e.g., <code class="docutils literal notranslate"><span class="pre">json</span></code>) or a string implying a
-path or <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a> (e.g., <code class="docutils literal notranslate"><span class="pre">templates/views.pt</span></code>) naming a
-<a class="reference internal" href="../glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> implementation.  If the <code class="docutils literal notranslate"><span class="pre">renderer</span></code> value does not contain
-a dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>), the specified string will be used to look up a renderer
-implementation, and that renderer implementation will be used to construct a
-response from the view return value.  If the <code class="docutils literal notranslate"><span class="pre">renderer</span></code> value contains a
-dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>), the specified term will be treated as a path, and the filename
-extension of the last element in the path will be used to look up the
-renderer implementation, which will be passed the full path.</p>
-<p>When the renderer is a path—although a path is usually just a simple relative
-pathname (e.g., <code class="docutils literal notranslate"><span class="pre">templates/foo.pt</span></code>, implying that a template named &quot;foo.pt&quot;
-is in the &quot;templates&quot; directory relative to the directory of the current
-<a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a>)—the path can be absolute, starting with a slash on UNIX or a
-drive letter prefix on Windows.  The path can alternatively be a <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset
-specification</span></a> in the form <code class="docutils literal notranslate"><span class="pre">some.dotted.package_name:relative/path</span></code>, making
-it possible to address template assets which live in a separate package.</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">renderer</span></code> attribute is optional.  If it is not defined, the &quot;null&quot;
-renderer is assumed (no rendering is performed and the value is passed back
-to the upstream <span>Pyramid</span> machinery unchanged).  Note that if the view
-callable itself returns a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> (see <a class="reference internal" href="views.html#the-response"><span class="std std-ref">callableビューレスポンス(View Callable Responses)</span></a>), the
-specified renderer implementation is never called.</p>
+<p>これは単一の文字列（例えば `` json``）かパスを意味する文字列、または：term： <cite>資産指定`（例えば `</cite> templates / views.pt``）a：term： <cite>renderer実装。 `</cite> renderer``の値にドット（ `` .``）が含まれていない場合、指定された文字列はレンダラー実装をルックアップするために使用され、レンダラー実装はビュー戻り値。 `` renderer``の値にドット（ `` .``）が含まれている場合、指定された用語はパスとして扱われ、パスの最後の要素のファイル名拡張子はレンダラー実装をルックアップするために使われます。それは完全なパスを通過します。</p>
+<p>レンダラーがパスである場合、パスは通常単純な相対パス名です（例えば `` templates / foo.pt``、&amp;quot;foo.pt &amp;quot;という名前のテンプレートは&amp;quot;templates &amp;quot;にあります）ディレクトリ：現在の：term： <cite>package`のディレクトリからの相対パス） - パスは絶対パスでもよく、UNIXの場合はスラッシュ、Windowsの場合はドライブ文字の接頭辞で始まります。代わりに、パスは `</cite> some.dotted.package_name：relative / path``の形式で：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>asset specification`とすることができ、別のパッケージにあるテンプレートアセットを扱うことができます。</p>
+<p class="last">`` renderer``属性はオプションです。定義されていない場合、レンダリングは行われません（レンダリングは行われず、値は変更されずにアップストリーム：app： <cite>Pyramid`機械に戻されます）。ビュー呼び出し側が：term： `response`（：ref：</cite> the_response`を参照）を返した場合、指定されたレンダラー実装は決して呼び出されません。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">http_cache</span></code></dt>
-<dd><p class="first">When you supply an <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> value to a view configuration, the
-<code class="docutils literal notranslate"><span class="pre">Expires</span></code> and <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> headers of a response generated by the
-associated view callable are modified.  The value for <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> may be
-one of the following:</p>
+<dt>`` http_cache``</dt>
+<dd><p class="first">ビュー設定に `` http_cache``値を指定すると、関連するview呼び出し可能で生成されたレスポンスの `` Expires``と `` Cache-Control``ヘッダーが変更されます。 `` http_cache``の値は次のいずれかです：</p>
 <ul class="simple">
-<li>A nonzero integer.  If it's a nonzero integer, it's treated as a number of
-seconds.  This number of seconds will be used to compute the <code class="docutils literal notranslate"><span class="pre">Expires</span></code>
-header and the <code class="docutils literal notranslate"><span class="pre">Cache-Control:</span> <span class="pre">max-age</span></code> parameter of responses to
-requests which call this view.  For example: <code class="docutils literal notranslate"><span class="pre">http_cache=3600</span></code> instructs
-the requesting browser to 'cache this response for an hour, please'.</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code> instance.  If it's a <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>
-instance, it will be converted into a number of seconds, and that number of
-seconds will be used to compute the <code class="docutils literal notranslate"><span class="pre">Expires</span></code> header and the
-<code class="docutils literal notranslate"><span class="pre">Cache-Control:</span> <span class="pre">max-age</span></code> parameter of responses to requests which call
-this view.  For example: <code class="docutils literal notranslate"><span class="pre">http_cache=datetime.timedelta(days=1)</span></code>
-instructs the requesting browser to 'cache this response for a day,
-please'.</li>
-<li>Zero (<code class="docutils literal notranslate"><span class="pre">0</span></code>).  If the value is zero, the <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> and <code class="docutils literal notranslate"><span class="pre">Expires</span></code>
-headers present in all responses from this view will be composed such that
-client browser cache (and any intermediate caches) are instructed to never
-cache the response.</li>
-<li>A two-tuple.  If it's a two-tuple (e.g., <code class="docutils literal notranslate"><span class="pre">http_cache=(1,</span>
-<span class="pre">{'public':True})</span></code>), the first value in the tuple may be a nonzero integer
-or a <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code> instance. In either case this value will be
-used as the number of seconds to cache the response.  The second value in
-the tuple must be a dictionary.  The values present in the dictionary will
-be used as input to the <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> response header.  For example:
-<code class="docutils literal notranslate"><span class="pre">http_cache=(3600,</span> <span class="pre">{'public':True})</span></code> means 'cache for an hour, and add
-<code class="docutils literal notranslate"><span class="pre">public</span></code> to the Cache-Control header of the response'.  All keys and
-values supported by the <code class="docutils literal notranslate"><span class="pre">webob.cachecontrol.CacheControl</span></code> interface may
-be added to the dictionary.  Supplying <code class="docutils literal notranslate"><span class="pre">{'public':True}</span></code> is equivalent to
-calling <code class="docutils literal notranslate"><span class="pre">response.cache_control.public</span> <span class="pre">=</span> <span class="pre">True</span></code>.</li>
+<li>非ゼロの整数。ゼロ以外の整数の場合、秒数として扱われます。この秒数は、このビューを呼び出すリクエストに対するレスポンスの `` Expires``ヘッダと `` Cache-Control：max-age``パラメータを計算するために使用されます。たとえば、 `` http_cache = 3600``は、リクエストしているブラウザに「この応答を1時間キャッシュしてください」と指示します。</li>
+<li>`` datetime.timedelta``インスタンスです。 `` datetime.timedelta``インスタンスの場合、秒数に変換され、その秒数が `` Expires``ヘッダーと `` Cache-Control：max-age &amp;#39;&amp;#39;を計算するために使われますこのビューを呼び出す要求への応答のパラメータ。例： `` http_cache = datetime.timedelta（days = 1） <a href="#id1"><span class="problematic" id="id2">``</span></a>は、リクエストしているブラウザに「この応答を1日キャッシュしてください」と指示します。</li>
+<li>0（ `` 0``）。値がゼロの場合、このビューからのすべての応答に存在する `` Cache-Control``と `` Expires``ヘッダーは、クライアントブラウザのキャッシュ（および任意の中間キャッシュ）にレスポンスをキャッシュしないように構成されます。</li>
+<li>2タプル。 2タプル（ `` http_cache =（1、{&amp;#39;public&amp;#39;：True）） <a href="#id1"><span class="problematic" id="id2">``</span></a>）の場合、タプルの最初の値は非ゼロの整数または `` datetime.timedelta``のインスタンスになります。いずれの場合も、この値はレスポンスをキャッシュする秒数として使用されます。タプルの2番目の値は辞書でなければなりません。辞書にある値は `` Cache-Control``レスポンスヘッダへの入力として使われます。例えば、 `` http_cache =（3600、{&amp;#39;public&amp;#39;：True}）は <a href="#id3"><span class="problematic" id="id4">``</span></a>キャッシュを1時間意味し、 `` public``をレスポンスのCache-Controlヘッダに追加します。 `` webob.cachecontrol.CacheControl``インターフェースでサポートされているすべてのキーと値を辞書に追加することができます。 `` {&amp;#39;public&amp;#39;：True} <a href="#id5"><span class="problematic" id="id6">``</span></a>を提供することは、 `` response.cache_control.public = True``を呼び出すことと等価です。</li>
 </ul>
-<p>Providing a non-tuple value as <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> is equivalent to calling
-<code class="docutils literal notranslate"><span class="pre">response.cache_expires(value)</span></code> within your view's body.</p>
-<p>Providing a two-tuple value as <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> is equivalent to calling
-<code class="docutils literal notranslate"><span class="pre">response.cache_expires(value[0],</span> <span class="pre">**value[1])</span></code> within your view's body.</p>
-<p class="last">If you wish to avoid influencing the <code class="docutils literal notranslate"><span class="pre">Expires</span></code> header, and instead wish to
-only influence <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> headers, pass a tuple as <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> with
-the first element of <code class="docutils literal notranslate"><span class="pre">None</span></code>, i.e., <code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">{'public':True})</span></code>.</p>
+<p>`` http_cache``として非タプルの値を与えることは、あなたのビューのボディ内で `` response.cache_expires（value） <a href="#id1"><span class="problematic" id="id2">``</span></a>を呼び出すことと同じです。</p>
+<p>`` http_cache``として2タプルの値を与えることは、あなたのビューのボディ内で `` response.cache_expires（value [0]、** value [1]） <a href="#id1"><span class="problematic" id="id2">``</span></a>を呼び出すのと同じです。</p>
+<p class="last">`` Expires`ヘッダに影響を与えず、 `` Cache-Control``ヘッダーにのみ影響を与えたい場合は、 `` None``の最初の要素、 `` http_cache``としてタプルを渡します。 、 <a href="#id1"><span class="problematic" id="id2">``</span></a>（None、{&amp;#39;public&amp;#39;：True}） <a href="#id3"><span class="problematic" id="id4">``</span></a>となります。</p>
 </dd>
 </dl>
-<p><code class="docutils literal notranslate"><span class="pre">require_csrf</span></code></p>
+<p>`` require_csrf``</p>
 <blockquote>
-<div><p>CSRF checks will affect any request method that is not defined as a &quot;safe&quot;
-method by RFC2616. In pratice this means that GET, HEAD, OPTIONS, and TRACE
-methods will pass untouched and all others methods will require CSRF. This
-option is used in combination with the <code class="docutils literal notranslate"><span class="pre">pyramid.require_default_csrf</span></code>
-setting to control which request parameters are checked for CSRF tokens.</p>
-<p>This feature requires a configured <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a>.</p>
-<p>If this option is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> then CSRF checks will be enabled for POST
-requests to this view. The required token will be whatever was specified by
-the <code class="docutils literal notranslate"><span class="pre">pyramid.require_default_csrf</span></code> setting, or will fallback to
-<code class="docutils literal notranslate"><span class="pre">csrf_token</span></code>.</p>
-<p>If this option is set to a string then CSRF checks will be enabled and it
-will be used as the required token regardless of the
-<code class="docutils literal notranslate"><span class="pre">pyramid.require_default_csrf</span></code> setting.</p>
-<p>If this option is set to <code class="docutils literal notranslate"><span class="pre">False</span></code> then CSRF checks will be disabled
-regardless of the <code class="docutils literal notranslate"><span class="pre">pyramid.require_default_csrf</span></code> setting.</p>
-<p>In addition, if this option is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> or a string then CSRF origin
-checking will be enabled.</p>
-<p>See <a class="reference internal" href="security.html#auto-csrf-checking"><span class="std std-ref">Checking CSRF Tokens Automatically</span></a> for more information.</p>
+<div><p>CSRFチェックは、RFC2616で&amp;quot;安全&amp;quot;と定義されていないリクエストメソッドに影響します。これは、GET、HEAD、OPTIONS、TRACEメソッドがそのまま渡され、他のすべてのメソッドがCSRFを必要とすることを意味します。このオプションは `` pyramid.require_default_csrf``設定と組み合わせて使用​​され、CSRFトークンをチェックする要求パラメータを制御します。</p>
+<p>この機能には、設定済み：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>セッションファクトリ`が必要です。</p>
+<p>このオプションが `` True``に設定されている場合、CSRFチェックはこのビューに対するPOSTリクエストに対して有効になります。必要なトークンは `` pyramid.require_default_csrf``の設定で指定されたもので、 `` csrf_token``にフォールバックします。</p>
+<p>このオプションが文字列に設定されている場合、CSRFチェックは有効になり、 `` pyramid.require_default_csrf``設定に関係なく、必要なトークンとして使用されます。</p>
+<p>このオプションが `` False``に設定されている場合、 `` pyramid.require_default_csrf``設定に関係なく、CSRFチェックは無効になります。</p>
+<p>さらに、このオプションが `` True``または文字列に設定されている場合、CSRF起点チェックが有効になります。</p>
+<p>詳細は：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>auto_csrf_checking`を参照してください。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.7 で追加.</span></p>
 </div>
 </div></blockquote>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">wrapper</span></code></dt>
-<dd><p class="first">The <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> of a different <a class="reference internal" href="../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a> which will
-receive the response body of this view as the <code class="docutils literal notranslate"><span class="pre">request.wrapped_body</span></code>
-attribute of its own <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a>, and the <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> returned by
-this view as the <code class="docutils literal notranslate"><span class="pre">request.wrapped_response</span></code> attribute of its own request.
-Using a wrapper makes it possible to &quot;chain&quot; views together to form a
-composite response.  The response of the outermost wrapper view will be
-returned to the user.  The wrapper view will be found as any view is found.
-See <a class="reference internal" href="#view-lookup"><span class="std std-ref">View Configuration</span></a>.  The &quot;best&quot; wrapper view will be found based on the
-lookup ordering. &quot;Under the hood&quot; this wrapper view is looked up via
-<code class="docutils literal notranslate"><span class="pre">pyramid.view.render_view_to_response(context,</span> <span class="pre">request,</span>
-<span class="pre">'wrapper_viewname')</span></code>. The context and request of a wrapper view is the same
-context and request of the inner view.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> is not supplied, no wrapper view is used.</p>
+<dt>ラッパー</dt>
+<dd><p class="first">このビューの応答本体をそれ自身の：request.wrapped_body`属性として受け取る：term： <cite>request`と： term： `response`は、このビューによって自身の要求の</cite> <cite>request.wrapped_response``属性として返されます。ラッパーを使用すると、ビューをまとめて&amp;quot;チェーン&amp;quot;して複合レスポンスを形成することができます。最も外側のラッパー・ビューの応答がユーザーに戻されます。ラッパービューは、任意のビューが見つかると見つかります。参照：ref： `view_lookup`を参照してください。 &amp;quot;ベスト&amp;quot;ラッパービューはルックアップの順序に基づいて検索されます。 &amp;quot;Under the Hood &amp;quot;このラッパービューは、 `</cite> pyramid.view.render_view_to_response（context、request、 &amp;#39;wrapper_viewname&amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>で検索されます。ラッパー・ビューのコンテキストおよび要求は、同じコンテキストおよび内部ビューの要求です。</p>
+<p class="last">`` wrapper``が与えられていなければ、ラッパービューは使用されません。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">decorator</span></code></dt>
-<dd><p class="first">A <a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted Python name</span></a> to a function (or the function itself) which
-will be used to decorate the registered <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>.  The decorator
-function will be called with the view callable as a single argument.  The
-view callable it is passed will accept <code class="docutils literal notranslate"><span class="pre">(context,</span> <span class="pre">request)</span></code>.  The decorator
-must return a replacement view callable which also accepts <code class="docutils literal notranslate"><span class="pre">(context,</span>
-<span class="pre">request)</span></code>. The <code class="docutils literal notranslate"><span class="pre">decorator</span></code> may also be an iterable of decorators, in which
-case they will be applied one after the other to the view, in reverse order.
-For example:</p>
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a>デコレータ ``</dt>
+<dd><p class="first">A：term： <cite>dotted Python name`を、登録された：term：</cite> view callable`を装飾するために使用される関数（または関数自体）に追加します。デコレータ関数は、呼び出し可能なビューを単一の引数として呼び出されます。呼び出し可能なビューは <a href="#id1"><span class="problematic" id="id2">``</span></a>（context、request） <cite>&amp;#39;を受け入れます。デコレータは、 ``（context、request） `&amp;#39;を受け付ける代わりのview callableを返さなければなりません。 `</cite> decorator``は、デコレータの繰り返し可能性があります。その場合、逆順でビューに順番に適用されます。例えば：：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@view_config</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">decorator</span><span class="o">=</span><span class="p">(</span><span class="n">decorator2</span><span class="p">,</span> <span class="n">decorator1</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">myview</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
   <span class="o">...</span>
 </pre></div>
 </div>
-<p>Is similar to decorating the view callable directly:</p>
+<p>ビューを直接呼び出し可能にすることと似ています:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@view_config</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 <span class="nd">@decorator2</span>
 <span class="nd">@decorator1</span>
@@ -283,10 +156,7 @@ For example:</p>
   <span class="o">...</span>
 </pre></div>
 </div>
-<p>An important distinction is that each decorator will receive a response
-object implementing <a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.IResponse" title="pyramid.interfaces.IResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IResponse</span></code></a> instead of the
-raw value returned from the view callable. All decorators in the chain must
-return a response object or raise an exception:</p>
+<p>重要な違いは、各デコレータはビュー呼び出し可能から返された生の値の代わりに：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.interfaces.IResponse`を実装する応答オブジェクトを受け取ることです。チェーン内のすべてのデコレータは、レスポンスオブジェクトを返すか、例外を送出する必要があります。</p>
 <div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">log_timer</span><span class="p">(</span><span class="n">wrapped</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -299,245 +169,115 @@ return a response object or raise an exception:</p>
 </pre></div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">mapper</span></code></dt>
-<dd>A Python object or <a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted Python name</span></a> which refers to a <a class="reference internal" href="../glossary.html#term-view-mapper"><span class="xref std std-term">view
-mapper</span></a>, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.  By default it is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which indicates that the
-view should use the default view mapper.  This plug-point is useful for
-Pyramid extension developers, but it's not very useful for &quot;civilians&quot; who
-are just developing stock Pyramid applications. Pay no attention to the man
-behind the curtain.</dd>
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a>マッパ ``</dt>
+<dd>Pythonオブジェクトまたは：term： <cite>dotted Python name</cite>：：term：` view mapper`または `` None``を参照してください。デフォルトでは `` None``です。これは、ビューがデフォルトビューマッパーを使用する必要があることを示します。このプラグインポイントはPyramid拡張開発者には便利ですが、株式ピラミッドアプリケーションを開発している&amp;quot;一般市民&amp;quot;にとってはあまり役に立ちません。カーテンの後ろの男には注意を払わないでください。</dd>
 </dl>
 </div>
 <div class="section" id="predicate-arguments">
-<h4>Predicate Arguments<a class="headerlink" href="#predicate-arguments" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>These arguments modify view lookup behavior. In general the more predicate
-arguments that are supplied, the more specific and narrower the usage of the
-configured view.</p>
+<h4>述語引数<a class="headerlink" href="#predicate-arguments" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>これらの引数は、ビューの参照動作を変更します。一般に、より述語的な引数が提供されるほど、設定されたビューの使用がより具体的で狭くなります。</p>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt>
-<dd><p class="first">The <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> required to match this view callable.  A <code class="docutils literal notranslate"><span class="pre">name</span></code>
-argument is typically only used when your application uses <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>.
-Read <a class="reference internal" href="traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a> to understand the concept of a view name.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">name</span></code> is not supplied, the empty string is used (implying the default
-view).</p>
+<dt>「名前」</dt>
+<dd><p class="first">このビューを呼び出し可能にするには、：term： <cite>view name`が必要です。 `</cite> name``引数は通常、アプリケーションがterm： <a href="#id1"><span class="problematic" id="id2">`</span></a>traversal`を使用する場合にのみ使用されます。ビュー名の概念を理解するために：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>traversal_chapter`を読んでください。</p>
+<p class="last">`` name``が与えられていなければ、空の文字列が使われます（デフォルトのビューを意味します）。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">context</span></code></dt>
-<dd><p class="first">An object representing a Python class of which the <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource
-must be an instance <em>or</em> the <a class="reference internal" href="../glossary.html#term-interface"><span class="xref std std-term">interface</span></a> that the <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a>
-resource must provide in order for this view to be found and called.  This
-predicate is true when the <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource is an instance of the
-represented class or if the <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource provides the represented
-interface; it is otherwise false.</p>
-<p>It is possible to pass an exception class as the context if your context may
-subclass an exception. In this case <em>two</em> views will be registered. One
-will match normal incoming requests, and the other will match as an
-<a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a> which only occurs when an exception is raised during
-the normal request processing pipeline.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">context</span></code> is not supplied, the value <code class="docutils literal notranslate"><span class="pre">None</span></code>, which matches any
-resource, is used.</p>
+<dt>「文脈」</dt>
+<dd><p class="first">：term： <cite>context`リソースは、：term：</cite> context`リソースがこのビューを見つけるために提供しなければならないインスタンス*または* the：term： <cite>interface`でなければならないPythonクラスを表すオブジェクトです。と呼ばれる。この述語は：term： `context`リソースが表現されたクラスのインスタンスである場合、または：term：</cite> context`リソースが表現されたインタフェースを提供する場合に真です。それ以外の場合はfalseです。</p>
+<p>コンテキストが例外をサブクラス化する可能性がある場合、例外クラスをコンテキストとして渡すことは可能です。この場合、* 2つのビューが登録されます。 1つは通常の着信要求と一致し、もう1つは：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>例外ビュー &amp;#39;と一致します。これは、通常の要求処理パイプラインで例外が発生した場合にのみ発生します。</p>
+<p class="last">`` context``が与えられていない場合は、任意のリソースにマッチする `` None``という値が使われます。</p>
 </dd>
 </dl>
-<p><code class="docutils literal notranslate"><span class="pre">exception_only</span></code></p>
+<p>`` exception_only``</p>
 <blockquote>
-<div><p>When this value is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the <code class="docutils literal notranslate"><span class="pre">context</span></code> argument must be a subclass of
-<code class="docutils literal notranslate"><span class="pre">Exception</span></code>. This flag indicates that only an <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a> should
-be created, and that this view should not match if the traversal
-<a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> matches the <code class="docutils literal notranslate"><span class="pre">context</span></code> argument. If the <code class="docutils literal notranslate"><span class="pre">context</span></code> is a
-subclass of <code class="docutils literal notranslate"><span class="pre">Exception</span></code> and this value is <code class="docutils literal notranslate"><span class="pre">False</span></code> (the default), then a
-view will be registered to match the traversal <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> as well.</p>
+<div><p>この値が `` True``の場合、 `` context``引数は `` Exception``のサブクラスでなければなりません。このフラグは、：term： <cite>例外ビュー &amp;#39;のみを作成し、traversal：term：</cite> context`が `` context``引数と一致する場合、このビューは一致してはならないことを示します。 `` context``が `` Exception``のサブクラスで、この値が `` False``（デフォルト）の場合、トラバーサル：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>context`にもマッチするビューが登録されます。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.8 で追加.</span></p>
 </div>
 </div></blockquote>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">route_name</span></code></dt>
-<dd><p class="first">If <code class="docutils literal notranslate"><span class="pre">route_name</span></code> is supplied, the view callable will be invoked only when
-the named route has matched.</p>
-<p>This value must match the <code class="docutils literal notranslate"><span class="pre">name</span></code> of a <a class="reference internal" href="../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a>
-declaration (see <a class="reference internal" href="urldispatch.html#urldispatch-chapter"><span class="std std-ref">URL Dispatch</span></a>) that must match before this view
-will be called.  Note that the <code class="docutils literal notranslate"><span class="pre">route</span></code> configuration referred to by
-<code class="docutils literal notranslate"><span class="pre">route_name</span></code> will usually have a <code class="docutils literal notranslate"><span class="pre">*traverse</span></code> token in the value of its
-<code class="docutils literal notranslate"><span class="pre">pattern</span></code>, representing a part of the path that will be used by
-<a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> against the result of the route's <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a>.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">route_name</span></code> is not supplied, the view callable will only have a chance
-of being invoked if no other route was matched. This is when the
-request/context pair found via <a class="reference internal" href="../glossary.html#term-resource-location"><span class="xref std std-term">resource location</span></a> does not indicate it
-matched any configured route.</p>
+<dt>`` route_name``</dt>
+<dd><p class="first">`` route_name``が指定された場合、呼び出されたビューは指定されたルートが一致したときにのみ呼び出されます。</p>
+<p>この値は、このビューが呼び出される前に一致しなければならない：term： <cite>ルート設定`宣言（：ref： `urldispatch_chapter`参照）の</cite> <cite>name``と一致しなければなりません。 `</cite> route_name``で参照される `` route``の設定は通常 `` traverse``トークンを `` pattern``の値に持つことに注意してください。これは、使用されるパスの一部を表します：term：ルートの結果に対する <cite>traversal</cite>：term：<a href="#id1"><span class="problematic" id="id2">`</span></a>ルートファクト <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
+<p class="last">`` route_name``が与えられていなければ、呼び出し可能なビューは他のルートが一致していなければ起動されます。これは：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>resource location`で見つかったリクエスト/コンテキストのペアが、設定されたルートと一致していることを示していないときです。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">request_type</span></code></dt>
-<dd><p class="first">This value should be an <a class="reference internal" href="../glossary.html#term-interface"><span class="xref std std-term">interface</span></a> that the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> must
-provide in order for this view to be found and called.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">request_type</span></code> is not supplied, the value <code class="docutils literal notranslate"><span class="pre">None</span></code> is used, implying any
-request type.</p>
-<p class="last"><em>This is an advanced feature, not often used by &quot;civilians&quot;</em>.</p>
+<dt>`` request_type``</dt>
+<dd><p class="first">この値は、：term： <cite>request`がこのビューを見つけて呼び出すために提供しなければならない：term：</cite> interface`でなければなりません。</p>
+<p>`` request_type``が指定されていない場合は、 `` None``という値が使われます。</p>
+<p class="last"><a href="#id1"><span class="problematic" id="id2">*</span></a>これは高度な機能で、一般に&amp;quot;民間人&amp;quot; <a href="#id3"><span class="problematic" id="id4">*</span></a>で使用されることはありません。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">request_method</span></code></dt>
-<dd><p class="first">This value can be either a string (such as <code class="docutils literal notranslate"><span class="pre">&quot;GET&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;POST&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;PUT&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;DELETE&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;HEAD&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;OPTIONS&quot;</span></code>) representing an HTTP
-<code class="docutils literal notranslate"><span class="pre">REQUEST_METHOD</span></code> or a tuple containing one or more of these strings.  A
-view declaration with this argument ensures that the view will only be called
-when the <code class="docutils literal notranslate"><span class="pre">method</span></code> attribute of the request (i.e., the <code class="docutils literal notranslate"><span class="pre">REQUEST_METHOD</span></code> of
-the WSGI environment) matches a supplied value.</p>
+<dt>`` request_method``</dt>
+<dd><p class="first">この値は、文字列（ `` &amp;quot;GET &amp;quot; <code class="docutils literal notranslate"><span class="pre">、</span> <span class="pre">``</span> <span class="pre">POST</span> <span class="pre">&amp;quot;&amp;quot;、</span> <span class="pre">``</span> <span class="pre">\</span> <span class="pre">&amp;quot;PUT</span> <span class="pre">\&amp;quot;</span> <span class="pre">``、</span> <span class="pre">``</span> <span class="pre">\</span> <span class="pre">&amp;quot;DELETE</span> <span class="pre">\&amp;quot;</span> <span class="pre">``、</span> <span class="pre">``</span> <span class="pre">\</span> <span class="pre">&amp;quot;HEAD</span> <span class="pre">\&amp;quot;</span> <span class="pre">``、</span> <span class="pre">``</span> <span class="pre">\</span> <span class="pre">&amp;quot;OPTIONS</span> <span class="pre">\&amp;quot;</span> <span class="pre">``）、またはこれらの文字列の1つ以上を含むタプルを返します。この引数を持つビュー宣言は、要求の</span> <span class="pre">``</span> <span class="pre">method``属性（つまり、WSGI環境の</span> <span class="pre">``</span> <span class="pre">REQUEST_METHOD</span></code>）が指定された値と一致した場合にのみビューが呼び出されることを保証します。</p>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 1.4 で変更: </span>The use of <code class="docutils literal notranslate"><span class="pre">&quot;GET&quot;</span></code> also implies that the view will respond to <code class="docutils literal notranslate"><span class="pre">&quot;HEAD&quot;</span></code>.</p>
+<p><span class="versionmodified">バージョン 1.4 で変更: </span>`` &amp;quot;GET &amp;quot; <cite>&amp;quot;の使用は、ビューが &amp;quot;&amp;quot; HEAD &amp;quot;</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>に応答することを意味します。</p>
 </div>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">request_method</span></code> is not supplied, the view will be invoked regardless of
-the <code class="docutils literal notranslate"><span class="pre">REQUEST_METHOD</span></code> of the <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> environment.</p>
+<p class="last">`` request_method``が与えられていなければ、：term： <cite>WSGI`環境の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>REQUEST_METHOD``に関係なくビューが呼び出されます。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">request_param</span></code></dt>
-<dd><p class="first">This value can be any string or a sequence of strings.  A view declaration
-with this argument ensures that the view will only be called when the
-<a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> has a key in the <code class="docutils literal notranslate"><span class="pre">request.params</span></code> dictionary (an HTTP
-<code class="docutils literal notranslate"><span class="pre">GET</span></code> or <code class="docutils literal notranslate"><span class="pre">POST</span></code> variable) that has a name which matches the supplied
-value.</p>
-<p>If any value supplied has an <code class="docutils literal notranslate"><span class="pre">=</span></code> sign in it, e.g.,
-<code class="docutils literal notranslate"><span class="pre">request_param=&quot;foo=123&quot;</span></code>, then the key (<code class="docutils literal notranslate"><span class="pre">foo</span></code>) must both exist in the
-<code class="docutils literal notranslate"><span class="pre">request.params</span></code> dictionary, <em>and</em> the value must match the right hand side
-of the expression (<code class="docutils literal notranslate"><span class="pre">123</span></code>) for the view to &quot;match&quot; the current request.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">request_param</span></code> is not supplied, the view will be invoked without
-consideration of keys and values in the <code class="docutils literal notranslate"><span class="pre">request.params</span></code> dictionary.</p>
+<dt>`` request_param``</dt>
+<dd><p class="first">この値には、任意の文字列または一連の文字列を使用できます。この引数を指定したビュー宣言は、：term： <cite>request`が</cite> <cite>request.params``ディクショナリ（HTTPの</cite> <cite>GET``または</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>POST``変数）を指定します。</p>
+<p>`` request_param = &amp;quot;foo = 123 &amp;quot; <code class="docutils literal notranslate"><span class="pre">のように</span> <span class="pre">``</span> <span class="pre">=</span> <span class="pre">``という記号が与えられた場合、キー（</span> <span class="pre">``</span> <span class="pre">foo</span></code>）は <code class="docutils literal notranslate"><span class="pre">要求に存在しなければなりません。</span> <span class="pre">params``ディクショナリ、*、*の値は、現在のリクエストに一致するように、式の右側（</span> <span class="pre">``</span> <span class="pre">123</span></code>）に一致する必要があります。</p>
+<p class="last">`` request_param``が与えられていない場合、ビューは `` request.params``ディクショナリのキーと値を考慮せずに呼び出されます。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">match_param</span></code></dt>
-<dd><p class="first">This param may be either a single string of the format &quot;key=value&quot; or a tuple
-containing one or more of these strings.</p>
-<p>This argument ensures that the view will only be called when the
-<a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> has key/value pairs in its <a class="reference internal" href="../glossary.html#term-matchdict"><span class="xref std std-term">matchdict</span></a> that equal those
-supplied in the predicate.  For example, <code class="docutils literal notranslate"><span class="pre">match_param=&quot;action=edit&quot;</span></code> would
-require the <code class="docutils literal notranslate"><span class="pre">action</span></code> parameter in the <a class="reference internal" href="../glossary.html#term-matchdict"><span class="xref std std-term">matchdict</span></a> match the right
-hand side of the expression (<code class="docutils literal notranslate"><span class="pre">edit</span></code>) for the view to &quot;match&quot; the current
-request.</p>
-<p>If the <code class="docutils literal notranslate"><span class="pre">match_param</span></code> is a tuple, every key/value pair must match for the
-predicate to pass.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">match_param</span></code> is not supplied, the view will be invoked without
-consideration of the keys and values in <code class="docutils literal notranslate"><span class="pre">request.matchdict</span></code>.</p>
+<dt>`` match_param``</dt>
+<dd><p class="first">このパラメータは、&amp;quot;key = value &amp;quot;という形式の単一文字列か、これらの文字列の1つ以上を含むタプルのいずれかです。</p>
+<p>この引数は、：term： <cite>request`が：term：</cite> matchdict`の中に述語で与えられたものと等しいキーと値のペアを持つ場合にのみ、ビューが呼び出されることを保証します。例えば、 `` match_param = &amp;quot;action = edit &amp;quot; <code class="docutils literal notranslate"><span class="pre">は</span> <span class="pre">`：`の</span> <span class="pre">``</span> <span class="pre">action``パラメータを必要とします：term：</span> <span class="pre">`matchdict`は式の右側（`</span> <span class="pre">`edit</span></code>）現在のリクエストに&amp;quot;一致する&amp;quot;を表示します。</p>
+<p>`` match_param``がタプルの場合、すべてのキーと値のペアは述語が渡すために一致しなければなりません。</p>
+<p>`` match_param``が与えられていなければ、 `` request.matchdict``のキーと値を考慮せずにビューが呼び出されます。</p>
 <div class="last versionadded">
 <p><span class="versionmodified">バージョン 1.2 で追加.</span></p>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">containment</span></code></dt>
-<dd><p class="first">This value should be a reference to a Python class or <a class="reference internal" href="../glossary.html#term-interface"><span class="xref std std-term">interface</span></a> that
-a parent object in the context resource's <a class="reference internal" href="../glossary.html#term-lineage"><span class="xref std std-term">lineage</span></a> must provide in
-order for this view to be found and called.  The resources in your resource
-tree must be &quot;location-aware&quot; to use this feature.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">containment</span></code> is not supplied, the interfaces and classes in the lineage
-are not considered when deciding whether or not to invoke the view callable.</p>
-<p class="last">See <a class="reference internal" href="resources.html#location-aware"><span class="std std-ref">Location-Aware Resources</span></a> for more information about location-awareness.</p>
+<dt>「封じ込め」</dt>
+<dd><p class="first">この値は、コンテキストリソースの：term： <cite>lineage`内の親オブジェクトがこのビューを見つけて呼び出すために提供しなければならないPythonクラスまたは：term：</cite> interface`への参照でなければなりません。この機能を使用するには、リソースツリーのリソースが&amp;quot;location-aware &amp;quot;である必要があります。</p>
+<p>`` containment``が指定されていない場合、ビューの呼び出し可能呼び出しを呼び出すかどうかを決定する際には、系統のインターフェースとクラスは考慮されません。</p>
+<p class="last">位置認識の詳細については：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>location_aware`を参照してください。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">xhr</span></code></dt>
-<dd><p class="first">This value should be either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.  If this value is
-specified and is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> environment must possess an
-<code class="docutils literal notranslate"><span class="pre">HTTP_X_REQUESTED_WITH</span></code> header (i.e., <code class="docutils literal notranslate"><span class="pre">X-Requested-With</span></code>) that has the
-value <code class="docutils literal notranslate"><span class="pre">XMLHttpRequest</span></code> for the associated view callable to be found and
-called.  This is useful for detecting AJAX requests issued from jQuery,
-Prototype, and other Javascript libraries.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">xhr</span></code> is not specified, the <code class="docutils literal notranslate"><span class="pre">HTTP_X_REQUESTED_WITH</span></code> HTTP header is not
-taken into consideration when deciding whether or not to invoke the
-associated view callable.</p>
+<dt>`` xhr``</dt>
+<dd><p class="first">この値は `` True``または `` False``のいずれかでなければなりません。この値が指定されていて `` True``である場合、：term： <cite>WSGI`環境は</cite> <cite>XMLHttpRequest &amp;#39;&amp;#39;という値を持つ</cite> <cite>HTTP-X-REQUESTED_WITH``ヘッダー（つまり</cite> <cite>X-Requested-With`</cite>） <a href="#id1"><span class="problematic" id="id2">``</span></a>が呼び出されて呼び出され、呼び出されるようにします。これは、jQuery、Prototype、およびその他のJavascriptライブラリから発行されたAJAXリクエストを検出するのに便利です。</p>
+<p class="last">`` xhr``が指定されていない場合、HTTPヘッダーは考慮されません。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">accept</span></code></dt>
-<dd><p class="first">The value of this argument represents a match query for one or more mimetypes
-in the <code class="docutils literal notranslate"><span class="pre">Accept</span></code> HTTP request header.  If this value is specified, it must
-be in one of the following forms: a mimetype match token in the form
-<code class="docutils literal notranslate"><span class="pre">text/plain</span></code>, a wildcard mimetype match token in the form <code class="docutils literal notranslate"><span class="pre">text/*</span></code>, or a
-match-all wildcard mimetype match token in the form <code class="docutils literal notranslate"><span class="pre">*/*</span></code>.  If any of the
-forms matches the <code class="docutils literal notranslate"><span class="pre">Accept</span></code> header of the request, this predicate will be
-true.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">accept</span></code> is not specified, the <code class="docutils literal notranslate"><span class="pre">HTTP_ACCEPT</span></code> HTTP header is not taken
-into consideration when deciding whether or not to invoke the associated view
-callable.</p>
+<dt>「受け入れる」</dt>
+<dd><p class="first">この引数の値は、 `` Accept`` HTTPリクエストヘッダ内の1つまたは複数のMIMEタイプの一致クエリを表します。この値が指定されている場合は、次の形式のいずれかでなければなりません： `` text / plain` &amp;quot;の形式のmimetypeマッチトークン、` <cite>text / *</cite> <cite>の形式のワイルドカードmimetypeマッチトークン、 -allワイルドカードmimetypeは `</cite> * / * <a href="#id1"><span class="problematic" id="id2">``</span></a>の形式でトークンにマッチします。いずれかのフォームがリクエストの `` Accept``ヘッダと一致する場合、この述語は真となります。</p>
+<p class="last">`` accept``が指定されていない場合、HTTP_ACCEPT`` HTTPヘッダーは、関連するビューを呼び出し可能にするかどうかを決定する際には考慮されません。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">header</span></code></dt>
-<dd><p class="first">This value represents an HTTP header name or a header name/value pair.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">header</span></code> is specified, it must be a header name or a
-<code class="docutils literal notranslate"><span class="pre">headername:headervalue</span></code> pair.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">header</span></code> is specified without a value (a bare header name only, e.g.,
-<code class="docutils literal notranslate"><span class="pre">If-Modified-Since</span></code>), the view will only be invoked if the HTTP header
-exists with any value in the request.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">header</span></code> is specified, and possesses a name/value pair (e.g.,
-<code class="docutils literal notranslate"><span class="pre">User-Agent:Mozilla/.*</span></code>), the view will only be invoked if the HTTP header
-exists <em>and</em> the HTTP header matches the value requested.  When the
-<code class="docutils literal notranslate"><span class="pre">headervalue</span></code> contains a <code class="docutils literal notranslate"><span class="pre">:</span></code> (colon), it will be considered a name/value
-pair (e.g., <code class="docutils literal notranslate"><span class="pre">User-Agent:Mozilla/.*</span></code> or <code class="docutils literal notranslate"><span class="pre">Host:localhost</span></code>).  The value
-portion should be a regular expression.</p>
-<p>Whether or not the value represents a header name or a header name/value
-pair, the case of the header name is not significant.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">header</span></code> is not specified, the composition, presence, or absence of HTTP
-headers is not taken into consideration when deciding whether or not to
-invoke the associated view callable.</p>
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a>ヘッダー ``</dt>
+<dd><p class="first">この値は、HTTPヘッダー名またはヘッダー名/値のペアを表します。</p>
+<p>`` header``が指定されている場合は、ヘッダ名または `` headername：headervalue``の組でなければなりません。</p>
+<p>もし `` header``が値なしで指定されていれば（例えば、 `` If-Modified-Since``のような裸のヘッダ名のみ）、要求にHTTPヘッダーが存在すればビューが呼び出されます。</p>
+<p>`` Header``が指定されていて、名前と値のペア（ `` User-Agent：Mozilla /.*``など）を持っている場合、ビューはHTTPヘッダーが存在する場合にのみ呼び出されます*要求された値と一致します。 `` headervalue``に <code class="docutils literal notranslate"><span class="pre">：</span> <span class="pre">``（コロン）が含まれていると、それは名前と値のペアとみなされます（例えば</span> <span class="pre">``</span> <span class="pre">User-Agent：Mozilla</span> <span class="pre">/.*</span> <span class="pre">``や</span> <span class="pre">``</span> <span class="pre">Host：localhost</span></code> ）。値の部分は正規表現でなければなりません。</p>
+<p>値がヘッダー名またはヘッダー名/値のペアを表すかどうかに関係なく、ヘッダー名の大文字小文字は重要ではありません。</p>
+<p class="last">`` header``が指定されていない場合、関連するビューを呼び出し可能にするかどうかを決定する際に、HTTPヘッダーの構成、存在または不在は考慮されません。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">path_info</span></code></dt>
-<dd><p class="first">This value represents a regular expression pattern that will be tested
-against the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> WSGI environment variable to decide whether or not
-to call the associated view callable.  If the regex matches, this predicate
-will be <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">path_info</span></code> is not specified, the WSGI <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> is not taken into
-consideration when deciding whether or not to invoke the associated view
-callable.</p>
+<dt>`` path_info``</dt>
+<dd><p class="first">この値は、 `` PATH_INFO`` WSGI環境変数に対してテストされる正規表現パターンを表し、関連するビューを呼び出し可能にするかどうかを決定します。正規表現が一致する場合、この述語は `` True``になります。</p>
+<p class="last">`` path_info``が指定されていない場合、WSGIの `` PATH_INFO``は、関連するビューを呼び出すかどうかを決定する際に考慮されません。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">check_csrf</span></code></dt>
-<dd><p class="first">If specified, this value should be one of <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>, or a
-string representing the &quot;check name&quot;.  If the value is <code class="docutils literal notranslate"><span class="pre">True</span></code> or a string,
-CSRF checking will be performed.  If the value is <code class="docutils literal notranslate"><span class="pre">False</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>, CSRF
-checking will not be performed.</p>
-<p>If the value provided is a string, that string will be used as the &quot;check
-name&quot;.  If the value provided is <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">csrf_token</span></code> will be used as the
-check name.</p>
-<p>If CSRF checking is performed, the checked value will be the value of
-<code class="docutils literal notranslate"><span class="pre">request.POST[check_name]</span></code>.  This value will be compared against the
-value of <code class="docutils literal notranslate"><span class="pre">request.session.get_csrf_token()</span></code>, and the check will pass if
-these two values are the same.  If the check passes, the associated view will
-be permitted to execute.  If the check fails, the associated view will not be
-permitted to execute.</p>
-<p>Note that using this feature requires a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a> to have been
-configured.</p>
+<dt>`` check_csrf``</dt>
+<dd><p class="first">指定する場合、この値は `` None``、 `` True``、 `` False``、または&amp;quot;check name &amp;quot;を表す文字列のいずれかでなければなりません。値が `` True``または文字列の場合、CSRFチェックが実行されます。値が `` False``または `` None``の場合、CSRFチェックは実行されません。</p>
+<p>指定された値が文字列の場合、その文字列は&amp;quot;チェック名&amp;quot;として使用されます。指定された値が `` True``の場合、 `` csrf_token``がチェック名として使用されます。</p>
+<p>CSRFチェックが実行されると、チェックされた値は `` request.POST [check_name] <a href="#id1"><span class="problematic" id="id2">``</span></a>の値になります。この値は `` request.session.get_csrf_token（） <a href="#id3"><span class="problematic" id="id4">``</span></a>の値と比較され、これらの2つの値が同じ場合にチェックが合格します。チェックが合格すると、関連するビューの実行が許可されます。検査が失敗した場合、関連するビューは実行できません。</p>
+<p>この機能を使用するには、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>session factory`が設定されている必要があります。</p>
 <div class="last versionadded">
 <p><span class="versionmodified">バージョン 1.4a2 で追加.</span></p>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">physical_path</span></code></dt>
-<dd><p class="first">If specified, this value should be a string or a tuple representing the
-<a class="reference internal" href="../glossary.html#term-physical-path"><span class="xref std std-term">physical path</span></a> of the context found via traversal for this predicate
-to match as true.  For example, <code class="docutils literal notranslate"><span class="pre">physical_path='/'</span></code>,
-<code class="docutils literal notranslate"><span class="pre">physical_path='/a/b/c'</span></code>, or <code class="docutils literal notranslate"><span class="pre">physical_path=('',</span> <span class="pre">'a',</span> <span class="pre">'b',</span> <span class="pre">'c')</span></code>.  This
-is not a path prefix match or a regex, but a whole-path match.  It's useful
-when you want to always potentially show a view when some object is traversed
-to, but you can't be sure about what kind of object it will be, so you can't
-use the <code class="docutils literal notranslate"><span class="pre">context</span></code> predicate.  The individual path elements between slash
-characters or in tuple elements should be the Unicode representation of the
-name of the resource and should not be encoded in any way.</p>
+<dt>`` physical_path``</dt>
+<dd><p class="first">指定された場合、この値は、この述語が真と一致するために、トラバーサルによって見つかったコンテキストの：term： <cite>物理パス &amp;#39;を表す文字列またはタプルでなければなりません。たとえば、 `</cite> physical_path = &amp;#39;/&amp;#39; <a href="#id1"><span class="problematic" id="id2">``</span></a>、 `` physical_path = &amp;#39;/ a / b / c```や `` physical_path =（&amp;#39; &amp;#39;、&amp;#39; a &amp;#39;、&amp;#39; b &amp;#39;、&amp;#39; c &amp;#39;） ` <cite>。これは、パス接頭辞の一致または正規表現ではなく、全体パスの一致です。これは、あるオブジェクトがトラバースされているときに常にビューを表示したいときに便利ですが、どのようなオブジェクトであるかを確かめることができないので、 `</cite> context``述語を使うことはできません。スラッシュ文字またはタプル要素の間の個々のパス要素は、リソース名のUnicode表現である必要があり、決してエンコードしないでください。</p>
 <div class="last versionadded">
 <p><span class="versionmodified">バージョン 1.4a3 で追加.</span></p>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">effective_principals</span></code></dt>
-<dd><p class="first">If specified, this value should be a <a class="reference internal" href="../glossary.html#term-principal"><span class="xref std std-term">principal</span></a> identifier or a
-sequence of principal identifiers.  If the
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.effective_principals" title="pyramid.request.Request.effective_principals"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.effective_principals()</span></code></a> method indicates that
-every principal named in the argument list is present in the current request,
-this predicate will return True; otherwise it will return False.  For
-example: <code class="docutils literal notranslate"><span class="pre">effective_principals=pyramid.security.Authenticated</span></code> or
-<code class="docutils literal notranslate"><span class="pre">effective_principals=('fred',</span> <span class="pre">'group:admins')</span></code>.</p>
+<dt>`` effective_principals``</dt>
+<dd><p class="first">指定する場合、この値は：term： <cite>principal`識別子または一連のプリンシパル識別子でなければなりません。 ：meth： `pyramid.request.Request.effective_principals`メソッドが、引数リストに指定されたすべてのプリンシパルが現在のリクエストに存在することを示す場合、この述語はTrueを返します。それ以外の場合はFalseを返します。たとえば、 `</cite> effective_principals = pyramid.security.Authenticated``や `` effective_principals =（ &amp;#39;fred&amp;#39;、 &amp;#39;group：admins&amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>などです。</p>
 <div class="last versionadded">
 <p><span class="versionmodified">バージョン 1.4a4 で追加.</span></p>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">custom_predicates</span></code></dt>
-<dd><p class="first">If <code class="docutils literal notranslate"><span class="pre">custom_predicates</span></code> is specified, it must be a sequence of references to
-custom predicate callables.  Use custom predicates when no set of predefined
-predicates do what you need.  Custom predicates can be combined with
-predefined predicates as necessary.  Each custom predicate callable should
-accept two arguments, <code class="docutils literal notranslate"><span class="pre">context</span></code> and <code class="docutils literal notranslate"><span class="pre">request</span></code>, and should return either
-<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> after doing arbitrary evaluation of the context
-resource and/or the request.  If all callables return <code class="docutils literal notranslate"><span class="pre">True</span></code>, the
-associated view callable will be considered viable for a given request.</p>
-<p class="last">If <code class="docutils literal notranslate"><span class="pre">custom_predicates</span></code> is not specified, no custom predicates are used.</p>
+<dt>`` custom_predicates``</dt>
+<dd><p class="first">`` custom_predicates``が指定されていれば、それはカスタム述語呼び出し可能関数への参照のシーケンスでなければなりません。事前定義された述部のセットが必要な場合には、カスタム述部を使用します。カスタム述部は、必要に応じて事前定義された述部と組み合わせることができます。呼び出し可能な各カスタム述語は、 `` context``と `` request``という2つの引数を受け取り、コンテキストリソースや要求の任意の評価を行った後、 `` True``または `` False``を返すべきです。すべての呼び出し可能ファイルが `` True``を返す場合、呼び出し可能な関連ビューは与えられた要求に対して実行可能であると見なされます。</p>
+<p class="last">`` custom_predicates``が指定されていない場合、カスタム述部は使用されません。</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">predicates</span></code></dt>
-<dd><p class="first">Pass a key/value pair here to use a third-party predicate registered via
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view_predicate" title="pyramid.config.Configurator.add_view_predicate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view_predicate()</span></code></a>.  More than one
-key/value pair can be used at the same time.  See
-<a class="reference internal" href="hooks.html#view-and-route-predicates"><span class="std std-ref">View and Route Predicates</span></a> for more information about third-party
-predicates.</p>
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a>述語 ``</dt>
+<dd><p class="first">ここでキー/値のペアを渡すと：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.add_view_predicate`で登録されたサードパーティの述語を使用します。複数のキーと値のペアを同時に使用できます。第三者の述語の詳細については、ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>view_and_route_predicates`を参照してください。</p>
 <div class="last versionadded">
 <p><span class="versionmodified">バージョン 1.4a1 で追加.</span></p>
 </div>
@@ -545,9 +285,8 @@ predicates.</p>
 </dl>
 </div>
 <div class="section" id="inverting-predicate-values">
-<h4>Inverting Predicate Values<a class="headerlink" href="#inverting-predicate-values" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>You can invert the meaning of any predicate value by wrapping it in a call to
-<a class="reference internal" href="../api/config.html#pyramid.config.not_" title="pyramid.config.not_"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.config.not_</span></code></a>.</p>
+<h4>述語値の反転<a class="headerlink" href="#inverting-predicate-values" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>任意の述語値の意味を、class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.not_`への呼び出しでラップすることによって、その意味を逆転させることができます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -563,13 +302,11 @@ predicates.</p>
     <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The above example will ensure that the view is called if the request method is
-<em>not</em> <code class="docutils literal notranslate"><span class="pre">POST</span></code>, at least if no other view is more specific.</p>
-<p>This technique of wrapping a predicate value in <code class="docutils literal notranslate"><span class="pre">not_</span></code> can be used anywhere
-predicate values are accepted:</p>
+<p>上記の例では、少なくとも他のビューがより具体的でない場合、リクエストメソッドが* <cite>*</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>POST`でない場合にビューが呼び出されることを保証します。</p>
+<p>述部の値を `` not_``にラップするこの手法は、述部の値が受け入れられればどこでも使用できます：</p>
 <ul class="simple">
-<li><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a></li>
-<li><a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.view.view_config()</span></code></a></li>
+<li>：meth： <cite>pyramid.config.Configurator.add_view</cite></li>
+<li>：meth： <cite>pyramid.view.view_config</cite></li>
 </ul>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
@@ -577,20 +314,13 @@ predicate values are accepted:</p>
 </div>
 </div>
 <div class="section" id="adding-view-configuration-using-the-view-config-decorator">
-<span id="mapping-views-using-a-decorator-section"></span><span id="index-3"></span><h3>Adding View Configuration Using the <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> Decorator<a class="headerlink" href="#adding-view-configuration-using-the-view-config-decorator" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="mapping-views-using-a-decorator-section"></span><span id="index-3"></span><h3>`` &#64; view_config``デコレータを使ったビュー設定の追加<a class="headerlink" href="#adding-view-configuration-using-the-view-config-decorator" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">Using this feature tends to slow down application startup slightly, as more
-work is performed at application startup to scan for view configuration
-declarations.  For maximum startup performance, use the view configuration
-method described in <a class="reference internal" href="#mapping-views-using-imperative-config-section"><span class="std std-ref">Adding View Configuration Using add_view()</span></a>
-instead.</p>
+<p class="last">この機能を使用すると、アプリケーションの起動時にビューの構成宣言をスキャンする作業が増えるため、アプリケーションの起動がわずかに遅くなりがちです。起動時のパフォーマンスを最大にするには、代わりに：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>mapping_views_using_imperative_config_section`で説明されているビュー設定方法を使用してください。</p>
 </div>
-<p>The <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">view_config</span></code></a> decorator can be used to associate
-<a class="reference internal" href="../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a> information with a function, method, or class that
-acts as a <span>Pyramid</span> view callable.</p>
-<p>Here's an example of the <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">view_config</span></code></a> decorator that
-lives within a <span>Pyramid</span> application module <code class="docutils literal notranslate"><span class="pre">views.py</span></code>:</p>
+<p>：class： <cite>〜pyramid.view.view_config`デコレータは：term：</cite> view configuration`情報を、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`ビュー呼び出しとして動作する関数、メソッド、またはクラスに関連付けるのに使用できます。</p>
+<p>次に、a：app： <cite>Pyramid`アプリケーションモジュール内にあるclass：</cite>〜pyramid.view.view_config`デコレータの例を示します。 `` views.py``：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -606,14 +336,13 @@ lives within a <span>Pyramid</span> application module <code class="docutils lit
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;OK&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Using this decorator as above replaces the need to add this imperative
-configuration stanza:</p>
+<p>上記のようにこのデコレータを使用すると、この必須構成スタンザを追加する必要性が置き換えられます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;mypackage.views.my_view&#39;</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;ok&#39;</span><span class="p">,</span>
                 <span class="n">request_method</span><span class="o">=</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="n">permission</span><span class="o">=</span><span class="s1">&#39;read&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>All arguments to <code class="docutils literal notranslate"><span class="pre">view_config</span></code> may be omitted.  For example:</p>
+<p>`` view_config``の引数はすべて省略することができます。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -629,15 +358,8 @@ configuration stanza:</p>
     <span class="k">return</span> <span class="n">Response</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>Such a registration as the one directly above implies that the view name will
-be <code class="docutils literal notranslate"><span class="pre">my_view</span></code>, registered with a <code class="docutils literal notranslate"><span class="pre">context</span></code> argument that matches any
-resource type, using no permission, registered against requests with any
-request method, request type, request param, route name, or containment.</p>
-<p>The mere existence of a <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator doesn't suffice to perform
-view configuration.  All that the decorator does is &quot;annotate&quot; the function
-with your configuration declarations, it doesn't process them. To make
-<span>Pyramid</span> process your <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.view.view_config</span></code></a> declarations, you
-<em>must</em> use the <code class="docutils literal notranslate"><span class="pre">scan</span></code> method of a <a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.config.Configurator</span></code></a>:</p>
+<p>上のような登録は、ビュー名が `` my_view``であり、任意のリソースタイプと一致する `` context``引数で登録され、権限を使用せず、任意のリクエストメソッド、リクエストタイプ、要求パラメタ、ルート名、または包含。</p>
+<p>`` &#64; view_config``デコレータの存在だけでは、ビューの設定を行うのに十分ではありません。デコレータが行うことは、あなたの設定宣言で関数にアノテーションを付けているだけで、それを処理しません。 ：app： <cite>Pyramid`があなたの：class：</cite> pyramid.view.view_config`宣言を処理するには、class :: <cite>pyramid.config.Configurator`の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>scan``メソッドを使用する必要があります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config is assumed to be an instance of the</span>
@@ -645,25 +367,13 @@ with your configuration declarations, it doesn't process them. To make
 <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>Please see <a class="reference internal" href="configuration.html#decorations-and-code-scanning"><span class="std std-ref">Declarative Configuration</span></a> for detailed information about
-what happens when code is scanned for configuration declarations resulting from
-use of decorators like <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">view_config</span></code></a>.</p>
-<p>See <span class="xref std std-ref">configuration_module</span> for additional API arguments to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.scan" title="pyramid.config.Configurator.scan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">scan()</span></code></a> method.  For example, the method
-allows you to supply a <code class="docutils literal notranslate"><span class="pre">package</span></code> argument to better control exactly <em>which</em>
-code will be scanned.</p>
-<p>All arguments to the <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">view_config</span></code></a> decorator mean
-precisely the same thing as they would if they were passed as arguments to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> method save for the <code class="docutils literal notranslate"><span class="pre">view</span></code>
-argument.  Usage of the <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">view_config</span></code></a> decorator is a form
-of <a class="reference internal" href="../glossary.html#term-declarative-configuration"><span class="xref std std-term">declarative configuration</span></a>, while
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> is a form of <a class="reference internal" href="../glossary.html#term-imperative-configuration"><span class="xref std std-term">imperative
-configuration</span></a>.  However, they both do the same thing.</p>
+<p>class： <cite>〜pyramid.view.view_config`のようなデコレータの使用に起因する設定宣言のために、コードがスキャンされたときの動作の詳細については、ref：</cite> decorations_and_code_scanning`を参照してください。</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.scan`メソッドへの追加のAPI引数については：ref：</cite> configuration_module`を参照してください。たとえば、このメソッドを使うと、コードを正確に制御するための `` package``引数を指定することができます。</p>
+<p>：class： <cite>〜pyramid.view.view_config`デコレータへの引数はすべて、</cite> meth： <cite>pyramid.config.Configurator.add_view`メソッドに引数として渡された場合とまったく同じことを意味します。ビュー ``引数。 ：class： `〜pyramid.view.view_config`デコレータの使用法は：term：`宣言的な設定 `の形式です。：meth：</cite> pyramid.config.Configurator.add_view`は次の形式です：term： <cite>必須の設定</cite>。しかし、どちらも同じことをしています。</p>
 <div class="section" id="view-config-placement">
-<span id="index-4"></span><span id="id3"></span><h4><code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> Placement<a class="headerlink" href="#view-config-placement" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>A <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">view_config</span></code></a> decorator can be placed in various points
-in your application.</p>
-<p>If your view callable is a function, it may be used as a function decorator:</p>
+<span id="index-4"></span><span id="id3"></span><h4>`` &#64; view_config``の配置<a class="headerlink" href="#view-config-placement" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>A：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.view.view_config`デコレータは、アプリケーションのさまざまな場所に置くことができます。</p>
+<p>ビュー呼び出し可能関数が関数である場合、それは関数デコレータとして使用できます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -677,9 +387,7 @@ in your application.</p>
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;edited!&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>If your view callable is a class, the decorator can also be used as a class
-decorator. All the arguments to the decorator are the same when applied against
-a class as when they are applied against a function.  For example:</p>
+<p>ビュー呼び出し可能オブジェクトがクラスである場合、デコレータはクラスデコレータとしても使用できます。デコレータに対するすべての引数は、関数に対して適用されるときと同じように、クラスに対して適用されるときと同じです。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -701,9 +409,7 @@ a class as when they are applied against a function.  For example:</p>
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>More than one <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">view_config</span></code></a> decorator can be stacked on
-top of any number of others.  Each decorator creates a separate view
-registration.  For example:</p>
+<p>2つ以上のクラス：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.view.view_config`デコレータは、いくつでも他のものの上に積み重ねられます。各デコレータは別々のビュー登録を作成します。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -719,8 +425,8 @@ registration.  For example:</p>
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;edited!&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>This registers the same view under two different names.</p>
-<p>The decorator can also be used against a method of a class:</p>
+<p>これにより、同じビューが2つの異なる名前で登録されます。</p>
+<p>デコレータは、クラスのメソッドに対しても使用できます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -742,15 +448,9 @@ registration.  For example:</p>
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>When the decorator is used against a method of a class, a view is registered
-for the <em>class</em>, so the class constructor must accept an argument list in one
-of two forms: either a single argument, <code class="docutils literal notranslate"><span class="pre">request</span></code>, or two arguments,
-<code class="docutils literal notranslate"><span class="pre">context,</span> <span class="pre">request</span></code>.</p>
-<p>The method which is decorated must return a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a>.</p>
-<p>Using the decorator against a particular method of a class is equivalent to
-using the <code class="docutils literal notranslate"><span class="pre">attr</span></code> parameter in a decorator attached to the class itself. For
-example, the above registration implied by the decorator being used against the
-<code class="docutils literal notranslate"><span class="pre">amethod</span></code> method could be written equivalently as follows:</p>
+<p>デコレータがクラスのメソッドに対して使用されると、* class <a href="#id1"><span class="problematic" id="id2">*</span></a>のビューが登録されるので、クラスコンストラクタは引数のリストを2つの形式のうちの1つで受け入れる必要があります：一つの引数、 `` request``、引数、 <a href="#id3"><span class="problematic" id="id4">``</span></a>コンテキスト、要求 ``</p>
+<p>装飾されるメソッドは、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>response`を返さなければなりません。</p>
+<p>デコレータをクラスの特定のメソッドに対して使用することは、クラス自体にアタッチされたデコレータで `` attr``パラメータを使うことと同じです。例えば、 &amp;quot;メソッド&amp;quot;メソッドに対してデコレータが使用している上記の登録は、以下のように等価的に書くことができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -775,12 +475,8 @@ example, the above registration implied by the decorator being used against the
 </div>
 </div>
 <div class="section" id="adding-view-configuration-using-add-view">
-<span id="mapping-views-using-imperative-config-section"></span><span id="index-5"></span><h3>Adding View Configuration Using <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a><a class="headerlink" href="#adding-view-configuration-using-add-view" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> method within
-<span class="xref std std-ref">configuration_module</span> is used to configure a view &quot;imperatively&quot; (without
-a <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">view_config</span></code></a> decorator).  The arguments to this method
-are very similar to the arguments that you provide to the
-<a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">view_config</span></code></a> decorator.  For example:</p>
+<span id="mapping-views-using-imperative-config-section"></span><span id="index-5"></span><h3>：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.add_view`を使ったビュー設定の追加<a class="headerlink" href="#adding-view-configuration-using-add-view" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：ref： <cite>configuration_module`内の：meth：</cite> pyramid.config.Configurator.add_view`メソッドは、（必須ではありません：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.view.view_config`デコレータなしで）ビューを&amp;quot;必須 &amp;quot;に設定するために使用されます。このメソッドの引数は、class： <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.view.view_config`デコレータに提供する引数に非常に似ています。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -798,27 +494,17 @@ are very similar to the arguments that you provide to the
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The first argument, a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>, is the only required argument. It
-must either be a Python object which is the view itself or a <a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted
-Python name</span></a> to such an object. In the above example, the <code class="docutils literal notranslate"><span class="pre">view</span> <span class="pre">callable</span></code> is
-the <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> function.</p>
-<p>When you use only <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a> to add view
-configurations, you don't need to issue a <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a> in order for the view
-configuration to take effect.</p>
+<p>第1引数a：term： <cite>view callable`は唯一の必須引数です。これは、ビュー自体であるPythonオブジェクトか、そのようなオブジェクトに対する：term： `点線のPython名 &amp;#39;のいずれかでなければなりません。上の例では、 `</cite> view callable``は `` hello_world``関数です。</p>
+<p>ビュー設定を追加するために：meth： <cite>〜pyramid.config.Configurator.add_view`だけを使うときは、ビュー設定を有効にするために：term：</cite> scan`を発行する必要はありません。</p>
 </div>
 </div>
 <div class="section" id="view-defaults-class-decorator">
-<span id="view-defaults"></span><span id="index-6"></span><h2><code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code> Class Decorator<a class="headerlink" href="#view-defaults-class-decorator" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="view-defaults"></span><span id="index-6"></span><h2>`` &#64; view_defaults``クラスデコレータ<a class="headerlink" href="#view-defaults-class-decorator" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.3 で追加.</span></p>
 </div>
-<p>If you use a class as a view, you can use the
-<a class="reference internal" href="../api/view.html#pyramid.view.view_defaults" title="pyramid.view.view_defaults"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.view.view_defaults</span></code></a> class decorator on the class to provide
-defaults to the view configuration information used by every <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code>
-decorator that decorates a method of that class.</p>
-<p>For instance, if you've got a class that has methods that represent &quot;REST
-actions&quot;, all of which are mapped to the same route but different request
-methods, instead of this:</p>
+<p>クラスをビューとして使用する場合は、クラスの：class： <cite>pyramid.view.view_defaults`クラスデコレータを使用して、メソッドを装飾するすべての</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>&#64; view_config``デコレータによって使用されるビュー設定情報にデフォルトを提供できますそのクラスの。</p>
+<p>たとえば、「RESTアクション」を表すメソッドを持つクラスがある場合、これらのクラスはすべて同じルートにマッピングされますが、リクエストメソッドは異なります。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -856,7 +542,7 @@ methods, instead of this:</p>
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>You can do this:</p>
+<p>あなたはこれを行うことができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -898,16 +584,9 @@ methods, instead of this:</p>
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>In the above example, we were able to take the <code class="docutils literal notranslate"><span class="pre">route_name='rest'</span></code> argument
-out of the call to each individual <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> statement because we used a
-<code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code> class decorator to provide the argument as a default to each
-view method it possessed.</p>
-<p>Arguments passed to <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> will override any default passed to
-<code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">view_defaults</span></code> class decorator can also provide defaults to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> directive when a decorated class
-is passed to that directive as its <code class="docutils literal notranslate"><span class="pre">view</span></code> argument.  For example, instead of
-this:</p>
+<p>上記の例では、 `` &#64; view_defaults``クラスデコレータを使用していたので、個々の `` &#64; view_config``文の呼び出しから `` route_name = &amp;#39;rest&amp;#39;``引数を取ることができました。それが所有する各ビューメソッドのデフォルトとしての引数</p>
+<p>`` &#64; view_config``に渡された引数は、 `` &#64; view_defaults``に渡されたデフォルトを上書きします。</p>
+<p>`` view_defaults``クラスのデコレータは、修飾されたクラスが `` view``引数としてそのディレクティブに渡されたとき、：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.add_view`ディレクティブにデフォルトを提供することもできます。たとえば、これの代わりに：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -961,9 +640,7 @@ this:</p>
     <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>To reduce the amount of repetition in the <code class="docutils literal notranslate"><span class="pre">config.add_view</span></code> statements, we
-can move the <code class="docutils literal notranslate"><span class="pre">route_name='rest'</span></code> argument to a <code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code> class
-decorator on the <code class="docutils literal notranslate"><span class="pre">RESTView</span></code> class:</p>
+<p>`` config.add_view``ステートメントの繰り返し回数を減らすために、 `` route_name = &amp;#39;rest&amp;#39;``引数を `` RESTView``クラスの `` &#64; view_defaults``クラスデコレータに移動できます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1015,12 +692,8 @@ decorator on the <code class="docutils literal notranslate"><span class="pre">RE
     <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p><a class="reference internal" href="../api/view.html#pyramid.view.view_defaults" title="pyramid.view.view_defaults"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.view.view_defaults</span></code></a> accepts the same set of arguments that
-<a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.view.view_config</span></code></a> does, and they have the same meaning.  Each
-argument passed to <code class="docutils literal notranslate"><span class="pre">view_defaults</span></code> provides a default for the view
-configurations of methods of the class it's decorating.</p>
-<p>Normal Python inheritance rules apply to defaults added via <code class="docutils literal notranslate"><span class="pre">view_defaults</span></code>.
-For example:</p>
+<p>：class： <cite>pyramid.view.view_defaults`は、class：</cite> pyramid.view.view_config`と同じ引数の集合を受け入れ、それらは同じ意味を持ちます。 `` view_defaults``に渡される各引数は、装飾するクラスのメソッドのビュー設定のデフォルトを提供します。</p>
+<p>通常のPython継承規則は、 `` view_defaults``によって追加されたデフォルトに適用されます。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1034,10 +707,7 @@ For example:</p>
     <span class="k">pass</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">Bar</span></code> class above will inherit its view defaults from the arguments
-passed to the <code class="docutils literal notranslate"><span class="pre">view_defaults</span></code> decorator of the <code class="docutils literal notranslate"><span class="pre">Foo</span></code> class.  To prevent
-this from happening, use a <code class="docutils literal notranslate"><span class="pre">view_defaults</span></code> decorator without any arguments on
-the subclass:</p>
+<p>上記の `` Bar``クラスは、 `` Foo``クラスの `` view_defaults``デコレータに渡された引数からビューのデフォルトを継承します。これを避けるには、サブクラスで引数なしで `` view_defaults``デコレータを使用してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1053,16 +723,10 @@ the subclass:</p>
     <span class="k">pass</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">view_defaults</span></code> decorator only works as a class decorator; using it
-against a function or a method will produce nonsensical results.</p>
+<p>`` view_defaults``デコレータはクラスデコレータとしてのみ動作します。それを関数またはメソッドに対して使用すると、無意味な結果が生成されます。</p>
 <div class="section" id="configuring-view-security">
-<span id="view-security-section"></span><span id="index-7"></span><h3>Configuring View Security<a class="headerlink" href="#configuring-view-security" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If an <a class="reference internal" href="../glossary.html#term-authorization-policy"><span class="xref std std-term">authorization policy</span></a> is active, any <a class="reference internal" href="../glossary.html#term-permission"><span class="xref std std-term">permission</span></a> attached
-to a <a class="reference internal" href="../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a> found during view lookup will be verified. This
-will ensure that the currently authenticated user possesses that permission
-against the <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource before the view function is actually
-called.  Here's an example of specifying a permission in a view configuration
-using <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a>:</p>
+<span id="view-security-section"></span><span id="index-7"></span><h3>ビューセキュリティの設定<a class="headerlink" href="#configuring-view-security" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：term： <cite>認証ポリシー`がアクティブな場合、ビュー検索中に見つかった：term： `view configuration`に付加された：term：</cite> permission`が検証されます。これにより、現在認証されているユーザが、view関数が実際に呼び出される前に、：term： <cite>context`リソースに対してそのパーミッションを持つことが保証されます。以下は、viewの設定でpermissionを指定する例です：meth： `〜pyramid.config.Configurator.add_view</cite>：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1074,45 +738,20 @@ using <a class="reference internal" href="../api/config.html#pyramid.config.Conf
                 <span class="n">permission</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>When an <a class="reference internal" href="../glossary.html#term-authorization-policy"><span class="xref std std-term">authorization policy</span></a> is enabled, this view will be protected
-with the <code class="docutils literal notranslate"><span class="pre">add</span></code> permission.  The view will <em>not be called</em> if the user does
-not possess the <code class="docutils literal notranslate"><span class="pre">add</span></code> permission relative to the current <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a>.
-Instead the <a class="reference internal" href="../glossary.html#term-forbidden-view"><span class="xref std std-term">forbidden view</span></a> result will be returned to the client as per
-<a class="reference internal" href="security.html#protecting-views"><span class="std std-ref">Protecting Views with Permissions</span></a>.</p>
+<p>：term： <cite>認証ポリシー`が有効な場合、このビューは `</cite> add``パーミッションで保護されます。ユーザーは、現在の：term： <cite>context`に対して</cite> <cite>add``パーミッションを持っていない場合、ビューは呼び出されません。代わりに、：term： `禁止されたビュー &amp;#39;の結果は、：ref：</cite> protection_views&amp;#39;ごとにクライアントに返されます。</p>
 </div>
 <div class="section" id="notfound-errors">
-<span id="debug-notfound-section"></span><span id="index-8"></span><h3><a class="reference internal" href="../api/exceptions.html#pyramid.exceptions.NotFound" title="pyramid.exceptions.NotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotFound</span></code></a> Errors<a class="headerlink" href="#notfound-errors" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>It's useful to be able to debug <a class="reference internal" href="../api/exceptions.html#pyramid.exceptions.NotFound" title="pyramid.exceptions.NotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotFound</span></code></a> error
-responses when they occur unexpectedly due to an application registry
-misconfiguration.  To debug these errors, use the <code class="docutils literal notranslate"><span class="pre">PYRAMID_DEBUG_NOTFOUND</span></code>
-environment variable or the <code class="docutils literal notranslate"><span class="pre">pyramid.debug_notfound</span></code> configuration file
-setting.  Details of why a view was not found will be printed to <code class="docutils literal notranslate"><span class="pre">stderr</span></code>,
-and the browser representation of the error will include the same information.
-See <a class="reference internal" href="environment.html#environment-chapter"><span class="std std-ref">Environment Variables and .ini File Settings</span></a> for more information about how, and where to set
-these values.</p>
+<span id="debug-notfound-section"></span><span id="index-8"></span><h3>：exc： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.exceptions.NotFound`エラー<a class="headerlink" href="#notfound-errors" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>アプリケーションレジストリの設定ミスによって予期せずエラーが発生した場合、exc： <cite>〜pyramid.exceptions.NotFound`エラーをデバッグできるようにすると便利です。これらのエラーをデバッグするには、環境変数PYRAMID_DEBUG_NOTFOUND`または `</cite> pyramid.debug_notfound``設定ファイルの設定を使用します。ビューが見つからなかった理由の詳細は `` stderr``に出力され、エラーのブラウザ表現には同じ情報が含まれます。これらの値の設定方法と設定方法の詳細については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>environment_chapter`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="influencing-http-caching">
-<span id="index-9"></span><span id="id4"></span><h2>Influencing HTTP Caching<a class="headerlink" href="#influencing-http-caching" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="index-9"></span><span id="id4"></span><h2>HTTPキャッシングへの影響<a class="headerlink" href="#influencing-http-caching" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.1 で追加.</span></p>
 </div>
-<p>When a non-<code class="docutils literal notranslate"><span class="pre">None</span></code> <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> argument is passed to a view configuration,
-Pyramid will set <code class="docutils literal notranslate"><span class="pre">Expires</span></code> and <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> response headers in the
-resulting response, causing browsers to cache the response data for some time.
-See <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> in <a class="reference internal" href="#nonpredicate-view-args"><span class="std std-ref">Non-Predicate Arguments</span></a> for the allowable values
-and what they mean.</p>
-<p>Sometimes it's undesirable to have these headers set as the result of returning
-a response from a view, even though you'd like to decorate the view with a view
-configuration decorator that has <code class="docutils literal notranslate"><span class="pre">http_cache</span></code>.  Perhaps there's an
-alternative branch in your view code that returns a response that should never
-be cacheable, while the &quot;normal&quot; branch returns something that should always be
-cacheable.  If this is the case, set the <code class="docutils literal notranslate"><span class="pre">prevent_auto</span></code> attribute of the
-<code class="docutils literal notranslate"><span class="pre">response.cache_control</span></code> object to a non-<code class="docutils literal notranslate"><span class="pre">False</span></code> value.  For example, the
-below view callable is configured with a <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator that
-indicates any response from the view should be cached for 3600 seconds.
-However, the view itself prevents caching from taking place unless there's a
-<code class="docutils literal notranslate"><span class="pre">should_cache</span></code> GET or POST variable:</p>
+<p>非 `` No`` `` http_cache``引数がビュー設定に渡されると、Pyramidは結果のレスポンスに `` Expires``と `` Cache-Control``レスポンスヘッダを設定し、ブラウザがいくつかの時間の応答データ。許容値とその意味については、：ref： <cite>nonpredicate_view_args`の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>http_cache``を参照してください。</p>
+<p>「http_cache」を持つビュー構成デコレータでビューを飾りたい場合でも、ビューからの応答を返す結果としてこれらのヘッダーを設定することは望ましくないことがあります。おそらく、キャッシュ可能ではない応答を返すビューコード内の別のブランチがありますが、通常のブランチは常にキャッシュ可能なものを返します。このような場合は、 `` response.cache_control``オブジェクトの `` prevent_auto``属性を `` False``以外の値に設定してください。たとえば、以下の呼び出し可能ビューは、ビューからの応答が3600秒間キャッシュされるべきであることを示す `` &#64; view_config``デコレータで構成されます。しかし、 `` should_cache`` GET変数またはPOST変数がない限り、ビュー自体はキャッシングが起こらないようにします：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.view</span> <span class="kn">import</span> <span class="n">view_config</span>
 
 <span class="nd">@view_config</span><span class="p">(</span><span class="n">http_cache</span><span class="o">=</span><span class="mi">3600</span><span class="p">)</span>
@@ -1123,24 +762,13 @@ However, the view itself prevents caching from taking place unless there's a
     <span class="k">return</span> <span class="n">response</span>
 </pre></div>
 </div>
-<p>Note that the <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> machinery will overwrite or add to caching headers
-you set within the view itself, unless you use <code class="docutils literal notranslate"><span class="pre">prevent_auto</span></code>.</p>
-<p>You can also turn off the effect of <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> entirely for the duration of
-a Pyramid application lifetime.  To do so, set the
-<code class="docutils literal notranslate"><span class="pre">PYRAMID_PREVENT_HTTP_CACHE</span></code> environment variable or the
-<code class="docutils literal notranslate"><span class="pre">pyramid.prevent_http_cache</span></code> configuration value setting to a true value. For
-more information, see <a class="reference internal" href="environment.html#preventing-http-caching"><span class="std std-ref">Preventing HTTP Caching</span></a>.</p>
-<p>Note that setting <code class="docutils literal notranslate"><span class="pre">pyramid.prevent_http_cache</span></code> will have no effect on caching
-headers that your application code itself sets.  It will only prevent caching
-headers that would have been set by the Pyramid HTTP caching machinery invoked
-as the result of the <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> argument to view configuration.</p>
+<p>`` http_cache``機構は、あなたが `` prevent_auto``を使わない限り、あなた自身が設定したキャッシングヘッダに上書きしたり追加したりすることに注意してください。</p>
+<p>Pyramidアプリケーションの存続期間中、 `` http_cache``の効果を完全に無効にすることもできます。そのためには、 `` PYRAMID_PREVENT_HTTP_CACHE``環境変数または `` pyramid.prevent_http_cache``設定値を真の値に設定してください。詳細については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>prevent_http_caching`を参照してください。</p>
+<p>`` pyramid.prevent_http_cache``を設定しても、アプリケーションコード自身が設定するヘッダをキャッシュすることには影響しません。 `` http_cache``引数の結果として呼び出されるPyramid HTTPキャッシングマシンによって設定されていたキャッシュヘッダは、設定を表示することのみを妨げます。</p>
 </div>
 <div class="section" id="debugging-view-configuration">
-<span id="index-10"></span><span id="id5"></span><h2>Debugging View Configuration<a class="headerlink" href="#debugging-view-configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>See <a class="reference internal" href="commandline.html#displaying-matching-views"><span class="std std-ref">Displaying Matching Views for a Given URL</span></a> for information about how to display
-each of the view callables that might match for a given URL.  This can be an
-effective way to figure out why a particular view callable is being called
-instead of the one you'd like to be called.</p>
+<span id="index-10"></span><span id="id5"></span><h2>ビュー構成のデバッグ<a class="headerlink" href="#debugging-view-configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>指定されたURLに一致する可能性のあるビュー呼び出し可能コードをそれぞれ表示する方法については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>displaying_matching_views`を参照してください。これは、呼び出されるビューの代わりに特定のビューのコール可能オブジェクトが呼び出されている理由を理解するのに効果的な方法です。</p>
 </div>
 </div>
 
@@ -1152,38 +780,38 @@ instead of the one you'd like to be called.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">View Configuration</a><ul>
-<li><a class="reference internal" href="#mapping-a-resource-or-url-pattern-to-a-view-callable">Mapping a Resource or URL Pattern to a View Callable</a><ul>
-<li><a class="reference internal" href="#view-configuration-parameters">View Configuration Parameters</a><ul>
-<li><a class="reference internal" href="#non-predicate-arguments">Non-Predicate Arguments</a></li>
-<li><a class="reference internal" href="#predicate-arguments">Predicate Arguments</a></li>
-<li><a class="reference internal" href="#inverting-predicate-values">Inverting Predicate Values</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) 設定を表示</a><ul>
+<li><a class="reference internal" href="#mapping-a-resource-or-url-pattern-to-a-view-callable">リソースまたはURLパターンをビュー呼び出し可能にマッピングする</a><ul>
+<li><a class="reference internal" href="#view-configuration-parameters">設定パラメータの表示</a><ul>
+<li><a class="reference internal" href="#non-predicate-arguments">非述語引数</a></li>
+<li><a class="reference internal" href="#predicate-arguments">述語引数</a></li>
+<li><a class="reference internal" href="#inverting-predicate-values">述語値の反転</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#adding-view-configuration-using-the-view-config-decorator">Adding View Configuration Using the <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> Decorator</a><ul>
-<li><a class="reference internal" href="#view-config-placement"><code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> Placement</a></li>
+<li><a class="reference internal" href="#adding-view-configuration-using-the-view-config-decorator">`` &#64; view_config``デコレータを使ったビュー設定の追加</a><ul>
+<li><a class="reference internal" href="#view-config-placement">`` &#64; view_config``の配置</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#adding-view-configuration-using-add-view">Adding View Configuration Using <code class="docutils literal notranslate"><span class="pre">add_view()</span></code></a></li>
+<li><a class="reference internal" href="#adding-view-configuration-using-add-view">：meth： `〜pyramid.config.Configurator.add_view`を使ったビュー設定の追加</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#view-defaults-class-decorator"><code class="docutils literal notranslate"><span class="pre">&#64;view_defaults</span></code> Class Decorator</a><ul>
-<li><a class="reference internal" href="#configuring-view-security">Configuring View Security</a></li>
-<li><a class="reference internal" href="#notfound-errors"><code class="docutils literal notranslate"><span class="pre">NotFound</span></code> Errors</a></li>
+<li><a class="reference internal" href="#view-defaults-class-decorator">`` &#64; view_defaults``クラスデコレータ</a><ul>
+<li><a class="reference internal" href="#configuring-view-security">ビューセキュリティの設定</a></li>
+<li><a class="reference internal" href="#notfound-errors">：exc： `〜pyramid.exceptions.NotFound`エラー</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#influencing-http-caching">Influencing HTTP Caching</a></li>
-<li><a class="reference internal" href="#debugging-view-configuration">Debugging View Configuration</a></li>
+<li><a class="reference internal" href="#influencing-http-caching">HTTPキャッシングへの影響</a></li>
+<li><a class="reference internal" href="#debugging-view-configuration">ビュー構成のデバッグ</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="templates.html"
-                        title="前の章へ">Templates</a></p>
+                        title="前の章へ">(機械翻訳) テンプレート</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="assets.html"
-                        title="次の章へ">Static Assets</a></p>
+                        title="次の章へ">(機械翻訳) 静的資産</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -1217,17 +845,17 @@ instead of the one you'd like to be called.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="assets.html" title="Static Assets"
+          <a href="assets.html" title="(機械翻訳) 静的資産"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="templates.html" title="Templates"
+          <a href="templates.html" title="(機械翻訳) テンプレート"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

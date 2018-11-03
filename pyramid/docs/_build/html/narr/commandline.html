@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Command-Line Pyramid &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) コマンドラインピラミッド &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Internationalization and Localization" href="i18n.html" />
-    <link rel="prev" title="PasteDeploy Configuration Files" href="paste.html" />
+    <link rel="next" title="(機械翻訳) 国際化とローカリゼーション" href="i18n.html" />
+    <link rel="prev" title="(機械翻訳) PasteDeploy設定ファイル" href="paste.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="i18n.html" title="Internationalization and Localization"
+          <a href="i18n.html" title="(機械翻訳) 国際化とローカリゼーション"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="paste.html" title="PasteDeploy Configuration Files"
+          <a href="paste.html" title="(機械翻訳) PasteDeploy設定ファイル"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,26 +69,16 @@
           <div class="body" role="main">
             
   <div class="section" id="command-line-pyramid">
-<span id="command-line-chapter"></span><h1>Command-Line Pyramid<a class="headerlink" href="#command-line-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Your <span>Pyramid</span> application can be controlled and inspected using a variety
-of command-line utilities.  These utilities are documented in this chapter.</p>
+<span id="command-line-chapter"></span><h1>(機械翻訳) コマンドラインピラミッド<a class="headerlink" href="#command-line-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Your：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションは、さまざまなコマンドラインユーティリティを使用して制御および検査できます。これらのユーティリティは、この章で説明されています。</p>
 <div class="section" id="displaying-matching-views-for-a-given-url">
-<span id="displaying-matching-views"></span><span id="index-0"></span><h2>Displaying Matching Views for a Given URL<a class="headerlink" href="#displaying-matching-views-for-a-given-url" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="displaying-matching-views"></span><span id="index-0"></span><h2>指定されたURLの一致するビューの表示<a class="headerlink" href="#displaying-matching-views-for-a-given-url" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also the output of <a class="reference internal" href="../pscripts/pviews.html#pviews-script"><span class="std std-ref">pviews --help</span></a>.</p>
+<p class="last">：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>pviews --helpの出力も参照してください。 &lt;pviews_script&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
 </div>
-<p>For a big application with several views, it can be hard to keep the view
-configuration details in your head, even if you defined all the views yourself.
-You can use the <code class="docutils literal notranslate"><span class="pre">pviews</span></code> command in a terminal window to print a summary of
-matching routes and views for a given URL in your application. The <code class="docutils literal notranslate"><span class="pre">pviews</span></code>
-command accepts two arguments. The first argument to <code class="docutils literal notranslate"><span class="pre">pviews</span></code> is the path to
-your application's <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file and section name inside the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file
-which points to your application.  This should be of the format
-<code class="docutils literal notranslate"><span class="pre">config_file#section_name</span></code>. The second argument is the URL to test for
-matching views.  The <code class="docutils literal notranslate"><span class="pre">section_name</span></code> may be omitted; if it is, it's considered
-to be <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
-<p>Here is an example for a simple view configuration using <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>:</p>
+<p>いくつかのビューを持つ大きなアプリケーションでは、すべてのビューを自分で定義したとしても、ビューの設定の詳細を頭に入れておくことは難しいでしょう。ターミナルウィンドウで `` pviews``コマンドを使うと、アプリケーション内の指定されたURLに対応するルートとビューの要約を表示できます。 `` pviews``コマンドは2つの引数を受け取ります。 `` pviews``の最初の引数はアプリケーションの `` .ini``ファイルへのパスで、 <cite>.ini`ファイル内のセクション名はアプリケーションを指しています。これは、 `</cite> config_file＃section_name``の形式でなければなりません。 2番目の引数は、一致するビューをテストするURLです。 `` section_name``は省略することができます。そうであれば、それは「主」とみなされます。</p>
+<p>以下は、単純なビュー設定の例です：term： <cite>traversal</cite>：</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -112,12 +102,8 @@ URL = /FrontPage
     required permission = view
 </pre></div>
 </td></tr></table></div>
-<p>The output always has the requested URL at the top and below that all the views
-that matched with their view configuration details. In this example only one
-view matches, so there is just a single <em>View</em> section. For each matching view,
-the full code path to the associated view callable is shown, along with any
-permissions and predicates that are part of that view configuration.</p>
-<p>A more complex configuration might generate something like this:</p>
+<p>出力には常に、要求されたURLがそのビュー構成の詳細と一致するすべてのビューの上部と下部に表示されます。この例では1つのビューのみが一致しているので、* View <a href="#id1"><span class="problematic" id="id2">*</span></a>セクションは1つだけです。一致するビューごとに、呼び出し可能な関連ビューへの完全なコードパスが、そのビュー設定の一部であるすべての権限と述部とともに表示されます。</p>
+<p>より複雑な設定では、次のようなものが生成される可能性があります。</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -199,29 +185,17 @@ URL = /about
         view predicates (request_param test2)
 </pre></div>
 </td></tr></table></div>
-<p>In this case, we are dealing with a <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> application. This
-specific URL has two matching routes. The matching route information is
-displayed first, followed by any views that are associated with that route. As
-you can see from the second matching route output, a route can be associated
-with more than one view.</p>
-<p>For a URL that doesn't match any views, <code class="docutils literal notranslate"><span class="pre">pviews</span></code> will simply print out a <em>Not
-found</em> message.</p>
+<p>この例では、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>URL dispatch`アプリケーションを扱っています。この特定のURLには、2つの一致するルートがあります。一致するルート情報が最初に表示され、その後にそのルートに関連付けられたビューが表示されます。第2の一致するルート出力からわかるように、ルートは複数のビューに関連付けることができます。</p>
+<p>ビューと一致しないURLの場合、 `` pviews``は単に* Not found <a href="#id1"><span class="problematic" id="id2">*</span></a>メッセージを出力します。</p>
 </div>
 <div class="section" id="the-interactive-shell">
-<span id="interactive-shell"></span><span id="index-1"></span><h2>The Interactive Shell<a class="headerlink" href="#the-interactive-shell" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="interactive-shell"></span><span id="index-1"></span><h2>インタラクティブシェル<a class="headerlink" href="#the-interactive-shell" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also the output of <a class="reference internal" href="../pscripts/pshell.html#pshell-script"><span class="std std-ref">pshell --help</span></a>.</p>
+<p class="last">：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>pshell --helpの出力も参照してください。 &lt;pshell_script&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
 </div>
-<p>Once you've installed your program for development using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>,
-you can use an interactive Python shell to execute expressions in a Python
-environment exactly like the one that will be used when your application runs
-&quot;for real&quot;.  To do so, use the <code class="docutils literal notranslate"><span class="pre">pshell</span></code> command line utility.</p>
-<p>The argument to <code class="docutils literal notranslate"><span class="pre">pshell</span></code> follows the format <code class="docutils literal notranslate"><span class="pre">config_file#section_name</span></code>
-where <code class="docutils literal notranslate"><span class="pre">config_file</span></code> is the path to your application's <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file and
-<code class="docutils literal notranslate"><span class="pre">section_name</span></code> is the <code class="docutils literal notranslate"><span class="pre">app</span></code> section name inside the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file which
-points to your application.  For example, your application <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file might
-have an <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section that looks like so:</p>
+<p>`` pip install -e .``を使って開発用にプログラムをインストールしたら、インタラクティブなPythonシェルを使ってPython環境で式を実行することができます&amp;quot;これを行うには、 `` pshell``コマンドラインユーティリティを使用します。</p>
+<p>`` pshell`の引数は `` config_file＃section_name``の形式に従います。 `` config_file``はアプリケーションの `` .ini``ファイルへのパスで、 `` section_name``は `` app``です。あなたのアプリケーションを指し示す `` .ini``ファイル内のセクション名。例えば、あなたのアプリケーションの `` .ini``ファイルには、次のような `` [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションがあります：</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -237,8 +211,7 @@ have an <code class="docutils literal notranslate"><span class="pre">[app:main]<
 <span class="na">pyramid.default_locale_name</span> <span class="o">=</span> <span class="s">en</span>
 </pre></div>
 </td></tr></table></div>
-<p>If so, you can use the following command to invoke a debug shell using the name
-<code class="docutils literal notranslate"><span class="pre">main</span></code> as a section name:</p>
+<p>そのような場合は、次のコマンドを使用してセクション名として `` main``という名前を使用してデバッグシェルを呼び出すことができます：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/pshell starter/development.ini#main
 Python 2.6.5 (r265:79063, Apr 29 2010, 00:31:32)
 [GCC 4.4.3] on linux2
@@ -264,33 +237,16 @@ False
 {&#39;project&#39;: &#39;myproject&#39;}
 </pre></div>
 </div>
-<p>The WSGI application that is loaded will be available in the shell as the
-<code class="docutils literal notranslate"><span class="pre">app</span></code> global. Also, if the application that is loaded is the <span>Pyramid</span>
-app with no surrounding <a class="reference internal" href="../glossary.html#term-middleware"><span class="xref std std-term">middleware</span></a>, the <code class="docutils literal notranslate"><span class="pre">root</span></code> object returned by the
-default <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a>, <code class="docutils literal notranslate"><span class="pre">registry</span></code>, and <code class="docutils literal notranslate"><span class="pre">request</span></code> will be available.</p>
-<p>You can also simply rely on the <code class="docutils literal notranslate"><span class="pre">main</span></code> default section name by omitting any
-hash after the filename:</p>
+<p>読み込まれたWSGIアプリケーションは、 `` app``グローバルとしてシェル内で利用可能になります。また、読み込まれたアプリケーションが：surrounding：term： <cite>middleware`を持たない：app：</cite> Pyramid`アプリケーションであれば、デフォルト：term： <cite>ルートファクトリ</cite>、 `` registry``によって返される <a href="#id1"><span class="problematic" id="id2">``</span></a>ルート <a href="#id3"><span class="problematic" id="id4">``</span></a>オブジェクト`と` <a href="#id5"><span class="problematic" id="id6">`</span></a>要求 &amp;#39;&amp;#39;が利用可能になります。</p>
+<p>ファイル名の後にハッシュを省略することで、 `` main``のデフォルトのセクション名に頼ることもできます：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/pshell starter/development.ini
 </pre></div>
 </div>
-<p>Press <code class="docutils literal notranslate"><span class="pre">Ctrl-D</span></code> to exit the interactive shell (or <code class="docutils literal notranslate"><span class="pre">Ctrl-Z</span></code> on Windows).</p>
+<p>対話シェルを終了するには `` Ctrl-D``を押します（Windowsでは `` Ctrl-Z``）。</p>
 <div class="section" id="extending-the-shell">
-<span id="extending-pshell"></span><span id="index-2"></span><h3>Extending the Shell<a class="headerlink" href="#extending-the-shell" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>It is convenient when using the interactive shell often to have some variables
-significant to your application already loaded as globals when you start the
-<code class="docutils literal notranslate"><span class="pre">pshell</span></code>. To facilitate this, <code class="docutils literal notranslate"><span class="pre">pshell</span></code> will look for a special <code class="docutils literal notranslate"><span class="pre">[pshell]</span></code>
-section in your INI file and expose the subsequent key/value pairs to the
-shell.  Each key is a variable name that will be global within the pshell
-session; each value is a <a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted Python name</span></a>. If specified, the special
-key <code class="docutils literal notranslate"><span class="pre">setup</span></code> should be a <a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted Python name</span></a> pointing to a callable
-that accepts the dictionary of globals that will be loaded into the shell. This
-allows for some custom initializing code to be executed each time the
-<code class="docutils literal notranslate"><span class="pre">pshell</span></code> is run. The <code class="docutils literal notranslate"><span class="pre">setup</span></code> callable can also be specified from the
-commandline using the <code class="docutils literal notranslate"><span class="pre">--setup</span></code> option which will override the key in the INI
-file.</p>
-<p>For example, you want to expose your model to the shell along with the database
-session so that you can mutate the model on an actual database. Here, we'll
-assume your model is stored in the <code class="docutils literal notranslate"><span class="pre">myapp.models</span></code> package.</p>
+<span id="extending-pshell"></span><span id="index-2"></span><h3>シェルの拡張<a class="headerlink" href="#extending-the-shell" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` pshell``を起動したときに、対話型シェルを使って、アプリケーションにとって重要な変数を既にグローバルとしてロードしている場合に便利です。これを容易にするために、 `` pshell``はINIファイル内の特別な `` [pshell] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションを探し、後続のキーと値のペアをシェルに公開します。各キーは、pshellセッション内でグローバルになる変数名です。各値は：term： <cite>点線のPython名`です。指定した場合、特殊キー `</cite> setup``は：term： <cite>ドット付きPython名`でなければなりません。シェルにロードされるグローバルの辞書を受け付ける呼び出し可能ファイルを指します。これにより、 `</cite> pshell``が実行されるたびにカスタム初期化コードが実行されるようになります。 INIファイルのキーを上書きする `` --setup``オプションを使用して、コマンドラインから `` setup``呼び出し可能ファイルを指定することもできます。</p>
+<p>たとえば、実際のデータベースでモデルを変更できるように、モデルをシェルに公開してデータベースセッションとしたいとします。ここでは、モデルが `` myapp.models``パッケージに格納されていると仮定します。</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -302,11 +258,7 @@ assume your model is stored in the <code class="docutils literal notranslate"><s
 <span class="na">t</span> <span class="o">=</span> <span class="s">transaction</span>
 </pre></div>
 </td></tr></table></div>
-<p>By defining the <code class="docutils literal notranslate"><span class="pre">setup</span></code> callable, we will create the module
-<code class="docutils literal notranslate"><span class="pre">myapp.lib.pshell</span></code> containing a callable named <code class="docutils literal notranslate"><span class="pre">setup</span></code> that will receive
-the global environment before it is exposed to the shell. Here we mutate the
-environment's request as well as add a new value containing a WebTest version
-of the application to which we can easily submit requests.</p>
+<p>`` setup``を呼び出し可能にすることで、シェルに公開される前に地球環境を受け取る `` setup``という名前の呼び出し可能モジュールを含む `` myapp.lib.pshell``モジュールを作成します。ここでは、環境の要求を変更し、要求を簡単に提出できるWebTestバージョンのアプリケーションを含む新しい値を追加します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -322,11 +274,7 @@ of the application to which we can easily submit requests.</p>
     <span class="n">env</span><span class="p">[</span><span class="s1">&#39;testapp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">TestApp</span><span class="p">(</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;app&#39;</span><span class="p">])</span>
 </pre></div>
 </td></tr></table></div>
-<p>When this INI file is loaded, the extra variables <code class="docutils literal notranslate"><span class="pre">m</span></code>, <code class="docutils literal notranslate"><span class="pre">session</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span></code>
-will be available for use immediately. Since a <code class="docutils literal notranslate"><span class="pre">setup</span></code> callable was also
-specified, it is executed and a new variable <code class="docutils literal notranslate"><span class="pre">testapp</span></code> is exposed, and the
-request is configured to generate urls from the host
-<code class="docutils literal notranslate"><span class="pre">http://www.example.com</span></code>. For example:</p>
+<p>このINIファイルがロードされると、余分な変数 `` m``、 `` session``、 `` t``がすぐに利用できるようになります。 `` setup``呼び出し可能関数も指定されているので、それが実行され、新しい変数 `` testapp``が公開され、リクエストはホスト `` http：// www.example.com``からURLを生成するように設定されます`。例えば：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/pshell starter/development.ini
 Python 2.6.5 (r265:79063, Apr 29 2010, 00:31:32)
 [GCC 4.4.3] on linux2
@@ -353,16 +301,12 @@ Custom Variables:
 </div>
 </div>
 <div class="section" id="alternative-shells">
-<span id="ipython-or-bpython"></span><h3>Alternative Shells<a class="headerlink" href="#alternative-shells" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">pshell</span></code> command can be easily extended with alternate REPLs if the
-default python REPL is not satisfactory. Assuming you have a binding
-installed such as <code class="docutils literal notranslate"><span class="pre">pyramid_ipython</span></code> it will normally be auto-selected and
-used. You may also specifically invoke your choice with the <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">choice</span></code> or
-<code class="docutils literal notranslate"><span class="pre">--python-shell</span> <span class="pre">choice</span></code> option.</p>
+<span id="ipython-or-bpython"></span><h3>代替シェル<a class="headerlink" href="#alternative-shells" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` pshell``コマンドは、デフォルトのpython REPLが満足のいくものでなければ、別のREPLで簡単に拡張できます。 `` pyramid_ipython``のようなバインディングがインストールされていると仮定すると、通常自動的に選択されて使用されます。また、 `` -p choice``や `` --python-shell choice``オプションを使って選択を呼び出すこともできます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/pshell -p ipython development.ini#MyProject
 </pre></div>
 </div>
-<p>You may use the <code class="docutils literal notranslate"><span class="pre">--list-shells</span></code> option to see the available shells.</p>
+<p>使用可能なシェルを見るには、 `` --list-shells``オプションを使用してください。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/pshell --list-shells
 Available shells:
   bpython
@@ -370,8 +314,7 @@ Available shells:
   python
 </pre></div>
 </div>
-<p>If you want to use a shell that isn't supported out of the box, you can
-introduce a new shell by registering an entry point in your <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
+<p>箱の中でサポートされていないシェルを使いたい場合は、 `` setup.py``にエントリポイントを登録することで新しいシェルを導入できます：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">setup</span><span class="p">(</span>
     <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
         <span class="s1">&#39;pyramid.pshell_runner&#39;</span><span class="p">:</span> <span class="p">[</span>
@@ -381,8 +324,7 @@ introduce a new shell by registering an entry point in your <code class="docutil
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>And then your shell factory should return a function that accepts two
-arguments, <code class="docutils literal notranslate"><span class="pre">env</span></code> and <code class="docutils literal notranslate"><span class="pre">help</span></code>, which would look like this:</p>
+<p>そして、あなたのシェルファクトリは `` env``と `` help``という2つの引数を受け付ける関数を返すべきです。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ptpython.repl</span> <span class="kn">import</span> <span class="n">embed</span>
 
 <span class="k">def</span> <span class="nf">ptpython_shell_runner</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">help</span><span class="p">):</span>
@@ -391,16 +333,13 @@ arguments, <code class="docutils literal notranslate"><span class="pre">env</spa
 </pre></div>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 1.6 で変更: </span>User-defined shells may be registered using entry points. Prior to this
-the only supported shells were <code class="docutils literal notranslate"><span class="pre">ipython</span></code>, <code class="docutils literal notranslate"><span class="pre">bpython</span></code> and <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ipython</span></code> and <code class="docutils literal notranslate"><span class="pre">bpython</span></code> have been moved into their respective
-packages <code class="docutils literal notranslate"><span class="pre">pyramid_ipython</span></code> and <code class="docutils literal notranslate"><span class="pre">pyramid_bpython</span></code>.</p>
+<p><span class="versionmodified">バージョン 1.6 で変更: </span>エントリポイントを使用してユーザ定義のシェルを登録することができます。それ以前はサポートされていたシェルは `` ipython``、 `` bpython``、 `` python``でした。</p>
+<p>`` ipython``と `` bpython``はそれぞれのパッケージ `` ​​pyramid_ipython``と `` pyramid_bpython``に移されました。</p>
 </div>
 </div>
 <div class="section" id="setting-a-default-shell">
-<h3>Setting a Default Shell<a class="headerlink" href="#setting-a-default-shell" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You may use the <code class="docutils literal notranslate"><span class="pre">default_shell</span></code> option in your <code class="docutils literal notranslate"><span class="pre">[pshell]</span></code> ini section to
-specify a list of preferred shells.</p>
+<h3>デフォルトシェルの設定<a class="headerlink" href="#setting-a-default-shell" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>あなたの `` [pshell] `` iniセクションで `` default_shell``オプションを使って好みのシェルのリストを指定することができます。</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">[pshell]</span>
 <span class="na">default_shell</span> <span class="o">=</span> <span class="s">ptpython ipython bpython</span>
@@ -412,19 +351,13 @@ specify a list of preferred shells.</p>
 </div>
 </div>
 <div class="section" id="displaying-all-application-routes">
-<span id="displaying-application-routes"></span><span id="index-3"></span><h2>Displaying All Application Routes<a class="headerlink" href="#displaying-all-application-routes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="displaying-application-routes"></span><span id="index-3"></span><h2>すべてのアプリケーションルートの表示<a class="headerlink" href="#displaying-all-application-routes" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also the output of <a class="reference internal" href="../pscripts/proutes.html#proutes-script"><span class="std std-ref">proutes --help</span></a>.</p>
+<p class="last">：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>proutes --helpの出力も参照してください。 &lt;proutes_script&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
 </div>
-<p>You can use the <code class="docutils literal notranslate"><span class="pre">proutes</span></code> command in a terminal window to print a summary of
-routes related to your application.  Much like the <code class="docutils literal notranslate"><span class="pre">pshell</span></code> command (see
-<a class="reference internal" href="#interactive-shell"><span class="std std-ref">The Interactive Shell</span></a>), the <code class="docutils literal notranslate"><span class="pre">proutes</span></code> command accepts one argument with
-the format <code class="docutils literal notranslate"><span class="pre">config_file#section_name</span></code>.  The <code class="docutils literal notranslate"><span class="pre">config_file</span></code> is the path to
-your application's <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file, and <code class="docutils literal notranslate"><span class="pre">section_name</span></code> is the <code class="docutils literal notranslate"><span class="pre">app</span></code> section
-name inside the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file which points to your application.  By default,
-the <code class="docutils literal notranslate"><span class="pre">section_name</span></code> is <code class="docutils literal notranslate"><span class="pre">main</span></code> and can be omitted.</p>
-<p>For example:</p>
+<p>ターミナルウィンドウで `` proutes``コマンドを使うと、アプリケーションに関連するルートの要約を表示できます。 `` pshell`コマンド（ref： <cite>interactive_shell`参照）と同様に、</cite> <cite>proutes``コマンドは、</cite> <cite>config_file＃section_name``という形式の引数を受け取ります。 `</cite> config_file``はあなたのアプリケーションの `` .ini``ファイルへのパスです。 `` section_name``はあなたのアプリケーションを指し示す `` .ini``ファイル内の `` app``セクション名です。デフォルトでは、 `` section_name``は `` main``であり省略することができます。</p>
+<p>例えば：</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -452,23 +385,9 @@ multiview                  /multiview                  app1.standard_views.multi
 not_post                   /not_post                   app1.standard_views.multview                  !POST,*
 </pre></div>
 </td></tr></table></div>
-<p><code class="docutils literal notranslate"><span class="pre">proutes</span></code> generates a table with four columns: <em>Name</em>, <em>Pattern</em>, <em>View</em>, and
-<em>Method</em>.  The items listed in the Name column are route names, the items
-listed in the Pattern column are route patterns, the items listed in the View
-column are representations of the view callable that will be invoked when a
-request matches the associated route pattern, and the items listed in the
-Method column are the request methods that are associated with the route name.
-The View column may show <code class="docutils literal notranslate"><span class="pre">&lt;unknown&gt;</span></code> if no associated view callable could be
-found.  The Method column, for the route name, may show either <code class="docutils literal notranslate"><span class="pre">&lt;route</span>
-<span class="pre">mismatch&gt;</span></code> if the view callable does not accept any of the route's request
-methods, or <code class="docutils literal notranslate"><span class="pre">*</span></code> if the view callable will accept any of the route's request
-methods.  If no routes are configured within your application, nothing will be
-printed to the console when <code class="docutils literal notranslate"><span class="pre">proutes</span></code> is executed.</p>
-<p>It is convenient when using the <code class="docutils literal notranslate"><span class="pre">proutes</span></code> command often to configure which
-columns and the order you would like to view them. To facilitate this,
-<code class="docutils literal notranslate"><span class="pre">proutes</span></code> will look for a special <code class="docutils literal notranslate"><span class="pre">[proutes]</span></code> section in your <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file
-and use those as defaults.</p>
-<p>For example you may remove the request method and place the view first:</p>
+<p>`` proutes``は* Name <em>、</em> Pattern <em>、</em> View <em>、</em> Method <a href="#id1"><span class="problematic" id="id2">*</span></a>の4つのカラムを持つテーブルを生成します。 「名前」列にリストされている項目はルート名、「パターン」列にリストされている項目はルート・パターン、「ビュー」列にリストされている項目は、要求が関連するルート・パターンと一致したときに呼び出される、 [メソッド]列にリストされている項目は、ルート名に関連付けられているリクエストメソッドです。 [表示]列には、 &lt;unknown&gt;関連するビュー呼び出し可能なものが見つからない場合は <a href="#id3"><span class="problematic" id="id4">``</span></a>ルート名のMethodカラムには、 `` &lt;route mismatch&gt; <a href="#id5"><span class="problematic" id="id6">``</span></a>呼び出し可能なビューがルートのリクエストメソッドのどれも受け入れない場合は `` <a href="#id7"><span class="problematic" id="id8">``</span></a>、呼び出し可能なビューがルートのリクエストメソッドのいずれかを受け入れる場合は `` * <a href="#id9"><span class="problematic" id="id10">``</span></a>アプリケーション内でルートが設定されていない場合、 `` proutes``が実行されるとコンソールに何も出力されません。</p>
+<p>`` proutes``コマンドを頻繁に使用して、表示する列や順序を設定すると便利です。これを容易にするため、 `` proutes``はあなたの `` .ini``ファイル中の特別な `` [proutes] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションを探し、デフォルトとして使用します。</p>
+<p>たとえば、リクエストメソッドを削除して、ビューを最初に配置することができます。</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -478,7 +397,7 @@ and use those as defaults.</p>
            pattern
 </pre></div>
 </td></tr></table></div>
-<p>You can also separate the formats with commas or spaces:</p>
+<p>コンマまたはスペースでフォーマットを区切ることもできます。</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -490,26 +409,16 @@ and use those as defaults.</p>
   format = view, name, pattern
 </pre></div>
 </td></tr></table></div>
-<p>If you want to temporarily configure the columns and order, there is the
-argument <code class="docutils literal notranslate"><span class="pre">--format</span></code>, which is a comma separated list of columns you want to
-include. The current available formats are <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">pattern</span></code>, <code class="docutils literal notranslate"><span class="pre">view</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">method</span></code>.</p>
+<p>一時的に列と順序を設定したい場合は、 `` --format``という引数があります。これは、カンマ区切りの列のリストです。現在利用可能なフォーマットは <a href="#id1"><span class="problematic" id="id2">``</span></a>名前 <a href="#id3"><span class="problematic" id="id4">``</span></a>、 <a href="#id5"><span class="problematic" id="id6">``</span></a>パターン <a href="#id7"><span class="problematic" id="id8">``</span></a>、 <a href="#id9"><span class="problematic" id="id10">``</span></a>ビュー <a href="#id11"><span class="problematic" id="id12">``</span></a>、 <a href="#id13"><span class="problematic" id="id14">``</span></a>メソッド <a href="#id15"><span class="problematic" id="id16">``</span></a>です。</p>
 </div>
 <div class="section" id="displaying-tweens">
-<span id="index-4"></span><span id="id1"></span><h2>Displaying &quot;Tweens&quot;<a class="headerlink" href="#displaying-tweens" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="index-4"></span><span id="id1"></span><h2>&amp;quot;Tweens <a class="headerlink" href="#displaying-tweens" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also the output of <a class="reference internal" href="../pscripts/ptweens.html#ptweens-script"><span class="std std-ref">ptweens --help</span></a>.</p>
+<p class="last">：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>ptweens --helpの出力も参照してください。 &lt;ptweens_script&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
 </div>
-<p>A <a class="reference internal" href="../glossary.html#term-tween"><span class="xref std std-term">tween</span></a> is a bit of code that sits between the main Pyramid application
-request handler and the WSGI application which calls it.  A user can get a
-representation of both the implicit tween ordering (the ordering specified by
-calls to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_tween" title="pyramid.config.Configurator.add_tween"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_tween()</span></code></a>) and the explicit tween
-ordering (specified by the <code class="docutils literal notranslate"><span class="pre">pyramid.tweens</span></code> configuration setting) using the
-<code class="docutils literal notranslate"><span class="pre">ptweens</span></code> command.  Tween factories will show up represented by their
-standard Python dotted name in the <code class="docutils literal notranslate"><span class="pre">ptweens</span></code> output.</p>
-<p>For example, here's the <code class="docutils literal notranslate"><span class="pre">ptweens</span></code> command run against a system configured
-without any explicit tweens:</p>
+<p>A：term： <cite>tween`はPyramidの主なアプリケーションリクエストハンドラとそれを呼び出すWSGIアプリケーションの間にあるコードです。暗黙的なトゥイーンの順序（：meth： `pyramid.config.Configurator.add_tween`の呼び出しで指定された順序）と明示的なトゥイーンの順序（</cite> <cite>pyramid.tweens``設定の設定で指定された順序） `</cite> ptweens``コマンドを使用します。 Tweenファクトリは、 `` ptweens``の出力に標準的なPythonの点線の名前で表されます。</p>
+<p>たとえば、明示的なtweensなしで設定されたシステムに対して `` ptweens``コマンドを実行すると、次のようになります。</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -533,8 +442,7 @@ Position    Name                                                Alias
 -           -                                                   MAIN
 </pre></div>
 </td></tr></table></div>
-<p>Here's the <code class="docutils literal notranslate"><span class="pre">ptweens</span></code> command run against a system configured <em>with</em> explicit
-tweens defined in its <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file:</p>
+<p>`` development.ini``ファイルで*明示的に定義されたtweensで設定されたシステムに対して実行される `` ptweens``コマンドは次のとおりです：</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -578,9 +486,7 @@ Position    Name
 -           MAIN
 </pre></div>
 </td></tr></table></div>
-<p>Here's the application configuration section of the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> used by
-the above <code class="docutils literal notranslate"><span class="pre">ptweens</span></code> command which reports that the explicit tween chain is
-used:</p>
+<p>上記の `` ptweens``コマンドで使用される `` development.ini``のアプリケーション設定セクションは、明示的なトゥイーンチェーンが使用されていることを報告します：</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -606,82 +512,61 @@ used:</p>
 <span class="s">                 pyramid.tweens.excview_tween_factory</span>
 </pre></div>
 </td></tr></table></div>
-<p>See <a class="reference internal" href="hooks.html#registering-tweens"><span class="std std-ref">Registering Tweens</span></a> for more information about tweens.</p>
+<p>トゥイーンの詳細については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>registration_tweens`を参照してください。</p>
 </div>
 <div class="section" id="invoking-a-request">
-<span id="index-5"></span><span id="id2"></span><h2>Invoking a Request<a class="headerlink" href="#invoking-a-request" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="index-5"></span><span id="id2"></span><h2>リクエストの呼び出し<a class="headerlink" href="#invoking-a-request" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also the output of <a class="reference internal" href="../pscripts/prequest.html#prequest-script"><span class="std std-ref">prequest --help</span></a>.</p>
+<p class="last">：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>prequest --helpの出力も参照してください。 &lt;prequest_script&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
 </div>
-<p>You can use the <code class="docutils literal notranslate"><span class="pre">prequest</span></code> command-line utility to send a request to your
-application and see the response body without starting a server.</p>
-<p>There are two required arguments to <code class="docutils literal notranslate"><span class="pre">prequest</span></code>:</p>
+<p>`` prequest``コマンドラインユーティリティを使ってアプリケーションにリクエストを送信し、サーバを起動せずにレスポンスボディを見ることができます。</p>
+<p>`` prequest``には二つの必須引数があります：</p>
 <ul class="simple">
-<li>The config file/section: follows the format <code class="docutils literal notranslate"><span class="pre">config_file#section_name</span></code>,
-where <code class="docutils literal notranslate"><span class="pre">config_file</span></code> is the path to your application's <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file and
-<code class="docutils literal notranslate"><span class="pre">section_name</span></code> is the <code class="docutils literal notranslate"><span class="pre">app</span></code> section name inside the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file.  The
-<code class="docutils literal notranslate"><span class="pre">section_name</span></code> is optional; it defaults to <code class="docutils literal notranslate"><span class="pre">main</span></code>.  For example:
-<code class="docutils literal notranslate"><span class="pre">development.ini</span></code>.</li>
-<li>The path: this should be the non-URL-quoted path element of the URL to the
-resource you'd like to be rendered on the server.  For example, <code class="docutils literal notranslate"><span class="pre">/</span></code>.</li>
+<li>設定ファイル/セクションは `` config_file＃section_name``フォーマットに従います。 `` config_file``はアプリケーションの `` .ini``ファイルへのパスで、 `` section_name``は `` app``セクションです`` .ini``ファイルの中の名前。 `` section_name``はオプションです。デフォルトは `` main``です。例えば、 `` development.ini``です。</li>
+<li>パス：これは、サーバー上でレンダリングするリソースへのURLのURLで引用されていないパス要素です。たとえば、 `` / <a href="#id1"><span class="problematic" id="id2">``</span></a>とします。</li>
 </ul>
-<p>For example:</p>
+<p>例えば：：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/prequest development.ini /
 </pre></div>
 </div>
-<p>This will print the body of the response to the console on which it was
-invoked.</p>
-<p>Several options are supported by <code class="docutils literal notranslate"><span class="pre">prequest</span></code>.  These should precede any config
-file name or URL.</p>
-<p><code class="docutils literal notranslate"><span class="pre">prequest</span></code> has a <code class="docutils literal notranslate"><span class="pre">-d</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">--display-headers</span></code>) option which prints the
-status and headers returned by the server before the output:</p>
+<p>これにより、応答の本体が呼び出されたコンソールに表示されます。</p>
+<p>いくつかのオプションは `` prequest``でサポートされています。これらは、設定ファイル名またはURLの前に置く必要があります。</p>
+<p>`` prequest``には出力前にサーバから返されたステータスとヘッダを出力する `` -d``（つまり `` --display-headers``）オプションがあります：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/prequest -d development.ini /
 </pre></div>
 </div>
-<p>This will print the status, headers, and the body of the response to the
-console.</p>
-<p>You can add request header values by using the <code class="docutils literal notranslate"><span class="pre">--header</span></code> option:</p>
+<p>これにより、コンソールへの応答のステータス、ヘッダー、および本文が出力されます。</p>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a>--header``オプションを使ってリクエストヘッダの値を追加することができます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/prequest --header=Host:example.com development.ini /
 </pre></div>
 </div>
-<p>Headers are added to the WSGI environment by converting them to their CGI/WSGI
-equivalents (e.g., <code class="docutils literal notranslate"><span class="pre">Host=example.com</span></code> will insert the <code class="docutils literal notranslate"><span class="pre">HTTP_HOST</span></code> header
-variable as the value <code class="docutils literal notranslate"><span class="pre">example.com</span></code>).  Multiple <code class="docutils literal notranslate"><span class="pre">--header</span></code> options can be
-supplied.  The special header value <code class="docutils literal notranslate"><span class="pre">content-type</span></code> sets the <code class="docutils literal notranslate"><span class="pre">CONTENT_TYPE</span></code>
-in the WSGI environment.</p>
-<p>By default, <code class="docutils literal notranslate"><span class="pre">prequest</span></code> sends a <code class="docutils literal notranslate"><span class="pre">GET</span></code> request.  You can change this by using
-the <code class="docutils literal notranslate"><span class="pre">-m</span></code> (aka <code class="docutils literal notranslate"><span class="pre">--method</span></code>) option.  <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">DELETE</span></code> are currently supported.  When you use <code class="docutils literal notranslate"><span class="pre">POST</span></code>, the standard input
-of the <code class="docutils literal notranslate"><span class="pre">prequest</span></code> process is used as the <code class="docutils literal notranslate"><span class="pre">POST</span></code> body:</p>
+<p>ヘッダは、CGI / WSGIに相当するものに変換することでWSGI環境に追加されます（例えば `` Host = example.com``は `` example.com``の値として `` HTTP_HOST``ヘッダ変数を挿入します）。複数の <cite>--header``オプションを指定できます。特別なヘッダ値 `</cite> content-type``は、WSGI環境で `` CONTENT_TYPE``を設定します。</p>
+<p>デフォルトでは、 `` prequest``は `` GET``要求を送信します。これを変更するには、 `` -m``（別名 `` --method``）オプションを使用します。現在、 `` GET``、 `` HEAD``、 `` POST``、 `` DELETE``がサポートされています。 `` POST``を使うと `` prequest``プロセスの標準入力が `` POST``本体として使われます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/prequest -mPOST development.ini / &lt; somefile
 </pre></div>
 </div>
 </div>
 <div class="section" id="using-custom-arguments-to-python-when-running-p-scripts">
-<h2>Using Custom Arguments to Python when Running <code class="docutils literal notranslate"><span class="pre">p*</span></code> Scripts<a class="headerlink" href="#using-custom-arguments-to-python-when-running-p-scripts" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>`` p * <a href="#id1"><span class="problematic" id="id2">``</span></a>スクリプトを実行するときのPythonへのカスタム引数の使用<a class="headerlink" href="#using-custom-arguments-to-python-when-running-p-scripts" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
 </div>
-<p>Each of Pyramid's console scripts (<code class="docutils literal notranslate"><span class="pre">pserve</span></code>, <code class="docutils literal notranslate"><span class="pre">pviews</span></code>, etc.) can be run
-directly using <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span></code>, allowing custom arguments to be sent to the
-Python interpreter at runtime. For example:</p>
+<p>Pyramidのコンソールスクリプト（ `` pserve``、 `` pviews``など）は、 `` python3 -m``を使って直接実行でき、実行時にカスタム引数をPythonインタプリタに送ることができます。例えば：：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pyramid</span><span class="o">.</span><span class="n">scripts</span><span class="o">.</span><span class="n">pserve</span> <span class="n">development</span><span class="o">.</span><span class="n">ini</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="showing-all-installed-distributions-and-their-versions">
-<span id="showing-distributions"></span><span id="index-6"></span><h2>Showing All Installed Distributions and Their Versions<a class="headerlink" href="#showing-all-installed-distributions-and-their-versions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="showing-distributions"></span><span id="index-6"></span><h2>インストールされているすべてのディストリビューションとそのバージョンの表示<a class="headerlink" href="#showing-all-installed-distributions-and-their-versions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also the output of <a class="reference internal" href="../pscripts/pdistreport.html#pdistreport-script"><span class="std std-ref">pdistreport --help</span></a>.</p>
+<p class="last">：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>pdistreport --helpの出力も参照してください。 &lt;pdistreport_script&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
 </div>
-<p>You can use the <code class="docutils literal notranslate"><span class="pre">pdistreport</span></code> command to show the <span>Pyramid</span> version in
-use, the Python version in use, and all installed versions of Python
-distributions in your Python environment:</p>
+<p>`` pdistreport``コマンドを使って：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`のバージョン、使用しているPythonのバージョン、Python環境のすべてのPythonディストリビューションのバージョンを表示することができます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/pdistreport
 Pyramid version: 1.5dev
 Platform Linux-3.2.0-51-generic-x86_64-with-debian-wheezy-sid
@@ -693,76 +578,44 @@ Packages:
 ... more output ...
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">pdistreport</span></code> takes no options.  Its output is useful to paste into a
-pastebin when you are having problems and need someone with more familiarity
-with Python packaging and distribution than you have to look at your
-environment.</p>
+<p>`` pdistreport``オプションはありません。その出力は、問題を抱えているときにペーストビンに貼り付けるのに便利です。あなたの環境を見なければならないよりPythonのパッケージ化と配布に精通した人が必要です。</p>
 </div>
 <div class="section" id="writing-a-script">
-<span id="id3"></span><h2>Writing a Script<a class="headerlink" href="#writing-a-script" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>All web applications are, at their hearts, systems which accept a request and
-return a response.  When a request is accepted by a <span>Pyramid</span> application,
-the system receives state from the request which is later relied on by your
-application code.  For example, one <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> may assume it's
-working against a request that has a <code class="docutils literal notranslate"><span class="pre">request.matchdict</span></code> of a particular
-composition, while another assumes a different composition of the matchdict.</p>
-<p>In the meantime, it's convenient to be able to write a Python script that can
-work &quot;in a Pyramid environment&quot;, for instance to update database tables used by
-your <span>Pyramid</span> application.  But a &quot;real&quot; Pyramid environment doesn't have
-a completely static state independent of a request; your application (and
-Pyramid itself) is almost always reliant on being able to obtain information
-from a request.  When you run a Python script that simply imports code from
-your application and tries to run it, there just is no request data, because
-there isn't any real web request.  Therefore some parts of your application and
-some Pyramid APIs will not work.</p>
-<p>For this reason, <span>Pyramid</span> makes it possible to run a script in an
-environment much like the environment produced when a particular
-<a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> reaches your <span>Pyramid</span> application.  This is achieved by
-using the <a class="reference internal" href="../api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.bootstrap()</span></code></a> command in the body of your script.</p>
+<span id="id3"></span><h2>スクリプトを書く<a class="headerlink" href="#writing-a-script" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>すべてのWebアプリケーションは、要求を受け入れて応答を返すシステムです。 ：app： <cite>Pyramid`アプリケーションによって要求が受け入れられると、システムは要求から状態を受け取ります。要求は、後でアプリケーションコードに依存します。たとえば、term： `view callable`は、特定のコンポジションの</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>request.matchdict``を持つリクエストに対して動作していると仮定していますが、別のものはmatchdictの異なる構成を想定しています。</p>
+<p>それと同時に、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションで使用されるデータベーステーブルを更新するなど、Pyramid環境で動作するPythonスクリプトを書くことが便利です。しかし、&amp;quot;実&amp;quot;ピラミッド環境は、要求に依存しない完全に静的な状態を持っていません。あなたのアプリケーション（とPyramid自体）は、ほとんどの場合、要求から情報を得ることに頼っています。アプリケーションからコードを単純にインポートして実行しようとするPythonスクリプトを実行すると、実際のWeb要求がないため、要求データはありません。したがって、アプリケーションのいくつかの部分といくつかのPyramid APIは動作しません。</p>
+<p>このため、：app： <cite>Pyramid`は、特定の：term：</cite> request`があなたの：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションに到達したときに生成される環境のような環境でスクリプトを実行することを可能にします。これは、スクリプト本体に：func： <a href="#id3"><span class="problematic" id="id4">`</span></a>pyramid.paster.bootstrap`コマンドを使用することで実現します。</p>
 <div class="versionadded">
-<p><span class="versionmodified">バージョン 1.1 で追加: </span><a class="reference internal" href="../api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.bootstrap()</span></code></a></p>
+<p><span class="versionmodified">バージョン 1.1 で追加: </span>：func： <cite>pyramid.paster.bootstrap</cite></p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 1.8 で変更: </span>Added the ability for <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> to cleanup automatically via the
-<code class="docutils literal notranslate"><span class="pre">with</span></code> statement.</p>
+<p><span class="versionmodified">バージョン 1.8 で変更: </span>`` boot```を `` with``文で自動的にクリーンアップする機能を追加しました。</p>
 </div>
-<p>In the simplest case, <a class="reference internal" href="../api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.bootstrap()</span></code></a> can be used with a
-single argument, which accepts the <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file
-representing your Pyramid application's configuration as a single argument:</p>
+<p>最も単純なケースでは、：func： <cite>pyramid.paster.bootstrap`はPyramidアプリケーションの設定を単一の引数として表す：term：</cite> PasteDeploy` `` .ini``ファイルを受け入れる単一の引数で使用できます：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.paster</span> <span class="kn">import</span> <span class="n">bootstrap</span>
 
 <span class="k">with</span> <span class="n">bootstrap</span><span class="p">(</span><span class="s1">&#39;/path/to/my/development.ini&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">env</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;request&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="../api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.bootstrap()</span></code></a> returns a dictionary containing
-framework-related information.  This dictionary will always contain a
-<a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object as its <code class="docutils literal notranslate"><span class="pre">request</span></code> key.</p>
-<p>The following keys are available in the <code class="docutils literal notranslate"><span class="pre">env</span></code> dictionary returned by
-<a class="reference internal" href="../api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.bootstrap()</span></code></a>:</p>
-<p>request</p>
+<p>：func： <cite>pyramid.paster.bootstrap`は、フレームワーク関連の情報を含む辞書を返します。この辞書は常に：term： `request`オブジェクトを</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>request``キーとして含んでいます。</p>
+<p>func： <cite>pyramid.paster.bootstrap</cite>：以下のキーは、` <a href="#id1"><span class="problematic" id="id2">`</span></a>env``ディクショナリで利用可能です。</p>
+<p>要求</p>
 <blockquote>
-<div>A <a class="reference internal" href="../api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a> object implying the current request
-state for your script.</div></blockquote>
-<p>app</p>
+<div>A：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.request.Request`オブジェクトはあなたのスクリプトの現在の要求状態を意味します。</div></blockquote>
+<p>アプリ</p>
 <blockquote>
-<div>The <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> application object generated by bootstrapping.</div></blockquote>
-<p>root</p>
+<div>ブートストラップによって生成される：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>WSGI`アプリケーションオブジェクト。</div></blockquote>
+<p>ルート</p>
 <blockquote>
-<div>The <a class="reference internal" href="../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> root of your <span>Pyramid</span> application.  This is an
-object generated by the <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> configured in your
-application.</div></blockquote>
-<p>registry</p>
+<div>あなたの：app： <cite>Pyramid`アプリケーションの：term：</cite> resource`ルートです。これは、アプリケーションで設定された：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>ルートファクトリ &amp;#39;によって生成されるオブジェクトです。</div></blockquote>
+<p>レジストリ</p>
 <blockquote>
-<div>The <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> of your <span>Pyramid</span> application.</div></blockquote>
-<p>closer</p>
+<div>あなたの：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションの：term：<a href="#id3"><span class="problematic" id="id4">`</span></a>アプリケーションレジストリ。</div></blockquote>
+<p>クローザー</p>
 <blockquote>
-<div>A parameterless callable that can be used to pop an internal <span>Pyramid</span>
-threadlocal stack (used by <a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.threadlocal.get_current_registry()</span></code></a>
-and <a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.threadlocal.get_current_request()</span></code></a>) when your scripting
-job is finished.</div></blockquote>
-<p>Let's assume that the <code class="docutils literal notranslate"><span class="pre">/path/to/my/development.ini</span></code> file used in the example
-above looks like so:</p>
+<div>スクリプティングジョブが終了したときにinternal：app： <cite>Pyramid`スレッドローカルスタックをポップするために使用できるパラメータなしの呼び出し可能ファイル（：func：</cite> pyramid.threadlocal.get_current_registry`と：func： <cite>pyramid.threadlocal.get_current_request</cite>） 。</div></blockquote>
+<p>上記の例で使用されている `` / path / to / my / development.ini``ファイルが次のようになっていると仮定しましょう：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pipeline:main]</span>
 <span class="na">pipeline</span> <span class="o">=</span> <span class="s">translogger</span>
 <span class="s">           another</span>
@@ -776,42 +629,24 @@ above looks like so:</p>
 <span class="na">use</span> <span class="o">=</span> <span class="s">egg:MyProject</span>
 </pre></div>
 </div>
-<p>The configuration loaded by the above bootstrap example will use the
-configuration implied by the <code class="docutils literal notranslate"><span class="pre">[pipeline:main]</span></code> section of your configuration
-file by default.  Specifying <code class="docutils literal notranslate"><span class="pre">/path/to/my/development.ini</span></code> is logically
-equivalent to specifying <code class="docutils literal notranslate"><span class="pre">/path/to/my/development.ini#main</span></code>.  In this case,
-we'll be using a configuration that includes an <code class="docutils literal notranslate"><span class="pre">app</span></code> object which is wrapped
-in the Paste &quot;translogger&quot; <a class="reference internal" href="../glossary.html#term-middleware"><span class="xref std std-term">middleware</span></a> (which logs requests to the
-console).</p>
-<p>You can also specify a particular <em>section</em> of the PasteDeploy <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file to
-load instead of <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
+<p>上記のブートストラップの例で読み込まれた設定は、デフォルトで設定ファイルの `` [pipeline：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションが暗示する設定を使用します。 `` / path / to / my / development.ini``を指定することは、論理的には `` / path / to / my / development.ini＃main``を指定することと同じです。この場合、ペースト&amp;quot;translogger &amp;quot;：term： <cite>middleware`（リクエストをコンソールに記録する）にラップされた</cite> <a href="#id3"><span class="problematic" id="id4">`</span></a>app``オブジェクトを含む設定を使用します。</p>
+<p>`` main``の代わりに読み込むPasteDeploy `` .ini``ファイルの特定の*セクション*を指定することもできます：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.paster</span> <span class="kn">import</span> <span class="n">bootstrap</span>
 
 <span class="k">with</span> <span class="n">bootstrap</span><span class="p">(</span><span class="s1">&#39;/path/to/my/development.ini#another&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">env</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;request&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>The above example specifies the <code class="docutils literal notranslate"><span class="pre">another</span></code> <code class="docutils literal notranslate"><span class="pre">app</span></code>, <code class="docutils literal notranslate"><span class="pre">pipeline</span></code>, or
-<code class="docutils literal notranslate"><span class="pre">composite</span></code> section of your PasteDeploy configuration file. The <code class="docutils literal notranslate"><span class="pre">app</span></code>
-object present in the <code class="docutils literal notranslate"><span class="pre">env</span></code> dictionary returned by
-<a class="reference internal" href="../api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.bootstrap()</span></code></a> will be a <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a>.</p>
+<p>上記の例では、PasteDeploy設定ファイルの `` app``、 `` pipeline``、または `` composite``セクションを指定しています。 ：func： <cite>pyramid.paster.bootstrap`によって返される</cite> <cite>env``辞書にある</cite> <cite>app``オブジェクトは、：app：</cite> Pyramid`：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>router`になります。</p>
 <div class="section" id="changing-the-request">
-<h3>Changing the Request<a class="headerlink" href="#changing-the-request" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>By default, Pyramid will generate a request object in the <code class="docutils literal notranslate"><span class="pre">env</span></code> dictionary
-for the URL <code class="docutils literal notranslate"><span class="pre">http://localhost:80/</span></code>. This means that any URLs generated by
-Pyramid during the execution of your script will be anchored here. This is
-generally not what you want.</p>
-<p>So how do we make Pyramid generate the correct URLs?</p>
-<p>Assuming that you have a route configured in your application like so:</p>
+<h3>リクエストの変更<a class="headerlink" href="#changing-the-request" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>デフォルトでは、Pyramidは `` env``ディクショナリに `` http：// localhost：80 / <a href="#id1"><span class="problematic" id="id2">``</span></a>というURLのリクエストオブジェクトを生成します。つまり、スクリプトの実行中にPyramidによって生成されたURLは、ここに固定されます。これは一般的にあなたが望むものではありません。</p>
+<p>それでは、ピラミッドに正しいURLを生成させるにはどうしたらいいですか？</p>
+<p>あなたのアプリケーションで以下のようにルートを設定したと仮定します：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;verify&#39;</span><span class="p">,</span> <span class="s1">&#39;/verify/{code}&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You need to inform the Pyramid environment that the WSGI application is
-handling requests from a certain base. For example, we want to simulate
-mounting our application at <cite>https://example.com/prefix</cite>, to ensure that the
-generated URLs are correct for our deployment. This can be done by either
-mutating the resulting request object, or more simply by constructing the
-desired request and passing it into <a class="reference internal" href="../api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">bootstrap()</span></code></a>:</p>
+<p>WSGIアプリケーションが特定のベースからの要求を処理していることをPyramid環境に通知する必要があります。たとえば、アプリケーションを <a href="#id1"><span class="problematic" id="id2">`</span></a>https：// example.com / prefix`にマウントすることをシミュレートして、生成されたURLがGoogleのデプロイメントに適していることを確認します。これは、結果の要求オブジェクトを変更するか、または単に目的のリクエストを作成して、それをfunc： <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.paster.bootstrap`に渡すことによって行うことができます：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.paster</span> <span class="kn">import</span> <span class="n">bootstrap</span>
 <span class="kn">from</span> <span class="nn">pyramid.request</span> <span class="kn">import</span> <span class="n">Request</span>
 
@@ -821,18 +656,15 @@ desired request and passing it into <a class="reference internal" href="../api/p
     <span class="c1"># will print &#39;https://example.com/prefix&#39;</span>
 </pre></div>
 </div>
-<p>Now you can readily use Pyramid's APIs for generating URLs:</p>
+<p>これで、PyramidのAPIを使用してURLを生成できます。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;request&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span><span class="s1">&#39;verify&#39;</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s1">&#39;1337&#39;</span><span class="p">)</span>
 <span class="c1"># will return &#39;https://example.com/prefix/verify/1337&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="cleanup">
-<h3>Cleanup<a class="headerlink" href="#cleanup" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If you're using the <code class="docutils literal notranslate"><span class="pre">with</span></code>-statement variant then there's nothing to
-worry about. However if you're using the returned environment directly then
-when your scripting logic finishes, it's good manners to call the <code class="docutils literal notranslate"><span class="pre">closer</span></code>
-callback:</p>
+<h3>掃除<a class="headerlink" href="#cleanup" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` with``ステートメントバリアントを使用している場合、心配することはありません。しかし、スクリプトロジックが終了したときに返された環境を直接使用している場合は、 `` close``コールバックを呼び出すのがよいでしょう。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.paster</span> <span class="kn">import</span> <span class="n">bootstrap</span>
 <span class="n">env</span> <span class="o">=</span> <span class="n">bootstrap</span><span class="p">(</span><span class="s1">&#39;/path/to/my/development.ini&#39;</span><span class="p">)</span>
 
@@ -843,55 +675,25 @@ callback:</p>
 </div>
 </div>
 <div class="section" id="setting-up-logging">
-<h3>Setting Up Logging<a class="headerlink" href="#setting-up-logging" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>By default, <a class="reference internal" href="../api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.bootstrap()</span></code></a> does not configure logging
-parameters present in the configuration file.  If you'd like to configure
-logging based on <code class="docutils literal notranslate"><span class="pre">[logger]</span></code> and related sections in the configuration file,
-use the following command:</p>
+<h3>ロギングの設定<a class="headerlink" href="#setting-up-logging" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>デフォルトでは、：func： <cite>pyramid.paster.bootstrap`は設定ファイルに存在するロギングパラメータを設定しません。 `</cite> [logger] <a href="#id1"><span class="problematic" id="id2">``</span></a>と設定ファイルの関連するセクションに基づいてロギングを設定するには、以下のコマンドを使用します：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyramid.paster</span>
 <span class="n">pyramid</span><span class="o">.</span><span class="n">paster</span><span class="o">.</span><span class="n">setup_logging</span><span class="p">(</span><span class="s1">&#39;/path/to/my/development.ini&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="logging.html#logging-chapter"><span class="std std-ref">Logging</span></a> for more information on logging within
-<span>Pyramid</span>.</p>
+<p>app： <cite>Pyramid`の中でのロギングの詳細については：ref：</cite> logging_chapter`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="making-your-script-into-a-console-script">
-<span id="making-a-console-script"></span><span id="index-7"></span><h2>Making Your Script into a Console Script<a class="headerlink" href="#making-your-script-into-a-console-script" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A &quot;console script&quot; is <a class="reference internal" href="../glossary.html#term-setuptools"><span class="xref std std-term">setuptools</span></a> terminology for a script that gets
-installed into the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory of a Python <a class="reference internal" href="../glossary.html#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a>
-(or &quot;base&quot; Python environment) when a <a class="reference internal" href="../glossary.html#term-distribution"><span class="xref std std-term">distribution</span></a> which houses that
-script is installed. Because it's installed into the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory of a
-virtual environment when the distribution is installed, it's a convenient way
-to package and distribute functionality that you can call from the
-command-line. It's often more convenient to create a console script than it is
-to create a <code class="docutils literal notranslate"><span class="pre">.py</span></code> script and instruct people to call it with the &quot;right&quot;
-Python interpreter. A console script generates a file that lives in <code class="docutils literal notranslate"><span class="pre">bin</span></code>,
-and when it's invoked it will always use the &quot;right&quot; Python environment, which
-means it will always be invoked in an environment where all the libraries it
-needs (such as Pyramid) are available.</p>
-<p>In general, you can make your script into a console script by doing the
-following:</p>
+<span id="making-a-console-script"></span><span id="index-7"></span><h2>スクリプトをコンソールスクリプトにする<a class="headerlink" href="#making-your-script-into-a-console-script" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>&amp;quot;コンソールスクリプト&amp;quot;は次のようになります：term： `` setuptools`：Pythonの `` bin``ディレクトリにインストールされるスクリプトの用語です：term： <cite>virtual environment`（または&amp;quot; base &amp;quot;Python環境） a：そのスクリプトを格納しているterm： `distribution`がインストールされています。ディストリビューションのインストール時に仮想環境の `</cite> bin``ディレクトリにインストールされるので、コマンドラインから呼び出せる機能をパッケージ化して配布するのに便利です。 `` .py``スクリプトを作成し、人々に&amp;quot;右&amp;quot; Pythonインタプリタで呼び出すように指示するよりもコンソールスクリプトを作成するほうが便利です。コンソールスクリプトは `` bin``に​​存在するファイルを生成し、それが呼び出されると常に&amp;quot;右&amp;quot; Python環境を使用します。つまり、必要なすべてのライブラリが必要な環境で常に呼び出されますピラミッドのように）利用可能です。</p>
+<p>一般に、次のようにしてスクリプトをコンソールスクリプトにすることができます。</p>
 <ul class="simple">
-<li>Use an existing distribution (such as one you've already created via
-<code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code>) or create a new distribution that possesses at least one package
-or module.  It should, within any module within the distribution, house a
-callable (usually a function) that takes no arguments and which runs any of
-the code you wish to run.</li>
-<li>Add a <code class="docutils literal notranslate"><span class="pre">[console_scripts]</span></code> section to the <code class="docutils literal notranslate"><span class="pre">entry_points</span></code> argument of the
-distribution which creates a mapping between a script name and a dotted name
-representing the callable you added to your distribution.</li>
-<li>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code> to get your distribution
-reinstalled. When you reinstall your distribution, a file representing the
-script that you named in the last step will be in the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory of
-the virtual environment in which you installed the distribution. It will be
-executable. Invoking it from a terminal will execute your callable.</li>
+<li>既存のディストリビューション（例えば、 `` cookiecutter``で既に作成したディストリビューション）を使用するか、少なくとも1つのパッケージやモジュールを持つ新しいディストリビューションを作成してください。ディストリビューション内のどのモジュールでも、引数をとらず、実行するコードを実行する呼び出し可能な関数（通常は関数）を格納する必要があります。</li>
+<li>スクリプト名と配布ファイルに追加した呼び出し可能ファイルを表すドット付きの名前の間のマッピングを作成する配布の `` entry_points``引数に `` [console_scripts] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションを追加してください。</li>
+<li>あなたのディストリビューションを再インストールするには、 `` pip install -e .``または `` pip install .``を実行してください。ディストリビューションを再インストールすると、最後のステップで指定したスクリプトを表すファイルは、ディストリビューションをインストールした仮想環境の `` bin``ディレクトリにあります。実行可能になります。ターミナルから呼び出すと、あなたの呼び出し可能コードが実行されます。</li>
 </ul>
-<p>As an example, let's create some code that can be invoked by a console script
-that prints the deployment settings of a Pyramid application.  To do so, we'll
-pretend you have a distribution with a package in it named <code class="docutils literal notranslate"><span class="pre">myproject</span></code>.
-Within this package, we'll pretend you've added a <code class="docutils literal notranslate"><span class="pre">scripts.py</span></code> module which
-contains the following code:</p>
+<p>例として、Pyramidアプリケーションのデプロイメント設定を出力するコンソールスクリプトによって呼び出されるコードをいくつか作成しましょう。これを行うために、 `` myproject``という名前のパッケージを配布しているようです。このパッケージの中で、次のコードを含む `` scripts.py``モジュールを追加したようです。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -977,14 +779,8 @@ contains the following code:</p>
             <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%-40s</span><span class="s1">     </span><span class="si">%-20s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
-<p>This script uses the Python <code class="docutils literal notranslate"><span class="pre">optparse</span></code> module to allow us to make sense out
-of extra arguments passed to the script.  It uses the
-<a class="reference internal" href="../api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.bootstrap()</span></code></a> function to get information about the
-application defined by a config file, and prints the deployment settings
-defined in that config file.</p>
-<p>After adding this script to the package, you'll need to tell your
-distribution's <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> about its existence.  Within your distribution's
-top-level directory, your <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file will look something like this:</p>
+<p>このスクリプトはPythonの `` optparse``モジュールを使って、スクリプトに渡された余分な引数を理解できるようにします。 ：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.paster.bootstrap`関数を使用して、設定ファイルで定義されたアプリケーションに関する情報を取得し、その設定ファイルに定義されているデプロイメント設定を出力します。</p>
+<p>このスクリプトをパッケージに追加したら、ディストリビューションの `` setup.py``にその存在を伝える必要があります。あなたのディストリビューションのトップレベルディレクトリ内で、 `` setup.py``ファイルは次のようになります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1074,20 +870,13 @@ top-level directory, your <code class="docutils literal notranslate"><span class
       <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>We're going to change the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file to add a <code class="docutils literal notranslate"><span class="pre">[console_scripts]</span></code>
-section within the <code class="docutils literal notranslate"><span class="pre">entry_points</span></code> string. Within this section, you should
-specify a <code class="docutils literal notranslate"><span class="pre">scriptname</span> <span class="pre">=</span> <span class="pre">dotted.path.to:yourfunction</span></code> line.  For example:</p>
+<p>`` setup.py``ファイルを変更して、 `` entry_points``文字列に `` [console_scripts] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションを追加します。このセクションでは、 `` scriptname = dotted.path.to：yourfunction``行を指定する必要があります。例えば：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[console_scripts]</span>
 <span class="na">show_settings</span> <span class="o">=</span> <span class="s">myproject.scripts:settings_show</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">show_settings</span></code> name will be the name of the script that is installed
-into <code class="docutils literal notranslate"><span class="pre">bin</span></code>.  The colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) between <code class="docutils literal notranslate"><span class="pre">myproject.scripts</span></code> and
-<code class="docutils literal notranslate"><span class="pre">settings_show</span></code> above indicates that <code class="docutils literal notranslate"><span class="pre">myproject.scripts</span></code> is a Python
-module, and <code class="docutils literal notranslate"><span class="pre">settings_show</span></code> is the function in that module which contains the
-code you'd like to run as the result of someone invoking the <code class="docutils literal notranslate"><span class="pre">show_settings</span></code>
-script from their command line.</p>
-<p>The result will be something like:</p>
+<p>`` show_settings``の名前は、 `` bin``に​​インストールされているスクリプトの名前になります。上記の `` myproject.scripts``と `` settings_show``のコロン（ <a href="#id1"><span class="problematic" id="id2">``</span></a>： <a href="#id3"><span class="problematic" id="id4">``</span></a>）は `` myproject.scripts``がPythonモジュールであることを示し、 `` settings_show``はそのモジュールの関数ですコマンドラインから `` show_settings``スクリプトを起動した結果として実行したいコードが入っています。</p>
+<p>結果は次のようになります。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1181,15 +970,7 @@ script from their command line.</p>
       <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Once you've done this, invoking <code class="docutils literal notranslate"><span class="pre">$VENV/bin/pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> will install a
-file named <code class="docutils literal notranslate"><span class="pre">show_settings</span></code> into the <code class="docutils literal notranslate"><span class="pre">$somevenv/bin</span></code> directory with a
-small bit of Python code that points to your entry point. It will be
-executable. Running it without any arguments will print an error and exit.
-Running it with a single argument that is the path of a config file will print
-the settings. Running it with an <code class="docutils literal notranslate"><span class="pre">--omit=foo</span></code> argument will omit the settings
-that have keys that start with <code class="docutils literal notranslate"><span class="pre">foo</span></code>. Running it with two &quot;omit&quot; options
-(e.g., <code class="docutils literal notranslate"><span class="pre">--omit=foo</span> <span class="pre">--omit=bar</span></code>) will omit all settings that have keys that
-start with either <code class="docutils literal notranslate"><span class="pre">foo</span></code> or <code class="docutils literal notranslate"><span class="pre">bar</span></code>:</p>
+<p>これをやったら、 `` $ VENV / bin / pip install -e .``を実行すると `` $ somevenv / bin``ディレクトリに `` show_settings``という名前のファイルが小さなPythonコードでインストールされますあなたのエントリーポイントを指しています。実行可能になります。引数なしで実行すると、エラーが出力され、終了します。設定ファイルのパスである1つの引数を指定して実行すると、設定が出力されます。 `` --omit = foo``引数でそれを実行すると、 `` foo``で始まるキーを持つ設定は省略されます。 2つの &amp;quot;省略&amp;quot;オプション（例えば、 `` --omit = foo --omit = bar``）で実行すると、 `` foo``や `` bar``で始まるキーを持つ設定はすべて省略されます。 ：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/show_settings development.ini --omit<span class="o">=</span>pyramid --omit<span class="o">=</span>debugtoolbar
 debug_routematch                             False
 debug_templates                              True
@@ -1203,9 +984,7 @@ reload_assets                                False
 prevent_http_cache                           False
 </pre></div>
 </div>
-<p>Pyramid's <code class="docutils literal notranslate"><span class="pre">pserve</span></code>, <code class="docutils literal notranslate"><span class="pre">pcreate</span></code>, <code class="docutils literal notranslate"><span class="pre">pshell</span></code>, <code class="docutils literal notranslate"><span class="pre">prequest</span></code>, <code class="docutils literal notranslate"><span class="pre">ptweens</span></code>, and
-other <code class="docutils literal notranslate"><span class="pre">p*</span></code> scripts are implemented as console scripts.  When you invoke one
-of those, you are using a console script.</p>
+<p>Pythonの `` pserve``、 `` pcreate``、 `` pshell``、 `` prequest``、 `` ptweens``などの `` p * <a href="#id1"><span class="problematic" id="id2">``</span></a>スクリプトはコンソールスクリプトとして実装されています。そのうちの1つを起動すると、コンソールスクリプトを使用しています。</p>
 </div>
 </div>
 
@@ -1217,36 +996,36 @@ of those, you are using a console script.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Command-Line Pyramid</a><ul>
-<li><a class="reference internal" href="#displaying-matching-views-for-a-given-url">Displaying Matching Views for a Given URL</a></li>
-<li><a class="reference internal" href="#the-interactive-shell">The Interactive Shell</a><ul>
-<li><a class="reference internal" href="#extending-the-shell">Extending the Shell</a></li>
-<li><a class="reference internal" href="#alternative-shells">Alternative Shells</a></li>
-<li><a class="reference internal" href="#setting-a-default-shell">Setting a Default Shell</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) コマンドラインピラミッド</a><ul>
+<li><a class="reference internal" href="#displaying-matching-views-for-a-given-url">指定されたURLの一致するビューの表示</a></li>
+<li><a class="reference internal" href="#the-interactive-shell">インタラクティブシェル</a><ul>
+<li><a class="reference internal" href="#extending-the-shell">シェルの拡張</a></li>
+<li><a class="reference internal" href="#alternative-shells">代替シェル</a></li>
+<li><a class="reference internal" href="#setting-a-default-shell">デフォルトシェルの設定</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#displaying-all-application-routes">Displaying All Application Routes</a></li>
-<li><a class="reference internal" href="#displaying-tweens">Displaying &quot;Tweens&quot;</a></li>
-<li><a class="reference internal" href="#invoking-a-request">Invoking a Request</a></li>
-<li><a class="reference internal" href="#using-custom-arguments-to-python-when-running-p-scripts">Using Custom Arguments to Python when Running <code class="docutils literal notranslate"><span class="pre">p*</span></code> Scripts</a></li>
-<li><a class="reference internal" href="#showing-all-installed-distributions-and-their-versions">Showing All Installed Distributions and Their Versions</a></li>
-<li><a class="reference internal" href="#writing-a-script">Writing a Script</a><ul>
-<li><a class="reference internal" href="#changing-the-request">Changing the Request</a></li>
-<li><a class="reference internal" href="#cleanup">Cleanup</a></li>
-<li><a class="reference internal" href="#setting-up-logging">Setting Up Logging</a></li>
+<li><a class="reference internal" href="#displaying-all-application-routes">すべてのアプリケーションルートの表示</a></li>
+<li><a class="reference internal" href="#displaying-tweens">&amp;quot;Tweens </a></li>
+<li><a class="reference internal" href="#invoking-a-request">リクエストの呼び出し</a></li>
+<li><a class="reference internal" href="#using-custom-arguments-to-python-when-running-p-scripts">`` p * ``スクリプトを実行するときのPythonへのカスタム引数の使用</a></li>
+<li><a class="reference internal" href="#showing-all-installed-distributions-and-their-versions">インストールされているすべてのディストリビューションとそのバージョンの表示</a></li>
+<li><a class="reference internal" href="#writing-a-script">スクリプトを書く</a><ul>
+<li><a class="reference internal" href="#changing-the-request">リクエストの変更</a></li>
+<li><a class="reference internal" href="#cleanup">掃除</a></li>
+<li><a class="reference internal" href="#setting-up-logging">ロギングの設定</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#making-your-script-into-a-console-script">Making Your Script into a Console Script</a></li>
+<li><a class="reference internal" href="#making-your-script-into-a-console-script">スクリプトをコンソールスクリプトにする</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="paste.html"
-                        title="前の章へ">PasteDeploy Configuration Files</a></p>
+                        title="前の章へ">(機械翻訳) PasteDeploy設定ファイル</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="i18n.html"
-                        title="次の章へ">Internationalization and Localization</a></p>
+                        title="次の章へ">(機械翻訳) 国際化とローカリゼーション</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -1280,17 +1059,17 @@ of those, you are using a console script.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="i18n.html" title="Internationalization and Localization"
+          <a href="i18n.html" title="(機械翻訳) 国際化とローカリゼーション"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="paste.html" title="PasteDeploy Configuration Files"
+          <a href="paste.html" title="(機械翻訳) PasteDeploy設定ファイル"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

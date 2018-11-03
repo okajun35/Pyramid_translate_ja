@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/resources.rst:4
 msgid "Resources"
-msgstr ""
+msgstr "(機械翻訳) リソース"
 
 #: ../../narr/resources.rst:6
 msgid ""
@@ -31,7 +21,7 @@ msgid ""
 "root resource is the root of a :term:`resource tree`.  A resource tree is"
 " a set of nested dictionary-like objects which you can use to represent "
 "your website's structure."
-msgstr ""
+msgstr "A：term： `resource`は、アプリケーションに関連するツリー内の\&quot;場所\ &quot;を表すオブジェクトです。 Every：app： `Pyramid`アプリケーションは、少なくとも一つのリソースオブジェクトを持っています：：term：` root`リソース。 rootリソースを手動で定義しなくても、デフォルトのものが作成されます。 rootリソースは：term： `resource tree`のルートです。リソースツリーは、ネストされた辞書的なオブジェクトのセットで、これを使用してWebサイトの構造を表現できます。"
 
 #: ../../narr/resources.rst:13
 msgid ""
@@ -42,7 +32,7 @@ msgid ""
 "structure in order to find a :term:`context` resource.  Once a context "
 "resource is found, the context resource and data in the request will be "
 "used to find a :term:`view callable`."
-msgstr ""
+msgstr "：term： `traversal`を使用してURLをコードにマッピングするアプリケーションでは、リソースツリー構造は各URLを：term：` view callable`にマップするために非常に使用されます。 ：term： `traversal`が使われるとき、：app：` Pyramid`は：term： `context`リソースを見つけるために、ネストされた辞書構造をたどってリソースツリーを歩きます。コンテキストリソースが見つかると、要求の中のコンテキストリソースとデータを使用して：term： `view callable`が検索されます。"
 
 #: ../../narr/resources.rst:21
 msgid ""
@@ -53,7 +43,7 @@ msgid ""
 "security declarations attached to it, but is not required to have any.  "
 "In general, the resource tree is much less important in applications that"
 " use URL dispatch than applications that use traversal."
-msgstr ""
+msgstr "term： `URL dispatch`を使用するアプリケーションでは、リソースツリーは間接的にのみ使用され、しばしば開発者にとっては「見えない」ものです。 URLディスパッチアプリケーションでは、リソース &quot;ツリー&quot;はしばしばルートリソースだけで構成されます。このルートリソースには、セキュリティ宣言が添付されていることがありますが、必須ではありません。一般に、リソースツリーは、トラバーサルを使用するアプリケーションよりもURLディスパッチを使用するアプリケーションで重要性が低くなります。"
 
 #: ../../narr/resources.rst:29
 msgid ""
@@ -62,11 +52,11 @@ msgid ""
 "persistent data. In these kinds of applications, resources not only "
 "represent the site structure of your website, but they become the "
 ":term:`domain model` of the application."
-msgstr ""
+msgstr "\ &quot;Zope-like \&quot;：app： `Pyramid`アプリケーションでは、リソースオブジェクトはしばしば永続的にデータを格納し、永続データの変更に関連するメソッドを提供します。この種のアプリケーションでは、リソースはWebサイトのサイト構造を表すだけでなく、アプリケーションの用語： `ドメインモデル &#39;になります。"
 
 #: ../../narr/resources.rst:34
 msgid "Also:"
-msgstr ""
+msgstr "また、"
 
 #: ../../narr/resources.rst:36
 msgid ""
@@ -74,28 +64,28 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.add_view` (or a "
 ":func:`~pyramid.view.view_config` decorator) reference a resource class "
 "or resource :term:`interface`."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_view`（またはa：func：`〜pyramid.view.view_config`デコレータ）は、リソースクラスまたはリソースを参照します。 ：term： `インタフェース`。"
 
 #: ../../narr/resources.rst:41
 msgid "A :term:`root factory` returns a resource."
-msgstr ""
+msgstr "A：term： `root factory`はリソースを返します。"
 
 #: ../../narr/resources.rst:43
 msgid ""
 "A resource is exposed to :term:`view` code as the :term:`context` of a "
 "view."
-msgstr ""
+msgstr "リソースは、ビューのterm： `context`：term：` view`コードに公開されます。"
 
 #: ../../narr/resources.rst:45
 msgid ""
 "Various helpful :app:`Pyramid` API methods expect a resource as an "
 "argument (e.g., :meth:`~pyramid.request.Request.resource_url` and "
 "others)."
-msgstr ""
+msgstr "さまざまな有用な：app： `Pyramid` APIメソッドはリソースを引数として期待します（例：：meth：`〜pyramid.request.Request.resource_url`など）。"
 
 #: ../../narr/resources.rst:56
 msgid "Defining a Resource Tree"
-msgstr ""
+msgstr "リソースツリーの定義"
 
 #: ../../narr/resources.rst:58
 msgid ""
@@ -106,7 +96,7 @@ msgid ""
 "recursively, trying each resource's ``__getitem__`` method to resolve a "
 "path segment to another resource object. :app:`Pyramid` imposes the "
 "following policy on resource instances in the tree:"
-msgstr ""
+msgstr "：term： `traversal`が（純粋に：term：` URLディスパッチ `ベースのアプリケーションとは対照的に）使用されるとき、：app：` Pyramid`は、リソースで構成される木をトラバースできることを期待していますツリー）。トラバーサルはルート・リソースから始まり、再帰的にツリーに下がり、各リソースの `` __getitem__``メソッドを試して、パス・セグメントを別のリソース・オブジェクトに解決します。 ：app： `Pyramid`はツリー内のリソースインスタンスに以下のポリシーを課します："
 
 #: ../../narr/resources.rst:65
 msgid ""
@@ -117,24 +107,24 @@ msgid ""
 "container resource must raise a :exc:`KeyError`.  If a sub-resource by "
 "that name *does* exist, the container's ``__getitem__`` should return the"
 " sub-resource."
-msgstr ""
+msgstr "コンテナリソース（他のリソースを含むリソース）は、ユニコード名をサブリソースに解決しようとする `` __getitem__``メソッドを提供しなければなりません。特定の名前のサブリソースがコンテナリソースに存在しない場合、コンテナリソースの `` __getitem__``メソッドは：exc： `KeyError`を送出する必要があります。その名前のサブリソース*が存在する場合、コンテナの `` __getitem__``はサブリソースを返すべきです。"
 
 #: ../../narr/resources.rst:72
 msgid ""
 "Leaf resources, which do not contain other resources, must not implement "
 "a ``__getitem__``, or if they do, their ``__getitem__`` method must "
 "always raise a :exc:`KeyError`."
-msgstr ""
+msgstr "他のリソースを持たないリーフリソースは、 `` __getitem__``を実装してはいけません。あるいは、 `` __getitem__``メソッドは常に：exc： `KeyError`を生成しなければなりません。"
 
 #: ../../narr/resources.rst:76
 msgid ""
 "See :ref:`traversal_chapter` for more information about how traversal "
 "works against resource instances."
-msgstr ""
+msgstr "トラバーサルがリソースインスタンスに対してどのように動作するかについては、：ref： `traversal_chapter`を参照してください。"
 
 #: ../../narr/resources.rst:79
 msgid "Here's a sample resource tree, represented by a variable named ``root``:"
-msgstr ""
+msgstr "次に、 `` root``という名前の変数で表されるリソースツリーの例を示します。"
 
 #: ../../narr/resources.rst:89
 msgid ""
@@ -143,14 +133,14 @@ msgid ""
 "single child named ``'b'``, and ``'b'`` has a single child named ``'c'``,"
 " which has no children. It is therefore possible to access the ``'c'`` "
 "leaf resource like so:"
-msgstr ""
+msgstr "上記で作成したリソースツリーは、 `` &#39;a``という名前の単一の子を持つ辞書的なルートオブジェクトによって表されます。 `` a&#39;``には `` b&#39;``という名前の単一の子があり、 `` b&#39;``には子を持たない `` c&#39;``という名前の単一の子があります。したがって、 `` &#39;c&#39; `葉資源にアクセスすることは可能です："
 
 #: ../../narr/resources.rst:99
 msgid ""
 "If you returned the above ``root`` object from a :term:`root factory`, "
 "the path ``/a/b/c`` would find the ``'c'`` object in the resource tree as"
 " the result of :term:`traversal`."
-msgstr ""
+msgstr "上記の `` root``オブジェクトを：term： `ルートファクトリ`から返すと、パス `` / a / b / c``はリソースツリーの `` c&#39;``オブジェクトをの結果：term： `traversal`"
 
 #: ../../narr/resources.rst:103
 msgid ""
@@ -159,7 +149,7 @@ msgid ""
 "type. We used a single class to represent all resources in the tree for "
 "the sake of simplicity, but in a \"real\" app, the resources in the tree "
 "can be arbitrary."
-msgstr ""
+msgstr "この例では、ツリー内の各リソースは同じクラスです。これは要件ではありません。ツリー内のリソース要素は任意のタイプでよい。簡単にするために、ツリー内のすべてのリソースを表すために単一のクラスを使用しましたが、実際のアプリケーションでは、ツリー内のリソースは任意です。"
 
 #: ../../narr/resources.rst:108
 msgid ""
@@ -169,11 +159,11 @@ msgid ""
 "built-in :app:`Pyramid` API facilities, your resources should be "
 "\"location-aware\". The next section details how to make resources "
 "location-aware."
-msgstr ""
+msgstr "上の例のツリーはトラバーサルを処理できますが、上の例のリソースインスタンスは：term： `location`を認識していないので、\&quot;実\ &quot;アプリケーションでのそれらのユーティリティは制限されています。組み込み：app： `Pyramid` API機能を最大限に活用するには、リソースを「位置認識」する必要があります。次のセクションでは、リソースに位置を認識させる方法を詳しく説明します。"
 
 #: ../../narr/resources.rst:120
 msgid "Location-Aware Resources"
-msgstr ""
+msgstr "位置認識リソース"
 
 #: ../../narr/resources.rst:122
 msgid ""
@@ -181,7 +171,7 @@ msgid ""
 "and traversal APIs to work properly against the resources in a resource "
 "tree, all resources in the tree must be :term:`location`-aware.  This "
 "means they must have two attributes: ``__parent__`` and ``__name__``."
-msgstr ""
+msgstr "特定の：app： `Pyramid`の場所、セキュリティ、URL生成、およびトラバーサルAPIがリソースツリー内のリソースに対して適切に動作するためには、ツリー内のすべてのリソースがterm：` location`を意識していなければなりません。つまり、 `` __parent__``と `` __name__``という2つの属性を持たなければなりません。"
 
 #: ../../narr/resources.rst:127
 msgid ""
@@ -189,13 +179,13 @@ msgid ""
 "reference to the resource's parent resource instance in the tree.  The "
 "``__name__`` attribute should be the name with which a resource's parent "
 "refers to the resource via ``__getitem__``."
-msgstr ""
+msgstr "ロケーション認識リソースの `` __parent__``属性は、ツリー内のリソースの親リソースインスタンスへの参照である必要があります。 `` __name__``属性は、リソースの親が `` __getitem__``を介してリソースを参照する名前でなければなりません。"
 
 #: ../../narr/resources.rst:132
 msgid ""
 "The ``__parent__`` of the root resource should be ``None`` and its "
 "``__name__`` should be the empty string.  For instance:"
-msgstr ""
+msgstr "ルートリソースの `` __parent__``は `` None``で、 `` __name__``は空の文字列でなければなりません。例えば："
 
 #: ../../narr/resources.rst:142
 msgid ""
@@ -209,7 +199,7 @@ msgid ""
 "that matches the name by which they are retrieved from the container via "
 "``__getitem__``.  This pattern continues recursively \"up\" the tree from"
 " the root."
-msgstr ""
+msgstr "ルートリソースの `` __getitem__``メソッドから返されるリソースは、ルートリソースへの参照である `` __parent__``属性を持ち、 `` __name__``属性は、そのリソースを経由して到達可能な名前と一致する必要がありますrootリソースの `` __getitem__``です。ルートリソース内のコンテナリソースには、コンテナを指す `` __parent__``属性を持つリソースを返す `` __getitem__``が必要です。これらのサブオブジェクトには、名前に一致する `` __name__``属性が必要ですそれによって、コンテナから `` __getitem__``を介して取得されます。このパターンはルートからツリーを再帰的に\ &quot;上に\&quot;続けます。"
 
 #: ../../narr/resources.rst:152
 msgid ""
@@ -219,7 +209,7 @@ msgid ""
 "from any resource in the resource tree, you will eventually come to the "
 "root resource, just like if you keep executing the ``cd ..`` filesystem "
 "command, eventually you will reach the filesystem root directory."
-msgstr ""
+msgstr "各リソースの `` __parent__``属性はルートに向かって\ &quot;下向き\&quot;を指すリンクリストを形成します。これはファイルシステムディレクトリの `` ..``エントリに似ています。リソースツリー内の任意のリソースから `` __parent__``の値に従えば、 `` cd ..``ファイルシステムコマンドを実行し続けるのと同じように、最終的にはルートリソースに来るでしょう。ルートディレクトリ。"
 
 #: ../../narr/resources.rst:161
 msgid ""
@@ -231,17 +221,17 @@ msgid ""
 "improperly.  The value of ``__name__`` will be prepended to every path "
 "and URL generated (as opposed to a single leading slash or empty tuple "
 "element)."
-msgstr ""
+msgstr "あなたのルートリソースが `` None``や空文字列でない `` __name__``引数を持っている場合、：func： `〜pyramid.request.Request.resource_url`関数によって返されたURLと： func： `〜pyramid.traversal.resource_path`と：func：`〜pyramid.traversal.resource_path_tuple` APIが正しく生成されません。 `` __name__``の値は、すべてのパスと生成されたURLの前に付加されます（単一の先頭のスラッシュまたは空のタプル要素とは対照的に）。"
 
 msgid "For your convenience"
-msgstr ""
+msgstr "あなたの便宜のために"
 
 #: ../../narr/resources.rst:171
 msgid ""
 "If you'd rather not manage the ``__name__`` and ``__parent__`` attributes"
 " of your resources \"by hand\", an add-on package named "
 ":mod:`pyramid_traversalwrapper` can help."
-msgstr ""
+msgstr "あなたのリソースの `` __name__``と `` __parent__``属性を手動で管理したくない場合は、mod： `pyramid_traversalwrapper`というアドオンパッケージが役に立ちます。"
 
 #: ../../narr/resources.rst:175
 msgid ""
@@ -250,7 +240,7 @@ msgid ""
 "register its ``ModelGraphTraverser`` as the traversal policy, rather than"
 " the default :app:`Pyramid` traverser. The package contains instructions "
 "for doing so."
-msgstr ""
+msgstr "このヘルパー機能を使用するには、まず：mod： `pyramid_traversalwrapper`パッケージ（PyPI経由で入手可能）をインストールし、デフォルト：app：` Pyramid`トラバーサではなくトラバーサルポリシーとして `` ModelGraphTraverser``を登録する必要があります。パッケージには、そうするための指示が含まれています。"
 
 #: ../../narr/resources.rst:180
 msgid ""
@@ -263,7 +253,7 @@ msgid ""
 "resource and the name supplied to ``__getitem__``.  The root resource "
 "will have a ``__name__`` attribute of ``None`` and a ``__parent__`` "
 "attribute of ``None``."
-msgstr ""
+msgstr "一度：app： `Pyramid`がこの機能で設定されると、リソースオブジェクト\&quot;手で\ &quot;で` `__parent__``と` `__name__``属性を管理する必要はなくなります。代わりに、必要に応じて、：app： `Pyramid`は、` `__name__``と` `__parent__``を動的に割り当てる` `LocationProxy``に各リソース（ルートリソースさえ）をラップします最後に走査されたリソースと `` __getitem__``に与えられた名前に基づいています。ルートリソースは `` None``の `` __name__``属性と `` None``の `` __parent__``属性を持ちます。"
 
 #: ../../narr/resources.rst:189
 msgid ""
@@ -279,18 +269,18 @@ msgid ""
 ":func:`~pyramid.traversal.virtual_root`, and (usually) "
 ":meth:`~pyramid.request.Request.has_permission` and "
 ":func:`~pyramid.security.principals_allowed_by_permission`."
-msgstr ""
+msgstr "tree-walking：app： `Pyramid` APIを使用するアプリケーションは、位置認識のリソースを必要とします。これらのAPIには、meth： `〜pyramid.request.Request.resource_url`、：func：`〜pyramid.traversal.find_resource`、：func： `〜pyramid.traversal.find_root`、：func（これらに限定されません） ：func： `〜pyramid.traversal.find_interface`、：func：`〜pyramid.traversal.resource_path`、：func： `〜pyramid.traversal.resource_path_tuple`、：func：`〜pyramid.traversal.traverse`、：func： ` 〜pyramid.traversal.virtual_root`、および（通常）：meth： `〜pyramid.request.Request.has_permission`と：func：`〜pyramid.security.principals_allowed_by_permission`のようになります。"
 
 #: ../../narr/resources.rst:200
 msgid ""
 "In general, since so much :app:`Pyramid` infrastructure depends on "
 "location-aware resources, it's a good idea to make each resource in your "
 "tree location-aware."
-msgstr ""
+msgstr "一般的に、app： `Pyramid`インフラストラクチャは位置認識リソースに依存するので、ツリー内の各リソースを位置認識できるようにすることをお勧めします。"
 
 #: ../../narr/resources.rst:211
 msgid "Generating the URL of a Resource"
-msgstr ""
+msgstr "リソースのURLの生成"
 
 #: ../../narr/resources.rst:213
 msgid ""
@@ -302,19 +292,19 @@ msgid ""
 "host, port, and path.  You can also pass extra arguments to "
 ":meth:`~pyramid.request.Request.resource_url` to influence the generated "
 "URL."
-msgstr ""
+msgstr "あなたのリソースが：term： `location`を意識しているなら、：meth：` pyramid.request.Request.resource_url` APIを使ってリソースのURLを生成することができます。このURLは、親ツリー内のリソースの位置を使用してリソースパスを作成し、現在のアプリケーションURLをパスの先頭に付けて、スキーム、ホスト、ポート、およびパスで完全修飾URLを形成します。 ：meth： `〜pyramid.request.Request.resource_url`に追加の引数を渡して、生成されたURLに影響を与えることもできます。"
 
 #: ../../narr/resources.rst:221
 msgid ""
 "The simplest call to :meth:`~pyramid.request.Request.resource_url` looks "
 "like this:"
-msgstr ""
+msgstr "最も単純な：meth： `〜pyramid.request.Request.resource_url`の呼び出しは次のようになります："
 
 #: ../../narr/resources.rst:229
 msgid ""
 "The ``request`` in the above example is an instance of a :app:`Pyramid` "
 ":term:`request` object."
-msgstr ""
+msgstr "上の例の `` request``は、：app： `Pyramid`：term：` request`オブジェクトのインスタンスです。"
 
 #: ../../narr/resources.rst:232
 msgid ""
@@ -323,7 +313,7 @@ msgid ""
 "``example.com``, the URL generated would be ``http://example.com/``. "
 "However, if the resource was a child of the root resource named ``a``, "
 "the generated URL would be ``http://example.com/a/``."
-msgstr ""
+msgstr "上の例で `` resource``と呼ばれるリソースがルートリソースで、サーバとの接続に使用されたホストが `` example.com``だった場合、生成されるURLは `` http：// example.com / ``しかし、リソースが `` a``という名前のルートリソースの子であった場合、生成されるURLは `` http：// example.com / a / ``になります。"
 
 #: ../../narr/resources.rst:238
 msgid ""
@@ -334,13 +324,13 @@ msgid ""
 "you include on HTML pages rendered as the result of the default view of a"
 " resource are more apt to be relative to these resources than relative to"
 " their parent."
-msgstr ""
+msgstr "リソースが階層の\ &quot;場所\&quot;であり、URLが意図されているので、：meth： `〜pyramid.request.Request.resource_url`がこの単純な方法でそれらを生成するために使用されるとき、すべてのリソースURLにスラッシュが追加されますクリックして訪問する。リソースのデフォルトビューの結果としてレンダリングされるHTMLページに含める相対URLは、親に対する相対URLよりも相対的に相対的にリソースに関連しています。"
 
 #: ../../narr/resources.rst:245
 msgid ""
 "You can also pass extra elements to "
 ":meth:`~pyramid.request.Request.resource_url`:"
-msgstr ""
+msgstr "余分な要素を渡すこともできます：meth： `〜pyramid.request.Request.resource_url`："
 
 #: ../../narr/resources.rst:253
 msgid ""
@@ -352,18 +342,18 @@ msgid ""
 "positional arguments. When extra elements are passed, they are appended "
 "to the resource's URL.  A slash is not appended to the final segment when"
 " elements are passed."
-msgstr ""
+msgstr "上の例で `` resource``と呼ばれるリソースがルートリソースで、サーバとの接続に使用されたホストが `` example.com``だった場合、生成されるURLは `` http：// example.com / foo / bar``を実行します。特別な位置引数として、任意の数の余分な要素を：meth： `〜pyramid.request.Request.resource_url`に渡すことができます。余分な要素が渡されると、リソースのURLに追加されます。要素が渡されると、最後のセグメントにスラッシュが追加されません。"
 
 #: ../../narr/resources.rst:261
 msgid "You can also pass a query string:"
-msgstr ""
+msgstr "クエリ文字列を渡すこともできます："
 
 #: ../../narr/resources.rst:268
 msgid ""
 "If the resource referred to as ``resource`` in the above example was the "
 "root resource, and the host that was used to contact the server was "
 "``example.com``, the URL generated would be ``http://example.com/?a=1``."
-msgstr ""
+msgstr "上の例で `` resource``と呼ばれるリソースがルートリソースで、サーバとの接続に使用されたホストが `` example.com``だった場合、生成されるURLは `` http：// example.com/？a = 1``。"
 
 #: ../../narr/resources.rst:272
 msgid ""
@@ -371,17 +361,17 @@ msgid ""
 ":meth:`~pyramid.request.Request.resource_url` for a resource may be "
 "\"shorter\" than its physical tree path.  See :ref:`virtual_root_support`"
 " for more information about virtually rooting a resource."
-msgstr ""
+msgstr "a：term： `virtual root`がアクティブな場合、リソースの：meth：`〜pyramid.request.Request.resource_url`で生成されたURLは、その物理的なツリーパスよりも &quot;短く&quot;なります。仮想的にリソースを根絶することについての詳細は、：ref： `virtual_root_support`を参照してください。"
 
 #: ../../narr/resources.rst:277
 msgid ""
 "For more information about generating resource URLs, see the "
 "documentation for :meth:`pyramid.request.Request.resource_url`."
-msgstr ""
+msgstr "リソースURLの生成の詳細については、：meth： `pyramid.request.Request.resource_url`のドキュメントを参照してください。"
 
 #: ../../narr/resources.rst:286
 msgid "Overriding Resource URL Generation"
-msgstr ""
+msgstr "リソースURL生成のオーバーライド"
 
 #: ../../narr/resources.rst:288
 msgid ""
@@ -390,7 +380,7 @@ msgid ""
 "is called to generate a URL for the resource, overriding the default URL "
 "returned for the resource by "
 ":meth:`~pyramid.request.Request.resource_url`."
-msgstr ""
+msgstr "リソースオブジェクトが `` __resource_url__``メソッドを実装している場合、このメソッドは：meth： `〜pyramid.request.Request.resource_url`が呼び出され、リソースのURLを生成し、リソースに対して返されるデフォルトのURLをオーバーライドしますby：meth： `〜pyramid.request.Request.resource_url`。"
 
 #: ../../narr/resources.rst:293
 msgid ""
@@ -398,22 +388,22 @@ msgid ""
 "``info``.  ``request`` is the :term:`request` object passed to "
 ":meth:`~pyramid.request.Request.resource_url`.  ``info`` is a dictionary "
 "with the following keys:"
-msgstr ""
+msgstr "`` __resource_url__``フックには、 `` request``と `` info``という2つの引数が渡されます。 `` request``は：meth： `〜pyramid.request.Request.resource_url`に渡される：term：` request`オブジェクトです。 `` info``は以下のキーを持つ辞書です："
 
 #: ../../narr/resources.rst:301
 msgid "``physical_path``"
-msgstr ""
+msgstr "`` physical_path``"
 
 #: ../../narr/resources.rst:299
 msgid ""
 "A string representing the \"physical path\" computed for the resource, as"
 " defined by ``pyramid.traversal.resource_path(resource)``.  It will begin"
 " and end with a slash."
-msgstr ""
+msgstr "`` pyramid.traversal.resource_path（resource） ``で定義されている、リソースに対して計算された\ &quot;物理パス\&quot;を表す文字列。それはスラッシュで始まり、スラッシュで終わります。"
 
 #: ../../narr/resources.rst:307
 msgid "``virtual_path``"
-msgstr ""
+msgstr "`` virtual_path``"
 
 #: ../../narr/resources.rst:304
 msgid ""
@@ -421,11 +411,11 @@ msgid ""
 "defined by :ref:`virtual_root_support`.  This will be identical to the "
 "physical path if virtual rooting is not enabled.  It will begin and end "
 "with a slash."
-msgstr ""
+msgstr "：ref： `virtual_root_support`で定義されているように、リソースに対して計算された\&quot;仮想パス\ &quot;を表す文字列。仮想ルートが有効になっていない場合、これは物理パスと同じです。それはスラッシュで始まり、スラッシュで終わります。"
 
 #: ../../narr/resources.rst:314
 msgid "``app_url``"
-msgstr ""
+msgstr "`` app_url``"
 
 #: ../../narr/resources.rst:310
 msgid ""
@@ -435,18 +425,18 @@ msgid ""
 " host and port information passed by the user to "
 "``request.resource_url``.  It should be preferred over use of "
 "``request.application_url``."
-msgstr ""
+msgstr "`` request.resource_url``の間に生成されたアプリケーションURLを表す文字列です。スラッシュで終わることはありません。これは潜在的にカスタマイズされたURLプレフィックスを表し、ユーザーが `` request.resource_url``に渡す可能性のあるカスタムスキーム、ホスト、ポート情報を含みます。 `` request.application_url``の使用よりも優先すべきです。"
 
 #: ../../narr/resources.rst:316
 msgid ""
 "The ``__resource_url__`` method of a resource should return a string "
 "representing a URL.  If it cannot override the default, it should return "
 "``None``.  If it returns ``None``, the default URL will be returned."
-msgstr ""
+msgstr "リソースの `` __resource_url__``メソッドは、URLを表す文字列を返さなければなりません。デフォルトを上書きできない場合は `` None``を返します。 `` None``を返すと、デフォルトのURLが返されます。"
 
 #: ../../narr/resources.rst:320
 msgid "Here's an example ``__resource_url__`` method."
-msgstr ""
+msgstr "次に、 `` __resource_url__``メソッドの例を示します。"
 
 #: ../../narr/resources.rst:329
 msgid ""
@@ -455,7 +445,7 @@ msgid ""
 "machinery, but your code can perform arbitrary logic as necessary.  For "
 "example, your code may wish to override the hostname or port number of "
 "the generated URL."
-msgstr ""
+msgstr "上の例は実際には、デフォルトの `` resource_url``機構によって生成されたデフォルトURLを生成して返しますが、コードは必要に応じて任意のロジックを実行できます。たとえば、コードで生成されたURLのホスト名またはポート番号を上書きすることができます。"
 
 #: ../../narr/resources.rst:334
 msgid ""
@@ -463,11 +453,11 @@ msgid ""
 "qualified, should end in a slash, and should not contain any query string"
 " or anchor elements (only path elements) to work with "
 ":meth:`~pyramid.request.Request.resource_url`."
-msgstr ""
+msgstr "`` __resource_url__``で生成されたURLは完全修飾でなければならず、スラッシュで終わっていて、クエリー文字列やアンカー要素（パス要素のみ）を含めてはいけません：meth： `〜pyramid.request.Request .resource_url`。"
 
 #: ../../narr/resources.rst:343
 msgid "Generating the Path To a Resource"
-msgstr ""
+msgstr "リソースへのパスの生成"
 
 #: ../../narr/resources.rst:345
 msgid ""
@@ -475,104 +465,104 @@ msgid ""
 "representing the absolute physical path of the resource object based on "
 "its position in the resource tree.  Each segment of the path is separated"
 " with a slash character."
-msgstr ""
+msgstr "：func： `pyramid.traversal.resource_path`は、リソースツリー内の位置に基づいて、リソースオブジェクトの絶対的な物理パスを表す文字列オブジェクトを返します。パスの各セグメントはスラッシュ文字で区切られています。"
 
 #: ../../narr/resources.rst:355
 msgid ""
 "If ``resource`` in the example above was accessible in the tree as "
 "``root['a']['b']``, the above example would generate the string ``/a/b``."
-msgstr ""
+msgstr "上記の例の `` resource``が `` root [&#39;a&#39;] [&#39;b&#39;] ``としてツリーにアクセス可能であった場合、上の例は文字列 `` / a / b``を生成します。"
 
 #: ../../narr/resources.rst:358
 msgid ""
 "Any positional arguments passed in to "
 ":func:`~pyramid.traversal.resource_path` will be appended as path "
 "segments to the end of the resource path."
-msgstr ""
+msgstr "：func： `〜pyramid.traversal.resource_path`に渡された位置引数は、パスのセグメントとしてリソースパスの末尾に追加されます。"
 
 #: ../../narr/resources.rst:367
 msgid ""
 "If ``resource`` in the example above was accessible in the tree as "
 "``root['a']['b']``, the above example would generate the string "
 "``/a/b/foo/bar``."
-msgstr ""
+msgstr "上記の例の `` resource``が `` root [&#39;a&#39;] [&#39;b&#39;] ``としてツリー内でアクセス可能であった場合、上記の例では文字列 `` / a / b / foo / bar` `。"
 
 #: ../../narr/resources.rst:371
 msgid "The resource passed in must be :term:`location`-aware."
-msgstr ""
+msgstr "渡されるリソースは、term： `location`-awareでなければなりません。"
 
 #: ../../narr/resources.rst:373
 msgid ""
 "The presence or absence of a :term:`virtual root` has no impact on the "
 "behavior of :func:`~pyramid.traversal.resource_path`."
-msgstr ""
+msgstr "a：term： `virtual root`の有無は：func：`〜pyramid.traversal.resource_path`の動作に影響しません。"
 
 #: ../../narr/resources.rst:380
 msgid "Finding a Resource by Path"
-msgstr ""
+msgstr "パスによるリソースの検索"
 
 #: ../../narr/resources.rst:382
 msgid ""
 "If you have a string path to a resource, you can grab the resource from "
 "that place in the application's resource tree using "
 ":func:`pyramid.traversal.find_resource`."
-msgstr ""
+msgstr "リソースへの文字列パスがある場合は、func： `pyramid.traversal.find_resource`を使用して、アプリケーションのリソースツリーのその場所からリソースを取得できます。"
 
 #: ../../narr/resources.rst:386
 msgid ""
 "You can resolve an absolute path by passing a string prefixed with a "
 "``/`` as the ``path`` argument:"
-msgstr ""
+msgstr "絶対パスを解決するには、 `` / ``で始まる文字列を `` path``引数として渡します："
 
 #: ../../narr/resources.rst:395
 msgid ""
 "Or you can resolve a path relative to the resource that you pass in to "
 ":func:`pyramid.traversal.find_resource` by passing a string that isn't "
 "prefixed by ``/``:"
-msgstr ""
+msgstr "あるいは、 `` / ``を前置しない文字列を渡して：func： `pyramid.traversal.find_resource`に渡すリソースに関連するパスを解決することができます："
 
 #: ../../narr/resources.rst:405
 msgid ""
 "Often the paths you pass to :func:`~pyramid.traversal.find_resource` are "
 "generated by the :func:`~pyramid.traversal.resource_path` API.  These "
 "APIs are \"mirrors\" of each other."
-msgstr ""
+msgstr "func： `〜pyramid.traversal.find_resource`は、：func：`〜pyramid.traversal.resource_path` APIによって生成されることがよくあります。これらのAPIはお互いの「ミラー」です。"
 
 #: ../../narr/resources.rst:409
 msgid ""
 "If the path cannot be resolved when calling "
 ":func:`~pyramid.traversal.find_resource` (if the respective resource in "
 "the tree does not exist), a :exc:`KeyError` will be raised."
-msgstr ""
+msgstr "：func： `〜pyramid.traversal.find_resource`（ツリー内のそれぞれのリソースが存在しない場合）を呼び出すときにパスを解決できない場合、a：exc：` KeyError`が送出されます。"
 
 #: ../../narr/resources.rst:413
 msgid ""
 "See the :func:`pyramid.traversal.find_resource` documentation for more "
 "information about resolving a path to a resource."
-msgstr ""
+msgstr "リソースへのパスを解決する方法の詳細については、：func： `pyramid.traversal.find_resource`のドキュメントを参照してください。"
 
 #: ../../narr/resources.rst:420
 msgid "Obtaining the Lineage of a Resource"
-msgstr ""
+msgstr "リソースの系統を取得する"
 
 #: ../../narr/resources.rst:422
 msgid ""
 ":func:`pyramid.location.lineage` returns a generator representing the "
 ":term:`lineage` of the :term:`location`-aware :term:`resource` object."
-msgstr ""
+msgstr "：func： `pyramid.location.lineage`：term：` location`-aware：term： `resource`オブジェクトの：term：` lineage`を表すジェネレータを返します。"
 
 #: ../../narr/resources.rst:425
 msgid ""
 "The :func:`~pyramid.location.lineage` function returns the resource that "
 "is passed into it, then each parent of the resource in order.  For "
 "example, if the resource tree is composed like so:"
-msgstr ""
+msgstr "：func： `〜pyramid.location.lineage`関数は、それに渡されたリソースを返し、次にリソースの各親を順番に返します。たとえば、リソースツリーが次のように構成されているとします。"
 
 #: ../../narr/resources.rst:438
 msgid ""
 "Calling ``lineage(thing2)`` will return a generator.  When we turn it "
 "into a list, we will get:"
-msgstr ""
+msgstr "`` lineage（thing2） `&#39;を呼び出すとジェネレータが返されます。リストにすると、次のようになります："
 
 #: ../../narr/resources.rst:447
 msgid ""
@@ -583,27 +573,27 @@ msgid ""
 "``__parent__`` attribute, it will return that resource's parent, and so "
 "on, until the resource being inspected either has no ``__parent__`` "
 "attribute or has a ``__parent__`` attribute of ``None``."
-msgstr ""
+msgstr "：func： `〜pyramid.location.lineage`によって返されたジェネレータは、最初に渡されたリソースを無条件で返します。次に、リソースが `` __parent__``属性を与えた場合、 `` resource .__ parent__``で表されるリソースを返します。 *そのリソースが `` __parent__``属性を持つ場合、検査対象リソースに `` __parent__``属性がないか、 `` __parent__``属性が `` __parent__``属性になるまで、そのリソースの親を返します。 「なし」。"
 
 #: ../../narr/resources.rst:455
 msgid ""
 "See the documentation for :func:`pyramid.location.lineage` for more "
 "information."
-msgstr ""
+msgstr "詳細については、func： `pyramid.location.lineage`のドキュメントを参照してください。"
 
 #: ../../narr/resources.rst:459
 msgid "Determining if a Resource is in the Lineage of Another Resource"
-msgstr ""
+msgstr "リソースが別のリソースのリネージにあるかどうかの判断"
 
 #: ../../narr/resources.rst:461
 msgid ""
 "Use the :func:`pyramid.location.inside` function to determine if one "
 "resource is in the :term:`lineage` of another resource."
-msgstr ""
+msgstr "：func： `pyramid.location.inside`関数を使用して、あるリソースが別のリソースの：term：` lineage`にあるかどうかを判断します。"
 
 #: ../../narr/resources.rst:464 ../../narr/resources.rst:498
 msgid "For example, if the resource tree is:"
-msgstr ""
+msgstr "たとえば、リソースツリーが以下の場合："
 
 #: ../../narr/resources.rst:475
 msgid ""
@@ -611,7 +601,7 @@ msgid ""
 "lineage that includes ``a``.  However, calling ``inside(a, b)`` will "
 "return ``False`` because ``a`` does not have a lineage that includes "
 "``b``."
-msgstr ""
+msgstr "`` inside（b、a） `を呼び出すと` `True``が返されます。` `b``には` `a``を含む系統があるからです。しかし、 `` inside（a、b） `&#39;を呼び出すと、` `a``に` `b``を含む系統がないので` `False``を返します。"
 
 #: ../../narr/resources.rst:479
 msgid ""
@@ -620,15 +610,15 @@ msgid ""
 " is a :term:`lineage` ancestor of ``resource1``.  It is a lineage "
 "ancestor if its parent (or one of its parent's parents, etc.) is an "
 "ancestor."
-msgstr ""
+msgstr "：func： `〜pyramid.location.inside`の引数リストは` `（resource1、resource2）` `です。 `` resource2``が `` resource1``の `：term：` lineage`の祖先である場合、 `` resource1``は\ &quot;inside \&quot; `` resource2``です。親（または親の親など）が祖先である場合、それは系統の祖先です。"
 
 #: ../../narr/resources.rst:484
 msgid "See :func:`pyramid.location.inside` for more information."
-msgstr ""
+msgstr "詳細は、func： `pyramid.location.inside`を参照してください。"
 
 #: ../../narr/resources.rst:490
 msgid "Finding the Root Resource"
-msgstr ""
+msgstr "ルートリソースの検索"
 
 #: ../../narr/resources.rst:492
 msgid ""
@@ -637,28 +627,28 @@ msgid ""
 ":term:`resource tree`. The API accepts a single argument: ``resource``.  "
 "This is a resource that is :term:`location`-aware.  It can be any "
 "resource in the tree for which you want to find the root."
-msgstr ""
+msgstr "：func： `pyramid.traversal.find_root` APIを使って：term：` root`リソースを見つけてください。ルートリソースは：term： `リソースツリー &#39;のルートにあるリソースです。 APIは単一の引数 `` resource``を受け入れます。これは、term： `location`を意識したリソースです。これは、ツリー内でルートを検索する任意のリソースにすることができます。"
 
 #: ../../narr/resources.rst:509
 msgid "Calling ``find_root(b)`` will return ``a``."
-msgstr ""
+msgstr "`` find_root（b） ``を呼び出すと `` a``が返されます。"
 
 #: ../../narr/resources.rst:511
 msgid ""
 "The root resource is also available as ``request.root`` within "
 ":term:`view callable` code."
-msgstr ""
+msgstr "ルートリソースは：term： `view callable`コード内で` `request.root``として利用することもできます。"
 
 #: ../../narr/resources.rst:514
 msgid ""
 "The presence or absence of a :term:`virtual root` has no impact on the "
 "behavior of :func:`~pyramid.traversal.find_root`.  The root object "
 "returned is always the *physical* root object."
-msgstr ""
+msgstr "a：term： `virtual root`の有無は：func：`〜pyramid.traversal.find_root`の動作に影響を与えません。返されるルートオブジェクトは常に* physical *ルートオブジェクトです。"
 
 #: ../../narr/resources.rst:524
 msgid "Resources Which Implement Interfaces"
-msgstr ""
+msgstr "インタフェースを実装するリソース"
 
 #: ../../narr/resources.rst:526
 msgid ""
@@ -666,7 +656,7 @@ msgid ""
 "interface is used to tag a resource object with a \"type\" that later can"
 " be referred to within :term:`view configuration` and by "
 ":func:`pyramid.traversal.find_interface`."
-msgstr ""
+msgstr "リソースは：term： `interface`を実装するためにオプションで作ることができます。インタフェースは、後で：term： `view configuration`と：func：` pyramid.traversal.find_interface`で参照できる\ &quot;type \&quot;でリソースオブジェクトをタグ付けするために使用されます。"
 
 #: ../../narr/resources.rst:531
 msgid ""
@@ -676,13 +666,13 @@ msgid ""
 "one class of resource objects.  If your application is simple enough that"
 " you see no reason to want to do this, you can skip reading this section "
 "of the chapter."
-msgstr ""
+msgstr "：term： `view configuration`文内の` `context``または` `containment``述語引数としてクラスの代わりにインタフェースを指定すると、複数のクラスのリソースオブジェクトに対して呼び出し可能な単一のビューを使用することができます。アプリケーションが単純なので、これをやりたい理由がない場合は、この章のこのセクションを読み飛ばしてください。"
 
 #: ../../narr/resources.rst:537
 msgid ""
 "For example, here's some code which describes a blog entry which also "
 "declares that the blog entry implements an :term:`interface`."
-msgstr ""
+msgstr "たとえば、ブログエントリが：term： `interface`を実装していることを宣言するブログエントリを記述するコードがあります。"
 
 #: ../../narr/resources.rst:558
 msgid ""
@@ -690,13 +680,13 @@ msgid ""
 "resource constructor as the class ``BlogEntry``, and an :term:`interface`"
 " attached to the class via an ``implementer`` class decorator using the "
 "``IBlogEntry`` interface as its sole argument."
-msgstr ""
+msgstr "このリソースは、リソースコンストラクタを `` BlogEntry``クラスとして定義するクラスと、 `` IBlogEntry`を使用する `` implementer``クラスデコレータを介してクラスに付加される：term： `interface`の2つの要素から成ります。 `インターフェイスを唯一の引数として使用します。"
 
 #: ../../narr/resources.rst:563
 msgid ""
 "The interface object used must be an instance of a class that inherits "
 "from :class:`zope.interface.Interface`."
-msgstr ""
+msgstr "使用されるインタフェースオブジェクトは、class： `zope.interface.Interface`から継承するクラスのインスタンスでなければなりません。"
 
 #: ../../narr/resources.rst:566
 msgid ""
@@ -704,7 +694,7 @@ msgid ""
 " a resource implements an interface by using the "
 ":func:`zope.interface.implementer` function as a class decorator.  The "
 "above ``BlogEntry`` resource implements the ``IBlogEntry`` interface."
-msgstr ""
+msgstr "リソースクラスは、0以上のインタフェースを実装することができる。 ：func： `zope.interface.implementer`関数をクラスデコレータとして使用して、リソースがインタフェースを実装するように指定します。上記の `` BlogEntry``リソースは `` IBlogEntry``インターフェースを実装しています。"
 
 #: ../../narr/resources.rst:571
 msgid ""
@@ -714,7 +704,7 @@ msgid ""
 "that interface. However, you can also just say that a single object "
 "provides the interface. To do so, use the "
 ":func:`zope.interface.directlyProvides` function:"
-msgstr ""
+msgstr "特定のリソース*インスタンス*がそのクラスではなくインタフェースを提供するように指定することもできます。クラスがインタフェースを実装すると宣言すると、そのクラスのすべてのインスタンスもそのインタフェースを提供します。しかし、単一のオブジェクトがインタフェースを提供すると言うこともできます。これを行うには、：func： `zope.interface.directlyProvides`関数を使います："
 
 #: ../../narr/resources.rst:597
 msgid ""
@@ -722,35 +712,35 @@ msgid ""
 "interface that was previously provided by an instance.  If a resource "
 "object already has instance-level interface declarations that you don't "
 "want to replace, use the :func:`zope.interface.alsoProvides` function:"
-msgstr ""
+msgstr "：func： `zope.interface.directlyProvides`は、以前にインスタンスによって提供された既存のインタフェースを置き換えます。リソースオブジェクトに、すでに置き換えたくないインスタンスレベルのインタフェース宣言がある場合は、：func： `zope.interface.alsoProvides`関数を使用してください："
 
 #: ../../narr/resources.rst:627
 msgid ""
 ":func:`zope.interface.alsoProvides` will augment the set of interfaces "
 "directly provided by an instance instead of overwriting them like "
 ":func:`zope.interface.directlyProvides` does."
-msgstr ""
+msgstr "：func： `zope.interface.alsoProvides`は、インスタンスによって直接提供されるインタフェースのセットを、func：` zope.interface.directlyProvides`のように上書きするのではなく、追加します。"
 
 #: ../../narr/resources.rst:631
 msgid ""
 "For more information about how resource interfaces can be used by view "
 "configuration, see :ref:`using_resource_interfaces`."
-msgstr ""
+msgstr "ビューの設定でリソースインタフェースを使用する方法の詳細については、：ref： `using_resource_interfaces`を参照してください。"
 
 #: ../../narr/resources.rst:638
 msgid "Finding a Resource with a Class or Interface in Lineage"
-msgstr ""
+msgstr "リネージのクラスまたはインターフェイスを持つリソースの検索"
 
 #: ../../narr/resources.rst:640
 msgid ""
 "Use the :func:`~pyramid.traversal.find_interface` API to locate a parent "
 "that is of a particular Python class, or which implements some "
 ":term:`interface`."
-msgstr ""
+msgstr "：func： `〜pyramid.traversal.find_interface` APIを使って特定のPythonクラスの親を見つけるか、あるいは：term：` interface`を実装します。"
 
 #: ../../narr/resources.rst:643
 msgid "For example, if your resource tree is composed as follows:"
-msgstr ""
+msgstr "たとえば、リソースツリーが次のように構成されているとします。"
 
 #: ../../narr/resources.rst:655
 msgid ""
@@ -758,18 +748,18 @@ msgid ""
 "because ``a`` is of class ``Thing1`` (the resource passed as the first "
 "argument is considered first, and is returned if the class or interface "
 "specification matches)."
-msgstr ""
+msgstr "`` a``がクラス `` Thing1``であるため、 `` find_interface（a、Thing1） ``を呼び出すと `` a``リソースが返されます（最初の引数として渡されるリソースは最初に考慮され、クラスまたはインターフェイスの仕様が一致します）。"
 
 #: ../../narr/resources.rst:660
 msgid ""
 "Calling ``find_interface(b, Thing1)`` will return the ``a`` resource "
 "because ``a`` is of class ``Thing1`` and ``a`` is the first resource in "
 "``b``'s lineage of this class."
-msgstr ""
+msgstr "「find_interface（b、Thing1）」を呼び出すと、 `` a``がクラス `` Thing1``で `` a``が `` b``の最初のリソースであるため、 `` a``リソースを返しますこのクラスの系譜。"
 
 #: ../../narr/resources.rst:664
 msgid "Calling ``find_interface(b, Thing2)`` will return the ``b`` resource."
-msgstr ""
+msgstr "`` find_interface（b、Thing2） ``を呼び出すと、 `` b``リソースが返されます。"
 
 #: ../../narr/resources.rst:666
 msgid ""
@@ -777,22 +767,22 @@ msgid ""
 " instead of a class.  If it is an interface, each resource in the lineage"
 " is checked to see if the resource implements the specificed interface "
 "(instead of seeing if the resource is of a class)."
-msgstr ""
+msgstr "`` find_interface``の2番目の引数は、クラスではなくterm： `interface`でもかまいません。それがインタフェースである場合、系統内の各リソースは、そのリソースがクラスであるかどうかを見るのではなく、特定のインタフェースを実装しているかどうかを調べるためにチェックされます。"
 
 #: ../../narr/resources.rst:673
 msgid "See also :ref:`resources_which_implement_interfaces`."
-msgstr ""
+msgstr "参照：ref： `resources_which_implement_interfaces`も参照してください。"
 
 #: ../../narr/resources.rst:680
 msgid ":app:`Pyramid` API Functions That Act Against Resources"
-msgstr ""
+msgstr "：app：Pyramid API関数"
 
 #: ../../narr/resources.rst:682
 msgid ""
 "A resource object is used as the :term:`context` provided to a view.  See"
 " :ref:`traversal_chapter` and :ref:`urldispatch_chapter` for more "
 "information about how a resource object becomes the context."
-msgstr ""
+msgstr "リソースオブジェクトは、ビューに提供される：term： `context`として使用されます。リソースオブジェクトがどのようにコンテキストになるかについては、：ref： `traversal_chapter`と：ref：` urldispatch_chapter`を参照してください。"
 
 #: ../../narr/resources.rst:686
 msgid ""
@@ -800,14 +790,14 @@ msgid ""
 "objects. These functions can be used to find the \"path\" of a resource, "
 "the root resource in a resource tree, or to generate a URL for a "
 "resource."
-msgstr ""
+msgstr "：ref： `traversal_module`によって提供されるAPIは、リソースオブジェクトに対して使用されます。これらの関数は、リソースの &quot;パス&quot;、リソースツリーのルートリソース、またはリソースのURLを生成するために使用できます。"
 
 #: ../../narr/resources.rst:690
 msgid ""
 "The APIs provided by :ref:`location_module` are used against resources. "
 "These can be used to walk down a resource tree, or conveniently locate "
 "one resource \"inside\" another."
-msgstr ""
+msgstr "：ref： `location_module`によって提供されるAPIは、リソースに対して使用されます。これらは、リソースツリーを歩き回るか、別のリソースを別の場所に配置するのに便利です。"
 
 #: ../../narr/resources.rst:694
 msgid ""
@@ -818,5 +808,5 @@ msgid ""
 " one of its ancestors.  Other security related APIs on the "
 ":class:`pyramid.request.Request` class also accept :term:`context` as an "
 "argument, and a context is always a resource."
-msgstr ""
+msgstr "：class： `pyramid.request.Request`上のいくつかのAPIは、リソースオブジェクトをパラメータとして受け入れます。たとえば、：meth： `〜pyramid.request.Request.has_permission` APIは、引数の1つとしてリソースオブジェクトを受け入れます。 ACLはこのリソースまたはその祖先の1つから取得されます。 ：class： `pyramid.request.Request`クラスの他のセキュリティ関連APIは引数としてterm：` context`を受け入れ、コンテキストは常にリソースです。"
 

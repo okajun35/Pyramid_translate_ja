@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/upgrading.rst:4
 msgid "Upgrading Pyramid"
-msgstr ""
+msgstr "(機械翻訳) ピラミッドのアップグレード"
 
 #: ../../narr/upgrading.rst:6
 msgid ""
@@ -30,10 +20,10 @@ msgid ""
 " features will begin to break.  This chapter explains how to ensure your "
 "Pyramid applications keep working when you upgrade the Pyramid version "
 "you're using."
-msgstr ""
+msgstr "新しいバージョンのPyramidがリリースされると、機能が廃止されたり、古いリリースで廃止された機能が削除されることがあります。フィーチャーがPyramidから削除されると、それらのフィーチャーに依存するアプリケーションが中断し始めます。この章では、使用しているPyramidのバージョンをアップグレードするときにPyramidアプリケーションが動作し続けるようにする方法について説明します。"
 
 msgid "About Release Numbering"
-msgstr ""
+msgstr "リリース番号について"
 
 #: ../../narr/upgrading.rst:14
 msgid ""
@@ -48,7 +38,7 @@ msgid ""
 "are \"bugfix-only\", and contain no new features, minor releases contain "
 "new features but are largely backwards compatible with older versions, "
 "and a major release indicates a large set of backwards incompatibilities."
-msgstr ""
+msgstr "従来、Pythonでのアプリケーションのバージョン番号は `` major.minor.micro``と記述されていました。 Pyramidのバージョンが\ &quot;1.2.3 \&quot;であれば、メジャーバージョン\ &quot;1 \&quot;、マイナーバージョン\ &quot;2 \&quot;、マイクロバージョン\ &quot;3 \&quot;のピラミッドバージョンを実行していることを意味します。 。 \ &quot;メジャー\&quot;リリースとは、最初のドット番号をインクリメントするものです。 2.XXは1.XXに従うかもしれません。\ &quot;マイナー\&quot;リリースは、第2のドット番号をインクリメントするものです。 1.3.Xは1.2.Xに続く可能性があります。 \ &quot;マイクロ\&quot;リリースは、3番目のドット番号をインクリメントするものです。 1.2.3は1.2.2に続くかもしれない。一般に、マイクロリリースは「バグ修正のみ」で新機能は含まれていません。マイナーリリースには新機能が含まれていますが、旧バージョンとの下位互換性があります。メジャーリリースでは大きな互換性がありません。"
 
 #: ../../narr/upgrading.rst:26
 msgid ""
@@ -59,45 +49,45 @@ msgid ""
 " eventually have to be removed when the cost of supporting them outweighs"
 " the benefit of keeping them around, because each feature in Pyramid "
 "represents a certain documentation and maintenance burden."
-msgstr ""
+msgstr "ピラミッドのコアチームは、機能を削除する際には控えめです。不必要に機能を削除するわけではありませんが、私たちは人間であり、いくつかの機能を進化的なデッドエンドにする間違いを犯します。デッドエンド機能をある程度サポートしていますが、Pyramidの各機能は特定の文書化とメンテナンスの負担を抱いているため、それらをサポートするコストよりもコストを削減する必要があります。"
 
 #: ../../narr/upgrading.rst:35
 msgid "Deprecation and removal policy"
-msgstr ""
+msgstr "廃止と削除のポリシー"
 
 #: ../../narr/upgrading.rst:37
 msgid ""
 "When a feature is scheduled for removal from Pyramid or any of its "
 "official add-ons, the core development team takes these steps:"
-msgstr ""
+msgstr "機能がPyramidまたはその公式のアドオンから削除される予定の場合、コア開発チームは次の手順を実行します。"
 
 #: ../../narr/upgrading.rst:40
 msgid ""
 "Using the feature will begin to generate a `DeprecationWarning`, "
 "indicating the version in which the feature became deprecated."
-msgstr ""
+msgstr "この機能を使用すると、その機能が非難されたバージョンを示す `DeprecationWarning`が生成され始めます。"
 
 #: ../../narr/upgrading.rst:43
 msgid ""
 "A note is added to the documentation indicating that the feature is "
 "deprecated."
-msgstr ""
+msgstr "その機能が推奨されていないことを示すメモが文書に追加されます。"
 
 #: ../../narr/upgrading.rst:46
 msgid "A note is added to the :ref:`changelog` about the deprecation."
-msgstr ""
+msgstr "非推奨について：ref： `changelog`にメモが追加されています。"
 
 #: ../../narr/upgrading.rst:48
 msgid "When a deprecated feature is eventually removed:"
-msgstr ""
+msgstr "廃止予定の機能が最終的に削除されると、"
 
 #: ../../narr/upgrading.rst:50
 msgid "The feature is removed."
-msgstr ""
+msgstr "この機能は削除されました。"
 
 #: ../../narr/upgrading.rst:52
 msgid "A note is added to the :ref:`changelog` about the removal."
-msgstr ""
+msgstr "削除について：ref： `changelog`にメモが追加されています。"
 
 #: ../../narr/upgrading.rst:54
 msgid ""
@@ -108,7 +98,7 @@ msgid ""
 "Pyramid 1.1, it will be kept around through all 1.1.X releases, all 1.2.X"
 " releases and all 1.3.X releases.  It will finally be removed in the "
 "first 1.4.X release."
-msgstr ""
+msgstr "* micro *リリースでは機能が削除されることはありません。それらはマイナーリリースとメジャーリリースでのみ削除されます。推奨されなくなった機能は、その機能が非推奨になった時点から少なくとも* 3つのマイナーリリースで保持されます。したがって、ピラミッド1.0では機能が追加されていますが、ピラミッド1.1では非推奨になっている機能は、すべての1.1.Xリリース、1.2.Xリリース、1.3.Xすべてのリリースで保持されます。これは、最初の1.4.Xリリースで最終的に削除されます。"
 
 #: ../../narr/upgrading.rst:61
 msgid ""
@@ -122,7 +112,7 @@ msgid ""
 "accepts.  In this case, we'll often rename the function, and change the "
 "docs to point at the new function name, but leave around a backwards "
 "compatibility alias to the old function name so older code doesn't break."
-msgstr ""
+msgstr "フィーチャは、正式に廃止されるのではなく、\ &quot;docs-deprecated \&quot;です。これは、その機能が無期限に保持されることを意味しますが、その機能は文書から削除されるか、または他の新しい機能を使用するように伝える文書に追加されます。これは、古い機能を維持するコストが非常に低く、サポートとドキュメントの負担が非常に少ないときに発生します。たとえば、受け入れる引数を変更せずにAPIである関数の名前を変更することができます。この場合、関数の名前を変更し、新しい関数名を指すようにドキュメントを変更しますが、古い関数名への下位互換性のある別名を残して、古いコードが壊れないようにします。"
 
 #: ../../narr/upgrading.rst:72
 msgid ""
@@ -132,56 +122,56 @@ msgid ""
 " to know that you should change older spellings to newer ones to ensure "
 "that people reading your code can find the APIs you're using in the "
 "Pyramid docs."
-msgstr ""
+msgstr "\ &quot;Docs deprecated \&quot;機能は\ &quot;forever \&quot;で動作する傾向があります。つまり、削除されず、廃止予定の警告が生成されることはありません。しかし、そのような変更は：ref： `changelog`に書かれているので、あなたのコードを読んでいる人がPyramidのドキュメントで使用しているAPIを見つけることができるように古いスペルを新しいものに変更する必要があることを知ることは可能です。"
 
 #: ../../narr/upgrading.rst:80
 msgid "Python support policy"
-msgstr ""
+msgstr "Pythonサポートポリシー"
 
 #: ../../narr/upgrading.rst:82
 msgid ""
 "At the time of a Pyramid version release, each supports all versions of "
 "Python through the end of their lifespans. The end-of-life for a given "
 "version of Python is when security updates are no longer released."
-msgstr ""
+msgstr "Pyramidのバージョンリリース時には、Pythonのすべてのバージョンがライフスパンの終わりまでサポートされています。特定のバージョンのPythonの廃止は、セキュリティアップデートがリリースされなくなったときです。"
 
 #: ../../narr/upgrading.rst:86
 msgid ""
 "`Python 3.2 Lifespan "
 "<https://www.python.org/dev/peps/pep-0392/#lifespan>`_ ends February "
 "2016."
-msgstr ""
+msgstr "`Python 3.2の寿命<https://www.python.org/dev/peps/pep-0392/#lifespan> `_は2016年2月に終了します。"
 
 #: ../../narr/upgrading.rst:88
 msgid ""
 "`Python 3.3 Lifespan "
 "<https://www.python.org/dev/peps/pep-0392/#lifespan>`_ ends September "
 "2017."
-msgstr ""
+msgstr "`Python 3.3の寿命<https://www.python.org/dev/peps/pep-0392/#lifespan> `_は、2017年9月に終わります。"
 
 #: ../../narr/upgrading.rst:90
 msgid "`Python 3.4 Lifespan <https://www.python.org/dev/peps/pep-0429/>`_ TBD."
-msgstr ""
+msgstr "`Python 3.4の寿命<https://www.python.org/dev/peps/pep-0429/> `_ TBD。"
 
 #: ../../narr/upgrading.rst:91
 msgid "`Python 3.5 Lifespan <https://www.python.org/dev/peps/pep-0478/>`_ TBD."
-msgstr ""
+msgstr "`Python 3.5の寿命<https://www.python.org/dev/peps/pep-0478/> `_ TBD。"
 
 #: ../../narr/upgrading.rst:92
 msgid ""
 "`Python 3.6 Lifespan <https://www.python.org/dev/peps/pep-0494/#id4>`_ "
 "December 2021."
-msgstr ""
+msgstr "`Python 3.6の寿命<https://www.python.org/dev/peps/pep-0494/#id4> `_ 2021年12月。"
 
 #: ../../narr/upgrading.rst:95
 msgid ""
 "To determine the Python support for a specific release of Pyramid, view "
 "its ``tox.ini`` file at the root of the repository's version."
-msgstr ""
+msgstr "Pyramidの特定のリリースのPythonサポートを確認するには、リポジトリのバージョンのルートにある `` tox.ini``ファイルを参照してください。"
 
 #: ../../narr/upgrading.rst:100
 msgid "Consulting the change history"
-msgstr ""
+msgstr "変更履歴に相談する"
 
 #: ../../narr/upgrading.rst:102
 msgid ""
@@ -192,7 +182,7 @@ msgid ""
 "wish to upgrade.  The change history notes every deprecation within a "
 "``Deprecation`` section and every removal within a ``Backwards "
 "Incompatibilies`` section for each release."
-msgstr ""
+msgstr "最新のPyramidリリースへのアップグレードによるアプリケーションの失敗に対する最初の防衛線は、常に：ref： `changelog`を読んで、現在実行しているリリースと現在実行しているリリースの間の各リリースの廃止と削除を見つけますアップグレードしたい変更履歴は、「非推奨」セクション内のすべての非推奨と、各リリース用の「後方互換性のない」セクション内のすべての削除を記録します。"
 
 #: ../../narr/upgrading.rst:109
 msgid ""
@@ -202,11 +192,11 @@ msgid ""
 "the change history, simply doing a grep or other code search to your "
 "application, using the change log examples to remediate each potential "
 "problem."
-msgstr ""
+msgstr "変更履歴には、コードを変更して廃止予定の警告を回避する方法や、廃止予定のスペルを新しいものに変更する方法が含まれることがよくあります。変更履歴の各非推奨説明に従って、アプリケーションにgrepやその他のコード検索を行い、変更ログの例を使用して潜在的な問題を修正することができます。"
 
 #: ../../narr/upgrading.rst:118
 msgid "Testing your application under a new Pyramid release"
-msgstr ""
+msgstr "新しいPyramidリリースでアプリケーションをテストする"
 
 #: ../../narr/upgrading.rst:120
 msgid ""
@@ -215,7 +205,7 @@ msgid ""
 " want to run your application's tests (see :ref:`running_tests`) in such "
 "a way that you can see DeprecationWarnings printed to the console when "
 "the tests run."
-msgstr ""
+msgstr "アプリケーションを新しいPyramidリリースにアップグレードし、変更履歴ノートを使用してできるだけ修正を加えたら、アプリケーションのテストを実行したいと思うでしょう（ref： `running_tests`を参照）。テスト実行時にDeprecationWarningsがコンソールに表示されることがわかります。"
 
 #: ../../narr/upgrading.rst:129
 msgid ""
@@ -223,54 +213,54 @@ msgid ""
 "console. See `the Python -W flag documentation "
 "<https://docs.python.org/2/using/cmdline.html#cmdoption-W>`_ for more "
 "information."
-msgstr ""
+msgstr "`` -Wd``引数はPythonに、廃止予定の警告をコンソールに表示するように指示します。 `Python -Wフラグのドキュメント<https://docs.python.org/2/using/cmdline.html#cmdoption-W>詳細は_を参照してください。"
 
 #: ../../narr/upgrading.rst:134
 msgid ""
 "As your tests run, deprecation warnings will be printed to the console "
 "explaining the deprecation and providing instructions about how to "
 "prevent the deprecation warning from being issued.  For example:"
-msgstr ""
+msgstr "テストが実行されると、廃止予定を説明するコンソールに廃止予定の警告が出力され、廃止予定の警告が表示されないようにする方法が示されます。例えば："
 
 #: ../../narr/upgrading.rst:154
 msgid ""
 "In the above case, it's line #3 in the ``myproj.views`` module (``from "
 "pyramid.view import static``) that is causing the problem:"
-msgstr ""
+msgstr "上記の場合、問題を引き起こしている `` myproj.views``モジュール（ `` from pyramid.view import static``）の3行目です："
 
 #: ../../narr/upgrading.rst:165
 msgid ""
 "The deprecation warning tells me how to fix it, so I can change the code "
 "to do things the newer way:"
-msgstr ""
+msgstr "廃止予定の警告は私にそれを修正する方法を教えているので、コードを変更してより新しい方法で行うことができます："
 
 #: ../../narr/upgrading.rst:176
 msgid ""
 "When I run the tests again, the deprecation warning is no longer printed "
 "to my console:"
-msgstr ""
+msgstr "テストをもう一度実行すると、廃止予定の警告がコンソールに表示されなくなります。"
 
 #: ../../narr/upgrading.rst:192
 msgid "My application doesn't have any tests or has few tests"
-msgstr ""
+msgstr "私のアプリケーションにはテストがありません。"
 
 #: ../../narr/upgrading.rst:194
 msgid ""
 "If your application has no tests, or has only moderate test coverage, "
 "running tests won't tell you very much, because the Pyramid codepaths "
 "that generate deprecation warnings won't be executed."
-msgstr ""
+msgstr "あなたのアプリケーションにテストがない場合、または適度なテストカバレッジしかない場合は、テストの実行はあまり意味しません。なぜなら、非推奨警告を生成するピラミッドコードパスは実行されないからです。"
 
 #: ../../narr/upgrading.rst:198
 msgid ""
 "In this circumstance, you can start your application interactively under "
 "a server run with the ``PYTHONWARNINGS`` environment variable set to "
 "``default``. On UNIX, you can do that via:"
-msgstr ""
+msgstr "この状況では、 `` PYTHONWARNINGS``環境変数が `` default``に設定された状態で、サーバを起動してアプリケーションを対話的に起動することができます。 UNIXでは、次の方法でこれを行うことができます。"
 
 #: ../../narr/upgrading.rst:206
 msgid "On Windows, you need to issue two commands:"
-msgstr ""
+msgstr "Windowsでは、次の2つのコマンドを発行する必要があります。"
 
 #: ../../narr/upgrading.rst:213
 msgid ""
@@ -278,7 +268,7 @@ msgid ""
 "the console whenever a codepath is hit that generates one.  You can then "
 "click around in your application interactively to try to generate them, "
 "and remediate as explained in :ref:`testing_under_new_release`."
-msgstr ""
+msgstr "この時点では、コードパスが生成されるたびに非推奨警告がコンソールに出力されることが保証されています。対話的にアプリケーションをクリックして生成することができます：ref： `testing_under_new_release`で説明されているように修正してください。"
 
 #: ../../narr/upgrading.rst:218
 msgid ""
@@ -287,11 +277,11 @@ msgid ""
 " `the Python -W flag documentation "
 "<https://docs.python.org/2/using/cmdline.html#cmdoption-W>`_ for more "
 "information."
-msgstr ""
+msgstr "`PYTHONWARNINGS環境変数のドキュメント<https://docs.python.org/2/using/cmdline.html#envvar-PYTHONWARNINGS> `_または` Python -Wフラグのドキュメント<https://docs.python.org/2/using/cmdline.html#cmdoption-W>詳細は_を参照してください。"
 
 #: ../../narr/upgrading.rst:225
 msgid "Upgrading to the very latest Pyramid release"
-msgstr ""
+msgstr "最新のPyramidリリースへのアップグレード"
 
 #: ../../narr/upgrading.rst:227
 msgid ""
@@ -302,7 +292,7 @@ msgid ""
 "application is running in production on Pyramid 1.2.1, and the most "
 "recent Pyramid 1.3 release is Pyramid 1.3.3, and the most recent Pyramid "
 "release is 1.4.4, it's advisable to do this:"
-msgstr ""
+msgstr "アプリケーションを最新のPyramidリリースにアップグレードする場合は、最新のマイナーリリースを段階的にアップグレードしてから、アプリケーションが現在実行しているものから最新のリリースで終了するものまで、アップグレードすることをお勧めします。たとえば、アプリケーションがPyramid 1.2.1で本番環境で動作していて、最新のPyramid 1.3リリースがPyramid 1.3.3で、最新のPyramidリリースが1.4.4の場合は、これを行うことをお勧めします。"
 
 #: ../../narr/upgrading.rst:235
 msgid ""
@@ -311,19 +301,19 @@ msgid ""
 "your application's tests under 1.2.3 as described in "
 ":ref:`testing_under_new_release`.  Note any deprecation warnings and "
 "remediate."
-msgstr ""
+msgstr "最新の1.2リリースに環境をアップグレードしてください。たとえば、最新の1.2リリースは1.2.3かもしれないので、アップグレードしてください。次に、：ref： `testing_under_new_release`で説明されているように、アプリケーションのテストを1.2.3で実行します。廃止予定の警告と修正を書き留めておいてください。"
 
 #: ../../narr/upgrading.rst:241
 msgid ""
 "Upgrade to the most recent 1.3 release, 1.3.3.  Run your application's "
 "tests, note any deprecation warnings, and remediate."
-msgstr ""
+msgstr "最新の1.3リリース1.3.3にアップグレードしてください。アプリケーションのテストを実行し、廃止予定の警告を書き留め、修復します。"
 
 #: ../../narr/upgrading.rst:244
 msgid ""
 "Upgrade to 1.4.4.  Run your application's tests, note any deprecation "
 "warnings, and remediate."
-msgstr ""
+msgstr "1.4.4にアップグレードしてください。アプリケーションのテストを実行し、廃止予定の警告を書き留め、修復します。"
 
 #: ../../narr/upgrading.rst:247
 msgid ""
@@ -332,5 +322,5 @@ msgid ""
 "deprecation warning and waste more time trying to figure out an error "
 "caused by a feature removal than it would take to upgrade stepwise "
 "through each minor release."
-msgstr ""
+msgstr "各マイナーリリースでアプリケーションのテストをスキップした場合（たとえば、1.2.1から1.4.4に直接アップグレードする場合）、廃止予定の警告が表示されず、機能の削除によって発生したエラーを特定するのに時間がかかることがありますマイナーリリースごとに段階的にアップグレードすることになります。"
 

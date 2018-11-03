@@ -7,27 +7,17 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/zca.rst:12
 msgid "Using the Zope Component Architecture in :app:`Pyramid`"
-msgstr ""
+msgstr "(機械翻訳) Zopeコンポーネントアーキテクチャの使用：app： `Pyramid`"
 
 #: ../../narr/zca.rst:14
 msgid ""
 "Under the hood, :app:`Pyramid` uses a :term:`Zope Component Architecture`"
 " component registry as its :term:`application registry`. The Zope "
 "Component Architecture is referred to colloquially as the \"ZCA.\""
-msgstr ""
+msgstr "フードの下では、：app： `Pyramid`は：term：`アプリケーションレジストリ &#39;として：term： `Zope Component Architecture`コンポーネントレジストリを使用します。 Zopeコンポーネントアーキテクチャは、「ZCA」と呼ばれています。"
 
 #: ../../narr/zca.rst:18
 msgid ""
@@ -35,7 +25,7 @@ msgid ""
 "application can be opaque.  For example, here is a typical \"unnamed "
 "utility\" lookup using the :func:`zope.component.getUtility` global API "
 "as it might appear in a traditional Zope application:"
-msgstr ""
+msgstr "伝統的なZopeアプリケーションのデータにアクセスするために使用される `` zope.component`` APIは不透明です。たとえば、従来のZopeアプリケーションでは、：func： `zope.component.getUtility`グローバルAPIを使用する典型的な\&quot;無名ユーティリティ\ &quot;ルックアップがあります。"
 
 #: ../../narr/zca.rst:30
 msgid ""
@@ -44,7 +34,7 @@ msgid ""
 "reading the code casually.  When the ``zope.component.getUtility`` API is"
 " used by a developer, the conceptual load on a casual reader of code is "
 "high."
-msgstr ""
+msgstr "このコードが実行されると、 `` settings``はPython辞書になります。しかし、「市民」はコードを気軽に読んでこれを理解することはできないだろう。開発者が `` zope.component.getUtility`` APIを使うと、普通のコードリーダーの概念的な負荷が高くなります。"
 
 #: ../../narr/zca.rst:35
 msgid ""
@@ -55,18 +45,18 @@ msgid ""
 "application developers.  You needn't understand the ZCA to create a "
 ":app:`Pyramid` application; its use is effectively only a framework "
 "implementation detail."
-msgstr ""
+msgstr "ZCAは、app： `Pyramid`のような*フレームワークを構築するための優れたツールですが、` `zope.componentの不透明さのために*アプリケーション*を構築するのに必ずしも最適なツールではありません`` APIs。したがって、：app： `Pyramid`は、アプリケーション開発者からZCAの存在を隠す傾向があります。 app： `Pyramid`アプリケーションを作成するためにZCAを理解する必要はありません。その使用は効果的にフレームワーク実装の詳細です。"
 
 #: ../../narr/zca.rst:42
 msgid ""
 "However, developers who are already used to writing :term:`Zope` "
 "applications often still wish to use the ZCA while building a "
 ":app:`Pyramid` application. :app:`Pyramid` makes this possible."
-msgstr ""
+msgstr "しかし、既に：term： `Zope`アプリケーションを作成するのに慣れている開発者は、：app：` Pyramid`アプリケーションを構築しながらZCAを使用したいことがあります。 ：app： `Pyramid`はこれを可能にします。"
 
 #: ../../narr/zca.rst:53
 msgid "Using the ZCA global API in a :app:`Pyramid` application"
-msgstr ""
+msgstr "：app： `Pyramid`アプリケーションでZCAグローバルAPIを使用する"
 
 #: ../../narr/zca.rst:55
 msgid ""
@@ -74,7 +64,7 @@ msgid ""
 "all Zope applications that run in the same Python process, effectively "
 "making it impossible to run more than one Zope application in a single "
 "process."
-msgstr ""
+msgstr "：term： `Zope`は、同じPythonプロセスで動作するすべてのZopeアプリケーションに対して、単一のZCAレジストリ（グローバルなZCAレジストリ）を使用するため、1つのプロセスで複数のZopeアプリケーションを実行できなくなります。"
 
 #: ../../narr/zca.rst:59
 msgid ""
@@ -86,7 +76,7 @@ msgid ""
 "application at ``/turbogears`` and a :app:`Pyramid` application at "
 "``/pyramid``, both served up using the same :term:`WSGI` server within a "
 "single Python process."
-msgstr ""
+msgstr "ただし、展開を容易にするために、プロセスごとに複数のアプリケーションを実行できることが有用なことがよくあります。たとえば、：term： `PasteDeploy` \&quot; composite \ &quot;を使用すると、同じプロセスで個々のWSGIアプリケーションを個別に実行できます。それぞれのURL接頭辞の要求に応答します。これにより、例えば、 `` / turbogears``のTurboGearsアプリケーションと `` / pyramid``の `` app： `` Pyramid``アプリケーションを同じterm： `WSGI`サーバを使って起動することができます単一のPythonプロセス内で実行できます。"
 
 #: ../../narr/zca.rst:67
 msgid ""
@@ -96,14 +86,14 @@ msgid ""
 "may be very small and consume very little memory, so it's a reasonable "
 "goal to be able to run more than one :app:`Pyramid` application per "
 "process."
-msgstr ""
+msgstr "ほとんどのプロダクションZopeアプリケーションは比較的大きく、Pythonプロセスごとに2つ以上のZopeアプリケーションを実行するためのメモリの制約のために実用的ではありません。しかし、a：app： `Pyramid`アプリケーションは非常に小さく、メモリをほとんど消費しないので、プロセスごとにapp：` Pyramid`アプリケーションを複数実行することが合理的な目標です。"
 
 #: ../../narr/zca.rst:73
 msgid ""
 "In order to make it possible to run more than one :app:`Pyramid` "
 "application in a single process, :app:`Pyramid` defaults to using a "
 "separate ZCA registry *per application*."
-msgstr ""
+msgstr "複数の：app： `Pyramid`アプリケーションを1つのプロセスで実行できるようにするには、：app：` Pyramid`はデフォルトでアプリケーションごとに別々のZCAレジストリ*を使用します。"
 
 #: ../../narr/zca.rst:77
 msgid ""
@@ -116,7 +106,7 @@ msgid ""
 ":app:`Pyramid` application, because they'll be consulting the ZCA global "
 "registry rather than the component registry associated with your "
 ":app:`Pyramid` application."
-msgstr ""
+msgstr "このサービスは妥当な目標ですが、典​​型的な：term： `Zope`アプリケーションをビルドしてa：app：` Pyramid`アプリケーションを構築するために使用するパターンを使用しようとすると、いくつかの問題が発生します。特別な助けがなければ、：func： `zope.component.getUtility`や：func：` zope.component.getSiteManager`などのZCA \ &quot;グローバル\&quot; APIは、ZCA \ &quot;グローバル\&quot;レジストリを使用します。したがって、これらのAPIは、：app： `Pyramid`アプリケーションで使用されたときに失敗するように見えます。これは、あなたの：app：` Pyramid`アプリケーションに関連するコンポーネントレジストリではなく、ZCAグローバルレジストリを参照するためです。"
 
 #: ../../narr/zca.rst:86
 msgid ""
@@ -124,11 +114,11 @@ msgid ""
 "entirely, by using :meth:`pyramid.config.Configurator.hook_zca` or by "
 "passing the ZCA global registry to the :term:`Configurator` constructor "
 "at startup time.  We'll describe all three methods in this section."
-msgstr ""
+msgstr "これを修正するには、：meth： `pyramid.config.Configurator.hook_zca`を使用するか、起動時に：term：` Configurator`コンストラクタにZCAグローバルレジストリを渡すことによって、ZCAグローバルAPIを完全に無効にする方法があります。このセクションでは、3つの方法すべてについて説明します。"
 
 #: ../../narr/zca.rst:97
 msgid "Disusing the global ZCA API"
-msgstr ""
+msgstr "グローバルZCA APIの廃止"
 
 #: ../../narr/zca.rst:99
 msgid ""
@@ -139,52 +129,52 @@ msgid ""
 "it can be used instead.  For example, presuming the ``registry`` value "
 "below is a Zope Component Architecture component registry, the following "
 "bit of code is equivalent to ``zope.component.getUtility(IFoo)``:"
-msgstr ""
+msgstr "`` zope.component.getSiteManager``、 `` zope.component.getUtility``、：func： `zope.component.getAdapter`、：：func：` zope.componentのようなZCA \ &quot;グローバル\&quot; API関数です。 getMultiAdapter`は厳密には必要ではありません。すべてのコンポーネントレジストリには、同じ機能を提供するメソッドAPIがあります。代わりに使用することができます。たとえば、以下の `` registry``値がZope Component Architectureのコンポーネントレジストリであると仮定すると、以下のコードは `` zope.component.getUtility（IFoo） ``に相当します："
 
 #: ../../narr/zca.rst:111
 msgid ""
 "The full method API is documented in the ``zope.component`` package, but "
 "it largely mirrors the \"global\" API almost exactly."
-msgstr ""
+msgstr "完全なメソッドAPIは、 `` zope.component``パッケージに記述されていますが、大体\ &quot;グローバル\&quot; APIをほぼ正確に反映しています。"
 
 #: ../../narr/zca.rst:114
 msgid ""
 "If you are willing to disuse the \"global\" ZCA APIs and use the method "
 "interface of a registry instead, you need only know how to obtain the "
 ":app:`Pyramid` component registry."
-msgstr ""
+msgstr "代わりに\ &quot;グローバル\&quot; ZCA APIを廃止し、代わりにレジストリのメソッドインタフェースを使用する場合は、：app： `Pyramid`コンポーネントレジストリの取得方法だけが必要です。"
 
 #: ../../narr/zca.rst:118
 msgid "There are two ways of doing so:"
-msgstr ""
+msgstr "これを行うには2通りの方法があります："
 
 #: ../../narr/zca.rst:120
 msgid ""
 "use the :func:`pyramid.threadlocal.get_current_registry` function within "
 ":app:`Pyramid` view or resource code.  This will always return the "
 "\"current\" :app:`Pyramid` application registry."
-msgstr ""
+msgstr "app： `Pyramid`ビューまたはリソースコード内で：func：` pyramid.threadlocal.get_current_registry`関数を使用してください。これは常に\ &quot;現在の\：：app：` Pyramid`アプリケーションレジストリを返します。"
 
 #: ../../narr/zca.rst:124
 msgid ""
 "use the attribute of the :term:`request` object named ``registry`` in "
 "your :app:`Pyramid` view code, e.g., ``request.registry``.  This is the "
 "ZCA component registry related to the running :app:`Pyramid` application."
-msgstr ""
+msgstr "：app： `Pyramid`のビューコードで、` `request.registry``のように` `registry``という名前の：term：` request`オブジェクトの属性を使います。これは、running：app： `Pyramid`アプリケーションに関連するZCAコンポーネントレジストリです。"
 
 #: ../../narr/zca.rst:128
 msgid ""
 "See :ref:`threadlocals_chapter` for more information about "
 ":func:`pyramid.threadlocal.get_current_registry`."
-msgstr ""
+msgstr "func： `pyramid.threadlocal.get_current_registry`の詳細については、ref：` threadlocals_chapter`を参照してください。"
 
 #: ../../narr/zca.rst:137
 msgid "Enabling the ZCA global API by using ``hook_zca``"
-msgstr ""
+msgstr "`` hook_zca``を使ってZCAグローバルAPIを有効にする"
 
 #: ../../narr/zca.rst:139
 msgid "Consider the following bit of idiomatic :app:`Pyramid` startup code:"
-msgstr ""
+msgstr "app： `Pyramid`スタートアップコード："
 
 #: ../../narr/zca.rst:151
 msgid ""
@@ -195,7 +185,7 @@ msgid ""
 ":term:`Configurator` constructor is called, or when a ``registry`` "
 "argument with a value of ``None`` is passed to a :term:`Configurator` "
 "constructor."
-msgstr ""
+msgstr "上記の `` app``関数が実行されると、a：term： `Configurator`が構築されます。コンフィギュレータが作成されると、* new：：term： `application registry`（ZCAコンポーネントレジストリ）が作成されます。新しいレジストリは、 `` registry``引数が省略された場合、a：term： `Configurator`コンストラクタが呼び出された場合、または` `None``の値を持つ` `registry``引数が：term： `Configurator`コンストラクタです。"
 
 #: ../../narr/zca.rst:158
 msgid ""
@@ -204,7 +194,7 @@ msgid ""
 ":func:`~pyramid.threadlocal.get_current_registry` in the thread handling "
 "the request will return the component registry associated with the "
 "application."
-msgstr ""
+msgstr "要求中、コンフィギュレータによって作成されたアプリケーションレジストリは\ &quot;made current \&quot;です。これは、要求を処理するスレッドの：func： `〜pyramid.threadlocal.get_current_registry`への呼び出しが、アプリケーションに関連するコンポーネントレジストリを返すことを意味します。"
 
 #: ../../narr/zca.rst:163
 msgid ""
@@ -214,7 +204,7 @@ msgid ""
 " ZCA API.  Without special treatment, the ZCA global APIs will always "
 "return the global ZCA registry (the one in "
 "``zope.component.globalregistry.base``)."
-msgstr ""
+msgstr "結果として、アプリケーション開発者は `` get_current_registry``を使ってレジストリを取得し、per：ref： `disusing_the_global_zca_api`のようにユーティリティなどにアクセスすることができます。しかし、彼らはまだグローバルZCA APIを使用することはできません。 ZCAのグローバルAPIは特別な処理をしなければ、常にグローバルなZCAレジストリ（ `` zope.component.globalregistry.base``のもの）を返します。"
 
 #: ../../narr/zca.rst:169
 msgid ""
@@ -222,21 +212,21 @@ msgid ""
 ":app:`Pyramid` registry, you need to call "
 ":meth:`~pyramid.config.Configurator.hook_zca` within your setup code. For"
 " example:"
-msgstr ""
+msgstr "これを修正してZCAグローバルAPIに\ &quot;現在の\：app：` Pyramid`レジストリを使用させるには、セットアップコード内で：meth： `〜pyramid.config.Configurator.hook_zca`を呼び出す必要があります。例えば："
 
 #: ../../narr/zca.rst:185
 msgid ""
 "We've added a line to our original startup code, line number 5, which "
 "calls ``config.hook_zca()``.  The effect of this line under the hood is "
 "that an analogue of the following code is executed:"
-msgstr ""
+msgstr "元のスタートアップコードの行番号5に、 `` config.hook_zca（） ``を呼び出す行を追加しました。フードの下のこの行の効果は、次のコードのアナログが実行されることです。"
 
 #: ../../narr/zca.rst:196
 msgid ""
 "This causes the ZCA global API to start using the :app:`Pyramid` "
 "application registry in threads which are running a :app:`Pyramid` "
 "request."
-msgstr ""
+msgstr "これにより、ZCAグローバルAPIは、：app： `Pyramid`アプリケーションレジストリを、：app：` Pyramid`要求を実行しているスレッドで使用し始めます。"
 
 #: ../../narr/zca.rst:199
 msgid ""
@@ -247,17 +237,17 @@ msgid ""
 "of the Zope global registry, effectively inverting the original problem."
 "  In such a case, follow the steps in the next section, "
 ":ref:`using_the_zca_global_registry`."
-msgstr ""
+msgstr "`` hook_zca``を呼び出すことは、通常は：app： `Pyramid`アプリケーション内でグローバルZCA APIを使用できるという問題を修正するには十分です。ただし、同じプロセスで実行されているZopeアプリケーションが、Zopeグローバルレジストリの代わりに：app： `Pyramid`グローバルレジストリを使用して元の問題を効果的に反転させることも意味します。このような場合は、次のセクション：ref： `using_the_zca_global_registry`の手順に従ってください。"
 
 #: ../../narr/zca.rst:214
 msgid "Enabling the ZCA global API by using the ZCA global registry"
-msgstr ""
+msgstr "ZCAグローバルレジストリを使用してZCAグローバルAPIを有効にする"
 
 #: ../../narr/zca.rst:216
 msgid ""
 "You can tell your :app:`Pyramid` application to use the ZCA global "
 "registry at startup time instead of constructing a new one:"
-msgstr ""
+msgstr "：app： `Pyramid`アプリケーションに、起動時に新しいレジストリを作成する代わりにZCAグローバルレジストリを使用するよう指示できます："
 
 #: ../../narr/zca.rst:233
 msgid ""
@@ -268,7 +258,7 @@ msgid ""
 "registrations; this is code that is normally executed when a registry is "
 "constructed rather than created, but we must call it \"by hand\" when we "
 "pass an explicit registry."
-msgstr ""
+msgstr "上の行5,6、および7は興味深いものです。 5行目は、グローバルZCAコンポーネントレジストリを取得します。 6行目はa：term： `Configurator`を作成し、グローバルZCAレジストリをそのコンストラクタに` `registry``引数として渡します。 7行目は、ピラミッド固有の登録を持つグローバルレジストリを &quot;設定&quot;します。これは、レジストリが作成されるのではなく構築されたときに通常実行されるコードですが、明示的なレジストリを渡すときに\ &quot;手で\&quot;呼び出す必要があります。"
 
 #: ../../narr/zca.rst:240
 msgid ""
@@ -276,5 +266,5 @@ msgid ""
 "than creating a new application-specific registry.  Since by default the "
 "ZCA global API will use this registry, things will work as you might "
 "expect in a Zope app when you use the global ZCA API."
-msgstr ""
+msgstr "この時点で、：app： `Pyramid`は新しいアプリケーション固有のレジストリを作成するのではなく、ZCAグローバルレジストリを使用します。デフォルトではZCAグローバルAPIはこのレジストリを使用するため、グローバルZCA APIを使用するときにZopeアプリケーションで期待されるように機能します。"
 

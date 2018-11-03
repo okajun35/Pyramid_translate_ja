@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyramid.wsgi &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) pyramid.wsgi &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="p* Scripts Documentation" href="../pscripts/index.html" />
-    <link rel="prev" title="pyramid.viewderivers" href="viewderivers.html" />
+    <link rel="next" title="(機械翻訳) `` p * ``スクリプトのドキュメント" href="../pscripts/index.html" />
+    <link rel="prev" title="(機械翻訳) pyramid.viewderivers" href="viewderivers.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,13 +54,13 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="../pscripts/index.html" title="p* Scripts Documentation"
+          <a href="../pscripts/index.html" title="(機械翻訳) `` p * ``スクリプトのドキュメント"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="viewderivers.html" title="pyramid.viewderivers"
+          <a href="viewderivers.html" title="(機械翻訳) pyramid.viewderivers"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,16 +70,12 @@
           <div class="body" role="main">
             
   <div class="section" id="module-pyramid.wsgi">
-<span id="pyramid-wsgi"></span><span id="wsgi-module"></span><h1><a class="reference internal" href="#module-pyramid.wsgi" title="pyramid.wsgi"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.wsgi</span></code></a><a class="headerlink" href="#module-pyramid.wsgi" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="pyramid-wsgi"></span><span id="wsgi-module"></span><h1>(機械翻訳) <a class="reference internal" href="#module-pyramid.wsgi" title="pyramid.wsgi"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.wsgi</span></code></a><a class="headerlink" href="#module-pyramid.wsgi" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="function">
 <dt id="pyramid.wsgi.wsgiapp">
 <code class="descname">wsgiapp</code><span class="sig-paren">(</span><em>wrapped</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/wsgi.html#wsgiapp"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.wsgi.wsgiapp" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Decorator to turn a WSGI application into a <span>Pyramid</span>
-<a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>.  This decorator differs from the
-<a class="reference internal" href="#pyramid.wsgi.wsgiapp2" title="pyramid.wsgi.wsgiapp2"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.wsgi.wsgiapp2()</span></code></a> decorator inasmuch as fixups of
-<code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> and <code class="docutils literal notranslate"><span class="pre">SCRIPT_NAME</span></code> within the WSGI environment <em>are
-not</em> performed before the application is invoked.</p>
-<p>E.g., the following in a <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module:</p>
+<dd><p>DecoratorはWSGIアプリケーションを：app： <cite>Pyramid</cite>：term：` view callable`に変換します。このデコレータは、アプリケーションが呼び出される前にWSGI環境*内の `` PATH_INFO``と `` SCRIPT_NAME``のフィックスアップが*実行されていないので、：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.wsgi.wsgiapp2`デコレータとは異なります。</p>
+<p>例えば、 `` views.py``モジュールで次のようにします:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@wsgiapp</span>
 <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
     <span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;Hello world&#39;</span>
@@ -88,27 +84,19 @@ not</em> performed before the application is invoked.</p>
     <span class="k">return</span> <span class="p">[</span><span class="n">body</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Allows the following call to
-<a class="reference internal" href="config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a>:</p>
+<p>次の呼び出しを許可します：meth： <cite>pyramid.config.Configurator.add_view</cite></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">views</span> <span class="k">import</span> <span class="n">hello_world</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;hello_world.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">wsgiapp</span></code> decorator will convert the result of the WSGI
-application to a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">Response</span></a> and return it to
-<span>Pyramid</span> as if the WSGI app were a <span>Pyramid</span>
-view.</p>
+<p>`` wsgiapp`デコレータはWSGIアプリケーションの結果を：term： <cite>Response`に変換し、WSGIアプリケーションが：app：</cite> Pyramid`ビューであるかのようにapp： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`に返します。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="pyramid.wsgi.wsgiapp2">
 <code class="descname">wsgiapp2</code><span class="sig-paren">(</span><em>wrapped</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/wsgi.html#wsgiapp2"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.wsgi.wsgiapp2" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Decorator to turn a WSGI application into a <span>Pyramid</span>
-view callable.  This decorator differs from the
-<a class="reference internal" href="#pyramid.wsgi.wsgiapp" title="pyramid.wsgi.wsgiapp"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.wsgi.wsgiapp()</span></code></a> decorator inasmuch as fixups of
-<code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> and <code class="docutils literal notranslate"><span class="pre">SCRIPT_NAME</span></code> within the WSGI environment
-<em>are</em> performed before the application is invoked.</p>
-<p>E.g. the following in a <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module:</p>
+<dd><p>DecoratorはWSGIアプリケーションを：app： <cite>Pyramid`ビューで呼び出し可能にします。このデコレータは、アプリケーションが呼び出される前にWSGI環境*内の `</cite> PATH_INFO``と `` SCRIPT_NAME``のフィックスアップが実行されているので、：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.wsgi.wsgiapp`デコレータとは異なります。</p>
+<p>たとえば、 `` views.py``モジュールで次のようにします:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@wsgiapp2</span>
 <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
     <span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;Hello world&#39;</span>
@@ -117,21 +105,12 @@ view callable.  This decorator differs from the
     <span class="k">return</span> <span class="p">[</span><span class="n">body</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Allows the following call to
-<a class="reference internal" href="config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a>:</p>
+<p>次の呼び出しを許可します：meth： <cite>pyramid.config.Configurator.add_view</cite></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">views</span> <span class="k">import</span> <span class="n">hello_world</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;hello_world.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">wsgiapp2</span></code> decorator will convert the result of the WSGI
-application to a Response and return it to <span>Pyramid</span> as if the WSGI
-app were a <span>Pyramid</span> view.  The <code class="docutils literal notranslate"><span class="pre">SCRIPT_NAME</span></code> and <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code>
-values present in the WSGI environment are fixed up before the
-application is invoked.  In particular, a new WSGI environment is
-generated, and the <a class="reference internal" href="../glossary.html#term-subpath"><span class="xref std std-term">subpath</span></a> of the request passed to <code class="docutils literal notranslate"><span class="pre">wsgiapp2</span></code>
-is used as the new request's <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> and everything preceding the
-subpath is used as the <code class="docutils literal notranslate"><span class="pre">SCRIPT_NAME</span></code>.  The new environment is passed to
-the downstream WSGI application.</p>
+<p>`` wsgiapp2``デコレータはWSGIアプリケーションの結果をResponseに変換し、WSGIアプリケーションが：app： <cite>Pyramid`ビューであるかのようにapp：</cite> Pyramid`に返します。 WSGI環境にある `` SCRIPT_NAME``と `` PATH_INFO``の値は、アプリケーションが呼び出される前に修正されています。特に、新しいWSGI環境が生成され、 `` wsgiapp2``に渡されたリクエストの：term： <cite>subpath`が新しいリクエストの</cite> <cite>PATH_INFO``として使われ、サブパスに先行する全てが</cite> `` SCRIPT_NAME``。新しい環境は、下流のWSGIアプリケーションに渡されます。</p>
 </dd></dl>
 
 </div>
@@ -144,10 +123,10 @@ the downstream WSGI application.</p>
         <div class="sphinxsidebarwrapper">
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="viewderivers.html"
-                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.viewderivers</span></code></a></p>
+                        title="前の章へ">(機械翻訳)  <code class="docutils literal notranslate"><span class="pre">pyramid.viewderivers</span></code></a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="../pscripts/index.html"
-                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">p*</span></code> Scripts Documentation</a></p>
+                        title="次の章へ">(機械翻訳) `` p * ``スクリプトのドキュメント</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -181,18 +160,18 @@ the downstream WSGI application.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="../pscripts/index.html" title="p* Scripts Documentation"
+          <a href="../pscripts/index.html" title="(機械翻訳) `` p * ``スクリプトのドキュメント"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="viewderivers.html" title="pyramid.viewderivers"
+          <a href="viewderivers.html" title="(機械翻訳) pyramid.viewderivers"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

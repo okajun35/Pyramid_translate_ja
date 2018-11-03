@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyramid.csrf &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) pyramid.csrf &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="pyramid.decorator" href="decorator.html" />
-    <link rel="prev" title="pyramid.config" href="config.html" />
+    <link rel="next" title="(機械翻訳) pyramid.decorator" href="decorator.html" />
+    <link rel="prev" title="(機械翻訳) pyramid.config" href="config.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,13 +54,13 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="decorator.html" title="pyramid.decorator"
+          <a href="decorator.html" title="(機械翻訳) pyramid.decorator"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="config.html" title="pyramid.config"
+          <a href="config.html" title="(機械翻訳) pyramid.config"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,37 +70,32 @@
           <div class="body" role="main">
             
   <div class="section" id="module-pyramid.csrf">
-<span id="pyramid-csrf"></span><span id="csrf-module"></span><h1><a class="reference internal" href="#module-pyramid.csrf" title="pyramid.csrf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.csrf</span></code></a><a class="headerlink" href="#module-pyramid.csrf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="pyramid-csrf"></span><span id="csrf-module"></span><h1>(機械翻訳) <a class="reference internal" href="#module-pyramid.csrf" title="pyramid.csrf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.csrf</span></code></a><a class="headerlink" href="#module-pyramid.csrf" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="class">
 <dt id="pyramid.csrf.LegacySessionCSRFStoragePolicy">
 <em class="property">class </em><code class="descname">LegacySessionCSRFStoragePolicy</code><a class="reference internal" href="../_modules/pyramid/csrf.html#LegacySessionCSRFStoragePolicy"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.LegacySessionCSRFStoragePolicy" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A CSRF storage policy that defers control of CSRF storage to the
-session.</p>
-<p>This policy maintains compatibility with legacy ISession implementations
-that know how to manage CSRF tokens themselves via
-<code class="docutils literal notranslate"><span class="pre">ISession.new_csrf_token</span></code> and <code class="docutils literal notranslate"><span class="pre">ISession.get_csrf_token</span></code>.</p>
-<p>Note that using this CSRF implementation requires that
-a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a> is configured.</p>
+<dd><p>セッションへのCSRFストレージの制御を代行するCSRFストレージポリシー。</p>
+<p>このポリシーは、 `` ISession.new_csrf_token``と `` ISession.get_csrf_token``を介してCSRFトークンを管理する方法を知っているレガシーISession実装との互換性を維持します。</p>
+<p>このCSRF実装を使用するには、a：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>session factory`が設定されている必要があります。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.9 で追加.</span></p>
 </div>
 <dl class="method">
 <dt id="pyramid.csrf.LegacySessionCSRFStoragePolicy.check_csrf_token">
 <code class="descname">check_csrf_token</code><span class="sig-paren">(</span><em>request</em>, <em>supplied_token</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#LegacySessionCSRFStoragePolicy.check_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.LegacySessionCSRFStoragePolicy.check_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">supplied_token</span></code> is valid.</p>
+<dd><p>`` given_token``が有効であれば `` True``を返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.csrf.LegacySessionCSRFStoragePolicy.get_csrf_token">
 <code class="descname">get_csrf_token</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#LegacySessionCSRFStoragePolicy.get_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.LegacySessionCSRFStoragePolicy.get_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Returns the currently active CSRF token from the session,
-generating a new one if needed.</p>
+<dd><p>セッションから現在アクティブなCSRFトークンを返し、必要に応じて新しいトークンを生成します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.csrf.LegacySessionCSRFStoragePolicy.new_csrf_token">
 <code class="descname">new_csrf_token</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#LegacySessionCSRFStoragePolicy.new_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.LegacySessionCSRFStoragePolicy.new_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Sets a new CSRF token into the session and returns it.</p>
+<dd><p>新しいCSRFトークンをセッションに設定して返します。</p>
 </dd></dl>
 
 </dd></dl>
@@ -108,33 +103,30 @@ generating a new one if needed.</p>
 <dl class="class">
 <dt id="pyramid.csrf.SessionCSRFStoragePolicy">
 <em class="property">class </em><code class="descname">SessionCSRFStoragePolicy</code><span class="sig-paren">(</span><em>key='_csrft_'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#SessionCSRFStoragePolicy"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.SessionCSRFStoragePolicy" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A CSRF storage policy that persists the CSRF token in the session.</p>
-<p>Note that using this CSRF implementation requires that
-a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a> is configured.</p>
-<p><code class="docutils literal notranslate"><span class="pre">key</span></code></p>
+<dd><p>セッションでCSRFトークンを保持するCSRFストレージポリシー。</p>
+<p>このCSRF実装を使用するには、a：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>session factory`が設定されている必要があります。</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>キー ``</p>
 <blockquote>
-<div>The session key where the CSRF token will be stored.
-Default: <cite>_csrft_</cite>.</div></blockquote>
+<div>CSRFトークンが格納されるセッションキー。デフォルト： <cite>_csrft_</cite>。</div></blockquote>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.9 で追加.</span></p>
 </div>
 <dl class="method">
 <dt id="pyramid.csrf.SessionCSRFStoragePolicy.check_csrf_token">
 <code class="descname">check_csrf_token</code><span class="sig-paren">(</span><em>request</em>, <em>supplied_token</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#SessionCSRFStoragePolicy.check_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.SessionCSRFStoragePolicy.check_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">supplied_token</span></code> is valid.</p>
+<dd><p>`` given_token``が有効であれば `` True``を返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.csrf.SessionCSRFStoragePolicy.get_csrf_token">
 <code class="descname">get_csrf_token</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#SessionCSRFStoragePolicy.get_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.SessionCSRFStoragePolicy.get_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Returns the currently active CSRF token from the session,
-generating a new one if needed.</p>
+<dd><p>セッションから現在アクティブなCSRFトークンを返し、必要に応じて新しいトークンを生成します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.csrf.SessionCSRFStoragePolicy.new_csrf_token">
 <code class="descname">new_csrf_token</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#SessionCSRFStoragePolicy.new_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.SessionCSRFStoragePolicy.new_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Sets a new CSRF token into the session and returns it.</p>
+<dd><p>新しいCSRFトークンをセッションに設定して返します。</p>
 </dd></dl>
 
 </dd></dl>
@@ -142,31 +134,26 @@ generating a new one if needed.</p>
 <dl class="class">
 <dt id="pyramid.csrf.CookieCSRFStoragePolicy">
 <em class="property">class </em><code class="descname">CookieCSRFStoragePolicy</code><span class="sig-paren">(</span><em>cookie_name='csrf_token'</em>, <em>secure=False</em>, <em>httponly=False</em>, <em>domain=None</em>, <em>max_age=None</em>, <em>path='/'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#CookieCSRFStoragePolicy"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.CookieCSRFStoragePolicy" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>An alternative CSRF implementation that stores its information in
-unauthenticated cookies, known as the 'Double Submit Cookie' method in the
-<a class="reference external" href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#Double_Submit_Cookie">OWASP CSRF guidelines</a>. This gives some additional flexibility with
-regards to scaling as the tokens can be generated and verified by a
-front-end server.</p>
+<dd><p>「OWASP CSRFガイドライン」の「Double Submit Cookie」メソッドとして知られている認証されていないクッキーに情報を格納する代替CSRF実装&lt;<a class="reference external" href="https://www.owasp.org/index.php/">https://www.owasp.org/index.php/</a> Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet# Double_Submit_Cookie&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_。フロントエンドサーバーでトークンを生成して検証できるようになるため、スケーリングに関していくつかの柔軟性があります。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.9 で追加.</span></p>
 </div>
 <dl class="method">
 <dt id="pyramid.csrf.CookieCSRFStoragePolicy.check_csrf_token">
 <code class="descname">check_csrf_token</code><span class="sig-paren">(</span><em>request</em>, <em>supplied_token</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#CookieCSRFStoragePolicy.check_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.CookieCSRFStoragePolicy.check_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">supplied_token</span></code> is valid.</p>
+<dd><p>`` given_token``が有効であれば `` True``を返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.csrf.CookieCSRFStoragePolicy.get_csrf_token">
 <code class="descname">get_csrf_token</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#CookieCSRFStoragePolicy.get_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.CookieCSRFStoragePolicy.get_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Returns the currently active CSRF token by checking the cookies
-sent with the current request.</p>
+<dd><p>現在のリクエストで送信されたCookieをチェックすることにより、現在アクティブなCSRFトークンを返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.csrf.CookieCSRFStoragePolicy.new_csrf_token">
 <code class="descname">new_csrf_token</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#CookieCSRFStoragePolicy.new_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.CookieCSRFStoragePolicy.new_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Sets a new CSRF token into the request and returns it.</p>
+<dd><p>新しいCSRFトークンを要求に設定して返します。</p>
 </dd></dl>
 
 </dd></dl>
@@ -174,9 +161,7 @@ sent with the current request.</p>
 <dl class="function">
 <dt id="pyramid.csrf.get_csrf_token">
 <code class="descname">get_csrf_token</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#get_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.get_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Get the currently active CSRF token for the request passed, generating
-a new one using <code class="docutils literal notranslate"><span class="pre">new_csrf_token(request)</span></code> if one does not exist. This
-calls the equivalent method in the chosen CSRF protection implementation.</p>
+<dd><p>渡されたリクエストに対して現在アクティブなCSRFトークンを取得し、存在しない場合は `` new_csrf_token（request） <a href="#id1"><span class="problematic" id="id2">``</span></a>を使って新しいCSRFトークンを生成します。これにより、選択されたCSRF保護の実装で同等のメソッドが呼び出されます。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.9 で追加.</span></p>
 </div>
@@ -185,9 +170,7 @@ calls the equivalent method in the chosen CSRF protection implementation.</p>
 <dl class="function">
 <dt id="pyramid.csrf.new_csrf_token">
 <code class="descname">new_csrf_token</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#new_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.new_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Generate a new CSRF token for the request passed and persist it in an
-implementation defined manner. This calls the equivalent method in the
-chosen CSRF protection implementation.</p>
+<dd><p>渡された要求に対して新しいCSRFトークンを生成し、実装定義の方法で永続化します。これにより、選択されたCSRF保護の実装で同等のメソッドが呼び出されます。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.9 で追加.</span></p>
 </div>
@@ -196,60 +179,32 @@ chosen CSRF protection implementation.</p>
 <dl class="function">
 <dt id="pyramid.csrf.check_csrf_origin">
 <code class="descname">check_csrf_origin</code><span class="sig-paren">(</span><em>request</em>, <em>trusted_origins=None</em>, <em>raises=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#check_csrf_origin"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.check_csrf_origin" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Check the <code class="docutils literal notranslate"><span class="pre">Origin</span></code> of the request to see if it is a cross site request or
-not.</p>
-<p>If the value supplied by the <code class="docutils literal notranslate"><span class="pre">Origin</span></code> or <code class="docutils literal notranslate"><span class="pre">Referer</span></code> header isn't one of the
-trusted origins and <code class="docutils literal notranslate"><span class="pre">raises</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, this function will raise a
-<a class="reference internal" href="exceptions.html#pyramid.exceptions.BadCSRFOrigin" title="pyramid.exceptions.BadCSRFOrigin"><code class="xref py py-exc docutils literal notranslate"><span class="pre">pyramid.exceptions.BadCSRFOrigin</span></code></a> exception, but if <code class="docutils literal notranslate"><span class="pre">raises</span></code> is
-<code class="docutils literal notranslate"><span class="pre">False</span></code>, this function will return <code class="docutils literal notranslate"><span class="pre">False</span></code> instead. If the CSRF origin
-checks are successful this function will return <code class="docutils literal notranslate"><span class="pre">True</span></code> unconditionally.</p>
-<p>Additional trusted origins may be added by passing a list of domain (and
-ports if non-standard like <code class="docutils literal notranslate"><span class="pre">['example.com',</span> <span class="pre">'dev.example.com:8080']</span></code>) in
-with the <code class="docutils literal notranslate"><span class="pre">trusted_origins</span></code> parameter. If <code class="docutils literal notranslate"><span class="pre">trusted_origins</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>
-(the default) this list of additional domains will be pulled from the
-<code class="docutils literal notranslate"><span class="pre">pyramid.csrf_trusted_origins</span></code> setting.</p>
-<p>Note that this function will do nothing if <code class="docutils literal notranslate"><span class="pre">request.scheme</span></code> is not
-<code class="docutils literal notranslate"><span class="pre">https</span></code>.</p>
+<dd><p>リクエストの `` Origin``をチェックして、クロスサイトリクエストかどうかを調べます。</p>
+<p>`` Origin``や `` Referer``ヘッダーで指定された値が信頼できる起点ではなく、 `` raise``が `` True``の場合、この関数は：exc： <cite>ピラミッドを生成します。 exceptions.BadCSRFOrigin`例外がありますが、 `</cite> raise``が `` False``の場合、この関数は代わりに `` False``を返します。 CSRF起点チェックが成功した場合、この関数は無条件に `` True``を返します。</p>
+<p>追加の信頼できる起点は、 `` [&amp;#39;example.com&amp;#39;、 &amp;#39;dev.example.com:8080&amp;#39;] <a href="#id1"><span class="problematic" id="id2">``</span></a>のような非標準的な場合はドメインのリストを `` trusted_origins``に渡すことで追加できますパラメータ。 `` trusted_origins``が `` None``（デフォルト）の場合、この追加ドメインのリストは `` pyramid.csrf_trusted_origins``設定から引き出されます。</p>
+<p>`` request.scheme``が `` https``でなければ、この関数は何もしません。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.7 で追加.</span></p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 1.9 で変更: </span>Moved from <a class="reference internal" href="session.html#module-pyramid.session" title="pyramid.session"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.session</span></code></a> to <a class="reference internal" href="#module-pyramid.csrf" title="pyramid.csrf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.csrf</span></code></a></p>
+<p><span class="versionmodified">バージョン 1.9 で変更: </span>mod： <cite>pyramid.session`から：mod：</cite> pyramid.csrf`に移動しました。</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="pyramid.csrf.check_csrf_token">
 <code class="descname">check_csrf_token</code><span class="sig-paren">(</span><em>request</em>, <em>token='csrf_token'</em>, <em>header='X-CSRF-Token'</em>, <em>raises=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/csrf.html#check_csrf_token"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.csrf.check_csrf_token" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Check the CSRF token returned by the
-<a class="reference internal" href="interfaces.html#pyramid.interfaces.ICSRFStoragePolicy" title="pyramid.interfaces.ICSRFStoragePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.ICSRFStoragePolicy</span></code></a> implementation against the
-value in <code class="docutils literal notranslate"><span class="pre">request.POST.get(token)</span></code> (if a POST request) or
-<code class="docutils literal notranslate"><span class="pre">request.headers.get(header)</span></code>. If a <code class="docutils literal notranslate"><span class="pre">token</span></code> keyword is not supplied to
-this function, the string <code class="docutils literal notranslate"><span class="pre">csrf_token</span></code> will be used to look up the token
-in <code class="docutils literal notranslate"><span class="pre">request.POST</span></code>. If a <code class="docutils literal notranslate"><span class="pre">header</span></code> keyword is not supplied to this
-function, the string <code class="docutils literal notranslate"><span class="pre">X-CSRF-Token</span></code> will be used to look up the token in
-<code class="docutils literal notranslate"><span class="pre">request.headers</span></code>.</p>
-<p>If the value supplied by post or by header cannot be verified by the
-<a class="reference internal" href="interfaces.html#pyramid.interfaces.ICSRFStoragePolicy" title="pyramid.interfaces.ICSRFStoragePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.ICSRFStoragePolicy</span></code></a>, and <code class="docutils literal notranslate"><span class="pre">raises</span></code> is
-<code class="docutils literal notranslate"><span class="pre">True</span></code>, this function will raise an
-<a class="reference internal" href="exceptions.html#pyramid.exceptions.BadCSRFToken" title="pyramid.exceptions.BadCSRFToken"><code class="xref py py-exc docutils literal notranslate"><span class="pre">pyramid.exceptions.BadCSRFToken</span></code></a> exception. If the values differ
-and <code class="docutils literal notranslate"><span class="pre">raises</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, this function will return <code class="docutils literal notranslate"><span class="pre">False</span></code>.  If the
-CSRF check is successful, this function will return <code class="docutils literal notranslate"><span class="pre">True</span></code>
-unconditionally.</p>
-<p>See <a class="reference internal" href="../narr/security.html#auto-csrf-checking"><span class="std std-ref">Checking CSRF Tokens Automatically</span></a> for information about how to secure your
-application automatically against CSRF attacks.</p>
+<dd><p>：class： <cite>pyramid.interfaces.ICSRFStoragePolicy`実装から返されたCSRFトークンを、</cite> <cite>request.POST.get（token）</cite> <cite>（POSTリクエストの場合）または</cite> <cite>request.headers.get（header ） `</cite>。この関数に `` token``キーワードが与えられていない場合、文字列 `` csrf_token``が `` request.POST``のトークンを検索するために使われます。この関数に `` header``キーワードが与えられていない場合、文字列 `` X-CSRF-Token``が `` request.headers``でトークンを検索するために使われます。</p>
+<p>post：またはheaderで指定された値が：class： <cite>pyramid.interfaces.ICSRFStoragePolicy`で検証できず、</cite> <cite>raise``が</cite> <cite>True``の場合、この関数は：exc：</cite> pyramid.exceptions .BadCSRFToken`例外です。値が異なり、 `` raise``が `` False``の場合、この関数は `` False``を返します。 CSRFチェックが成功すると、この関数は無条件に `` True``を返します。</p>
+<p>CSRF攻撃に対して自動的にアプリケーションを保護する方法については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>auto_csrf_checking`を参照してください。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.4a2 で追加.</span></p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 1.7a1 で変更: </span>A CSRF token passed in the query string of the request is no longer
-considered valid. It must be passed in either the request body or
-a header.</p>
+<p><span class="versionmodified">バージョン 1.7a1 で変更: </span>要求のクエリー文字列で渡されたCSRFトークンは、もはや有効とみなされません。要求本体またはヘッダーのいずれかに渡す必要があります。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 1.9 で変更: </span>Moved from <a class="reference internal" href="session.html#module-pyramid.session" title="pyramid.session"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.session</span></code></a> to <a class="reference internal" href="#module-pyramid.csrf" title="pyramid.csrf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.csrf</span></code></a> and updated
-to use the configured <a class="reference internal" href="interfaces.html#pyramid.interfaces.ICSRFStoragePolicy" title="pyramid.interfaces.ICSRFStoragePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.ICSRFStoragePolicy</span></code></a> to
-verify the CSRF token.</p>
+<p><span class="versionmodified">バージョン 1.9 で変更: </span>mod： <cite>pyramid.session`をmod：</cite> pyramid.csrf`に移動し、configured：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.interfaces.ICSRFStoragePolicy`を使用してCSRFトークンを検証するように更新しました。</p>
 </div>
 </dd></dl>
 
@@ -263,10 +218,10 @@ verify the CSRF token.</p>
         <div class="sphinxsidebarwrapper">
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="config.html"
-                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.config</span></code></a></p>
+                        title="前の章へ">(機械翻訳) <code class="docutils literal notranslate"><span class="pre">pyramid.config</span></code></a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="decorator.html"
-                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.decorator</span></code></a></p>
+                        title="次の章へ">(機械翻訳) <code class="docutils literal notranslate"><span class="pre">pyramid.decorator</span></code></a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -300,18 +255,18 @@ verify the CSRF token.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="decorator.html" title="pyramid.decorator"
+          <a href="decorator.html" title="(機械翻訳) pyramid.decorator"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="config.html" title="pyramid.config"
+          <a href="config.html" title="(機械翻訳) pyramid.config"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

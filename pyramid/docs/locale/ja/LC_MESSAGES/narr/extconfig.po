@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/extconfig.rst:7
 msgid "Extending Pyramid Configuration"
-msgstr ""
+msgstr "(機械翻訳) ピラミッド構成の拡張"
 
 #: ../../narr/extconfig.rst:9
 msgid ""
@@ -28,11 +18,11 @@ msgid ""
 "Custom directives can use other directives, they can add a custom "
 ":term:`action`, they can participate in :term:`conflict resolution`, and "
 "they can provide some number of :term:`introspectable` objects."
-msgstr ""
+msgstr "Pyramidでは、カスタムディレクティブを使用してConfiguratorを拡張できます。カスタムディレクティブは他のディレクティブを使用することができ、custom：term： `action`を追加することができます：term：` conflict resolution`に参加でき、いくつかの：term： `introspectable`オブジェクトを提供できます。"
 
 #: ../../narr/extconfig.rst:21
 msgid "Adding Methods to the Configurator via ``add_directive``"
-msgstr ""
+msgstr "`` add_directive``を使ってコンフィグレータにメソッドを追加する"
 
 #: ../../narr/extconfig.rst:23
 msgid ""
@@ -42,7 +32,7 @@ msgid ""
 "configurator. Using :meth:`~pyramid.config.Configurator.add_directive` "
 "makes it possible to extend a Pyramid configurator in arbitrary ways, and"
 " allows it to perform application-specific tasks more succinctly."
-msgstr ""
+msgstr "フレームワーク拡張の作者は、コンフィグレータの：meth： `pyramid.config.Configurator.add_directive`メソッドを使って：term：` Configurator`に任意のメソッドを追加できます。 ：meth： `〜pyramid.config.Configurator.add_directive`を使うと、Pyramidコンフィギュレータを任意の方法で拡張することができ、アプリケーション固有のタスクをより簡潔に実行することができます。"
 
 #: ../../narr/extconfig.rst:29
 msgid ""
@@ -51,14 +41,14 @@ msgid ""
 " object is usually a function that takes the configurator instance as its"
 " first argument and accepts other arbitrary positional and keyword "
 "arguments. For example:"
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_directive`メソッドは、メソッド名と呼び出し可能オブジェクトという2つの位置引数を受け取ります。呼び出し可能オブジェクトは、通常、最初の引数としてコンフィギュレータインスタンスを取り、他の任意の位置引数とキーワード引数を受け入れる関数です。例えば："
 
 #: ../../narr/extconfig.rst:49
 msgid ""
 "Once :meth:`~pyramid.config.Configurator.add_directive` is called, a user"
 " can then call the added directive by its given name as if it were a "
 "built-in method of the Configurator:"
-msgstr ""
+msgstr "一旦：meth： `〜pyramid.config.Configurator.add_directive`が呼び出されると、ユーザはConfiguredatorの組み込みメソッドであるかのように、指定された名前で追加されたディレクティブを呼び出すことができます："
 
 #: ../../narr/extconfig.rst:61
 msgid ""
@@ -67,17 +57,17 @@ msgid ""
 "package meant to be included as per :ref:`including_configuration` via "
 ":meth:`~pyramid.config.Configurator.include`.  For example, if you put "
 "this code in a package named ``pyramid_subscriberhelpers``:"
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_directive`への呼び出しは、per：ref：` including_configurationとしてインクルードされることを意図した\ &quot;frameworky \&quot;パッケージ内の `` includeme``関数内ではしばしば\ &quot;隠されています&quot; `via：meth：`〜pyramid.config.Configurator.include`。たとえば、このコードを `` pyramid_subscriberhelpers``というパッケージに入れた場合、"
 
 #: ../../narr/extconfig.rst:74
 msgid ""
 "The user of the add-on package ``pyramid_subscriberhelpers`` would then "
 "be able to install it and subsequently do:"
-msgstr ""
+msgstr "アドオンパッケージの `` pyramid_subscriberhelpers``のユーザーは、それをインストールして、次に実行できます："
 
 #: ../../narr/extconfig.rst:89
 msgid "Using ``config.action`` in a Directive"
-msgstr ""
+msgstr "ディレクティブで `` config.action``を使う"
 
 #: ../../narr/extconfig.rst:91
 msgid ""
@@ -91,11 +81,11 @@ msgid ""
 "simply a dictionary that includes a :term:`discriminator`, possibly a "
 "callback function, and possibly other metadata used by Pyramid's action "
 "system."
-msgstr ""
+msgstr "カスタムディレクティブが既存のコンフィグレーターメソッド（上記のように：meth： `pyramid.config.Configurator.add_subscriber`のような）に関して独占的にその作業を行うことができない場合、ディレクティブは：meth：`ピラミッド.config.Configurator.action`メソッド。このメソッドは、：meth： `pyramid.config.Configurator.commit`が呼び出されたときに、Pyramidが処理しようとする\&quot; actions \ &quot;のリストにエントリを追加します。アクションとは：term： `discriminator`、おそらくコールバック関数、そして恐らくピラミッドのアクションシステムによって使用される他のメタデータを含む辞書です。"
 
 #: ../../narr/extconfig.rst:100
 msgid "Here's an example directive which uses the \"action\" method:"
-msgstr ""
+msgstr "\ &quot;アクション\&quot;メソッドを使用するディレクティブの例を次に示します。"
 
 #: ../../narr/extconfig.rst:114
 msgid ""
@@ -105,7 +95,7 @@ msgid ""
 "string ``jammyjam`` is passed as the first argument named "
 "``discriminator``, and the closure function named ``register`` is passed "
 "as the second argument named ``callable``."
-msgstr ""
+msgstr "ファンシーですが、それは何ですか？アクションメソッドはいくつかの引数を受け取ります。 `` add_jammyjam``という名前の上記のディレクティブでは、meth： `〜pyramid.config.Configurator.action`を2つの引数で呼び出します。文字列` `jammyjam``が` discriminator`という名前の最初の引数として渡され、 `` registerable``という名前のクロージャー関数は `` callable``という名前の第2引数として渡されます。"
 
 #: ../../narr/extconfig.rst:121
 msgid ""
@@ -121,13 +111,13 @@ msgid ""
 "automatically resolved, a "
 ":exc:`pyramid.exceptions.ConfigurationConflictError` is raised and "
 "application startup is prevented."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.action`メソッドが呼び出されると、保留中の設定アクションのリストにアクションが追加されます。同一のディスクリミネータ値を持つすべての保留中のアクションは潜在的に互いに衝突します（参照：ref： `conflict_detection`）。コンフィグレータの：meth： `〜pyramid.config.Configurator.commit`メソッドが（明示的にまたは：meth：`〜pyramid.config.Configurator.make_wsgi_app`を呼び出した結果として）呼び出されると、競合するアクションは自動的に可能性があります：ref： `automatic_conflict_resolution`に従って解決されます。競合を自動的に解決できない場合、a：exc： `pyramid.exceptions.ConfigurationConflictError`が発生し、アプリケーションの起動が妨げられます。"
 
 #: ../../narr/extconfig.rst:133
 msgid ""
 "In our above example, therefore, if a consumer of our ``add_jammyjam`` "
 "directive did this:"
-msgstr ""
+msgstr "したがって、上記の例では、 `` add_jammyjam``ディレクティブの消費者がこれを行った場合、"
 
 #: ../../narr/extconfig.rst:141
 msgid ""
@@ -139,7 +129,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.commit` call between the calls to "
 "``add_jammyjam`` to ensure that the successive calls did not conflict "
 "with each other."
-msgstr ""
+msgstr "上記の一連の呼び出しの結果、アクションリストがコミットされたとき、2つの呼び出しによって生成されたアクションの弁別子が直接衝突するため、ユーザーのアプリケーションは起動しません。自動的な競合解決は競合を解決できません（ `` config.include``が含まれていないので）、ユーザは `` add_jammyjam``の呼び出しの間にintermediate：meth： `pyramid.config.Configurator.commit`呼び出しを渡さなかった連続するコールが相互に競合していないことを確認してください。"
 
 #: ../../narr/extconfig.rst:150
 msgid ""
@@ -150,13 +140,13 @@ msgid ""
 "hashable object, but it is generally a string or a tuple.  *You use a "
 "discriminator to declaratively ensure that the user doesn't provide "
 "ambiguous configuration statements.*"
-msgstr ""
+msgstr "これは、アクションメソッドの識別子引数の目的を示しています。アクションの一意性制約を示すために使用されます。競合が自動的にまたは手動で解決されない限り、同じディスクリミネータを使用する2つのアクションは競合します。 discriminatorは任意のハッシュ可能なオブジェクトですが、一般的には文字列またはタプルです。 *あなたは、ユーザーがあいまいな構成ステートメントを提供しないことを宣言的に保証するために弁別子を​​使用します。*"
 
 #: ../../narr/extconfig.rst:158
 msgid ""
 "But let's imagine that a consumer of ``add_jammyjam`` used it in such a "
 "way that no configuration conflicts are generated."
-msgstr ""
+msgstr "しかし、 `` add_jammyjam``の消費者が、設定の競合が発生しないような方法でそれを使用したとしましょう。"
 
 #: ../../narr/extconfig.rst:165
 msgid ""
@@ -173,20 +163,20 @@ msgid ""
 "attribute of the registry to the string ``first``.  *A callable is used "
 "by a directive to defer the result of a user's call to the directive "
 "until conflict detection has had a chance to do its job*."
-msgstr ""
+msgstr "今、何が起きた？ `` add_jammyjam``メソッドが呼び出されると、アクションが保留アクションリストに追加されます。保留中の設定アクションが：meth： `〜pyramid.config.Configurator.commit`の間に処理され、競合が発生しなければ、* callable *は：meth：`〜pyramid.config.Configurator.actionの第2引数として提供されます`add_jammyjam``内の`メソッドは引数なしで呼び出されます。 `` add_jammyjam``の呼び出し可能な関数は、 `` register``クロージャ関数です。 `` config.registry.jammyjam``の値を、 `` add_jammyjam``関数の `` jammyjam``引数として渡した値に設定します。したがって、ユーザの指令の呼び出しの結果は、レジストリの `` jammyjam``属性を文字列 `` first``に設定します。 * callableは、矛盾の検出がその仕事をする機会があるまで、ディレクティブがユーザーの呼び出し結果を延期するためにディレクティブによって使用されます*。"
 
 #: ../../narr/extconfig.rst:178
 msgid ""
 "Other arguments exist to the :meth:`~pyramid.config.Configurator.action` "
 "method, including ``args``, ``kw``, ``order``, and ``introspectables``."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.action`メソッドには、` `args``、` `kw``、` `order``、` `introspectables``などの引数があります。"
 
 #: ../../narr/extconfig.rst:181
 msgid ""
 "``args`` and ``kw`` exist as values, which if passed will be used as "
 "arguments to the ``callable`` function when it is called back.  For "
 "example, our directive might use them like so:"
-msgstr ""
+msgstr "`` args``と `` kw``は値として存在し、渡された場合、 `` callable``関数がコールバックされたときに引数として使用されます。例えば、私たちの指令は以下のようにそれらを使用するかもしれません："
 
 #: ../../narr/extconfig.rst:195
 msgid ""
@@ -198,7 +188,7 @@ msgid ""
 "have access to every local in the directive without needing them to be "
 "passed back.  They can be useful, however, if you don't use a closure as "
 "a callable."
-msgstr ""
+msgstr "上記の例では、このディレクティブがアクションの生成に使用され、そのアクションがコミットされると、 `` config.registry.jammyjam_args``は ``（ &#39;one&#39;、 ``） ``と `` config.registry .jammyjam_kw``は `` {&#39;two&#39;： &#39;two&#39;} ``に設定されます。 `` callable``がクロージャー関数の場合、 `` args``と `` kw``は正直なところあまり有用ではありません。ただし、クロージャを呼び出し可能として使用しない場合は便利です。"
 
 #: ../../narr/extconfig.rst:203
 msgid ""
@@ -216,13 +206,13 @@ msgid ""
 "``add_route``, and if such a route has not already been registered, it's "
 "a configuration error (a view that names a nonexistent route via its "
 "``route_name`` parameter will never be called)."
-msgstr ""
+msgstr "「注文」は原注管理メカニズムです。 `` order``はデフォルトで整数 `` 0``になります。他の任意の整数に設定することができます。オーダーを共有するすべてのアクションは、上位のオーダーを共有する他のアクションの前に呼び出されます。これにより、最初に実行される別のディレクティブの呼び出し可能な呼び出しに依存する呼び出し可能なロジックを持つディレクティブを書くことができます。たとえば、Pyramidの：meth： `pyramid.config.Configurator.add_view`ディレクティブは、：meth：` pyramid.config.Configurator.add_route`メソッドよりも上位のアクションを登録します。このため、 `` add_view``メソッドの呼び出し可能メソッドは、 `` route_name``が渡された場合、この名前のルートが `` add_route``によって既に登録されていると仮定し、そのようなルートがまだ登録されていない場合は、設定エラーです（存在しないルートに `` route_name``パラメータで名前を付けるビューは呼び出されません）。"
 
 #: ../../narr/extconfig.rst:217
 msgid ""
 "As of Pyramid 1.6 it is possible for one action to invoke another. See "
 ":ref:`ordering_actions` for more information."
-msgstr ""
+msgstr "Pyramid 1.6以降、あるアクションが別のアクションを呼び出すことは可能です。詳細は、：ref： `ordering_actions`を参照してください。"
 
 #: ../../narr/extconfig.rst:221
 msgid ""
@@ -230,11 +220,11 @@ msgid ""
 "objects. You can pass a sequence of introspectables to the "
 ":meth:`~pyramid.config.Configurator.action` method, which allows you to "
 "augment Pyramid's configuration introspection system."
-msgstr ""
+msgstr "最後に、 `` introspectables``はterm： `introspectable`オブジェクトのシーケンスです。イントロスペクティブのシーケンスを：meth： `〜pyramid.config.Configurator.action`メソッドに渡すことができます。これにより、Pyramidの設定イントロスペクションシステムを拡張することができます。"
 
 #: ../../narr/extconfig.rst:229
 msgid "Ordering Actions"
-msgstr ""
+msgstr "オーダーアクション"
 
 #: ../../narr/extconfig.rst:231
 msgid ""
@@ -246,7 +236,7 @@ msgid ""
 "``config.add_route('foo', '/foo')`` because nothing actually happens "
 "until commit-time. During a commit cycle, conflicts are resolved, and "
 "actions are ordered and executed."
-msgstr ""
+msgstr "Pyramidではevery：term： `action`は他のアクションとの相対的な順序付けを持っています。アクション内のロジックは、：meth： `pyramid.config.Configurator.commit`（これは自動的に：meth：` pyramid.config.Configurator.make_wsgi_app`によって呼び出されます）の呼び出しまで延期されます。つまり、コミット時まで何も起こらないので、config.add_route（ &#39;foo&#39;、 &#39;/ foo&#39;） ``の前に `` config.add_view（route_name = &#39;foo&#39;） `` ** ** before ** ``を呼び出すことができます。コミット・サイクル中に競合が解決され、アクションが順序付けられ実行されます。"
 
 #: ../../narr/extconfig.rst:239
 msgid ""
@@ -258,91 +248,91 @@ msgid ""
 "views are dependent on routes being defined. Thus the action created by "
 ":meth:`pyramid.config.Configurator.add_route` has an ``order`` of "
 ":const:`pyramid.config.PHASE2_CONFIG`."
-msgstr ""
+msgstr "デフォルトでは、Pyramidのほとんどのアクションは：const： `pyramid.config.PHASE3_CONFIG`の` `order``を持っています。同じオーダー・レベル内のすべてのアクションは、呼び出された順に実行されます。これは、アクションが別のアクションの前または後に確実に実行されなければならない場合、この動作をさせるために `` order``を明示的に定義する必要があることを意味します。たとえば、ビューは定義されているルートに依存します。したがって、：meth： `pyramid.config.Configurator.add_route`によって作成されるアクションは：const：` pyramid.config.PHASE2_CONFIG`の `` order``を持ちます。"
 
 #: ../../narr/extconfig.rst:249
 msgid "Pre-defined Phases"
-msgstr ""
+msgstr "事前定義されたフェーズ"
 
 #: ../../narr/extconfig.rst:251
 msgid ":const:`pyramid.config.PHASE0_CONFIG`"
-msgstr ""
+msgstr "：const： `pyramid.config.PHASE0_CONFIG`"
 
 #: ../../narr/extconfig.rst:253
 msgid ""
 "This phase is reserved for developers who want to execute actions prior "
 "to Pyramid's core directives."
-msgstr ""
+msgstr "このフェーズは、Pyramidのコアディレクティブの前にアクションを実行したい開発者のために予約されています。"
 
 #: ../../narr/extconfig.rst:256
 msgid ":const:`pyramid.config.PHASE1_CONFIG`"
-msgstr ""
+msgstr "：const： `pyramid.config.PHASE1_CONFIG`"
 
 #: ../../narr/extconfig.rst:258
 msgid ":meth:`pyramid.config.Configurator.add_renderer`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_renderer`"
 
 #: ../../narr/extconfig.rst:259
 msgid ":meth:`pyramid.config.Configurator.add_route_predicate`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_route_predicate`"
 
 #: ../../narr/extconfig.rst:260
 msgid ":meth:`pyramid.config.Configurator.add_subscriber_predicate`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_subscriber_predicate`"
 
 #: ../../narr/extconfig.rst:261
 msgid ":meth:`pyramid.config.Configurator.add_view_predicate`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_view_predicate`"
 
 #: ../../narr/extconfig.rst:262
 msgid ":meth:`pyramid.config.Configurator.add_view_deriver`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_view_deriver`"
 
 #: ../../narr/extconfig.rst:263
 msgid ":meth:`pyramid.config.Configurator.override_asset`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.override_asset`"
 
 #: ../../narr/extconfig.rst:264
 msgid ":meth:`pyramid.config.Configurator.set_authorization_policy`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.set_authorization_policy`"
 
 #: ../../narr/extconfig.rst:265
 msgid ":meth:`pyramid.config.Configurator.set_default_csrf_options`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.set_default_csrf_options`"
 
 #: ../../narr/extconfig.rst:266
 msgid ":meth:`pyramid.config.Configurator.set_default_permission`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.set_default_permission`"
 
 #: ../../narr/extconfig.rst:267
 msgid ":meth:`pyramid.config.Configurator.set_view_mapper`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.set_view_mapper`"
 
 #: ../../narr/extconfig.rst:269
 msgid ":const:`pyramid.config.PHASE2_CONFIG`"
-msgstr ""
+msgstr "：const： `pyramid.config.PHASE2_CONFIG`"
 
 #: ../../narr/extconfig.rst:271
 msgid ":meth:`pyramid.config.Configurator.add_route`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_route`"
 
 #: ../../narr/extconfig.rst:272
 msgid ":meth:`pyramid.config.Configurator.set_authentication_policy`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.set_authentication_policy`"
 
 #: ../../narr/extconfig.rst:274
 msgid ":const:`pyramid.config.PHASE3_CONFIG`"
-msgstr ""
+msgstr "：const： `pyramid.config.PHASE3_CONFIG`"
 
 #: ../../narr/extconfig.rst:276
 msgid ""
 "The default for all builtin or custom directives unless otherwise "
 "specified."
-msgstr ""
+msgstr "特に指定しない限り、すべての組み込みディレクティブまたはカスタムディレクティブのデフォルトです。"
 
 #: ../../narr/extconfig.rst:279
 msgid "Calling Actions from Actions"
-msgstr ""
+msgstr "アクションからアクションを呼び出す"
 
 #: ../../narr/extconfig.rst:283
 msgid ""
@@ -352,14 +342,14 @@ msgid ""
 "then do things like invoke :meth:`pyramid.config.Configurator.add_route`."
 " It can also provide better conflict detection if your addon needs to "
 "call more than one other action."
-msgstr ""
+msgstr "Pyramidのコンフィギュレータは、現在または後の `` order``フェーズに追加されている限り、コミットサイクル中にアクションを追加することを許可します。これは、カスタムアクションがコミット時まで決定を延期し、次に：meth： `pyramid.config.Configurator.add_route`のようなものを実行することを意味します。アドオンが複数の他のアクションを呼び出す必要がある場合は、より優れた競合検出を提供することもできます。"
 
 #: ../../narr/extconfig.rst:290
 msgid ""
 "For example, let's make an addon that invokes ``add_route`` and "
 "``add_view``, but we want it to conflict with any other call to our "
 "addon:"
-msgstr ""
+msgstr "例えば、 `` add_route``と `` add_view``を呼び出すaddonを作ってみましょう。しかし、addonへの他の呼び出しと競合するようにしましょう："
 
 #: ../../narr/extconfig.rst:307
 msgid ""
@@ -370,18 +360,18 @@ msgid ""
 "subsequent calls to ``add_view`` and ``add_route`` would cause conflicts "
 "because that phase had already been executed, and the configurator cannot"
 " go back in time to add more views during that commit-cycle."
-msgstr ""
+msgstr "他の誰かがあなたのアドオンを使用し、このルートと別のルートとの間に矛盾があるかどうか、あるいは `` add_auto_route``を2回呼び出すことができます。 ** ** `` add_view``または `` add_route``の前にアクション**を呼び出さなければならなかったことに注目してください。これを後で呼び出そうとすると、その後の `` add_view``と `` add_route``の呼び出しは、そのフェーズがすでに実行されているためにコンフリクトを引き起こし、コンフィギュレータはそのコミット時にビューを追加することができません。サイクル。"
 
 #: ../../narr/extconfig.rst:331
 msgid "Adding Configuration Introspection"
-msgstr ""
+msgstr "構成イントロスペクションの追加"
 
 #: ../../narr/extconfig.rst:335
 msgid ""
 "Pyramid provides a configuration introspection system that can be used by"
 " debugging tools to provide visibility into the configuration of a "
 "running application."
-msgstr ""
+msgstr "Pyramidは、デバッグツールで実行中のアプリケーションの構成を可視化するために使用できる構成イントロスペクションシステムを提供します。"
 
 #: ../../narr/extconfig.rst:339
 msgid ""
@@ -397,14 +387,14 @@ msgid ""
 "request method, or against which routes a particular view is registered."
 "  The Pyramid \"debug toolbar\" makes use of the introspection system in "
 "various ways to display information to Pyramid developers."
-msgstr ""
+msgstr "すべての組み込みピラミッド指令（：meth： `pyramid.config.Configurator.add_view`と：meth：` pyramid.config.Configurator.add_route`）は、呼び出し時にイントロスペクタブルのセットを登録します。例えば、 `` add_view``を介してビューを登録すると、ディレクティブは少なくとも1つのイントロスペクタブルを登録します。ビューの登録自体についてイントロスペクトし、引き渡された引数に人間が消費可能な値を提供します。後でイントロスペクションクエリシステムを使用して、特定のビューがレンダラーを使用するかどうか、または特定のビューが特定のリクエストメソッドに限定されているかどうか、または特定のビューが登録されているルートを判断できます。 Pyramid \ &quot;デバッグツールバー\&quot;は、イントロスペクションシステムをさまざまな方法で使用して、Pyramid開発者に情報を表示します。"
 
 #: ../../narr/extconfig.rst:352
 msgid ""
 "Introspection values are set when a sequence of :term:`introspectable` "
 "objects is passed to the :meth:`~pyramid.config.Configurator.action` "
 "method. Here's an example of a directive which uses introspectables:"
-msgstr ""
+msgstr "イントロスペクション値は：term： `introspectable`オブジェクトのシーケンスが：meth：`〜pyramid.config.Configurator.action`メソッドに渡されるときに設定されます。イントロスペクタブルを使用するディレクティブの例を次に示します。"
 
 #: ../../narr/extconfig.rst:373
 msgid ""
@@ -413,14 +403,14 @@ msgid ""
 " create an introspectable object.  The introspectable object's "
 "constructor requires at least four arguments: the ``category_name``, the "
 "``discriminator``, the ``title``, and the ``type_name``."
-msgstr ""
+msgstr "気づいた場合、上記のディレクティブはConfigurator（：attr： `pyramid.config.Configurator.introspectable`）の` `introspectable``属性を使用してイントロスペクティブオブジェクトを作成します。イントロスペクショナブルオブジェクトのコンストラクタには、少なくとも &quot;category_name&quot;、 &quot;discriminator&quot;、 &quot;title&quot;、および &quot;type_name&quot;の4つの引数が必要です。"
 
 #: ../../narr/extconfig.rst:379
 msgid ""
 "The ``category_name`` is a string representing the logical category for "
 "this introspectable.  Usually the category_name is a pluralization of the"
 " type of object being added via the action."
-msgstr ""
+msgstr "`` category_name``は、このintrospectableの論理カテゴリを表す文字列です。通常、category_nameはアクションを介して追加されるオブジェクトの型の複数形です。"
 
 #: ../../narr/extconfig.rst:383
 msgid ""
@@ -430,21 +420,21 @@ msgid ""
 "unique to this introspectable within the category.  It is used to "
 "generate links and as part of a relationship-forming target for other "
 "introspectables."
-msgstr ""
+msgstr "「弁別子」は**カテゴリ内の一意の値**です（アクション識別子の違いは、アクション全体で一意でなければなりません）。これは、通常、カテゴリ内のこのイントロスペクタブルに固有の値を表す文字列またはタプルです。これは、リンクを生成するため、および他のイントロスペクタブルのための関係形成ターゲットの一部として使用されます。"
 
 #: ../../narr/extconfig.rst:389
 msgid ""
 "The ``title`` is a human-consumable string that can be used by "
 "introspection system frontends to show a friendly summary of this "
 "introspectable."
-msgstr ""
+msgstr "`` title``は、人間を消耗させる文字列であり、イントロスペクションシステムフロントエンドがこのイントロスペクトラブルのフレンドリな要約を示すために使用できます。"
 
 #: ../../narr/extconfig.rst:392
 msgid ""
 "The ``type_name`` is a value that can be used to subtype this "
 "introspectable within its category for sorting and presentation purposes."
 "  It can be any value."
-msgstr ""
+msgstr "`` type_name``は、ソートやプレゼンテーションの目的で、このカテゴリの中でこのイントロスペクタブルをサブタイプ化するために使用できる値です。任意の値にすることができます。"
 
 #: ../../narr/extconfig.rst:396
 msgid ""
@@ -455,7 +445,7 @@ msgid ""
 "provided as key/value pairs are the actual data provided by the "
 "introspectable.  In the above example, we set the ``value`` key to the "
 "value of the ``value`` argument passed to the directive."
-msgstr ""
+msgstr "イントロスペクターは辞書のようなものです。これは、関連する指令に渡される引数に通常関連する、キーと値のペアの任意のセットを含むことができます。 &quot;category_name&quot;、 &quot;discriminator&quot;、 &quot;title&quot;、および &quot;type_name&quot;はintrospectableに関する* metadata *ですが、キーと値のペアとして提供される値は、introspectableによって提供される実際のデータです。上記の例では、 `` value``キーをディレクティブに渡される `` value``引数の値に設定します。"
 
 #: ../../narr/extconfig.rst:404
 msgid ""
@@ -464,15 +454,15 @@ msgid ""
 "``introspectable`` keyword argument.  This associates this introspectable"
 " with the action.  Introspection tools will then display this "
 "introspectable in their index."
-msgstr ""
+msgstr "上のディレクティブは、イントロスペクターブルを変更し、 `` introspectable``キーワード引数の値としてタプルの最初の要素として ``アクション ``メソッドに渡します。これは、このイントロスペクタブルをアクションに関連付けます。イントロスペクションツールは、このイントロスペクタブルをインデックスに表示します。"
 
 #: ../../narr/extconfig.rst:411
 msgid "Introspectable Relationships"
-msgstr ""
+msgstr "イントロスペクティブな関係"
 
 #: ../../narr/extconfig.rst:413
 msgid "Two introspectables may have relationships between each other."
-msgstr ""
+msgstr "2人のイントロスペクターは、お互いの間に関係を持っているかもしれません。"
 
 #: ../../narr/extconfig.rst:438
 msgid ""
@@ -483,7 +473,7 @@ msgid ""
 "enough to have its own introspectable, you can cause the same directive "
 "to register more than one introspectable, registering one introspectable "
 "for the \"main idea\" and another for a related concept."
-msgstr ""
+msgstr "上記の例では、 `` add_jammyjam``ディレクティブは2つのイントロスペクタブルを登録します。最初のものはディレクティブに渡される `` value``に関連し、2番目はディレクティブに渡される `` template``に関連します。ディレクティブ内のコンセプトがイントロスペクト可能なほど重要であると信じる場合は、同じディレクティブに複数のイントロスペクタブルを登録させ、1つのイントロスペクタブルを &quot;メインアイデア&quot;に登録し、もう1つを関連コンセプトに登録することができます。"
 
 #: ../../narr/extconfig.rst:446
 msgid ""
@@ -494,7 +484,7 @@ msgid ""
 "between the ``intr`` introspectable and the ``tmpl_intr`` introspectable;"
 " the arguments passed to ``relate`` are the category name and "
 "discriminator of the ``tmpl_intr`` introspectable."
-msgstr ""
+msgstr "上記の `` intr.relate``（：meth： `pyramid.interfaces.IIntrospectable.relate`）の呼び出しには、カテゴリ名とディレクティブという2つの引数が渡されます。上記の例は、 `` intr``イントロスペクターと `` tmpl_intr``イントロスペクターの間に関係を形成することを望んでいます。 `` relate``に渡される引数は `` tmpl_intr``のイントロスペクタブルのカテゴリ名と識別子です。"
 
 #: ../../narr/extconfig.rst:453
 msgid ""
@@ -505,7 +495,7 @@ msgid ""
 "directive's category name and discriminator.  An error will be raised at "
 "configuration commit time if you attempt to relate an introspectable with"
 " another nonexistent introspectable, however."
-msgstr ""
+msgstr "同じディレクティブで作成された2つのイントロスペクタブルの間で、関係を作成する必要はありません。代わりに、一方のディレクティブのカテゴリ名とディスクリミネータのどちらかで `` relate``を呼び出すことで、一方のディレクティブで作成されたイントロスペクタブルと別のディレクティブで作成されたもう一方のイントロスペクサブルとの間に関係を形成できます。ただし、イントロスペクターと存在しない別のイントロスペクターを関連付けると、構成コミット時にエラーが発生します。"
 
 #: ../../narr/extconfig.rst:461
 msgid ""
@@ -513,5 +503,5 @@ msgid ""
 "of introspection values.  For example, if a view registration names a "
 "route name, the introspectable related to the view callable will show a "
 "reference to the route to which it relates and vice versa."
-msgstr ""
+msgstr "イントロスペクション可能な関係は、イントロスペクション値のフロントエンドシステムレンダリングで表示されます。たとえば、ビュー登録がルート名の名前を付ける場合、コール可能ビューに関連するイントロスペクタブルは、それが関連するルートへの参照を示し、逆も同様です。"
 

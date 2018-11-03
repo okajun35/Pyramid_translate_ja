@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/i18n.rst:10
 msgid "Internationalization and Localization"
-msgstr ""
+msgstr "(機械翻訳) 国際化とローカリゼーション"
 
 #: ../../narr/i18n.rst:12
 msgid ""
@@ -29,7 +19,7 @@ msgid ""
 "language or cultural context.  :term:`Localization` (l10n) is the process"
 " of displaying the user interface of an internationalized application in "
 "a *particular* language or cultural context."
-msgstr ""
+msgstr "用語：「国際化」（i18n）は、複数の言語や文化の中で潜在的に表示される可能性のあるユーザインタフェースを備えたソフトウェアを作成する行為です。 ：term： `Localization`（110n）は国際化されたアプリケーションのユーザインタフェースを特定の*言語や文化的背景で表示するプロセスです。"
 
 #: ../../narr/i18n.rst:18
 msgid ""
@@ -37,11 +27,11 @@ msgid ""
 "that can be used to translate the text of buttons, error messages, and "
 "other software- and template-defined values into the native language of a"
 " user of your application."
-msgstr ""
+msgstr "：app： `Pyramid`は、ボタンやエラーメッセージ、その他のソフトウェア定義やテンプレート定義の値をアプリケーションのユーザの母国語に翻訳するために使用できる、国際化とローカリゼーションのサブシステムを提供します。"
 
 #: ../../narr/i18n.rst:30
 msgid "Creating a Translation String"
-msgstr ""
+msgstr "変換文字列の作成"
 
 #: ../../narr/i18n.rst:32
 msgid ""
@@ -52,21 +42,21 @@ msgid ""
 "that behaves mostly like a normal Unicode object, except that it also "
 "carries around extra information related to its job as part of the "
 ":app:`Pyramid` translation machinery."
-msgstr ""
+msgstr "あなたのソフトウェアを書いている間、Pythonコードに特別なマークアップを挿入することで、システムがテキスト値をアプリケーションのユーザが使用する言語に翻訳することができます。このマークアップは：term： `翻訳文字列`を作成します。翻訳文字列は：app： `Pyramid`翻訳機構の一部としてその仕事に関連する余分な情報を持ち歩いている点を除けば、通常のUnicodeオブジェクトとほとんど同じように動作するオブジェクトです。"
 
 #: ../../narr/i18n.rst:41
 msgid "Using the ``TranslationString`` Class"
-msgstr ""
+msgstr "`` TranslationString``クラスの使用"
 
 #: ../../narr/i18n.rst:43
 msgid ""
 "The most primitive way to create a translation string is to use the "
 ":class:`pyramid.i18n.TranslationString` callable:"
-msgstr ""
+msgstr "翻訳文字列を作成する最も基本的な方法は、：class： `pyramid.i18n.TranslationString`呼び出し可能を使用することです："
 
 #: ../../narr/i18n.rst:52
 msgid "This creates a Unicode-like object that is a TranslationString."
-msgstr ""
+msgstr "これにより、TranslationStringであるUnicodeのようなオブジェクトが作成されます。"
 
 #: ../../narr/i18n.rst:56
 msgid ""
@@ -75,7 +65,7 @@ msgid ""
 " however.  For people more familiar with :term:`Pylons` or :term:`Django`"
 " i18n, using a TranslationString is a lot like using \"lazy\" versions of"
 " related gettext APIs."
-msgstr ""
+msgstr "term： `Zope` i18nをよく知っている人のために、TranslationStringは` `zope.i18nmessageid.Message``オブジェクトのようなものです。しかし、それはサブクラスではありません。 term： `Pylons`や：term：` Django` i18nにもっと精通している方は、関連するgettext APIの\ &quot;lazy \&quot;バージョンを使うのと似ています。"
 
 #: ../../narr/i18n.rst:62
 msgid ""
@@ -84,7 +74,7 @@ msgid ""
 "mappings provided by a particular localization. The ``msgid`` argument "
 "must be a Unicode object or an ASCII string.  The msgid may optionally "
 "contain *replacement markers*.  For instance:"
-msgstr ""
+msgstr "：class： `〜pyramid.i18n.TranslationString`の最初の引数は` `msgid``です。それが必要です。これは、特定のローカリゼーションによって提供される翻訳マッピングのキーを表します。 `` msgid``引数は、UnicodeオブジェクトまたはASCII文字列でなければなりません。 msgidはオプションで*置換マーカー*を含むことができます。例えば："
 
 #: ../../narr/i18n.rst:74
 msgid ""
@@ -92,7 +82,7 @@ msgid ""
 "be replaced by whatever is in the *mapping* for a translation string.  "
 "The mapping may be supplied at the same time as the replacement marker "
 "itself:"
-msgstr ""
+msgstr "上記の文字列の中で、 `` $ {number} ``は置換マーカーです。翻訳文字列の*マッピング*にあるものに置換されます。マッピングは、置換マーカー自体と同時に供給することができます。"
 
 #: ../../narr/i18n.rst:84
 msgid ""
@@ -100,14 +90,14 @@ msgid ""
 "number of times.  Only markers which can be replaced by the values in the"
 " *mapping* will be replaced at translation time.  The others will not be "
 "interpolated and will be output literally."
-msgstr ""
+msgstr "msgidの値に任意の数の置換マーカーを任意の回数追加できます。 *マッピング*の値で置き換えられるマーカーのみが翻訳時に置き換えられます。他は補間されず、文字通り出力されます。"
 
 #: ../../narr/i18n.rst:89
 msgid ""
 "A translation string should also usually carry a *domain*.  The domain "
 "represents a translation category to disambiguate it from other "
 "translations of the same msgid, in case they conflict."
-msgstr ""
+msgstr "翻訳文字列には、通常、* domain *も含める必要があります。ドメインは、競合する場合に、同じmsgidの他の翻訳との曖昧さを解消するための翻訳カテゴリを表します。"
 
 #: ../../narr/i18n.rst:100
 msgid ""
@@ -117,13 +107,13 @@ msgid ""
 "given domain.  In this case, if it were trying to translate our msgid to "
 "German, it might try to find a translation from a :term:`gettext` file "
 "within a :term:`translation directory` like this one:"
-msgstr ""
+msgstr "上記の翻訳文字列は、 `` form``のドメイン名です。 A：term： `translator`関数は、ドメインを使用して、指定されたドメインの翻訳を含むファイルシステム上の正しい翻訳ファイルを見つけることがよくあります。この場合、私たちのmsgidをドイツ語に翻訳しようとすると、term： `gettext`ファイル内の：term：`翻訳ディレクトリ &#39;のような翻訳を見つけようとするかもしれません："
 
 #: ../../narr/i18n.rst:111
 msgid ""
 "In other words, it would want to take translations from the ``form.mo`` "
 "translation file in the German language."
-msgstr ""
+msgstr "言い換えれば、ドイツ語の `` form.mo``翻訳ファイルから翻訳を受けたいと思うでしょう。"
 
 #: ../../narr/i18n.rst:114
 msgid ""
@@ -135,17 +125,17 @@ msgid ""
 "identifiers are matched with translations in translation files, so it is "
 "often useful to create translation strings with \"opaque\" message "
 "identifiers unrelated to their default text:"
-msgstr ""
+msgstr "最後に、TranslationStringコンストラクタは `` default``引数を受け取ります。 `` default``引数が指定された場合、 `` msgid``の使用法を変換文字列の*デフォルト値*に置き換えます。 `` default``が `` None``のとき、TranslationStringに渡される `` msgid``値は暗黙のメッセージ識別子として使われます。メッセージ識別子は翻訳ファイルの翻訳と一致しているので、デフォルトのテキストとは無関係の\ &quot;不透明\&quot;メッセージ識別子で翻訳文字列を作成すると便利です。"
 
 #: ../../narr/i18n.rst:129
 msgid ""
 "When default text is used, Default text objects may contain replacement "
 "values."
-msgstr ""
+msgstr "デフォルトのテキストが使用されている場合、デフォルトのテキストオブジェクトには置換値が含まれている場合があります。"
 
 #: ../../narr/i18n.rst:135
 msgid "Using the ``TranslationStringFactory`` Class"
-msgstr ""
+msgstr "`` TranslationStringFactory``クラスの使用"
 
 #: ../../narr/i18n.rst:137
 msgid ""
@@ -154,13 +144,13 @@ msgid ""
 "*translation string factory*.  Basically a translation string factory "
 "presets the ``domain`` value of any :term:`translation string` generated "
 "by using it. For example:"
-msgstr ""
+msgstr "変換文字列を生成する別の方法は、：attr： `〜pyramid.i18n.TranslationStringFactory`オブジェクトを使用することです。このオブジェクトは、*翻訳文字列ファクトリ*です。基本的に翻訳文字列ファクトリは、それを使用して生成された：term： `翻訳文字列 &#39;の` `domain``値をプリセットします。例えば："
 
 #: ../../narr/i18n.rst:150
 msgid ""
 "We assigned the translation string factory to the name ``_``.  This is a "
 "convention which will be supported by translation file generation tools."
-msgstr ""
+msgstr "変換文字列ファクトリを `` _``という名前に割り当てました。これは翻訳ファイル生成ツールでサポートされる規約です。"
 
 #: ../../narr/i18n.rst:154
 msgid ""
@@ -173,7 +163,7 @@ msgid ""
 "``domain`` attribute of the resulting translation string will be "
 "``pyramid``.  As a result, the previous code example is completely "
 "equivalent (except for spelling) to:"
-msgstr ""
+msgstr "：func： `〜pyramid.i18n.TranslationStringFactory`の結果に` `_``を代入した後、` `_``を呼び出す結果は：class：`〜pyramid.i18n.TranslationString`インスタンスになります。変換文字列ファクトリの代わりに：class： `〜pyramid.i18n.TranslationString`コンストラクタが使用された場合に必要だったように、` `domain``値が` `_``に渡されなかったとしても、結果の翻訳文字列の `domain``属性は` `pyramid``になります。結果として、前のコード例は、（スペルを除いて）完全に同等です："
 
 #: ../../narr/i18n.rst:170
 msgid ""
@@ -183,7 +173,7 @@ msgid ""
 "you'd like to create a translation string factory which presets the "
 "``domain`` value of generated translation strings to ``form``, you'd do "
 "something like this:"
-msgstr ""
+msgstr "：class： `〜pyramid.i18n.TranslationStringFactory`クラスを使用して、上で提供されているような独自の翻訳文字列ファクトリを設定できます。たとえば、生成された翻訳文字列の `` domain``値を `` form``にプリセットする翻訳文字列ファクトリを作成したい場合は、次のようにします："
 
 #: ../../narr/i18n.rst:183
 msgid ""
@@ -193,7 +183,7 @@ msgid ""
 "your translation files with their own.  Instead they can just include "
 "your package's :term:`translation directory` via the "
 ":meth:`pyramid.config.Configurator.add_translation_dirs` method."
-msgstr ""
+msgstr "翻訳文字列ファクトリを使用してアプリケーションの一意のドメインを作成することがベストプラクティスです。独自の翻訳ドメインを使用すると、別の人が自分の翻訳ファイルをマージすることなく、アプリケーションを再利用することができます。代わりに、：meth： `pyramid.config.Configurator.add_translation_dirs`メソッドを使って、あなたのパッケージの：term：`翻訳ディレクトリ &#39;を含めることができます。"
 
 #: ../../narr/i18n.rst:192
 msgid ""
@@ -201,11 +191,11 @@ msgid ""
 "TranslationStringFactory is a lot like a "
 "``zope.i18nmessageid.MessageFactory`` object.  It is not a subclass, "
 "however."
-msgstr ""
+msgstr "Zopeの国際化に精通している人のために、TranslationStringFactoryは `` zope.i18nmessageid.MessageFactory``オブジェクトによく似ています。しかし、それはサブクラスではありません。"
 
 #: ../../narr/i18n.rst:202
 msgid "Working with ``gettext`` Translation Files"
-msgstr ""
+msgstr "`` gettext``翻訳ファイルの操作"
 
 #: ../../narr/i18n.rst:204
 msgid ""
@@ -213,7 +203,7 @@ msgid ""
 "Once your application source code files and templates are marked up with "
 "translation markers, you can work on translations by creating various "
 "kinds of gettext files."
-msgstr ""
+msgstr "：app： `Pyramid`翻訳サービスの基礎はGNU：term：` gettext`です。アプリケーションのソースコードファイルとテンプレートに翻訳マーカがマークアップされたら、さまざまな種類のgettextファイルを作成して翻訳作業を行うことができます。"
 
 #: ../../narr/i18n.rst:211
 msgid ""
@@ -222,17 +212,17 @@ msgid ""
 "very similar to the steps a :term:`Pylons` developer must take to do the "
 "same.  See the :ref:`Pylons Internationalization and Localization "
 "documentation <pylonswebframework:i18n>` for more information."
-msgstr ""
+msgstr "開発者がa：app： `Pyramid`アプリケーション内でterm：` gettext`：term： `message catalog`ファイルを処理するために必要な手順は、a：term：` Pylons`開発者が行う必要のある手順に非常に似ています同じ。 ：ref： `Pylonsの国際化とローカリゼーションのドキュメントを参照してください。 <pylonswebframework:i18n> `を参照してください。"
 
 #: ../../narr/i18n.rst:217
 msgid ""
 "GNU gettext uses three types of files in the translation framework, "
 "``.pot`` files, ``.po`` files, and ``.mo`` files."
-msgstr ""
+msgstr "GNU gettextは、翻訳フレームワークでは `` .pot``ファイル、 `` .po``ファイル、 `` .mo``ファイルの3種類のファイルを使います。"
 
 #: ../../narr/i18n.rst:220
 msgid "``.pot`` (Portable Object Template) files"
-msgstr ""
+msgstr "`` .pot``（ポータブルオブジェクトテンプレート）ファイル"
 
 #: ../../narr/i18n.rst:222
 msgid ""
@@ -242,28 +232,28 @@ msgid ""
 ":term:`translation string` constructions). The list of all message "
 "identifiers is placed into a ``.pot`` file, which serves as a template "
 "for creating ``.po`` files."
-msgstr ""
+msgstr "`` .pot``ファイルは、あなたのプロジェクトのソースコードを検索し、 `` _（） ``関数に渡されるすべての：term： `message identifier`を選ぶプログラムによって作成されます：term ： `翻訳ストリング`構造）。すべてのメッセージ識別子のリストは `` .pot``ファイルに置かれます。これは `` .po``ファイルを作るためのテンプレートとして機能します。"
 
 #: ../../narr/i18n.rst:228
 msgid "``.po`` (Portable Object) files"
-msgstr ""
+msgstr "`` .po``（Portable Object）ファイル"
 
 #: ../../narr/i18n.rst:230
 msgid ""
 "The list of messages in a ``.pot`` file are translated by a human to a "
 "particular language; the result is saved as a ``.po`` file."
-msgstr ""
+msgstr "`` .pot``ファイル中のメッセージのリストは人間によって特定の言語に翻訳されます。結果は `` .po``ファイルとして保存されます。"
 
 #: ../../narr/i18n.rst:233
 msgid "``.mo`` (Machine Object) files"
-msgstr ""
+msgstr "`` .mo``（マシンオブジェクト）ファイル"
 
 #: ../../narr/i18n.rst:235
 msgid ""
 "A ``.po`` file is turned into a machine-readable binary file, which is "
 "the ``.mo`` file. Compiling the translations to machine code makes the "
 "localized program start faster."
-msgstr ""
+msgstr "`` .po``ファイルは `` .mo``ファイルである機械可読バイナリファイルに変換されます。翻訳を機械コードにコンパイルすると、ローカライズされたプログラムがより早く開始します。"
 
 #: ../../narr/i18n.rst:239
 msgid ""
@@ -273,11 +263,11 @@ msgid ""
 "create the ``.pot`` file. Gettext includes ``msgmerge`` tool to update a "
 "``.po`` file from an updated ``.pot`` file and ``msgfmt`` to compile "
 "``.po`` files to ``.mo`` files."
-msgstr ""
+msgstr "a：app： `Pyramid`アプリケーションに関連する：term：` gettext`翻訳ファイルは：term： `Lingua`と：term：` Gettext`です。 LinguaはPythonとChameleonのファイルからi18nの参照を取り除き、 `` .pot``ファイルを作成することができます。 Gettextには更新された `` .pot``ファイルと `` .po``ファイルを `` .mo``にコンパイルする `` msgfmt``から `` .po``ファイルを更新する `` msgmerge``ツールが含まれています。ファイル。"
 
 #: ../../narr/i18n.rst:253
 msgid "Installing Lingua and Gettext"
-msgstr ""
+msgstr "LinguaとGettextのインストール"
 
 #: ../../narr/i18n.rst:255
 msgid ""
@@ -285,11 +275,11 @@ msgid ""
 " files to work properly, you will need to have :term:`Lingua` and "
 ":term:`Gettext` installed into the same environment in which "
 ":app:`Pyramid` is installed."
-msgstr ""
+msgstr "`` gettext``翻訳ファイルの操作に関連するコマンドが正しく動作するためには、：term： `Lingua`と：term：` Gettext`が同じ環境にインストールされている必要があります：app： `Pyramid `がインストールされています。"
 
 #: ../../narr/i18n.rst:260
 msgid "Installation on UNIX"
-msgstr ""
+msgstr "UNIXへのインストール"
 
 #: ../../narr/i18n.rst:262
 msgid ""
@@ -298,7 +288,7 @@ msgid ""
 "not available you can install it through the packaging system from your "
 "OS; the package name is almost always ``gettext``. For example on a "
 "Debian or Ubuntu system run this command:"
-msgstr ""
+msgstr "Gettextは、UNIXシステムにすでにインストールされていることがよくあります。 `` msgfmt``コマンドが利用可能かどうかをテストすることで、インストールされているかどうかを確認することができます。使用できない場合は、ご使​​用のOSのパッケージシステムを使用してインストールできます。パッケージ名はほとんど常に `` gettext``です。例えば、DebianやUbuntuのシステムでは、次のコマンドを実行します："
 
 #: ../../narr/i18n.rst:272
 msgid ""
@@ -306,11 +296,11 @@ msgid ""
 ":term:`virtual environment` into which you've installed your "
 ":app:`Pyramid` application lives at the environment variable ``$VENV``, "
 "you can install Lingua like so:"
-msgstr ""
+msgstr "Linguaのインストールは、Pythonのパッケージツールを使って行います。 ：app： `Pyramid`アプリケーションをインストールした：term：`仮想環境 &#39;が環境変数 `` $ VENV``にある場合、Linguaを以下のようにインストールすることができます："
 
 #: ../../narr/i18n.rst:282
 msgid "Installation on Windows"
-msgstr ""
+msgstr "Windowsへのインストール"
 
 #: ../../narr/i18n.rst:284
 msgid ""
@@ -319,7 +309,7 @@ msgid ""
 "`installer from the GnuWin32 "
 "<http://gnuwin32.sourceforge.net/packages/gettext.htm>`_, or compile it "
 "yourself. Make sure the installation path is added to your ``$PATH``."
-msgstr ""
+msgstr "GettextをWindowsにインストールするにはいくつかの方法があります： `Cygwin <http://www.cygwin.com/> `_ collection、または` GnuWin32のインストーラを使うことができます<http://gnuwin32.sourceforge.net/packages/gettext.htm> `_、または自分でコンパイルしてください。インストールパスが `` $ PATH``に追加されていることを確認してください。"
 
 #: ../../narr/i18n.rst:290
 msgid ""
@@ -327,11 +317,11 @@ msgid ""
 ":term:`virtual environment` into which you've installed your "
 ":app:`Pyramid` application lives at the environment variable ``%VENV%``, "
 "you can install Lingua like so:"
-msgstr ""
+msgstr "Linguaのインストールは、Pythonのパッケージツールを使って行います。 ：app： `Pyramid`アプリケーションをインストールした：term：`仮想環境 &#39;が環境変数 ``％VENV％ ``にある場合、Linguaを以下のようにインストールすることができます："
 
 #: ../../narr/i18n.rst:306
 msgid "Extracting Messages from Code and Templates"
-msgstr ""
+msgstr "コードとテンプレートからのメッセージの抽出"
 
 #: ../../narr/i18n.rst:308
 msgid ""
@@ -339,17 +329,17 @@ msgid ""
 " the code and :term:`Chameleon` templates which reside in your "
 ":app:`Pyramid` application.  You run a ``pot-create`` command to extract "
 "the messages:"
-msgstr ""
+msgstr "Linguaがインストールされたら、app： `Pyramid`アプリケーションにあるcode and：term：` Chameleon`テンプレートからメッセージカタログテンプレートを抽出することができます。 `` pot-create``コマンドを実行してメッセージを抽出します："
 
 #: ../../narr/i18n.rst:318
 msgid ""
 "The message catalog ``.pot`` template will end up in "
 "``myapplication/locale/myapplication.pot``."
-msgstr ""
+msgstr "メッセージカタログの `` .pot``テンプレートは `` myapplication / locale / myapplication.pot``に終ります。"
 
 #: ../../narr/i18n.rst:326
 msgid "Initializing a Message Catalog File"
-msgstr ""
+msgstr "メッセージカタログファイルの初期化"
 
 #: ../../narr/i18n.rst:328
 msgid ""
@@ -360,30 +350,30 @@ msgid ""
 " particular locale. Initialize a ``.po`` file for a specific locale from "
 "a pre-generated ``.pot`` template by using the ``msginit`` command from "
 "Gettext:"
-msgstr ""
+msgstr "`` .pot``ファイルにメッセージを抽出したら（：ref： `extraction_messages`を参照）、` `.pot``ファイルにあるメッセージのローカライズを開始するには、少なくとも一つの` `.pot``ファイルを生成する必要があります。 .po``ファイルです。 `` .po``ファイルは特定のロケールへの特定のメッセージの翻訳を表します。 Gettextの `` msginit``コマンドを使って、あらかじめ生成された `` .pot``テンプレートから特定のロケール用の `` .po``ファイルを初期化します："
 
 #: ../../narr/i18n.rst:342
 msgid ""
 "This will create a new message catalog ``.po`` file in "
 "``myapplication/locale/es/LC_MESSAGES/myapplication.po``."
-msgstr ""
+msgstr "これにより、 `` myapplication / locale / es / LC_MESSAGES / myapplication.po``に新しいメッセージカタログ `` .po``ファイルが作成されます。"
 
 #: ../../narr/i18n.rst:345
 msgid ""
 "Once the file is there, it can be worked on by a human translator. One "
 "tool which may help with this is `Poedit <https://poedit.net/>`_."
-msgstr ""
+msgstr "ファイルがそこにあると、それは人間の翻訳者が作業することができます。これを助ける一つのツールは `Poedit <https://poedit.net/> `_。"
 
 #: ../../narr/i18n.rst:348
 msgid ""
 "Note that :app:`Pyramid` itself ignores the existence of all ``.po`` "
 "files. For a running application to have translations available, a "
 "``.mo`` file must exist.  See :ref:`compiling_message_catalog`."
-msgstr ""
+msgstr "app： `Pyramid`自体はすべての` `.po``ファイルの存在を無視しています。実行中のアプリケーションが翻訳を利用できるようにするには、 `` .mo``ファイルが存在しなければなりません。参考文献：ref： `compiling_message_catalog`を参照してください。"
 
 #: ../../narr/i18n.rst:356
 msgid "Updating a Catalog File"
-msgstr ""
+msgstr "カタログファイルの更新"
 
 #: ../../narr/i18n.rst:358
 msgid ""
@@ -391,24 +381,24 @@ msgid ""
 " strings change, you will need to update existing ``.po`` files based on "
 "changes to the ``.pot`` file, so that the new and changed messages can "
 "also be translated or re-translated."
-msgstr ""
+msgstr "アプリケーションに翻訳文字列が追加されたり、翻訳文字列が変更されたりすると、 `` .pot``ファイルの変更に基づいて既存の `` .po``ファイルを更新する必要があります。翻訳されるか、または再翻訳される。"
 
 #: ../../narr/i18n.rst:363
 msgid ""
 "First, regenerate the ``.pot`` file as per :ref:`extracting_messages`. "
 "Then use the ``msgmerge`` command from Gettext."
-msgstr ""
+msgstr "まず、：ref： `extracted_messages`に従って` `.pot``ファイルを再生成します。次に、Gettextから `` msgmerge``コマンドを使います。"
 
 #: ../../narr/i18n.rst:378
 msgid "Compiling a Message Catalog File"
-msgstr ""
+msgstr "メッセージカタログファイルのコンパイル"
 
 #: ../../narr/i18n.rst:380
 msgid ""
 "Finally, to prepare an application for performing actual runtime "
 "translations, compile ``.po`` files to ``.mo`` files using the ``msgfmt``"
 " command from Gettext:"
-msgstr ""
+msgstr "最後に、実際のランタイム変換を実行するためのアプリケーションを用意するには、Gettextの `` msgfmt``コマンドを使って `` .po``ファイルを `` .mo``ファイルにコンパイルします："
 
 #: ../../narr/i18n.rst:390
 msgid ""
@@ -417,11 +407,11 @@ msgid ""
 "``.mo`` file ends up in is configured into your application (see "
 ":ref:`adding_a_translation_directory`), these translations will be "
 "available to :app:`Pyramid`."
-msgstr ""
+msgstr "これにより、アプリケーションの `` .po``ファイルごとに `` .mo``ファイルが作成されます。 `` .mo``ファイルが終わる：term： `翻訳ディレクトリ &#39;があなたのアプリケーションに設定されている限り（これらの翻訳は、app_` `Pyramid `。"
 
 #: ../../narr/i18n.rst:402
 msgid "Using a Localizer"
-msgstr ""
+msgstr "ローカライザの使用"
 
 #: ../../narr/i18n.rst:404
 msgid ""
@@ -431,17 +421,17 @@ msgid ""
 ":term:`localizer`.  The localizer object will be configured to produce "
 "translations implied by the active :term:`locale negotiator`, or a "
 "default localizer object if no explicit locale negotiator is registered."
-msgstr ""
+msgstr "A：term： `localizer`は、アプリケーション内で手で翻訳や複数形変換を行うためのオブジェクトです。 ：attr： `pyramid.request.Request.localizer`属性を使って：term：` localizer`を取得することができます。ローカライザオブジェクトは、active：term： `locale negotiator`によって暗黙の翻訳を生成するように設定されます。明示的ロケールネゴシエーターが登録されていない場合、デフォルトローカライザオブジェクトです。"
 
 #: ../../narr/i18n.rst:419
 msgid ""
 "If you need to create a localizer for a locale, use the "
 ":func:`pyramid.i18n.make_localizer` function."
-msgstr ""
+msgstr "ロケール用のローカライザーを作成する必要がある場合は、：func： `pyramid.i18n.make_localizer`関数を使用してください。"
 
 #: ../../narr/i18n.rst:428
 msgid "Performing a Translation"
-msgstr ""
+msgstr "翻訳の実行"
 
 #: ../../narr/i18n.rst:430
 msgid ""
@@ -449,7 +439,7 @@ msgid ""
 ":term:`translation string` or a Unicode string and which returns a "
 "Unicode object representing the translation.  Generating a translation in"
 " a view component of an application might look like so:"
-msgstr ""
+msgstr "A：term： `localizer`は：term：`翻訳文字列 `またはUnicode文字列のいずれかを受け取り、翻訳を表すUnicodeオブジェクトを返す` `translate``メソッドを持っています。アプリケーションのビューコンポーネントで翻訳を生成すると、次のようになります。"
 
 #: ../../narr/i18n.rst:448
 msgid ""
@@ -459,24 +449,24 @@ msgid ""
 ":meth:`pyramid.i18n.Localizer.translate` method will depend on the "
 "``domain`` attribute of the provided translation string as well as the "
 "locale of the localizer."
-msgstr ""
+msgstr "`` request.localizer``属性は：class： `pyramid.i18n.Localizer`オブジェクトで、要求によって表されるロケール名にバインドされます。 ：meth： `pyramid.i18n.Localizer.translate`メソッドから返される翻訳は、提供された翻訳文字列のローカライザのロケールと` `domain``属性に依存します。"
 
 #: ../../narr/i18n.rst:456
 msgid ""
 "If you're using :term:`Chameleon` templates, you don't need to pre-"
 "translate translation strings this way.  See "
 ":ref:`chameleon_translation_strings`."
-msgstr ""
+msgstr "：term： `Chameleon`テンプレートを使用している場合、このように翻訳文字列をあらかじめ翻訳する必要はありません。参照：ref： `chameleon_translation_strings`を参照してください。"
 
 #: ../../narr/i18n.rst:465
 msgid "Performing a Pluralization"
-msgstr ""
+msgstr "複数化の実行"
 
 #: ../../narr/i18n.rst:467
 msgid ""
 "A :term:`localizer` has a ``pluralize`` method with the following "
 "signature:"
-msgstr ""
+msgstr "A：term： `localizer`は以下のシグネチャを持つ` `pluralize``メソッドを持っています："
 
 #: ../../narr/i18n.rst:475
 msgid ""
@@ -484,7 +474,7 @@ msgid ""
 "passed as Unicode literals. This returns the appropriate literal "
 "according to the locale pluralization rules for the number ``n``, and "
 "interpolates ``mapping``."
-msgstr ""
+msgstr "最も単純なケースは、Unicodeリテラルとして渡される &quot;単数形&quot;と &quot;複数形&quot;の引数です。これは、数字 `` n``のロケール複数化規則に従って適切なリテラルを返し、 `` mapping``を補間します。"
 
 #: ../../narr/i18n.rst:487
 msgid ""
@@ -493,7 +483,7 @@ msgid ""
 "case the ``plural`` value is ignored. ``domain`` should be a "
 ":term:`translation domain`, and ``mapping`` should be a dictionary that "
 "is used for *replacement value* interpolation of the translated string."
-msgstr ""
+msgstr "しかし、他の言語のサポートのために、 `` singular``引数は：term： `message identifier`を表すUnicode値でなければなりません。この場合、 `` plural``値は無視されます。 「domain」は：term： `translation domain`でなければならず、` `mapping``は翻訳された文字列の* replacement value *補間に使われる辞書でなければなりません。"
 
 #: ../../narr/i18n.rst:493
 msgid ""
@@ -501,36 +491,36 @@ msgid ""
 "the current language, and ``pluralize`` will return a Unicode translation"
 " for the message id ``singular``. The message file must have defined "
 "``singular`` as a translation with plural forms."
-msgstr ""
+msgstr "`` n``の値は現在の言語に対して適切な複数形を見つけるのに使われ、 `` pluralize``はメッセージid `` singular``のUnicode変換を返します。メッセージファイルは、複数形の翻訳として「単数形」を定義していなければなりません。"
 
 #: ../../narr/i18n.rst:498
 msgid ""
 "The argument provided as ``singular`` may be a :term:`translation string`"
 " object, but the domain and mapping information attached is ignored."
-msgstr ""
+msgstr "`` singular``として提供される引数は：term： `translation string`オブジェクトですが、添付されるドメインとマッピング情報は無視されます。"
 
 #: ../../narr/i18n.rst:510
 msgid ""
 "The corresponding message catalog must have language plural definitions "
 "and plural alternatives set."
-msgstr ""
+msgstr "対応するメッセージカタログには、複数の言語定義と複数の代替案が設定されている必要があります。"
 
 #: ../../narr/i18n.rst:524
 msgid ""
 "More information on complex plurals can be found in the `gettext "
 "documentation <https://www.gnu.org/savannah-"
 "checkouts/gnu/gettext/manual/html_node/Plural-forms.html>`_."
-msgstr ""
+msgstr "複雑な複数形の詳細は、 `gettext documentation <https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/Plural-forms.html> `_。"
 
 #: ../../narr/i18n.rst:534
 msgid "Obtaining the Locale Name for a Request"
-msgstr ""
+msgstr "リクエストのロケール名の取得"
 
 #: ../../narr/i18n.rst:536
 msgid ""
 "You can obtain the locale name related to a request by using the "
 ":func:`pyramid.request.Request.locale_name` attribute of the request."
-msgstr ""
+msgstr "リクエストに関連するロケール名は、リクエストの：func： `pyramid.request.Request.locale_name`属性を使用して取得できます。"
 
 #: ../../narr/i18n.rst:545
 msgid ""
@@ -540,7 +530,7 @@ msgid ""
 "``None``. You can change the default locale name by changing the "
 "``pyramid.default_locale_name`` setting. See "
 ":ref:`default_locale_name_setting`."
-msgstr ""
+msgstr "要求のロケール名は動的に計算されます。ロケールネゴシエーターが `` None``を返す場合、それは現在アクティブな：term： `locale negotiator`または：term：`デフォルトロケール名 `によって交渉されるロケール名になります。デフォルトのロケール名は `` pyramid.default_locale_name``の設定を変更することで変更できます。参照：ref： `default_locale_name_setting`を参照してください。"
 
 #: ../../narr/i18n.rst:551
 msgid ""
@@ -550,24 +540,24 @@ msgid ""
 "locale name without invoking the :term:`locale negotiator`.  To avoid "
 "this caching, you can use the :func:`pyramid.i18n.negotiate_locale_name` "
 "function:"
-msgstr ""
+msgstr "いったん：func： `〜pyramid.request.Request.locale_name`が最初に実行されると、ロケール名はリクエストオブジェクトに格納されます。それ以降の：func： `〜pyramid.request.Request.locale_name`の呼び出しは、：term：` locale negotiator`を呼び出さずに、格納されたロケール名を返します。このキャッシングを避けるには、：func： `pyramid.i18n.negotiate_locale_name`関数を使用します："
 
 #: ../../narr/i18n.rst:565
 msgid ""
 "You can also obtain the locale name related to a request using the "
 "``locale_name`` attribute of a :term:`localizer`."
-msgstr ""
+msgstr "：term： `localizer`の` `locale_name``属性を使ってリクエストに関連するロケール名を取得することもできます。"
 
 #: ../../narr/i18n.rst:575
 msgid ""
 "Obtaining the locale name as an attribute of a localizer is equivalent to"
 " obtaining a locale name by asking for the "
 ":func:`~pyramid.request.Request.locale_name` attribute."
-msgstr ""
+msgstr "ローカライザの属性としてロケール名を取得することは、：func： `〜pyramid.request.Request.locale_name`属性を要求することによってロケール名を取得することと同じです。"
 
 #: ../../narr/i18n.rst:584
 msgid "Performing Date Formatting and Currency Formatting"
-msgstr ""
+msgstr "日付書式設定および通貨書式設定の実行"
 
 #: ../../narr/i18n.rst:586
 msgid ""
@@ -578,7 +568,7 @@ msgid ""
 "provides minimal information about how to perform date and currency "
 "related locale operations. See :ref:`installing_babel` for information "
 "about how to install Babel."
-msgstr ""
+msgstr "：app： `Pyramid`はそれ自身で異なるロケールの日付と通貨の書式設定を行いません。しかし、：term： `Babel`は：class：` babel.core.Locale`クラスでこれを行うのを助けることができます。このクラスの `Babelのドキュメント<http://babel.pocoo.org/en/latest/api/core.html#basic-interface> `_は、日付と通貨に関連するロケール操作の実行方法に関する最小限の情報を提供します。 Babelのインストール方法については、ref： `installation_babel`を参照してください。"
 
 #: ../../narr/i18n.rst:594
 msgid ""
@@ -586,11 +576,11 @@ msgid ""
 " argument to its constructor. You can use :app:`Pyramid` APIs to obtain "
 "the locale name for a request to pass to the :class:`babel.core.Locale` "
 "constructor.  See :ref:`obtaining_the_locale_name`.  For example:"
-msgstr ""
+msgstr "：class： `babel.core.Locale`クラスは、コンストラクタへの引数として：term：` locale name`を必要とします。 ：app： `Pyramid` APIを使って：class：` babel.core.Locale`コンストラクタに渡すリクエストのロケール名を取得できます。参照：ref： `obtain_the_locale_name`を参照してください。例えば："
 
 #: ../../narr/i18n.rst:614
 msgid "Chameleon Template Support for Translation Strings"
-msgstr ""
+msgstr "翻訳文字列のカメレオンテンプレートのサポート"
 
 #: ../../narr/i18n.rst:616
 msgid ""
@@ -599,14 +589,14 @@ msgid ""
 " be translated to the requesting user's language if a suitable "
 "translation exists. This is true of both the ZPT and text variants of the"
 " Chameleon template renderers."
-msgstr ""
+msgstr "a：term： `翻訳文字列`がa：term： `Chameleon`テンプレートレンダラーによるテキストレンダリングの対象として使用される場合、適切な翻訳が存在する場合、自動的に要求ユーザの言語に翻訳されます。これは、カメレオンテンプレートレンダラのZPTとテキストバリアントの両方に当てはまります。"
 
 #: ../../narr/i18n.rst:621
 msgid ""
 "For example, in a Chameleon ZPT template, the translation string "
 "represented by \"some_translation_string\" in each example below will go "
 "through translation before being rendered:"
-msgstr ""
+msgstr "たとえば、カメレオンのZPTテンプレートでは、下の各例の\ &quot;some_translation_string \&quot;で表される翻訳文字列がレンダリングされる前に翻訳されます。"
 
 #: ../../narr/i18n.rst:648
 msgid ""
@@ -614,7 +604,7 @@ msgid ""
 "Chameleon will also consult the :app:`Pyramid` translations. See "
 "https://chameleon.readthedocs.io/en/latest/reference.html#translation-"
 "i18n."
-msgstr ""
+msgstr "Chameleonの `` i18n``名前空間の属性によって表される機能は：app： `Pyramid`の翻訳も参照します。 https://chameleon.readthedocs.io/en/latest/reference.html#translation-i18nを参照してください。"
 
 #: ../../narr/i18n.rst:654
 msgid ""
@@ -622,7 +612,7 @@ msgid ""
 "*within* :app:`Pyramid`, it does not support use of the ``zope.i18n`` "
 "translation framework.  Applications which use :app:`Pyramid` should use "
 "the features documented in this chapter rather than ``zope.i18n``."
-msgstr ""
+msgstr "Chameleonが：app： `Pyramid`の外で使用されているのとは異なり、*：*：app：` Pyramid`内で使用された場合、 `` zope.i18n``翻訳フレームワークの使用はサポートされません。 app： `Pyramid`を使うアプリケーションは、` `zope.i18n``ではなく、この章で説明している機能を使うべきです。"
 
 #: ../../narr/i18n.rst:659
 msgid ""
@@ -630,22 +620,22 @@ msgid ""
 "support out of the box and may need special code to do an equivalent.  "
 "For those, you can always use the more manual translation facility "
 "described in :ref:`performing_a_translation`."
-msgstr ""
+msgstr "サードパーティー：app： `Pyramid`テンプレートレンダラーがこのサポートを提供していない可能性があり、同等の機能を実行するために特別なコードが必要な場合があります。そのためには、：ref： `performing_a_translation`で説明されているより手作業の翻訳機能をいつでも使用できます。"
 
 #: ../../narr/i18n.rst:668
 msgid "Mako Pyramid i18n Support"
-msgstr ""
+msgstr "マコピラミッドi18nサポート"
 
 #: ../../narr/i18n.rst:670
 msgid ""
 "There exists a recipe within the :term:`Pyramid Community Cookbook` named"
 " :ref:`Mako Internationalization <cookbook:mako_i18n>` which explains how"
 " to add idiomatic i18n support to :term:`Mako` templates."
-msgstr ""
+msgstr "「ピラミッドコミュニティクックブック」という名前のレシピがあります：ref： `Mako Internationalization <cookbook:mako_i18n> `は：term：` Mako`テンプレートに慣用的なi18nサポートを追加する方法を説明しています。"
 
 #: ../../narr/i18n.rst:679
 msgid "Jinja2 Pyramid i18n Support"
-msgstr ""
+msgstr "Jinja2ピラミッドi18nサポート"
 
 #: ../../narr/i18n.rst:681
 msgid ""
@@ -656,11 +646,11 @@ msgid ""
 "/#internalization-i18n>`_ and `Paster Template I18N "
 "<https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest"
 "/#paster-template-i18n>`_."
-msgstr ""
+msgstr "アドオンの `pyramid_jinja2 <https://github.com/Pylons/pyramid_jinja2> `_はPyramidのJinja2で国際化を使用する方法の例を足場に提供します。ドキュメントの `内部化（i18n） <https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest/#internalization-i18n> `_ and` Paster Template I18N <https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest/#paster-template-i18n> `_。"
 
 #: ../../narr/i18n.rst:696
 msgid "Localization-Related Deployment Settings"
-msgstr ""
+msgstr "ローカリゼーション関連の展開設定"
 
 #: ../../narr/i18n.rst:698
 msgid ""
@@ -668,36 +658,36 @@ msgid ""
 "setting.  This value represents the :term:`default locale name` used when"
 " the :term:`locale negotiator` returns ``None``.  Pass it to the "
 ":mod:`~pyramid.config.Configurator` constructor at startup time:"
-msgstr ""
+msgstr "A：app： `Pyramid`アプリケーションには` `pyramid.default_locale_name``という設定があります。この値は：term： `locale negotiator`が` `None``を返すときに使われる：term：`デフォルトロケール名 `を表します。起動時に：mod： `〜pyramid.config.Configurator`コンストラクタに渡します："
 
 #: ../../narr/i18n.rst:709
 msgid ""
 "You may alternately supply a ``pyramid.default_locale_name`` via an "
 "application's ``.ini`` file:"
-msgstr ""
+msgstr "あなたは `` pyramid.default_locale_name``をアプリケーションの `` .ini``ファイルで指定することもできます："
 
 #: ../../narr/i18n.rst:722
 msgid ""
 "If this value is not supplied via the Configurator constructor or via a "
 "config file, it will default to ``en``."
-msgstr ""
+msgstr "この値がConfiguratorコンストラクタまたは設定ファイルを介して供給されない場合、デフォルトは `` en``になります。"
 
 #: ../../narr/i18n.rst:725
 msgid ""
 "If this setting is supplied within the :app:`Pyramid` application "
 "``.ini`` file, it will be available as a settings key:"
-msgstr ""
+msgstr "この設定が：app： `Pyramid`アプリケーションの` `.ini``ファイルで提供されている場合、それは設定キーとして利用できます："
 
 #: ../../narr/i18n.rst:739
 msgid "\"Detecting\" Available Languages"
-msgstr ""
+msgstr "\ &quot;使用可能な言語の検出&quot;"
 
 #: ../../narr/i18n.rst:741
 msgid ""
 "Other systems provide an API that returns the set of \"available "
 "languages\" as indicated by the union of all languages in all translation"
 " directories on disk at the time of the call to the API."
-msgstr ""
+msgstr "他のシステムでは、APIの呼び出し時にディスク上のすべての翻訳ディレクトリにあるすべての言語の組み合わせで示される\ &quot;利用可能な言語\&quot;のセットを返すAPIが提供されています。"
 
 #: ../../narr/i18n.rst:745
 msgid ""
@@ -706,7 +696,7 @@ msgid ""
 "languages\".  The rationale is this: any particular application "
 "deployment must always know which languages it should be translatable to "
 "anyway, regardless of which translation files are on disk."
-msgstr ""
+msgstr "それは設計上のものです：app： `Pyramid`はそのようなAPIを提供しません。代わりに、アプリケーション自体が\ &quot;利用可能な言語\&quot;を知る責任があります。どのような翻訳ファイルがディスク上にあるかにかかわらず、特定のアプリケーション展開では常にどの言語に翻訳できるかを常に把握しておく必要があります。"
 
 #: ../../narr/i18n.rst:751
 msgid ""
@@ -716,7 +706,7 @@ msgid ""
 "language.  For example, some translations may exist but they may be "
 "incomplete or incorrect. Or there may be translations to a language but "
 "not for all translation domains."
-msgstr ""
+msgstr "理由は次のとおりです。この特定の配備で登録されている翻訳ディレクトリ内の特定の言語に翻訳が存在するため、その言語への翻訳を許可したいからです。たとえば、一部の翻訳が存在する可能性がありますが、不完全または間違っている可能性があります。または、ある言語への翻訳があるかもしれませんが、すべての翻訳ドメインではありません。"
 
 #: ../../narr/i18n.rst:757
 msgid ""
@@ -727,49 +717,49 @@ msgid ""
 " application entirely responsible for knowing which languages are allowed"
 " to be translated to instead of relying on the framework to divine this "
 "information from translation directory file info."
-msgstr ""
+msgstr "すべての重要なアプリケーションの配備は、登録された翻訳ディレクトリ内で検出されたすべての言語よりも言語セットが小さい場合でも、いくつかの言語のみを選択できるように選択する必要が常にあります。これを可能にする最も簡単な方法は、翻訳ディレクトリファイル情報からこの情報を抽出するためにフレームワークに頼るのではなく、どの言語を翻訳することができるかをアプリケーションが完全に認識できるようにすることです。"
 
 #: ../../narr/i18n.rst:765
 msgid ""
 "You can set up a system to allow a deployer to select available languages"
 " based on convention by using the :mod:`pyramid.settings` mechanism."
-msgstr ""
+msgstr "配備者が：mod： `pyramid.settings`メカニズムを使って規約に基づいて利用可能な言語を選択できるようにシステムを設定することができます。"
 
 #: ../../narr/i18n.rst:768
 msgid "Allow a deployer to modify your application's ``.ini`` file:"
-msgstr ""
+msgstr "デプロイヤーにアプリケーションの `` .ini``ファイルを変更させる："
 
 #: ../../narr/i18n.rst:778
 msgid "Then as a part of the code of a custom :term:`locale negotiator`:"
-msgstr ""
+msgstr "そして、カスタムのコードの一部として：用語： `ロケールネゴシエーター`："
 
 #: ../../narr/i18n.rst:789
 msgid ""
 "This is only a suggestion.  You can create your own \"available "
 "languages\" configuration scheme as necessary."
-msgstr ""
+msgstr "これは単なる提案です。必要に応じて、独自の「使用可能な言語」構成スキームを作成できます。"
 
 #: ../../narr/i18n.rst:803
 msgid "Activating Translation"
-msgstr ""
+msgstr "翻訳の有効化"
 
 #: ../../narr/i18n.rst:805
 msgid ""
 "By default, a :app:`Pyramid` application performs no translation. To turn"
 " translation on you must:"
-msgstr ""
+msgstr "デフォルトでは、a：app： `Pyramid`アプリケーションは翻訳を実行しません。翻訳を有効にするには、以下が必要です。"
 
 #: ../../narr/i18n.rst:808
 msgid "add at least one :term:`translation directory` to your application."
-msgstr ""
+msgstr "少なくとも1つ：term： `翻訳ディレクトリ &#39;をアプリケーションに追加してください。"
 
 #: ../../narr/i18n.rst:810
 msgid "ensure that your application sets the :term:`locale name` correctly."
-msgstr ""
+msgstr "アプリケーションで：term： `locale name`が正しく設定されていることを確認してください。"
 
 #: ../../narr/i18n.rst:818
 msgid "Adding a Translation Directory"
-msgstr ""
+msgstr "翻訳ディレクトリの追加"
 
 #: ../../narr/i18n.rst:820
 msgid ""
@@ -781,7 +771,7 @@ msgid ""
 "contain one or more ``.mo`` files. Each ``.mo`` file represents a "
 ":term:`message catalog`, which is used to provide translations to your "
 "application."
-msgstr ""
+msgstr "：term： `gettext`は：app：` Pyramid`翻訳機構の背後にある基礎となる機械です。翻訳ディレクトリは、term： `gettext`に役立つように編成されたディレクトリです。翻訳ディレクトリには通常、言語ディレクトリのリストが含まれており、それぞれに `` LC_MESSAGES``ディレクトリがあります。それぞれの `` LC_MESSAGES``ディレクトリには、一つ以上の `` .mo``ファイルが含まれていなければなりません。各 `` .mo``ファイルは、アプリケーションに翻訳を提供するために使用される：term： `message catalog`を表します。"
 
 #: ../../narr/i18n.rst:828
 msgid ""
@@ -790,14 +780,14 @@ msgid ""
 "be available to use for translation services.  This includes all of the "
 "``.mo`` files found within all ``LC_MESSAGES`` directories within each "
 "locale directory in the translation directory."
-msgstr ""
+msgstr "a：term： `translation directory`を追加すると：app：` Pyramid`アプリケーション内のterm： `message catalog`ファイルがすべて翻訳サービスに使用できるように登録されます。これには、翻訳ディレクトリ内の各ロケールディレクトリ内のすべての `` LC_MESSAGES``ディレクトリ内にある `` .mo``ファイルのすべてが含まれます。"
 
 #: ../../narr/i18n.rst:834
 msgid ""
 "You can add a translation directory imperatively by using the "
 ":meth:`pyramid.config.Configurator.add_translation_dirs` during "
 "application startup.  For example:"
-msgstr ""
+msgstr "アプリケーションの起動時に、：meth： `pyramid.config.Configurator.add_translation_dirs`を使用して、変換ディレクトリを必須に追加できます。例えば："
 
 #: ../../narr/i18n.rst:845
 msgid ""
@@ -806,11 +796,11 @@ msgid ""
 "into translations from a message catalog added earlier if both "
 "translation directories contain translations for the same locale and "
 ":term:`translation domain`."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_translation_dirs`を介して追加された翻訳ディレクトリ内のメッセージカタログは、両方の翻訳ディレクトリに同じロケールと：term：`翻訳ドメインの翻訳が含まれている場合、以前に追加されたメッセージカタログの翻訳にマージされます`。"
 
 #: ../../narr/i18n.rst:855
 msgid "Setting the Locale"
-msgstr ""
+msgstr "ロケールの設定"
 
 #: ../../narr/i18n.rst:857
 msgid ""
@@ -818,13 +808,13 @@ msgid ""
 ":ref:`default_locale_negotiator`) is in use, you can inform "
 ":app:`Pyramid` of the current locale name by doing any of these things "
 "before any translations need to be performed:"
-msgstr ""
+msgstr "*デフォルトのロケールネゴシエーター*（参照：ref： `default_locale_negotiator`を参照）が使用されている場合、翻訳を実行する前にこれらのことを実行することによって、現在のロケール名のapp：` Pyramid &#39;"
 
 #: ../../narr/i18n.rst:861
 msgid ""
 "Set the ``_LOCALE_`` attribute of the request to a valid locale name "
 "(usually directly within view code), e.g., ``request._LOCALE_ = 'de'``."
-msgstr ""
+msgstr "要求の `` _LOCALE_``属性を有効なロケール名（通常はビューコード内で直接）に設定します。たとえば、 `` request._LOCALE_ = &#39;de&#39;``です。"
 
 #: ../../narr/i18n.rst:864
 msgid ""
@@ -833,7 +823,7 @@ msgid ""
 "of passing a ``_LOCALE_`` value in the query string or in the body of a "
 "form post associated with a request.  For example, visiting "
 "``http://my.application?_LOCALE_=de``."
-msgstr ""
+msgstr "有効なロケール名の値が、 `` _LOCALE_``という名前のキーの下にある `` request.params``ディクショナリにあることを確認してください。これは、通常、クエリ文字列または要求に関連付けられたフォームポストの本文に `` _LOCALE_``値を渡した結果です。たとえば、「http：//my.application？_LOCALE_ = de``にアクセスします。"
 
 #: ../../narr/i18n.rst:870
 msgid ""
@@ -841,7 +831,7 @@ msgid ""
 "dictionary under the key named ``_LOCALE_``.  This is usually the result "
 "of setting a ``_LOCALE_`` cookie in a prior response, e.g., "
 "``response.set_cookie('_LOCALE_', 'de')``."
-msgstr ""
+msgstr "有効なロケール名の値が `` _LOCALE_``という名前のキーの下にある `` request.cookies``ディクショナリにあることを確認してください。これは、通常、 `` response.set_cookie（ &#39;_ LOCALE_&#39;、 &#39;de&#39;） ``のように、以前のレスポンスに `` _LOCALE_``クッキーを設定した結果です。"
 
 #: ../../narr/i18n.rst:877
 msgid ""
@@ -849,11 +839,11 @@ msgid ""
 "application, you can configure a custom :term:`locale negotiator` "
 "function into that application as required.  See "
 ":ref:`custom_locale_negotiator`."
-msgstr ""
+msgstr "このロケールネゴシエーションスキームが特定のアプリケーションにとって不適切な場合は、必要に応じてそのアプリケーションにcustom：term： `locale negotiator`関数を設定することができます。参照：ref： `custom_locale_negotiator`を参照してください。"
 
 #: ../../narr/i18n.rst:887
 msgid "Locale Negotiators"
-msgstr ""
+msgstr "ロケールネゴシエーター"
 
 #: ../../narr/i18n.rst:889
 msgid ""
@@ -865,56 +855,56 @@ msgid ""
 ":meth:`pyramid.i18n.Localizer.pluralize` is invoked.  It is also "
 "consulted when :func:`~pyramid.request.Request.locale_name` is accessed "
 "or when :func:`~pyramid.i18n.negotiate_locale_name` is invoked."
-msgstr ""
+msgstr "A：term： `locale negotiator`は：term：` localizer`の動作に、 `：locale name`が特定の要求に関連していることを伝えて通知します。ロケールネゴシエーターは、要求を受け取り、：term： `ロケール名`を返すコードです。それは：meth： `pyramid.i18n.Localizer.translate`または：meth：` pyramid.i18n.Localizer.pluralize`が呼び出されたときに参照されます。それは：func： `〜pyramid.request.Request.locale_name`がアクセスされたとき、または：func：`〜pyramid.i18n.negotiate_locale_name`が呼び出されたときにも参照されます。"
 
 #: ../../narr/i18n.rst:901
 msgid "The Default Locale Negotiator"
-msgstr ""
+msgstr "デフォルトロケールネゴシエーター"
 
 #: ../../narr/i18n.rst:903
 msgid ""
 "Most applications can make use of the default locale negotiator, which "
 "requires no additional coding or configuration."
-msgstr ""
+msgstr "ほとんどのアプリケーションでは、デフォルトのロケールネゴシエーターを使用できます。追加のコーディングや構成は必要ありません。"
 
 #: ../../narr/i18n.rst:906
 msgid ""
 "The default locale negotiator implementation named "
 ":class:`~pyramid.i18n.default_locale_negotiator` uses the following set "
 "of steps to determine the locale name."
-msgstr ""
+msgstr "class： `〜pyramid.i18n.default_locale_negotiator`という名前のデフォルトのロケールネゴシエーター実装は、以下の一連のステップを使用してロケール名を決定します。"
 
 #: ../../narr/i18n.rst:910
 msgid ""
 "First the negotiator looks for the ``_LOCALE_`` attribute of the request "
 "object (possibly set directly by view code or by a listener for an "
 ":term:`event`)."
-msgstr ""
+msgstr "最初に、ネゴシエーターは要求オブジェクトの `` _LOCALE_``属性を探します（おそらく、ビューコードによって直接設定されるか、または：term： `event`のリスナーによって設定されます）。"
 
 #: ../../narr/i18n.rst:914
 msgid "Then it looks for the ``request.params['_LOCALE_']`` value."
-msgstr ""
+msgstr "それから、 `` request.params [&#39;_ LOCALE _&#39;] ``の値を探します。"
 
 #: ../../narr/i18n.rst:916
 msgid "Then it looks for the ``request.cookies['_LOCALE_']`` value."
-msgstr ""
+msgstr "それから、 `` request.cookies [&#39;_ LOCALE _&#39;] ``の値を探します。"
 
 #: ../../narr/i18n.rst:918
 msgid ""
 "If no locale can be found via the request, it falls back to using the "
 ":term:`default locale name` (see "
 ":ref:`localization_deployment_settings`)."
-msgstr ""
+msgstr "リクエストによってロケールが見つからない場合は、：term： `デフォルトのロケール名`（参照：ref： `localization_deployment_settings`）を使用します。"
 
 #: ../../narr/i18n.rst:921
 msgid ""
 "Finally if the default locale name is not explicitly set, it uses the "
 "locale name ``en``."
-msgstr ""
+msgstr "最後に、デフォルトロケール名が明示的に設定されていない場合は、ロケール名 `` en``を使用します。"
 
 #: ../../narr/i18n.rst:927
 msgid "Using a Custom Locale Negotiator"
-msgstr ""
+msgstr "カスタムロケールネゴシエーターの使用"
 
 #: ../../narr/i18n.rst:929
 msgid ""
@@ -924,24 +914,24 @@ msgid ""
 "may create a special :term:`locale negotiator`.  Subsequently you may "
 "override the default locale negotiator by adding your newly created "
 "locale negotiator to your application's configuration."
-msgstr ""
+msgstr "ロケールネゴシエーションは時にはポリシーが重く複雑です。 ：ref： `activating_translation`で説明されている（単純な）デフォルトのロケールネゴシエーションスキームがあなたのアプリケーションには不適切な場合、特別な：term：` locale negotiator`を作成することができます。その後、新しく作成したロケールネゴシエーターをアプリケーションの構成に追加して、デフォルトのロケールネゴシエーターをオーバーライドすることができます。"
 
 #: ../../narr/i18n.rst:936
 msgid ""
 "A locale negotiator is simply a callable which accepts a request and "
 "returns a single :term:`locale name` or ``None`` if no locale can be "
 "determined."
-msgstr ""
+msgstr "ロケールネゴシエーターは、単に要求を受け入れ、ロケールが決まらない場合には：term： `ロケール名`または `` None``を返します。"
 
 #: ../../narr/i18n.rst:939
 msgid "Here's an implementation of a simple locale negotiator:"
-msgstr ""
+msgstr "単純なロケールネゴシエーターの実装を次に示します。"
 
 #: ../../narr/i18n.rst:948
 msgid ""
 "If a locale negotiator returns ``None``, it signifies to :app:`Pyramid` "
 "that the default application locale name should be used."
-msgstr ""
+msgstr "ロケールネゴシエーターが `` None``を返すと、デフォルトのアプリケーションロケール名を使用すべきであることをapp： `Pyramid`に示します。"
 
 #: ../../narr/i18n.rst:951
 msgid ""
@@ -951,15 +941,15 @@ msgid ""
 "``locale_negotiator`` argument of the "
 ":class:`~pyramid.config.Configurator` instance during application "
 "startup.  For example:"
-msgstr ""
+msgstr "：新しく作成したロケールネゴシエーターを、アプリケーションの設定に追加することができます。ネゴシエーターとして機能するオブジェクトを渡します（または：term： `オブジェクトを参照する点線のPythonの名前`）を：classの `` locale_negotiator``引数として渡します： `〜pyramid.config.Configurator`インスタンス。例えば："
 
 #: ../../narr/i18n.rst:963
 msgid ""
 "Alternatively, use the "
 ":meth:`pyramid.config.Configurator.set_locale_negotiator` method."
-msgstr ""
+msgstr "代わりに、：meth： `pyramid.config.Configurator.set_locale_negotiator`メソッドを使用してください。"
 
 #: ../../narr/i18n.rst:966
 msgid "For example:"
-msgstr ""
+msgstr "例えば："
 

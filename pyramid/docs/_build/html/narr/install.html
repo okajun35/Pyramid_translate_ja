@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Installing Pyramid &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) インストール Pyramid &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Creating Your First Pyramid Application" href="firstapp.html" />
-    <link rel="prev" title="Advanced Pyramid Design Features" href="advanced-features.html" />
+    <link rel="next" title="(機械翻訳) あなたの最初の作成 Pyramid アプリケーション" href="firstapp.html" />
+    <link rel="prev" title="(機械翻訳) アドバンス：app： `Pyramid`デザインの特徴" href="advanced-features.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="firstapp.html" title="Creating Your First Pyramid Application"
+          <a href="firstapp.html" title="(機械翻訳) あなたの最初の作成 Pyramid アプリケーション"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="advanced-features.html" title="Advanced Pyramid Design Features"
+          <a href="advanced-features.html" title="(機械翻訳) アドバンス：app： `Pyramid`デザインの特徴"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,88 +69,61 @@
           <div class="body" role="main">
             
   <div class="section" id="installing-pyramid">
-<span id="installing-chapter"></span><h1>Installing <span>Pyramid</span><a class="headerlink" href="#installing-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="installing-chapter"></span><h1>(機械翻訳) インストール <span>Pyramid</span><a class="headerlink" href="#installing-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">This installation guide emphasizes the use of Python 3.4 and greater for
-simplicity.</p>
+<p class="last">このインストールガイドでは、簡単にするためにPython 3.4以降を使用することを強調しています。</p>
 </div>
 <div class="section" id="before-you-install-pyramid">
-<span id="index-0"></span><h2>Before You Install Pyramid<a class="headerlink" href="#before-you-install-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Install Python version 3.4 or greater for your operating system, and satisfy
-the <a class="reference internal" href="#requirements-for-installing-packages"><span class="std std-ref">Requirements for Installing Packages</span></a>, as described in
-the following sections.</p>
+<span id="index-0"></span><h2>ピラミッドをインストールする前に<a class="headerlink" href="#before-you-install-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ご使用のオペレーティングシステム用のPythonバージョン3.4以上をインストールし、以下のセクションで説明するように：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>require-for-installing-packages`を満たしてください。</p>
 <div class="sidebar">
-<p class="first sidebar-title">Python Versions</p>
-<p class="last">As of this writing, <span>Pyramid</span> is tested against Python 2.7,
-Python 3.4, Python 3.5, Python 3.6, and PyPy.</p>
+<p class="first sidebar-title">Pythonのバージョン</p>
+<p class="last">この記事の執筆時点では、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はPython 2.7、Python 3.4、Python 3.5、Python 3.6、PyPyに対してテストされています。</p>
 </div>
-<p><span>Pyramid</span> is known to run on all popular UNIX-like systems such as Linux,
-Mac OS X, and FreeBSD, as well as on Windows platforms.  It is also known to
-run on <a class="reference internal" href="../glossary.html#term-pypy"><span class="xref std std-term">PyPy</span></a> (1.9+).</p>
-<p><span>Pyramid</span> installation does not require the compilation of any C code.
-However, some <span>Pyramid</span> dependencies may attempt to build binary
-extensions from C code for performance speed ups. If a compiler or Python
-headers are unavailable, the dependency will fall back to using pure Python
-instead.</p>
+<p>：app：Pyramidは、Linux、Mac OS X、FreeBSDなどの一般的なUNIX系システムやWindowsプラットフォームで動作することが知られています。 term： <a href="#id1"><span class="problematic" id="id2">`</span></a>PyPy`（1.9+）で動作することも知られています。</p>
+<p>：app：Pyramidのインストールでは、Cコードのコンパイルは必要ありません。しかし、いくつかの：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`の依存関係は、パフォーマンス向上のためにCコードからバイナリ拡張を構築しようとするかもしれません。コンパイラやPythonのヘッダが利用できない場合、依存関係は純粋なPythonを使用することに戻ります。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">If you see any warnings or errors related to failing to compile the binary
-extensions, in most cases you may safely ignore those errors. If you wish to
-use the binary extensions, please verify that you have a functioning
-compiler and the Python header files installed for your operating system.</p>
+<p class="last">バイナリ拡張をコンパイルできないという警告やエラーが表示された場合は、ほとんどの場合、これらのエラーを無視しても問題ありません。バイナリ拡張機能を使用する場合は、機能しているコンパイラとPythonヘッダファイルがオペレーティングシステム用にインストールされていることを確認してください。</p>
 </div>
 <div class="section" id="for-mac-os-x-users">
-<span id="id1"></span><h3>For Mac OS X Users<a class="headerlink" href="#for-mac-os-x-users" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Python comes pre-installed on Mac OS X, but due to Apple's release cycle, it is
-often out of date. Unless you have a need for a specific earlier version, it is
-recommended to install the latest 3.x version of Python.</p>
-<p>You can install the latest version of Python for Mac OS X from the binaries on
-<a class="reference external" href="https://www.python.org/downloads/mac-osx/">python.org</a>.</p>
-<p>Alternatively, you can use the <a class="reference external" href="https://brew.sh/">homebrew</a> package manager.</p>
+<span id="id1"></span><h3>Mac OS Xユーザーの場合<a class="headerlink" href="#for-mac-os-x-users" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>PythonはMac OS Xにプリインストールされていますが、Appleのリリースサイクルのために古くなっています。特定の以前のバージョンが必要な場合を除き、最新の3.xバージョンのPythonをインストールすることをお勧めします。</p>
+<p>Python for Mac OS Xの最新バージョンは、Python.orgのバイナリからインストールすることができます&lt;<a class="reference external" href="https://www.python.org/downloads/mac-osx/">https://www.python.org/downloads/mac-osx/</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_。</p>
+<p>代わりに、 <a href="#id1"><span class="problematic" id="id2">`</span></a>homebrew &lt;<a class="reference external" href="https://brew.sh/">https://brew.sh/</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_パッケージマネージャー。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># for python 3.x
 $ brew install python3
 </pre></div>
 </div>
-<p>If you use an installer for your Python, then you can skip to the section
-<a class="reference internal" href="#installing-unix"><span class="std std-ref">Installing Pyramid on a UNIX System</span></a>.</p>
+<p>Python用のインストーラを使用している場合は、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>installing_unix`セクションにスキップできます。</p>
 </div>
 <div class="section" id="if-you-don-t-yet-have-a-python-interpreter-unix">
-<span id="id2"></span><h3>If You Don't Yet Have a Python Interpreter (UNIX)<a class="headerlink" href="#if-you-don-t-yet-have-a-python-interpreter-unix" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If your system doesn't have a Python interpreter, and you're on UNIX, you can
-either install Python using your operating system's package manager <em>or</em> you
-can install Python from source fairly easily on any UNIX system that has
-development tools.</p>
+<span id="id2"></span><h3>Pythonインタプリタをまだ持っていない場合（UNIX）<a class="headerlink" href="#if-you-don-t-yet-have-a-python-interpreter-unix" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>あなたのシステムにPythonインタプリタがなく、あなたがUNIXの場合は、あなたのオペレーティングシステムのパッケージマネージャを使ってPythonをインストールすることができます。<a href="#id1"><span class="problematic" id="id2">*</span></a>または開発ツールを持つUNIXシステムにPythonを簡単にインストールできます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See the official Python documentation <a class="reference external" href="https://docs.python.org/3/using/unix.html#using-on-unix" title="(in Python v3.7)"><span class="xref std std-ref">Using Python on Unix
-platforms</span></a> for full details.</p>
+<p class="last">公式のPythonのドキュメントを参照してください：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>UnixプラットフォームでのPythonの使用&lt;python:using-on-unix&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>詳細については、</p>
 </div>
 </div>
 <div class="section" id="if-you-don-t-yet-have-a-python-interpreter-windows">
-<span id="index-1"></span><span id="id3"></span><h3>If You Don't Yet Have a Python Interpreter (Windows)<a class="headerlink" href="#if-you-don-t-yet-have-a-python-interpreter-windows" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If your Windows system doesn't have a Python interpreter, you'll need to
-install it by downloading a Python 3.x-series interpreter executable from
-<a class="reference external" href="https://www.python.org/downloads/">python.org's download section</a> (the files
-labeled &quot;Windows Installer&quot;).  Once you've downloaded it, double click on the
-executable and select appropriate options during the installation process. To
-standardize this documentation, we used the GUI installer and selected the
-following options:</p>
+<span id="index-1"></span><span id="id3"></span><h3>Pythonインタプリタをまだ持っていない場合（Windows）<a class="headerlink" href="#if-you-don-t-yet-have-a-python-interpreter-windows" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>あなたのWindowsシステムにPythonインタプリタがない場合は、Python 3.xシリーズインタプリタをPython.orgのダウンロードセクションからダウンロードしてインストールする必要があります&lt;<a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_（&amp;quot; Windows Installer &amp;quot;というラベルの付いたファイル）。ダウンロードしたら、実行可能ファイルをダブルクリックし、インストールプロセス中に適切なオプションを選択します。このドキュメントを標準化するために、GUIインストーラを使用して次のオプションを選択しました。</p>
 <ul class="simple">
 <li><dl class="first docutils">
-<dt>Screen 1: Install Python 3.x.x (32- or 64-bit)</dt>
+<dt>画面1：Python 3.xx（32ビットまたは64ビット）をインストールする</dt>
 <dd><ul class="first last">
-<li>Check &quot;Install launcher for all users (recommended)&quot;.</li>
-<li>Check &quot;Add Python 3.x to PATH&quot;.</li>
-<li>Click &quot;Install Now&quot;.</li>
+<li>&amp;quot;すべてのユーザーにランチャーをインストールする（推奨）&amp;quot;を確認してください。</li>
+<li>&amp;quot;Python 3.xをPATHに追加&amp;quot;をチェックしてください。</li>
+<li>&amp;quot;今すぐインストールする&amp;quot;をクリックします。</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Screen 2: User Account Control</dt>
+<dt>画面2：ユーザーアカウント制御</dt>
 <dd><ul class="first last">
-<li>Click &quot;Yes&quot;.</li>
+<li>&amp;quot;はい&amp;quot;をクリックします。</li>
 </ul>
 </dd>
 </dl>
@@ -158,82 +131,51 @@ following options:</p>
 </ul>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See the official Python documentation <a class="reference external" href="https://docs.python.org/3/using/windows.html#using-on-windows" title="(in Python v3.7)"><span class="xref std std-ref">Using Python on
-Windows</span></a> for full details.</p>
+<p class="last">公式のPythonのドキュメントを参照してください：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>WindowsでPythonを使う&lt;python:using-on-windows&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>詳細については、</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">You might also need to download and install the <a class="reference external" href="https://sourceforge.net/projects/pywin32/files/pywin32/">Python for
-Windows extensions</a>. Carefully read
-the README.txt file at the end of the list of builds, and follow its
-directions. Make sure you get the proper 32- or 64-bit build and Python
-version.</p>
+<p class="last">Python for Windows extensionsをダウンロードしてインストールする必要があります&lt;<a class="reference external" href="https://sourceforge.net/projects/pywin32/files/pywin32/">https://sourceforge.net/projects/pywin32/files/pywin32/</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_。ビルドのリストの最後にあるREADME.txtファイルを注意深く読んで、その指示に従ってください。適切な32ビットまたは64ビットのビルドとPythonのバージョンを取得してください。</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last"><a class="reference external" href="https://docs.python.org/3/using/windows.html#launcher">Python launcher for Windows</a> provides a command
-<code class="docutils literal notranslate"><span class="pre">py</span></code> that allows users to run any installed version of Python.</p>
+<p class="last"><cite>Pythonランチャーfor Windows &lt;https://docs.python.org/3/using/windows.html#launcher&gt; `_は、ユーザーがPythonのインストールされているバージョンを実行できるようにする</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>py``コマンドを提供します。</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p>After you install Python on Windows, you might need to add the
-directory where Python and other programs—such as pip, setuptools, and
-cookiecutter—are installed to your environment's <code class="docutils literal notranslate"><span class="pre">Path</span></code>. This will make it
-possible to invoke them from a command prompt.</p>
-<p>To do so, search for &quot;Environment Variables&quot; on your computer (on Windows
-10, it is under <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Properties</span></code> --&gt; <code class="docutils literal notranslate"><span class="pre">Advanced</span></code>) and add that
-directory to the <code class="docutils literal notranslate"><span class="pre">Path</span></code> environment variable, using the GUI to edit path
-segments.</p>
-<p>Example segments should look like
-<code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;username&gt;\AppData\Local\Programs\Python3x-32</span></code>, where you have
-your username instead of <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;</span></code>, and your version of Python and
-whether it is 32- or 64-bit. Additionally ensure you have the path segment
-ending with <code class="docutils literal notranslate"><span class="pre">\Scripts</span></code>, i.e.,
-<code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;username&gt;\AppData\Local\Programs\Python3x-32\Scripts</span></code>, and for
-user-installed Python programs, <code class="docutils literal notranslate"><span class="pre">%APPDATA%\Python\Python3x\Scripts</span></code>.</p>
-<p>You may need to restart your command prompt session to load the environment
-variables.</p>
+<p>PythonをWindowsにインストールしたら、Pythonや他のプログラム（pip、setuptools、cookiecutterなど）がインストールされているディレクトリを環境の `` Path``に追加する必要があります。これにより、コマンドプロンプトからそれらを呼び出すことができます。</p>
+<p>これを行うには、コンピュータ上の&amp;quot;環境変数&amp;quot;を検索してください（Windows 10では <a href="#id1"><span class="problematic" id="id2">``</span></a>システムプロパティ ``  -  `` Advanced``の下にあります）。そのディレクトリを `` Path``環境に追加してください変数を使用して、GUIを使用してパスセグメントを編集します。</p>
+<p>セグメントの例は `` C：Users &lt;username&gt; AppData Local Programs Python3x-32``のように、 `` &lt;username&gt; <code class="docutils literal notranslate"><span class="pre">、あなたのPythonのバージョン、そしてそれが32ビットか64ビットのどちらかです。さらに、</span> <span class="pre">``</span> <span class="pre">\</span> <span class="pre">Scripts``で終わるパスセグメント、つまり</span> <span class="pre">``</span> <span class="pre">C：\</span> <span class="pre">Users</span> <span class="pre">\</span> <span class="pre">&amp;#39;</span> <span class="pre">&lt;username&gt;</span> <span class="pre">\</span> <span class="pre">AppData</span> <span class="pre">\</span> <span class="pre">Local</span> <span class="pre">\</span> <span class="pre">Programs</span> <span class="pre">\</span> <span class="pre">Python3x-32</span> <span class="pre">\</span> <span class="pre">Scripts</span></code>、およびユーザーがインストールしたPythonプログラムの場合は、 <a href="#id1"><span class="problematic" id="id2">``</span></a>％APPDATA％Python Python3x Scripts`のようになります。</p>
+<p>環境変数をロードするには、コマンドプロンプトセッションを再起動する必要があります。</p>
 <div class="last admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See <a class="reference external" href="https://docs.python.org/3/using/windows.html#configuring-python">Configuring Python (on Windows)</a> for
-full details.</p>
+<p class="last"><a href="#id1"><span class="problematic" id="id2">`</span></a>Pythonの設定（Windowsの場合） &lt;<a class="reference external" href="https://docs.python.org/3/using/windows.html#configuring-python">https://docs.python.org/3/using/windows.html#configuring-python</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_詳細については_</p>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="requirements-for-installing-packages">
-<span id="index-2"></span><span id="id4"></span><h2>Requirements for Installing Packages<a class="headerlink" href="#requirements-for-installing-packages" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Use <a class="reference internal" href="../glossary.html#term-pip"><span class="xref std std-term">pip</span></a> for installing packages and <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">env</span></code> for
-creating a virtual environment. A virtual environment is a semi-isolated Python
-environment that allows packages to be installed for use by a particular
-application, rather than being installed system wide.</p>
+<span id="index-2"></span><span id="id4"></span><h2>パッケージのインストール要件<a class="headerlink" href="#requirements-for-installing-packages" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>パッケージをインストールするにはterm： <cite>pip`を使い、仮想環境を作るには</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>python3 -m venv env``を使います。仮想環境は、システム全体にインストールするのではなく、特定のアプリケーションで使用するためにパッケージをインストールできるようにする半独立型のPython環境です。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See the Python Packaging Authority's (PyPA) documention
-<a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/#requirements-for-installing-packages">Requirements for Installing Packages</a>
-for full details.</p>
+<p class="last">Python Packaging Authority（PyPA）のドキュメント <a href="#id1"><span class="problematic" id="id2">`</span></a>パッケージのインストールのための要件&lt;<a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/#requirements-for-installing-packages">https://packaging.python.org/tutorials/installing-packages/#requirements-for-installing-packages</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_詳細については_</p>
 </div>
 </div>
 <div class="section" id="installing-pyramid-on-a-unix-system">
-<span id="installing-unix"></span><span id="index-3"></span><h2>Installing <span>Pyramid</span> on a UNIX System<a class="headerlink" href="#installing-pyramid-on-a-unix-system" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>After installing Python as described previously in <a class="reference internal" href="#for-mac-os-x-users"><span class="std std-ref">For Mac OS X Users</span></a> or
-<a class="reference internal" href="#if-you-don-t-yet-have-a-python-interpreter-unix"><span class="std std-ref">If You Don't Yet Have a Python Interpreter (UNIX)</span></a>, and satisfying the
-<a class="reference internal" href="#requirements-for-installing-packages"><span class="std std-ref">Requirements for Installing Packages</span></a>, you can now install Pyramid.</p>
+<span id="installing-unix"></span><span id="index-3"></span><h2>インストール：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`をUNIXシステムにインストールする<a class="headerlink" href="#installing-pyramid-on-a-unix-system" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>前述の：ref： <cite>for-mac-os-x-users`や：ref：</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>if-you-don-t-y​​et-a-python-interpreter-unix`のようにPythonをインストールした後、 ：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>require-for-installing-packages`を実行すると、Pyramidをインストールできます。</p>
 <ol class="arabic">
-<li><p class="first">Make a <a class="reference internal" href="../glossary.html#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a> workspace:</p>
+<li><p class="first">Make：a：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>virtual environment`ワークスペース：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">VENV</span><span class="o">=</span>~/env
 $ python3 -m venv <span class="nv">$VENV</span>
 </pre></div>
 </div>
-<p>You can either follow the use of the environment variable <code class="docutils literal notranslate"><span class="pre">$VENV</span></code>, or
-replace it with the root directory of the virtual environment. If you choose
-the former approach, ensure that <code class="docutils literal notranslate"><span class="pre">$VENV</span></code> is an absolute path. In the
-latter case, the <code class="docutils literal notranslate"><span class="pre">export</span></code> command can be skipped.</p>
+<p>環境変数 `` $ VENV``の使用に従うか、仮想環境のルートディレクトリに置き換えることができます。前者の方法を選択した場合は、 `` $ VENV``が絶対パスであることを確認してください。後者の場合、 `` export``コマンドはスキップできます。</p>
 </li>
-<li><p class="first">(Optional) Consider using <code class="docutils literal notranslate"><span class="pre">$VENV/bin/activate</span></code> to make your shell
-environment wired to use the virtual environment.</p>
+<li><p class="first">（オプション） `` $ VENV / bin / activate``を使って仮想環境を使うようにシェル環境を配線することを検討してください。</p>
 </li>
-<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to get <span>Pyramid</span> and its direct dependencies installed:</p>
+<li><p class="first">app： <cite>Pyramid`とその直接の依存関係をインストールするには</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>pip``を使います：</p>
 <pre class="literal-block">
 $ $VENV/bin/pip install &quot;pyramid==1.9.2&quot;
 </pre>
@@ -241,41 +183,29 @@ $ $VENV/bin/pip install &quot;pyramid==1.9.2&quot;
 </ol>
 <div class="admonition note" id="venv-bin-pip-vs-source-bin-activate">
 <span id="index-4"></span><p class="first admonition-title">注釈</p>
-<p>Why use <code class="docutils literal notranslate"><span class="pre">$VENV/bin/pip</span></code> instead of <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">bin/activate</span></code>, then
-<code class="docutils literal notranslate"><span class="pre">pip</span></code>?</p>
-<p><code class="docutils literal notranslate"><span class="pre">$VENV/bin/pip</span></code> clearly specifies that <code class="docutils literal notranslate"><span class="pre">pip</span></code> is run from within the
-virtual environment and not at the system level.</p>
-<p><code class="docutils literal notranslate"><span class="pre">activate</span></code> makes changes to the user's shell environment which can often be convenient. However, in the context of long-form documentation, environment configuration can easily be forgotten. By keeping each snippet explicit we can reduce copy / paste errors by users in which commands are executed against the wrong Python environment. Also, <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> might not correctly restore previous shell environment variables. Avoiding <code class="docutils literal notranslate"><span class="pre">activate</span></code> keeps the environment more reproducible.</p>
-<p>Although using <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">bin/activate</span></code>, then <code class="docutils literal notranslate"><span class="pre">pip</span></code>, requires fewer key
-strokes to issue commands once invoked, there are other things to consider.
-Michael F. Lamb (datagrok) presents a summary in <a class="reference external" href="https://gist.github.com/datagrok/2199506">Virtualenv's bin/activate
-is Doing It Wrong</a>.</p>
-<p class="last">Ultimately we prefer to keep things clear and simple, so we use
-<code class="docutils literal notranslate"><span class="pre">$VENV/bin/pip</span></code>.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>ソースbin / activate``の代わりに `` $ VENV / bin / pip``を使うのはなぜ？ `` pip``ですか？</p>
+<p>`` $ VENV / bin / pip``は `` pip``がシステムレベルではなく仮想環境内から実行されることを明確に指定しています。</p>
+<p>`` activate``はユーザのシェル環境を変更します。これはしばしば便利です。しかし、長い形式の文書では、環境設定を簡単に忘れることがあります。各スニペットを明示的に保つことで、誤ったPython環境に対してコマンドが実行されるユーザによるコピー/ペーストエラーを減らすことができます。また、 `` deactivate``は以前のシェル環境変数を正しく復元しないかもしれません。 `` activate``を避けることは環境をより再現性のあるものにします。</p>
+<p>`` source bin / activate``を使用していて、 `` pip``を実行すると、呼び出されたコマンドを発行するためのキーストロークが少なくて済みますが、考慮すべき点があります。 Michael F. Lamb（datagrok）は <a href="#id1"><span class="problematic" id="id2">`</span></a>Virtualenvのbin / activeに要約を提示していますDoing It Wrong &lt;<a class="reference external" href="https://gist.github.com/datagrok/2199506">https://gist.github.com/datagrok/2199506</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_。</p>
+<p class="last">最終的には、明確でシンプルなものを保つことを好むので、 `` $ VENV / bin / pip``を使います。</p>
 </div>
 </div>
 <div class="section" id="installing-pyramid-on-a-windows-system">
-<span id="installing-windows"></span><span id="index-5"></span><h2>Installing <span>Pyramid</span> on a Windows System<a class="headerlink" href="#installing-pyramid-on-a-windows-system" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>After installing Python as described previously in
-<a class="reference internal" href="#if-you-don-t-yet-have-a-python-interpreter-windows"><span class="std std-ref">If You Don't Yet Have a Python Interpreter (Windows)</span></a>, and satisfying the
-<a class="reference internal" href="#requirements-for-installing-packages"><span class="std std-ref">Requirements for Installing Packages</span></a>, you can now install Pyramid.</p>
+<span id="installing-windows"></span><span id="index-5"></span><h2>インストール：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`をWindowsシステムにインストールする<a class="headerlink" href="#installing-pyramid-on-a-windows-system" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>前述の：ref： <cite>if-you-don-t-y​​et-a-python-interpreter-windows`で説明したようにPythonをインストールし、：ref：</cite> require-for-installation-packages`を満たすならば、今ピラミッドをインストールします。</p>
 <ol class="arabic">
-<li><p class="first">Make a <a class="reference internal" href="../glossary.html#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a> workspace:</p>
+<li><p class="first">Make：a：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>virtual environment`ワークスペース：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\&gt;</span> <span class="k">cd</span> \
 c<span class="p">:</span><span class="nl">\</span><span class="c1">&gt; set VENV=c:\env</span>
 <span class="gp">c:\&gt;</span> python -m venv <span class="nv">%VENV%</span>
 <span class="gp">c:\&gt;</span> <span class="k">cd</span> <span class="nv">%VENV%</span>
 </pre></div>
 </div>
-<p>You can either follow the use of the environment variable <code class="docutils literal notranslate"><span class="pre">%VENV%</span></code>, or
-replace it with the root directory of the virtual environment. If you choose
-the former approach, ensure that <code class="docutils literal notranslate"><span class="pre">%VENV%</span></code> is an absolute path. In the
-latter case, the <code class="docutils literal notranslate"><span class="pre">set</span></code> command can be skipped.</p>
+<p>環境変数 <a href="#id1"><span class="problematic" id="id2">``</span></a>％VENV％ <a href="#id3"><span class="problematic" id="id4">``</span></a>を使用するか、仮想環境のルートディレクトリに置き換えることができます。前者の方法を選択した場合は、 <a href="#id5"><span class="problematic" id="id6">``</span></a>％VENV％ <a href="#id7"><span class="problematic" id="id8">``</span></a>が絶対パスであることを確認してください。後者の場合、 `` set``コマンドはスキップできます。</p>
 </li>
-<li><p class="first">(Optional) Consider using <code class="docutils literal notranslate"><span class="pre">%VENV%\Scripts\activate.bat</span></code> to make your shell
-environment wired to use the virtual environment.</p>
+<li><p class="first">（オプション）仮想環境を使用するようにシェル環境を配線するには、 <a href="#id1"><span class="problematic" id="id2">``</span></a>％VENV％Scripts activate.bat``を使用することを検討してください。</p>
 </li>
-<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to get <span>Pyramid</span> and its direct dependencies installed:</p>
+<li><p class="first">app： <cite>Pyramid`とその直接の依存関係をインストールするには</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>pip``を使います：</p>
 <pre class="literal-block">
 c:\&gt; %VENV%\Scripts\pip install &quot;pyramid==1.9.2&quot;
 </pre>
@@ -283,16 +213,13 @@ c:\&gt; %VENV%\Scripts\pip install &quot;pyramid==1.9.2&quot;
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">See the note above for <a class="reference internal" href="#venv-bin-pip-vs-source-bin-activate"><span class="std std-ref">Why use $VENV/bin/pip instead of source
-bin/activate, then pip</span></a>.</p>
+<p class="last">上の注意を参照してください：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>ソースbin / activateの代わりに$ VENV / bin / pipを使ってからpip &lt;venv-bin-pip-vs-source-bin-activate&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
 </div>
 </div>
 <div class="section" id="what-gets-installed">
-<h2>What Gets Installed<a class="headerlink" href="#what-gets-installed" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>When you install <span>Pyramid</span>, various libraries such as WebOb, PasteDeploy,
-and others are installed.</p>
-<p>Additionally, as chronicled in <a class="reference internal" href="project.html#project-narr"><span class="std std-ref">Creating a Pyramid Project</span></a>, <a class="reference internal" href="../glossary.html#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a>s will be
-used, which make it easy to start a new <span>Pyramid</span> project.</p>
+<h2>インストールされるもの<a class="headerlink" href="#what-gets-installed" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`をインストールすると、WebOb、PasteDeployなどのさまざまなライブラリがインストールされます。</p>
+<p>さらに、：ref： <cite>project_narr`でchynledされているように、：term：</cite> cookiecutter` が使用され、新しい：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`プロジェクトを簡単に開始できます。</p>
 </div>
 </div>
 
@@ -304,27 +231,27 @@ used, which make it easy to start a new <span>Pyramid</span> project.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Installing <span>Pyramid</span></a><ul>
-<li><a class="reference internal" href="#before-you-install-pyramid">Before You Install Pyramid</a><ul>
-<li><a class="reference internal" href="#for-mac-os-x-users">For Mac OS X Users</a></li>
-<li><a class="reference internal" href="#if-you-don-t-yet-have-a-python-interpreter-unix">If You Don't Yet Have a Python Interpreter (UNIX)</a></li>
-<li><a class="reference internal" href="#if-you-don-t-yet-have-a-python-interpreter-windows">If You Don't Yet Have a Python Interpreter (Windows)</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) インストール <span>Pyramid</span></a><ul>
+<li><a class="reference internal" href="#before-you-install-pyramid">ピラミッドをインストールする前に</a><ul>
+<li><a class="reference internal" href="#for-mac-os-x-users">Mac OS Xユーザーの場合</a></li>
+<li><a class="reference internal" href="#if-you-don-t-yet-have-a-python-interpreter-unix">Pythonインタプリタをまだ持っていない場合（UNIX）</a></li>
+<li><a class="reference internal" href="#if-you-don-t-yet-have-a-python-interpreter-windows">Pythonインタプリタをまだ持っていない場合（Windows）</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#requirements-for-installing-packages">Requirements for Installing Packages</a></li>
-<li><a class="reference internal" href="#installing-pyramid-on-a-unix-system">Installing <span>Pyramid</span> on a UNIX System</a></li>
-<li><a class="reference internal" href="#installing-pyramid-on-a-windows-system">Installing <span>Pyramid</span> on a Windows System</a></li>
-<li><a class="reference internal" href="#what-gets-installed">What Gets Installed</a></li>
+<li><a class="reference internal" href="#requirements-for-installing-packages">パッケージのインストール要件</a></li>
+<li><a class="reference internal" href="#installing-pyramid-on-a-unix-system">インストール：app： `Pyramid`をUNIXシステムにインストールする</a></li>
+<li><a class="reference internal" href="#installing-pyramid-on-a-windows-system">インストール：app： `Pyramid`をWindowsシステムにインストールする</a></li>
+<li><a class="reference internal" href="#what-gets-installed">インストールされるもの</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="advanced-features.html"
-                        title="前の章へ">Advanced <span>Pyramid</span> Design Features</a></p>
+                        title="前の章へ">(機械翻訳) アドバンス：app： `Pyramid`デザインの特徴</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="firstapp.html"
-                        title="次の章へ">Creating Your First <span>Pyramid</span> Application</a></p>
+                        title="次の章へ">(機械翻訳) あなたの最初の作成 <span>Pyramid</span> アプリケーション</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -358,17 +285,17 @@ used, which make it easy to start a new <span>Pyramid</span> project.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="firstapp.html" title="Creating Your First Pyramid Application"
+          <a href="firstapp.html" title="(機械翻訳) あなたの最初の作成 Pyramid アプリケーション"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="advanced-features.html" title="Advanced Pyramid Design Features"
+          <a href="advanced-features.html" title="(機械翻訳) アドバンス：app： `Pyramid`デザインの特徴"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

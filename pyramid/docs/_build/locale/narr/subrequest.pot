@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../narr/subrequest.rst:7
+msgid "Invoking a Subrequest"
+msgstr ""
+
+#: ../../narr/subrequest.rst:11
+msgid ":app:`Pyramid` allows you to invoke a subrequest at any point during the processing of a request.  Invoking a subrequest allows you to obtain a :term:`response` object from a view callable within your :app:`Pyramid` application while you're executing a different view callable within the same application."
+msgstr ""
+
+#: ../../narr/subrequest.rst:17
+msgid "Here's an example application which uses a subrequest:"
+msgstr ""
+
+#: ../../narr/subrequest.rst:45
+msgid "When ``/view_one`` is visted in a browser, the text printed in the browser pane will be ``This came from view_two``.  The ``view_one`` view used the :meth:`pyramid.request.Request.invoke_subrequest` API to obtain a response from another view (``view_two``) within the same application when it executed.  It did so by constructing a new request that had a URL that it knew would match the ``view_two`` view registration, and passed that new request along to :meth:`pyramid.request.Request.invoke_subrequest`.  The ``view_two`` view callable was invoked, and it returned a response.  The ``view_one`` view callable then simply returned the response it obtained from the ``view_two`` view callable."
+msgstr ""
+
+#: ../../narr/subrequest.rst:56
+msgid "Note that it doesn't matter if the view callable invoked via a subrequest actually returns a *literal* Response object.  Any view callable that uses a renderer or which returns an object that can be interpreted by a response adapter when found and invoked via :meth:`pyramid.request.Request.invoke_subrequest` will return a Response object:"
+msgstr ""
+
+#: ../../narr/subrequest.rst:89
+msgid "Even though the ``view_two`` view callable returned a string, it was invoked in such a way that the ``string`` renderer associated with the view registration that was found turned it into a \"real\" response object for consumption by ``view_one``."
+msgstr ""
+
+#: ../../narr/subrequest.rst:94
+msgid "Being able to unconditionally obtain a response object by invoking a view callable indirectly is the main advantage to using :meth:`pyramid.request.Request.invoke_subrequest` instead of simply importing a view callable and executing it directly.  Note that there's not much advantage to invoking a view using a subrequest if you *can* invoke a view callable directly.  Subrequests are slower and are less convenient if you actually do want just the literal information returned by a function that happens to be a view callable."
+msgstr ""
+
+#: ../../narr/subrequest.rst:103
+msgid "Note that, by default, if a view callable invoked by a subrequest raises an exception, the exception will be raised to the caller of :meth:`~pyramid.request.Request.invoke_subrequest` even if you have a :term:`exception view` configured:"
+msgstr ""
+
+#: ../../narr/subrequest.rst:140
+msgid "When we run the above code and visit ``/view_one`` in a browser, the ``excview`` :term:`exception view` will *not* be executed.  Instead, the call to :meth:`~pyramid.request.Request.invoke_subrequest` will cause a :exc:`ValueError` exception to be raised and a response will never be generated.  We can change this behavior; how to do so is described below in our discussion of the ``use_tweens`` argument."
+msgstr ""
+
+#: ../../narr/subrequest.rst:151
+msgid "Subrequests with Tweens"
+msgstr ""
+
+#: ../../narr/subrequest.rst:153
+msgid "The :meth:`pyramid.request.Request.invoke_subrequest` API accepts two arguments: a required positional argument ``request``, and an optional keyword argument ``use_tweens`` which defaults to ``False``."
+msgstr ""
+
+#: ../../narr/subrequest.rst:157
+msgid "The ``request`` object passed to the API must be an object that implements the Pyramid request interface (such as a :class:`pyramid.request.Request` instance).  If ``use_tweens`` is ``True``, the request will be sent to the :term:`tween` in the tween stack closest to the request ingress.  If ``use_tweens`` is ``False``, the request will be sent to the main router handler, and no tweens will be invoked."
+msgstr ""
+
+#: ../../narr/subrequest.rst:164
+msgid "In the example above, the call to :meth:`~pyramid.request.Request.invoke_subrequest` will always raise an exception.  This is because it's using the default value for ``use_tweens``, which is ``False``.  Alternatively, you can pass ``use_tweens=True`` to ensure that it will convert an exception to a Response if an :term:`exception view` is configured, instead of raising the exception.  This is because exception views are called by the exception view :term:`tween` as described in :ref:`exception_views` when any view raises an exception."
+msgstr ""
+
+#: ../../narr/subrequest.rst:173
+msgid "We can cause the subrequest to be run through the tween stack by passing ``use_tweens=True`` to the call to :meth:`~pyramid.request.Request.invoke_subrequest`, like this:"
+msgstr ""
+
+#: ../../narr/subrequest.rst:209
+msgid "In the above case, the call to ``request.invoke_subrequest(subreq)`` will not raise an exception.  Instead, it will retrieve a \"500\" response from the attempted invocation of ``view_two``, because the tween which invokes an exception view to generate a response is run, and therefore ``excview`` is executed."
+msgstr ""
+
+#: ../../narr/subrequest.rst:215
+msgid "This is one of the major differences between specifying the ``use_tweens=True`` and ``use_tweens=False`` arguments to :meth:`~pyramid.request.Request.invoke_subrequest`.  ``use_tweens=True`` may also imply invoking a transaction commit or abort for the logic executed in the subrequest if you've got ``pyramid_tm`` in the tween list, injecting debug HTML if you've got ``pyramid_debugtoolbar`` in the tween list, and other tween-related side effects as defined by your particular tween list."
+msgstr ""
+
+#: ../../narr/subrequest.rst:223
+msgid "The :meth:`~pyramid.request.Request.invoke_subrequest` function also unconditionally does the following:"
+msgstr ""
+
+#: ../../narr/subrequest.rst:226
+msgid "It manages the threadlocal stack so that :func:`~pyramid.threadlocal.get_current_request` and :func:`~pyramid.threadlocal.get_current_registry` work during a request (they will return the subrequest instead of the original request)."
+msgstr ""
+
+#: ../../narr/subrequest.rst:231
+msgid "It adds a ``registry`` attribute and an ``invoke_subrequest`` attribute (a callable) to the request object to which it is handed."
+msgstr ""
+
+#: ../../narr/subrequest.rst:234
+msgid "It sets request extensions (such as those added via :meth:`~pyramid.config.Configurator.add_request_method` or :meth:`~pyramid.config.Configurator.set_request_property`) on the subrequest object passed as ``request``."
+msgstr ""
+
+#: ../../narr/subrequest.rst:239
+msgid "It causes a :class:`~pyramid.events.NewRequest` event to be sent at the beginning of request processing."
+msgstr ""
+
+#: ../../narr/subrequest.rst:242
+msgid "It causes a :class:`~pyramid.events.ContextFound` event to be sent when a context resource is found."
+msgstr ""
+
+#: ../../narr/subrequest.rst:245
+msgid "It ensures that the user implied by the request passed in has the necessary authorization to invoke the view callable before calling it."
+msgstr ""
+
+#: ../../narr/subrequest.rst:248
+msgid "It calls any :term:`response callback` functions defined within the subrequest's lifetime if a response is obtained from the Pyramid application."
+msgstr ""
+
+#: ../../narr/subrequest.rst:251
+msgid "It causes a :class:`~pyramid.events.NewResponse` event to be sent if a response is obtained."
+msgstr ""
+
+#: ../../narr/subrequest.rst:254
+msgid "It calls any :term:`finished callback` functions defined within the subrequest's lifetime."
+msgstr ""
+
+#: ../../narr/subrequest.rst:257
+msgid "The invocation of a subrequest has more or less exactly the same effect as the invocation of a request received by the :app:`Pyramid` router from a web client when ``use_tweens=True``.  When ``use_tweens=False``, the tweens are skipped but all the other steps take place."
+msgstr ""
+
+#: ../../narr/subrequest.rst:262
+msgid "It's a poor idea to use the original ``request`` object as an argument to :meth:`~pyramid.request.Request.invoke_subrequest`.  You should construct a new request instead as demonstrated in the above example, using :meth:`pyramid.request.Request.blank`.  Once you've constructed a request object, you'll need to massage it to match the view callable that you'd like to be executed during the subrequest.  This can be done by adjusting the subrequest's URL, its headers, its request method, and other attributes.  The documentation for :class:`pyramid.request.Request` exposes the methods you should call and attributes you should set on the request that you create, then massage it into something that will actually match the view you'd like to call via a subrequest."
+msgstr ""
+
+#: ../../narr/subrequest.rst:274
+msgid "We've demonstrated use of a subrequest from within a view callable, but you can use the :meth:`~pyramid.request.Request.invoke_subrequest` API from within a tween or an event handler as well.  Even though you can do it, it's usually a poor idea to invoke :meth:`~pyramid.request.Request.invoke_subrequest` from within a tween, because tweens already, by definition, have access to a function that will cause a subrequest (they are passed a ``handle`` function). It's fine to invoke :meth:`~pyramid.request.Request.invoke_subrequest` from within an event handler, however."
+msgstr ""
+
+#: ../../narr/subrequest.rst:288
+msgid "Invoking an Exception View"
+msgstr ""
+
+#: ../../narr/subrequest.rst:292
+msgid ":app:`Pyramid` apps may define :term:`exception views <exception view>` which can handle any raised exceptions that escape from your code while processing a request. By default an unhandled exception will be caught by the ``EXCVIEW`` :term:`tween`, which will then lookup an exception view that can handle the exception type, generating an appropriate error response."
+msgstr ""
+
+#: ../../narr/subrequest.rst:298
+msgid "In :app:`Pyramid` 1.7 the :meth:`pyramid.request.Request.invoke_exception_view` was introduced, allowing a user to invoke an exception view while manually handling an exception. This can be useful in a few different circumstances:"
+msgstr ""
+
+#: ../../narr/subrequest.rst:302
+msgid "Manually handling an exception losing the current call stack or flow."
+msgstr ""
+
+#: ../../narr/subrequest.rst:304
+msgid "Handling exceptions outside of the context of the ``EXCVIEW`` tween. The tween only covers certain parts of the request processing pipeline (See :ref:`router_chapter`). There are also some corner cases where an exception can be raised that will still bubble up to middleware, and possibly to the web server in which case a generic ``500 Internal Server Error`` will be returned to the client."
+msgstr ""
+
+#: ../../narr/subrequest.rst:311
+msgid "Below is an example usage of :meth:`pyramid.request.Request.invoke_exception_view`:"
+msgstr ""
+
+#: ../../narr/subrequest.rst:330
+msgid "Please note that in most cases you do not need to write code like this, and you may rely on the ``EXCVIEW`` tween to handle this for you."
+msgstr ""
+

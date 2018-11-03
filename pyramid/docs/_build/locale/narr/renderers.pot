@@ -1,0 +1,378 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../narr/renderers.rst:4
+msgid "Renderers"
+msgstr ""
+
+#: ../../narr/renderers.rst:6
+msgid "A view callable needn't *always* return a :term:`Response` object.  If a view happens to return something which does not implement the Pyramid Response interface, :app:`Pyramid` will attempt to use a :term:`renderer` to construct a response.  For example:"
+msgstr ""
+
+#: ../../narr/renderers.rst:20
+msgid "The above example returns a *dictionary* from the view callable.  A dictionary does not implement the Pyramid response interface, so you might believe that this example would fail.  However, since a ``renderer`` is associated with the view callable through its :term:`view configuration` (in this case, using a ``renderer`` argument passed to :func:`~pyramid.view.view_config`), if the view does *not* return a Response object, the renderer will attempt to convert the result of the view to a response on the developer's behalf."
+msgstr ""
+
+#: ../../narr/renderers.rst:28
+msgid "Of course, if no renderer is associated with a view's configuration, returning anything except an object which implements the Response interface will result in an error.  And, if a renderer *is* used, whatever is returned by the view must be compatible with the particular kind of renderer used, or an error may occur during view invocation."
+msgstr ""
+
+#: ../../narr/renderers.rst:34
+msgid "One exception exists: it is *always* OK to return a Response object, even when a ``renderer`` is configured.  In such cases, the renderer is bypassed entirely."
+msgstr ""
+
+#: ../../narr/renderers.rst:38
+msgid "Various types of renderers exist, including serialization renderers and renderers which use templating systems."
+msgstr ""
+
+#: ../../narr/renderers.rst:48
+msgid "Writing View Callables Which Use a Renderer"
+msgstr ""
+
+#: ../../narr/renderers.rst:50
+msgid "As we've seen, a view callable needn't always return a Response object. Instead, it may return an arbitrary Python object, with the expectation that a :term:`renderer` will convert that object into a response instance on your behalf.  Some renderers use a templating system, while other renderers use object serialization techniques.  In practice, renderers obtain application data values from Python dictionaries so, in practice, view callables which use renderers return Python dictionaries."
+msgstr ""
+
+#: ../../narr/renderers.rst:58
+msgid "View callables can :ref:`explicitly call <example_render_to_response_call>` renderers, but typically don't.  Instead view configuration declares the renderer used to render a view callable's results.  This is done with the ``renderer`` attribute.  For example, this call to :meth:`~pyramid.config.Configurator.add_view` associates the ``json`` renderer with a view callable:"
+msgstr ""
+
+#: ../../narr/renderers.rst:69
+msgid "When this configuration is added to an application, the ``myproject.views.my_view`` view callable will now use a ``json`` renderer, which renders view return values to a :term:`JSON` response serialization."
+msgstr ""
+
+#: ../../narr/renderers.rst:73
+msgid "Pyramid defines several :ref:`built_in_renderers`, and additional renderers can be added by developers to the system as necessary. See :ref:`adding_and_overriding_renderers`."
+msgstr ""
+
+#: ../../narr/renderers.rst:77
+msgid "Views which use a renderer and return a non-Response value can vary non-body response attributes (such as headers and the HTTP status code) by attaching a property to the ``request.response`` attribute. See :ref:`request_response_attr`."
+msgstr ""
+
+#: ../../narr/renderers.rst:82
+msgid "As already mentioned, if the :term:`view callable` associated with a :term:`view configuration` returns a Response object (or its instance), any renderer associated with the view configuration is ignored, and the response is passed back to :app:`Pyramid` unchanged.  For example:"
+msgstr ""
+
+#: ../../narr/renderers.rst:97
+msgid "Likewise for an :term:`HTTP exception` response:"
+msgstr ""
+
+#: ../../narr/renderers.rst:109
+msgid "You can of course also return the ``request.response`` attribute instead to avoid rendering:"
+msgstr ""
+
+#: ../../narr/renderers.rst:129
+msgid "Built-in Renderers"
+msgstr ""
+
+#: ../../narr/renderers.rst:131
+msgid "Several built-in renderers exist in :app:`Pyramid`.  These renderers can be used in the ``renderer`` attribute of view configurations."
+msgstr ""
+
+#: ../../narr/renderers.rst:136
+msgid "Bindings for officially supported templating languages can be found at :ref:`available_template_system_bindings`."
+msgstr ""
+
+#: ../../narr/renderers.rst:143
+msgid "``string``: String Renderer"
+msgstr ""
+
+#: ../../narr/renderers.rst:145
+msgid "The ``string`` renderer renders a view callable result to a string.  If a view callable returns a non-Response object, and the ``string`` renderer is associated in that view's configuration, the result will be to run the object through the Python ``str`` function to generate a string.  Note that if a Unicode object is returned by the view callable, it is not ``str()``-ified."
+msgstr ""
+
+#: ../../narr/renderers.rst:151
+msgid "Here's an example of a view that returns a dictionary.  If the ``string`` renderer is specified in the configuration for this view, the view will render the returned dictionary to the ``str()`` representation of the dictionary:"
+msgstr ""
+
+#: ../../narr/renderers.rst:164
+msgid "The body of the response returned by such a view will be a string representing the ``str()`` serialization of the return value:"
+msgstr ""
+
+#: ../../narr/renderers.rst:171
+msgid "Views which use the string renderer can vary non-body response attributes by using the API of the ``request.response`` attribute.  See :ref:`request_response_attr`."
+msgstr ""
+
+#: ../../narr/renderers.rst:181
+msgid "JSON Renderer"
+msgstr ""
+
+#: ../../narr/renderers.rst:183
+msgid "The ``json`` renderer renders view callable results to :term:`JSON`.  By default, it passes the return value through the ``json.dumps`` standard library function, and wraps the result in a response object.  It also sets the response content-type to ``application/json``."
+msgstr ""
+
+#: ../../narr/renderers.rst:188
+msgid "Here's an example of a view that returns a dictionary.  Since the ``json`` renderer is specified in the configuration for this view, the view will render the returned dictionary to a JSON serialization:"
+msgstr ""
+
+#: ../../narr/renderers.rst:201
+msgid "The body of the response returned by such a view will be a string representing the JSON serialization of the return value:"
+msgstr ""
+
+#: ../../narr/renderers.rst:208
+msgid "The return value needn't be a dictionary, but the return value must contain values serializable by the configured serializer (by default ``json.dumps``)."
+msgstr ""
+
+#: ../../narr/renderers.rst:211
+msgid "You can configure a view to use the JSON renderer by naming ``json`` as the ``renderer`` argument of a view configuration, e.g., by using :meth:`~pyramid.config.Configurator.add_view`:"
+msgstr ""
+
+#: ../../narr/renderers.rst:223
+msgid "Views which use the JSON renderer can vary non-body response attributes by using the API of the ``request.response`` attribute.  See :ref:`request_response_attr`."
+msgstr ""
+
+#: ../../narr/renderers.rst:230
+msgid "Serializing Custom Objects"
+msgstr ""
+
+#: ../../narr/renderers.rst:232
+msgid "Some objects are not, by default, JSON-serializable (such as datetimes and other arbitrary Python objects).  You can, however, register code that makes non-serializable objects serializable in two ways:"
+msgstr ""
+
+#: ../../narr/renderers.rst:236
+msgid "Define a ``__json__`` method on objects in your application."
+msgstr ""
+
+#: ../../narr/renderers.rst:238
+msgid "For objects you don't \"own\", you can register a JSON renderer that knows about an *adapter* for that kind of object."
+msgstr ""
+
+#: ../../narr/renderers.rst:242
+msgid "Using a Custom ``__json__`` Method"
+msgstr ""
+
+#: ../../narr/renderers.rst:244
+msgid "Custom objects can be made easily JSON-serializable in Pyramid by defining a ``__json__`` method on the object's class. This method should return values natively JSON-serializable (such as ints, lists, dictionaries, strings, and so forth).  It should accept a single additional argument, ``request``, which will be the active request object at render time."
+msgstr ""
+
+#: ../../narr/renderers.rst:270
+msgid "Using the ``add_adapter`` Method of a Custom JSON Renderer"
+msgstr ""
+
+#: ../../narr/renderers.rst:272
+msgid "If you aren't the author of the objects being serialized, it won't be possible (or at least not reasonable) to add a custom ``__json__`` method to their classes in order to influence serialization.  If the object passed to the renderer is not a serializable type and has no ``__json__`` method, usually a :exc:`TypeError` will be raised during serialization.  You can change this behavior by creating a custom JSON renderer and adding adapters to handle custom types. The renderer will attempt to adapt non-serializable objects using the registered adapters. A short example follows:"
+msgstr ""
+
+#: ../../narr/renderers.rst:294
+msgid "The ``add_adapter`` method should accept two arguments: the *class* of the object that you want this adapter to run for (in the example above, ``datetime.datetime``), and the adapter itself."
+msgstr ""
+
+#: ../../narr/renderers.rst:298
+msgid "The adapter should be a callable.  It should accept two arguments: the object needing to be serialized and ``request``, which will be the current request object at render time. The adapter should raise a :exc:`TypeError` if it can't determine what  to do with the object."
+msgstr ""
+
+#: ../../narr/renderers.rst:303
+msgid "See :class:`pyramid.renderers.JSON` and :ref:`adding_and_overriding_renderers` for more information."
+msgstr ""
+
+#: ../../narr/renderers.rst:306
+msgid "Serializing custom objects."
+msgstr ""
+
+#: ../../narr/renderers.rst:315
+msgid "JSONP Renderer"
+msgstr ""
+
+#: ../../narr/renderers.rst:319
+msgid ":class:`pyramid.renderers.JSONP` is a `JSONP <https://en.wikipedia.org/wiki/JSONP>`_ renderer factory helper which implements a hybrid JSON/JSONP renderer.  JSONP is useful for making cross-domain AJAX requests."
+msgstr ""
+
+#: ../../narr/renderers.rst:324
+msgid "Unlike other renderers, a JSONP renderer needs to be configured at startup time \"by hand\".  Configure a JSONP renderer using the :meth:`pyramid.config.Configurator.add_renderer` method:"
+msgstr ""
+
+#: ../../narr/renderers.rst:336
+msgid "Once this renderer is registered via :meth:`~pyramid.config.Configurator.add_renderer` as above, you can use ``jsonp`` as the ``renderer=`` parameter to ``@view_config`` or :meth:`pyramid.config.Configurator.add_view`:"
+msgstr ""
+
+#: ../../narr/renderers.rst:349
+msgid "When a view is called that uses a JSONP renderer:"
+msgstr ""
+
+#: ../../narr/renderers.rst:351
+msgid "If there is a parameter in the request's HTTP query string (aka ``request.GET``) that matches the ``param_name`` of the registered JSONP renderer (by default, ``callback``), the renderer will return a JSONP response."
+msgstr ""
+
+#: ../../narr/renderers.rst:356
+msgid "If there is no callback parameter in the request's query string, the renderer will return a \"plain\" JSON response."
+msgstr ""
+
+#: ../../narr/renderers.rst:359
+msgid "Javscript library AJAX functionality will help you make JSONP requests. For example, JQuery has a `getJSON function <http://api.jquery.com/jQuery.getJSON/>`_, and has equivalent (but more complicated) functionality in its `ajax function <http://api.jquery.com/jQuery.ajax/>`_."
+msgstr ""
+
+#: ../../narr/renderers.rst:365
+msgid "For example (JavaScript):"
+msgstr ""
+
+#: ../../narr/renderers.rst:376
+msgid "The string ``callback=?`` above in the ``url`` param to the JQuery ``getJSON`` function indicates to jQuery that the query should be made as a JSONP request; the ``callback`` parameter will be automatically filled in for you and used."
+msgstr ""
+
+#: ../../narr/renderers.rst:380
+msgid "The same custom-object serialization scheme defined used for a \"normal\" JSON renderer in :ref:`json_serializing_custom_objects` can be used when passing values to a JSONP renderer too."
+msgstr ""
+
+#: ../../narr/renderers.rst:391
+msgid "Varying Attributes of Rendered Responses"
+msgstr ""
+
+#: ../../narr/renderers.rst:393
+msgid "Before a response constructed by a :term:`renderer` is returned to :app:`Pyramid`, several attributes of the request are examined which have the potential to influence response behavior."
+msgstr ""
+
+#: ../../narr/renderers.rst:397
+msgid "View callables that don't directly return a response should use the API of the :class:`pyramid.response.Response` attribute, available as ``request.response`` during their execution, to influence associated response behavior."
+msgstr ""
+
+#: ../../narr/renderers.rst:401
+msgid "For example, if you need to change the response status from within a view callable that uses a renderer, assign the ``status`` attribute to the ``response`` attribute of the request before returning a result:"
+msgstr ""
+
+#: ../../narr/renderers.rst:415
+msgid "Note that mutations of ``request.response`` in views which return a Response object directly will have no effect unless the response object returned *is* ``request.response``.  For example, the following example calls ``request.response.set_cookie``, but this call will have no effect because a different Response object is returned."
+msgstr ""
+
+#: ../../narr/renderers.rst:430
+msgid "If you mutate ``request.response`` and you'd like the mutations to have an effect, you must return ``request.response``:"
+msgstr ""
+
+#: ../../narr/renderers.rst:440
+msgid "For more information on attributes of the request, see the API documentation in :ref:`request_module`.  For more information on the API of ``request.response``, see :attr:`pyramid.request.Request.response`."
+msgstr ""
+
+#: ../../narr/renderers.rst:447
+msgid "Adding and Changing Renderers"
+msgstr ""
+
+#: ../../narr/renderers.rst:449
+msgid "New templating systems and serializers can be associated with :app:`Pyramid` renderer names.  To this end, configuration declarations can be made which change an existing :term:`renderer factory`, and which add a new renderer factory."
+msgstr ""
+
+#: ../../narr/renderers.rst:454
+msgid "Renderers can be registered imperatively using the :meth:`pyramid.config.Configurator.add_renderer` API."
+msgstr ""
+
+#: ../../narr/renderers.rst:457
+msgid "For example, to add a renderer which renders views which have a ``renderer`` attribute that is a path that ends in ``.jinja2``:"
+msgstr ""
+
+#: ../../narr/renderers.rst:464
+msgid "The first argument is the renderer name.  The second argument is a reference to an implementation of a :term:`renderer factory` or a :term:`dotted Python name` referring to such an object."
+msgstr ""
+
+#: ../../narr/renderers.rst:474
+msgid "Adding a New Renderer"
+msgstr ""
+
+#: ../../narr/renderers.rst:476
+msgid "You may add a new renderer by creating and registering a :term:`renderer factory`."
+msgstr ""
+
+#: ../../narr/renderers.rst:479
+msgid "A renderer factory implementation should conform to the :class:`pyramid.interfaces.IRendererFactory` interface. It should be capable of creating an object that conforms to the :class:`pyramid.interfaces.IRenderer` interface. A typical class that follows this setup is as follows:"
+msgstr ""
+
+#: ../../narr/renderers.rst:504
+msgid "The formal interface definition of the ``info`` object passed to a renderer factory constructor is available as :class:`pyramid.interfaces.IRendererInfo`."
+msgstr ""
+
+#: ../../narr/renderers.rst:507
+msgid "There are essentially two different kinds of renderer factories:"
+msgstr ""
+
+#: ../../narr/renderers.rst:509
+msgid "A renderer factory which expects to accept an :term:`asset specification`, or an absolute path, as the ``name`` attribute of the ``info`` object fed to its constructor.  These renderer factories are registered with a ``name`` value that begins with a dot (``.``).  These types of renderer factories usually relate to a file on the filesystem, such as a template."
+msgstr ""
+
+#: ../../narr/renderers.rst:515
+msgid "A renderer factory which expects to accept a token that does not represent a filesystem path or an asset specification in the ``name`` attribute of the ``info`` object fed to its constructor.  These renderer factories are registered with a ``name`` value that does not begin with a dot.  These renderer factories are typically object serializers."
+msgstr ""
+
+#: ../../narr/renderers.rst:None
+msgid "Asset Specifications"
+msgstr ""
+
+#: ../../narr/renderers.rst:523
+msgid "An asset specification is a colon-delimited identifier for an :term:`asset`. The colon separates a Python :term:`package` name from a package subpath. For example, the asset specification ``my.package:static/baz.css`` identifies the file named ``baz.css`` in the ``static`` subdirectory of the ``my.package`` Python :term:`package`."
+msgstr ""
+
+#: ../../narr/renderers.rst:529
+msgid "Here's an example of the registration of a simple renderer factory via :meth:`~pyramid.config.Configurator.add_renderer`, where ``config`` is an instance of :meth:`pyramid.config.Configurator`:"
+msgstr ""
+
+#: ../../narr/renderers.rst:537
+msgid "Adding the above code to your application startup configuration will allow you to use the ``my.package.MyAMFRenderer`` renderer factory implementation in view configurations. Your application can use this renderer by specifying ``amf`` in the ``renderer`` attribute of a :term:`view configuration`:"
+msgstr ""
+
+#: ../../narr/renderers.rst:552
+msgid "At startup time, when a :term:`view configuration` is encountered which has a ``name`` attribute that does not contain a dot, the full ``name`` value is used to construct a renderer from the associated renderer factory.  In this case, the view configuration will create an instance of an ``MyAMFRenderer`` for each view configuration which includes ``amf`` as its renderer value.  The ``name`` passed to the ``MyAMFRenderer`` constructor will always be ``amf``."
+msgstr ""
+
+#: ../../narr/renderers.rst:559
+msgid "Here's an example of the registration of a more complicated renderer factory, which expects to be passed a filesystem path:"
+msgstr ""
+
+#: ../../narr/renderers.rst:566
+msgid "Adding the above code to your application startup will allow you to use the ``my.package.MyJinja2Renderer`` renderer factory implementation in view configurations by referring to any ``renderer`` which *ends in* ``.jinja2`` in the ``renderer`` attribute of a :term:`view configuration`:"
+msgstr ""
+
+#: ../../narr/renderers.rst:580
+msgid "When a :term:`view configuration` is encountered at startup time which has a ``name`` attribute that does contain a dot, the value of the name attribute is split on its final dot.  The second element of the split is typically the filename extension.  This extension is used to look up a renderer factory for the configured view.  Then the value of ``renderer`` is passed to the factory to create a renderer for the view. In this case, the view configuration will create an instance of a ``MyJinja2Renderer`` for each view configuration which includes anything ending with ``.jinja2`` in its ``renderer`` value.  The ``name`` passed to the ``MyJinja2Renderer`` constructor will be the full value that was set as ``renderer=`` in the view configuration."
+msgstr ""
+
+#: ../../narr/renderers.rst:592
+msgid "Adding a Default Renderer"
+msgstr ""
+
+#: ../../narr/renderers.rst:594
+msgid "To associate a *default* renderer with *all* view configurations (even ones which do not possess a ``renderer`` attribute), pass ``None`` as the ``name`` attribute to the renderer tag:"
+msgstr ""
+
+#: ../../narr/renderers.rst:606
+msgid "Changing an Existing Renderer"
+msgstr ""
+
+#: ../../narr/renderers.rst:608
+msgid "Pyramid supports overriding almost every aspect of its setup through its :ref:`Conflict Resolution <automatic_conflict_resolution>` mechanism. This means that, in most cases, overriding a renderer is as simple as using the :meth:`pyramid.config.Configurator.add_renderer` method to redefine the template extension. For example, if you would like to override the ``json`` renderer to specify a new renderer, you could do the following:"
+msgstr ""
+
+#: ../../narr/renderers.rst:620
+msgid "After doing this, any views registered with the ``json`` renderer will use the new renderer."
+msgstr ""
+
+#: ../../narr/renderers.rst:627
+msgid "Overriding a Renderer at Runtime"
+msgstr ""
+
+#: ../../narr/renderers.rst:629
+msgid "This is an advanced feature, not typically used by \"civilians\"."
+msgstr ""
+
+#: ../../narr/renderers.rst:631
+msgid "In some circumstances, it is necessary to instruct the system to ignore the static renderer declaration provided by the developer in view configuration, replacing the renderer with another *after a request starts*.  For example, an \"omnipresent\" XML-RPC implementation that detects that the request is from an XML-RPC client might override a view configuration statement made by the user instructing the view to use a template renderer with one that uses an XML-RPC renderer.  This renderer would produce an XML-RPC representation of the data returned by an arbitrary view callable."
+msgstr ""
+
+#: ../../narr/renderers.rst:640
+msgid "To use this feature, create a :class:`~pyramid.events.NewRequest` :term:`subscriber` which sniffs at the request data and which conditionally sets an ``override_renderer`` attribute on the request itself, which in turn is the *name* of a registered renderer.  For example:"
+msgstr ""
+
+#: ../../narr/renderers.rst:664
+msgid "The result of such a subscriber will be to replace any existing static renderer configured by the developer with a (notional, nonexistent) XML-RPC renderer, if the request appears to come from an XML-RPC client."
+msgstr ""
+

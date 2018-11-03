@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyramid.i18n &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) pyramid.i18n &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="pyramid.interfaces" href="interfaces.html" />
-    <link rel="prev" title="pyramid.httpexceptions" href="httpexceptions.html" />
+    <link rel="next" title="(機械翻訳) pyramid.interfaces" href="interfaces.html" />
+    <link rel="prev" title="(機械翻訳) pyramid.httpexceptions" href="httpexceptions.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,13 +54,13 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="interfaces.html" title="pyramid.interfaces"
+          <a href="interfaces.html" title="(機械翻訳) pyramid.interfaces"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="httpexceptions.html" title="pyramid.httpexceptions"
+          <a href="httpexceptions.html" title="(機械翻訳) pyramid.httpexceptions"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,95 +70,43 @@
           <div class="body" role="main">
             
   <div class="section" id="module-pyramid.i18n">
-<span id="pyramid-i18n"></span><span id="i18n-module"></span><h1><a class="reference internal" href="#module-pyramid.i18n" title="pyramid.i18n"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.i18n</span></code></a><a class="headerlink" href="#module-pyramid.i18n" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="pyramid-i18n"></span><span id="i18n-module"></span><h1>(機械翻訳) <a class="reference internal" href="#module-pyramid.i18n" title="pyramid.i18n"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.i18n</span></code></a><a class="headerlink" href="#module-pyramid.i18n" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <dl class="class">
 <dt>
 <em class="property">class </em><code class="descname">TranslationString</code><a class="reference internal" href="../_modules/translationstring.html#TranslationString"><span class="viewcode-link">[ソース]</span></a></dt>
-<dd><p>The constructor for a <a class="reference internal" href="../glossary.html#term-translation-string"><span class="xref std std-term">translation string</span></a>.  A translation
-string is a Unicode-like object that has some extra metadata.</p>
-<p>This constructor accepts one required argument named <code class="docutils literal notranslate"><span class="pre">msgid</span></code>.
-<code class="docutils literal notranslate"><span class="pre">msgid</span></code> must be the <a class="reference internal" href="../glossary.html#term-message-identifier"><span class="xref std std-term">message identifier</span></a> for the
-translation string.  It must be a <code class="docutils literal notranslate"><span class="pre">unicode</span></code> object or a <code class="docutils literal notranslate"><span class="pre">str</span></code>
-object encoded in the default system encoding.</p>
-<p>Optional keyword arguments to this object's constructor include
-<code class="docutils literal notranslate"><span class="pre">domain</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, and <code class="docutils literal notranslate"><span class="pre">mapping</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">domain</span></code> represents the <a class="reference internal" href="../glossary.html#term-translation-domain"><span class="xref std std-term">translation domain</span></a>.  By default,
-the translation domain is <code class="docutils literal notranslate"><span class="pre">None</span></code>, indicating that this
-translation string is associated with the default translation
-domain (usually <code class="docutils literal notranslate"><span class="pre">messages</span></code>).</p>
-<p><code class="docutils literal notranslate"><span class="pre">default</span></code> represents an explicit <em>default text</em> for this
-translation string.  Default text appears when the translation
-string cannot be translated.  Usually, the <code class="docutils literal notranslate"><span class="pre">msgid</span></code> of a
-translation string serves double duty as its default text.
-However, using this option you can provide a different default
-text for this translation string.  This feature is useful when the
-default of a translation string is too complicated or too long to
-be used as a message identifier. If <code class="docutils literal notranslate"><span class="pre">default</span></code> is provided, it
-must be a <code class="docutils literal notranslate"><span class="pre">unicode</span></code> object or a <code class="docutils literal notranslate"><span class="pre">str</span></code> object encoded in the
-default system encoding (usually means ASCII).  If <code class="docutils literal notranslate"><span class="pre">default</span></code> is
-<code class="docutils literal notranslate"><span class="pre">None</span></code> (its default value), the <code class="docutils literal notranslate"><span class="pre">msgid</span></code> value used by this
-translation string will be assumed to be the value of <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">mapping</span></code>, if supplied, must be a dictionary-like object which
-represents the replacement values for any <a class="reference internal" href="../glossary.html#term-translation-string"><span class="xref std std-term">translation
-string</span></a> <em>replacement marker</em> instances found within the <code class="docutils literal notranslate"><span class="pre">msgid</span></code>
-(or <code class="docutils literal notranslate"><span class="pre">default</span></code>) value of this translation string.</p>
-<p><code class="docutils literal notranslate"><span class="pre">context</span></code> represents the <a class="reference internal" href="../glossary.html#term-translation-context"><span class="xref std std-term">translation context</span></a>.  By default,
-the translation context is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>After a translation string is constructed, it behaves like most
-other <code class="docutils literal notranslate"><span class="pre">unicode</span></code> objects; its <code class="docutils literal notranslate"><span class="pre">msgid</span></code> value will be displayed
-when it is treated like a <code class="docutils literal notranslate"><span class="pre">unicode</span></code> object.  Only when its
-<code class="docutils literal notranslate"><span class="pre">ugettext</span></code> method is called will it be translated.</p>
-<p>Its default value is available as the <code class="docutils literal notranslate"><span class="pre">default</span></code> attribute of the
-object, its <a class="reference internal" href="../glossary.html#term-translation-domain"><span class="xref std std-term">translation domain</span></a> is available as the
-<code class="docutils literal notranslate"><span class="pre">domain</span></code> attribute, and the <code class="docutils literal notranslate"><span class="pre">mapping</span></code> is available as the
-<code class="docutils literal notranslate"><span class="pre">mapping</span></code> attribute.  The object otherwise behaves much like a
-Unicode string.</p>
+<dd><p>a：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>翻訳文字列 &amp;#39;のコンストラクタです。変換文字列は、特別なメタデータを持つUnicodeのようなオブジェクトです。</p>
+<p>このコンストラクタは `` msgid``という名前の引数を1つ受け取ります。 `` msgid``は翻訳文字列の：term： <cite>message identifier`でなければなりません。これは、デフォルトのシステムエンコーディングでエンコードされた `</cite> unicode``オブジェクトまたは `` str``オブジェクトでなければなりません。</p>
+<p>このオブジェクトのコンストラクタへのオプションのキーワード引数には、 `` domain``、 `` default``、および `` mapping``があります。</p>
+<p>`` domain``は：term： <cite>translation domain`を表します。デフォルトでは、翻訳ドメインは `</cite> None``であり、この翻訳文字列がデフォルトの翻訳ドメイン（通常は `` messages``）に関連付けられていることを示します。</p>
+<p>`` default``は、この翻訳文字列の明示的な*デフォルトテキスト*を表します。翻訳文字列を翻訳できない場合は、デフォルトのテキストが表示されます。通常、翻訳文字列の `` msgid``はデフォルトテキストとして二重義務を果たします。ただし、このオプションを使用すると、この変換文字列に異なるデフォルトテキストを指定できます。この機能は、翻訳文字列のデフォルトが複雑すぎるか、メッセージ識別子として使用するには時間がかかりすぎる場合に便利です。 `` default``が提供されている場合、デフォルトのシステムエンコーディング（通常はASCIIを意味します）でエンコードされた `` unicode``オブジェクトまたは `` str``オブジェクトでなければなりません。 `` default``が `` None``（デフォルト値）の場合、この翻訳文字列で使われる `` msgid``値は `` default``の値とみなされます。</p>
+<p>`` mapping``が指定されていれば、辞書のようなオブジェクトでなければなりません：term： <cite>翻訳文字列</cite> <em>置換マーカー</em> `` msgid``（あるいは `` default`` ）値を返します。</p>
+<p>`` context``は：term： <cite>翻訳コンテキスト`を表します。デフォルトでは、翻訳コンテキストは `</cite> None``です。</p>
+<p>翻訳文字列が構築された後、ほとんどの他の `` unicode``オブジェクトのように動作します。 `` unicode``オブジェクトのように扱われると、その `` msgid``値が表示されます。 `` ugettext``メソッドが呼び出されたときだけ、それは翻訳されます。</p>
+<p>そのデフォルト値は、オブジェクトの `` default``属性として利用できます。term： <cite>translation domain`は</cite> <cite>domain``属性として利用可能であり、</cite> <cite>mapping``は</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>マッピング``属性です。そうでなければ、オブジェクトはUnicode文字列のように動作します。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="pyramid.i18n.TranslationStringFactory">
 <code class="descname">TranslationStringFactory</code><span class="sig-paren">(</span><em>factory_domain</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/translationstring.html#TranslationStringFactory"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.i18n.TranslationStringFactory" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Create a factory which will generate translation strings
-without requiring that each call to the factory be passed a
-<code class="docutils literal notranslate"><span class="pre">domain</span></code> value.  A single argument is passed to this class'
-constructor: <code class="docutils literal notranslate"><span class="pre">domain</span></code>.  This value will be used as the
-<code class="docutils literal notranslate"><span class="pre">domain</span></code> values of <a class="reference external" href="https://docs.pylonsproject.org/projects/translationstring/en/latest/api.html#translationstring.TranslationString" title="(in translationstring v1.4.dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">translationstring.TranslationString</span></code></a>
-objects generated by the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> of this class.  The
-<code class="docutils literal notranslate"><span class="pre">msgid</span></code>, <code class="docutils literal notranslate"><span class="pre">mapping</span></code>, and <code class="docutils literal notranslate"><span class="pre">default</span></code> values provided to the
-<code class="docutils literal notranslate"><span class="pre">__call__</span></code> method of an instance of this class have the meaning
-as described by the constructor of the
-<a class="reference external" href="https://docs.pylonsproject.org/projects/translationstring/en/latest/api.html#translationstring.TranslationString" title="(in translationstring v1.4.dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">translationstring.TranslationString</span></code></a></p>
+<dd><p>工場への各呼び出しに `` domain``値を渡さなくても、変換文字列を生成するファクトリを作成します。単一の引数がこのクラスのコンストラクタ： `` domain``に​​渡されます。この値は、このクラスの `` __call__``によって生成された：class： <cite>translationstring.TranslationString`オブジェクトの</cite> <cite>domain``値として使用されます。このクラスのインスタンスの `</cite> __call__``メソッドに提供される `` msgid``、 `` mapping``、 `` default``の値は、：class： <cite>translationstring .TranslationString</cite></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="pyramid.i18n.Localizer">
 <em class="property">class </em><code class="descname">Localizer</code><span class="sig-paren">(</span><em>locale_name</em>, <em>translations</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/i18n.html#Localizer"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.i18n.Localizer" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>An object providing translation and pluralizations related to
-the current request's locale name.  A
-<a class="reference internal" href="#pyramid.i18n.Localizer" title="pyramid.i18n.Localizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.i18n.Localizer</span></code></a> object is created using the
-<a class="reference internal" href="#pyramid.i18n.get_localizer" title="pyramid.i18n.get_localizer"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.i18n.get_localizer()</span></code></a> function.</p>
+<dd><p>現在の要求のロケール名に関連する変換および複数化を提供するオブジェクト。 A：class： <cite>pyramid.i18n.Localizer`オブジェクトは、：func：</cite> pyramid.i18n.get_localizer`関数を使って作成されます。</p>
 <dl class="attribute">
 <dt id="pyramid.i18n.Localizer.locale_name">
 <code class="descname">locale_name</code><a class="headerlink" href="#pyramid.i18n.Localizer.locale_name" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>The locale name for this localizer (e.g. <code class="docutils literal notranslate"><span class="pre">en</span></code> or <code class="docutils literal notranslate"><span class="pre">en_US</span></code>).</p>
+<dd><p>このローカライザのロケール名（ `` en``や `` en_US``など）。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.i18n.Localizer.pluralize">
 <code class="descname">pluralize</code><span class="sig-paren">(</span><em>singular</em>, <em>plural</em>, <em>n</em>, <em>domain=None</em>, <em>mapping=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/i18n.html#Localizer.pluralize"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.i18n.Localizer.pluralize" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a Unicode string translation by using two
-<a class="reference internal" href="../glossary.html#term-message-identifier"><span class="xref std std-term">message identifier</span></a> objects as a singular/plural pair
-and an <code class="docutils literal notranslate"><span class="pre">n</span></code> value representing the number that appears in the
-message using gettext plural forms support.  The <code class="docutils literal notranslate"><span class="pre">singular</span></code>
-and <code class="docutils literal notranslate"><span class="pre">plural</span></code> objects should be unicode strings. There is no
-reason to use translation string objects as arguments as all
-metadata is ignored.</p>
-<p><code class="docutils literal notranslate"><span class="pre">n</span></code> represents the number of elements. <code class="docutils literal notranslate"><span class="pre">domain</span></code> is the
-translation domain to use to do the pluralization, and <code class="docutils literal notranslate"><span class="pre">mapping</span></code>
-is the interpolation mapping that should be used on the result. If
-the <code class="docutils literal notranslate"><span class="pre">domain</span></code> is not supplied, a default domain is used (usually
-<code class="docutils literal notranslate"><span class="pre">messages</span></code>).</p>
-<p>Example:</p>
+<dd><p>単項/複数の対としてterm :: <cite>message identifier`オブジェクトを使用し、gettext複数形サポートを使用してメッセージに現れる数を表す</cite> <cite>n``値を使用して、Unicode文字列変換を返します。 `</cite> singular``と `` plural``オブジェクトは、Unicode文字列でなければなりません。すべてのメタデータが無視されるため、変換文字列オブジェクトを引数として使用する理由はありません。</p>
+<p>`` n``は要素数を表します。 `` domain``は多元化を行うための変換ドメインであり、 `` mapping``は結果に使用すべき補間マッピングです。 `` domain``が与えられていなければ、デフォルトのドメインが使われます（通常 `` messages``）。</p>
+<p>例:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">translated</span> <span class="o">=</span> <span class="n">localizer</span><span class="o">.</span><span class="n">pluralize</span><span class="p">(</span><span class="s1">&#39;Add $</span><span class="si">{num}</span><span class="s1"> item&#39;</span><span class="p">,</span>
                                  <span class="s1">&#39;Add $</span><span class="si">{num}</span><span class="s1"> items&#39;</span><span class="p">,</span>
@@ -166,11 +114,8 @@ the <code class="docutils literal notranslate"><span class="pre">domain</span></
                                  <span class="n">mapping</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;num&#39;</span><span class="p">:</span><span class="n">num</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>If using the gettext plural support, which is required for
-languages that have pluralisation rules other than n != 1, the
-<code class="docutils literal notranslate"><span class="pre">singular</span></code> argument must be the message_id defined in the
-translation file. The plural argument is not used in this case.</p>
-<p>Example:</p>
+<p>n！= 1以外の複数の規則を持つ言語に必要なgettextの複数のサポートを使用する場合、 &amp;quot;singular&amp;quot;引数は変換ファイルで定義されたmessage_idでなければなりません。この場合、複数の引数は使用されません。</p>
+<p>例:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">translated</span> <span class="o">=</span> <span class="n">localizer</span><span class="o">.</span><span class="n">pluralize</span><span class="p">(</span><span class="s1">&#39;item_plural&#39;</span><span class="p">,</span>
                                  <span class="s1">&#39;&#39;</span><span class="p">,</span>
@@ -183,28 +128,15 @@ translation file. The plural argument is not used in this case.</p>
 <dl class="method">
 <dt id="pyramid.i18n.Localizer.translate">
 <code class="descname">translate</code><span class="sig-paren">(</span><em>tstring</em>, <em>domain=None</em>, <em>mapping=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/i18n.html#Localizer.translate"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.i18n.Localizer.translate" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Translate a <a class="reference internal" href="../glossary.html#term-translation-string"><span class="xref std std-term">translation string</span></a> to the current language
-and interpolate any <em>replacement markers</em> in the result.  The
-<code class="docutils literal notranslate"><span class="pre">translate</span></code> method accepts three arguments: <code class="docutils literal notranslate"><span class="pre">tstring</span></code>
-(required), <code class="docutils literal notranslate"><span class="pre">domain</span></code> (optional) and <code class="docutils literal notranslate"><span class="pre">mapping</span></code> (optional).
-When called, it will translate the <code class="docutils literal notranslate"><span class="pre">tstring</span></code> translation
-string to a <code class="docutils literal notranslate"><span class="pre">unicode</span></code> object using the current locale.  If
-the current locale could not be determined, the result of
-interpolation of the default value is returned.  The optional
-<code class="docutils literal notranslate"><span class="pre">domain</span></code> argument can be used to specify or override the
-domain of the <code class="docutils literal notranslate"><span class="pre">tstring</span></code> (useful when <code class="docutils literal notranslate"><span class="pre">tstring</span></code> is a normal
-string rather than a translation string).  The optional
-<code class="docutils literal notranslate"><span class="pre">mapping</span></code> argument can specify or override the <code class="docutils literal notranslate"><span class="pre">tstring</span></code>
-interpolation mapping, useful when the <code class="docutils literal notranslate"><span class="pre">tstring</span></code> argument is
-a simple string instead of a translation string.</p>
-<p>Example:</p>
+<dd><p>現在の言語にa：term： <cite>翻訳文字列 &amp;#39;を翻訳し、その結果の*置換マーカー*を補間します。 `</cite> translate``メソッドは、 `` tstring``（必須）、 `` domain``（オプション）、 `` mapping``（オプション）の3つの引数を受け入れます。呼び出されると、現在のロケールを使用して `` tstring``変換文字列を `` unicode``オブジェクトに変換します。現在のロケールを判別できなかった場合は、デフォルト値の補間結果が返されます。オプションの `` domain``引数は、 `` tstring``のドメインを指定または上書きするために使用できます（ `` tstring``が翻訳文字列ではなく通常の文字列のときに便利です）。オプションの `` mapping``引数は、 `` tstring``補間マッピングを指定または上書きできます。これは、 `` tstring``引数が変換文字列ではなく単純文字列である場合に便利です。</p>
+<p>例:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.</span><span class="mi">18</span><span class="n">n</span> <span class="kn">import</span> <span class="nn">TranslationString</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">TranslationString</span><span class="p">(</span><span class="s1">&#39;Add $</span><span class="si">{item}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="s1">&#39;mypackage&#39;</span><span class="p">,</span>
                        <span class="n">mapping</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;item&#39;</span><span class="p">:</span><span class="s1">&#39;Item&#39;</span><span class="p">})</span>
 <span class="n">translated</span> <span class="o">=</span> <span class="n">localizer</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Example:</p>
+<p>例:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">translated</span> <span class="o">=</span> <span class="n">localizer</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">&#39;Add $</span><span class="si">{item}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="s1">&#39;mypackage&#39;</span><span class="p">,</span>
                                  <span class="n">mapping</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;item&#39;</span><span class="p">:</span><span class="s1">&#39;Item&#39;</span><span class="p">})</span>
 </pre></div>
@@ -217,58 +149,43 @@ a simple string instead of a translation string.</p>
 <dt id="pyramid.i18n.get_localizer">
 <code class="descname">get_localizer</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/i18n.html#get_localizer"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.i18n.get_localizer" title="この定義へのパーマリンク">¶</a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified">バージョン 1.5 で撤廃: </span>Use the <a class="reference internal" href="request.html#pyramid.request.Request.localizer" title="pyramid.request.Request.localizer"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyramid.request.Request.localizer</span></code></a> attribute directly
-instead.  Retrieve a <a class="reference internal" href="#pyramid.i18n.Localizer" title="pyramid.i18n.Localizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.i18n.Localizer</span></code></a> object
-corresponding to the current request's locale name.</p>
+<p><span class="versionmodified">バージョン 1.5 で撤廃: </span>代わりに：attr： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.request.Request.localizer`属性を直接使用してください。現在のリクエストのロケール名に対応するa：class： <a href="#id3"><span class="problematic" id="id4">`</span></a>pyramid.i18n.Localizer`オブジェクトを取得します。</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="pyramid.i18n.negotiate_locale_name">
 <code class="descname">negotiate_locale_name</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/i18n.html#negotiate_locale_name"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.i18n.negotiate_locale_name" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Negotiate and return the <a class="reference internal" href="../glossary.html#term-locale-name"><span class="xref std std-term">locale name</span></a> associated with
-the current request.</p>
+<dd><p>現在のリクエストに関連する：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>ロケール名`をネゴシエートして返します。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="pyramid.i18n.get_locale_name">
 <code class="descname">get_locale_name</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/i18n.html#get_locale_name"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.i18n.get_locale_name" title="この定義へのパーマリンク">¶</a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified">バージョン 1.5 で撤廃: </span>Use <a class="reference internal" href="request.html#pyramid.request.Request.locale_name" title="pyramid.request.Request.locale_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyramid.request.Request.locale_name</span></code></a> directly instead.
-Return the <a class="reference internal" href="../glossary.html#term-locale-name"><span class="xref std std-term">locale name</span></a> associated with the current request.</p>
+<p><span class="versionmodified">バージョン 1.5 で撤廃: </span>代わりに、attr： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.request.Request.locale_name`を直接使用してください。現在のリクエストに関連する：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>ロケール名`を返します。</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="pyramid.i18n.default_locale_negotiator">
 <code class="descname">default_locale_negotiator</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/i18n.html#default_locale_negotiator"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.i18n.default_locale_negotiator" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>The default <a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale negotiator</span></a>.  Returns a locale name
-or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dd><p>デフォルト：term： <cite>locale negotiator`です。ロケール名または `</cite> None``を返します。</p>
 <ul class="simple">
-<li>First, the negotiator looks for the <code class="docutils literal notranslate"><span class="pre">_LOCALE_</span></code> attribute of
-the request object (possibly set by a view or a listener for an
-<a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a>). If the attribute exists and it is not <code class="docutils literal notranslate"><span class="pre">None</span></code>,
-its value will be used.</li>
-<li>Then it looks for the <code class="docutils literal notranslate"><span class="pre">request.params['_LOCALE_']</span></code> value.</li>
-<li>Then it looks for the <code class="docutils literal notranslate"><span class="pre">request.cookies['_LOCALE_']</span></code> value.</li>
-<li>Finally, the negotiator returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if the locale could not
-be determined via any of the previous checks (when a locale
-negotiator returns <code class="docutils literal notranslate"><span class="pre">None</span></code>, it signifies that the
-<a class="reference internal" href="../glossary.html#term-default-locale-name"><span class="xref std std-term">default locale name</span></a> should be used.)</li>
+<li>まず、ネゴシエーターは要求オブジェクトの `` _LOCALE_``属性を探します（おそらく：term： <cite>event`のビューまたはリスナーによって設定されます）。属性が存在し、 `</cite> None``でなければ、その値が使用されます。</li>
+<li>それから、 `` request.params [&amp;#39;_ LOCALE _&amp;#39;] <a href="#id1"><span class="problematic" id="id2">``</span></a>の値を探します。</li>
+<li>それから、 `` request.cookies [&amp;#39;_ LOCALE _&amp;#39;] <a href="#id1"><span class="problematic" id="id2">``</span></a>の値を探します。</li>
+<li>最後に、ネゴシエーターは、以前の検査のいずれかを介してロケールを判定できない場合（ロケールネゴシエーターが「None」を返す場合、「：デフォルトロケール名」を使用する必要があることを意味する） 。）</li>
 </ul>
 </dd></dl>
 
 <dl class="function">
 <dt id="pyramid.i18n.make_localizer">
 <code class="descname">make_localizer</code><span class="sig-paren">(</span><em>current_locale_name</em>, <em>translation_directories</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/i18n.html#make_localizer"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.i18n.make_localizer" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Create a <a class="reference internal" href="#pyramid.i18n.Localizer" title="pyramid.i18n.Localizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.i18n.Localizer</span></code></a> object
-corresponding to the provided locale name from the 
-translations found in the list of translation directories.</p>
+<dd><p>翻訳ディレクトリのリストにある翻訳から、提供されたロケール名に対応するa：：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.i18n.Localizer`オブジェクトを作成します。</p>
 </dd></dl>
 
-<p>See <a class="reference internal" href="../narr/i18n.html#i18n-chapter"><span class="std std-ref">Internationalization and Localization</span></a> for more information about using
-<span>Pyramid</span> internationalization and localization services within
-an application.</p>
+<p>アプリケーション内で：app： <cite>Pyramid`国際化とローカライゼーションサービスを使用する方法の詳細は、：ref：</cite> i18n_chapter`を参照してください。</p>
 </div>
 
 
@@ -279,10 +196,10 @@ an application.</p>
         <div class="sphinxsidebarwrapper">
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="httpexceptions.html"
-                        title="前の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.httpexceptions</span></code></a></p>
+                        title="前の章へ">(機械翻訳) <code class="docutils literal notranslate"><span class="pre">pyramid.httpexceptions</span></code></a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="interfaces.html"
-                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.interfaces</span></code></a></p>
+                        title="次の章へ">(機械翻訳) <code class="docutils literal notranslate"><span class="pre">pyramid.interfaces</span></code></a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -316,18 +233,18 @@ an application.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="interfaces.html" title="pyramid.interfaces"
+          <a href="interfaces.html" title="(機械翻訳) pyramid.interfaces"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="httpexceptions.html" title="pyramid.httpexceptions"
+          <a href="httpexceptions.html" title="(機械翻訳) pyramid.httpexceptions"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

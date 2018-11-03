@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/subrequest.rst:7
 msgid "Invoking a Subrequest"
-msgstr ""
+msgstr "(機械翻訳) サブリクエストの呼び出し"
 
 #: ../../narr/subrequest.rst:11
 msgid ""
@@ -29,11 +19,11 @@ msgid ""
 ":term:`response` object from a view callable within your :app:`Pyramid` "
 "application while you're executing a different view callable within the "
 "same application."
-msgstr ""
+msgstr "：app： `Pyramid`では、リクエストの処理中に任意の時点でサブリクエストを呼び出すことができます。サブリクエストを呼び出すと、同じアプリケーション内で呼び出し可能な別のビューを実行しているときに：app： `Pyramid`アプリケーション内で呼び出し可能なビューから：term：` response`オブジェクトを取得できます。"
 
 #: ../../narr/subrequest.rst:17
 msgid "Here's an example application which uses a subrequest:"
-msgstr ""
+msgstr "サブリクエストを使用するアプリケーションの例を次に示します。"
 
 #: ../../narr/subrequest.rst:45
 msgid ""
@@ -48,7 +38,7 @@ msgid ""
 " callable was invoked, and it returned a response.  The ``view_one`` view"
 " callable then simply returned the response it obtained from the "
 "``view_two`` view callable."
-msgstr ""
+msgstr "`` / view_one``がブラウザに表示されているとき、ブラウザペインに表示されるテキストは ``これはview_two``から来ました。 `` view_one``ビューは： `` meth： `pyramid.request.Request.invoke_subrequest` APIを使って、同じアプリケーション内で別のビュー（` `view_two``）から応答を取得しました。 `` view_two``ビューの登録にマッチすると知っていたURLを持った新しいリクエストを作成し、その新しいリクエストを：meth： `pyramid.request.Request.invoke_subrequest`に渡すことでそうしました。 `` view_two``ビューのcallableが呼び出され、レスポンスが返されました。 `` view_one``ビューは `` view_two``ビューから取得したレスポンスを単に呼び出し可能にしました。"
 
 #: ../../narr/subrequest.rst:56
 msgid ""
@@ -58,7 +48,7 @@ msgid ""
 "response adapter when found and invoked via "
 ":meth:`pyramid.request.Request.invoke_subrequest` will return a Response "
 "object:"
-msgstr ""
+msgstr "サブリクエストを介して呼び出されたビューが実際に*リテラル*レスポンスオブジェクトを返すかどうかは関係ありません。レンダラーを使用する呼び出し可能ビュー、または：meth： `pyramid.request.Request.invoke_subrequest`で見つけられ起動されたときに応答アダプタによって解釈されるオブジェクトを返すビューは、Responseオブジェクトを返します。"
 
 #: ../../narr/subrequest.rst:89
 msgid ""
@@ -66,7 +56,7 @@ msgid ""
 "invoked in such a way that the ``string`` renderer associated with the "
 "view registration that was found turned it into a \"real\" response "
 "object for consumption by ``view_one``."
-msgstr ""
+msgstr "`` view_two``ビューのcallableは文字列を返しましたが、見つかったビュー登録に関連付けられた `` string``レンダラーがそれを消費のための\ &quot;実際の\&quot;応答オブジェクトに変換するように呼び出されました「view_one」によって。"
 
 #: ../../narr/subrequest.rst:94
 msgid ""
@@ -78,7 +68,7 @@ msgid ""
 "invoke a view callable directly.  Subrequests are slower and are less "
 "convenient if you actually do want just the literal information returned "
 "by a function that happens to be a view callable."
-msgstr ""
+msgstr "間接的に呼び出し可能なビューを呼び出すことによって無条件に応答オブジェクトを取得できることは、単純にビュー呼び出し可能オブジェクトをインポートして直接実行するのではなく、meth： `pyramid.request.Request.invoke_subrequest`を使用する主な利点です。呼び出し可能なビューを直接呼び出すことができれば、サブリクエストを使ってビューを呼び出すことはあまり利点がないことに注意してください。サブリクエストは遅く、ビュー呼び出し可能な関数で返されるリテラル情報だけが実際に必要な場合はあまり便利ではありません。"
 
 #: ../../narr/subrequest.rst:103
 msgid ""
@@ -86,7 +76,7 @@ msgid ""
 "an exception, the exception will be raised to the caller of "
 ":meth:`~pyramid.request.Request.invoke_subrequest` even if you have a "
 ":term:`exception view` configured:"
-msgstr ""
+msgstr "デフォルトで、サブリクエストによって呼び出されたビュー呼び出し可能呼び出しが例外を発生させた場合、：term： `例外があっても：meth：`〜pyramid.request.Request.invoke_subrequest`の呼び出し側に例外が発生することに注意してくださいビュー構成："
 
 #: ../../narr/subrequest.rst:140
 msgid ""
@@ -96,18 +86,18 @@ msgid ""
 ":exc:`ValueError` exception to be raised and a response will never be "
 "generated.  We can change this behavior; how to do so is described below "
 "in our discussion of the ``use_tweens`` argument."
-msgstr ""
+msgstr "上記のコードを実行してブラウザで `` / view_one``を訪れると、 `` excview``：term： `exception view`が実行されません。代わりに：meth： `〜pyramid.request.Request.invoke_subrequest`を呼び出すと、：exc：` ValueError`例外が発生し、応答が生成されません。私たちはこの行動を変えることができます。その方法については、 `` use_tweens``引数の議論で後述します。"
 
 #: ../../narr/subrequest.rst:151
 msgid "Subrequests with Tweens"
-msgstr ""
+msgstr "トゥイーンのサブリクエスト"
 
 #: ../../narr/subrequest.rst:153
 msgid ""
 "The :meth:`pyramid.request.Request.invoke_subrequest` API accepts two "
 "arguments: a required positional argument ``request``, and an optional "
 "keyword argument ``use_tweens`` which defaults to ``False``."
-msgstr ""
+msgstr "：meth： `pyramid.request.Request.invoke_subrequest` APIは、必須の位置引数` `request``と省略可能なキーワード引数` `use_tweens``をデフォルトで` `False``の2つの引数を受け取ります。"
 
 #: ../../narr/subrequest.rst:157
 msgid ""
@@ -118,7 +108,7 @@ msgid ""
 "stack closest to the request ingress.  If ``use_tweens`` is ``False``, "
 "the request will be sent to the main router handler, and no tweens will "
 "be invoked."
-msgstr ""
+msgstr "APIに渡される `` request``オブジェクトはPyramidリクエストインタフェース（：class： `pyramid.request.Request`インスタンスなど）を実装するオブジェクトでなければなりません。 `` use_tweens``が `` True``の場合、要求は要求入力に最も近いtweenスタックの：term： `tween`に送られます。 `` use_tweens``が `` False``の場合、リクエストはメインルータハンドラに送られ、トゥイーンは呼び出されません。"
 
 #: ../../narr/subrequest.rst:164
 msgid ""
@@ -131,14 +121,14 @@ msgid ""
 "the exception.  This is because exception views are called by the "
 "exception view :term:`tween` as described in :ref:`exception_views` when "
 "any view raises an exception."
-msgstr ""
+msgstr "上の例では、：meth： `〜pyramid.request.Request.invoke_subrequest`の呼び出しは常に例外を発生させます。これは `` use_tweens``のデフォルト値を使用しているためです。これは `` False``です。代わりに、 `` use_tweens = True``を渡して、例外を発生させる代わりに：term： `exception view`が設定されている場合に、例外をResponseに変換するようにすることもできます。これは、ビューが例外を発生させると、：ref： `exception_views`で説明されているように、例外ビュー：term：` tween`によって例外ビューが呼び出されるからです。"
 
 #: ../../narr/subrequest.rst:173
 msgid ""
 "We can cause the subrequest to be run through the tween stack by passing "
 "``use_tweens=True`` to the call to "
 ":meth:`~pyramid.request.Request.invoke_subrequest`, like this:"
-msgstr ""
+msgstr "`` use_tweens = True``を：meth： `〜pyramid.request.Request.invoke_subrequest`の呼び出しに渡すことで、以下のようにして、サブリクエストをトゥイーンスタックを介して実行させることができます："
 
 #: ../../narr/subrequest.rst:209
 msgid ""
@@ -147,7 +137,7 @@ msgid ""
 "from the attempted invocation of ``view_two``, because the tween which "
 "invokes an exception view to generate a response is run, and therefore "
 "``excview`` is executed."
-msgstr ""
+msgstr "上記の場合、 `` request.invoke_subrequest（subreq） ``の呼び出しは例外を発生させません。代わりに、応答を生成するために例外ビューを呼び出すトゥイーンが実行され、したがって `` excview``が実行されるため、 `` view_two``の呼び出しを試行して\ &quot;500 \&quot;応答を取得します。"
 
 #: ../../narr/subrequest.rst:215
 msgid ""
@@ -159,13 +149,13 @@ msgid ""
 "list, injecting debug HTML if you've got ``pyramid_debugtoolbar`` in the "
 "tween list, and other tween-related side effects as defined by your "
 "particular tween list."
-msgstr ""
+msgstr "これは：meth： `〜pyramid.request.Request.invoke_subrequest`に対して` `use_tweens = True``と` `use_tweens = False``引数を指定することの大きな違いの1つです。 `` use_tweens = True``は、 `` pyramid_debugtoolbar`を持っていればデバッグHTMLを注入して、tweenリストに `` pyramid_tm``を持っていれば、サブリクエストで実行されたロジックのコミットまたはアボートを呼び出すことを意味するかもしれません。 Tweenリストとその他の特定のトゥイーン関連の副作用で定義されています。"
 
 #: ../../narr/subrequest.rst:223
 msgid ""
 "The :meth:`~pyramid.request.Request.invoke_subrequest` function also "
 "unconditionally does the following:"
-msgstr ""
+msgstr "：meth： `〜pyramid.request.Request.invoke_subrequest`関数は、無条件に以下を行います："
 
 #: ../../narr/subrequest.rst:226
 msgid ""
@@ -173,13 +163,13 @@ msgid ""
 ":func:`~pyramid.threadlocal.get_current_request` and "
 ":func:`~pyramid.threadlocal.get_current_registry` work during a request "
 "(they will return the subrequest instead of the original request)."
-msgstr ""
+msgstr "スレッドローカルスタックを管理して、func： `〜pyramid.threadlocal.get_current_request`と：func：`〜pyramid.threadlocal.get_current_registry`はリクエスト中に動作します（元のリクエストの代わりにサブリクエストを返します）。"
 
 #: ../../narr/subrequest.rst:231
 msgid ""
 "It adds a ``registry`` attribute and an ``invoke_subrequest`` attribute "
 "(a callable) to the request object to which it is handed."
-msgstr ""
+msgstr "それは、それが渡される要求オブジェクトに `` registry``属性と `` invoke_subrequest``属性（呼び出し可能）を追加します。"
 
 #: ../../narr/subrequest.rst:234
 msgid ""
@@ -187,44 +177,44 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.add_request_method` or "
 ":meth:`~pyramid.config.Configurator.set_request_property`) on the "
 "subrequest object passed as ``request``."
-msgstr ""
+msgstr "これは、 `` request``として渡されたサブリクエストオブジェクトに対して、リクエスト拡張子（：meth： `〜pyramid.config.Configurator.add_request_method`または：meth：`〜pyramid.config.Configurator.set_request_property`）を設定します。"
 
 #: ../../narr/subrequest.rst:239
 msgid ""
 "It causes a :class:`~pyramid.events.NewRequest` event to be sent at the "
 "beginning of request processing."
-msgstr ""
+msgstr "これはリクエスト処理の開始時にa：class： `〜pyramid.events.NewRequest`イベントが送られるようにします。"
 
 #: ../../narr/subrequest.rst:242
 msgid ""
 "It causes a :class:`~pyramid.events.ContextFound` event to be sent when a"
 " context resource is found."
-msgstr ""
+msgstr "コンテキストリソースが見つかった場合、a：class： `〜pyramid.events.ContextFound`イベントが送信されます。"
 
 #: ../../narr/subrequest.rst:245
 msgid ""
 "It ensures that the user implied by the request passed in has the "
 "necessary authorization to invoke the view callable before calling it."
-msgstr ""
+msgstr "これは、渡された要求によって暗示されたユーザーが、呼び出し前に呼び出し可能なビューを呼び出すために必要な許可を持っていることを保証します。"
 
 #: ../../narr/subrequest.rst:248
 msgid ""
 "It calls any :term:`response callback` functions defined within the "
 "subrequest's lifetime if a response is obtained from the Pyramid "
 "application."
-msgstr ""
+msgstr "Pyramidアプリケーションから応答が得られた場合、サブリクエストの有効期間内に定義されたany：term： `response callback`関数を呼び出します。"
 
 #: ../../narr/subrequest.rst:251
 msgid ""
 "It causes a :class:`~pyramid.events.NewResponse` event to be sent if a "
 "response is obtained."
-msgstr ""
+msgstr "レスポンスが得られた場合には：class： `〜pyramid.events.NewResponse`イベントが送られます。"
 
 #: ../../narr/subrequest.rst:254
 msgid ""
 "It calls any :term:`finished callback` functions defined within the "
 "subrequest's lifetime."
-msgstr ""
+msgstr "サブリクエストの存続期間内に定義されたany：term： `finished callback`関数を呼び出します。"
 
 #: ../../narr/subrequest.rst:257
 msgid ""
@@ -232,7 +222,7 @@ msgid ""
 "as the invocation of a request received by the :app:`Pyramid` router from"
 " a web client when ``use_tweens=True``.  When ``use_tweens=False``, the "
 "tweens are skipped but all the other steps take place."
-msgstr ""
+msgstr "サブリクエストの呼び出しは、 `` use_tweens = True``のときに、Webクライアントから：app： `Pyramid`ルータが受け取ったリクエストの呼び出しとほぼ同じです。 `` use_tweens = False``のとき、トゥイーンはスキップされますが、他のすべてのステップが実行されます。"
 
 #: ../../narr/subrequest.rst:262
 msgid ""
@@ -247,7 +237,7 @@ msgid ""
 " exposes the methods you should call and attributes you should set on the"
 " request that you create, then massage it into something that will "
 "actually match the view you'd like to call via a subrequest."
-msgstr ""
+msgstr "元の `` request``オブジェクトを：meth： `〜pyramid.request.Request.invoke_subrequest`の引数として使うのは良い考えではありません。代わりに：meth： `pyramid.request.Request.blank`を使用して、上記の例に示すように新しいリクエストを作成する必要があります。リクエストオブジェクトを作成したら、サブリクエスト中に実行したいビュー呼び出し可能なものにマッサージする必要があります。これは、サブリクエストのURL、そのヘッダー、要求メソッド、およびその他の属性を調整することによって実行できます。 ：class： `pyramid.request.Request`のドキュメンテーションは、呼び出すべきメソッドと作成するリクエストに設定する属性を公開し、次にそれを実際にあなたが呼び出すビューに一致させるものにマッサージしますサブリクエスト。"
 
 #: ../../narr/subrequest.rst:274
 msgid ""
@@ -260,11 +250,11 @@ msgid ""
 "will cause a subrequest (they are passed a ``handle`` function). It's "
 "fine to invoke :meth:`~pyramid.request.Request.invoke_subrequest` from "
 "within an event handler, however."
-msgstr ""
+msgstr "ビュー呼び出し可能な内部からのサブリクエストの使用を実証しましたが、トゥイーンまたはイベントハンドラ内で：meth： `〜pyramid.request.Request.invoke_subrequest` APIを使用することもできます。あなたがそれを行うことはできますが、tweensは既に、定義上、サブリクエストを引き起こす関数へのアクセス権を持っているので、tween内からmeth： `〜pyramid.request.Request.invoke_subrequest`を呼び出すのは、 `` handle``関数に渡されます）。ただし、イベントハンドラ内で：meth： `〜pyramid.request.Request.invoke_subrequest`を呼び出すことはできます。"
 
 #: ../../narr/subrequest.rst:288
 msgid "Invoking an Exception View"
-msgstr ""
+msgstr "例外ビューの呼び出し"
 
 #: ../../narr/subrequest.rst:292
 msgid ""
@@ -274,7 +264,7 @@ msgid ""
 " the ``EXCVIEW`` :term:`tween`, which will then lookup an exception view "
 "that can handle the exception type, generating an appropriate error "
 "response."
-msgstr ""
+msgstr "：app： `Pyramid`アプリは以下を定義します：term：`例外ビュー<exception view>これは、要求を処理している間にコードから逃げ出した例外を処理できます。デフォルトでは、未処理の例外は `` EXCVIEW``：term： `tween`によって捕捉され、例外タイプを処理して適切なエラー応答を生成する例外ビューを検索します。"
 
 #: ../../narr/subrequest.rst:298
 msgid ""
@@ -282,11 +272,11 @@ msgid ""
 ":meth:`pyramid.request.Request.invoke_exception_view` was introduced, "
 "allowing a user to invoke an exception view while manually handling an "
 "exception. This can be useful in a few different circumstances:"
-msgstr ""
+msgstr "In：app： `Pyramid` 1.7：meth：` pyramid.request.Request.invoke_exception_view`が導入されました。これにより、ユーザーは手動で例外を処理しながら例外ビューを呼び出すことができます。これは、いくつかの異なる状況で役に立ちます："
 
 #: ../../narr/subrequest.rst:302
 msgid "Manually handling an exception losing the current call stack or flow."
-msgstr ""
+msgstr "現在の呼び出しスタックまたはフローを失う例外を手動で処理する。"
 
 #: ../../narr/subrequest.rst:304
 msgid ""
@@ -296,17 +286,17 @@ msgid ""
 "exception can be raised that will still bubble up to middleware, and "
 "possibly to the web server in which case a generic ``500 Internal Server "
 "Error`` will be returned to the client."
-msgstr ""
+msgstr "`` EXCVIEW``トゥイーンのコンテキスト外での例外処理。トゥイーンはリクエスト処理パイプラインの特定の部分だけをカバーします（参照：ref： `router_chapter`）。また、ミドルウェアに泡立つ可能性のある例外が発生する可能性のあるコーナーケースもあります。また、ウェブサーバーにはおそらく一般的な「500 Internal Server Error」がクライアントに返されます。"
 
 #: ../../narr/subrequest.rst:311
 msgid ""
 "Below is an example usage of "
 ":meth:`pyramid.request.Request.invoke_exception_view`:"
-msgstr ""
+msgstr "以下は、meth： `pyramid.request.Request.invoke_exception_view`の使用例です。"
 
 #: ../../narr/subrequest.rst:330
 msgid ""
 "Please note that in most cases you do not need to write code like this, "
 "and you may rely on the ``EXCVIEW`` tween to handle this for you."
-msgstr ""
+msgstr "ほとんどの場合、このようなコードを書く必要はなく、 `` EXCVIEW``トゥイーンを使ってこれを処理することができます。"
 

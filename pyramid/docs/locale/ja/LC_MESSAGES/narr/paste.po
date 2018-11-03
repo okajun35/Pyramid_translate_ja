@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/paste.rst:4
 msgid "PasteDeploy Configuration Files"
-msgstr ""
+msgstr "(機械翻訳) PasteDeploy設定ファイル"
 
 #: ../../narr/paste.rst:6
 msgid ""
@@ -28,14 +18,14 @@ msgid ""
 "created by Ian Bicking named :term:`PasteDeploy`.  PasteDeploy defines a "
 "way to declare :term:`WSGI` application configuration in an ``.ini`` "
 "file."
-msgstr ""
+msgstr "：term： `cookiecutter`で生成されるパッケージは、Ian Bickingが作成したterm：` PasteDeploy`という名前のシステムを利用します。 PasteDeployは、term： `WSGI`アプリケーションの設定を` .ini`ファイルに宣言する方法を定義します。"
 
 #: ../../narr/paste.rst:10
 msgid ""
 "Pyramid uses this configuration file format as input to its :term:`WSGI` "
 "server runner ``pserve``, as well as other commands such as ``pviews``, "
 "``pshell``, ``proutes``, and ``ptweens``."
-msgstr ""
+msgstr "Pyramidはこの設定ファイル形式を：term： `WSGI`サーバランナー` `pserve``や` `pviews``、` `pshell``、` `proutes``などの他のコマンドの入力として使います。 `` ptweens``。"
 
 #: ../../narr/paste.rst:14
 msgid ""
@@ -47,18 +37,18 @@ msgid ""
 "standardized way of setting deployment values, and to provide new users "
 "with a standardized way of starting, stopping, and debugging an "
 "application."
-msgstr ""
+msgstr "PasteDeployは特にPyramidの不可欠な部分ではありません。 PasteDeployをまったく使用しないPyramidアプリケーションを作成することは可能です。 ref： `firstapp_chapter`にPasteDeployを使用しないPyramidアプリケーションを示します。ただし、すべてのPyramid cookiecuttersはPasteDeploy設定ファイルをレンダリングし、新しい開発者にデプロイメント値を設定する標準的な方法を提供し、新しいユーザーに標準化されたアプリケーションの起動、停止、およびデバッグ方法を提供します。"
 
 #: ../../narr/paste.rst:22
 msgid ""
 "This chapter is not a replacement for documentation about PasteDeploy; it"
 " only contextualizes the use of PasteDeploy within Pyramid.  For detailed"
 " documentation, see https://pastedeploy.readthedocs.io/en/latest/."
-msgstr ""
+msgstr "この章は、PasteDeployに関するドキュメントの代わりではありません。ピラミッド内でのPasteDeployの使用のみをコンテキスト化します。詳細なドキュメントについては、https：//pastedeploy.readthedocs.io/en/latest/を参照してください。"
 
 #: ../../narr/paste.rst:27
 msgid "PasteDeploy"
-msgstr ""
+msgstr "PasteDeploy"
 
 #: ../../narr/paste.rst:29
 msgid ""
@@ -69,11 +59,11 @@ msgid ""
 "settings`, WSGI server settings and logging. This allows the ``pserve`` "
 "command to work, allowing you to stop and start a Pyramid application "
 "easily."
-msgstr ""
+msgstr "：term： `plaster`はPyramidが設定ファイルから設定をロードするために使用するシステムです。これらのファイルの最も一般的なフォーマットは、term： `PasteDeploy`によって定義された方法で構造化された` `.ini``フォーマットです。このフォーマットは、WSGI app：term： `デプロイメント設定 &#39;、WSGIサーバーの設定とロギングを定義するメカニズムをサポートしています。これにより、 `` pserve``コマンドが機能し、Pyramidアプリケーションを簡単に停止して起動することができます。"
 
 #: ../../narr/paste.rst:34
 msgid "Entry Points and PasteDeploy ``.ini`` Files"
-msgstr ""
+msgstr "エントリポイントとPasteDeployの `` .ini``ファイル"
 
 #: ../../narr/paste.rst:36
 msgid ""
@@ -83,7 +73,7 @@ msgid ""
 "because it's pretty confusing and \"too much information\" for an "
 "introduction to the system.  We'll try to give it a bit of attention "
 "here.  Let's see the config file again:"
-msgstr ""
+msgstr "：ref： `project_narr`の章では、` `deployment.ini``ファイル内の設定行の意味を説明しています。これは `` [app：main] ``セクションの `` use = egg：myproject``行です。私たちはそれをあまりにも混乱させてしまいました。システムに導入するには &quot;あまりにも多くの情報&quot;が必要でした。私たちはここで少し注意を払うようにします。 configファイルをもう一度見てみましょう："
 
 #: ../../narr/paste.rst:47
 msgid ""
@@ -93,11 +83,11 @@ msgid ""
 "defined by PasteDeploy. ``egg:myproject#main`` is a string which has "
 "meaning to PasteDeploy.  It points at a :term:`setuptools` :term:`entry "
 "point` named ``main`` defined in the ``myproject`` project."
-msgstr ""
+msgstr "上記の `` [app：main] ``の `` use = egg：myproject``という行は、実際には `` use = egg：myproject＃main``という長いスペルの省略形です。 ``＃main``はPasteDeployで定義されたデフォルトであるため、簡潔にするために省略されています。 `` egg：myproject＃main``は、PasteDeployの意味を持つ文字列です。 `` myproject``プロジェクトで定義されている `` main``と呼ばれる：term： `setuptools`：term：` entry point`を指します。"
 
 #: ../../narr/paste.rst:54
 msgid "Take a look at the generated ``setup.py`` file for this project."
-msgstr ""
+msgstr "このプロジェクト用に生成された `` setup.py``ファイルを見てください。"
 
 #: ../../narr/paste.rst:60
 msgid ""
@@ -111,7 +101,7 @@ msgid ""
 "there.  The value represents a :term:`dotted Python name` path, which "
 "refers to a callable in our ``myproject`` package's ``__init__.py`` "
 "module."
-msgstr ""
+msgstr "`` entry_points``には `` .ini``ファイルのような文字列が割り当てられています。 `` .ini``ファイルのこの文字列表現は `` [paste.app_factory] ​​``という名前のセクションを持っています。このセクションの中には、 `` myproject：main``という値を持つ `` main``（エントリポイント名）という名前のキーがあります。 * key * `` main``は、設定ファイルの `` use``セクションの `` egg：myproject＃main``値が `` egg：myproject``に短縮されていますが、そこに。この値は：term： `dotted Python name`パスを表します。これは、` `myproject``パッケージの` `__init __。py``モジュールで呼び出し可能なものを参照します。"
 
 #: ../../narr/paste.rst:70
 msgid ""
@@ -119,7 +109,7 @@ msgid ""
 "point *URI* specifier, where the \"scheme\" is \"egg\".  An \"egg\" is "
 "created when you run ``setup.py install`` or ``setup.py develop`` within "
 "your project."
-msgstr ""
+msgstr "`` egg：myproject``の `` egg： ``接頭辞は、これがエントリーポイント* URI *指定子であることを示します。ここで、 &quot;scheme&quot;は &quot;egg&quot;です。あなたのプロジェクト内で `` setup.py install``や `` setup.py develop``を実行すると、 &quot;egg&quot;が作成されます。"
 
 #: ../../narr/paste.rst:74
 msgid ""
@@ -132,11 +122,11 @@ msgid ""
 ":term:`PasteDeploy` when the ``pserve`` command is invoked against our "
 "application.  It accepts a global configuration object and *returns* an "
 "instance of our application."
-msgstr ""
+msgstr "英語では、このエントリーポイントは `` myproject``プロジェクトのPasteDeployアプリケーションファクトリと呼ばれ、 `` main``という名前のエントリポイントを持ちます。エントリポイントは `` main``関数を参照します`` mypackage``モジュール\ &quot;にあります。実際、coo​​kiecutterで生成されたパッケージ内で生成された `` __init __。py``モジュールを開くと、 `` main``関数が表示されます。これは、アプリケーションに対して `` pserve``コマンドが呼び出されたときにterm： `PasteDeploy`によって呼び出される関数です。グローバルコンフィグレーションオブジェクトを受け入れ、*アプリケーションのインスタンスを返します。"
 
 #: ../../narr/paste.rst:86
 msgid "``[DEFAULT]`` Section of a PasteDeploy ``.ini`` File"
-msgstr ""
+msgstr "`` [DEFAULT] `` PasteDeploy `` .ini``ファイルのセクション"
 
 #: ../../narr/paste.rst:88
 msgid ""
@@ -146,11 +136,11 @@ msgid ""
 "configuration file.  The values in a ``[DEFAULT]`` section will be passed"
 " to your application's ``main`` function as ``global_config`` (see the "
 "reference to the ``main`` function in :ref:`init_py`)."
-msgstr ""
+msgstr "PasteDeployの `` .ini``ファイルに `` [DEFAULT] ``セクションを追加することができます。そのようなセクションは、すべてのアプリケーション、サーバー、および：term：ミドルウェアによって共有されるグローバルパラメーターで構成されていなければなりません。 `` [DEFAULT] ``セクションの値はアプリケーションの `` main``関数に `` global_config``として渡されます（：ref： `init_py`の` `main``関数参照） 。"
 
 #: ../../narr/paste.rst:96
 msgid "Alternative Configuration File Formats"
-msgstr ""
+msgstr "代替構成ファイル形式"
 
 #: ../../narr/paste.rst:98
 msgid ""
@@ -161,5 +151,5 @@ msgid ""
 " which performs a lookup for an appropriate parser. For ``.ini`` files it"
 " uses PasteDeploy but you can register your own configuration formats "
 "that plaster will find instead."
-msgstr ""
+msgstr "あなたが好きでない場合は：app： `Pyramid`を使って異なるファイル形式を使うことができます：term：` PasteDeploy`。フードの下では、 `` pserve``や `` pshell``のようなコマンドラインスクリプトは、 `` development.ini``や `` production.ini``などの `` config_uri``を：termに渡します：適切なパーサーを検索する `plaster`ライブラリ。 `` .ini``ファイルの場合、PasteDeployを使用しますが、代わりにplasterが見つける独自の設定フォーマットを登録することができます。"
 

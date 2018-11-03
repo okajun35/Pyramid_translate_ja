@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/templates.rst:4
 msgid "Templates"
-msgstr ""
+msgstr "(機械翻訳) テンプレート"
 
 #: ../../narr/templates.rst:6
 msgid ""
@@ -28,25 +18,25 @@ msgid ""
 "data provided by a :term:`view`.  :app:`Pyramid` offers a number of ways "
 "to perform templating tasks out of the box, and provides add-on "
 "templating support through a set of bindings packages."
-msgstr ""
+msgstr "A：term： `template`は：term：` view`によって提供される動的データをレンダリングするために使用できるディスク上のファイルです。 ：app： `Pyramid`は、テンプレートのタスクを実行するためのさまざまな方法を提供し、一連のバインディングパッケージを通じてアドオンのテンプレートサポートを提供します。"
 
 #: ../../narr/templates.rst:11
 msgid ""
 "Before discussing how built-in templates are used in detail, we'll "
 "discuss two ways to render templates within :app:`Pyramid` in general: "
 "directly and via renderer configuration."
-msgstr ""
+msgstr "組み込みのテンプレートがどのように使われているかについて議論する前に、app： `Pyramid`を一般的にレンダラーの設定で直接レンダリングする2つの方法について説明します。"
 
 #: ../../narr/templates.rst:21
 msgid "Using Templates Directly"
-msgstr ""
+msgstr "テンプレートの直接使用"
 
 #: ../../narr/templates.rst:23
 msgid ""
 "The most straightforward way to use a template within :app:`Pyramid` is "
 "to cause it to be rendered directly within a :term:`view callable`.  You "
 "may use whatever API is supplied by a given templating engine to do so."
-msgstr ""
+msgstr "：app： `Pyramid`の中でテンプレートを使う最も簡単な方法は、：term：` view callable`の中で直接レンダリングさせることです。特定のテンプレートエンジンによって提供されるAPIを使用して、そのようにすることができます。"
 
 #: ../../narr/templates.rst:27
 msgid ""
@@ -55,7 +45,7 @@ msgid ""
 ":term:`Chameleon` ZPT template named ``foo.pt`` in a directory named "
 "``templates`` in your application, you can render the template from "
 "within the body of a view callable like so:"
-msgstr ""
+msgstr "：app： `Pyramid`はビューコールバックから直接テンプレートをレンダリングできるようにする様々なAPIを提供します。たとえば、アプリケーションの `` templates``ディレクトリに `：foo.pt`という名前の：term：` Chameleon`という名前のZPTテンプレートがある場合、以下のようなビューの本体の中からテンプレートをレンダリングすることができますそう："
 
 #: ../../narr/templates.rst:43
 msgid ""
@@ -66,7 +56,7 @@ msgid ""
 "``sample_view`` function.  The template author will have the names "
 "``foo`` and ``bar`` available as top-level names for replacement or "
 "comparison purposes."
-msgstr ""
+msgstr "上記の `` sample_view``：term： `view callable`関数は、` `templates / foo.pt``テンプレートの本体を含む：term：` response`オブジェクトを返します。この場合、 `` templates``ディレクトリは、 `` sample_view``関数を含むモジュールと同じディレクトリになければなりません。テンプレート作成者は、置き換えや比較のために `` foo``と `` bar``を最上位の名前として利用できます。"
 
 #: ../../narr/templates.rst:50
 msgid ""
@@ -79,7 +69,7 @@ msgid ""
 "path can alternatively be an :term:`asset specification` in the form "
 "``some.dotted.package_name:relative/path``. This makes it possible to "
 "address template assets which live in another package.  For example:"
-msgstr ""
+msgstr "上記の例では、 `` templates / foo.pt``のパスは、ビュー設定を定義するファイルを含むディレクトリからの相対パスです。この場合、これは `` sample_view``関数を定義するファイルを含むディレクトリです。レンダラーパスは通常単純な相対パス名ですが、レンダラーとして指定されたパスは、UNIXではスラッシュ、Windowsではドライブレター接頭辞から始まる絶対パスにすることができます。代わりに、パスは `` some.dotted.package_name：relative / path``形式の：term： `asset specification`でもかまいません。これにより、別のパッケージに格納されているテンプレート資産に対処することができます。例えば："
 
 #: ../../narr/templates.rst:70
 msgid ""
@@ -90,7 +80,7 @@ msgid ""
 " to :func:`~pyramid.renderers.render_to_response` using asset "
 "specifications will continue to work properly if you move the code "
 "containing them to another location."
-msgstr ""
+msgstr "資産の指定はPython *パッケージ内のファイルを指します*。この場合、 `` mypackage``パッケージの `` templates``ディレクトリ内の `` foo.pt``という名前のファイルを指しています。相対的なテンプレート名の代わりにアセット仕様を使用するのは良い考えです。アセット仕様を使用して：func： `〜pyramid.renderers.render_to_response`を呼び出すと、別の場所にコードを移動すると引き続き正しく動作します。"
 
 #: ../../narr/templates.rst:78
 msgid ""
@@ -104,7 +94,7 @@ msgid ""
 "configured special :term:`renderer globals`, make sure to pass "
 "``request`` as a keyword argument in every call to a "
 "``pyramid.renderers.render_*`` function."
-msgstr ""
+msgstr "上記の例では、current：app： `Pyramid`リクエストを表す` `request``という名前のキーワード引数を渡します。要求キーワード引数を渡すと、適切なシステム値を構成するために必要な情報の大部分が要求に含まれているため、レンダラーにより正確なシステム値（see：ref： `renderer_system_values`）を提供する` `render_to_response``関数が発生します。あなたのテンプレートが `` request``または `` context``という名前に依存している場合、またはspecial：term： `renderer globals`を設定した場合、すべての呼び出しで` `request``をキーワード引数として渡すようにしてください`` pyramid.renderers.render_ * ``関数に渡します。"
 
 #: ../../narr/templates.rst:88
 msgid ""
@@ -114,7 +104,7 @@ msgid ""
 " shortcut function that actually returns a response object. This allows "
 "the example view above to simply return the result of its call to "
 "``render_to_response()`` directly."
-msgstr ""
+msgstr "すべてのビューは：term： `response`オブジェクトを返す必要がありますが、viewコンフィグレーション（以下で簡単に説明します）で指定された：term：` renderer`を使用するビューは例外です。 ：func： `pyramid.renderers.render_to_response`関数は実際にレスポンスオブジェクトを返すショートカット関数です。これにより、上の例のビューは単に `` render_to_response（） ``への呼び出しの結果を直接返すことができます。"
 
 #: ../../narr/templates.rst:94
 msgid ""
@@ -124,7 +114,7 @@ msgid ""
 ":func:`pyramid.renderers.render` API renders a template to a string. We "
 "can manufacture a :term:`response` object directly, and use that string "
 "as the body of the response:"
-msgstr ""
+msgstr "明らかに、応答データを取得するために呼び出すすべてのAPIが応答オブジェクトを返すわけではありません。たとえば、1つ以上のテンプレートを応答データとして使用する文字列にレンダリングすることができます。 ：func： `pyramid.renderers.render` APIはテンプレートを文字列にレンダリングします。 a：term： `response`オブジェクトを直接作成し、その文字列をレスポンスの本体として使うことができます："
 
 #: ../../narr/templates.rst:114
 msgid ""
@@ -135,13 +125,13 @@ msgid ""
 " the templating system, import its API functions into your views module, "
 "use those APIs to generate a string, then return that string as the body "
 "of a :app:`Pyramid` :term:`Response` object."
-msgstr ""
+msgstr "なぜなら：term： `view callable`関数は典型的には、app：` Pyramid`の中で唯一のコードであり、テンプレートについて何か知っている必要があり、ビュー関数は非常に単純なPythonなので、あなたが最も関心のあるテンプレートシステム快適な内：アプリ： `ピラミッド`。テンプレートシステムをインストールし、そのAPI関数をビューモジュールにインポートし、それらのAPIを使用して文字列を生成し、その文字列を：app： `Pyramid`：term：` Response`オブジェクトの本体として返します。"
 
 #: ../../narr/templates.rst:122
 msgid ""
 "For example, here's an example of using \"raw\" Mako_ from within a "
 ":app:`Pyramid` :term:`view`:"
-msgstr ""
+msgstr "例えば、以下の例は、app： `Pyramid`の中で\&quot; raw \ &quot;Mako_を使用する例です：term：` view`："
 
 #: ../../narr/templates.rst:137
 msgid ""
@@ -150,7 +140,7 @@ msgid ""
 "<available_template_system_bindings>`. But if your favorite templating "
 "system is not supported as a renderer extension for :app:`Pyramid`, you "
 "can create your own simple combination as shown above."
-msgstr ""
+msgstr "サポートされているほうが使いやすいので、この特定のスニペットをプロジェクトで使用することはおそらくありません：ref： `Mako bindings <available_template_system_bindings> `。しかし、好きなテンプレートシステムが：app： `Pyramid`のレンダラー拡張としてサポートされていない場合は、上記のような独自の単純な組み合わせを作成することができます。"
 
 #: ../../narr/templates.rst:145
 msgid ""
@@ -166,30 +156,30 @@ msgid ""
 ":ref:`adding_and_overriding_renderers` for instructions on how to create "
 "your own template renderer and :ref:`available_template_system_bindings` "
 "for example packages."
-msgstr ""
+msgstr "ビュー呼び出し可能ファイル内で直接app： `Pyramid`バインディングを使用せずにサードパーティのテンプレート言語を使用する場合、ref：` reload_templates_section`で説明されている自動テンプレートリロード戦略は利用できません。またテンプレートアセットの上書き機能も説明しませんin：ref： `overriding_assets_section`を利用することはできません。また、その言語を使用するテンプレートを：term：` renderer`として使用することもできません。しかし、app： `Pyramid`の下で使用するカスタムテンプレートシステムバインディングパッケージを書くことは、言語で書かれたテンプレートをレンダラーとして使用することができます。独自のテンプレートレンダラーの作成方法についてはref： `adding_and_overriding_renderers`、パッケージの場合は：ref：` available_template_system_bindings`を参照してください。"
 
 #: ../../narr/templates.rst:158
 msgid ""
 "If you need more control over the status code and content-type, or other "
 "response attributes from views that use direct templating, you may set "
 "attributes on the response that influence these values."
-msgstr ""
+msgstr "ステータスコードとコンテンツタイプ、またはダイレクトテンプレートを使用するビューからの他の応答属性をさらに制御する必要がある場合は、これらの値に影響を与えるレスポンスに属性を設定できます。"
 
 #: ../../narr/templates.rst:162
 msgid ""
 "Here's an example of changing the content-type and status of the response"
 " object returned by :func:`~pyramid.renderers.render_to_response`:"
-msgstr ""
+msgstr "func： `〜pyramid.renderers.render_to_response`によって返されるレスポンスオブジェクトのコンテンツタイプとステータスを変更する例を次に示します。"
 
 #: ../../narr/templates.rst:178
 msgid ""
 "Here's an example of manufacturing a response object using the result of "
 ":func:`~pyramid.renderers.render` (a string):"
-msgstr ""
+msgstr "func： `〜pyramid.renderers.render`（文字列）の結果を使用してレスポンスオブジェクトを作成する例を次に示します。"
 
 #: ../../narr/templates.rst:207
 msgid "System Values Used During Rendering"
-msgstr ""
+msgstr "レンダリング時に使用されるシステム値"
 
 #: ../../narr/templates.rst:209
 msgid ""
@@ -199,11 +189,11 @@ msgid ""
 "configuration (see :ref:`templates_used_as_renderers`), the renderer "
 "representing the template will be provided with a number of *system* "
 "values. These values are provided to the template:"
-msgstr ""
+msgstr "テンプレートを：func： `〜pyramid.renderers.render_to_response`または：func：`〜pyramid.renderers.render`ま​​たはレンダラー= `引数を使用してレンダリングすると、設定を表示できます（参照：ref：` templates_used_as_renderers` ）、テンプレートを表すレンダラーにはいくつかの* system *値が与えられます。これらの値は、テンプレートに提供されます。"
 
 #: ../../narr/templates.rst:219
 msgid "``request``"
-msgstr ""
+msgstr "``要求 ``"
 
 #: ../../narr/templates.rst:216
 msgid ""
@@ -211,19 +201,19 @@ msgid ""
 "``render_to_response`` or ``render`` *or* the request object passed to "
 "the view when the ``renderer=`` argument to view configuration is being "
 "used to render the template."
-msgstr ""
+msgstr "`` render_to_response``または `` render`` *または*への `` request``キーワード引数として提供される値は、 `` renderer = ``設定を表示する引数が使用されているときにビューに渡されるリクエストオブジェクトです。テンプレートをレンダリングします。"
 
 #: ../../narr/templates.rst:222
 msgid "``req``"
-msgstr ""
+msgstr "`` req``"
 
 #: ../../narr/templates.rst:222
 msgid "An alias for ``request``."
-msgstr ""
+msgstr "`` request``のエイリアスです。"
 
 #: ../../narr/templates.rst:229
 msgid "``context``"
-msgstr ""
+msgstr "「文脈」"
 
 #: ../../narr/templates.rst:225
 msgid ""
@@ -232,42 +222,42 @@ msgid ""
 "if the ``request`` keyword argument was not provided.  This value will "
 "always be provided if the template is rendered as the result of a "
 "``renderer=`` argument to the view configuration being used."
-msgstr ""
+msgstr "`` render_to_response``や `` render``にキーワード引数として `` request``が与えられていれば、現在の：app： `Pyramid`：term：` context`、 `` render``や `` render``に `` None``、 ``キーワード引数は提供されませんでした。この値は、使用されているビュー設定への `` renderer = ``引数の結果としてテンプレートがレンダリングされた場合に常に提供されます。"
 
 #: ../../narr/templates.rst:233
 msgid "``get_csrf_token()``"
-msgstr ""
+msgstr "`` get_csrf_token（） ``"
 
 #: ../../narr/templates.rst:232
 msgid ""
 "A convenience function to access the current CSRF token. See "
 ":ref:`get_csrf_token_in_templates` for more information."
-msgstr ""
+msgstr "現在のCSRFトークンにアクセスするための便利な関数。詳細は：ref： `get_csrf_token_in_templates`を参照してください。"
 
 #: ../../narr/templates.rst:237
 msgid "``renderer_name``"
-msgstr ""
+msgstr "`` renderer_name``"
 
 #: ../../narr/templates.rst:236
 msgid ""
 "The renderer name used to perform the rendering, e.g., "
 "``mypackage:templates/foo.pt``."
-msgstr ""
+msgstr "レンダリングを実行するために使用されるレンダラー名。たとえば、 `` mypackage：templates / foo.pt``などです。"
 
 #: ../../narr/templates.rst:242
 msgid "``renderer_info``"
-msgstr ""
+msgstr "`` renderer_info``"
 
 #: ../../narr/templates.rst:240
 msgid ""
 "An object implementing the :class:`pyramid.interfaces.IRendererInfo` "
 "interface.  Basically, an object with the following attributes: ``name``,"
 " ``package``, and ``type``."
-msgstr ""
+msgstr "：class： `pyramid.interfaces.IRendererInfo`インタフェースを実装しているオブジェクトです。基本的には、 `` name``、 `` package``、 `` type``の属性を持つオブジェクトです。"
 
 #: ../../narr/templates.rst:251
 msgid "``view``"
-msgstr ""
+msgstr "「見る」"
 
 #: ../../narr/templates.rst:245
 msgid ""
@@ -278,24 +268,24 @@ msgid ""
 "this value will only be automatically present when a template is rendered"
 " as a result of a ``renderer=`` argument; it will be ``None`` when the "
 "``render_to_response`` or ``render`` APIs are used."
-msgstr ""
+msgstr "このテンプレートのレンダリングに使用されたビュー呼び出し可能オブジェクト。呼び出し可能なビューがクラスベースのビューのメソッドである場合、これはメソッドが定義されたクラスのインスタンスになります。ビューcallableが関数またはインスタンスの場合、それはその関数またはインスタンスになります。この値は、 `` renderer = ``引数の結果としてテンプレートがレンダリングされた場合にのみ自動的に表示されることに注意してください。 `` render_to_response``や `` render`` APIを使うと `` None``になります。"
 
 #: ../../narr/templates.rst:253
 msgid ""
 "You can define more values which will be passed to every template "
 "executed as a result of rendering by defining :term:`renderer globals`."
-msgstr ""
+msgstr "term： `renderer globals`を定義することによって、レンダリングの結果として実行されるすべてのテンプレートに渡されるより多くの値を定義することができます。"
 
 #: ../../narr/templates.rst:256
 msgid ""
 "What any particular renderer does with these system values is up to the "
 "renderer itself, but most template renderers make these names available "
 "as top-level template variables."
-msgstr ""
+msgstr "これらのシステム値で特定のレンダラーが行うことは、レンダラー自体に依存しますが、ほとんどのテンプレートレンダラーは、これらの名前をトップレベルのテンプレート変数として使用できます。"
 
 #: ../../narr/templates.rst:266
 msgid "Templates Used as Renderers via Configuration"
-msgstr ""
+msgstr "コンフィグレーション経由でレンダラーとして使用されるテンプレート"
 
 #: ../../narr/templates.rst:268
 msgid ""
@@ -303,7 +293,7 @@ msgid ""
 "render templates manually in your view callable code is to specify the "
 "template as a :term:`renderer` in your *view configuration*. This can be "
 "done with any of the templating languages supported by :app:`Pyramid`."
-msgstr ""
+msgstr "：func： `〜pyramid.renderers.render_to_response`を使用して、ビューの呼び出し可能コードでテンプレートを手動でレンダリングする代わりに、あなたの*ビュー設定*内に：term：` renderer`としてテンプレートを指定することができます。これは、app： `Pyramid`でサポートされているテンプレート言語のいずれかで行うことができます。"
 
 #: ../../narr/templates.rst:273
 msgid ""
@@ -313,20 +303,20 @@ msgid ""
 "*dictionary* from that view callable.  The dictionary items returned by "
 "the view callable will be made available to the renderer template as top-"
 "level names."
-msgstr ""
+msgstr "ビューの設定でレンダラーを使用するには、 `renderer`引数としてtemplate：term：` asset specification`を指定するか、：term： `view callable`の：term：` view configuration`に属性を指定します。次に、そのビューから呼び出し可能な辞書*を返します。呼び出し可能なビューによって返されるディクショナリ項目は、レンダラーテンプレートが最上位の名前として使用できるようになります。"
 
 #: ../../narr/templates.rst:279
 msgid ""
 "The association of a template as a renderer for a :term:`view "
 "configuration` makes it possible to replace code within a :term:`view "
 "callable` that handles the rendering of a template."
-msgstr ""
+msgstr "a：term： `view configuration`のレンダラーとしてのテンプレートの関連付けは、テンプレートのレンダリングを扱う：term：` view callable`内のコードを置き換えることを可能にします。"
 
 #: ../../narr/templates.rst:283
 msgid ""
 "Here's an example of using a :class:`~pyramid.view.view_config` decorator"
 " to specify a :term:`view configuration` that names a template renderer:"
-msgstr ""
+msgstr "次に、class： `〜pyramid.view.view_config`デコレータを使用して：term：` view configuration`を指定してテンプレートレンダラーを指定する例を示します："
 
 #: ../../narr/templates.rst:297
 msgid ""
@@ -334,7 +324,7 @@ msgid ""
 "dictionary result returned from a renderer-configured view callable. "
 ":app:`Pyramid` automatically supplies this value for you, so that the "
 "\"most correct\" system values are provided to the renderer."
-msgstr ""
+msgstr "あなたは、レンダラー設定ビュー呼び出し可能から返された辞書結果のキーとして `` request``値を与える必要はありません。 ：app： `Pyramid`は自動的にこの値をあなたに提供し、最も正確なシステム値がレンダラーに提供されます。"
 
 #: ../../narr/templates.rst:304
 msgid ""
@@ -345,17 +335,17 @@ msgid ""
 " which the file that defines the view configuration lives\".  In this "
 "case, this is the directory containing the file that defines the "
 "``my_view`` function."
-msgstr ""
+msgstr "上記の `` @ view_config``設定デコレータの `` renderer``引数は、テンプレート* path *です。上記の例では、 `` templates / foo.pt``は* relative *です。何に対して、あなたは頼む？カメレオンレンダラーを使用しているため、ビュー構成を定義するファイルが存在するディレクトリからの相対パスであることを意味します。この場合、これは `` my_view``関数を定義するファイルを含むディレクトリです。"
 
 #: ../../narr/templates.rst:312
 msgid ""
 "Similar renderer configuration can be done imperatively.  See "
 ":ref:`views_which_use_a_renderer`."
-msgstr ""
+msgstr "同様のレンダラー構成を必須に行うことができます。参照：ref： `views_which_use_a_renderer`を参照してください。"
 
 #: ../../narr/templates.rst:317
 msgid "See also :ref:`built_in_renderers`."
-msgstr ""
+msgstr "参照：ref： `built_in_renderers`も参照してください。"
 
 #: ../../narr/templates.rst:319
 msgid ""
@@ -365,17 +355,17 @@ msgid ""
 ":term:`asset specification` in the form "
 "``some.dotted.package_name:relative/path``, making it possible to address"
 " template assets which live in another package."
-msgstr ""
+msgstr "レンダラーパスは通常単純な相対パス名ですが、レンダラーとして指定されたパスは、UNIXではスラッシュ、Windowsではドライブレター接頭辞から始まる絶対パスにすることができます。パスは、 `` some.dotted.package_name：relative / path``の形式で：term： `asset specification`とすることもできます。これにより、別のパッケージにあるテンプレートアセットを扱うことができます。"
 
 #: ../../narr/templates.rst:325
 msgid ""
 "Not just any template from any arbitrary templating system may be used as"
 " a renderer.  Bindings must exist specifically for :app:`Pyramid` to use "
 "a templating language template as a renderer."
-msgstr ""
+msgstr "任意のテンプレートシステムのテンプレートだけでなく、レンダラーとして使用することもできます。バインディングは、app： `Pyramid`がテンプレート言語テンプレートをレンダラーとして使用するために特別に存在する必要があります。"
 
 msgid "Why Use a Renderer via View Configuration"
-msgstr ""
+msgstr "ビューの設定でレンダリングを使用する理由"
 
 #: ../../narr/templates.rst:331
 msgid ""
@@ -390,7 +380,7 @@ msgid ""
 "view configuration typically return a dictionary, as above.  Making "
 "assertions about results returned in a dictionary is almost always more "
 "direct and straightforward than needing to parse HTML."
-msgstr ""
+msgstr "ビューの設定でレンダラーを使用すると、レンダリングAPIをa：term： `view callable`から直接使用するよりも、レンダー可能なビューをユニット単位でテストできるようになるため、テンプレートをレンダリングする方がより効果的です。テンプレートまたはレンダリングAPIを直接使用するビューは、：term： `Response`オブジェクトを返す必要があります。応答オブジェクトに関するテストのアサーションを作成することは、通常、間接的なプロセスです。これは、テストコードで、しばしば応答本体（しばしばHTML）から情報を何らかの形で解析する必要があるためです。ビュー構成を使用してレンダラーで外部に設定された呼び出し可能ビューを表示すると、通常は上記のように辞書が返されます。ディクショナリで返される結果に関するアサーションは、ほとんどの場合、HTMLを解析する必要がある場合よりも直接的で簡単です。"
 
 #: ../../narr/templates.rst:343
 msgid ""
@@ -402,34 +392,34 @@ msgid ""
 ":class:`pyramid.response.Response` object exposed as ``request.response``"
 " within the view before returning the dictionary.  See "
 ":ref:`request_response_attr` for more information."
-msgstr ""
+msgstr "デフォルトでは、テンプレートレンダラーを介してレンダリングされたビューは、*ステータスコード*が `` 200 OK``、* content-type *が `` text / html``のa：term： `Response`オブジェクトを返します。コンテンツタイプ、ヘッダ、ステータス属性などのレンダラを使用するビューのレスポンスの属性を変更するには、 `class：` pyramid.response.Response`オブジェクトのAPIを `` request &#39;&#39;として公開する必要があります.response``を呼び出して辞書を返します。詳細はref： `request_response_attr`を参照してください。"
 
 #: ../../narr/templates.rst:351
 msgid ""
 "The same set of system values are provided to templates rendered via a "
 "renderer view configuration as those provided to templates rendered "
 "imperatively.  See :ref:`renderer_system_values`."
-msgstr ""
+msgstr "レンダラー・ビュー構成を介してレンダリングされたテンプレートには、必要に応じてレンダリングされたテンプレートに提供されるものと同じシステム値のセットが提供されます。参照：ref： `renderer_system_values`を参照してください。"
 
 #: ../../narr/templates.rst:361
 msgid "Debugging Templates"
-msgstr ""
+msgstr "テンプレートのデバッグ"
 
 #: ../../narr/templates.rst:363
 msgid ""
 "A :exc:`NameError` exception resulting from rendering a template with an "
 "undefined variable (e.g. ``${wrong}``) might end up looking like this:"
-msgstr ""
+msgstr "未定義の変数（ `` $ {wrong} ``など）を持つテンプレートをレンダリングした結果のA：exc： `NameError`例外は次のようになります："
 
 #: ../../narr/templates.rst:382
 msgid ""
 "The output tells you which template the error occurred in, as well as "
 "displaying the arguments passed to the template itself."
-msgstr ""
+msgstr "出力には、エラーが発生したテンプレートとテンプレート自体に渡された引数が表示されます。"
 
 #: ../../narr/templates.rst:392
 msgid "Automatically Reloading Templates"
-msgstr ""
+msgstr "テンプレートの自動リロード"
 
 #: ../../narr/templates.rst:394
 msgid ""
@@ -438,90 +428,90 @@ msgid ""
 ":app:`Pyramid` allows you to configure your application development "
 "environment so that a change to a template will be automatically "
 "detected, and the template will be reloaded on the next rendering."
-msgstr ""
+msgstr "アプリケーション・プロセスを再起動することなく、テンプレート・ファイルに対する変更がすぐに表示されることがよくあります。 ：app： `Pyramid`では、アプリケーション開発環境を設定して、テンプレートへの変更を自動的に検出し、次のレンダリング時にテンプレートを再ロードすることができます。"
 
 #: ../../narr/templates.rst:402
 msgid ""
 "Auto-template-reload behavior is not recommended for production sites as "
 "it slows rendering slightly; it's usually only desirable during "
 "development."
-msgstr ""
+msgstr "本番サイトでは、自動テンプレートリロードの動作は推奨されません。レンダリングがわずかに遅くなるためです。それは通常、開発中にのみ望ましいです。"
 
 #: ../../narr/templates.rst:405
 msgid ""
 "In order to turn on automatic reloading of templates, you can use an "
 "environment variable or a configuration file setting."
-msgstr ""
+msgstr "テンプレートの自動リロードを有効にするには、環境変数または設定ファイルの設定を使用します。"
 
 #: ../../narr/templates.rst:408
 msgid ""
 "To use an environment variable, start your application under a shell "
 "using the ``PYRAMID_RELOAD_TEMPLATES`` operating system environment "
 "variable set to ``1``, For example:"
-msgstr ""
+msgstr "環境変数を使用するには、 `` PYRAMID_RELOAD_TEMPLATES``オペレーティングシステム環境変数を `` 1``に設定して、シェルのもとでアプリケーションを起動します。例："
 
 #: ../../narr/templates.rst:416
 msgid ""
 "To use a setting in the application ``.ini`` file for the same purpose, "
 "set the ``pyramid.reload_templates`` key to ``true`` within the "
 "application's configuration section, e.g.:"
-msgstr ""
+msgstr "同じ目的のためにアプリケーションの `` .ini``ファイル内の設定を使うには、アプリケーションの設定セクション内で `` py```を `` true``に設定します："
 
 #: ../../narr/templates.rst:436
 msgid "Available Add-On Template System Bindings"
-msgstr ""
+msgstr "利用可能なアドオンテンプレートシステムバインディング"
 
 #: ../../narr/templates.rst:438
 msgid ""
 "The Pylons Project maintains several packages providing bindings to "
 "different templating languages including the following:"
-msgstr ""
+msgstr "Pylonsプロジェクトは、以下を含む異なるテンプレート言語へのバインディングを提供するいくつかのパッケージを管理しています："
 
 #: ../../narr/templates.rst:442
 msgid "Template Language"
-msgstr ""
+msgstr "テンプレート言語"
 
 #: ../../narr/templates.rst:442
 msgid "Pyramid Bindings"
-msgstr ""
+msgstr "ピラミッドバインディング"
 
 #: ../../narr/templates.rst:442
 msgid "Default Extensions"
-msgstr ""
+msgstr "デフォルトの拡張機能"
 
 #: ../../narr/templates.rst:444
 msgid "Chameleon_"
-msgstr ""
+msgstr "カメレオン_"
 
 #: ../../narr/templates.rst:444
 msgid "pyramid_chameleon_"
-msgstr ""
+msgstr "ピラミッド_カメレオン_"
 
 #: ../../narr/templates.rst:444
 msgid ".pt, .txt"
-msgstr ""
+msgstr ".pt、.txt"
 
 #: ../../narr/templates.rst:446
 msgid "Jinja2_"
-msgstr ""
+msgstr "Jinja2_"
 
 #: ../../narr/templates.rst:446
 msgid "pyramid_jinja2_"
-msgstr ""
+msgstr "ピラミッド_jinja2_"
 
 #: ../../narr/templates.rst:446
 msgid ".jinja2"
-msgstr ""
+msgstr ".jinnja2"
 
 #: ../../narr/templates.rst:448
 msgid "Mako_"
-msgstr ""
+msgstr "マコ"
 
 #: ../../narr/templates.rst:448
 msgid "pyramid_mako_"
-msgstr ""
+msgstr "ピラミッド_マコ_"
 
 #: ../../narr/templates.rst:448
 msgid ".mak, .mako"
-msgstr ""
+msgstr ".mak、.mako"
 

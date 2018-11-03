@@ -1,0 +1,882 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/interfaces.rst:4
+msgid ":mod:`pyramid.interfaces`"
+msgstr ""
+
+#: ../../api/interfaces.rst:9
+msgid "Event-Related Interfaces"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IApplicationCreated:1
+msgid "Event issued when the :meth:`pyramid.config.Configurator.make_wsgi_app` method is called.  See the documentation attached to :class:`pyramid.events.ApplicationCreated` for more information."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IApplicationCreated:9
+msgid "For backwards compatibility with :app:`Pyramid` versions before 1.0, this interface can also be imported as :class:`pyramid.interfaces.IWSGIApplicationCreatedEvent`."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IApplicationCreated.app:1
+msgid "Created application"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.INewRequest:1
+msgid "An event type that is emitted whenever :app:`Pyramid` begins to process a new request.  See the documentation attached to :class:`pyramid.events.NewRequest` for more information."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.INewRequest.request:1
+#: ../../docstring of pyramid.interfaces.IContextFound.request:1
+#: ../../docstring of pyramid.interfaces.IBeforeTraversal.request:1
+#: ../../docstring of pyramid.interfaces.INewResponse.request:1
+msgid "The request object"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IContextFound:1
+msgid "An event type that is emitted after :app:`Pyramid` finds a :term:`context` object but before it calls any view code.  See the documentation attached to :class:`pyramid.events.ContextFound` for more information."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IContextFound:8
+msgid "For backwards compatibility with versions of :app:`Pyramid` before 1.0, this event interface can also be imported as :class:`pyramid.interfaces.IAfterTraversal`."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IBeforeTraversal:1
+msgid "An event type that is emitted after :app:`Pyramid` attempted to find a route but before it calls any traversal or view code. See the documentation attached to :class:`pyramid.events.Routefound` for more information."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.INewResponse:1
+msgid "An event type that is emitted whenever any :app:`Pyramid` view returns a response. See the documentation attached to :class:`pyramid.events.NewResponse` for more information."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.INewResponse.response:1
+msgid "The response object"
+msgstr ""
+
+#: ../../<autodoc>:1
+#: ../../<autodoc>:1
+#: ../../<autodoc>:1
+msgid "Extends: :class:`pyramid.interfaces.IDict`"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IBeforeRender:1
+msgid "Subscribers to this event may introspect and modify the set of :term:`renderer globals` before they are passed to a :term:`renderer`. The event object itself provides a dictionary-like interface for adding and removing :term:`renderer globals`.  The keys and values of the dictionary are those globals.  For example::"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IBeforeRender:16
+msgid "See also :ref:`beforerender_event`."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IBeforeRender.rendering_val:1
+msgid "The value returned by a view or passed to a ``render`` method for this rendering. This feature is new in Pyramid 1.2."
+msgstr ""
+
+#: ../../api/interfaces.rst:30
+msgid "Other Interfaces"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IAuthenticationPolicy:1
+msgid "An object representing a Pyramid authentication policy."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAuthenticationPolicy.authenticated_userid:1
+msgid "Return the authenticated :term:`userid` or ``None`` if no authenticated userid can be found. This method of the policy should ensure that a record exists in whatever persistent store is used related to the user (the user should not have been deleted); if a record associated with the current id does not exist in a persistent store, it should return ``None``."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAuthenticationPolicy.unauthenticated_userid:1
+msgid "Return the *unauthenticated* userid.  This method performs the same duty as ``authenticated_userid`` but is permitted to return the userid based only on data present in the request; it needn't (and shouldn't) check any persistent store to ensure that the user record related to the request userid exists."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAuthenticationPolicy.unauthenticated_userid:8
+msgid "This method is intended primarily a helper to assist the ``authenticated_userid`` method in pulling credentials out of the request data, abstracting away the specific headers, query strings, etc that are used to authenticate the request."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAuthenticationPolicy.effective_principals:1
+msgid "Return a sequence representing the effective principals typically including the :term:`userid` and any groups belonged to by the current user, always including 'system' groups such as ``pyramid.security.Everyone`` and ``pyramid.security.Authenticated``."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAuthenticationPolicy.remember:1
+msgid "Return a set of headers suitable for 'remembering' the :term:`userid` named ``userid`` when set in a response.  An individual authentication policy and its consumers can decide on the composition and meaning of ``**kw``."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAuthenticationPolicy.forget:1
+msgid "Return a set of headers suitable for 'forgetting' the current user on subsequent requests."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IAuthorizationPolicy:1
+msgid "An object representing a Pyramid authorization policy."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAuthorizationPolicy.permits:1
+msgid "Return an instance of :class:`pyramid.security.Allowed` if any of the ``principals`` is allowed the ``permission`` in the current ``context``, else return an instance of :class:`pyramid.security.Denied`."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAuthorizationPolicy.principals_allowed_by_permission:1
+msgid "Return a set of principal identifiers allowed by the ``permission`` in ``context``.  This behavior is optional; if you choose to not implement it you should define this method as something which raises a ``NotImplementedError``.  This method will only be called when the ``pyramid.security.principals_allowed_by_permission`` API is used."
+msgstr ""
+
+#: ../../<autodoc>:1
+msgid "Extends: :class:`pyramid.interfaces.IException`, :class:`pyramid.interfaces.IResponse`"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IExceptionResponse:1
+msgid "An interface representing a WSGI response which is also an exception object.  Register an exception view using this interface as a ``context`` to apply the registered view for all exception types raised by :app:`Pyramid` internally (any exception that inherits from :class:`pyramid.response.Response`, including :class:`pyramid.httpexceptions.HTTPNotFound` and :class:`pyramid.httpexceptions.HTTPForbidden`)."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IExceptionResponse.prepare:1
+msgid "Prepares the response for being called as a WSGI application"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IRoute:1
+msgid "Interface representing the type of object returned from ``IRoutesMapper.get_route``"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoute.name:1
+msgid "The route name"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoute.pattern:1
+msgid "The route pattern"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoute.factory:1
+msgid "The :term:`root factory` used by the :app:`Pyramid` router when this route matches (or ``None``)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoute.predicates:1
+msgid "A sequence of :term:`route predicate` objects used to determine if a request matches this route or not after basic pattern matching has been completed."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoute.pregenerator:1
+msgid "This attribute should either be ``None`` or a callable object implementing the ``IRoutePregenerator`` interface"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoute.match:1
+msgid "If the ``path`` passed to this function can be matched by the ``pattern`` of this route, return a dictionary (the 'matchdict'), which will contain keys representing the dynamic segment markers in the pattern mapped to values extracted from the provided ``path``."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoute.match:7
+msgid "If the ``path`` passed to this function cannot be matched by the ``pattern`` of this route, return ``None``."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoute.generate:1
+msgid "Generate a URL based on filling in the dynamic segment markers in the pattern using the ``kw`` dictionary provided."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoutePregenerator.__call__:1
+msgid "A pregenerator is a function associated by a developer with a :term:`route`. The pregenerator for a route is called by :meth:`pyramid.request.Request.route_url` in order to adjust the set of arguments passed to it by the user for special purposes, such as Pylons 'subdomain' support.  It will influence the URL returned by ``route_url``."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoutePregenerator.__call__:8
+msgid "A pregenerator should return a two-tuple of ``(elements, kw)`` after examining the originals passed to this function, which are the arguments ``(request, elements, kw)``.  The simplest pregenerator is::"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRoutePregenerator.__call__:16
+msgid "You can employ a pregenerator by passing a ``pregenerator`` argument to the :meth:`pyramid.config.Configurator.add_route` function."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.ICSRFStoragePolicy:1
+msgid "An object that offers the ability to verify CSRF tokens and generate new ones."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ICSRFStoragePolicy.new_csrf_token:1
+msgid "Create and return a new, random cross-site request forgery protection token. The token will be an ascii-compatible unicode string."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ICSRFStoragePolicy.get_csrf_token:1
+msgid "Return a cross-site request forgery protection token.  It will be an ascii-compatible unicode string.  If a token was previously set for this user via ``new_csrf_token``, that token will be returned. If no CSRF token was previously set, ``new_csrf_token`` will be called, which will create and set a token, and this token will be returned."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ICSRFStoragePolicy.check_csrf_token:1
+msgid "Determine if the supplied ``token`` is valid. Most implementations should simply compare the ``token`` to the current value of ``get_csrf_token`` but it is possible to verify the token using any mechanism necessary using this method."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ICSRFStoragePolicy.check_csrf_token:6
+msgid "Returns ``True`` if the ``token`` is valid, otherwise ``False``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.ISession:1
+msgid "An interface representing a session (a web session object, usually accessed via ``request.session``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.ISession:4
+msgid "Keys and values of a session must be pickleable."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.ISession:8
+msgid "Sessions are no longer required to implement ``get_csrf_token`` and ``new_csrf_token``. CSRF token support was moved to the pluggable :class:`pyramid.interfaces.ICSRFStoragePolicy` configuration hook."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ISession.created:1
+msgid "Integer representing Epoch time when created."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ISession.new:1
+msgid "Boolean attribute.  If ``True``, the session is new."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ISession.invalidate:1
+msgid "Invalidate the session.  The action caused by ``invalidate`` is implementation-dependent, but it should have the effect of completely dissociating any data stored in the session with the current request.  It might set response values (such as one which clears a cookie), or it might not."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ISession.invalidate:7
+msgid "An invalidated session may be used after the call to ``invalidate`` with the effect that a new session is created to store the data. This enables workflows requiring an entirely new session, such as in the case of changing privilege levels or preventing fixation attacks."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ISession.changed:1
+msgid "Mark the session as changed. A user of a session should call this method after he or she mutates a mutable object that is *a value of the session* (it should not be required after mutating the session itself).  For example, if the user has stored a dictionary in the session under the key ``foo``, and he or she does ``session['foo'] = {}``, ``changed()`` needn't be called.  However, if subsequently he or she does ``session['foo']['a'] = 1``, ``changed()`` must be called for the sessioning machinery to notice the mutation of the internal dictionary."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ISession.flash:1
+msgid "Push a flash message onto the end of the flash queue represented by ``queue``.  An alternate flash message queue can used by passing an optional ``queue``, which must be a string.  If ``allow_duplicate`` is false, if the ``msg`` already exists in the queue, it will not be re-added."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ISession.pop_flash:1
+msgid "Pop a queue from the flash storage.  The queue is removed from flash storage after this message is called.  The queue is returned; it is a list of flash messages added by :meth:`pyramid.interfaces.ISession.flash`"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ISession.peek_flash:1
+msgid "Peek at a queue in the flash storage.  The queue remains in flash storage after this message is called.  The queue is returned; it is a list of flash messages added by :meth:`pyramid.interfaces.ISession.flash`"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.ISessionFactory:1
+msgid "An interface representing a factory which accepts a request object and returns an ISession object"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ISessionFactory.__call__:1
+msgid "Return an ISession object"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IRendererInfo:1
+msgid "An object implementing this interface is passed to every :term:`renderer factory` constructor as its only argument (conventionally named ``info``)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRendererInfo.name:1
+msgid "The value passed by the user as the renderer name"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRendererInfo.package:1
+msgid "The \"current package\" when the renderer configuration statement was found"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRendererInfo.type:1
+msgid "The renderer type name"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRendererInfo.registry:1
+msgid "The \"current\" application registry when the renderer was created"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRendererInfo.settings:1
+#: ../../docstring of pyramid.interfaces.IViewDeriverInfo.settings:1
+msgid "The deployment settings dictionary related to the current application"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRendererInfo.clone:1
+msgid "Return a shallow copy that does not share any mutable state."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRendererFactory.__call__:1
+msgid "Return an object that implements :class:`pyramid.interfaces.IRenderer`. ``info`` is an object that implements :class:`pyramid.interfaces.IRendererInfo`."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRenderer.__call__:1
+msgid "Call the renderer with the result of the view (``value``) passed in and return a result (a string or unicode object useful as a response body).  Values computed by the system are passed by the system in the ``system`` parameter, which is a dictionary.  Keys in the dictionary include: ``view`` (the view callable that returned the value), ``renderer_name`` (the template name or simple name of the renderer), ``context`` (the context object passed to the view), and ``request`` (the request object passed to the view)."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IRequestFactory:1
+msgid "A utility which generates a request"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRequestFactory.__call__:1
+msgid "Return an instance of ``pyramid.request.Request``"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRequestFactory.blank:1
+msgid "Return an empty request object (see :meth:`pyramid.request.Request.blank`)"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IResponseFactory:1
+msgid "A utility which generates a response"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponseFactory.__call__:1
+msgid "Return a response object implementing IResponse, e.g. :class:`pyramid.response.Response`). It should handle the case when ``request`` is ``None``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IRouter:1
+msgid "WSGI application which routes requests to 'view' code based on a view registry."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRouter.registry:1
+msgid "Component architecture registry local to this application."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRouter.request_context:1
+msgid "Create a new request context from a WSGI environ."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRouter.request_context:3
+msgid "The request context is used to push/pop the threadlocals required when processing the request. It also contains an initialized :class:`pyramid.interfaces.IRequest` instance using the registered :class:`pyramid.interfaces.IRequestFactory`. The context may be used as a context manager to control the threadlocal lifecycle:"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRouter.request_context:14
+msgid "Alternatively, the context may be used without the ``with`` statement by manually invoking its ``begin()`` and ``end()`` methods."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRouter.invoke_request:1
+msgid "Invoke the :app:`Pyramid` request pipeline."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRouter.invoke_request:3
+msgid "See :ref:`router_chapter` for information on the request pipeline."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IRouter.invoke_request:5
+msgid "The output should be a :class:`pyramid.interfaces.IResponse` object or a raised exception."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewMapperFactory.__call__:1
+msgid "Return an object which implements :class:`pyramid.interfaces.IViewMapper`.  ``kw`` will be a dictionary containing view-specific arguments, such as ``permission``, ``predicates``, ``attr``, ``renderer``, and other items.  An IViewMapperFactory is used by :meth:`pyramid.config.Configurator.add_view` to provide a plugpoint to extension developers who want to modify potential view callable invocation signatures and response values."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewMapper.__call__:1
+msgid "Provided with an arbitrary object (a function, class, or instance), returns a callable with the call signature ``(context, request)``.  The callable returned should itself return a Response object.  An IViewMapper is returned by :class:`pyramid.interfaces.IViewMapperFactory`."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.__contains__:1
+msgid "Return ``True`` if key ``k`` exists in the dictionary."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.__setitem__:1
+msgid "Set a key/value pair into the dictionary"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.__delitem__:1
+msgid "Delete an item from the dictionary which is passed to the renderer as the renderer globals dictionary."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.__getitem__:1
+msgid "Return the value for key ``k`` from the dictionary or raise a KeyError if the key doesn't exist"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.__iter__:1
+msgid "Return an iterator over the keys of this dictionary"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.get:1
+msgid "Return the value for key ``k`` from the renderer dictionary, or the default if no such value exists."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.items:1
+msgid "Return a list of [(k,v)] pairs from the dictionary"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.keys:1
+msgid "Return a list of keys from the dictionary"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.values:1
+msgid "Return a list of values from the dictionary"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.pop:1
+msgid "Pop the key k from the dictionary and return its value.  If k doesn't exist, and default is provided, return the default.  If k doesn't exist and default is not provided, raise a KeyError."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.popitem:1
+msgid "Pop the item with key k from the dictionary and return it as a two-tuple (k, v).  If k doesn't exist, raise a KeyError."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.setdefault:1
+msgid "Return the existing value for key ``k`` in the dictionary.  If no value with ``k`` exists in the dictionary, set the ``default`` value into the dictionary under the k name passed.  If a value already existed in the dictionary, return it.  If a value did not exist in the dictionary, return the default"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.update:1
+msgid "Update the renderer dictionary with another dictionary ``d``."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IDict.clear:1
+msgid "Clear all values from the dictionary"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IMultiDict:1
+msgid "An ordered dictionary that can have multiple values for each key. A multidict adds the methods ``getall``, ``getone``, ``mixed``, ``extend``, ``add``, and ``dict_of_lists`` to the normal dictionary interface.  A multidict data structure is used as ``request.POST``, ``request.GET``, and ``request.params`` within an :app:`Pyramid` application."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IMultiDict.add:1
+msgid "Add the key and value, not overwriting any previous value."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IMultiDict.dict_of_lists:1
+msgid "Returns a dictionary where each key is associated with a list of values."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IMultiDict.extend:1
+msgid "Add a set of keys and values, not overwriting any previous values.  The ``other`` structure may be a list of two-tuples or a dictionary.  If ``**kwargs`` is passed, its value *will* overwrite existing values."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IMultiDict.getall:1
+msgid "Return a list of all values matching the key (may be an empty list)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IMultiDict.getone:1
+msgid "Get one value matching the key, raising a KeyError if multiple values were found."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IMultiDict.mixed:1
+msgid "Returns a dictionary where the values are either single values, or a list of values when a key/value appears more than once in this dictionary. This is similar to the kind of dictionary often used to represent the variables in a web request."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IResponse:1
+msgid "Represents a WSGI response using the WebOb response interface. Some attribute and method documentation of this interface references :rfc:`2616`."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IResponse:5
+msgid "This interface is most famously implemented by :class:`pyramid.response.Response` and the HTTP exception classes in :mod:`pyramid.httpexceptions`."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.RequestClass:1
+msgid "Alias for :class:`pyramid.request.Request`"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.__call__:1
+msgid ":term:`WSGI` call interface, should call the start_response callback and should return an iterable"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.accept_ranges:1
+msgid "Gets and sets and deletes the Accept-Ranges header. For more information on Accept-Ranges see RFC 2616, section 14.5"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.age:1
+msgid "Gets and sets and deletes the Age header. Converts using int. For more information on Age see RFC 2616, section 14.6."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.allow:1
+msgid "Gets and sets and deletes the Allow header. Converts using list. For more information on Allow see RFC 2616, Section 14.7."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.app_iter:1
+msgid "Returns the app_iter of the response."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.app_iter:3
+msgid "If body was set, this will create an app_iter from that body (a single-item list)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.app_iter_range:1
+msgid "Return a new app_iter built from the response app_iter that serves up only the given start:stop range."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.body:1
+msgid "The body of the response, as a str. This will read in the entire app_iter if necessary."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.body_file:1
+msgid "A file-like object that can be used to write to the body. If you passed in a list app_iter, that app_iter will be modified by writes."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.cache_control:1
+msgid "Get/set/modify the Cache-Control header (RFC 2616 section 14.9)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.cache_expires:1
+msgid "Get/set the Cache-Control and Expires headers. This sets the response to expire in the number of seconds passed when set."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.charset:1
+msgid "Get/set the charset (in the Content-Type)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.conditional_response_app:1
+msgid "Like the normal __call__ interface, but checks conditional headers:"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.conditional_response_app:4
+msgid "If-Modified-Since (304 Not Modified; only on GET, HEAD)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.conditional_response_app:6
+msgid "If-None-Match (304 Not Modified; only on GET, HEAD)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.conditional_response_app:8
+msgid "Range (406 Partial Content; only on GET, HEAD)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.content_disposition:1
+msgid "Gets and sets and deletes the Content-Disposition header. For more information on Content-Disposition see RFC 2616 section 19.5.1."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.content_encoding:1
+msgid "Gets and sets and deletes the Content-Encoding header.  For more information about Content-Encoding see RFC 2616 section 14.11."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.content_language:1
+msgid "Gets and sets and deletes the Content-Language header. Converts using list.  For more information about Content-Language see RFC 2616 section 14.12."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.content_length:1
+msgid "Gets and sets and deletes the Content-Length header. For more information on Content-Length see RFC 2616 section 14.17. Converts using int."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.content_location:1
+msgid "Gets and sets and deletes the Content-Location header. For more information on Content-Location see RFC 2616 section 14.14."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.content_md5:1
+msgid "Gets and sets and deletes the Content-MD5 header. For more information on Content-MD5 see RFC 2616 section 14.14."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.content_range:1
+msgid "Gets and sets and deletes the Content-Range header. For more information on Content-Range see section 14.16. Converts using ContentRange object."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.content_type:1
+msgid "Get/set the Content-Type header (or None), without the charset or any parameters. If you include parameters (or ; at all) when setting the content_type, any existing parameters will be deleted; otherwise they will be preserved."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.content_type_params:1
+msgid "A dictionary of all the parameters in the content type.  This is not a view, set to change, modifications of the dict would not be applied otherwise."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.copy:1
+msgid "Makes a copy of the response and returns the copy."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.date:1
+msgid "Gets and sets and deletes the Date header. For more information on Date see RFC 2616 section 14.18. Converts using HTTP date."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.delete_cookie:1
+msgid "Delete a cookie from the client. Note that path and domain must match how the cookie was originally set.  This sets the cookie to the empty string, and max_age=0 so that it should expire immediately."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.encode_content:1
+msgid "Encode the content with the given encoding (only gzip and identity are supported)."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.environ:1
+msgid "Get/set the request environ associated with this response, if any."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.etag:1
+msgid "Gets and sets and deletes the ETag header. For more information on ETag see RFC 2616 section 14.19. Converts using Entity tag."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.expires:1
+msgid "Gets and sets and deletes the Expires header. For more information on Expires see RFC 2616 section 14.21. Converts using HTTP date."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.headerlist:1
+msgid "The list of response headers."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.headers:1
+msgid "The headers in a dictionary-like object"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.last_modified:1
+msgid "Gets and sets and deletes the Last-Modified header. For more information on Last-Modified see RFC 2616 section 14.29. Converts using HTTP date."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.location:1
+msgid "Gets and sets and deletes the Location header. For more information on Location see RFC 2616 section 14.30."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.md5_etag:1
+msgid "Generate an etag for the response object using an MD5 hash of the body (the body parameter, or self.body if not given).  Sets self.etag. If set_content_md5 is True sets self.content_md5 as well"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.merge_cookies:1
+msgid "Merge the cookies that were set on this response with the given resp object (which can be any WSGI application).  If the resp is a webob.Response object, then the other object will be modified in-place."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.pragma:1
+msgid "Gets and sets and deletes the Pragma header. For more information on Pragma see RFC 2616 section 14.32."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.request:1
+msgid "Return the request associated with this response if any."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.retry_after:1
+msgid "Gets and sets and deletes the Retry-After header. For more information on Retry-After see RFC 2616 section 14.37. Converts using HTTP date or delta seconds."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.server:1
+msgid "Gets and sets and deletes the Server header. For more information on Server see RFC216 section 14.38."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.set_cookie:1
+msgid "Set (add) a cookie for the response"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.status:1
+msgid "The status string."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.status_int:1
+msgid "The status as an integer"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.unicode_body:1
+msgid "Get/set the unicode value of the body (using the charset of the Content-Type)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.unset_cookie:1
+msgid "Unset a cookie with the given name (remove it from the response)."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.vary:1
+msgid "Gets and sets and deletes the Vary header. For more information on Vary see section 14.44. Converts using list."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResponse.www_authenticate:1
+msgid "Gets and sets and deletes the WWW-Authenticate header. For more information on WWW-Authenticate see RFC 2616 section 14.47. Converts using 'parse_auth' and 'serialize_auth'."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IIntrospectable:1
+msgid "An introspectable object used for configuration introspection.  In addition to the methods below, objects which implement this interface must also implement all the methods of Python's ``collections.MutableMapping`` (the \"dictionary interface\"), and must be hashable."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.title:1
+msgid "Text title describing this introspectable"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.type_name:1
+msgid "Text type name describing this introspectable"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.order:1
+msgid "integer order in which registered with introspector (managed by introspector, usually)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.category_name:1
+msgid "introspection category name"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.discriminator:1
+msgid "introspectable discriminator (within category) (must be hashable)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.discriminator_hash:1
+msgid "an integer hash of the discriminator"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.action_info:1
+msgid "An IActionInfo object representing the caller that invoked the creation of this introspectable (usually a sentinel until updated during self.register)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.relate:1
+msgid "Indicate an intent to relate this IIntrospectable with another IIntrospectable (the one associated with the ``category_name`` and ``discriminator``) during action execution."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.unrelate:1
+msgid "Indicate an intent to break the relationship between this IIntrospectable with another IIntrospectable (the one associated with the ``category_name`` and ``discriminator``) during action execution."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.register:1
+msgid "Register this IIntrospectable with an introspector.  This method is invoked during action execution.  Adds the introspectable and its relations to the introspector.  ``introspector`` should be an object implementing IIntrospector.  ``action_info`` should be a object implementing the interface :class:`pyramid.interfaces.IActionInfo` representing the call that registered this introspectable. Pseudocode for an implementation of this method:"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospectable.__hash__:1
+msgid "Introspectables must be hashable.  The typical implementation of an introsepectable's __hash__ is::"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.get:1
+msgid "Get the IIntrospectable related to the category_name and the discriminator (or discriminator hash) ``discriminator``.  If it does not exist in the introspector, return the value of ``default``"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.get_category:1
+msgid "Get a sequence of dictionaries in the form ``[{'introspectable':IIntrospectable, 'related':[sequence of related IIntrospectables]}, ...]`` where each introspectable is part of the category associated with ``category_name`` ."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.get_category:6
+msgid "If the category named ``category_name`` does not exist in the introspector the value passed as ``default`` will be returned."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.get_category:9
+msgid "If ``sort_key`` is ``None``, the sequence will be returned in the order the introspectables were added to the introspector.  Otherwise, sort_key should be a function that accepts an IIntrospectable and returns a value from it (ala the ``key`` function of Python's ``sorted`` callable)."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.categories:1
+msgid "Return a sorted sequence of category names known by this introspector"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.categorized:1
+msgid "Get a sequence of tuples in the form ``[(category_name, [{'introspectable':IIntrospectable, 'related':[sequence of related IIntrospectables]}, ...])]`` representing all known introspectables.  If ``sort_key`` is ``None``, each introspectables sequence will be returned in the order the introspectables were added to the introspector.  Otherwise, sort_key should be a function that accepts an IIntrospectable and returns a value from it (ala the ``key`` function of Python's ``sorted`` callable)."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.remove:1
+msgid "Remove the IIntrospectable related to ``category_name`` and ``discriminator`` from the introspector, and fix up any relations that the introspectable participates in. This method will not raise an error if an introspectable related to the category name and discriminator does not exist."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.related:1
+msgid "Return a sequence of IIntrospectables related to the IIntrospectable ``intr``. Return the empty sequence if no relations for exist."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.add:1
+msgid "Add the IIntrospectable ``intr`` (use instead of :meth:`pyramid.interfaces.IIntrospector.add` when you have a custom IIntrospectable). Replaces any existing introspectable registered using the same category/discriminator."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.add:6
+#: ../../docstring of pyramid.interfaces.IIntrospector.relate:8
+#: ../../docstring of pyramid.interfaces.IIntrospector.unrelate:8
+msgid "This method is not typically called directly, instead it's called indirectly by :meth:`pyramid.interfaces.IIntrospector.register`"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.relate:1
+msgid "Given any number of ``(category_name, discriminator)`` pairs passed as positional arguments, relate the associated introspectables to each other. The introspectable related to each pair must have already been added via ``.add`` or ``.add_intr``; a :exc:`KeyError` will result if this is not true.  An error will not be raised if any pair has already been associated with another."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IIntrospector.unrelate:1
+msgid "Given any number of ``(category_name, discriminator)`` pairs passed as positional arguments, unrelate the associated introspectables from each other. The introspectable related to each pair must have already been added via ``.add`` or ``.add_intr``; a :exc:`KeyError` will result if this is not true.  An error will not be raised if any pair is not already related to another."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IActionInfo:1
+msgid "Class which provides code introspection capability associated with an action.  The ParserInfo class used by ZCML implements the same interface."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IActionInfo.file:1
+msgid "Filename of action-invoking code as a string"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IActionInfo.line:1
+msgid "Starting line number in file (as an integer) of action-invoking code.This will be ``None`` if the value could not be determined."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IActionInfo.__str__:1
+msgid "Return a representation of the action information (including source code from file, if possible)"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IAssetDescriptor:1
+msgid "Describes an :term:`asset`."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAssetDescriptor.absspec:1
+msgid "Returns the absolute asset specification for this asset (e.g. ``mypackage:templates/foo.pt``)."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAssetDescriptor.abspath:1
+msgid "Returns an absolute path in the filesystem to the asset."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAssetDescriptor.stream:1
+msgid "Returns an input stream for reading asset contents.  Raises an exception if the asset is a directory or does not exist."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAssetDescriptor.isdir:1
+msgid "Returns True if the asset is a directory, otherwise returns False."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAssetDescriptor.listdir:1
+msgid "Returns iterable of filenames of directory contents.  Raises an exception if asset is not a directory."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IAssetDescriptor.exists:1
+msgid "Returns True if asset exists, otherwise returns False."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResourceURL.virtual_path:1
+msgid "The virtual url path of the resource as a string."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResourceURL.physical_path:1
+msgid "The physical url path of the resource as a string."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResourceURL.virtual_path_tuple:1
+msgid "The virtual url path of the resource as a tuple.  (New in 1.5)"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IResourceURL.physical_path_tuple:1
+msgid "The physical url path of the resource as a tuple. (New in 1.5)"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.ICacheBuster:1
+msgid "A cache buster modifies the URL generation machinery for :meth:`~pyramid.request.Request.static_url`. See :ref:`cache_busting`."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ICacheBuster.__call__:1
+msgid "Modifies a subpath and/or keyword arguments from which a static asset URL will be computed during URL generation."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ICacheBuster.__call__:4
+msgid "The ``subpath`` argument is a path of ``/``-delimited segments that represent the portion of the asset URL which is used to find the asset. The ``kw`` argument is a dict of keywords that are to be passed eventually to :meth:`~pyramid.request.Request.static_url` for URL generation.  The return value should be a two-tuple of ``(subpath, kw)`` where ``subpath`` is the relative URL from where the file is served and ``kw`` is the same input argument. The return value should be modified to include the cache bust token in the generated URL."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ICacheBuster.__call__:14
+msgid "The ``kw`` dictionary contains extra arguments passed to :meth:`~pyramid.request.Request.static_url` as well as some extra items that may be usful including:"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ICacheBuster.__call__:18
+msgid "``pathspec`` is the path specification for the resource to be cache busted."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ICacheBuster.__call__:21
+msgid "``rawspec`` is the original location of the file, ignoring any calls to :meth:`pyramid.config.Configurator.override_asset`."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.ICacheBuster.__call__:24
+msgid "The ``pathspec`` and ``rawspec`` values are only different in cases where an asset has been mounted into a virtual location using :meth:`pyramid.config.Configurator.override_asset`. For example, with a call to ``request.static_url('myapp:static/foo.png'), the ``pathspec`` is ``myapp:static/foo.png`` whereas the ``rawspec`` may be ``themepkg:bar.png``, assuming a call to ``config.override_asset('myapp:static/foo.png', 'themepkg:bar.png')``."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewDeriver.options:1
+msgid "A list of supported options to be passed to :meth:`pyramid.config.Configurator.add_view`. This attribute is optional."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewDeriver.__call__:1
+msgid "Derive a new view from the supplied view."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewDeriver.__call__:3
+msgid "View options, package information and registry are available on ``info``, an instance of :class:`pyramid.interfaces.IViewDeriverInfo`."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewDeriver.__call__:6
+msgid "The ``view`` is a callable accepting ``(context, request)``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/interfaces.py:docstring of pyramid.interfaces.IViewDeriverInfo:1
+msgid "An object implementing this interface is passed to every :term:`view deriver` during configuration."
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewDeriverInfo.registry:1
+msgid "The \"current\" application registry where the view was created"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewDeriverInfo.package:1
+msgid "The \"current package\" where the view configuration statement was found"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewDeriverInfo.options:1
+msgid "The view options passed to the view, including any default values that were not overriden"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewDeriverInfo.predicates:1
+msgid "The list of predicates active on the view"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewDeriverInfo.original_view:1
+msgid "The original view object being wrapped"
+msgstr ""
+
+#: ../../docstring of pyramid.interfaces.IViewDeriverInfo.exception_only:1
+msgid "The view will only be invoked for exceptions"
+msgstr ""
+

@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../quick_tutorial/package.rst:3
+msgid "02: Python Packages for Pyramid Applications"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:5
+msgid "Most modern Python development is done using Python packages, an approach Pyramid puts to good use. In this step we redo \"Hello World\" as a minimal Python package inside a minimal Python project."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:11
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:13
+msgid "Python developers can organize a collection of modules and files into a namespaced unit called a :ref:`package <python:tut-packages>`. If a directory is on ``sys.path`` and has a special file named ``__init__.py``, it is treated as a Python package."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:18
+msgid "Packages can be bundled up, made available for installation, and installed through a toolchain oriented around a ``setup.py`` file. For this tutorial, this is all you need to know:"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:22
+msgid "We will have a directory for each tutorial step as a *project*."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:24
+msgid "This project will contain a ``setup.py`` which injects the features of the project machinery into the directory."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:27
+msgid "In this project we will make a ``tutorial`` subdirectory into a Python *package* using an ``__init__.py`` Python module file."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:30
+msgid "We will run ``pip install -e .`` to install our project in development mode."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:32
+msgid "In summary:"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:34
+msgid "You'll do your development in a Python *package*."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:36
+msgid "That package will be part of a *project*."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:40
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:42
+msgid "Make a Python \"package\" directory with an ``__init__.py``."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:44
+msgid "Get a minimum Python \"project\" in place by making a ``setup.py``."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:46
+msgid "Install our ``tutorial`` project in development mode."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:50
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:52
+msgid "Make an area for this tutorial step:"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:58
+msgid "In ``package/setup.py``, enter the following:"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:62
+msgid "Make the new project installed for development then make a directory for the actual code:"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:70
+msgid "Enter the following into ``package/tutorial/__init__.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:74
+msgid "Enter the following into ``package/tutorial/app.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:78
+msgid "Run the WSGI application with:"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:84
+msgid "Open http://localhost:6543/ in your browser."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:88
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:90
+msgid "Python packages give us an organized unit of project development. Python projects, via ``setup.py``, give us special features when our package is installed (in this case, in local development mode, also called local editable mode as indicated by ``-e .``)."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:95
+msgid "In this step we have a Python package called ``tutorial``. We use the same name in each step of the tutorial, to avoid unnecessary retyping."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:98
+msgid "Above this ``tutorial`` directory we have the files that handle the packaging of this project. At the moment, all we need is a bare-bones ``setup.py``."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:101
+msgid "Everything else is the same about our application. We simply made a Python package with a ``setup.py`` and installed it in development mode."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:104
+msgid "Note that the way we're running the app (``python tutorial/app.py``) is a bit of an odd duck.  We would never do this unless we were writing a tutorial that tries to capture how this stuff works one step at a time. It's generally a bad idea to run a Python module inside a package directly as a script."
+msgstr ""
+
+#: ../../quick_tutorial/package.rst:109
+msgid ":ref:`Python Packages <python:tut-packages>` and `Working in \"Development Mode\" <https://packaging.python.org/tutorials/distributing-packages/#working-in-development-mode>`_."
+msgstr ""
+

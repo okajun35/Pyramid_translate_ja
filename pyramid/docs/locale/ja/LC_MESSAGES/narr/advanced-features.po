@@ -7,30 +7,20 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/advanced-features.rst:2
 msgid "Advanced :app:`Pyramid` Design Features"
-msgstr ""
+msgstr "(機械翻訳) アドバンス：app： `Pyramid`デザインの特徴"
 
 #: ../../narr/advanced-features.rst:4
 msgid ""
 ":app:`Pyramid` has been built from the ground up to avoid the problems "
 "that other frameworks can suffer."
-msgstr ""
+msgstr "：app： `Pyramid`は、他のフレームワークが抱える問題を避けるために、最初からビルドされています。"
 
 #: ../../narr/advanced-features.rst:7
 msgid "You Don't Need Singletons"
-msgstr ""
+msgstr "あなたはシングルトンを必要としません"
 
 #: ../../narr/advanced-features.rst:9
 msgid ""
@@ -39,14 +29,14 @@ msgid ""
 " needed to monkey-patch a framework fixture to get it to behave properly "
 "for your use case? Have you ever tried to deploy your application using "
 "an asynchronous server and failed?"
-msgstr ""
+msgstr "同じDjangoアプリケーションを複数インストールするためにDjangoの `` settings.py``ファイルをパラメータ化することに苦労しましたか？あなたのユースケースに対して適切に動作するようにするためにフレームワークフィクスチャを猿パッチする必要がありましたか？非同期サーバーを使用してアプリケーションをデプロイしようとしたが、失敗しましたか？"
 
 #: ../../narr/advanced-features.rst:11
 msgid ""
 "All these problems are symptoms of :term:`mutable` :term:`global state`, "
 "also known as :term:`import time` :term:`side effect`\\ s and arise from "
 "the use of :term:`singleton` data structures."
-msgstr ""
+msgstr "これらの問題はすべて、term： `mutable`：term：` global state`という現象です。term： `import time`：term：`副作用 `\\ sとterm ::`シングルトンのデータ構造。"
 
 #: ../../narr/advanced-features.rst:13
 msgid ""
@@ -55,17 +45,17 @@ msgid ""
 ":app:`Pyramid` application configured differently within a single Python "
 "process. This makes running :app:`Pyramid` in shared hosting environments"
 " a snap."
-msgstr ""
+msgstr "：app： `Pyramid`はあなたがこの種の問題に遭遇しないように書かれています。単一のPythonプロセス内で異なって設定された*同じ*：app： `Pyramid`アプリケーションの複数のコピーを実行することさえ可能です。これにより共有ホスティング環境でのapp： `Pyramid`の実行が簡単になります。"
 
 #: ../../narr/advanced-features.rst:16
 msgid "Simplify your View Code with Predicates"
-msgstr ""
+msgstr "述語でビューコードを簡略化する"
 
 #: ../../narr/advanced-features.rst:18
 msgid ""
 "How many times have you found yourself beginning the logic of your view "
 "code with something like this:"
-msgstr ""
+msgstr "ビューコードのロジックが次のようなもので始まって何回目になったのですか？"
 
 #: ../../narr/advanced-features.rst:28
 msgid ""
@@ -74,7 +64,7 @@ msgid ""
 "with the pattern ``/items`` and when the route is matched, you can send "
 "the request to one view if the request method is GET, another view if the"
 " request method is POST, and so on."
-msgstr ""
+msgstr "他の多くのシステムとは異なり、：app： `Pyramid`では、複数のビューを単一のルートに関連付けることができます。たとえば、 `` / items``というパターンでルートを作成することができます。ルートが一致すると、リクエストメソッドがGETの場合は1つのビューに、リクエストメソッドがPOSTの場合は別のビューに、に。"
 
 #: ../../narr/advanced-features.rst:30
 msgid ""
@@ -84,25 +74,25 @@ msgid ""
 "parameters, such as elements in the query string, the Accept header, "
 "whether the request is an AJAX (XHR) request or not, and lots of other "
 "things."
-msgstr ""
+msgstr "：app： `Pyramid`は：term：` view predicate`のシステムを使ってこれを許可します。リクエストメソッドのマッチングは、：term： `view predicate`を使ってできる基本的なものです。また、クエリ文字列の要素、Acceptヘッダー、AJAX（XHR）要求かどうかなどの他の要求パラメーターとビューを関連付けることもできます。"
 
 #: ../../narr/advanced-features.rst:32
 msgid "For our example above, you can do this instead:"
-msgstr ""
+msgstr "上記の例では、代わりにこれを行うことができます："
 
 #: ../../narr/advanced-features.rst:45
 msgid ""
 "This approach allows you to develop view code that is simpler, more "
 "easily understandable, and more directly testable."
-msgstr ""
+msgstr "このアプローチでは、よりシンプルでわかりやすく、より直接的にテスト可能なビューコードを開発できます。"
 
 #: ../../narr/advanced-features.rst:49
 msgid "See also :ref:`view_configuration_parameters`."
-msgstr ""
+msgstr "参照：ref： `view_configuration_parameters`を参照してください。"
 
 #: ../../narr/advanced-features.rst:52
 msgid "Stop Worrying About Transactions"
-msgstr ""
+msgstr "トランザクションについて心配しないでください"
 
 #: ../../narr/advanced-features.rst:54
 msgid ""
@@ -111,7 +101,7 @@ msgid ""
 "stop worrying about when to commit your changes, :app:`Pyramid` handles "
 "it for you. The system will commit at the end of a request or abort if "
 "there was an exception."
-msgstr ""
+msgstr "：app： `Pyramid` \\ &#39;：term：` cookiecutter` \ *はトランザクション管理システムを含むプロジェクトをレンダリングします。このシステムを使うと、いつ変更をコミットするのか心配することなく、app： `Pyramid`がそれを処理します。システムは要求の終わりにコミットするか、例外があった場合に中止します。"
 
 #: ../../narr/advanced-features.rst:56
 msgid ""
@@ -120,14 +110,14 @@ msgid ""
 "code will run *after* your changes are done. If an error happens in that "
 "other code, you can easily wind up with inconsistent data if you're not "
 "extremely careful."
-msgstr ""
+msgstr "なぜそれは良いことですか？パーシスタンス層に手動で変更をコミットする状況を想像してみてください。変更が行われた後、他のフレームワークコードが*実行される可能性は非常に高いです。他のコードでエラーが発生した場合は、慎重ではない場合でも、一貫性のないデータで容易に解決できます。"
 
 #: ../../narr/advanced-features.rst:58
 msgid ""
 "Using transaction management saves you from needing to think about this. "
 "Either a request completes successfully and all changes are committed, or"
 " it does not and all changes are aborted."
-msgstr ""
+msgstr "トランザクション管理を使用すると、これについて考える必要がなくなります。要求が正常に完了し、すべての変更がコミットされるか、変更されず、すべての変更がアボートされます。"
 
 #: ../../narr/advanced-features.rst:60
 msgid ""
@@ -135,24 +125,24 @@ msgid ""
 "synchronize commits between multiple databases or databases of different "
 "kinds. It also allows you to do things like conditionally send email if a"
 " transaction is committed, but otherwise keep quiet."
-msgstr ""
+msgstr "：app： `Pyramid` \\のトランザクション管理は拡張可能であるため、複数のデータベースまたは異なる種類のデータベース間でコミットを同期することができます。また、トランザクションがコミットされた場合に条件付きで電子メールを送信するなど、静的に保つなどの作業を行うこともできます。"
 
 #: ../../narr/advanced-features.rst:64
 msgid ""
 "See also :ref:`bfg_sql_wiki_tutorial` (note the lack of commit statements"
 " anywhere in application code)."
-msgstr ""
+msgstr "参照：ref： `bfg_sql_wiki_tutorial`（アプリケーションコードのどこにでもコミットステートメントがないことに注意してください）。"
 
 #: ../../narr/advanced-features.rst:67
 msgid "Stop Worrying About Configuration"
-msgstr ""
+msgstr "設定について心配しないでください"
 
 #: ../../narr/advanced-features.rst:69
 msgid ""
 "When a system is small, it's reasonably easy to keep it all in your head."
 " But as systems grow large, configuration grows more complex. Your app "
 "may grow to have hundreds or even thousands of configuration statements."
-msgstr ""
+msgstr "システムが小さくても、それをあなたの頭の中にすべて保持するのはかなり簡単です。しかし、システムが大きくなるにつれて、構成はより複雑になります。あなたのアプリは、数百から数千もの構成文を持つようになります。"
 
 #: ../../narr/advanced-features.rst:71
 msgid ""
@@ -161,7 +151,7 @@ msgid ""
 ":app:`Pyramid` can't make sense out of what it would mean to have both "
 "statements active at the same time, it will complain loudly at startup "
 "time."
-msgstr ""
+msgstr "：app： `Pyramid` \\の設定システムはそれぞれの文を追跡します。間違って2つの同じものを追加した場合、または：app： `Pyramid`は、両方のステートメントを同時にアクティブにすることを意味しないので、起動時に大声で苦情を言います。"
 
 #: ../../narr/advanced-features.rst:73
 msgid ""
@@ -170,15 +160,15 @@ msgid ""
 "automatically resolve conflicts on its own. More local statements are "
 "preferred over less local ones. So you can intelligently factor large "
 "systems into smaller ones."
-msgstr ""
+msgstr "：app： `Pyramid` \\の設定システムは愚かではありません。 ：meth： `〜pyramid.config.Configurator.include`システムを使うと、自動的にそれ自身のコンフリクトを解決することができます。より多くのローカルステートメントはローカルステートメントよりも優先されます。したがって、大きなシステムを小さなシステムにインテリジェントに組み込むことができます。"
 
 #: ../../narr/advanced-features.rst:77
 msgid "See also :ref:`conflict_detection`."
-msgstr ""
+msgstr "参照：ref： `conflict_detection`も参照してください。"
 
 #: ../../narr/advanced-features.rst:80
 msgid "Compose Powerful Apps From Simple Parts"
-msgstr ""
+msgstr "シンプルな部品から強力なアプリケーションを作成する"
 
 #: ../../narr/advanced-features.rst:82
 msgid ""
@@ -189,14 +179,14 @@ msgid ""
 ":app:`Pyramid` application can also be used in included packages. You can"
 " add views, routes, and subscribers, and even set authentication and "
 "authorization policies."
-msgstr ""
+msgstr "：app： `Pyramid`構造化：meth：`〜pyramid.config.Configurator.include`メカニズムについて言えば、複数の単純なPythonパッケージから複雑なアプリケーションを作成することができます。 main：app： `Pyramid`アプリケーションで実行できるすべての設定文は、インクルードされたパッケージでも使用できます。ビュー、ルート、およびサブスクライバーを追加したり、認証および認可ポリシーを設定したりすることもできます。"
 
 #: ../../narr/advanced-features.rst:84
 msgid ""
 "If you need, you can extend or override the configuration of an existing "
 "application by including its configuration in your own and then modifying"
 " it."
-msgstr ""
+msgstr "必要に応じて、既存のアプリケーションの構成を独自に組み込んで変更することで、既存のアプリケーションの構成を拡張または上書きできます。"
 
 #: ../../narr/advanced-features.rst:87
 msgid ""
@@ -204,17 +194,17 @@ msgid ""
 "has a bunch of routes, you can just use the ``include`` statement with a "
 "``route_prefix``. All the routes of that application will be availabe, "
 "prefixed as you requested:"
-msgstr ""
+msgstr "たとえば、すでに多数のルートがある既存のアプリケーションを再利用したい場合は、 `` include``ステートメントを `` route_prefix``を使って使うことができます。あなたがリクエストしたときに、そのアプリケーションのすべてのルートが利用可能になります："
 
 #: ../../narr/advanced-features.rst:102
 msgid ""
 "See also :ref:`including_configuration` and "
 ":ref:`building_an_extensible_app`."
-msgstr ""
+msgstr "ref： `including_configuration`と：ref：` building_an_extensible_app`も参照してください。"
 
 #: ../../narr/advanced-features.rst:105
 msgid "Authenticate Users Your Way"
-msgstr ""
+msgstr "あなたの方法を認証する"
 
 #: ../../narr/advanced-features.rst:107
 msgid ""
@@ -222,7 +212,7 @@ msgid ""
 "authorization schemes out of the box. Using a scheme is a matter of "
 "configuration. So if you need to change approaches later, you need only "
 "update your configuration."
-msgstr ""
+msgstr "：app： `Pyramid`は、あらかじめビルドされた、よくテストされた認証と承認の仕組みをそのままにして出荷します。スキームの使用は設定の問題です。したがって、後でアプローチを変更する必要がある場合は、設定を更新するだけで済みます。"
 
 #: ../../narr/advanced-features.rst:109
 msgid ""
@@ -230,15 +220,15 @@ msgid ""
 "flexible and pluggable. If you want to use another security add-on, or "
 "define your own, you can. And again, you need only update your "
 "application configuration to make the change."
-msgstr ""
+msgstr "さらに、認証と承認を処理するシステムは柔軟でプラグイン可能です。別のセキュリティアドオンを使用する場合や独自のセキュリティアドオンを定義する場合は、可能です。また、アプリケーション構成を変更して変更するだけで済みます。"
 
 #: ../../narr/advanced-features.rst:113
 msgid "See also :ref:`enabling_authorization_policy`."
-msgstr ""
+msgstr "参照：ref： `enabling_authorization_policy`を参照してください。"
 
 #: ../../narr/advanced-features.rst:116
 msgid "Build Trees of Resources"
-msgstr ""
+msgstr "リソースのツリーを構築する"
 
 #: ../../narr/advanced-features.rst:118
 msgid ""
@@ -249,17 +239,17 @@ msgid ""
 "requirement for a highly granular security model (\"Jane can edit "
 "documents in *this* folder, but not *that* one\"), traversal can be a "
 "powerful approach."
-msgstr ""
+msgstr "：app： `Pyramid`は、term：` traversal`をサポートしています。これはURLを具象語：term： `resource tree`にマッピングする方法です。アプリケーションが異なるタイプのコンテンツ（CMSやDocument Management Systemなど）の任意の階層から構成されている場合、トラバーサルが適しています。非常にきめ細かなセキュリティモデル（\ &quot;Janeは* this *フォルダ内のドキュメントを編集できますが、* \ * 1 \&quot;は編集できません）の要件がある場合、トラバーサルは強力なアプローチになります。"
 
 #: ../../narr/advanced-features.rst:122
 msgid ""
 "See also :ref:`hello_traversal_chapter` and "
 ":ref:`much_ado_about_traversal_chapter`."
-msgstr ""
+msgstr "ref： `hello_traversal_chapter`と：ref：` much_ado_about_traversal_chapter`も参照してください。"
 
 #: ../../narr/advanced-features.rst:125
 msgid "Take Action on Each Request with Tweens"
-msgstr ""
+msgstr "トゥイーンで各リクエストを処理する"
 
 #: ../../narr/advanced-features.rst:127
 msgid ""
@@ -268,21 +258,21 @@ msgid ""
 "concept to WSGI :term:`middleware`, but can be more useful since "
 ":term:`tween`\\ s run in the :app:`Pyramid` context, and have access to "
 "templates, request objects, and other niceties."
-msgstr ""
+msgstr "：app： `Pyramid`は：term：` tween`と呼ばれる各要求または応答に任意のアクションを適用するシステムを持っています。システムは概念的にはWSGI：term： `middleware`と似ていますが、term：` tween`は：app： `Pyramid`コンテキストで実行され、テンプレート、リクエストオブジェクト、その他の細目。"
 
 #: ../../narr/advanced-features.rst:129
 msgid ""
 "The :app:`Pyramid` debug toolbar is a :term:`tween`, as is the "
 "``pyramid_tm`` transaction manager."
-msgstr ""
+msgstr "：app： `Pyramid`デバッグツールバーは：term：` tween`であり、 `` pyramid_tm``トランザクションマネージャーと同じです。"
 
 #: ../../narr/advanced-features.rst:133
 msgid "See also :ref:`registering_tweens`."
-msgstr ""
+msgstr "参照：ref： `registration_tweens`を参照してください。"
 
 #: ../../narr/advanced-features.rst:136
 msgid "Return What You Want From Your Views"
-msgstr ""
+msgstr "あなたの意見からあなたが望むものを返す"
 
 #: ../../narr/advanced-features.rst:138
 msgid ""
@@ -292,55 +282,55 @@ msgid ""
 " from view callables. When frameworks allow for this, code looks slightly"
 " prettier because there are fewer imports and less code. For example, "
 "compare this:"
-msgstr ""
+msgstr "：term： `renderer`は、ビューコードから単純なPython辞書を返すことを可能にします。しかし、いくつかのフレームワークでは、ビュー呼び出し可能オブジェクトから文字列またはタプルを返すことができます。フレームワークでこれが可能になると、インポートが少なくて済み、コードが少なくて済むので、コードはややきれいに見えます。たとえば、これを比較してください："
 
 #: ../../narr/advanced-features.rst:148
 msgid "To this:"
-msgstr ""
+msgstr "これに："
 
 #: ../../narr/advanced-features.rst:156
 msgid "Nicer to look at, right?"
-msgstr ""
+msgstr "見るのがよかったよね？"
 
 #: ../../narr/advanced-features.rst:158
 msgid ""
 "Out of the box, :app:`Pyramid` will raise an exception if you try to run "
 "the second example above. After all, a view should return a response, and"
 " \"explicit is better than implicit\"."
-msgstr ""
+msgstr "あなたが上記の2番目の例を実行しようとすると、app： `Pyramid`は例外を送出します。結局のところ、ビューは応答を返さなければならず、\ &quot;明示的なものは暗黙のものより優れています\&quot;。"
 
 #: ../../narr/advanced-features.rst:160
 msgid ""
 "But if you're a developer who likes the aesthetics of simplicity, "
 ":app:`Pyramid` provides a way to support this sort of thing, the "
 ":term:`response adapter`\\ :"
-msgstr ""
+msgstr "しかし、あなたが単純性の美しさを好む開発者であれば、：app： `Pyramid`はこの種のものをサポートする手段を提供します：term：` response adapter` \\："
 
 #: ../../narr/advanced-features.rst:173
 msgid "A new response adapter is registered in configuration:"
-msgstr ""
+msgstr "新しいレスポンスアダプタがコンフィグレーションに登録されます："
 
 #: ../../narr/advanced-features.rst:182
 msgid "With that, you may return strings from any of your view callables, e.g.:"
-msgstr ""
+msgstr "これで、あなたのビューの呼び出し可能なものから文字列を返すことができます。"
 
 #: ../../narr/advanced-features.rst:193
 msgid ""
 "You can even use a :term:`response adapter` to allow for custom content "
 "types and return codes:"
-msgstr ""
+msgstr "：term： `レスポンスアダプタ &#39;を使って、カスタムコンテンツタイプと戻りコードを許可することもできます："
 
 #: ../../narr/advanced-features.rst:218
 msgid "With this, both of these views will work as expected:"
-msgstr ""
+msgstr "これにより、これらのビューはどちらも期待どおりに動作します。"
 
 #: ../../narr/advanced-features.rst:231
 msgid "See also :ref:`using_iresponse`."
-msgstr ""
+msgstr "参照：ref： `using_iresponse`も参照してください。"
 
 #: ../../narr/advanced-features.rst:234
 msgid "Use Global Response Objects"
-msgstr ""
+msgstr "グローバルレスポンスオブジェクトを使用する"
 
 #: ../../narr/advanced-features.rst:236
 msgid ""
@@ -348,22 +338,22 @@ msgid ""
 "chore. And perhaps registering a :term:`response adapter` as shown above "
 "is just too much work. :app:`Pyramid` provides a global response object "
 "as well.  You can use it directly, if you prefer:"
-msgstr ""
+msgstr "ビューは応答を返す必要があります。しかし、ビューコードでそれらを構築するのは雑用です。おそらく上記のように：term： `レスポンスアダプタ &#39;を登録することは多すぎる作業です。 ：app： `Pyramid`はグローバルレスポンスオブジェクトも提供します。必要に応じて直接使用することができます："
 
 #: ../../narr/advanced-features.rst:249
 msgid "See also :ref:`request_response_attr`."
-msgstr ""
+msgstr "ref： `request_response_attr`も参照してください。"
 
 #: ../../narr/advanced-features.rst:252
 msgid "Extend Configuration"
-msgstr ""
+msgstr "拡張構成"
 
 #: ../../narr/advanced-features.rst:254
 msgid ""
 "Perhaps the :app:`Pyramid` configurator's syntax feels a bit verbose to "
 "you. Or possibly you would like to add a feature to configuration without"
 " asking the core developers to change :app:`Pyramid` itself?"
-msgstr ""
+msgstr "おそらく、：app： `Pyramid`コンフィギュレータの構文が少し冗長であると感じます。あるいは、おそらく、開発者にコア・デベロッパーにapp： `Pyramid`自体を変更させることなく、フィーチャーを設定に追加したいのですか？"
 
 #: ../../narr/advanced-features.rst:256
 msgid ""
@@ -372,23 +362,23 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_view` repetitively. Usually you "
 "can get rid of the boring with existing shortcuts, but let's say that "
 "this is a case where there is no such shortcut:"
-msgstr ""
+msgstr "独自のディレクティブで：app： `Pyramid` \\ &#39;s：term：` configurator`を拡張することができます。たとえば、：meth： `pyramid.config.Configurator.add_view`を繰り返し呼び出しているとします。通常、既存のショートカットで退屈なものを取り除くことができますが、これはそうしたショートカットがない場合です："
 
 #: ../../narr/advanced-features.rst:272
 msgid ""
 "Pretty tedious right? You can add a directive to the :app:`Pyramid` "
 ":term:`configurator` to automate some of the tedium away:"
-msgstr ""
+msgstr "かなり退屈な権利ですか？あなたは、：app： `Pyramid`：term：` configurator`にディレクティブを追加して、離れた場所のいくつかを自動化することができます："
 
 #: ../../narr/advanced-features.rst:290
 msgid ""
 "Once that's done, you can call the directive you've just added as a "
 "method of the :term:`configurator` object:"
-msgstr ""
+msgstr "それが終わったら、あなたは：term： `configurator`オブジェクトのメソッドとして今追加したディレクティブを呼び出すことができます："
 
 #: ../../narr/advanced-features.rst:298
 msgid "Much better!"
-msgstr ""
+msgstr "ずっといい！"
 
 #: ../../narr/advanced-features.rst:300
 msgid ""
@@ -398,15 +388,15 @@ msgid ""
 "other programmers install your package, they'll be able to use your "
 "configuration by passing your function to a call to "
 ":meth:`~pyramid.config.Configurator.include`."
-msgstr ""
+msgstr "設定コードを他の人と共有することもできます。コードをPythonパッケージに追加します。関数に：meth： `〜pyramid.config.Configurator.add_directive`を呼び出します。他のプログラマーがあなたのパッケージをインストールすると、自分の関数を：meth： `〜pyramid.config.Configurator.include`への呼び出しに渡すことで、あなたの設定を使うことができます。"
 
 #: ../../narr/advanced-features.rst:304
 msgid "See also :ref:`add_directive`."
-msgstr ""
+msgstr "参照：ref： `add_directive`を参照してください。"
 
 #: ../../narr/advanced-features.rst:307
 msgid "Introspect Your Application"
-msgstr ""
+msgstr "アプリケーションのイントロスペクション"
 
 #: ../../narr/advanced-features.rst:309
 msgid ""
@@ -414,19 +404,19 @@ msgid ""
 "get a list of what has been plugged in *at application runtime*. For "
 "example, you might want to show users a set of tabs at the top of the "
 "screen based on a list of the views they registered."
-msgstr ""
+msgstr "大規模でプラグイン可能なシステムを構築している場合は、アプリケーションランタイム*にプラグインされているもののリストを取得できることが便利です。たとえば、登録したビューのリストに基づいて、画面上部にタブのセットを表示することができます。"
 
 #: ../../narr/advanced-features.rst:311
 msgid ":app:`Pyramid` provides an :term:`introspector` for just this purpose."
-msgstr ""
+msgstr "：app： `Pyramid`は、この目的のために：term：` introspector`を提供します。"
 
 #: ../../narr/advanced-features.rst:313
 msgid ""
 "Here's an example of using :app:`Pyramid`\\ 's :term:`introspector` from "
 "within a view:"
-msgstr ""
+msgstr "以下は、ビュー内からapp： `Pyramid` \\ &#39;s：term：` introspector`を使用した例です："
 
 #: ../../narr/advanced-features.rst:330
 msgid "See also :ref:`using_introspection`."
-msgstr ""
+msgstr "参照：ref： `using_introspection`を参照してください。"
 

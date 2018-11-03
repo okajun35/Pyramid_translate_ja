@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Combining Traversal and URL Dispatch &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) トラバーサルとURLディスパッチの組み合わせ &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Invoking a Subrequest" href="subrequest.html" />
-    <link rel="prev" title="Security" href="security.html" />
+    <link rel="next" title="(機械翻訳) サブリクエストの呼び出し" href="subrequest.html" />
+    <link rel="prev" title="(機械翻訳) セキュリティ" href="security.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="subrequest.html" title="Invoking a Subrequest"
+          <a href="subrequest.html" title="(機械翻訳) サブリクエストの呼び出し"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="security.html" title="Security"
+          <a href="security.html" title="(機械翻訳) セキュリティ"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,33 +69,18 @@
           <div class="body" role="main">
             
   <div class="section" id="combining-traversal-and-url-dispatch">
-<span id="hybrid-chapter"></span><h1>Combining Traversal and URL Dispatch<a class="headerlink" href="#combining-traversal-and-url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>When you write most <span>Pyramid</span> applications, you'll be using one or the
-other of two available <a class="reference internal" href="../glossary.html#term-resource-location"><span class="xref std std-term">resource location</span></a> subsystems: traversal or URL
-dispatch.  However, to solve a limited set of problems, it's useful to use
-<em>both</em> traversal and URL dispatch together within the same application.
-<span>Pyramid</span> makes this possible via <em>hybrid</em> applications.</p>
+<span id="hybrid-chapter"></span><h1>(機械翻訳) トラバーサルとURLディスパッチの組み合わせ<a class="headerlink" href="#combining-traversal-and-url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>most：app： <cite>Pyramid`アプリケーションを書くと、term：</cite> resource location`サブシステム：トラバーサルまたはURLディスパッチのいずれかを使用できます。しかし、限られた一連の問題を解決するには、同じアプリケーション内でトラバーサルとURLの両方のディスパッチを併用すると便利です。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は*ハイブリッドアプリケーションを介してこれを可能にします。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">Reasoning about the behavior of a &quot;hybrid&quot; URL dispatch + traversal
-application can be challenging.  To successfully reason about using URL
-dispatch and traversal together, you need to understand URL pattern
-matching, root factories, and the <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> algorithm, and the
-potential interactions between them.  Therefore, we don't recommend creating
-an application that relies on hybrid behavior unless you must.</p>
+<p class="last">&amp;quot;ハイブリッド&amp;quot; URLディスパッチ+トラバースアプリケーションの動作について推論するのは難しいことです。 URLのディスパッチとトラバースを一緒に使うことを成功させるためには、URLパターンマッチング、ルートファクトリ、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>traversal`アルゴリズム、およびそれらの間の潜在的な相互作用を理解する必要があります。したがって、必要がない限りハイブリッド動作に依存するアプリケーションを作成することはお勧めしません。</p>
 </div>
 <div class="section" id="a-review-of-non-hybrid-applications">
-<h2>A Review of Non-Hybrid Applications<a class="headerlink" href="#a-review-of-non-hybrid-applications" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>When used according to the tutorials in its documentation, <span>Pyramid</span> is a
-&quot;dual-mode&quot; framework: the tutorials explain how to create an application in
-terms of using either <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> <em>or</em> <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>.  This
-chapter details how you might combine these two dispatch mechanisms, but we'll
-review how they work in isolation before trying to combine them.</p>
+<h2>非ハイブリッドアプリケーションのレビュー<a class="headerlink" href="#a-review-of-non-hybrid-applications" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <cite>Pyramid`は、&amp;quot;デュアルモード&amp;quot;フレームワークです。このチュートリアルでは、term：</cite> URL dispatch` <a href="#id1"><span class="problematic" id="id2">*</span></a>または*のいずれかを使ってアプリケーションを作成する方法を説明しています。 ：用語：トラバーサル。この章では、これらの2つのディスパッチメカニズムをどのように組み合わせるかについて詳しく説明しますが、それらを組み合わせようとする前に、どのように孤立して動作しているかを見ていきます。</p>
 <div class="section" id="url-dispatch-only">
-<h3>URL Dispatch Only<a class="headerlink" href="#url-dispatch-only" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>An application that uses <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> exclusively to map URLs to code
-will often have statements like this within its application startup
-configuration:</p>
+<h3>URLディスパッチのみ<a class="headerlink" href="#url-dispatch-only" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>URLをコードにマップするために：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>URL dispatch`を使用するアプリケーションは、アプリケーション開始構成内で次のようなステートメントを持つことがよくあります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -111,19 +96,11 @@ configuration:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;myproject.views.bazbuz&#39;</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;bazbuz&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Each <a class="reference internal" href="../glossary.html#term-route"><span class="xref std std-term">route</span></a> corresponds to one or more view callables.  Each view
-callable is associated with a route by passing a <code class="docutils literal notranslate"><span class="pre">route_name</span></code> parameter that
-matches its name during a call to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a>.  When a route is matched during
-a request, <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> is used to match the request to its associated
-view callable.  The presence of calls to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a> signify that an application is
-using URL dispatch.</p>
+<p>それぞれ：term： <cite>ルート`は、1つまたは複数のビュー呼び出し可能変数に対応します。呼び出し可能な各ビューは：meth： `〜pyramid.config.Configurator.add_view`への呼び出し中にその名前と一致する</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>route_name``パラメータを渡すことによってルートに関連付けられます。リクエスト中にルートがマッチした場合、：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>view lookup`を使用して、関連するビューを呼び出し可能に照合します。 ：meth： <a href="#id5"><span class="problematic" id="id6">`</span></a>〜pyramid.config.Configurator.add_route`への呼び出しは、アプリケーションがURLディスパッチを使用していることを示します。</p>
 </div>
 <div class="section" id="traversal-only">
-<h3>Traversal Only<a class="headerlink" href="#traversal-only" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>An application that uses only traversal will have view configuration
-declarations that look like this:</p>
+<h3>トラバーサルのみ<a class="headerlink" href="#traversal-only" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>トラバースのみを使用するアプリケーションでは、次のようなビュー構成宣言があります。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -133,126 +110,56 @@ declarations that look like this:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;mypackage.views.bazbuz&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;bazbuz&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>When the above configuration is applied to an application, the
-<code class="docutils literal notranslate"><span class="pre">mypackage.views.foobar</span></code> view callable above will be called when the URL
-<code class="docutils literal notranslate"><span class="pre">/foobar</span></code> is visited.  Likewise, the view <code class="docutils literal notranslate"><span class="pre">mypackage.views.bazbuz</span></code> will be
-called when the URL <code class="docutils literal notranslate"><span class="pre">/bazbuz</span></code> is visited.</p>
-<p>Typically, an application that uses traversal exclusively won't perform any
-calls to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> in its startup code.</p>
+<p>上記の設定をアプリケーションに適用すると、 `` / foobar``というURLにアクセスしたときに上で呼び出せる `` mypackage.views.foobar``ビューが呼び出されます。同様に、 `` mypackage.views.bazbuz``というビューは `` / bazbuz``というURLが訪れると呼び出されます。</p>
+<p>通常、トラバーサルを排他的に使用するアプリケーションは、起動コードに：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.add_route`を呼び出すことはありません。</p>
 </div>
 </div>
 <div class="section" id="hybrid-applications">
-<span id="index-0"></span><h2>Hybrid Applications<a class="headerlink" href="#hybrid-applications" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Either traversal or URL dispatch alone can be used to create a <span>Pyramid</span>
-application.  However, it is also possible to combine the concepts of traversal
-and URL dispatch when building an application, the result of which is a hybrid
-application.  In a hybrid application, traversal is performed <em>after</em> a
-particular route has matched.</p>
-<p>A hybrid application is a lot more like a &quot;pure&quot; traversal-based application
-than it is like a &quot;pure&quot; URL-dispatch based application. But unlike in a &quot;pure&quot;
-traversal-based application, in a hybrid application <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> is
-performed during a request after a route has already matched.  This means that
-the URL pattern that represents the <code class="docutils literal notranslate"><span class="pre">pattern</span></code> argument of a route must match
-the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> of a request, and after the route pattern has matched, most
-of the &quot;normal&quot; rules of traversal with respect to <a class="reference internal" href="../glossary.html#term-resource-location"><span class="xref std std-term">resource location</span></a>
-and <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> apply.</p>
-<p>There are only four real differences between a purely traversal-based
-application and a hybrid application:</p>
+<span id="index-0"></span><h2>ハイブリッドアプリケーション<a class="headerlink" href="#hybrid-applications" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>トラバーサルまたはURLディスパッチだけで、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションを作成することができます。ただし、アプリケーションを構築するときに、トラバーサルとURLディスパッチのコンセプトを組み合わせることも可能で、その結果はハイブリッドアプリケーションになります。ハイブリッドアプリケーションでは、特定のルートが一致した後にトラバーサルが実行されます。</p>
+<p>ハイブリッドアプリケーションは、&amp;quot;純粋な&amp;quot;トラバーサルベースのアプリケーションに似ていますが、&amp;quot;純粋な&amp;quot; URLディスパッチベースのアプリケーションと似ています。しかし、「純粋な」トラバーサルベースのアプリケーションとは異なり、ハイブリッドアプリケーションでは、「トラバーサル」は、ルートが既に一致した後にリクエスト中に実行されます。これは、ルートの `` pattern``引数を表すURLパターンがリクエストの `` PATH_INFO``と一致しなければならないことを意味し、ルートパターンがマッチした後、&amp;quot;通常：term： <cite>resource location`と：term：</cite> view lookup`が適用されます。</p>
+<p>純粋にトラバーサルベースのアプリケーションとハイブリッドアプリケーションの間には、4つの大きな違いがあります。</p>
 <ul class="simple">
-<li>In a purely traversal-based application, no routes are defined.  In a hybrid
-application, at least one route will be defined.</li>
-<li>In a purely traversal-based application, the root object used is global,
-implied by the <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> provided at startup time.  In a hybrid
-application, the <a class="reference internal" href="../glossary.html#term-root"><span class="xref std std-term">root</span></a> object at which traversal begins may be varied
-on a per-route basis.</li>
-<li>In a purely traversal-based application, the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> of the underlying
-<a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> environment is used wholesale as a traversal path.  In a hybrid
-application, the traversal path is not the entire <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> string, but a
-portion of the URL determined by a matching pattern in the matched route
-configuration's pattern.</li>
-<li>In a purely traversal-based application, view configurations which do not
-mention a <code class="docutils literal notranslate"><span class="pre">route_name</span></code> argument are considered during <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a>.
-In a hybrid application, when a route is matched, only view configurations
-which mention that route's name as a <code class="docutils literal notranslate"><span class="pre">route_name</span></code> are considered during
-<a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a>.</li>
+<li>純粋にトラバーサルベースのアプリケーションでは、経路は定義されていません。ハイブリッドアプリケーションでは、少なくとも1つのルートが定義されます。</li>
+<li>完全にトラバーサルベースのアプリケーションでは、使用されるルートオブジェクトはグローバルであり、起動時に提供される：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>ルートファクトリ &amp;#39;によって暗示されます。ハイブリッドアプリケーションでは、トラバーサルが始まる：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>ルート`オブジェクトは、ルートごとに変化する可能性があります。</li>
+<li>純粋にトラバーサルベースのアプリケーションでは、基礎となる：term： <cite>WSGI`環境の</cite> <cite>PATH_INFO``がトラバーサルパスとして卸売されています。ハイブリッドアプリケーションでは、トラバーサルパスは `</cite> PATH_INFO``文字列全体ではなく、一致したルート設定のパターンで一致するパターンによって決定されたURLの一部です。</li>
+<li>純粋にトラバーサルベースのアプリケーションでは、 `` route_name``引数に言及していないビュー設定は：term： <cite>view lookup`の間に考慮されます。ハイブリッドアプリケーションでは、ルートが一致すると、そのルートの名前を `</cite> route_name``として記述するビュー設定だけが：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>view lookup`の間に考慮されます。</li>
 </ul>
-<p>More generally, a hybrid application <em>is</em> a traversal-based application except:</p>
+<p>より一般的には、ハイブリッドアプリケーション*は以下を除くトラバーサルベースのアプリケーションです。</p>
 <ul class="simple">
-<li>the traversal <em>root</em> is chosen based on the route configuration of the route
-that matched, instead of from the <code class="docutils literal notranslate"><span class="pre">root_factory</span></code> supplied during
-application startup configuration.</li>
-<li>the traversal <em>path</em> is chosen based on the route configuration of the route
-that matched, rather than from the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> of a request.</li>
-<li>the set of views that may be chosen during <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> when a route
-matches are limited to those which specifically name a <code class="docutils literal notranslate"><span class="pre">route_name</span></code> in
-their configuration that is the same as the matched route's <code class="docutils literal notranslate"><span class="pre">name</span></code>.</li>
+<li>traversal * root <a href="#id1"><span class="problematic" id="id2">*</span></a>は、アプリケーションの起動時に提供される `` root_factory``からではなく、一致したルートのルート設定に基づいて選択されます。</li>
+<li>traversal * path <a href="#id1"><span class="problematic" id="id2">*</span></a>はリクエストの `` PATH_INFO``ではなく、マッチしたルートのルート設定に基づいて選択されます。</li>
+<li>ルートが一致したときにterm： <cite>view lookup`の間に選択されるビューのセットは、その設定において、マッチしたルートの</cite> <cite>name``と同じである</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>route_name``を特に指定するものに限定されます。</li>
 </ul>
-<p>To create a hybrid mode application, use a <a class="reference internal" href="../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a> that
-implies a particular <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> and which also includes a <code class="docutils literal notranslate"><span class="pre">pattern</span></code>
-argument that contains a special dynamic part: either <code class="docutils literal notranslate"><span class="pre">*traverse</span></code> or
-<code class="docutils literal notranslate"><span class="pre">*subpath</span></code>.</p>
+<p>ハイブリッドモードアプリケーションを作成するには、特定の：term： <cite>ルートファクトリ &amp;#39;を意味する：term：`ルート設定 `を使用し、特殊な動的部分を含む</cite> <cite>pattern``引数も含みます：</cite> <cite>* traverse ``または `</cite> * subpath``を使用します。</p>
 <div class="section" id="the-root-object-for-a-route-match">
-<h3>The Root Object for a Route Match<a class="headerlink" href="#the-root-object-for-a-route-match" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>A hybrid application implies that traversal is performed during a request after
-a route has matched.  Traversal, by definition, must always begin at a root
-object.  Therefore it's important to know <em>which</em> root object will be traversed
-after a route has matched.</p>
-<p>Figuring out which <a class="reference internal" href="../glossary.html#term-root"><span class="xref std std-term">root</span></a> object results from a particular route match is
-straightforward.  When a route is matched:</p>
+<h3>ルートマッチのルートオブジェクト<a class="headerlink" href="#the-root-object-for-a-route-match" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ハイブリッドアプリケーションとは、ルートが一致した後、要求中にトラバーサルが実行されることを意味します。トラバーサルは定義上、常にルートオブジェクトから始まる必要があります。したがって、ルートがマッチした後、どのルートオブジェクトがトラバースされるかを知ることが重要です。</p>
+<p>term： <a href="#id1"><span class="problematic" id="id2">`</span></a>ルート`オブジェクトが特定のルートマッチからどのような結果を出すのかは簡単です。経路が一致した場合：</p>
 <ul class="simple">
-<li>If the route's configuration has a <code class="docutils literal notranslate"><span class="pre">factory</span></code> argument which points to a
-<a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> callable, that callable will be called to generate a
-<a class="reference internal" href="../glossary.html#term-root"><span class="xref std std-term">root</span></a> object.</li>
-<li>If the route's configuration does not have a <code class="docutils literal notranslate"><span class="pre">factory</span></code> argument, the
-<em>global</em> <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> will be called to generate a <a class="reference internal" href="../glossary.html#term-root"><span class="xref std std-term">root</span></a>
-object.  The global root factory is the callable implied by the
-<code class="docutils literal notranslate"><span class="pre">root_factory</span></code> argument passed to the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a>
-at application startup time.</li>
-<li>If a <code class="docutils literal notranslate"><span class="pre">root_factory</span></code> argument is not provided to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> at startup time, a <em>default</em> root
-factory is used.  The default root factory is used to generate a root object.</li>
+<li>ルートの設定が：term： <cite>ルートファクトリー`を指す `</cite> factory``引数を持つ場合、そのcallableは：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>ルート`オブジェクトを生成するために呼び出されます。</li>
+<li>ルートの設定に `` factory``引数がない場合、：global：：term： <cite>ルートファクトリ`が呼び出されて：term： `ルート`オブジェクトが生成されます。グローバルルートファクトリは、アプリケーションの起動時に：class： `〜pyramid.config.Configurator`に渡される</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>root_factory``引数によって暗示される呼び出し可能です。</li>
+<li>起動時に `` root_factory``引数が：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator`に与えられない場合、* default <a href="#id3"><span class="problematic" id="id4">*</span></a>ルートファクトリが使用されます。デフォルトルートファクトリは、ルートオブジェクトを生成するために使用されます。</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Root factories related to a route were explained previously within
-<a class="reference internal" href="urldispatch.html#route-factories"><span class="std std-ref">Route Factories</span></a>.  Both the global root factory and default root
-factory were explained previously within <a class="reference internal" href="traversal.html#the-resource-tree"><span class="std std-ref">The Resource Tree</span></a>.</p>
+<p class="last">ルートに関連するルートファクトリについては、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>route_factories`で前に説明しました。グローバルルートファクトリとデフォルトルートファクトリの両方は、ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>the_resource_tree`の中で前に説明しました。</p>
 </div>
 </div>
 <div class="section" id="using-traverse-in-a-route-pattern">
-<span id="index-1"></span><span id="id1"></span><h3>Using <code class="docutils literal notranslate"><span class="pre">*traverse</span></code> in a Route Pattern<a class="headerlink" href="#using-traverse-in-a-route-pattern" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>A hybrid application most often implies the inclusion of a route configuration
-that contains the special token <code class="docutils literal notranslate"><span class="pre">*traverse</span></code> at the end of a route's pattern:</p>
+<span id="index-1"></span><span id="id1"></span><h3>ルートパターンで `` * traverse``を使う<a class="headerlink" href="#using-traverse-in-a-route-pattern" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ハイブリッドアプリケーションは、ルートのパターンの終わりに特別なトークン `` * traverse``を含むルート設定を含めることを最も頻繁に意味します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;{foo}/{bar}/*traverse&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>A <code class="docutils literal notranslate"><span class="pre">*traverse</span></code> token at the end of the pattern in a route's configuration
-implies a &quot;remainder&quot; <em>capture</em> value.  When it is used, it will match the
-remainder of the path segments of the URL.  This remainder becomes the path
-used to perform traversal.</p>
+<p>ルートの構成におけるパターンの最後にある `` * traverse``トークンは&amp;quot;remainder &amp;quot; * capture <a href="#id1"><span class="problematic" id="id2">*</span></a>値を意味します。これを使用すると、URLのパスセグメントの残りの部分と一致します。この残りは、トラバーサルを実行するために使用されるパスになります。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">*remainder</span></code> route pattern syntax is explained in more detail within
-<a class="reference internal" href="urldispatch.html#route-pattern-syntax"><span class="std std-ref">Route Pattern Syntax</span></a>.</p>
+<p class="last">`` * remainder``のルートパターンの構文についてはref： <a href="#id1"><span class="problematic" id="id2">`</span></a>route_pattern_syntax`で詳しく説明しています。</p>
 </div>
-<p>A hybrid mode application relies more heavily on <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> to do
-<a class="reference internal" href="../glossary.html#term-resource-location"><span class="xref std std-term">resource location</span></a> and <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> than most examples indicate
-within <a class="reference internal" href="urldispatch.html#urldispatch-chapter"><span class="std std-ref">URL Dispatch</span></a>.</p>
-<p>Because the pattern of the above route ends with <code class="docutils literal notranslate"><span class="pre">*traverse</span></code>, when this route
-configuration is matched during a request, <span>Pyramid</span> will attempt to use
-<a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> against the <a class="reference internal" href="../glossary.html#term-root"><span class="xref std std-term">root</span></a> object implied by the <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root
-factory</span></a> that is implied by the route's configuration.  Since no
-<code class="docutils literal notranslate"><span class="pre">root_factory</span></code> argument is explicitly specified for this route, this will
-either be the <em>global</em> root factory for the application, or the <em>default</em> root
-factory.  Once <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> has found a <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource,
-<a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> will be invoked in almost exactly the same way it would
-have been invoked in a &quot;pure&quot; traversal-based application.</p>
-<p>Let's assume there is no <em>global</em> <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> configured in this
-application. The <em>default</em> <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a> cannot be traversed; it has no
-useful <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> method.  So we'll need to associate this route
-configuration with a custom root factory in order to create a useful hybrid
-application.  To that end, let's imagine that we've created a root factory that
-looks like so in a module named <code class="docutils literal notranslate"><span class="pre">routes.py</span></code>:</p>
+<p>ハイブリッドモードのアプリケーションは、term： <cite>traversal`を行うためにもっと重く依存します：term：</cite> resource location`と：term： <cite>view lookup`ほとんどの例は：ref：</cite> urldispatch_chapter`を示します。</p>
+<p>上記のルートのパターンは `` * traverse`で終わるので、リクエスト中にこのルート設定が一致すると、：app： <cite>Pyramid`は：term：</cite> traversal`を：term： <cite>root`に対して使用しようとします。 ：term： `ルートファクト`によって暗示されたオブジェクトで、ルートの設定によって暗示されています。このルートには `</cite> root_factory``引数は明示的に指定されていないので、アプリケーションの*グローバル*ルートファクトリーか* default <a href="#id1"><span class="problematic" id="id2">*</span></a>ルートファクトリーのいずれかになります。一度：term： <cite>traversal`がa：term：</cite> context`リソースを見つけました：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>view lookup`は&amp;quot;純粋な &amp;quot;トラバーサルベースのアプリケーションで呼び出されたのとほぼ同じ方法で呼び出されます。</p>
+<p>このアプリケーションでは* global：：term： <cite>ルートファクトリ &amp;#39;が設定されていないと仮定しましょう。 * default *：term： `ルートファクトリ`はトラバースできません。有用な `</cite> __getitem__``メソッドはありません。したがって、便利なハイブリッドアプリケーションを作成するために、このルート構成をカスタムルートファクトリに関連付ける必要があります。そのために、 `` routes.py``という名前のモジュールのように見えるルートファクトリを作成したとしましょう：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -280,51 +187,21 @@ looks like so in a module named <code class="docutils literal notranslate"><span
     <span class="k">return</span> <span class="n">root</span>
 </pre></div>
 </td></tr></table></div>
-<p>Above we've defined a (bogus) resource tree that can be traversed, and a
-<code class="docutils literal notranslate"><span class="pre">root_factory</span></code> function that can be used as part of a particular route
-configuration statement:</p>
+<p>上では、横断可能な（偽の）リソースツリーと、特定のルート設定ステートメントの一部として使用できる `` root_factory``関数を定義しています。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;{foo}/{bar}/*traverse&#39;</span><span class="p">,</span>
                  <span class="n">factory</span><span class="o">=</span><span class="s1">&#39;mypackage.routes.root_factory&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">factory</span></code> above points at the function we've defined.  It will return an
-instance of the <code class="docutils literal notranslate"><span class="pre">Resource</span></code> class as a root object whenever this route is
-matched.  Instances of the <code class="docutils literal notranslate"><span class="pre">Resource</span></code> class can be used for tree traversal
-because they have a <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> method that does something nominally
-useful. Since traversal uses <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> to walk the resources of a
-resource tree, using traversal against the root resource implied by our route
-statement is a reasonable thing to do.</p>
+<p>上記の `` factory``は、定義した関数を指しています。 `` Resource``クラスのインスタンスをこのルートが一致するたびにルートオブジェクトとして返します。 `` Resource``クラスのインスタンスは、名目上有用な何かを行う `` __getitem__``メソッドを持っているので、ツリートラバーサルに使うことができます。トラバーサルはリソースツリーのリソースを歩くために `` __getitem__``を使うので、ルートステートメントが意味するルートリソースに対してトラバーサルを使うのは合理的なことです。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">We could have also used our <code class="docutils literal notranslate"><span class="pre">root_factory</span></code> function as the <code class="docutils literal notranslate"><span class="pre">root_factory</span></code>
-argument of the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> constructor, instead of
-associating it with a particular route inside the route's configuration.
-Every hybrid route configuration that is matched, but which does <em>not</em> name a
-<code class="docutils literal notranslate"><span class="pre">factory</span></code> attribute, will use the  global <code class="docutils literal notranslate"><span class="pre">root_factory</span></code> function to
-generate a root object.</p>
+<p class="last">`` root_factory``関数を：class： <cite>〜pyramid.config.Configurator`コンストラクタの</cite> <cite>root_factory``引数として、ルートの設定内の特定のルートに関連付けるのではなく、それを使用することもできました。マッチするが、 `</cite> factory``属性に名前をつけないハイブリッドルート設定は、グローバルな `` root_factory``関数を使ってルートオブジェクトを生成します。</p>
 </div>
-<p>When the route configuration named <code class="docutils literal notranslate"><span class="pre">home</span></code> above is matched during a request,
-the matchdict generated will be based on its pattern:
-<code class="docutils literal notranslate"><span class="pre">{foo}/{bar}/*traverse</span></code>.  The &quot;capture value&quot; implied by the <code class="docutils literal notranslate"><span class="pre">*traverse</span></code>
-element in the pattern will be used to traverse the resource tree in order to
-find a context resource, starting from the root object returned from the root
-factory.  In the above example, the <a class="reference internal" href="../glossary.html#term-root"><span class="xref std std-term">root</span></a> object found will be the
-instance named <code class="docutils literal notranslate"><span class="pre">root</span></code> in <code class="docutils literal notranslate"><span class="pre">routes.py</span></code>.</p>
-<p>If the URL that matched a route with the pattern <code class="docutils literal notranslate"><span class="pre">{foo}/{bar}/*traverse</span></code> is
-<code class="docutils literal notranslate"><span class="pre">http://example.com/one/two/a/b/c</span></code>, the traversal path used against the root
-object will be <code class="docutils literal notranslate"><span class="pre">a/b/c</span></code>.  As a result, <span>Pyramid</span> will attempt to traverse
-through the edges <code class="docutils literal notranslate"><span class="pre">'a'</span></code>, <code class="docutils literal notranslate"><span class="pre">'b'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'c'</span></code>, beginning at the root object.</p>
-<p>In our above example, this particular set of traversal steps will mean that the
-<a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource of the view would be the <code class="docutils literal notranslate"><span class="pre">Resource</span></code> object we've
-named <code class="docutils literal notranslate"><span class="pre">'c'</span></code> in our bogus resource tree, and the <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> resulting
-from traversal will be the empty string.  If you need a refresher about why
-this outcome is presumed, see <a class="reference internal" href="traversal.html#traversal-algorithm"><span class="std std-ref">The Traversal Algorithm</span></a>.</p>
-<p>At this point, a suitable view callable will be found and invoked using
-<a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> as described in <a class="reference internal" href="viewconfig.html#view-configuration"><span class="std std-ref">View Configuration</span></a>, but with a
-caveat: in order for view lookup to work, we need to define a view
-configuration that will match when <a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a> is invoked after a route
-matches:</p>
+<p>上記の `` home``という名前のルート設定がリクエスト中にマッチすると、生成されたmatchdictはパターン `` {foo} / {bar} / * traverse``に基づいています。パターン内の `` * traverse``要素が意味する&amp;quot;キャプチャ値&amp;quot;は、ルートファクトリから返されたルートオブジェクトから開始して、コンテキストリソースを見つけるためにリソースツリーを走査するために使用されます。上の例では、：term： <cite>ルート`オブジェクトは `</cite> routes.py``の `` root``というインスタンスになります。</p>
+<p>パターン `` {foo} / {bar} / * traverse`を持つルートに一致したURLが `` http：// example.com / one / two / a / b / c``である場合、トラバーサルパスルートオブジェクトに対して `` a / b / c``が使用されます。その結果、：app： <cite>Pyramid`は、ルートオブジェクトから始まり、</cite> <cite>&amp;#39;a&amp;#39;`</cite>、` <cite>b&amp;#39;`</cite>、および` <a href="#id1"><span class="problematic" id="id2">`</span></a>c&amp;#39;``をたどることを試みます。</p>
+<p>上記の例では、この特定のトラバーサルステップのセットは、ビューの：term： <cite>context`リソースが、私たちの偽のリソースツリーで</cite> <cite>&amp;#39;c&amp;#39;``という名前の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>Resource``オブジェクトであることを意味します、トラバーサルの結果である：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>view name`は空文字列になります。なぜこの結果が推測されるのかを見直す必要がある場合は、：ref： <a href="#id5"><span class="problematic" id="id6">`</span></a>traversal_algorithm`を参照してください。</p>
+<p>この時点で、適切なview呼び出し可能なものが見つけられ、：term： <cite>view lookup</cite>：ref：` view_configuration`で説明されているように呼び出されますが、注意が必要です：ビューの参照が機能するためには、 when：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>view lookup`が、ルートがマッチした後に呼び出されるときにマッチする設定です：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;{foo}/{bar}/*traverse&#39;</span><span class="p">,</span>
@@ -332,24 +209,15 @@ matches:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;mypackage.views.myview&#39;</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;home&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Note that the above call to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a>
-includes a <code class="docutils literal notranslate"><span class="pre">route_name</span></code> argument.  View configurations that include a
-<code class="docutils literal notranslate"><span class="pre">route_name</span></code> argument are meant to associate a particular view declaration
-with a route, using the route's name, in order to indicate that the view should
-<em>only be invoked when the route matches</em>.</p>
-<p>Calls to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a> may pass a
-<code class="docutils literal notranslate"><span class="pre">route_name</span></code> attribute, which refers to the value of an existing route's
-<code class="docutils literal notranslate"><span class="pre">name</span></code> argument.  In the above example, the route name is <code class="docutils literal notranslate"><span class="pre">home</span></code>, referring
-to the name of the route defined above it.</p>
-<p>The above <code class="docutils literal notranslate"><span class="pre">mypackage.views.myview</span></code> view callable will be invoked when the
-following conditions are met:</p>
+<p>上記の：meth： <cite>〜pyramid.config.Configurator.add_view`の呼び出しには</cite> <cite>route_name``引数が含まれています。 `</cite> route_name``引数を含むビュー設定は、特定のビュー宣言をルートと関連付けて、ルートが*と一致したときだけビューを呼び出さなければならないことを示すためのものです。</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.add_view`は、既存のルートの</cite> <cite>name``引数の値を参照する</cite> <cite>route_name``属性を渡すことができます。上の例では、ルート名は `</cite> home``であり、上に定義されたルートの名前を参照しています。</p>
+<p>上記の `` mypackage.views.myview``ビューは以下の条件が満たされたとき呼び出されます：</p>
 <ul class="simple">
-<li>The route named &quot;home&quot; is matched.</li>
-<li>The <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> resulting from traversal is the empty string.</li>
-<li>The <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource is any object.</li>
+<li>&amp;quot;home &amp;quot;という名前のルートが一致しています。</li>
+<li>：term：トラバーサルの結果である <a href="#id1"><span class="problematic" id="id2">`</span></a>view name`は空文字列です。</li>
+<li>：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>context`リソースは任意のオブジェクトです。</li>
 </ul>
-<p>It is also possible to declare alternative views that may be invoked when a
-hybrid route is matched:</p>
+<p>ハイブリッドルートが一致したときに呼び出される代替ビューを宣言することもできます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -361,67 +229,33 @@ hybrid route is matched:</p>
                 <span class="n">name</span><span class="o">=</span><span class="s1">&#39;another&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">add_view</span></code> call for <code class="docutils literal notranslate"><span class="pre">mypackage.views.another_view</span></code> above names a
-different view and, more importantly, a different <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a>.  The above
-<code class="docutils literal notranslate"><span class="pre">mypackage.views.another_view</span></code> view will be invoked when the following
-conditions are met:</p>
+<p>上記の `` mypackage.views.another_view``の `` add_view``呼び出しは、異なるビューと、もっと重要なことに、異なる：term： <cite>view name`という名前を付けます。上記の `</cite> mypackage.views.another_view``ビューは、以下の条件が満たされたときに呼び出されます：</p>
 <ul class="simple">
-<li>The route named &quot;home&quot; is matched.</li>
-<li>The <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> resulting from traversal is <code class="docutils literal notranslate"><span class="pre">another</span></code>.</li>
-<li>The <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> resource is any object.</li>
+<li>&amp;quot;home &amp;quot;という名前のルートが一致しています。</li>
+<li>：term： <cite>view name`は</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>another``です。</li>
+<li>：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>context`リソースは任意のオブジェクトです。</li>
 </ul>
-<p>For instance, if the URL <code class="docutils literal notranslate"><span class="pre">http://example.com/one/two/a/another</span></code> is provided
-to an application that uses the previously mentioned resource tree, the
-<code class="docutils literal notranslate"><span class="pre">mypackage.views.another_view</span></code> view callable will be called instead of the
-<code class="docutils literal notranslate"><span class="pre">mypackage.views.myview</span></code> view callable because the <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> will be
-<code class="docutils literal notranslate"><span class="pre">another</span></code> instead of the empty string.</p>
-<p>More complicated matching can be composed.  All arguments to <em>route</em>
-configuration statements and <em>view</em> configuration statements are supported in
-hybrid applications (such as <a class="reference internal" href="../glossary.html#term-predicate"><span class="xref std std-term">predicate</span></a> arguments).</p>
+<p>例えば、前述のリソースツリーを使用するアプリケーションに `` http：// example.com / one / two / a / another``というURLが提供されている場合、 `` mypackage.views.another_view``ビューは呼び出し可能です：term： <cite>view name`は空文字列の代わりに</cite> <cite>another``となるので、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>mypackage.views.myview``ビューの代わりに呼び出すことができます。</p>
+<p>より複雑なマッチングを構成することができます。 * route <em>設定ステートメントと</em> view <a href="#id1"><span class="problematic" id="id2">*</span></a>設定ステートメントのすべての引数は、ハイブリッドアプリケーションでサポートされています（term： <a href="#id3"><span class="problematic" id="id4">`</span></a>述語`引数など）。</p>
 </div>
 <div class="section" id="using-the-traverse-argument-in-a-route-definition">
-<h3>Using the <code class="docutils literal notranslate"><span class="pre">traverse</span></code> Argument in a Route Definition<a class="headerlink" href="#using-the-traverse-argument-in-a-route-definition" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Rather than using the <code class="docutils literal notranslate"><span class="pre">*traverse</span></code> remainder marker in a pattern, you can use
-the <code class="docutils literal notranslate"><span class="pre">traverse</span></code> argument to the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a>
-method.</p>
-<p>When you use the <code class="docutils literal notranslate"><span class="pre">*traverse</span></code> remainder marker, the traversal path is limited
-to being the remainder segments of a request URL when a route matches.
-However, when you use the <code class="docutils literal notranslate"><span class="pre">traverse</span></code> argument or attribute, you have more
-control over how to compose a traversal path.</p>
-<p>Here's a use of the <code class="docutils literal notranslate"><span class="pre">traverse</span></code> pattern in a call to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a>:</p>
+<h3>ルート定義における `` traverse``引数の使用<a class="headerlink" href="#using-the-traverse-argument-in-a-route-definition" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>パターンに `` * traverse``の余りマーカーを使うのではなく、：meth： <cite>〜pyramid.config.Configurator.add_route`メソッドの</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>traverse``引数を使うことができます。</p>
+<p>`` * traverse``の余りマーカーを使うと、トラバーサルパスは、ルートが一致したときのリクエストURLの残りのセグメントに限定されます。しかし、 `` traverse``引数や属性を使うと、トラバーサルパスをどのように構成するかをもっと制御できます。</p>
+<p>以下は、：meth： <cite>〜pyramid.config.Configurator.add_route`の呼び出しにおける</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>traverse``パターンの使用方法です：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;/articles/{article}/edit&#39;</span><span class="p">,</span>
                  <span class="n">traverse</span><span class="o">=</span><span class="s1">&#39;/{article}&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The syntax of the <code class="docutils literal notranslate"><span class="pre">traverse</span></code> argument is the same as it is for <code class="docutils literal notranslate"><span class="pre">pattern</span></code>.</p>
-<p>If, as above, the <code class="docutils literal notranslate"><span class="pre">pattern</span></code> provided is <code class="docutils literal notranslate"><span class="pre">/articles/{article}/edit</span></code>, and the
-<code class="docutils literal notranslate"><span class="pre">traverse</span></code> argument provided is <code class="docutils literal notranslate"><span class="pre">/{article}</span></code>, when a request comes in that
-causes the route to match in such a way that the <code class="docutils literal notranslate"><span class="pre">article</span></code> match value is
-<code class="docutils literal notranslate"><span class="pre">1</span></code> (when the request URI is <code class="docutils literal notranslate"><span class="pre">/articles/1/edit</span></code>), the traversal path will
-be generated as <code class="docutils literal notranslate"><span class="pre">/1</span></code>. This means that the root object's <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> will
-be called with the name <code class="docutils literal notranslate"><span class="pre">1</span></code> during the traversal phase.  If the <code class="docutils literal notranslate"><span class="pre">1</span></code> object
-exists, it will become the <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> of the request. The
-<a class="reference internal" href="traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a> chapter has more information about traversal.</p>
-<p>If the traversal path contains segment marker names which are not present in
-the pattern argument, a runtime error will occur.  The <code class="docutils literal notranslate"><span class="pre">traverse</span></code> pattern
-should not contain segment markers that do not exist in the <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
-<p>Note that the <code class="docutils literal notranslate"><span class="pre">traverse</span></code> argument is ignored when attached to a route that
-has a <code class="docutils literal notranslate"><span class="pre">*traverse</span></code> remainder marker in its pattern.</p>
-<p>Traversal will begin at the root object implied by this route (either the
-global root, or the object returned by the <code class="docutils literal notranslate"><span class="pre">factory</span></code> associated with this
-route).</p>
+<p>`` traverse`引数の構文は `` pattern``の構文と同じです。</p>
+<p>上記のように `` / articles / {article} / edit``が提供され、 `` traverse``引数が `` / {article} <code class="docutils literal notranslate"><span class="pre">である場合、リクエストが来たら</span></code> article``の一致値が `` 1``（リクエストURIが `` / articles / 1 / edit``のとき）にルートが一致するようにするために、トラバーサルパスは次のように生成されます。 `` / 1``です。つまり、ルートオブジェクトの `` __getitem__``はトラバーサルフェーズ中に名前が `` 1``で呼び出されます。 `` 1``オブジェクトが存在する場合、要求の：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>context`になります。 ：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>traversal_chapter`の章には、トラバースに関する詳細があります。</p>
+<p>トラバーサルパスにパターン引数に存在しないセグメントマーカー名が含まれていると、実行時エラーが発生します。 `` traverse``パターンは `` path``に存在しないセグメントマーカーを含んではいけません。</p>
+<p>`` traverse``引数はパターンに `` * traverse``残余マーカがあるルートにアタッチされているときは無視されることに注意してください。</p>
+<p>トラバーサルは、このルートが意味するルートオブジェクト（グローバルルートまたはこのルートに関連付けられた `` factory``によって返されるオブジェクト）から始まります。</p>
 <div class="section" id="making-global-views-match">
-<span id="index-2"></span><h4>Making Global Views Match<a class="headerlink" href="#making-global-views-match" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>By default, only view configurations that mention a <code class="docutils literal notranslate"><span class="pre">route_name</span></code> will be
-found during view lookup when a route that has a <code class="docutils literal notranslate"><span class="pre">*traverse</span></code> in its pattern
-matches.  You can allow views without a <code class="docutils literal notranslate"><span class="pre">route_name</span></code> attribute to match a
-route by adding the <code class="docutils literal notranslate"><span class="pre">use_global_views</span></code> flag to the route definition.  For
-example, the <code class="docutils literal notranslate"><span class="pre">myproject.views.bazbuz</span></code> view below will be found if the route
-named <code class="docutils literal notranslate"><span class="pre">abc</span></code> below is matched and the <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> is <code class="docutils literal notranslate"><span class="pre">/abc/bazbuz</span></code>, even
-though the view configuration statement does not have the <code class="docutils literal notranslate"><span class="pre">route_name=&quot;abc&quot;</span></code>
-attribute.</p>
+<span id="index-2"></span><h4>グローバルビューを一致させる<a class="headerlink" href="#making-global-views-match" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>デフォルトでは、パターンに `` * traverse``があるルートが一致したときに、ビュールックアップ中に `` route_name``を記述したビュー設定だけが見付かります。ルート定義に `` use_global_views``フラグを追加することで、ルートと一致する `` route_name``属性のないビューを許可することができます。たとえば、以下の `` abc``という名前のルートがマッチし、 `` / abc / bazbuz``が `` PATH_INFO``である場合、 `` myproject.views.bazbuz``のビューが見つかります。 view構成ステートメントに `` route_name = &amp;quot;abc &amp;quot; <a href="#id1"><span class="problematic" id="id2">``</span></a>属性がありません。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;/abc/*traverse&#39;</span><span class="p">,</span> <span class="n">use_global_views</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;myproject.views.bazbuz&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;bazbuz&#39;</span><span class="p">)</span>
@@ -430,17 +264,9 @@ attribute.</p>
 </div>
 </div>
 <div class="section" id="using-subpath-in-a-route-pattern">
-<span id="star-subpath"></span><span id="index-3"></span><h3>Using <code class="docutils literal notranslate"><span class="pre">*subpath</span></code> in a Route Pattern<a class="headerlink" href="#using-subpath-in-a-route-pattern" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>There are certain extremely rare cases when you'd like to influence the
-traversal <a class="reference internal" href="../glossary.html#term-subpath"><span class="xref std std-term">subpath</span></a> when a route matches without actually performing
-traversal.  For instance, the <a class="reference internal" href="../api/wsgi.html#pyramid.wsgi.wsgiapp2" title="pyramid.wsgi.wsgiapp2"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.wsgi.wsgiapp2()</span></code></a> decorator and the
-<a class="reference internal" href="../api/static.html#pyramid.static.static_view" title="pyramid.static.static_view"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.static.static_view</span></code></a> helper attempt to compute <code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code>
-from the request's subpath when its <code class="docutils literal notranslate"><span class="pre">use_subpath</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>, so
-it's useful to be able to influence this value.</p>
-<p>When <code class="docutils literal notranslate"><span class="pre">*subpath</span></code> exists in a pattern, no path is actually traversed, but the
-traversal algorithm will return a <a class="reference internal" href="../glossary.html#term-subpath"><span class="xref std std-term">subpath</span></a> list implied by the capture
-value of <code class="docutils literal notranslate"><span class="pre">*subpath</span></code>.  You'll see this pattern most commonly in route
-declarations that look like this:</p>
+<span id="star-subpath"></span><span id="index-3"></span><h3>ルートパターンで `` * subpath``を使う<a class="headerlink" href="#using-subpath-in-a-route-pattern" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>トラバースに影響を与えたいという非常にまれなケースがあります：term： <cite>subpath`ルートが実際にトラバーサルを実行せずにマッチするときです。たとえば、：func： `pyramid.wsgi.wsgiapp2`デコレータと：class：</cite> pyramid.static.static_view`ヘルパーは、 `` use_subpath``引数が `` use_subpath``のときに要求のサブパスから `` PATH_INFO``を計算しようとします。 <a href="#id1"><span class="problematic" id="id2">`</span></a>True``なので、この値に影響を与えることは有益です。</p>
+<p>`` * subpath``がパターン内に存在する場合、パスは実際にはトラバースされませんが、トラバーサルアルゴリズムは `` * subpath``のキャプチャ値が暗示する：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>subpath`リストを返します。ルートの宣言では、このようなパターンが最も一般的です。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -454,85 +280,51 @@ declarations that look like this:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">www</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;static&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p><code class="docutils literal notranslate"><span class="pre">mypackage.views.www</span></code> is an instance of <a class="reference internal" href="../api/static.html#pyramid.static.static_view" title="pyramid.static.static_view"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.static.static_view</span></code></a>.
-This effectively tells the static helper to traverse everything in the subpath
-as a filename.</p>
+<p>`` mypackage.views.www``は、class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.static.static_view`のインスタンスです。これにより、静的ヘルパーは、サブパス内のすべてをファイル名としてトラバースするように効果的に指示します。</p>
 </div>
 </div>
 <div class="section" id="generating-hybrid-urls">
-<span id="index-4"></span><span id="id2"></span><h2>Generating Hybrid URLs<a class="headerlink" href="#generating-hybrid-urls" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="index-4"></span><span id="id2"></span><h2>ハイブリッドURLの生成<a class="headerlink" href="#generating-hybrid-urls" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.5 で追加.</span></p>
 </div>
-<p>The <a class="reference internal" href="../api/request.html#pyramid.request.Request.resource_url" title="pyramid.request.Request.resource_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.resource_url()</span></code></a> method and the
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.resource_path" title="pyramid.request.Request.resource_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.resource_path()</span></code></a> method both accept optional
-keyword arguments that make it easier to generate route-prefixed URLs that
-contain paths to traversal resources: <code class="docutils literal notranslate"><span class="pre">route_name</span></code>, <code class="docutils literal notranslate"><span class="pre">route_kw</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">route_remainder_name</span></code>.</p>
-<p>Any route that has a pattern that contains a <code class="docutils literal notranslate"><span class="pre">*remainder</span></code> pattern (any
-stararg remainder pattern, such as <code class="docutils literal notranslate"><span class="pre">*traverse</span></code>, <code class="docutils literal notranslate"><span class="pre">*subpath</span></code>, or <code class="docutils literal notranslate"><span class="pre">*fred</span></code>)
-can be used as the target name for <code class="docutils literal notranslate"><span class="pre">request.resource_url(...,</span> <span class="pre">route_name=)</span></code>
-and <code class="docutils literal notranslate"><span class="pre">request.resource_path(...,</span> <span class="pre">route_name=)</span></code>.</p>
-<p>For example, let's imagine you have a route defined in your Pyramid application
-like so:</p>
+<p>：meth： <cite>pyramid.request.Request.resource_url`メソッドと：meth：</cite> pyramid.request.Request.resource_path`メソッドは、トラバーサルリソースへのパスを含むルートプレフィックス付きURLを生成しやすくするオプションのキーワード引数を受け入れます： `` route_name``、 `` route_kw``、および `` route_remainder_name``です。</p>
+<p>`` * remainder``パターン（ `` * traverse``、 `` * subpath``、 `` * fred``などの任意の残りのパターン）を含むパターンを持つルートは、 `` request.resource_url（...、route_name =） <a href="#id1"><span class="problematic" id="id2">``</span></a>と `` request.resource_path（...、route_name =） <a href="#id3"><span class="problematic" id="id4">``</span></a>のターゲット名です。</p>
+<p>たとえば、Pyramidアプリケーションで定義されているルートが次のようになっているとします。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;mysection&#39;</span><span class="p">,</span> <span class="s1">&#39;/mysection*traverse&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you'd like to generate the URL <code class="docutils literal notranslate"><span class="pre">http://example.com/mysection/a/</span></code>, you can
-use the following incantation, assuming that the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> below points to
-a resource that is a child of the root with a <code class="docutils literal notranslate"><span class="pre">__name__</span></code> of <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
+<p>`` http：// example.com / mysection / a / <code class="docutils literal notranslate"><span class="pre">というURLを生成したい場合、下記の変数</span> <span class="pre">``</span> <span class="pre">a``が以下のリソースを指していると仮定すると、ルートの子で</span> <span class="pre">``</span> <span class="pre">__name__``の</span> <span class="pre">``</span> <span class="pre">a</span></code>：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">resource_url</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;mysection&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You can generate only the path portion <code class="docutils literal notranslate"><span class="pre">/mysection/a/</span></code> assuming the same:</p>
+<p>パス部分 `` / mysection / a / <a href="#id1"><span class="problematic" id="id2">``</span></a>のみを生成することができます。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">resource_path</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;mysection&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The path is virtual host aware, so if the <code class="docutils literal notranslate"><span class="pre">X-Vhm-Root</span></code> environment variable
-is present in the request, and it's set to <code class="docutils literal notranslate"><span class="pre">/a</span></code>, the above call to
-<code class="docutils literal notranslate"><span class="pre">request.resource_url</span></code> would generate <code class="docutils literal notranslate"><span class="pre">http://example.com/mysection/</span></code>, and
-the above call to <code class="docutils literal notranslate"><span class="pre">request.resource_path</span></code> would generate <code class="docutils literal notranslate"><span class="pre">/mysection/</span></code>. See
-<a class="reference internal" href="vhosting.html#virtual-root-support"><span class="std std-ref">Virtual Root Support</span></a> for more information.</p>
-<p>If the route you're trying to use needs simple dynamic part values to be filled
-in to succesfully generate the URL, you can pass these as the <code class="docutils literal notranslate"><span class="pre">route_kw</span></code>
-argument to <code class="docutils literal notranslate"><span class="pre">resource_url</span></code> and <code class="docutils literal notranslate"><span class="pre">resource_path</span></code>.  For example, assuming that
-the route definition is like so:</p>
+<p>パスは仮想ホストを認識しているので、 `` X-Vhm-Root``環境変数がリクエストに存在し、 `` / a``に設定されている場合、上記の `` request.resource_url``の呼び出しは`` http：// example.com / mysection / <a href="#id1"><span class="problematic" id="id2">``</span></a>を生成し、上記の `` request.resource_path``の呼び出しは `` / mysection / <a href="#id3"><span class="problematic" id="id4">``</span></a>を生成します。詳細は、：ref： <a href="#id5"><span class="problematic" id="id6">`</span></a>virtual_root_support`を参照してください。</p>
+<p>使用しようとしているルートが簡単な動的パーツの値を入力してURLを生成する必要がある場合は、これらを `` resource_url``と `` resource_path``の `` route_kw``引数として渡すことができます。たとえば、ルート定義が次のようになっていると仮定します。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;mysection&#39;</span><span class="p">,</span> <span class="s1">&#39;/{id}/mysection*traverse&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You can pass <code class="docutils literal notranslate"><span class="pre">route_kw</span></code> in to fill in <code class="docutils literal notranslate"><span class="pre">{id}</span></code> above:</p>
+<p>上記の `` {id} <a href="#id1"><span class="problematic" id="id2">``</span></a>を記入するために `` route_kw``を渡すことができます：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">resource_url</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;mysection&#39;</span><span class="p">,</span> <span class="n">route_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;1&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>If you pass <code class="docutils literal notranslate"><span class="pre">route_kw</span></code> but do not pass <code class="docutils literal notranslate"><span class="pre">route_name</span></code>, <code class="docutils literal notranslate"><span class="pre">route_kw</span></code> will be
-ignored.</p>
-<p>By default this feature works by calling <code class="docutils literal notranslate"><span class="pre">route_url</span></code> under the hood, and
-passing the value of the resource path to that function as <code class="docutils literal notranslate"><span class="pre">traverse</span></code>. If
-your route has a different <code class="docutils literal notranslate"><span class="pre">*stararg</span></code> remainder name (such as <code class="docutils literal notranslate"><span class="pre">*subpath</span></code>),
-you can tell <code class="docutils literal notranslate"><span class="pre">resource_url</span></code> or <code class="docutils literal notranslate"><span class="pre">resource_path</span></code> to use that instead of
-<code class="docutils literal notranslate"><span class="pre">traverse</span></code> by passing <code class="docutils literal notranslate"><span class="pre">route_remainder_name</span></code>.  For example, if you have the
-following route:</p>
+<p>`` route_kw``を渡しても `` route_name``を渡さなければ、 `` route_kw``は無視されます。</p>
+<p>デフォルトでは、この機能は、フードの下で `` route_url``を呼び出し、リソースパスの値を `` traverse``としてその関数に渡すことによって機能します。あなたのルートに `` * starpath``などの別の `` * stararg``残余名がある場合、 `` resource_url``や `` resource_path``に `` traverse``の代わりに `` traverse``を使用するように伝えることができます`` route_remainder_name``を渡します。たとえば、次のルートがあるとします。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;mysection&#39;</span><span class="p">,</span> <span class="s1">&#39;/mysection*subpath&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You can fill in the <code class="docutils literal notranslate"><span class="pre">*subpath</span></code> value using <code class="docutils literal notranslate"><span class="pre">resource_url</span></code> by doing:</p>
+<p>以下のようにして `` resource_url``を使って `` * subpath``の値を入力することができます：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">resource_path</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;mysection&#39;</span><span class="p">,</span>
                       <span class="n">route_remainder_name</span><span class="o">=</span><span class="s1">&#39;subpath&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you pass <code class="docutils literal notranslate"><span class="pre">route_remainder_name</span></code> but do not pass <code class="docutils literal notranslate"><span class="pre">route_name</span></code>,
-<code class="docutils literal notranslate"><span class="pre">route_remainder_name</span></code> will be ignored.</p>
-<p>If you try to use <code class="docutils literal notranslate"><span class="pre">resource_path</span></code> or <code class="docutils literal notranslate"><span class="pre">resource_url</span></code> when the <code class="docutils literal notranslate"><span class="pre">route_name</span></code>
-argument points at a route that does not have a remainder stararg, an error
-will not be raised, but the generated URL will not contain any remainder
-information either.</p>
-<p>All other values that are normally passable to <code class="docutils literal notranslate"><span class="pre">resource_path</span></code> and
-<code class="docutils literal notranslate"><span class="pre">resource_url</span></code> (such as <code class="docutils literal notranslate"><span class="pre">query</span></code>, <code class="docutils literal notranslate"><span class="pre">anchor</span></code>, <code class="docutils literal notranslate"><span class="pre">host</span></code>, <code class="docutils literal notranslate"><span class="pre">port</span></code>, and
-positional elements) work as you might expect in this configuration.</p>
-<p>Note that this feature is incompatible with the <code class="docutils literal notranslate"><span class="pre">__resource_url__</span></code> feature
-(see <a class="reference internal" href="resources.html#overriding-resource-url-generation"><span class="std std-ref">Overriding Resource URL Generation</span></a>) implemented on resource
-objects.  Any  <code class="docutils literal notranslate"><span class="pre">__resource_url__</span></code> supplied by your resource will be ignored
-when you pass <code class="docutils literal notranslate"><span class="pre">route_name</span></code>.</p>
+<p>`` route_remainder_name``を渡しても `` route_name``を渡さなければ、 `` route_remainder_name``は無視されます。</p>
+<p>`` route_name``引数が残りのstarargを持たないルートを指しているときに `` resource_path``または `` resource_url``を使用しようとすると、エラーは発生しませんが、生成されたURLには含まれません残りのいずれかの情報。</p>
+<p>通常、 `` resource_path``と `` resource_url``（ `` query``、 `` anchor``、 `` host``、 `` port``、および位置要素など）に渡される他のすべての値は、この構成で期待どおりに動作します。</p>
+<p>この機能はリソースオブジェクトに実装された `` __resource_url__``機能（：ref： <cite>overriding_resource_url_generation`参照）と互換性がないことに注意してください。あなたのリソースによって提供される `</cite> __resource_url__``は `` route_name``を渡すと無視されます。</p>
 </div>
 </div>
 
@@ -544,33 +336,33 @@ when you pass <code class="docutils literal notranslate"><span class="pre">route
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Combining Traversal and URL Dispatch</a><ul>
-<li><a class="reference internal" href="#a-review-of-non-hybrid-applications">A Review of Non-Hybrid Applications</a><ul>
-<li><a class="reference internal" href="#url-dispatch-only">URL Dispatch Only</a></li>
-<li><a class="reference internal" href="#traversal-only">Traversal Only</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) トラバーサルとURLディスパッチの組み合わせ</a><ul>
+<li><a class="reference internal" href="#a-review-of-non-hybrid-applications">非ハイブリッドアプリケーションのレビュー</a><ul>
+<li><a class="reference internal" href="#url-dispatch-only">URLディスパッチのみ</a></li>
+<li><a class="reference internal" href="#traversal-only">トラバーサルのみ</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#hybrid-applications">Hybrid Applications</a><ul>
-<li><a class="reference internal" href="#the-root-object-for-a-route-match">The Root Object for a Route Match</a></li>
-<li><a class="reference internal" href="#using-traverse-in-a-route-pattern">Using <code class="docutils literal notranslate"><span class="pre">*traverse</span></code> in a Route Pattern</a></li>
-<li><a class="reference internal" href="#using-the-traverse-argument-in-a-route-definition">Using the <code class="docutils literal notranslate"><span class="pre">traverse</span></code> Argument in a Route Definition</a><ul>
-<li><a class="reference internal" href="#making-global-views-match">Making Global Views Match</a></li>
+<li><a class="reference internal" href="#hybrid-applications">ハイブリッドアプリケーション</a><ul>
+<li><a class="reference internal" href="#the-root-object-for-a-route-match">ルートマッチのルートオブジェクト</a></li>
+<li><a class="reference internal" href="#using-traverse-in-a-route-pattern">ルートパターンで `` * traverse``を使う</a></li>
+<li><a class="reference internal" href="#using-the-traverse-argument-in-a-route-definition">ルート定義における `` traverse``引数の使用</a><ul>
+<li><a class="reference internal" href="#making-global-views-match">グローバルビューを一致させる</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#using-subpath-in-a-route-pattern">Using <code class="docutils literal notranslate"><span class="pre">*subpath</span></code> in a Route Pattern</a></li>
+<li><a class="reference internal" href="#using-subpath-in-a-route-pattern">ルートパターンで `` * subpath``を使う</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#generating-hybrid-urls">Generating Hybrid URLs</a></li>
+<li><a class="reference internal" href="#generating-hybrid-urls">ハイブリッドURLの生成</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="security.html"
-                        title="前の章へ">Security</a></p>
+                        title="前の章へ">(機械翻訳) セキュリティ</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="subrequest.html"
-                        title="次の章へ">Invoking a Subrequest</a></p>
+                        title="次の章へ">(機械翻訳) サブリクエストの呼び出し</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -604,17 +396,17 @@ when you pass <code class="docutils literal notranslate"><span class="pre">route
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="subrequest.html" title="Invoking a Subrequest"
+          <a href="subrequest.html" title="(機械翻訳) サブリクエストの呼び出し"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="security.html" title="Security"
+          <a href="security.html" title="(機械翻訳) セキュリティ"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Invoking a Subrequest &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) サブリクエストの呼び出し &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Using Hooks" href="hooks.html" />
-    <link rel="prev" title="Combining Traversal and URL Dispatch" href="hybrid.html" />
+    <link rel="next" title="(機械翻訳) フックの使用" href="hooks.html" />
+    <link rel="prev" title="(機械翻訳) トラバーサルとURLディスパッチの組み合わせ" href="hybrid.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="hooks.html" title="Using Hooks"
+          <a href="hooks.html" title="(機械翻訳) フックの使用"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="hybrid.html" title="Combining Traversal and URL Dispatch"
+          <a href="hybrid.html" title="(機械翻訳) トラバーサルとURLディスパッチの組み合わせ"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,16 +69,12 @@
           <div class="body" role="main">
             
   <div class="section" id="invoking-a-subrequest">
-<span id="subrequest-chapter"></span><span id="index-0"></span><h1>Invoking a Subrequest<a class="headerlink" href="#invoking-a-subrequest" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="subrequest-chapter"></span><span id="index-0"></span><h1>(機械翻訳) サブリクエストの呼び出し<a class="headerlink" href="#invoking-a-subrequest" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.4 で追加.</span></p>
 </div>
-<p><span>Pyramid</span> allows you to invoke a subrequest at any point during the
-processing of a request.  Invoking a subrequest allows you to obtain a
-<a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a> object from a view callable within your <span>Pyramid</span>
-application while you're executing a different view callable within the same
-application.</p>
-<p>Here's an example application which uses a subrequest:</p>
+<p>：app： <cite>Pyramid`では、リクエストの処理中に任意の時点でサブリクエストを呼び出すことができます。サブリクエストを呼び出すと、同じアプリケーション内で呼び出し可能な別のビューを実行しているときに：app： `Pyramid`アプリケーション内で呼び出し可能なビューから：term：</cite> response`オブジェクトを取得できます。</p>
+<p>サブリクエストを使用するアプリケーションの例を次に示します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -124,22 +120,8 @@ application.</p>
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>When <code class="docutils literal notranslate"><span class="pre">/view_one</span></code> is visted in a browser, the text printed in the browser pane
-will be <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">came</span> <span class="pre">from</span> <span class="pre">view_two</span></code>.  The <code class="docutils literal notranslate"><span class="pre">view_one</span></code> view used the
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.invoke_subrequest()</span></code></a> API to obtain a response from
-another view (<code class="docutils literal notranslate"><span class="pre">view_two</span></code>) within the same application when it executed.  It
-did so by constructing a new request that had a URL that it knew would match
-the <code class="docutils literal notranslate"><span class="pre">view_two</span></code> view registration, and passed that new request along to
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.invoke_subrequest()</span></code></a>.  The <code class="docutils literal notranslate"><span class="pre">view_two</span></code> view
-callable was invoked, and it returned a response.  The <code class="docutils literal notranslate"><span class="pre">view_one</span></code> view
-callable then simply returned the response it obtained from the <code class="docutils literal notranslate"><span class="pre">view_two</span></code>
-view callable.</p>
-<p>Note that it doesn't matter if the view callable invoked via a subrequest
-actually returns a <em>literal</em> Response object.  Any view callable that uses a
-renderer or which returns an object that can be interpreted by a response
-adapter when found and invoked via
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.invoke_subrequest()</span></code></a> will return a Response
-object:</p>
+<p>`` / view_one``がブラウザに表示されているとき、ブラウザペインに表示されるテキストは <code class="docutils literal notranslate"><span class="pre">これはview_two``から来ました。</span> <span class="pre">``</span> <span class="pre">view_one``ビューは：</span> <span class="pre">``</span> <span class="pre">meth：</span> <span class="pre">`pyramid.request.Request.invoke_subrequest`</span> <span class="pre">APIを使って、同じアプリケーション内で別のビュー（`</span> <span class="pre">`view_two</span></code>）から応答を取得しました。 `` view_two``ビューの登録にマッチすると知っていたURLを持った新しいリクエストを作成し、その新しいリクエストを：meth： <cite>pyramid.request.Request.invoke_subrequest`に渡すことでそうしました。 `</cite> view_two``ビューのcallableが呼び出され、レスポンスが返されました。 `` view_one``ビューは `` view_two``ビューから取得したレスポンスを単に呼び出し可能にしました。</p>
+<p>サブリクエストを介して呼び出されたビューが実際に*リテラル*レスポンスオブジェクトを返すかどうかは関係ありません。レンダラーを使用する呼び出し可能ビュー、または：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.request.Request.invoke_subrequest`で見つけられ起動されたときに応答アダプタによって解釈されるオブジェクトを返すビューは、Responseオブジェクトを返します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -183,22 +165,9 @@ object:</p>
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>Even though the <code class="docutils literal notranslate"><span class="pre">view_two</span></code> view callable returned a string, it was invoked in
-such a way that the <code class="docutils literal notranslate"><span class="pre">string</span></code> renderer associated with the view registration
-that was found turned it into a &quot;real&quot; response object for consumption by
-<code class="docutils literal notranslate"><span class="pre">view_one</span></code>.</p>
-<p>Being able to unconditionally obtain a response object by invoking a view
-callable indirectly is the main advantage to using
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.invoke_subrequest()</span></code></a> instead of simply importing a
-view callable and executing it directly.  Note that there's not much advantage
-to invoking a view using a subrequest if you <em>can</em> invoke a view callable
-directly.  Subrequests are slower and are less convenient if you actually do
-want just the literal information returned by a function that happens to be a
-view callable.</p>
-<p>Note that, by default, if a view callable invoked by a subrequest raises an
-exception, the exception will be raised to the caller of
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">invoke_subrequest()</span></code></a> even if you have a
-<a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a> configured:</p>
+<p>`` view_two``ビューのcallableは文字列を返しましたが、見つかったビュー登録に関連付けられた `` string``レンダラーがそれを消費のための&amp;quot;実際の&amp;quot;応答オブジェクトに変換するように呼び出されました「view_one」によって。</p>
+<p>間接的に呼び出し可能なビューを呼び出すことによって無条件に応答オブジェクトを取得できることは、単純にビュー呼び出し可能オブジェクトをインポートして直接実行するのではなく、meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.request.Request.invoke_subrequest`を使用する主な利点です。呼び出し可能なビューを直接呼び出すことができれば、サブリクエストを使ってビューを呼び出すことはあまり利点がないことに注意してください。サブリクエストは遅く、ビュー呼び出し可能な関数で返されるリテラル情報だけが実際に必要な場合はあまり便利ではありません。</p>
+<p>デフォルトで、サブリクエストによって呼び出されたビュー呼び出し可能呼び出しが例外を発生させた場合、：term： <cite>例外があっても：meth：</cite>〜pyramid.request.Request.invoke_subrequest`の呼び出し側に例外が発生することに注意してくださいビュー構成：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -254,34 +223,13 @@ exception, the exception will be raised to the caller of
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>When we run the above code and visit <code class="docutils literal notranslate"><span class="pre">/view_one</span></code> in a browser, the
-<code class="docutils literal notranslate"><span class="pre">excview</span></code> <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a> will <em>not</em> be executed.  Instead, the call
-to <a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">invoke_subrequest()</span></code></a> will cause a
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> exception to be raised and a response will never be
-generated.  We can change this behavior; how to do so is described below in our
-discussion of the <code class="docutils literal notranslate"><span class="pre">use_tweens</span></code> argument.</p>
+<p>上記のコードを実行してブラウザで `` / view_one``を訪れると、 `` excview``：term： <cite>exception view`が実行されません。代わりに：meth： `〜pyramid.request.Request.invoke_subrequest`を呼び出すと、：exc：</cite> ValueError`例外が発生し、応答が生成されません。私たちはこの行動を変えることができます。その方法については、 `` use_tweens``引数の議論で後述します。</p>
 <div class="section" id="subrequests-with-tweens">
-<span id="index-1"></span><h2>Subrequests with Tweens<a class="headerlink" href="#subrequests-with-tweens" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The <a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.invoke_subrequest()</span></code></a> API accepts two
-arguments: a required positional argument <code class="docutils literal notranslate"><span class="pre">request</span></code>, and an optional keyword
-argument <code class="docutils literal notranslate"><span class="pre">use_tweens</span></code> which defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">request</span></code> object passed to the API must be an object that implements the
-Pyramid request interface (such as a <a class="reference internal" href="../api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a>
-instance).  If <code class="docutils literal notranslate"><span class="pre">use_tweens</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the request will be sent to the
-<a class="reference internal" href="../glossary.html#term-tween"><span class="xref std std-term">tween</span></a> in the tween stack closest to the request ingress.  If
-<code class="docutils literal notranslate"><span class="pre">use_tweens</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the request will be sent to the main router
-handler, and no tweens will be invoked.</p>
-<p>In the example above, the call to
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">invoke_subrequest()</span></code></a> will always raise an
-exception.  This is because it's using the default value for <code class="docutils literal notranslate"><span class="pre">use_tweens</span></code>,
-which is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  Alternatively, you can pass <code class="docutils literal notranslate"><span class="pre">use_tweens=True</span></code> to ensure
-that it will convert an exception to a Response if an <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a> is
-configured, instead of raising the exception.  This is because exception views
-are called by the exception view <a class="reference internal" href="../glossary.html#term-tween"><span class="xref std std-term">tween</span></a> as described in
-<a class="reference internal" href="views.html#exception-views"><span class="std std-ref">カスタム例外ビュー(Custom Exception Views)</span></a> when any view raises an exception.</p>
-<p>We can cause the subrequest to be run through the tween stack by passing
-<code class="docutils literal notranslate"><span class="pre">use_tweens=True</span></code> to the call to
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">invoke_subrequest()</span></code></a>, like this:</p>
+<span id="index-1"></span><h2>トゥイーンのサブリクエスト<a class="headerlink" href="#subrequests-with-tweens" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：meth： <cite>pyramid.request.Request.invoke_subrequest</cite> APIは、必須の位置引数` <cite>request``と省略可能なキーワード引数</cite> <cite>use_tweens``をデフォルトで</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>False``の2つの引数を受け取ります。</p>
+<p>APIに渡される `` request``オブジェクトはPyramidリクエストインタフェース（：class： <cite>pyramid.request.Request`インスタンスなど）を実装するオブジェクトでなければなりません。 `</cite> use_tweens``が `` True``の場合、要求は要求入力に最も近いtweenスタックの：term： <cite>tween`に送られます。 `</cite> use_tweens``が `` False``の場合、リクエストはメインルータハンドラに送られ、トゥイーンは呼び出されません。</p>
+<p>上の例では、：meth： <cite>〜pyramid.request.Request.invoke_subrequest`の呼び出しは常に例外を発生させます。これは `</cite> use_tweens``のデフォルト値を使用しているためです。これは `` False``です。代わりに、 `` use_tweens = True``を渡して、例外を発生させる代わりに：term： <cite>exception view`が設定されている場合に、例外をResponseに変換するようにすることもできます。これは、ビューが例外を発生させると、：ref： `exception_views`で説明されているように、例外ビュー：term：</cite> tween`によって例外ビューが呼び出されるからです。</p>
+<p>`` use_tweens = True``を：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.request.Request.invoke_subrequest`の呼び出しに渡すことで、以下のようにして、サブリクエストをトゥイーンスタックを介して実行させることができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -337,92 +285,36 @@ are called by the exception view <a class="reference internal" href="../glossary
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>In the above case, the call to <code class="docutils literal notranslate"><span class="pre">request.invoke_subrequest(subreq)</span></code> will not
-raise an exception.  Instead, it will retrieve a &quot;500&quot; response from the
-attempted invocation of <code class="docutils literal notranslate"><span class="pre">view_two</span></code>, because the tween which invokes an
-exception view to generate a response is run, and therefore <code class="docutils literal notranslate"><span class="pre">excview</span></code> is
-executed.</p>
-<p>This is one of the major differences between specifying the <code class="docutils literal notranslate"><span class="pre">use_tweens=True</span></code>
-and <code class="docutils literal notranslate"><span class="pre">use_tweens=False</span></code> arguments to
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">invoke_subrequest()</span></code></a>.  <code class="docutils literal notranslate"><span class="pre">use_tweens=True</span></code> may
-also imply invoking a transaction commit or abort for the logic executed in the
-subrequest if you've got <code class="docutils literal notranslate"><span class="pre">pyramid_tm</span></code> in the tween list, injecting debug HTML
-if you've got <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> in the tween list, and other
-tween-related side effects as defined by your particular tween list.</p>
-<p>The <a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">invoke_subrequest()</span></code></a> function also
-unconditionally does the following:</p>
+<p>上記の場合、 `` request.invoke_subrequest（subreq） <a href="#id1"><span class="problematic" id="id2">``</span></a>の呼び出しは例外を発生させません。代わりに、応答を生成するために例外ビューを呼び出すトゥイーンが実行され、したがって `` excview``が実行されるため、 `` view_two``の呼び出しを試行して&amp;quot;500 &amp;quot;応答を取得します。</p>
+<p>これは：meth： <cite>〜pyramid.request.Request.invoke_subrequest`に対して</cite> <cite>use_tweens = True``と</cite> <cite>use_tweens = False``引数を指定することの大きな違いの1つです。 `</cite> use_tweens = True``は、 `` pyramid_debugtoolbar`を持っていればデバッグHTMLを注入して、tweenリストに `` pyramid_tm``を持っていれば、サブリクエストで実行されたロジックのコミットまたはアボートを呼び出すことを意味するかもしれません。 Tweenリストとその他の特定のトゥイーン関連の副作用で定義されています。</p>
+<p>：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.request.Request.invoke_subrequest`関数は、無条件に以下を行います：</p>
 <ul class="simple">
-<li>It manages the threadlocal stack so that
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_request" title="pyramid.threadlocal.get_current_request"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_request()</span></code></a> and
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_current_registry()</span></code></a> work during a request (they
-will return the subrequest instead of the original request).</li>
-<li>It adds a <code class="docutils literal notranslate"><span class="pre">registry</span></code> attribute and an <code class="docutils literal notranslate"><span class="pre">invoke_subrequest</span></code> attribute (a
-callable) to the request object to which it is handed.</li>
-<li>It sets request extensions (such as those added via
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_request_method" title="pyramid.config.Configurator.add_request_method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_request_method()</span></code></a> or
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_request_property" title="pyramid.config.Configurator.set_request_property"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_request_property()</span></code></a>) on the subrequest
-object passed as <code class="docutils literal notranslate"><span class="pre">request</span></code>.</li>
-<li>It causes a <a class="reference internal" href="../api/events.html#pyramid.events.NewRequest" title="pyramid.events.NewRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewRequest</span></code></a> event to be sent at the
-beginning of request processing.</li>
-<li>It causes a <a class="reference internal" href="../api/events.html#pyramid.events.ContextFound" title="pyramid.events.ContextFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContextFound</span></code></a> event to be sent when a
-context resource is found.</li>
-<li>It ensures that the user implied by the request passed in has the necessary
-authorization to invoke the view callable before calling it.</li>
-<li>It calls any <a class="reference internal" href="../glossary.html#term-response-callback"><span class="xref std std-term">response callback</span></a> functions defined within the
-subrequest's lifetime if a response is obtained from the Pyramid application.</li>
-<li>It causes a <a class="reference internal" href="../api/events.html#pyramid.events.NewResponse" title="pyramid.events.NewResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewResponse</span></code></a> event to be sent if a
-response is obtained.</li>
-<li>It calls any <a class="reference internal" href="../glossary.html#term-finished-callback"><span class="xref std std-term">finished callback</span></a> functions defined within the
-subrequest's lifetime.</li>
+<li>スレッドローカルスタックを管理して、func： <cite>〜pyramid.threadlocal.get_current_request`と：func：</cite>〜pyramid.threadlocal.get_current_registry`はリクエスト中に動作します（元のリクエストの代わりにサブリクエストを返します）。</li>
+<li>それは、それが渡される要求オブジェクトに `` registry``属性と `` invoke_subrequest``属性（呼び出し可能）を追加します。</li>
+<li>これは、 `` request``として渡されたサブリクエストオブジェクトに対して、リクエスト拡張子（：meth： <cite>〜pyramid.config.Configurator.add_request_method`または：meth：</cite>〜pyramid.config.Configurator.set_request_property`）を設定します。</li>
+<li>これはリクエスト処理の開始時にa：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.events.NewRequest`イベントが送られるようにします。</li>
+<li>コンテキストリソースが見つかった場合、a：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.events.ContextFound`イベントが送信されます。</li>
+<li>これは、渡された要求によって暗示されたユーザーが、呼び出し前に呼び出し可能なビューを呼び出すために必要な許可を持っていることを保証します。</li>
+<li>Pyramidアプリケーションから応答が得られた場合、サブリクエストの有効期間内に定義されたany：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>response callback`関数を呼び出します。</li>
+<li>レスポンスが得られた場合には：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.events.NewResponse`イベントが送られます。</li>
+<li>サブリクエストの存続期間内に定義されたany：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>finished callback`関数を呼び出します。</li>
 </ul>
-<p>The invocation of a subrequest has more or less exactly the same effect as the
-invocation of a request received by the <span>Pyramid</span> router from a web client
-when <code class="docutils literal notranslate"><span class="pre">use_tweens=True</span></code>.  When <code class="docutils literal notranslate"><span class="pre">use_tweens=False</span></code>, the tweens are skipped
-but all the other steps take place.</p>
-<p>It's a poor idea to use the original <code class="docutils literal notranslate"><span class="pre">request</span></code> object as an argument to
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">invoke_subrequest()</span></code></a>.  You should construct a new
-request instead as demonstrated in the above example, using
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.blank" title="pyramid.request.Request.blank"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.blank()</span></code></a>.  Once you've constructed a request
-object, you'll need to massage it to match the view callable that you'd like to
-be executed during the subrequest.  This can be done by adjusting the
-subrequest's URL, its headers, its request method, and other attributes.  The
-documentation for <a class="reference internal" href="../api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a> exposes the methods you
-should call and attributes you should set on the request that you create, then
-massage it into something that will actually match the view you'd like to call
-via a subrequest.</p>
-<p>We've demonstrated use of a subrequest from within a view callable, but you can
-use the <a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">invoke_subrequest()</span></code></a> API from within a
-tween or an event handler as well.  Even though you can do it, it's usually a
-poor idea to invoke <a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">invoke_subrequest()</span></code></a> from
-within a tween, because tweens already, by definition, have access to a
-function that will cause a subrequest (they are passed a <code class="docutils literal notranslate"><span class="pre">handle</span></code> function).
-It's fine to invoke <a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_subrequest" title="pyramid.request.Request.invoke_subrequest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">invoke_subrequest()</span></code></a> from
-within an event handler, however.</p>
+<p>サブリクエストの呼び出しは、 `` use_tweens = True``のときに、Webクライアントから：app： <cite>Pyramid`ルータが受け取ったリクエストの呼び出しとほぼ同じです。 `</cite> use_tweens = False``のとき、トゥイーンはスキップされますが、他のすべてのステップが実行されます。</p>
+<p>元の `` request``オブジェクトを：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.request.Request.invoke_subrequest`の引数として使うのは良い考えではありません。代わりに：meth： <a href="#id3"><span class="problematic" id="id4">`</span></a>pyramid.request.Request.blank`を使用して、上記の例に示すように新しいリクエストを作成する必要があります。リクエストオブジェクトを作成したら、サブリクエスト中に実行したいビュー呼び出し可能なものにマッサージする必要があります。これは、サブリクエストのURL、そのヘッダー、要求メソッド、およびその他の属性を調整することによって実行できます。 ：class： <a href="#id5"><span class="problematic" id="id6">`</span></a>pyramid.request.Request`のドキュメンテーションは、呼び出すべきメソッドと作成するリクエストに設定する属性を公開し、次にそれを実際にあなたが呼び出すビューに一致させるものにマッサージしますサブリクエスト。</p>
+<p>ビュー呼び出し可能な内部からのサブリクエストの使用を実証しましたが、トゥイーンまたはイベントハンドラ内で：meth： <cite>〜pyramid.request.Request.invoke_subrequest</cite> APIを使用することもできます。あなたがそれを行うことはできますが、tweensは既に、定義上、サブリクエストを引き起こす関数へのアクセス権を持っているので、tween内からmeth： <cite>〜pyramid.request.Request.invoke_subrequest`を呼び出すのは、 `</cite> handle``関数に渡されます）。ただし、イベントハンドラ内で：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.request.Request.invoke_subrequest`を呼び出すことはできます。</p>
 </div>
 <div class="section" id="invoking-an-exception-view">
-<span id="index-2"></span><h2>Invoking an Exception View<a class="headerlink" href="#invoking-an-exception-view" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="index-2"></span><h2>例外ビューの呼び出し<a class="headerlink" href="#invoking-an-exception-view" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.7 で追加.</span></p>
 </div>
-<p><span>Pyramid</span> apps may define <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception views</span></a> which
-can handle any raised exceptions that escape from your code while processing
-a request. By default an unhandled exception will be caught by the <code class="docutils literal notranslate"><span class="pre">EXCVIEW</span></code>
-<a class="reference internal" href="../glossary.html#term-tween"><span class="xref std std-term">tween</span></a>, which will then lookup an exception view that can handle the
-exception type, generating an appropriate error response.</p>
-<p>In <span>Pyramid</span> 1.7 the <a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_exception_view" title="pyramid.request.Request.invoke_exception_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.invoke_exception_view()</span></code></a>
-was introduced, allowing a user to invoke an exception view while manually
-handling an exception. This can be useful in a few different circumstances:</p>
+<p>：app： <cite>Pyramid`アプリは以下を定義します：term：`例外ビュー&lt;exception view&gt;これは、要求を処理している間にコードから逃げ出した例外を処理できます。デフォルトでは、未処理の例外は `</cite> EXCVIEW``：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>tween`によって捕捉され、例外タイプを処理して適切なエラー応答を生成する例外ビューを検索します。</p>
+<p>In：app： <cite>Pyramid</cite> 1.7：meth：` pyramid.request.Request.invoke_exception_view`が導入されました。これにより、ユーザーは手動で例外を処理しながら例外ビューを呼び出すことができます。これは、いくつかの異なる状況で役に立ちます：</p>
 <ul class="simple">
-<li>Manually handling an exception losing the current call stack or flow.</li>
-<li>Handling exceptions outside of the context of the <code class="docutils literal notranslate"><span class="pre">EXCVIEW</span></code> tween. The
-tween only covers certain parts of the request processing pipeline (See
-<a class="reference internal" href="router.html#router-chapter"><span class="std std-ref">リクエスト処理(Request Processing)</span></a>). There are also some corner cases where an exception
-can be raised that will still bubble up to middleware, and possibly to the
-web server in which case a generic <code class="docutils literal notranslate"><span class="pre">500</span> <span class="pre">Internal</span> <span class="pre">Server</span> <span class="pre">Error</span></code> will be
-returned to the client.</li>
+<li>現在の呼び出しスタックまたはフローを失う例外を手動で処理する。</li>
+<li>`` EXCVIEW``トゥイーンのコンテキスト外での例外処理。トゥイーンはリクエスト処理パイプラインの特定の部分だけをカバーします（参照：ref： <cite>router_chapter</cite>）。また、ミドルウェアに泡立つ可能性のある例外が発生する可能性のあるコーナーケースもあります。また、ウェブサーバーにはおそらく一般的な「500 Internal Server Error」がクライアントに返されます。</li>
 </ul>
-<p>Below is an example usage of
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.invoke_exception_view" title="pyramid.request.Request.invoke_exception_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.invoke_exception_view()</span></code></a>:</p>
+<p>以下は、meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.request.Request.invoke_exception_view`の使用例です。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -448,8 +340,7 @@ returned to the client.</li>
             <span class="k">raise</span>
 </pre></div>
 </td></tr></table></div>
-<p>Please note that in most cases you do not need to write code like this, and you
-may rely on the <code class="docutils literal notranslate"><span class="pre">EXCVIEW</span></code> tween to handle this for you.</p>
+<p>ほとんどの場合、このようなコードを書く必要はなく、 `` EXCVIEW``トゥイーンを使ってこれを処理することができます。</p>
 </div>
 </div>
 
@@ -461,19 +352,19 @@ may rely on the <code class="docutils literal notranslate"><span class="pre">EXC
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Invoking a Subrequest</a><ul>
-<li><a class="reference internal" href="#subrequests-with-tweens">Subrequests with Tweens</a></li>
-<li><a class="reference internal" href="#invoking-an-exception-view">Invoking an Exception View</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) サブリクエストの呼び出し</a><ul>
+<li><a class="reference internal" href="#subrequests-with-tweens">トゥイーンのサブリクエスト</a></li>
+<li><a class="reference internal" href="#invoking-an-exception-view">例外ビューの呼び出し</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="hybrid.html"
-                        title="前の章へ">Combining Traversal and URL Dispatch</a></p>
+                        title="前の章へ">(機械翻訳) トラバーサルとURLディスパッチの組み合わせ</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="hooks.html"
-                        title="次の章へ">Using Hooks</a></p>
+                        title="次の章へ">(機械翻訳) フックの使用</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -507,17 +398,17 @@ may rely on the <code class="docutils literal notranslate"><span class="pre">EXC
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="hooks.html" title="Using Hooks"
+          <a href="hooks.html" title="(機械翻訳) フックの使用"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="hybrid.html" title="Combining Traversal and URL Dispatch"
+          <a href="hybrid.html" title="(機械翻訳) トラバーサルとURLディスパッチの組み合わせ"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

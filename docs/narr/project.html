@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Creating a Pyramid Project &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) Pyramid プロジェクトの作成 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Startup" href="startup.html" />
-    <link rel="prev" title="Application Configuration" href="configuration.html" />
+    <link rel="next" title="(機械翻訳) 起動" href="startup.html" />
+    <link rel="prev" title="(機械翻訳) アプリケーション構成" href="configuration.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="startup.html" title="Startup"
+          <a href="startup.html" title="(機械翻訳) 起動"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="configuration.html" title="Application Configuration"
+          <a href="configuration.html" title="(機械翻訳) アプリケーション構成"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,61 +69,49 @@
           <div class="body" role="main">
             
   <div class="section" id="creating-a-pyramid-project">
-<span id="project-narr"></span><h1>Creating a <span>Pyramid</span> Project<a class="headerlink" href="#creating-a-pyramid-project" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>As we saw in <a class="reference internal" href="firstapp.html#firstapp-chapter"><span class="std std-ref">Creating Your First Pyramid Application</span></a>, it's possible to create a <span>Pyramid</span>
-application completely manually.  However, it's usually more convenient to use
-a <a class="reference internal" href="../glossary.html#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a> to generate a basic <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-project"><span class="xref std std-term">project</span></a>.</p>
-<p>A project is a directory that contains at least one Python <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a>.
-You'll use a cookiecutter to create a project, and you'll create your application
-logic within a package that lives inside the project.  Even if your application
-is extremely simple, it is useful to place code that drives the application
-within a package, because (1) a package is more easily extended with new code,
-and (2) an application that lives inside a package can also be distributed more
-easily than one which does not live within a package.</p>
-<p>The Pylons Project provides several <span>Pyramid</span> cookiecutters that you can use to generate a
-project.  Each cookiecutter makes different configuration assumptions about what
-type of application you're trying to construct.</p>
-<p>These cookiecutters are rendered using the <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code> command that you may install.</p>
+<span id="project-narr"></span><h1>(機械翻訳) <span>Pyramid</span> プロジェクトの作成<a class="headerlink" href="#creating-a-pyramid-project" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>：ref： <cite>firstapp_chapter`で見たように、：app：</cite> Pyramid`アプリケーションを完全に手動で作成することは可能です。しかし、通常、：term： <cite>cookiecutter`を使ってbasic：app：</cite> Pyramid`：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>project`を生成する方が便利です。</p>
+<p>プロジェクトは少なくとも一つのPython：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>package`を含むディレクトリです。 cookiecutterを使用してプロジェクトを作成すると、プロジェクト内に存在するパッケージ内にアプリケーションロジックを作成します。アプリケーションが非常にシンプルであっても、（1）パッケージが新しいコードでより簡単に拡張され、（2）パッケージ内に存在するアプリケーションがパッケージ内に存在しないものよりも容易に配布されます。</p>
+<p>Pylonsプロジェクトには、プロジェクトを生成するために使用できるいくつかの：app： <cite>Pyramid</cite> cookiecuttersがあります。各CookiCutterは、構築しようとしているアプリケーションのタイプについて、さまざまな設定を前提にしています。</p>
+<p>これらのcookiecuttersは、あなたがインストールできる `` cookiecutter``コマンドを使ってレンダリングされます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference external" href="https://cookiecutter.readthedocs.io/en/latest/installation.html">Cookiecutter Installation</a>.</p>
+<p class="last"><a href="#id1"><span class="problematic" id="id2">`</span></a>Cookiecutterのインストール&lt;<a class="reference external" href="https://cookiecutter.readthedocs.io/en/latest/installation.html">https://cookiecutter.readthedocs.io/en/latest/installation.html</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_。</p>
 </div>
 <div class="section" id="pyramid-cookiecutters">
-<span id="additional-cookiecutters"></span><span id="index-0"></span><h2><span>Pyramid</span> cookiecutters<a class="headerlink" href="#pyramid-cookiecutters" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Pyramid cookiecutters released under the Pylons Project differ from each other on a number of axes:</p>
+<span id="additional-cookiecutters"></span><span id="index-0"></span><h2>：app： <cite>Pyramid</cite> cookiecutters<a class="headerlink" href="#pyramid-cookiecutters" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Pylonsプロジェクトの下でリリースされたピラミッドのcookiecuttersは、いくつかの軸でお互いに異なる：</p>
 <ul class="simple">
-<li>the persistence mechanism they offer (no persistence mechanism, <a class="reference internal" href="../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> with SQLite, or <a class="reference internal" href="../glossary.html#term-zodb"><span class="xref std std-term">ZODB</span></a>)</li>
-<li>the mechanism they use to map URLs to code (<a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> or <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>)</li>
-<li>templating libraries (<a class="reference internal" href="../glossary.html#term-jinja2"><span class="xref std std-term">Jinja2</span></a>, <a class="reference internal" href="../glossary.html#term-chameleon"><span class="xref std std-term">Chameleon</span></a>, or <a class="reference internal" href="../glossary.html#term-mako"><span class="xref std std-term">Mako</span></a>)</li>
+<li>彼らが提供する永続化機構（永続化機構なし、term：SQLiteで <cite>SQLAlchemy</cite>、：term：` ZODB`）</li>
+<li>URLをコードにマッピングするためのメカニズム（：term： <cite>URL dispatch`または：term：</cite> traversal`）</li>
+<li>テンプレートライブラリ（：term： <cite>Jinja2</cite>、：term：` Chameleon`、または：term： <cite>Mako</cite>）</li>
 </ul>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/Pylons/pyramid-cookiecutter-starter">pyramid-cookiecutter-starter</a></li>
-<li><a class="reference external" href="https://github.com/Pylons/pyramid-cookiecutter-alchemy">pyramid-cookiecutter-alchemy</a></li>
-<li><a class="reference external" href="https://github.com/Pylons/pyramid-cookiecutter-zodb">pyramid-cookiecutter-zodb</a></li>
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid-cookiecutter-starter &lt;<a class="reference external" href="https://github.com/Pylons/pyramid-cookiecutter-starter">https://github.com/Pylons/pyramid-cookiecutter-starter</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_</li>
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>ピラミッド - クッキーカッター - 錬金術&lt;<a class="reference external" href="https://github.com/Pylons/pyramid-cookiecutter-alchemy">https://github.com/Pylons/pyramid-cookiecutter-alchemy</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_</li>
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid-cookiecutter-zodb &lt;<a class="reference external" href="https://github.com/Pylons/pyramid-cookiecutter-zodb">https://github.com/Pylons/pyramid-cookiecutter-zodb</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_</li>
 </ul>
-<p>These cookiecutters include:</p>
+<p>これらのcookiecuttersには次のものがあります。</p>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code></dt>
-<dd><a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> for routing and either <a class="reference internal" href="../glossary.html#term-jinja2"><span class="xref std std-term">Jinja2</span></a>, <a class="reference internal" href="../glossary.html#term-chameleon"><span class="xref std std-term">Chameleon</span></a>, or <a class="reference internal" href="../glossary.html#term-mako"><span class="xref std std-term">Mako</span></a> for templating</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-alchemy</span></code></dt>
-<dd>SQLite for persistent storage, <a class="reference internal" href="../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> for an ORM, <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> for routing, and <a class="reference internal" href="../glossary.html#term-jinja2"><span class="xref std std-term">Jinja2</span></a> for templating.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-zodb</span></code></dt>
-<dd><a class="reference internal" href="../glossary.html#term-zodb"><span class="xref std std-term">ZODB</span></a> for persistent storage, <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> for routing, and <a class="reference internal" href="../glossary.html#term-chameleon"><span class="xref std std-term">Chameleon</span></a> for templating</dd>
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a>ピラミッド - クッキーカッター - スターター ``</dt>
+<dd>：term： <cite>Jinja2</cite>、：term：` Chameleon`、または：term：テンプレート用 `` Mako`：ルーティングのためのterm： <cite>URL dispatch</cite></dd>
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a>ピラミッド - クッキーカッター - 錬金術 ``</dt>
+<dd>永続ストレージのためのSQLite：term：ORMの場合は <cite>SQLAlchemy</cite>、ルーティングの場合はterm：` URL dispatch`、テンプレート化の場合は：term： <cite>Jinja2</cite>。</dd>
+<dt>`` pyramid-cookiecutter-zodb``</dt>
+<dd>：term：永続的なストレージのための <cite>ZODB</cite>、：term：ルーティングのための` traversal`、および：term：テンプレート化のための <cite>Chameleon</cite></dd>
 </dl>
 </div>
 <div class="section" id="creating-the-project">
-<span id="creating-a-project"></span><span id="index-1"></span><h2>Creating the Project<a class="headerlink" href="#creating-the-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In <a class="reference internal" href="install.html#installing-chapter"><span class="std std-ref">Installing Pyramid</span></a>, you created a virtual Python environment via the
-<code class="docutils literal notranslate"><span class="pre">venv</span></code> command. We called the virtual environment directory
-<code class="docutils literal notranslate"><span class="pre">env</span></code> and set an environment variable <code class="docutils literal notranslate"><span class="pre">VENV</span></code> to its path.</p>
-<p>We assume that you <a class="reference internal" href="cookiecutters.html#cookiecutters"><span class="std std-ref">previously installed cookiecutter</span></a>, following its installation instructions.</p>
-<p>We'll choose <code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code> to start the project.  When we invoke <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code>, it will create a directory that represents our project.</p>
-<p>We assume our current working directory is the value of <code class="docutils literal notranslate"><span class="pre">VENV</span></code>.</p>
-<p>On all platforms, generate a project using cookiecutter.</p>
+<span id="creating-a-project"></span><span id="index-1"></span><h2>プロジェクトの作成<a class="headerlink" href="#creating-the-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：ref： <cite>installing_chapter`では、</cite> <cite>venv``コマンドで仮想的なPython環境を作成しました。仮想環境ディレクトリ `</cite> env``を呼び出し、環境変数 `` VENV``をそのパスに設定しました。</p>
+<p>私たちは次のように仮定します：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>以前にインストールされたcookiecutter &lt;cookiecutters&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>をインストールの指示に従ってインストールします。</p>
+<p>プロジェクトを開始するには `` pyramid-cookiecutter-starter``を選択します。 `` cookiecutter``を呼び出すと、プロジェクトを表すディレクトリが作成されます。</p>
+<p>現在の作業ディレクトリは `` VENV``の値​​であると仮定します。</p>
+<p>すべてのプラットフォームで、cookiecutterを使用してプロジェクトを生成します。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cookiecutter gh:Pylons/pyramid-cookiecutter-starter --checkout <span class="m">1</span>.9-branch
 </pre></div>
 </div>
-<p>If prompted for the first item, accept the default <code class="docutils literal notranslate"><span class="pre">yes</span></code> by hitting return.</p>
+<p>最初の項目の入力を求められたら、returnキーを押してデフォルトの `` yes``を受け入れます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>You&#39;ve cloned ~/.cookiecutters/pyramid-cookiecutter-starter before.
 Is it okay to delete and re-clone it? [yes]: yes
 project_name [Pyramid Scaffold]: myproject
@@ -135,8 +123,8 @@ Select template_language:
 Choose from 1, 2, 3 [1]: 1
 </pre></div>
 </div>
-<p>We then run through the following commands.</p>
-<p>On UNIX:</p>
+<p>次に、次のコマンドを実行します。</p>
+<p>UNIXの場合：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset our environment variable for a new virtual environment.</span>
 $ <span class="nb">export</span> <span class="nv">VENV</span><span class="o">=</span>~/env/myproject/env
 <span class="c1"># Change directory into your newly created project.</span>
@@ -147,7 +135,7 @@ $ python3 -m venv <span class="nv">$VENV</span>
 $ env/bin/pip install --upgrade pip setuptools
 </pre></div>
 </div>
-<p>Or on Windows:</p>
+<p>またはWindowsの場合：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go"># Reset our environment variable for a new virtual environment.</span>
 <span class="gp">c:\&gt;</span> <span class="k">set</span> <span class="nv">VENV</span><span class="p">=</span>c:\env\myproject\env
 <span class="go"># Change directory into your newly created project.</span>
@@ -158,63 +146,29 @@ $ env/bin/pip install --upgrade pip setuptools
 <span class="gp">c:\myproject&gt;</span> <span class="nv">%VENV%</span>\Scripts\pip install --upgrade pip setuptools
 </pre></div>
 </div>
-<p>As a result of invoking the <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code> command, a directory named
-<code class="docutils literal notranslate"><span class="pre">myproject</span></code> is created.  That directory is a <a class="reference internal" href="../glossary.html#term-project"><span class="xref std std-term">project</span></a> directory. The
-<code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file in that directory can be used to distribute your application,
-or install your application for deployment or development.</p>
-<p>An <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file named <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> will be created in the project
-directory.  You will use this <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file to configure a server, to run your
-application, and to debug your application.  It contains configuration that
-enables an interactive debugger and settings optimized for development.</p>
-<p>Another <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file named <code class="docutils literal notranslate"><span class="pre">production.ini</span></code> will also be created in the
-project directory.  It contains configuration that disables any interactive
-debugger (to prevent inappropriate access and disclosure), and turns off a
-number of debugging settings.  You can use this file to put your application
-into production.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">myproject</span></code> project directory contains an additional subdirectory named
-<code class="docutils literal notranslate"><span class="pre">myproject</span></code> (note the case difference) representing a Python <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a>
-which holds very simple <span>Pyramid</span> sample code.  This is where you'll edit
-your application's Python code and templates.</p>
-<p>We created this project in a directory next to its virtual environment directory.
-However, note that this is not mandatory. The project directory can go more or
-less anywhere on your filesystem. You don't need to put it in a special &quot;web
-server&quot; directory. You could put it within a virtual environment
-directory. The author uses Linux mainly, and tends to put project directories
-which he creates within his <code class="docutils literal notranslate"><span class="pre">~/projects</span></code> directory. On Windows, it's a good
-idea to put project directories within a directory that contains no space
-characters, so it's wise to <em>avoid</em> a path that contains, i.e., <code class="docutils literal notranslate"><span class="pre">My</span>
-<span class="pre">Documents</span></code>. As a result, the author, when he uses Windows, just puts his
-projects in <code class="docutils literal notranslate"><span class="pre">C:\projects</span></code>.</p>
+<p>`` cookiecutter``コマンドを実行すると、 `` myproject``という名前のディレクトリが作成されます。そのディレクトリは：term： <cite>project`ディレクトリです。そのディレクトリにある `</cite> setup.py``ファイルは、アプリケーションを配布したり、展開や開発のためにアプリケーションをインストールしたりするために使用できます。</p>
+<p>`` .ini``という名前の `` .ini``ファイルがプロジェクトディレクトリに作成されます。この `` .ini``ファイルを使用して、サーバの設定、アプリケーションの実行、アプリケーションのデバッグを行います。インタラクティブなデバッガと開発用に最適化された設定を可能にする設定が含まれています。</p>
+<p>`` production.ini``という別の `` .ini``ファイルもプロジェクトディレクトリに作成されます。これには、（不適切なアクセスと開示を防ぐための）対話型デバッガを無効にし、多くのデバッグ設定を無効にする構成が含まれています。このファイルを使用すると、アプリケーションを本番環境に置くことができます。</p>
+<p>`` myproject``プロジェクトディレクトリには、非常に単純な：app： <cite>Pyramid`サンプルコードを保持するPython：term：</cite> package`を表す `` myproject``という別のサブディレクトリがあります（ケースの違いに注意してください）。ここで、アプリケーションのPythonコードとテンプレートを編集します。</p>
+<p>このプロジェクトは、仮想環境ディレクトリの隣のディレクトリに作成しました。ただし、これは必須ではありません。プロジェクトディレクトリは、ファイルシステムのどこにでも置くことができます。特殊な&amp;quot;web server &amp;quot;ディレクトリに置く必要はありません。あなたは仮想環境ディレクトリ内に置くことができます。作者は主にLinuxを使い、 <a href="#id1"><span class="problematic" id="id2">``</span></a>〜/ projects``ディレクトリ内に作成したプロジェクトディレクトリを置く傾向があります。 Windowsでは、プロジェクトディレクトリを空白文字が含まれていないディレクトリに置くことをお勧めします。そのため、含まれているパス、つまり「マイドキュメント」を回避することが賢明です。結果として、作者はWindowsを使うときには、自分のプロジェクトを `` C：projects``に置くだけです。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">You'll need to avoid using <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code> to create a project with the same
-name as a Python standard library component. In particular, this means you
-should avoid using the names <code class="docutils literal notranslate"><span class="pre">site</span></code> or <code class="docutils literal notranslate"><span class="pre">test</span></code>, both of which conflict
-with Python standard library packages.  You should also avoid using the name
-<code class="docutils literal notranslate"><span class="pre">pyramid</span></code>, which will conflict with Pyramid itself.</p>
+<p class="last">Pythonの標準ライブラリコンポーネントと同じ名前のプロジェクトを作成するには、 `` cookiecutter``を使わないでください。特に、これは `` site``や `` test``という名前を使わないでください。両方ともPythonの標準ライブラリパッケージと矛盾します。また、ピラミッドそのものと衝突する名前の「ピラミッド」を使わないでください。</p>
 </div>
 </div>
 <div class="section" id="installing-your-newly-created-project-for-development">
-<span id="index-2"></span><h2>Installing your Newly Created Project for Development<a class="headerlink" href="#installing-your-newly-created-project-for-development" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>To install a newly created project for development, you should <code class="docutils literal notranslate"><span class="pre">cd</span></code> to the
-newly created project directory and use the Python interpreter from the
-<a class="reference internal" href="../glossary.html#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a> you created during <a class="reference internal" href="install.html#installing-chapter"><span class="std std-ref">Installing Pyramid</span></a> to
-invoke the command <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>, which installs the project in
-development mode (<code class="docutils literal notranslate"><span class="pre">-e</span></code> is for &quot;editable&quot;) into the current directory (<code class="docutils literal notranslate"><span class="pre">.</span></code>).</p>
-<p>The file named <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> will be in the root of the cookiecutter-generated
-project directory.  The <code class="docutils literal notranslate"><span class="pre">python</span></code> you're invoking should be the one that lives
-in the <code class="docutils literal notranslate"><span class="pre">bin</span></code> (or <code class="docutils literal notranslate"><span class="pre">Scripts</span></code> on Windows) directory of your virtual Python
-environment.  Your terminal's current working directory <em>must</em> be the newly
-created project directory.</p>
-<p>On UNIX:</p>
+<span id="index-2"></span><h2>新しく開発されたプロジェクトをインストールする<a class="headerlink" href="#installing-your-newly-created-project-for-development" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>開発のために新しく作成したプロジェクトをインストールするには、新しく作成したプロジェクトディレクトリに `` cd``を実行し、ref： <cite>installing_chapter`の中で作成したterm：</cite> virtual environment`のPythonインタプリタを使用して ` <cite>pip install -e .``は、現在のディレクトリ（</cite> <cite>.`</cite>）に開発モード（` <a href="#id1"><span class="problematic" id="id2">`</span></a>-e``は&amp;quot;編集可能&amp;quot;用）でプロジェクトをインストールします。</p>
+<p>`` setup.py``という名前のファイルはcookiecutter生成のプロジェクトディレクトリのルートにあります。あなたが呼び出す `` python``は、あなたの仮想Python環境の `` bin``（または `` Scripts``）ディレクトリにあるものでなければなりません。あなたの端末の現在の作業ディレクトリ*は新しく作成されたプロジェクトディレクトリでなければなりません。</p>
+<p>UNIXの場合：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install -e .
 </pre></div>
 </div>
-<p>Or on Windows:</p>
+<p>またはWindowsの場合：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\env\myproject&gt;</span> <span class="nv">%VENV%</span>\Scripts\pip install -e .
 </pre></div>
 </div>
-<p>Elided output from a run of this command on UNIX is shown below:</p>
+<p>UNIXでこのコマンドを実行したときに出力されなかったものを以下に示します。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  Running setup.py develop <span class="k">for</span> myproject
 Successfully installed Jinja2-2.8 Mako-1.0.6 MarkupSafe-0.23 <span class="se">\</span>
 PasteDeploy-1.5.2 Pygments-2.1.3 WebOb-1.7.0 myproject pyramid-1.7.3 <span class="se">\</span>
@@ -223,145 +177,89 @@ repoze.lru-0.6 translationstring-1.3 venusian-1.0 waitress-1.0.1 <span class="se
 zope.deprecation-4.2.0 zope.interface-4.3.3
 </pre></div>
 </div>
-<p>This will install a <a class="reference internal" href="../glossary.html#term-distribution"><span class="xref std std-term">distribution</span></a> representing your project into the
-virtual environment interpreter's library set so it can be found by <code class="docutils literal notranslate"><span class="pre">import</span></code>
-statements and by other console scripts such as <code class="docutils literal notranslate"><span class="pre">pserve</span></code>, <code class="docutils literal notranslate"><span class="pre">pshell</span></code>,
-<code class="docutils literal notranslate"><span class="pre">proutes</span></code>, and <code class="docutils literal notranslate"><span class="pre">pviews</span></code>.</p>
+<p>これは仮想環境インタプリタのライブラリセットにプロジェクトを表す：term： <cite>distribution`をインストールし、</cite> <cite>import``文や</cite> <cite>pserve`</cite>、` <cite>pshell``などの他のコンソールスクリプトで見つけることができます、 `</cite> proutes``、 `` pviews``などがあります。</p>
 </div>
 <div class="section" id="running-the-tests-for-your-application">
-<span id="index-3"></span><h2>Running the Tests for Your Application<a class="headerlink" href="#running-the-tests-for-your-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>To run unit tests for your application, you must first install the testing
-dependencies.</p>
-<p>On UNIX:</p>
+<span id="index-3"></span><h2>アプリケーションのテストの実行<a class="headerlink" href="#running-the-tests-for-your-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アプリケーションの単体テストを実行するには、まずテストの依存関係をインストールする必要があります。</p>
+<p>UNIXの場合：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install -e <span class="s2">&quot;.[testing]&quot;</span>
 </pre></div>
 </div>
-<p>On Windows:</p>
+<p>Windowsの場合：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\env\myproject&gt;</span> <span class="nv">%VENV%</span>\Scripts\pip install -e <span class="s2">&quot;.[testing]&quot;</span>
 </pre></div>
 </div>
-<p>Once the testing requirements are installed, then you can run the tests using
-the <code class="docutils literal notranslate"><span class="pre">py.test</span></code> command that was just installed in the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory of
-your virtual environment.</p>
-<p>On UNIX:</p>
+<p>テスト要件がインストールされたら、あなたの仮想環境の `` bin``ディレクトリにインストールされた `` py.test``コマンドを使ってテストを実行することができます。</p>
+<p>UNIXの場合：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test -q
 </pre></div>
 </div>
-<p>On Windows:</p>
+<p>Windowsの場合：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\env\myproject&gt;</span> <span class="nv">%VENV%</span>\Scripts\py.test -q
 </pre></div>
 </div>
-<p>Here's sample output from a test run on UNIX:</p>
+<p>次に、UNIXでのテスト実行の出力例を示します。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test -q
 ..
 <span class="m">2</span> passed in <span class="m">0</span>.47 seconds
 </pre></div>
 </div>
-<p>The tests themselves are found in the <code class="docutils literal notranslate"><span class="pre">tests.py</span></code> module in your <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code>-generated project.  Within a project generated by the <code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code> cookiecutter, only two sample tests exist.</p>
+<p>テスト自体は `` cookiecutter``生成プロジェクトの `` tests.py``モジュールにあります。 `` pyramid-cookiecutter-starter`` cookiecutterによって生成されたプロジェクトでは、2つのサンプルテストしか存在しません。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">-q</span></code> option is passed to the <code class="docutils literal notranslate"><span class="pre">py.test</span></code> command to limit the output
-to a stream of dots. If you don't pass <code class="docutils literal notranslate"><span class="pre">-q</span></code>, you'll see verbose test
-result output (which normally isn't very useful).</p>
+<p class="last">`` -q``オプションは `` py.test``コマンドに渡され、出力をドットのストリームに制限します。 `` -q``を渡さないと、冗長なテスト結果出力が表示されます（通常はそれほど役に立ちません）。</p>
 </div>
-<p>Alternatively, if you'd like to see test coverage, pass the <code class="docutils literal notranslate"><span class="pre">--cov</span></code> option
-to <code class="docutils literal notranslate"><span class="pre">py.test</span></code>:</p>
+<p>あるいは、テストカバレッジを表示する場合は、 `` --cov``オプションを `` py.test``に渡します：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test --cov -q
 </pre></div>
 </div>
-<p>Cookiecutters include configuration defaults for <code class="docutils literal notranslate"><span class="pre">py.test</span></code> and test coverage.
-These configuration files are <code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code> and <code class="docutils literal notranslate"><span class="pre">.coveragerc</span></code>, located at
-the root of your package. Without these defaults, we would need to specify the
-path to the module on which we want to run tests and coverage.</p>
+<p>Cookiecuttersには、 `` py.test``とテストカバレッジのデフォルト設定が含まれています。これらの設定ファイルはパッケージのルートにある `` pytest.ini``と `` .coveragerc``です。これらのデフォルトがなければ、テストとカバレッジを実行するモジュールへのパスを指定する必要があります。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test --cov<span class="o">=</span>myproject myproject/tests.py -q
 </pre></div>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See py.test's documentation for <a class="reference external" href="https://docs.pytest.org/en/latest/usage.html#usage" title="(in pytest v3.9.4.dev19+g7571f07)"><span>Usage and Invocations</span></a> or invoke
-<code class="docutils literal notranslate"><span class="pre">py.test</span> <span class="pre">-h</span></code> to see its full set of options.</p>
+<p class="last">：ref： <cite>pytest：usage`のpy.testのドキュメントを参照するか、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>py.test -h``を呼び出してその完全なオプションセットを見てください。</p>
 </div>
 </div>
 <div class="section" id="running-the-project-application">
-<span id="index-4"></span><span id="id1"></span><h2>Running the Project Application<a class="headerlink" href="#running-the-project-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="index-4"></span><span id="id1"></span><h2>プロジェクトアプリケーションの実行<a class="headerlink" href="#running-the-project-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also the output of <a class="reference internal" href="../pscripts/pserve.html#pserve-script"><span class="std std-ref">pserve --help</span></a>.</p>
+<p class="last">：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>pserve --helpの出力も参照してください。 &lt;pserve_script&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
 </div>
-<p>Once a project is installed for development, you can run the application it
-represents using the <code class="docutils literal notranslate"><span class="pre">pserve</span></code> command against the generated configuration
-file.  In our case, this file is named <code class="docutils literal notranslate"><span class="pre">development.ini</span></code>.</p>
-<p>On UNIX:</p>
+<p>プロジェクトを開発用にインストールしたら、生成された設定ファイルに対して `` pserve``コマンドを使って表すアプリケーションを実行できます。私たちの場合、このファイルの名前は `` development.ini``です。</p>
+<p>UNIXの場合：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini
 </pre></div>
 </div>
-<p>On Windows:</p>
+<p>Windowsの場合：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\env\myproject&gt;</span> <span class="nv">%VENV%</span>\Scripts\pserve development.ini
 </pre></div>
 </div>
-<p>Here's sample output from a run of <code class="docutils literal notranslate"><span class="pre">pserve</span></code> on UNIX:</p>
+<p>UNIXでの `` pserve``の実行結果のサンプルを以下に示します：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini
 Starting server in PID <span class="m">77171</span>.
 Serving on http://localhost:6543
 Serving on http://localhost:6543
 </pre></div>
 </div>
-<p>Access is restricted such that only a browser running on the same machine as
-Pyramid will be able to access your Pyramid application.  However, if you want
-to open access to other machines on the same network, then edit the
-<code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file, and replace the <code class="docutils literal notranslate"><span class="pre">listen</span></code> value in the
-<code class="docutils literal notranslate"><span class="pre">[server:main]</span></code> section, changing it from <code class="docutils literal notranslate"><span class="pre">localhost:6543</span></code> to <code class="docutils literal notranslate"><span class="pre">*:6543</span></code>
-(this is equivalent to <code class="docutils literal notranslate"><span class="pre">0.0.0.0:6543</span> <span class="pre">[::]:6543</span></code>).  For example:</p>
+<p>Pyramidと同じマシン上で動作するブラウザのみがPyramidアプリケーションにアクセスできるようにアクセスが制限されています。しかし、同じネットワーク上の他のマシンへのアクセスを開きたい場合は、 `` development.ini``ファイルを編集し、 `` [server：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションの `` listen``値を置き換えてください。 `` localhost：6543``から `` <a href="#id3"><span class="problematic" id="id4">*</span></a>：6543``に変更します（これは `` 0.0.0.0:6543 [::]：6543``と同じです）。例えば：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[server:main]</span>
 <span class="na">use</span> <span class="o">=</span> <span class="s">egg:waitress#main</span>
 <span class="na">listen</span> <span class="o">=</span> <span class="s">*:6543</span>
 </pre></div>
 </div>
-<p>Now when you use <code class="docutils literal notranslate"><span class="pre">pserve</span></code> to start the application, it will respond to
-requests on <em>all</em> IP addresses possessed by your system, not just requests to
-<code class="docutils literal notranslate"><span class="pre">localhost</span></code>.  This is what the <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code> in
-<code class="docutils literal notranslate"><span class="pre">serving</span> <span class="pre">on</span> <span class="pre">http://0.0.0.0:6543</span></code> means.  The server will respond to requests
-made to <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> and on any external IP address. For example, your system
-might be configured to have an external IP address <code class="docutils literal notranslate"><span class="pre">192.168.1.50</span></code>.  If that's
-the case, if you use a browser running on the same system as Pyramid, it will
-be able to access the application via <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:6543/</span></code> as well as via
-<code class="docutils literal notranslate"><span class="pre">http://192.168.1.50:6543/</span></code>. However, <em>other people</em> on other computers on
-the same network will also be able to visit your Pyramid application in their
-browser by visiting <code class="docutils literal notranslate"><span class="pre">http://192.168.1.50:6543/</span></code>. The same holds true if you use
-IPv6. <code class="docutils literal notranslate"><span class="pre">[::]</span></code> means the same as <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code> but for IPv6 protocol.</p>
-<p>You can change the port on which the server runs on by changing the same
-portion of the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file.  For example, you can change the
-<code class="docutils literal notranslate"><span class="pre">listen</span> <span class="pre">=</span> <span class="pre">localhost:6543</span></code> line in the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file's <code class="docutils literal notranslate"><span class="pre">[server:main]</span></code>
-section to <code class="docutils literal notranslate"><span class="pre">listen</span> <span class="pre">=</span> <span class="pre">localhost:8080</span></code> to run the server on port 8080 instead of port 6543.</p>
-<p>You can shut down a server started this way by pressing <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> (or
-<code class="docutils literal notranslate"><span class="pre">Ctrl-Break</span></code> on Windows).</p>
-<p>The default server used to run your Pyramid application when a project is
-created from a cookiecutter is named <a class="reference internal" href="../glossary.html#term-waitress"><span class="xref std std-term">Waitress</span></a>.  This server is what prints
-the <code class="docutils literal notranslate"><span class="pre">Serving</span> <span class="pre">on...</span></code> line when you run <code class="docutils literal notranslate"><span class="pre">pserve</span></code>.  It's a good idea to use
-this server during development because it's very simple.  It can also be used
-for light production.  Setting your application up under a different server is
-not advised until you've done some development work under the default server,
-particularly if you're not yet experienced with Python web development.  Python
-web server setup can be complex, and you should get some confidence that your
-application works in a default environment before trying to optimize it or make
-it &quot;more like production&quot;.  It's awfully easy to get sidetracked trying to set
-up a non-default server for hours without actually starting to do any
-development.  One of the nice things about Python web servers is that they're
-largely interchangeable, so if your application works under the default server,
-it will almost certainly work under any other server in production if you
-eventually choose to use a different one.  Don't worry about it right now.</p>
-<p>For more detailed information about the startup process, see
-<a class="reference internal" href="startup.html#startup-chapter"><span class="std std-ref">Startup</span></a>.  For more information about environment variables and
-configuration file settings that influence startup and runtime behavior, see
-<a class="reference internal" href="environment.html#environment-chapter"><span class="std std-ref">Environment Variables and .ini File Settings</span></a>.</p>
+<p>これで、アプリケーションを起動するために `` pserve``を使うと、 `` localhost``へのリクエストだけでなく、あなたのシステムが所有するすべての* IPアドレスに対するリクエストに応答します。これは `` http：//0.0.0.0：6543で提供する `` 0.0.0.0``を意味します。サーバは `` 127.0.0.1``と任意の外部IPアドレスに対する要求に応答します。たとえば、システムが外部IPアドレス「192.168.1.50」を持つように設定されている可能性があります。そうであれば、Pyramidと同じシステム上で動作しているブラウザを使うと、 `` http：//127.0.0.1：6543 / <a href="#id1"><span class="problematic" id="id2">``</span></a>と `` http： /192.168.1.50：6543 / <a href="#id3"><span class="problematic" id="id4">``</span></a>しかし、同じネットワーク上の他のコンピュータの*他の人も、http：//192.168.1.50：6543 / <a href="#id5"><span class="problematic" id="id6">``</span></a>にアクセスして、ブラウザのPyramidアプリケーションにアクセスすることができます。 IPv6を使用している場合も同様です。 `` [::] <a href="#id7"><span class="problematic" id="id8">``</span></a>は `` 0.0.0.0``と同じですが、IPv6プロトコルの場合と同じです。</p>
+<p>`` development.ini``ファイルの同じ部分を変更することで、サーバが動作するポートを変更することができます。たとえば、 `` development.ini``ファイルの `` [server：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションを `` listen = localhost：8080``に変更すると、 `` listen = localhost：ポート6543の代わりにポート8080に接続します。</p>
+<p>`` Ctrl-C``（またはWindowsでは `` Ctrl-Break``）を押すことで、このように起動したサーバをシャットダウンすることができます。</p>
+<p>プロジェクトがcookiecutterから作成されたときにPyramidアプリケーションを実行するために使用されるデフォルトのサーバーの名前はterm： <cite>Waitress`です。このサーバは `</cite> pserve``を実行するときに `` Serving on ... <a href="#id1"><span class="problematic" id="id2">``</span></a>行を表示します。これは非常に簡単なので、開発中にこのサーバーを使用することをお勧めします。軽量生産にも使用できます。アプリケーションを別のサーバーの下に置くことは、特にPython Web開発にまだ慣れていない場合には、デフォルトサーバーで開発作業を行うまではお勧めしません。 Python Webサーバーの設定は複雑になる可能性があります。アプリケーションをデフォルト環境で動作させる前に、アプリケーションを最適化しようとするか、「生産のように」するという確信を得てください。実際に開発を始めることなく、何時間もデフォルト以外のサーバーを設定しようとしたら、横行することは非常に簡単です。 Python Webサーバーに関する優れた点の1つは、互換性がほとんどないため、アプリケーションがデフォルトのサーバーで動作する場合、最終的に別のサーバーを使用するように選択すると、他のサーバー上で動作することがほぼ確実になります。今は心配しないでください。</p>
+<p>起動プロセスの詳細については、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>startup_chapter`を参照してください。起動と実行時の動作に影響する環境変数と設定ファイルの設定の詳細については、：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>environment_chapter`を参照してください。</p>
 <div class="section" id="reloading-code">
-<span id="id2"></span><h3>Reloading Code<a class="headerlink" href="#reloading-code" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>During development, it's often useful to run <code class="docutils literal notranslate"><span class="pre">pserve</span></code> using its <code class="docutils literal notranslate"><span class="pre">--reload</span></code>
-option.  When <code class="docutils literal notranslate"><span class="pre">--reload</span></code> is passed to <code class="docutils literal notranslate"><span class="pre">pserve</span></code>, changes to any Python
-module your project uses will cause the server to restart.  This typically
-makes development easier, as changes to Python code made within a
-<span>Pyramid</span> application is not put into effect until the server restarts.</p>
-<p>For example, on UNIX:</p>
+<span id="id2"></span><h3>コードのリロード<a class="headerlink" href="#reloading-code" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>開発中、 `` --reload``オプションを使って `` pserve``を実行すると便利なことがよくあります。 `` --reload``が `` pserve``に渡されると、あなたのプロジェクトが使用するPythonモジュールの変更により、サーバが再起動します。これは、一般的には、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーション内で作られたPythonコードの変更が、サーバが再起動されるまで有効にならないため、開発が容易になります。</p>
+<p>たとえば、UNIXの場合：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/pserve development.ini --reload
 Starting subprocess with file monitor
 Starting server in PID 16601.
@@ -369,8 +267,7 @@ Serving on http://localhost:6543
 Serving on http://localhost:6543
 </pre></div>
 </div>
-<p>Now if you make a change to any of your project's <code class="docutils literal notranslate"><span class="pre">.py</span></code> files or <code class="docutils literal notranslate"><span class="pre">.ini</span></code>
-files, you'll see the server restart automatically:</p>
+<p>プロジェクトの `` .py``ファイルや `` .ini``ファイルのいずれかを変更すると、自動的にサーバが再起動します：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>development.ini changed; reloading...
 -------------------- Restarting --------------------
 Starting server in PID 16602.
@@ -378,51 +275,28 @@ Serving on http://localhost:6543
 Serving on http://localhost:6543
 </pre></div>
 </div>
-<p>Changes to template files (such as <code class="docutils literal notranslate"><span class="pre">.pt</span></code> or <code class="docutils literal notranslate"><span class="pre">.mak</span></code> files) won't cause the
-server to restart.  Changes to template files don't require a server restart as
-long as the <code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code> setting in the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code>
-file is <code class="docutils literal notranslate"><span class="pre">true</span></code>.  Changes made to template files when this setting is <code class="docutils literal notranslate"><span class="pre">true</span></code>
-will take effect immediately without a server restart.</p>
+<p>テンプレートファイル（ `` .pt`や `` .mak``ファイルなど）を変更しても、サーバは再起動しません。テンプレートファイルの変更は、 `` development.ini``ファイルの `` pyramid.reload_templates``の設定が `` true``である限り、サーバを再起動する必要はありません。この設定が `` true``のときにテンプレートファイルに加えられた変更は、サーバを再起動しなくてもすぐに有効になります。</p>
 </div>
 </div>
 <div class="section" id="viewing-the-application">
-<span id="index-5"></span><h2>Viewing the Application<a class="headerlink" href="#viewing-the-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Once your application is running via <code class="docutils literal notranslate"><span class="pre">pserve</span></code>, you may visit
-<code class="docutils literal notranslate"><span class="pre">http://localhost:6543/</span></code> in your browser.  You will see something in your
-browser like what is displayed in the following image:</p>
+<span id="index-5"></span><h2>アプリケーションの表示<a class="headerlink" href="#viewing-the-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アプリケーションが `` pserve``で実行されると、あなたのブラウザの `` http：// localhost：6543 / <a href="#id1"><span class="problematic" id="id2">``</span></a>にアクセスすることができます。次の画像に表示されているようなものがブラウザに表示されます。</p>
 <img alt="../_images/project.png" src="../_images/project.png" />
-<p>This is the page shown by default when you visit an unmodified <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code>
-generated <code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code> application in a browser.</p>
+<p>これは、ブラウザで修正された `` cookiecutter``の `` pyramid-cookiecutter-starter``アプリケーションを訪れたときにデフォルトで表示されるページです。</p>
 <div class="section" id="the-debug-toolbar">
-<span id="debug-toolbar"></span><span id="index-6"></span><h3>The Debug Toolbar<a class="headerlink" href="#the-debug-toolbar" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="debug-toolbar"></span><span id="index-6"></span><h3>デバッグツールバー<a class="headerlink" href="#the-debug-toolbar" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <img alt="../_images/project-show-toolbar.png" src="../_images/project-show-toolbar.png" />
-<p>If you click on the <span>Pyramid</span> logo at the top right of the page, a new
-target window will open to present a debug toolbar that provides various
-niceties while you're developing.  This logo will float above every HTML page
-served by <span>Pyramid</span> while you develop an application, and allows you to
-show the toolbar as necessary.</p>
+<p>ページの右上に：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`ロゴをクリックすると、新しいターゲットウィンドウが開き、開発中にさまざまな細かい点を提供するデバッグツールバーが表示されます。このロゴは、アプリケーション開発中に：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`によって提供されるすべてのHTMLページの上に浮動表示され、必要に応じてツールバーを表示することができます。</p>
 <img alt="../_images/project-debug.png" src="../_images/project-debug.png" />
-<p>If you don't see the Pyramid logo on the top right of the page, it means you're
-browsing from a system that does not have debugging access.  By default, for
-security reasons, only a browser originating from <code class="docutils literal notranslate"><span class="pre">localhost</span></code> (<code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>)
-can see the debug toolbar.  To allow your browser on a remote system to access
-the server, add a line within the <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section of the
-<code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file in the form <code class="docutils literal notranslate"><span class="pre">debugtoolbar.hosts</span> <span class="pre">=</span> <span class="pre">X</span> <span class="pre">.X.X.X</span></code>.  For
-example, if your Pyramid application is running on a remote system, and you're
-browsing from a host with the IP address <code class="docutils literal notranslate"><span class="pre">192.168.1.1</span></code>, you'd add something
-like this to enable the toolbar when your system contacts Pyramid:</p>
+<p>ページの右上にピラミッドのロゴが表示されない場合は、デバッグアクセスのないシステムからブラウズしていることを意味します。デフォルトでは、セキュリティ上の理由から、 `` localhost``（ `` 127.0.0.1``）に由来するブラウザだけがデバッグツールバーを見ることができます。リモートシステム上のブラウザがサーバにアクセスできるようにするには、 `` development.ini``ファイルの `` [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションに `` debugtoolbar.hosts = X .XXX <a href="#id3"><span class="problematic" id="id4">``</span></a>。たとえば、あなたのPyramidアプリケーションがリモートシステム上で動作していて、IPアドレスが `` 192.168.1.1``のホストからブラウズしている場合は、システムがピラミッドに接続しているときにツールバーを有効にするために、 ：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[app:main]</span>
 <span class="c1"># .. other settings ...</span>
 <span class="na">debugtoolbar.hosts</span> <span class="o">=</span> <span class="s">192.168.1.1</span>
 </pre></div>
 </div>
-<p>For more information about what the debug toolbar allows you to do, see the
-<a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-debugtoolbar/en/latest/index.html#overview" title="(in pyramid_debugtoolbar v4.5)"><span class="xref std std-ref">documentation for pyramid_debugtoolbar</span></a>.</p>
-<p>The debug toolbar will not be shown (and all debugging will be turned off) when
-you use the <code class="docutils literal notranslate"><span class="pre">production.ini</span></code> file instead of the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> ini file
-to run the application.</p>
-<p>You can also turn the debug toolbar off by editing <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> and
-commenting out a line.  For example, instead of:</p>
+<p>デバッグツールバーでできることの詳細については、pyramid_debugtoolbarの：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>ドキュメントを参照してください。 &lt;toolbar:overview&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
+<p>アプリケーションを実行するために `` development.ini`` iniファイルの代わりに `` production.ini``ファイルを使用すると、デバッグツールバーは表示されません（また、すべてのデバッグはオフになります）。</p>
+<p>`` development.ini``を編集して行をコメントアウトすることで、デバッグツールバーをオフにすることもできます。たとえば、次の代わりに：</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -432,7 +306,7 @@ commenting out a line.  For example, instead of:</p>
 <span class="s">    pyramid_debugtoolbar</span>
 </pre></div>
 </td></tr></table></div>
-<p>Put a hash mark at the beginning of the <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> line:</p>
+<p>`` pyramid_debugtoolbar``行の先頭にハッシュマークをつけます：</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -442,24 +316,17 @@ commenting out a line.  For example, instead of:</p>
 <span class="c1">#    pyramid_debugtoolbar</span>
 </pre></div>
 </td></tr></table></div>
-<p>Then restart the application to see that the toolbar has been turned off.</p>
-<p>Note that if you comment out the <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> line, the <code class="docutils literal notranslate"><span class="pre">#</span></code>
-<em>must</em> be in the first column.  If you put it anywhere else, and then attempt
-to restart the application, you'll receive an error that ends something like
-this:</p>
+<p>次に、アプリケーションを再起動して、ツールバーがオフになっていることを確認します。</p>
+<p>`` pyramid_debugtoolbar``行をコメントアウトすると、 <a href="#id1"><span class="problematic" id="id2">``</span></a>＃ `` <a href="#id3"><span class="problematic" id="id4">*</span></a>は最初の列になければなりません。他の場所に置いて、アプリケーションを再起動しようとすると、次のようなエラーが返されます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ImportError: No module named #pyramid_debugtoolbar
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="the-project-structure">
-<span id="index-7"></span><h2>The Project Structure<a class="headerlink" href="#the-project-structure" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">pyramid-cookiecutter-starter</span></code> cookiecutter generated a <a class="reference internal" href="../glossary.html#term-project"><span class="xref std std-term">project</span></a> (named <code class="docutils literal notranslate"><span class="pre">myproject</span></code>),
-which contains a Python <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a>.  The package is <em>also</em> named
-<code class="docutils literal notranslate"><span class="pre">myproject</span></code>; the cookiecutter generates a project which
-contains a package that shares its name.</p>
-<p>All <span>Pyramid</span> <code class="docutils literal notranslate"><span class="pre">cookiecutter</span></code>-generated projects share a similar structure.
-The <code class="docutils literal notranslate"><span class="pre">myproject</span></code> project we've generated has the following directory structure:</p>
+<span id="index-7"></span><h2>プロジェクトの構造<a class="headerlink" href="#the-project-structure" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` pyramid-cookiecutter-starter`` cookiecutterは、：term： <cite>project`（</cite> <cite>myproject``という名前）を生成しました。これはPython：term：</cite> package`を含みます。パッケージは `` myproject``とも呼ばれます。 cookiecutterは、その名前を共有するパッケージを含むプロジェクトを生成します。</p>
+<p>All：app： <cite>Pyramid</cite> `` cookiecutter``で生成されたプロジェクトは、同様の構造を共有しています。生成された `` myproject``プロジェクトは以下のディレクトリ構造を持っています：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>myproject/
 ├── .coveragerc
 ├── CHANGES.txt
@@ -484,34 +351,22 @@ The <code class="docutils literal notranslate"><span class="pre">myproject</span
 </div>
 </div>
 <div class="section" id="the-myproject-project">
-<h2>The <code class="docutils literal notranslate"><span class="pre">myproject</span></code> <a class="reference internal" href="../glossary.html#term-project"><span class="xref std std-term">Project</span></a><a class="headerlink" href="#the-myproject-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">myproject</span></code> <a class="reference internal" href="../glossary.html#term-project"><span class="xref std std-term">project</span></a> directory is the distribution and deployment
-wrapper for your application.  It contains both the <code class="docutils literal notranslate"><span class="pre">myproject</span></code>
-<a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a> representing your application as well as files used to
-describe, run, and test your application.</p>
+<h2>`` myproject``：term： <cite>Project</cite><a class="headerlink" href="#the-myproject-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` myproject``：term： <cite>project`ディレクトリは、あなたのアプリケーションの配布と展開ラッパーです。これはアプリケーションを表す `</cite> myproject`：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>package`とアプリケーションの記述、実行、テストに使用されるファイルの両方を含みます。</p>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">.coveragerc</span></code> configures coverage when running tests.</li>
-<li><code class="docutils literal notranslate"><span class="pre">CHANGES.txt</span></code> describes the changes you've made to the application.  It is
-conventionally written in <a class="reference internal" href="../glossary.html#term-restructuredtext"><span class="xref std std-term">reStructuredText</span></a> format.</li>
-<li><code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> is a <a class="reference internal" href="../glossary.html#term-distutils"><span class="xref std std-term">distutils</span></a> &quot;manifest&quot; file, naming which files
-should be included in a source distribution of the package when <code class="docutils literal notranslate"><span class="pre">python</span>
-<span class="pre">setup.py</span> <span class="pre">sdist</span></code> is run.</li>
-<li><code class="docutils literal notranslate"><span class="pre">README.txt</span></code> describes the application in general.  It is conventionally
-written in <a class="reference internal" href="../glossary.html#term-restructuredtext"><span class="xref std std-term">reStructuredText</span></a> format.</li>
-<li><code class="docutils literal notranslate"><span class="pre">development.ini</span></code> is a <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> configuration file that can be
-used to execute your application during development.</li>
-<li><code class="docutils literal notranslate"><span class="pre">production.ini</span></code> is a <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> configuration file that can be
-used to execute your application in a production configuration.</li>
-<li><code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code> is a configuration file for running tests.</li>
-<li><code class="docutils literal notranslate"><span class="pre">setup.py</span></code> is the file you'll use to test and distribute your application.
-It is a standard <a class="reference internal" href="../glossary.html#term-setuptools"><span class="xref std std-term">setuptools</span></a> <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file.</li>
+<li>`` .coveragerc``はテストを実行するときにカバレッジを設定します。</li>
+<li>`` CHANGES.txt``はあなたがアプリケーションに加えた変更を記述します。これは通常：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>reStructuredText`形式で書かれています。</li>
+<li>`` MANIFEST.in``は：term： <cite>distutils</cite> &amp;quot;マニフェスト&amp;quot;ファイルで、` <a href="#id1"><span class="problematic" id="id2">`</span></a>python setup.py sdist``が実行されたときにパッケージのソース配布物に含まれるファイル名を指定します。</li>
+<li>`` README.txt``は一般的なアプリケーションを記述します。これは通常：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>reStructuredText`形式で書かれています。</li>
+<li>`` development.ini``は、開発中にアプリケーションを実行するために使用できる：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>PasteDeploy`設定ファイルです。</li>
+<li>`` production.ini``は、プロダクション設定でアプリケーションを実行するために使用できる：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>PasteDeploy`設定ファイルです。</li>
+<li>`` pytest.ini``はテストを実行するための設定ファイルです。</li>
+<li>`` setup.py``は、アプリケーションのテストと配布に使用するファイルです。 term： <cite>setuptools`</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>setup.py``ファイルです。</li>
 </ol>
 <div class="section" id="development-ini">
-<span id="myproject-ini"></span><span id="index-8"></span><h3><code class="docutils literal notranslate"><span class="pre">development.ini</span></code><a class="headerlink" href="#development-ini" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file is a <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> configuration file. Its
-purpose is to specify an application to run when you invoke <code class="docutils literal notranslate"><span class="pre">pserve</span></code>, as well
-as the deployment settings provided to that application.</p>
-<p>The generated <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file looks like so:</p>
+<span id="myproject-ini"></span><span id="index-8"></span><h3>`` development.ini``<a class="headerlink" href="#development-ini" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` development.ini``ファイルは：term： <cite>PasteDeploy`設定ファイルです。その目的は、 `</cite> pserve``を起動したときに実行するアプリケーションと、そのアプリケーションに提供されるデプロイメント設定を指定することです。</p>
+<p>生成された `` development.ini``ファイルは次のようになります：</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -631,127 +486,44 @@ as the deployment settings provided to that application.</p>
 <span class="na">format</span> <span class="o">=</span> <span class="s">%(asctime)s %(levelname)-5.5s [%(name)s:%(lineno)s][%(threadName)s] %(message)s</span>
 </pre></div>
 </td></tr></table></div>
-<p>This file contains several sections including <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code>,
-<code class="docutils literal notranslate"><span class="pre">[server:main]</span></code>, and several other sections related to logging configuration.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section represents configuration for your <span>Pyramid</span>
-application.  The <code class="docutils literal notranslate"><span class="pre">use</span></code> setting is the only setting required to be present in
-the <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section.  Its default value, <code class="docutils literal notranslate"><span class="pre">egg:myproject</span></code>, indicates
-that our myproject project contains the application that should be served.
-Other settings added to this section are passed as keyword arguments to the
-function named <code class="docutils literal notranslate"><span class="pre">main</span></code> in our package's <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> module.  You can
-provide startup-time configuration parameters to your application by adding
-more settings to this section.</p>
+<p>このファイルには、 `` [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>、 `` [server：main] <a href="#id3"><span class="problematic" id="id4">``</span></a>、その他のロギング設定に関連するセクションが含まれています。</p>
+<p>`` [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションは：app： <cite>Pyramid`アプリケーションの設定を表します。 `</cite> use``設定は、 `` [app：main] <a href="#id3"><span class="problematic" id="id4">``</span></a>セクションに存在する唯一の設定です。デフォルト値の `` egg：myproject``は、私たちのmyprojectプロジェクトが提供されるべきアプリケーションを含んでいることを示します。このセクションに追加された他の設定は、パッケージの `` __init __。py``モジュールの `` main``という名前の関数にキーワード引数として渡されます。このセクションにさらに設定を追加することで、アプリケーションに起動時の構成パラメータを提供できます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See <a class="reference internal" href="paste.html#pastedeploy-entry-points"><span class="std std-ref">Entry Points and PasteDeploy .ini Files</span></a> for more information about the
-meaning of the <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">=</span> <span class="pre">egg:myproject</span></code> value in this section.</p>
+<p class="last">このセクションの `` use = egg：myproject``値の意味については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>pastedeploy_entry_points`を参照してください。</p>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code> setting in the <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section is a
-<span>Pyramid</span>-specific setting which is passed into the framework.  If it
-exists, and its value is <code class="docutils literal notranslate"><span class="pre">true</span></code>, supported template changes will not require
-an application restart to be detected.  See <a class="reference internal" href="templates.html#reload-templates-section"><span class="std std-ref">Automatically Reloading Templates</span></a> for
-more information.</p>
+<p>`` [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションの `` pyramid.reload_templates``の設定は、：app： <cite>Pyramid`固有の設定で、フレームワークに渡されます。存在し、その値が `</cite> true``の場合、サポートされているテンプレートの変更では、アプリケーションの再起動を検出する必要はありません。詳細は、ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>reload_templates_section`を参照してください。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code> option should be turned off for
-production applications, as template rendering is slowed when it is turned
-on.</p>
+<p class="last">`` pyramid.reload_templates``オプションは、実稼働アプリケーションではオフにする必要があります。これは、テンプレートレンダリングが有効になっているときに遅くなるためです。</p>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> setting in the <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section tells Pyramid to
-&quot;include&quot; configuration from another package.  In this case, the line
-<code class="docutils literal notranslate"><span class="pre">pyramid.includes</span> <span class="pre">=</span> <span class="pre">pyramid_debugtoolbar</span></code> tells Pyramid to include
-configuration from the <code class="docutils literal notranslate"><span class="pre">pyramid_debugtoolbar</span></code> package.  This turns on a
-debugging panel in development mode which can be opened by clicking on the
-<span>Pyramid</span> logo on the top right of the screen.  Including the debug
-toolbar will also make it possible to interactively debug exceptions when an
-error occurs.</p>
-<p>Various other settings may exist in this section having to do with debugging or
-influencing runtime behavior of a <span>Pyramid</span> application.  See
-<a class="reference internal" href="environment.html#environment-chapter"><span class="std std-ref">Environment Variables and .ini File Settings</span></a> for more information about these settings.</p>
-<p>The name <code class="docutils literal notranslate"><span class="pre">main</span></code> in <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> signifies that this is the default
-application run by <code class="docutils literal notranslate"><span class="pre">pserve</span></code> when it is invoked against this configuration
-file.  The name <code class="docutils literal notranslate"><span class="pre">main</span></code> is a convention used by PasteDeploy signifying that it
-is the default application.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">[server:main]</span></code> section of the configuration file configures a WSGI
-server which listens on TCP port 6543.  It is configured to listen on localhost
-only (<code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>).</p>
-<p id="myproject-ini-logging">The sections after <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">logging</span> <span class="pre">configuration</span></code> represent Python's standard
-library <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> module configuration for your application.  These
-sections are passed to the <a class="reference external" href="https://docs.python.org/2/howto/logging.html#configuring-logging">logging module's config file configuration engine</a> when the
-<code class="docutils literal notranslate"><span class="pre">pserve</span></code> or <code class="docutils literal notranslate"><span class="pre">pshell</span></code> commands are executed.  The default configuration
-sends application logging output to the standard error output of your terminal.
-For more information about logging configuration, see <a class="reference internal" href="logging.html#logging-chapter"><span class="std std-ref">Logging</span></a>.</p>
-<p>See the <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> documentation for more information about other
-types of things you can put into this <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file, such as other
-applications, <a class="reference internal" href="../glossary.html#term-middleware"><span class="xref std std-term">middleware</span></a>, and alternate <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> server
-implementations.</p>
+<p>`` [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションの `` pyramid.includes`の設定は、Pyramidに別のパッケージの設定を &amp;quot;含める&amp;quot;ように指示します。この場合、 `` pyramid.includes = pyramid_debugtoolbar``はPyramidに `` pyramid_debugtoolbar``パッケージの設定を含めるように指示します。これは、開発モードのデバッグパネルをオンにします。これは、画面の右上に：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`ロゴをクリックすることで開くことができます。デバッグツールバーを含めることで、エラーが発生したときに対話的に例外をデバッグすることも可能になります。</p>
+<p>このセクションには、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションの実行時動作をデバッグしたり影響を与えたりするためのさまざまな設定があります。これらの設定の詳細については、ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>environment_chapter`を参照してください。</p>
+<p>`` [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>の中の `` main``という名前は、これがこの設定ファイルに対して呼び出されたときに `` pserve``が実行するデフォルトのアプリケーションであることを示します。 `` main``という名前は、PasteDeployがデフォルトのアプリケーションであることを示すために使用される規約です。</p>
+<p>設定ファイルの `` [server：main] <code class="docutils literal notranslate"><span class="pre">セクションは、TCPポート6543をリッスンするWSGIサーバを設定します。ローカルホストのみ（</span> <span class="pre">``</span> <span class="pre">127.0.0.1</span></code>）でリッスンするように設定されています。</p>
+<p id="myproject-ini-logging"><a href="#id1"><span class="problematic" id="id2">``</span></a>＃logging configuration``の後のセクションはPythonの標準ライブラリを表しています：アプリケーションのmod： <cite>logging`モジュール設定。これらのセクションは `ロギングモジュールの設定ファイル設定エンジン&lt;https://docs.python.org/2/howto/logging.html#configuring-logging&gt; `</cite> pserve``や `` pshell``コマンドが実行されたときに <a href="#id3"><span class="problematic" id="id4">`</span></a>_ &amp;#39;を返します。デフォルト設定では、アプリケーションログ出力が端末の標準エラー出力に送信されます。ロギング設定の詳細については、：ref： <a href="#id5"><span class="problematic" id="id6">`</span></a>logging_chapter`を参照してください。</p>
+<p>：term： <cite>ミドルウェア</cite>、alternate：term： <cite>WSGI`など、この</cite> <cite>.ini``ファイルに入れることができる他のタイプのものの詳細については、：term：</cite> PasteDeploy`のドキュメントを参照してください。サーバー実装。</p>
 </div>
 <div class="section" id="production-ini">
-<span id="index-9"></span><h3><code class="docutils literal notranslate"><span class="pre">production.ini</span></code><a class="headerlink" href="#production-ini" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">production.ini</span></code> file is a <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> configuration file with a
-purpose much like that of <code class="docutils literal notranslate"><span class="pre">development.ini</span></code>.  However, it disables the debug
-toolbar, and filters all log messages except those above the WARN level.  It
-also turns off template development options such that templates are not
-automatically reloaded when changed, and turns off all debugging options.  This
-file is appropriate to use instead of <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> when you put your
-application into production.</p>
-<p>It's important to use <code class="docutils literal notranslate"><span class="pre">production.ini</span></code> (and <em>not</em> <code class="docutils literal notranslate"><span class="pre">development.ini</span></code>) to
-benchmark your application and put it into production.  <code class="docutils literal notranslate"><span class="pre">development.ini</span></code>
-configures your system with a debug toolbar that helps development, but the
-inclusion of this toolbar slows down page rendering times by over an order of
-magnitude.  The debug toolbar is also a potential security risk if you have it
-configured incorrectly.</p>
+<span id="index-9"></span><h3><cite>production.ini</cite><a class="headerlink" href="#production-ini" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` production.ini``ファイルは：term： <cite>PasteDeploy`設定ファイルで、</cite> <cite>development.ini``によく似ています。ただし、デバッグツールバーを無効にし、WARNレベルを超えるすべてのログメッセージをフィルタリングします。また、テンプレートが変更されたときに自動的にリロードされないように、またすべてのデバッグオプションをオフにするようなテンプレート開発オプションもオフにします。このファイルは、アプリケーションを実稼働環境に置くときに `</cite> development.ini``の代わりに使うのに適しています。</p>
+<p>アプリケーションをベンチマークしてプロダクションに入れるには、 `` production.ini``（そして `` development.ini``ではなく*）を使うことが重要です。 `` development.ini``は開発に役立つデバッグツールバーを使ってシステムを設定しますが、このツールバーを組み込むことでページレンダリング時間が一桁以上遅くなります。デバッグツールバーは、正しく構成されていないと、セキュリティリスクの可能性もあります。</p>
 </div>
 <div class="section" id="manifest-in">
-<span id="index-10"></span><h3><code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code><a class="headerlink" href="#manifest-in" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> file is a <a class="reference internal" href="../glossary.html#term-distutils"><span class="xref std std-term">distutils</span></a> configuration file which
-specifies the non-Python files that should be included when a
-<a class="reference internal" href="../glossary.html#term-distribution"><span class="xref std std-term">distribution</span></a> of your Pyramid project is created when you run <code class="docutils literal notranslate"><span class="pre">python</span>
-<span class="pre">setup.py</span> <span class="pre">sdist</span></code>.  Due to the information contained in the default
-<code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code>, an sdist of your Pyramid project will include <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files,
-<code class="docutils literal notranslate"><span class="pre">.ini</span></code> files, <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files, graphics files, and template files, as well as
-<code class="docutils literal notranslate"><span class="pre">.py</span></code> files.  See
-<a class="reference external" href="https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in-template">https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in-template</a>
-for more information about the syntax and usage of <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code>.</p>
-<p>Without the presence of a <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> file or without checking your source
-code into a version control repository, <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">sdist</span></code> places only <em>Python
-source files</em> (files ending with a <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension) into tarballs generated
-by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></code>.  This means, for example, if your project was not
-checked into a setuptools-compatible source control system, and your project
-directory didn't contain a <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> file that told the <code class="docutils literal notranslate"><span class="pre">sdist</span></code>
-machinery to include <code class="docutils literal notranslate"><span class="pre">*.pt</span></code> files, the <code class="docutils literal notranslate"><span class="pre">myproject/templates/mytemplate.pt</span></code>
-file would not be included in the generated tarball.</p>
-<p>Projects generated by Pyramid cookiecutters include a default <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> file.
-The <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> file contains declarations which tell it to include files
-like <code class="docutils literal notranslate"><span class="pre">*.pt</span></code>, <code class="docutils literal notranslate"><span class="pre">*.css</span></code> and <code class="docutils literal notranslate"><span class="pre">*.js</span></code> in the generated tarball. If you include
-files with extensions other than the files named in the project's
-<code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> and you don't make use of a setuptools-compatible version
-control system, you'll need to edit the <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> file and include the
-statements necessary to include your new files.  See
-<a class="reference external" href="https://docs.python.org/2/distutils/sourcedist.html#principle">https://docs.python.org/2/distutils/sourcedist.html#principle</a> for more
-information about how to do this.</p>
-<p>You can also delete <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> from your project and rely on a setuptools
-feature which simply causes all files checked into a version control system to
-be put into the generated tarball.  To allow this to happen, check all the
-files that you'd like to be distributed along with your application's Python
-files into Subversion.  After you do this, when you rerun <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">sdist</span></code>,
-all files checked into the version control system will be included in the
-tarball.  If you don't use Subversion, and instead use a different version
-control system, you may need to install a setuptools add-on such as
-<code class="docutils literal notranslate"><span class="pre">setuptools-git</span></code> or <code class="docutils literal notranslate"><span class="pre">setuptools-hg</span></code> for this behavior to work properly.</p>
+<span id="index-10"></span><h3>`` MANIFEST.in``<a class="headerlink" href="#manifest-in" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` MANIFEST.in``ファイルは：term： <cite>distutils`設定ファイルで、pythonプロジェクトの：term：</cite> distribution`が `` pythonを実行するときに作成されるときに含めるべき非Pythonファイルを指定します。 setup.py sdist``を実行します。デフォルトの `` MANIFEST.in``に​​含まれている情報のため、Pyramidプロジェクトのsdistには `` .txt``ファイル、 `` .ini``ファイル、 `` .rst``ファイル、グラフィックファイル、テンプレートファイル、 `` .py``ファイルなどがあります。 `` MANIFEST.in``の構文と使い方の詳細については、<a class="reference external" href="https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in">https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in</a>-templateを参照してください。</p>
+<p>`` MANIFEST.in``ファイルがないか、ソースコードをバージョン管理リポジトリにチェックしなくても、 `` setup.py sdist``は* Pythonソースファイル*（ `` .py``で終わるファイルのみ） `` python setup.py sdist`で生成されたtarballに変換します。たとえば、プロジェクトがsetuptools互換のソース管理システムにチェックインされておらず、プロジェクトディレクトリに `` MANIFEST.in``ファイルが含まれていない場合、 `` sdist``マシンに ` <cite>* .pt``ファイルの場合、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>myproject / templates / mytemplate.pt``ファイルは生成されたtarballに含まれません。</p>
+<p>Pyramid cookiecuttersによって生成されるプロジェクトには、デフォルトの `` MANIFEST.in``ファイルが含まれています。 `` MANIFEST.in``ファイルは生成されたtarballに `` * .pt``、 `` * .css``、 `` * .js``のようなファイルを含めるように宣言しています。プロジェクトの `` MANIFEST.in``に​​指定されたファイル以外の拡張子を持つファイルをインクルードし、setuptoolsと互換性のあるバージョン管理システムを使用していない場合は、 `` MANIFEST.in` <a href="#id1"><span class="problematic" id="id2">`</span></a>ファイルを開き、新しいファイルをインクルードするのに必要なステートメントを含めます。これを行う方法の詳細については、<a class="reference external" href="https://docs.python.org/2/distutils/sourcedist">https://docs.python.org/2/distutils/sourcedist</a>.html#principleをご覧ください。</p>
+<p>あなたのプロジェクトから `` MANIFEST.in``を削除して、バージョン管理システムにチェックインされたすべてのファイルを生成されたtarballに入れさせるsetuptools機能に依存することもできます。これを可能にするには、アプリケーションのPythonファイルと共に配布するすべてのファイルをSubversionにチェックインしてください。これを実行した後、 `` setup.py sdist``を再実行すると、バージョン管理システムにチェックインされたすべてのファイルがtarballに含まれます。 Subversionを使用せず、代わりに別のバージョン管理システムを使用する場合は、この動作が適切に動作するように `` setuptools-git``や `` setuptools-hg``などのsetuptoolsアドオンをインストールする必要があります。</p>
 </div>
 <div class="section" id="setup-py">
-<span id="index-11"></span><h3><code class="docutils literal notranslate"><span class="pre">setup.py</span></code><a class="headerlink" href="#setup-py" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file is a <a class="reference internal" href="../glossary.html#term-setuptools"><span class="xref std std-term">setuptools</span></a> setup file.  It is meant to be
-used to define requirements for installing dependencies for your package and
-testing, as well as distributing your application.</p>
+<span id="index-11"></span><h3>`` setup.py``<a class="headerlink" href="#setup-py" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` setup.py``ファイルは：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>setuptools`セットアップファイルです。これは、パッケージの依存関係をインストールするための要件を定義したり、アプリケーションを配布したりテストしたりするために使用されます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">setup.py</span></code> is the de facto standard which Python developers use to
-distribute their reusable code.  You can read more about <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> files
-and their usage in the <a class="reference external" href="https://packaging.python.org/">Python Packaging User Guide</a> and <a class="reference external" href="http://pythonhosted.org/setuptools/">Setuptools documentation</a>.</p>
+<p class="last">`` setup.py``は、Python開発者が再利用可能なコードを配布するために使用する事実上の標準です。 `` setup.py``ファイルとその使い方については、 `` Python Packaging User Guide」を参照してください。 &lt;<a class="reference external" href="https://packaging.python.org/">https://packaging.python.org/</a>&gt; <cite>_と</cite> Setuptoolsのドキュメント&lt;<a class="reference external" href="http://pythonhosted.org/setuptools/">http://pythonhosted.org/setuptools/</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_。</p>
 </div>
-<p>Our generated <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> looks like this:</p>
+<p>生成された `` setup.py``は次のようになります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -857,67 +629,29 @@ and their usage in the <a class="reference external" href="https://packaging.pyt
 <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file calls the setuptools <code class="docutils literal notranslate"><span class="pre">setup</span></code> function, which does
-various things depending on the arguments passed to <code class="docutils literal notranslate"><span class="pre">pip</span></code> on the command
-line.</p>
-<p>Within the arguments to this function call, information about your application
-is kept.  While it's beyond the scope of this documentation to explain
-everything about setuptools setup files, we'll provide a whirlwind tour of what
-exists in this file in this section.</p>
-<p>Your application's name can be any string; it is specified in the <code class="docutils literal notranslate"><span class="pre">name</span></code>
-field.  The version number is specified in the <code class="docutils literal notranslate"><span class="pre">version</span></code> value.  A short
-description is provided in the <code class="docutils literal notranslate"><span class="pre">description</span></code> field.  The <code class="docutils literal notranslate"><span class="pre">long_description</span></code>
-is conventionally the content of the <code class="docutils literal notranslate"><span class="pre">README</span></code> and <code class="docutils literal notranslate"><span class="pre">CHANGES</span></code> files appended
-together. The <code class="docutils literal notranslate"><span class="pre">classifiers</span></code> field is a list of <a class="reference external" href="https://pypi.org/pypi?%3Aaction=list_classifiers">Trove classifiers</a> describing your
-application.  <code class="docutils literal notranslate"><span class="pre">author</span></code> and <code class="docutils literal notranslate"><span class="pre">author_email</span></code> are text fields which probably
-don't need any description. <code class="docutils literal notranslate"><span class="pre">url</span></code> is a field that should point at your
-application project's URL (if any). <code class="docutils literal notranslate"><span class="pre">packages=find_packages()</span></code> causes all
-packages within the project to be found when packaging the application.
-<code class="docutils literal notranslate"><span class="pre">include_package_data</span></code> will include non-Python files when the application is
-packaged if those files are checked into version control. <code class="docutils literal notranslate"><span class="pre">zip_safe=False</span></code>
-indicates that this package is not safe to use as a zipped egg; instead it will
-always unpack as a directory, which is more convenient. <code class="docutils literal notranslate"><span class="pre">install_requires</span></code>
-indicates that this package depends on the <code class="docutils literal notranslate"><span class="pre">pyramid</span></code> package.
-<code class="docutils literal notranslate"><span class="pre">extras_require</span></code> is a Python dictionary that defines what is required to be
-installed for running tests. We examined <code class="docutils literal notranslate"><span class="pre">entry_points</span></code> in our discussion of
-the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file; this file defines the <code class="docutils literal notranslate"><span class="pre">main</span></code> entry point that
-represents our project's application.</p>
-<p>Usually you only need to think about the contents of the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file when
-distributing your application to other people, when adding Python package
-dependencies, or when versioning your application for your own use. For fun,
-you can try this command now:</p>
+<p>`` setup.py``ファイルはsetuptoolsの `` setup``関数を呼び出します。これは、コマンドラインで `` pip``に渡される引数に応じて様々なことを行います。</p>
+<p>この関数呼び出しの引数の中に、アプリケーションに関する情報が保持されます。 setuptoolsのセットアップファイルに関するすべてのことを説明するのは、このドキュメントの範囲を超えていますが、このセクションでは、このファイルに存在するものについての旋風のツアーを提供します。</p>
+<p>アプリケーションの名前には任意の文字列を使用できます。 `` name``フィールドに指定されています。バージョン番号は `` version``値で指定されます。 `` description``フィールドに簡単な説明があります。 `` long_description``は、従来、一緒に追加された `` README``と `` CHANGES``ファイルの内容です。 `` classifiers``フィールドは、 `` Trove分類子のリストです&lt;<a class="reference external" href="https://pypi.org/pypi?%3Aaction=list_classifiers">https://pypi.org/pypi?%3Aaction=list_classifiers</a>&gt;あなたのアプリケーションを記述する。 `` author``と `` author_email``は、おそらく何も記述する必要のないテキストフィールドです。 `` url``はアプリケーションプロジェクトのURLを指すフィールドです（存在する場合）。 `` packages = find_packages（） <a href="#id1"><span class="problematic" id="id2">``</span></a>は、アプリケーションをパッケージ化するときに、プロジェクト内のすべてのパッケージが見つかるようにします。 `` include_package_data``には、バージョンコントロールにチェックインされているアプリケーションがパッケージされている場合、非Pythonファイルが含まれます。 `` zip_safe = False``は、このパッケージが圧縮された卵として安全に使用できないことを示します。代わりに、常にディレクトリとして解凍されます。これはより便利です。 `` install_requires``は、このパッケージが `` pyramid``パッケージに依存していることを示します。 `` extras_require``は、テストの実行に必要なものを定義するPython辞書です。 `` development.ini``ファイルの議論で `` entry_points``を調べました。このファイルはプロジェクトのアプリケーションを表す `` main``エントリーポイントを定義します。</p>
+<p>通常は、アプリケーションを他の人に配布するとき、Pythonパッケージの依存関係を追加するとき、またはあなたのアプリケーションをバージョン管理するときに `` setup.py``ファイルの内容について考えるだけです。楽しみのために、今すぐこのコマンドを試すことができます：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ $VENV/bin/python setup.py sdist
 </pre></div>
 </div>
-<p>This will create a tarball of your application in a <code class="docutils literal notranslate"><span class="pre">dist</span></code> subdirectory named
-<code class="docutils literal notranslate"><span class="pre">myproject-0.0.tar.gz</span></code>.  You can send this tarball to other people who want
-to install and use your application.</p>
+<p>これは `` myproject-0.0.tar.gz``という名前の `` dist``サブディレクトリにアプリケーションのtarballを作成します。アプリケーションをインストールして使用したい他の人にこのtarballを送ることができます。</p>
 </div>
 </div>
 <div class="section" id="the-myproject-package">
-<span id="index-12"></span><h2>The <code class="docutils literal notranslate"><span class="pre">myproject</span></code> <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">Package</span></a><a class="headerlink" href="#the-myproject-package" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">myproject</span></code> <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a> lives inside the <code class="docutils literal notranslate"><span class="pre">myproject</span></code>
-<a class="reference internal" href="../glossary.html#term-project"><span class="xref std std-term">project</span></a>.  It contains:</p>
+<span id="index-12"></span><h2>`` myproject``：term： <cite>Package</cite><a class="headerlink" href="#the-myproject-package" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` myproject``：term： <cite>package`は</cite> <cite>myproject`</cite>：term：` project`の中にあります。を含む：</p>
 <ol class="arabic simple">
-<li>An <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file signifies that this is a Python <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a>. It
-also contains code that helps users run the application, including a
-<code class="docutils literal notranslate"><span class="pre">main</span></code> function which is used as a entry point for commands such as
-<code class="docutils literal notranslate"><span class="pre">pserve</span></code>, <code class="docutils literal notranslate"><span class="pre">pshell</span></code>, <code class="docutils literal notranslate"><span class="pre">pviews</span></code>, and others.</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">templates</span></code> directory, which contains <a class="reference internal" href="../glossary.html#term-jinja2"><span class="xref std std-term">Jinja2</span></a> (or other types
-of) templates.</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">tests.py</span></code> module, which contains unit test code for the application.</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module, which contains view code for the application.</li>
+<li>`` __init __。py``ファイルは、これがPython：term： <cite>package`であることを示します。また、 `</cite> pserve``、 `` pshell``、 `` pviews``などのコマンドのエントリポイントとして使用される `` main``関数を含む、ユーザがアプリケーションを動かせるようにするコードも含まれています。</li>
+<li>`` templates``ディレクトリ：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Jinja2`（または他のタイプの）テンプレートを含んでいます。</li>
+<li>アプリケーション用のユニットテストコードを含む `` tests.py``モジュールです。</li>
+<li>アプリケーションのビューコードを含む `` views.py``モジュールです。</li>
 </ol>
-<p>These are purely conventions established by the cookiecutter. <span>Pyramid</span>
-doesn't insist that you name things in any particular way. However, it's
-generally a good idea to follow Pyramid standards for naming, so that other
-Pyramid developers can get up to speed quickly on your code when you need help.</p>
+<p>これらは純粋にcookiecutterによって確立された慣例です。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はあなたが何か特別な方法で物事の名前を書いていると主張していません。しかし、Pyramidの標準に従って名前を付けることは、一般的には良い考えです。そのため、他のPyramid開発者は、ヘルプが必要なときに素早くコードをスピードアップできます。</p>
 <div class="section" id="init-py">
-<span id="index-13"></span><span id="id3"></span><h3><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code><a class="headerlink" href="#init-py" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>We need a small Python module that configures our application and which
-advertises an entry point for use by our <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file.
-This is the file named <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>.  The presence of an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>
-also informs Python that the directory which contains it is a <em>package</em>.</p>
+<span id="index-13"></span><span id="id3"></span><h3>`` __init __。py``<a class="headerlink" href="#init-py" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>アプリケーションを設定し、term： <cite>PasteDeploy`</cite> <cite>.ini``ファイルで使用するエントリポイントを宣言する小さなPythonモジュールが必要です。これは `</cite> __init __。py``という名前のファイルです。 `` __init __。py``の存在は、それを含むディレクトリが* package <a href="#id1"><span class="problematic" id="id2">*</span></a>であることをPythonに知らせます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -944,34 +678,22 @@ also informs Python that the directory which contains it is a <em>package</em>.<
 </pre></div>
 </td></tr></table></div>
 <ol class="arabic">
-<li><p class="first">Line 1 imports the <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> class from <a class="reference internal" href="../api/config.html#module-pyramid.config" title="pyramid.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.config</span></code></a>
-that we use later.</p>
+<li><p class="first">1行目は：term： <cite>Configurator`クラスを：mod：</cite> pyramid.config`からインポートします。</p>
 </li>
-<li><p class="first">Lines 4-12 define a function named <code class="docutils literal notranslate"><span class="pre">main</span></code> that returns a <span>Pyramid</span>
-WSGI application.  This function is meant to be called by the
-<a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> framework as a result of running <code class="docutils literal notranslate"><span class="pre">pserve</span></code>.</p>
-<p>Within this function, application configuration is performed.</p>
-<p>Line 7 creates an instance of a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a>.</p>
-<p>Line 8 adds support for Jinja2 templating bindings, allowing us to
-specify renderers with the <code class="docutils literal notranslate"><span class="pre">.jinja2</span></code> extension.</p>
-<p>Line 9 registers a static view, which will serve up the files from the
-<code class="docutils literal notranslate"><span class="pre">myproject:static</span></code> <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a> (the <code class="docutils literal notranslate"><span class="pre">static</span></code> directory
-of the <code class="docutils literal notranslate"><span class="pre">myproject</span></code> package).</p>
-<p>Line 10 adds a <a class="reference internal" href="../glossary.html#term-route"><span class="xref std std-term">route</span></a> to the configuration.  This route is later used
-by a view in the <code class="docutils literal notranslate"><span class="pre">views</span></code> module.</p>
-<p>Line 11 calls <code class="docutils literal notranslate"><span class="pre">config.scan()</span></code>, which picks up view registrations declared
-elsewhere in the package (in this case, in the <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module).</p>
-<p>Line 12 returns a <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> application to the caller of the function
-(Pyramid's pserve).</p>
+<li><p class="first">4-12行目では：app： <cite>Pyramid</cite> WSGIアプリケーションを返す` <cite>main``という名前の関数を定義しています。この関数は、 `</cite> pserve``を実行した結果、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>PasteDeploy`フレームワークによって呼び出されるようになっています。</p>
+<p>この機能では、アプリケーション構成が実行されます。</p>
+<p>7行目は：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Configurator`のインスタンスを作成します。</p>
+<p>8行目は、Jinja2テンプレートバインディングのサポートを追加し、レンダラーを `` .jinja2``拡張子で指定できるようにします。</p>
+<p>9行目はstaticビューを登録します。これは、 `` myproject：static``：term： <cite>asset specification`（</cite> <cite>myproject``パッケージの</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>static``ディレクトリ）のファイルを提供します。</p>
+<p>10行目は：term： <cite>route`を設定に追加します。このルートは後で `</cite> views``モジュールのビューで使用されます。</p>
+<p>11行目は `` config.scan（） <a href="#id1"><span class="problematic" id="id2">``</span></a>を呼び出します。これは、パッケージ内の他の場所で宣言されたビュー登録を受け取ります（この場合、 `` views.py``モジュール内にあります）。</p>
+<p>12行目は：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>WSGI`アプリケーションを関数の呼び出し側（Pyramidのpserve）に返します。</p>
 </li>
 </ol>
 </div>
 <div class="section" id="views-py">
-<span id="index-14"></span><h3><code class="docutils literal notranslate"><span class="pre">views.py</span></code><a class="headerlink" href="#views-py" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Much of the heavy lifting in a <span>Pyramid</span> application is done by <em>view
-callables</em>.  A <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> is the main tool of a <span>Pyramid</span> web
-application developer; it is a bit of code which accepts a <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> and
-which returns a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a>.</p>
+<span id="index-14"></span><h3>`` views.py``<a class="headerlink" href="#views-py" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>a：app： <cite>Pyramid`アプリケーションの大部分は、* view callables *によって行われます。 A：term： `view callable`は、app：</cite> Pyramid`ウェブアプリケーション開発者の主なツールです。 ：term： <cite>request`を受け取り、：term：</cite> response`を返すコードです。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -985,80 +707,45 @@ which returns a <a class="reference internal" href="../glossary.html#term-respon
     <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="s1">&#39;MyProject&#39;</span><span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Lines 4-6 define and register a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> named <code class="docutils literal notranslate"><span class="pre">my_view</span></code>.  The
-function named <code class="docutils literal notranslate"><span class="pre">my_view</span></code> is decorated with a <code class="docutils literal notranslate"><span class="pre">view_config</span></code> decorator (which
-is processed by the <code class="docutils literal notranslate"><span class="pre">config.scan()</span></code> line in our <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>). The
-view_config decorator asserts that this view be found when a <a class="reference internal" href="../glossary.html#term-route"><span class="xref std std-term">route</span></a>
-named <code class="docutils literal notranslate"><span class="pre">home</span></code> is matched.  In our case, because our <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> maps the
-route named <code class="docutils literal notranslate"><span class="pre">home</span></code> to the URL pattern <code class="docutils literal notranslate"><span class="pre">/</span></code>, this route will match when a
-visitor visits the root URL.  The view_config decorator also names a
-<code class="docutils literal notranslate"><span class="pre">renderer</span></code>, which in this case is a template that will be used to render the
-result of the view callable.  This particular view declaration points at
-<code class="docutils literal notranslate"><span class="pre">templates/mytemplate.pt</span></code>, which is an <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a> that
-specifies the <code class="docutils literal notranslate"><span class="pre">mytemplate.pt</span></code> file within the <code class="docutils literal notranslate"><span class="pre">templates</span></code> directory of the
-<code class="docutils literal notranslate"><span class="pre">myproject</span></code> package.  The asset specification could have also been specified
-as <code class="docutils literal notranslate"><span class="pre">myproject:templates/mytemplate.pt</span></code>; the leading package name and colon is
-optional.  The template file pointed to is a <a class="reference internal" href="../glossary.html#term-jinja2"><span class="xref std std-term">Jinja2</span></a> template
-file (<code class="docutils literal notranslate"><span class="pre">templates/my_template.jinja2</span></code>).</p>
-<p>This view callable function is handed a single piece of information: the
-<a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a>.  The <em>request</em> is an instance of the <a class="reference internal" href="../glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> <code class="docutils literal notranslate"><span class="pre">Request</span></code>
-class representing the browser's request to our server.</p>
-<p>This view is configured to invoke a <a class="reference internal" href="../glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> on a template.  The
-dictionary the view returns (on line 6) provides the value the renderer
-substitutes into the template when generating HTML.  The renderer then returns
-the HTML in a <a class="reference internal" href="../glossary.html#term-response"><span class="xref std std-term">response</span></a>.</p>
+<p>4行目〜6行目は、 `` my_view``という名前の `` callable``を定義して登録します。 `` my_view``という名前の関数は、 `` __init __。py``の `` config.scan（） <code class="docutils literal notranslate"><span class="pre">行によって処理される</span> <span class="pre">``</span> <span class="pre">view_config``デコレータで装飾されています。</span> <span class="pre">view_configデコレータは、</span> <span class="pre">``</span> <span class="pre">home``という名前のa：term：</span> <span class="pre">`ルート`がマッチしたときに、このビューが見つかると主張します。私たちの場合、私たちの</span> <span class="pre">``</span> <span class="pre">__init</span> <span class="pre">__。py``は</span> <span class="pre">``</span> <span class="pre">home``という名前のルートをURLパターン</span> <span class="pre">``</span> <span class="pre">/</span> <span class="pre">``にマップするので、訪問者がルートURLを訪れるとこのルートが一致します。</span> <span class="pre">view_configデコレータは、レンダラーの名前を指定します。この場合、ビューの結果をレンダリングするために使用されるテンプレートです。この特定のビュー宣言は</span> <span class="pre">``</span> <span class="pre">templates</span> <span class="pre">/</span> <span class="pre">mytemplate.pt``を指しています。これは</span> <span class="pre">``</span> <span class="pre">myproject``の</span> <span class="pre">``</span> <span class="pre">templates``ディレクトリ内の</span> <span class="pre">``</span> <span class="pre">mytemplate.pt``ファイルを指定する</span> <span class="pre">``</span> <span class="pre">asset</span> <span class="pre">specification``です：</span> <span class="pre">``パッケージ。資産仕様は、</span> <span class="pre">``</span> <span class="pre">myproject：templates</span> <span class="pre">/</span> <span class="pre">mytemplate.pt``として指定されている可能性もあります。先頭のパッケージ名とコロンはオプションです。指されるテンプレートファイルはa：term：</span> <span class="pre">`Jinja2`テンプレートファイル（`</span> <span class="pre">`templates</span> <span class="pre">/</span> <span class="pre">my_template.jinja2</span></code>）です。</p>
+<p>このビュー呼び出し可能関数は、：term： <cite>request`という単一の情報を渡します。 * request *は、サーバーへのブラウザーの要求を表す：term： `WebOb`</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>Request``クラスのインスタンスです。</p>
+<p>このビューは、テンプレート上で：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>renderer`を呼び出すように設定されています。ビューが返す辞書（6行目）は、レンダラーがHTMLを生成するときにテンプレートに代入する値を提供します。次に、レンダラーは：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>response`でHTMLを返します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Dictionaries provide values to <a class="reference internal" href="../glossary.html#term-template"><span class="xref std std-term">template</span></a>s.</p>
+<p class="last">辞書は値を：term： <cite>template</cite> sに提供します。</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">When the application is run with the cookiecutter's <a class="reference internal" href="#myproject-ini"><span class="std std-ref">default
-development.ini</span></a> configuration, <a class="reference internal" href="#myproject-ini-logging"><span class="std std-ref">logging is set up</span></a> to aid debugging.  If an exception is raised,
-uncaught tracebacks are displayed after the startup messages on <a class="reference internal" href="#running-the-project-application"><span class="std std-ref">the
-console running the server</span></a>. Also
-<code class="docutils literal notranslate"><span class="pre">print()</span></code> statements may be inserted into the application for debugging to
-send output to this console.</p>
+<p class="last">アプリケーションがcookiecutterの：ref： <cite>default development.iniで実行されているとき&lt;myproject_ini&gt; `configuration、：ref：`ロギングが設定されています&lt;myproject_ini_logging&gt; `デバッグを助ける。例外が発生した場合、起動メッセージの後にキャッチされないトレースバックが表示されます：ref： `サーバを実行しているコンソール&lt;running_the_project_application&gt; `。また、 `</cite> print（） <a href="#id1"><span class="problematic" id="id2">``</span></a>文をデバッグのためにアプリケーションに挿入して、このコンソールに出力を送ることもできます。</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p><code class="docutils literal notranslate"><span class="pre">development.ini</span></code> has a setting that controls how templates are
-reloaded, <code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code>.</p>
+<p>`` development.ini``には、テンプレートがどのように再ロードされるかを制御する設定があります。 `` pyramid.reload_templates``です。</p>
 <ul class="last simple">
-<li>When set to <code class="docutils literal notranslate"><span class="pre">True</span></code> (as in the cookiecutter <code class="docutils literal notranslate"><span class="pre">development.ini</span></code>), changed
-templates automatically reload without a server restart.  This is
-convenient while developing, but slows template rendering speed.</li>
-<li>When set to <code class="docutils literal notranslate"><span class="pre">False</span></code> (the default value), changing templates requires a
-server restart to reload them.  Production applications should use
-<code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span> <span class="pre">=</span> <span class="pre">False</span></code>.</li>
+<li>CookieCutterの `` development.ini``のように `` True``に設定すると、変更されたテンプレートはサーバを再起動せずに自動的にリロードされます。開発中は便利ですが、テンプレートのレンダリング速度が遅くなります。</li>
+<li>`` False``（デフォルト値）に設定されている場合、テンプレートを変更するには、テンプレートをリロードするためにサーバを再起動する必要があります。プロダクションアプリケーションは、 `` pyramid.reload_templates = False``を使うべきです。</li>
 </ul>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="renderers.html#views-which-use-a-renderer"><span class="std std-ref">Writing View Callables Which Use a Renderer</span></a> for more information about how
-views, renderers, and templates relate and cooperate.</p>
+<p class="last">ビュー、レンダラー、およびテンプレートがどのように関係し協力するかについての詳細は、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>views_which_use_a_renderer`を参照してください。</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">Pyramid can also dynamically reload changed Python files.  See also
-<a class="reference internal" href="#reloading-code"><span class="std std-ref">Reloading Code</span></a>.</p>
+<p class="last">Pyramidは、変更されたPythonファイルを動的にリロードすることもできます。参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>reloading_code`を参照してください。</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also the <a class="reference internal" href="#debug-toolbar"><span class="std std-ref">The Debug Toolbar</span></a>, which provides interactive access to
-your application's internals and, should an exception occur, allows
-interactive access to traceback execution stack frames from the Python
-interpreter.</p>
+<p class="last">：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>debug_toolbar`も参照してください。これは、アプリケーション内部へのインタラクティブなアクセスを提供し、例外が発生した場合、Pythonインタプリタからのトレースバック実行スタックフレームへのインタラクティブなアクセスを可能にします。</p>
 </div>
 </div>
 <div class="section" id="static">
-<span id="index-15"></span><h3><code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#static" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>This directory contains static assets which support the <code class="docutils literal notranslate"><span class="pre">layout.jinja2</span></code>
-template.  It includes CSS and images.</p>
+<span id="index-15"></span><h3>「静的」<a class="headerlink" href="#static" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このディレクトリには、 `` layout.jinja2``テンプレートをサポートする静的資産が含まれています。それはCSSと画像を含んでいます。</p>
 </div>
 <div class="section" id="templates-layout-jinja2">
-<h3><code class="docutils literal notranslate"><span class="pre">templates/layout.jinja2</span></code><a class="headerlink" href="#templates-layout-jinja2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>This is the base layout content. It contains a single marker for content block. Other templates inherit its content, providing layout for the web application. Its contents are too long to show here, but here is an excerpt:</p>
+<h3>`` templates / layout.jinja2``<a class="headerlink" href="#templates-layout-jinja2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>これが基本レイアウトの内容です。これは、コンテンツブロックのための単一のマーカーを含んでいます。他のテンプレートはコンテンツを継承し、Webアプリケーションのレイアウトを提供します。その内容はここに表示するには長すぎますが、ここに抜粋があります：</p>
 <div class="highlight-jinja notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>34
 35
 36
@@ -1072,10 +759,8 @@ template.  It includes CSS and images.</p>
 </td></tr></table></div>
 </div>
 <div class="section" id="templates-mytemplate-jinja2">
-<h3><code class="docutils literal notranslate"><span class="pre">templates/mytemplate.jinja2</span></code><a class="headerlink" href="#templates-mytemplate-jinja2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>This is the content <a class="reference internal" href="../glossary.html#term-jinja2"><span class="xref std std-term">Jinja2</span></a> template that exists in the project.  It is referenced by the call to <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> as the <code class="docutils literal notranslate"><span class="pre">renderer</span></code>
-of the <code class="docutils literal notranslate"><span class="pre">my_view</span></code> view callable in the <code class="docutils literal notranslate"><span class="pre">views.py</span></code> file.  See
-<a class="reference internal" href="renderers.html#views-which-use-a-renderer"><span class="std std-ref">Writing View Callables Which Use a Renderer</span></a> for more information about renderers. It inherits (&quot;extends&quot;) the HTML provided by <code class="docutils literal notranslate"><span class="pre">layout.jinja2</span></code>, replacing the content block with its own content.</p>
+<h3>`` templates / mytemplate.jinja2``<a class="headerlink" href="#templates-mytemplate-jinja2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>これはプロジェクトに存在するcontent：term： <cite>Jinja2`テンプレートです。これは、 `</cite> views.py``ファイルで呼び出し可能な `` my_view``ビューの `` renderer``として `` &#64; view_config``を呼び出すことによって参照されます。レンダラの詳細については：ref： <cite>views_which_use_a_renderer`を参照してください。 `</cite> layout.jinja2``が提供するHTMLを継承（&amp;quot;extend &amp;quot;）し、コンテンツブロックを独自のコンテンツに置き換えます。</p>
 <div class="highlight-jinja notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1093,13 +778,11 @@ of the <code class="docutils literal notranslate"><span class="pre">my_view</spa
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="nv">content</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </td></tr></table></div>
-<p>Templates are accessed and used by view configurations and sometimes by view
-functions themselves.  See <a class="reference internal" href="templates.html#templates-used-directly"><span class="std std-ref">Using Templates Directly</span></a> and
-<a class="reference internal" href="templates.html#templates-used-as-renderers"><span class="std std-ref">Templates Used as Renderers via Configuration</span></a>.</p>
+<p>テンプレートは、ビュー設定によってアクセスされ、使用されることがあります。 ref： <cite>templates_used_directly`と：ref：</cite> templates_used_as_renderers`を参照してください。</p>
 </div>
 <div class="section" id="tests-py">
-<span id="index-16"></span><h3><code class="docutils literal notranslate"><span class="pre">tests.py</span></code><a class="headerlink" href="#tests-py" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">tests.py</span></code> module includes tests for your application.</p>
+<span id="index-16"></span><h3>`` tests.py``<a class="headerlink" href="#tests-py" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` tests.py``モジュールにはアプリケーションのテストが含まれています。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1159,138 +842,54 @@ functions themselves.  See <a class="reference internal" href="templates.html#te
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Pyramid&#39;</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>This sample <code class="docutils literal notranslate"><span class="pre">tests.py</span></code> file has one unit test and one functional test defined
-within it. These tests are executed when you run <code class="docutils literal notranslate"><span class="pre">py.test</span> <span class="pre">-q</span></code>. You may add
-more tests here as you build your application. You are not required to write
-tests to use <span>Pyramid</span>. This file is simply provided for convenience and
-example.</p>
-<p>See <a class="reference internal" href="testing.html#testing-chapter"><span class="std std-ref">Unit, Integration, and Functional Testing</span></a> for more information about writing <span>Pyramid</span>
-unit tests.</p>
+<p>このサンプルの `` tests.py``ファイルには、ユニットテストと機能テストが1つずつあります。これらのテストは `` py.test -q``を実行すると実行されます。アプリケーションをビルドするときに、ここでさらにテストを追加することができます。 app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`を使うテストを書く必要はありません。このファイルは、便宜と例のために提供されています。</p>
+<p>app： <cite>Pyramid`単体テストの記述については、ref：</cite> testing_chapter`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="modifying-package-structure">
-<span id="index-17"></span><span id="id4"></span><h2>Modifying Package Structure<a class="headerlink" href="#modifying-package-structure" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>It is best practice for your application's code layout to not stray too much
-from accepted Pyramid cookiecutter defaults.  If you refrain from changing things
-very much, other Pyramid coders will be able to more quickly understand your
-application.  However, the code layout choices made for you by a cookiecutter are
-in no way magical or required.  Despite the choices made for you by any
-cookiecutter, you can decide to lay your code out any way you see fit.</p>
-<p>For example, the configuration method named
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a> requires you to pass a
-<a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted Python name</span></a> or a direct object reference as the class or
-function to be used as a view.  By default, the <code class="docutils literal notranslate"><span class="pre">starter</span></code> cookiecutter would have
-you add view functions to the <code class="docutils literal notranslate"><span class="pre">views.py</span></code> module in your package. However, you
-might be more comfortable creating a <code class="docutils literal notranslate"><span class="pre">views</span></code> <em>directory</em>, and adding a single
-file for each view.</p>
-<p>If your project package name was <code class="docutils literal notranslate"><span class="pre">myproject</span></code> and you wanted to arrange all
-your views in a Python subpackage within the <code class="docutils literal notranslate"><span class="pre">myproject</span></code> <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a>
-named <code class="docutils literal notranslate"><span class="pre">views</span></code> instead of within a single <code class="docutils literal notranslate"><span class="pre">views.py</span></code> file, you might do the
-following.</p>
+<span id="index-17"></span><span id="id4"></span><h2>パッケージ構造の変更<a class="headerlink" href="#modifying-package-structure" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>受け入れられたPyramid cookiecutterのデフォルトからあまり大きく外れないように、アプリケーションのコードレイアウトを調整することをお勧めします。あなたが物事を非常に変えることを控えると、他のピラミッドのコーダーがあなたのアプリケーションをより迅速に理解することができます。ただし、cookiecutterによって作成されたコードレイアウトの選択肢は決して魔法でも必要でもありません。任意のcookiecutterによって選択されたにもかかわらず、コードがどのように見えるか決めることができます。</p>
+<p>たとえば、：meth： <cite>〜pyramid.config.Configurator.add_view`という名前の設定メソッドは、：term：`点線のPython名 `または直接のオブジェクト参照をビューとして使用するクラスまたは関数として渡す必要があります。デフォルトでは、 `</cite> starter`` cookiecutterはあなたのパッケージ内の `` views.py``モジュールにビュー関数を追加します。しかし、 `` views`` <a href="#id1"><span class="problematic" id="id2">*</span></a>ディレクトリ*を作成し、それぞれのビューに1つのファイルを追加するほうが快適かもしれません。</p>
+<p>もしあなたのプロジェクトパッケージ名が `` myproject``で、あなたのビューを単一の `` views &amp;#39;の代わりに `` myproject`：term： <cite>package`という名前の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>views``というPythonサブパッケージに配置したいなら、 .py``ファイルを作成するには、次のようにします。</p>
 <ul class="simple">
-<li>Create a <code class="docutils literal notranslate"><span class="pre">views</span></code> directory inside your <code class="docutils literal notranslate"><span class="pre">myproject</span></code> package directory (the
-same directory which holds <code class="docutils literal notranslate"><span class="pre">views.py</span></code>).</li>
-<li>Create a file within the new <code class="docutils literal notranslate"><span class="pre">views</span></code> directory named <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>.  (It
-can be empty.  This just tells Python that the <code class="docutils literal notranslate"><span class="pre">views</span></code> directory is a
-<em>package</em>.)</li>
-<li><em>Move</em> the content from the existing <code class="docutils literal notranslate"><span class="pre">views.py</span></code> file to a file inside the
-new <code class="docutils literal notranslate"><span class="pre">views</span></code> directory named, say, <code class="docutils literal notranslate"><span class="pre">blog.py</span></code>.  Because the <code class="docutils literal notranslate"><span class="pre">templates</span></code>
-directory remains in the <code class="docutils literal notranslate"><span class="pre">myproject</span></code> package, the template <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset
-specification</span></a> values in <code class="docutils literal notranslate"><span class="pre">blog.py</span></code> must now be fully qualified with the
-project's package name (<code class="docutils literal notranslate"><span class="pre">myproject:templates/blog.pt</span></code>).</li>
+<li>`` myproject``パッケージディレクトリ（ `` views.py``を保持するのと同じディレクトリ）の中に `` views``ディレクトリを作成します。</li>
+<li>`` __init __。py``という名前の新しい `` views``ディレクトリ内にファイルを作成します。 （これは空でもかまいません。これは単に `` views``ディレクトリが* package <a href="#id1"><span class="problematic" id="id2">*</span></a>であることをPythonに伝えます）。</li>
+<li><a href="#id1"><span class="problematic" id="id2">*</span></a>コンテンツを既存の `` views.py``ファイルから `` blog.py``という名前の新しい `` views``ディレクトリ内のファイルに移動します。 `` templates``ディレクトリは `` myproject``パッケージに残っているので、 `` blog.py``のテンプレート：term： <cite>asset specification`の値は、プロジェクトのパッケージ名（</cite> <cite>myproject ：templates / blog.pt`</cite>）。</li>
 </ul>
-<p>You can then continue to add view callable functions to the <code class="docutils literal notranslate"><span class="pre">blog.py</span></code> module,
-but you can also add other <code class="docutils literal notranslate"><span class="pre">.py</span></code> files which contain view callable functions
-to the <code class="docutils literal notranslate"><span class="pre">views</span></code> directory.  As long as you use the <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> directive
-to register views in conjunction with <code class="docutils literal notranslate"><span class="pre">config.scan()</span></code>, they will be picked up
-automatically when the application is restarted.</p>
+<p>ビュー呼び出し可能関数を `` blog.py``モジュールに追加することもできますが、ビュー呼び出し可能関数を含む `` .py``ファイルを `` views``ディレクトリに追加することもできます。 `` &#64; view_config``ディレクティブを使用して `` config.scan（） <a href="#id1"><span class="problematic" id="id2">``</span></a>と一緒にビューを登録する限り、それらはアプリケーションの再起動時に自動的に取得されます。</p>
 </div>
 <div class="section" id="using-the-interactive-shell">
-<h2>Using the Interactive Shell<a class="headerlink" href="#using-the-interactive-shell" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>It is possible to use the <code class="docutils literal notranslate"><span class="pre">pshell</span></code> command to load a Python interpreter
-prompt with a similar configuration as would be loaded if you were running your
-Pyramid application via <code class="docutils literal notranslate"><span class="pre">pserve</span></code>.  This can be a useful debugging tool. See
-<a class="reference internal" href="commandline.html#interactive-shell"><span class="std std-ref">The Interactive Shell</span></a> for more details.</p>
+<h2>インタラクティブシェルの使用<a class="headerlink" href="#using-the-interactive-shell" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` pshell``コマンドを使って、 `` pserve``でPyramidアプリケーションを実行していた場合に読み込まれるのと同じ設定のPythonインタプリタプロンプトを読み込むことができます。これは便利なデバッグツールです。詳細はref： <a href="#id1"><span class="problematic" id="id2">`</span></a>interactive_shell`を参照してください。</p>
 </div>
 <div class="section" id="what-is-this-pserve-thing">
-<span id="id5"></span><h2>What Is This <code class="docutils literal notranslate"><span class="pre">pserve</span></code> Thing<a class="headerlink" href="#what-is-this-pserve-thing" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The code generated by a <span>Pyramid</span> cookiecutter assumes that you will be using
-the <code class="docutils literal notranslate"><span class="pre">pserve</span></code> command to start your application while you do development.
-<code class="docutils literal notranslate"><span class="pre">pserve</span></code> is a command that reads a <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file (e.g.,
-<code class="docutils literal notranslate"><span class="pre">development.ini</span></code>), and configures a server to serve a <span>Pyramid</span>
-application based on the data in the file.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pserve</span></code> is by no means the only way to start up and serve a <span>Pyramid</span>
-application.  As we saw in <a class="reference internal" href="firstapp.html#firstapp-chapter"><span class="std std-ref">Creating Your First Pyramid Application</span></a>, <code class="docutils literal notranslate"><span class="pre">pserve</span></code> needn't be
-invoked at all to run a <span>Pyramid</span> application.  The use of <code class="docutils literal notranslate"><span class="pre">pserve</span></code> to
-run a <span>Pyramid</span> application is purely conventional based on the output of
-its cookiecutter.  But we strongly recommend using <code class="docutils literal notranslate"><span class="pre">pserve</span></code> while developing
-your application because many other convenience introspection commands (such as
-<code class="docutils literal notranslate"><span class="pre">pviews</span></code>, <code class="docutils literal notranslate"><span class="pre">prequest</span></code>, <code class="docutils literal notranslate"><span class="pre">proutes</span></code>, and others) are also implemented in
-terms of configuration availability of this <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file format.  It also
-configures Pyramid logging and provides the <code class="docutils literal notranslate"><span class="pre">--reload</span></code> switch for convenient
-restarting of the server when code changes.</p>
+<span id="id5"></span><h2>この「pserve」は何ですか？<a class="headerlink" href="#what-is-this-pserve-thing" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>a：app： <cite>Pyramid</cite> cookiecutterによって生成されたコードは、開発中にアプリケーションを起動するために` <cite>pserve``コマンドを使用することを前提としています。 `</cite> pserve``は：term： <cite>PasteDeploy`</cite> <cite>.ini``ファイル（例えば</cite> <cite>development.ini`</cite>）を読み込んで、：app：` Pyramid`アプリケーションを提供するようにサーバを設定するコマンドですファイル内のデータに基づいて</p>
+<p>`` pserve``は決して：app： <cite>Pyramid`アプリケーションを起動して提供する唯一の方法ではありません。 ：ref： `firstapp_chapter`で見たように、：app：</cite> Pyramid`アプリケーションを実行するために `` pserve``を全く呼び出す必要はありません。 app： <cite>Pyramid`アプリケーションを実行するための</cite> <cite>pserve``の使用は純粋にcookiecutterの出力に基づいて行われます。しかし、他の便利なイントロスペクションコマンド（ `</cite> pviews``、 `` prequest``、 `` proutes`など）の多くは、以下の点で実装されているので、アプリケーションを開発する際に `` pserve``を使うことを強くお勧めします。この `` .ini``ファイル形式の設定可否Pyramidのロギングを設定し、コードが変更されたときにサーバを再起動するための `` --reload``スイッチも提供します。</p>
 </div>
 <div class="section" id="using-an-alternate-wsgi-server">
-<span id="alternate-wsgi-server"></span><h2>Using an Alternate WSGI Server<a class="headerlink" href="#using-an-alternate-wsgi-server" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Pyramid cookiecutters generate projects which use the <a class="reference internal" href="../glossary.html#term-waitress"><span class="xref std std-term">Waitress</span></a> WSGI server.
-Waitress is a server that is suited for development and light production
-usage.  It's not the fastest nor the most featureful WSGI server. Instead, its
-main feature is that it works on all platforms that Pyramid needs to run on,
-making it a good choice as a default server from the perspective of Pyramid's
-developers.</p>
-<p>Any WSGI server is capable of running a <span>Pyramid</span> application.  But we
-suggest you stick with the default server for development, and that you wait to
-investigate other server options until you're ready to deploy your application
-to production.  Unless for some reason you need to develop on a non-local
-system, investigating alternate server options is usually a distraction until
-you're ready to deploy.  But we recommend developing using the default
-configuration on a local system that you have complete control over; it will
-provide the best development experience.</p>
-<p>One popular production alternative to the default Waitress server is
-<a class="reference internal" href="../glossary.html#term-mod-wsgi"><span class="xref std std-term">mod_wsgi</span></a>. You can use <code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code> to serve your <span>Pyramid</span> application
-using the Apache web server rather than any &quot;pure-Python&quot; server like Waitress.
-It is fast and featureful.  See <a class="reference internal" href="../tutorials/modwsgi/index.html#modwsgi-tutorial"><span class="std std-ref">Running a Pyramid Application under mod_wsgi</span></a> for details.</p>
-<p>Another good production alternative is <a class="reference internal" href="../glossary.html#term-green-unicorn"><span class="xref std std-term">Green Unicorn</span></a> (aka
-<code class="docutils literal notranslate"><span class="pre">gunicorn</span></code>).  It's faster than Waitress and slightly easier to configure than
-<code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code>, although it depends, in its default configuration, on having a
-buffering HTTP proxy in front of it.  It does not, as of this writing, work on
-Windows.</p>
+<span id="alternate-wsgi-server"></span><h2>代替WSGIサーバーの使用<a class="headerlink" href="#using-an-alternate-wsgi-server" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Pyramid cookiecuttersは、：term： <cite>Waitress</cite> WSGIサーバーを使用するプロジェクトを生成します。ウェイトレスは、開発や軽量生産に適したサーバーです。これは、最も高速で機能的なWSGIサーバーでもありません。その代わりに、Pyramidの開発者の視点から、Pyramidを実行する必要があるすべてのプラットフォーム上で動作するため、デフォルトサーバーとして最適です。</p>
+<p>どのWSGIサーバーでも、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションを実行することができます。しかし、開発のためにデフォルトのサーバーを使用することをお勧めします。アプリケーションを本番環境に展開する準備が整うまで、他のサーバーオプションの調査を待つことをお勧めします。なんらかの理由で非ローカルシステムで開発する必要がある場合を除き、代替サーバーオプションを調べることは通常、展開の準備が整うまでは気をそらすものです。しかし、完全に制御できるローカルシステム上のデフォルト設定を使用して開発することをお勧めします。最高の開発経験を提供します。</p>
+<p>デフォルトのWaitressサーバの代用として、term： <a href="#id1"><span class="problematic" id="id2">`</span></a>mod_wsgi`があります。 mod_wsgi``を使って、Waitressのような&amp;quot;純粋なPython &amp;quot;サーバではなく、Apache Webサーバを使って：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`アプリケーションを提供することができます。それは速く、特徴的です。詳細はref： <a href="#id5"><span class="problematic" id="id6">`</span></a>modwsgi_tutorial`を参照してください。</p>
+<p>もう一つの優れた生産方法は、用語：「グリーンユニコーン」（別名「ガンコーン」）です。これはWaitressよりも速く、 `` mod_wsgi``より少し構成が簡単ですが、デフォルトの設定では、HTTPプロキシをバッファリングすることに依存しています。この執筆時点では、Windows上では動作しません。</p>
 </div>
 <div class="section" id="automatically-reloading-your-code">
-<h2>Automatically Reloading Your Code<a class="headerlink" href="#automatically-reloading-your-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>During development, it can be really useful to automatically have the
-webserver restart when you make changes. <code class="docutils literal notranslate"><span class="pre">pserve</span></code> has a <code class="docutils literal notranslate"><span class="pre">--reload</span></code> switch
-to enable this. It uses the
-<a class="reference external" href="https://docs.pylonsproject.org/projects/hupper/en/latest/">hupper</a> package
-to enable this behavior. When your code crashes, <code class="docutils literal notranslate"><span class="pre">hupper</span></code> will wait for
-another change or the <code class="docutils literal notranslate"><span class="pre">SIGHUP</span></code> signal before restarting again.</p>
+<h2>コードの自動リロード<a class="headerlink" href="#automatically-reloading-your-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>開発時には、変更を加えたときにウェブサーバーを自動的に再起動させるのが本当に便利です。 `` pserve``にはこれを有効にする `` --reload``スイッチがあります。これは <cite>hupper &lt;https://docs.pylonsproject.org/projects/hupper/en/latest/&gt; `_ packageこの動作を有効にします。コードがクラッシュすると、 `</cite> hupper``は別の変更や `` SIGHUP``シグナルを待ってから再起動します。</p>
 <div class="section" id="inotify-support">
-<h3>inotify support<a class="headerlink" href="#inotify-support" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>By default <code class="docutils literal notranslate"><span class="pre">hupper</span></code> will poll the filesystem for changes to all Python
-code. This can be pretty inefficient in larger projects. To be nicer to your
-hard drive, you should install the
-<a class="reference external" href="http://pythonhosted.org/watchdog/">watchdog</a> package in development.
-<code class="docutils literal notranslate"><span class="pre">hupper</span></code> will automatically use <code class="docutils literal notranslate"><span class="pre">watchdog</span></code> to more efficiently poll the
-filesystem.</p>
+<h3>inotifyサポート<a class="headerlink" href="#inotify-support" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>デフォルトで `` hupper``はすべてのPythonコードの変更をファイルシステムにポーリングします。これは、大規模なプロジェクトでは非常に非効率的です。あなたのハードドライブにもっと良くなるためには、 <cite>watchdog &lt;http://pythonhosted.org/watchdog/&gt; `開発中のパッケージ。 `</cite> hupper``は自動的に `` watchdog``を使ってより効率的にファイルシステムをポーリングします。</p>
 </div>
 <div class="section" id="monitoring-custom-files">
-<h3>Monitoring Custom Files<a class="headerlink" href="#monitoring-custom-files" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>By default, <code class="docutils literal notranslate"><span class="pre">pserve</span> <span class="pre">--reload</span></code> will monitor all imported Python code
-(everything in <code class="docutils literal notranslate"><span class="pre">sys.modules</span></code>) as well as the config file passed to
-<code class="docutils literal notranslate"><span class="pre">pserve</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">development.ini</span></code>). You can instruct <code class="docutils literal notranslate"><span class="pre">pserve</span></code> to watch
-other files for changes as well by defining a <code class="docutils literal notranslate"><span class="pre">[pserve]</span></code> section in your
-configuration file. For example, let's say your application loads the
-<code class="docutils literal notranslate"><span class="pre">favicon.ico</span></code> file at startup and stores it in memory to efficiently
-serve it many times. When you change it, you want <code class="docutils literal notranslate"><span class="pre">pserve</span></code> to restart:</p>
+<h3>カスタムファイルの監視<a class="headerlink" href="#monitoring-custom-files" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>デフォルトでは、 `` pserve --reload``は全てのインポートされたPythonコード（ `` sys.modules``のすべて）と `` pserve``に渡される設定ファイルを監視します（例えば、 `` development.ini`` <cite>）。あなたの設定ファイルに `</cite> [pserve] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションを定義することによって、 `` pserve``に変更のための他のファイルを見るように指示することができます。たとえば、起動時にアプリケーションが `` favicon.ico``ファイルを読み込んでメモリに格納して、何度も効率的にサービスを提供しているとします。あなたがそれを変更すると、 `` pserve``を再起動します：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pserve]</span>
 <span class="na">watch_files</span> <span class="o">=</span><span class="s"></span>
 <span class="s">    myproject/static/favicon.ico</span>
 </pre></div>
 </div>
-<p>Paths may be absolute or relative to the configuration file. They may also
-be an <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a>. These paths are passed to <code class="docutils literal notranslate"><span class="pre">hupper</span></code>, which
-has some basic support for globbing. Acceptable glob patterns depend on the
-version of Python being used.</p>
+<p>パスはコンフィグレーションファイルに対して絶対パスでも相対パスでもかまいません。彼らはまた、用語：資産仕様書でもよい。これらのパスは `` hupper``に渡されます。 `` hupper``はglobbingの基本的なサポートをしています。許容されるglobパターンは、使用されているPythonのバージョンに依存します。</p>
 </div>
 </div>
 </div>
@@ -1303,43 +902,43 @@ version of Python being used.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Creating a <span>Pyramid</span> Project</a><ul>
-<li><a class="reference internal" href="#pyramid-cookiecutters"><span>Pyramid</span> cookiecutters</a></li>
-<li><a class="reference internal" href="#creating-the-project">Creating the Project</a></li>
-<li><a class="reference internal" href="#installing-your-newly-created-project-for-development">Installing your Newly Created Project for Development</a></li>
-<li><a class="reference internal" href="#running-the-tests-for-your-application">Running the Tests for Your Application</a></li>
-<li><a class="reference internal" href="#running-the-project-application">Running the Project Application</a><ul>
-<li><a class="reference internal" href="#reloading-code">Reloading Code</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) <span>Pyramid</span> プロジェクトの作成</a><ul>
+<li><a class="reference internal" href="#pyramid-cookiecutters">：app： <cite>Pyramid</cite> cookiecutters</a></li>
+<li><a class="reference internal" href="#creating-the-project">プロジェクトの作成</a></li>
+<li><a class="reference internal" href="#installing-your-newly-created-project-for-development">新しく開発されたプロジェクトをインストールする</a></li>
+<li><a class="reference internal" href="#running-the-tests-for-your-application">アプリケーションのテストの実行</a></li>
+<li><a class="reference internal" href="#running-the-project-application">プロジェクトアプリケーションの実行</a><ul>
+<li><a class="reference internal" href="#reloading-code">コードのリロード</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#viewing-the-application">Viewing the Application</a><ul>
-<li><a class="reference internal" href="#the-debug-toolbar">The Debug Toolbar</a></li>
+<li><a class="reference internal" href="#viewing-the-application">アプリケーションの表示</a><ul>
+<li><a class="reference internal" href="#the-debug-toolbar">デバッグツールバー</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#the-project-structure">The Project Structure</a></li>
-<li><a class="reference internal" href="#the-myproject-project">The <code class="docutils literal notranslate"><span class="pre">myproject</span></code> <code class="docutils literal notranslate"><span class="pre">Project</span></code></a><ul>
-<li><a class="reference internal" href="#development-ini"><code class="docutils literal notranslate"><span class="pre">development.ini</span></code></a></li>
-<li><a class="reference internal" href="#production-ini"><code class="docutils literal notranslate"><span class="pre">production.ini</span></code></a></li>
-<li><a class="reference internal" href="#manifest-in"><code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
-<li><a class="reference internal" href="#setup-py"><code class="docutils literal notranslate"><span class="pre">setup.py</span></code></a></li>
+<li><a class="reference internal" href="#the-project-structure">プロジェクトの構造</a></li>
+<li><a class="reference internal" href="#the-myproject-project">`` myproject``：term： <cite>Project</cite></a><ul>
+<li><a class="reference internal" href="#development-ini">`` development.ini``</a></li>
+<li><a class="reference internal" href="#production-ini"><cite>production.ini</cite></a></li>
+<li><a class="reference internal" href="#manifest-in">`` MANIFEST.in``</a></li>
+<li><a class="reference internal" href="#setup-py">`` setup.py``</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#the-myproject-package">The <code class="docutils literal notranslate"><span class="pre">myproject</span></code> <code class="docutils literal notranslate"><span class="pre">Package</span></code></a><ul>
-<li><a class="reference internal" href="#init-py"><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></a></li>
-<li><a class="reference internal" href="#views-py"><code class="docutils literal notranslate"><span class="pre">views.py</span></code></a></li>
-<li><a class="reference internal" href="#static"><code class="docutils literal notranslate"><span class="pre">static</span></code></a></li>
-<li><a class="reference internal" href="#templates-layout-jinja2"><code class="docutils literal notranslate"><span class="pre">templates/layout.jinja2</span></code></a></li>
-<li><a class="reference internal" href="#templates-mytemplate-jinja2"><code class="docutils literal notranslate"><span class="pre">templates/mytemplate.jinja2</span></code></a></li>
-<li><a class="reference internal" href="#tests-py"><code class="docutils literal notranslate"><span class="pre">tests.py</span></code></a></li>
+<li><a class="reference internal" href="#the-myproject-package">`` myproject``：term： <cite>Package</cite></a><ul>
+<li><a class="reference internal" href="#init-py">`` __init __。py``</a></li>
+<li><a class="reference internal" href="#views-py">`` views.py``</a></li>
+<li><a class="reference internal" href="#static">「静的」</a></li>
+<li><a class="reference internal" href="#templates-layout-jinja2">`` templates / layout.jinja2``</a></li>
+<li><a class="reference internal" href="#templates-mytemplate-jinja2">`` templates / mytemplate.jinja2``</a></li>
+<li><a class="reference internal" href="#tests-py">`` tests.py``</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#modifying-package-structure">Modifying Package Structure</a></li>
-<li><a class="reference internal" href="#using-the-interactive-shell">Using the Interactive Shell</a></li>
-<li><a class="reference internal" href="#what-is-this-pserve-thing">What Is This <code class="docutils literal notranslate"><span class="pre">pserve</span></code> Thing</a></li>
-<li><a class="reference internal" href="#using-an-alternate-wsgi-server">Using an Alternate WSGI Server</a></li>
-<li><a class="reference internal" href="#automatically-reloading-your-code">Automatically Reloading Your Code</a><ul>
-<li><a class="reference internal" href="#inotify-support">inotify support</a></li>
-<li><a class="reference internal" href="#monitoring-custom-files">Monitoring Custom Files</a></li>
+<li><a class="reference internal" href="#modifying-package-structure">パッケージ構造の変更</a></li>
+<li><a class="reference internal" href="#using-the-interactive-shell">インタラクティブシェルの使用</a></li>
+<li><a class="reference internal" href="#what-is-this-pserve-thing">この「pserve」は何ですか？</a></li>
+<li><a class="reference internal" href="#using-an-alternate-wsgi-server">代替WSGIサーバーの使用</a></li>
+<li><a class="reference internal" href="#automatically-reloading-your-code">コードの自動リロード</a><ul>
+<li><a class="reference internal" href="#inotify-support">inotifyサポート</a></li>
+<li><a class="reference internal" href="#monitoring-custom-files">カスタムファイルの監視</a></li>
 </ul>
 </li>
 </ul>
@@ -1348,10 +947,10 @@ version of Python being used.</p>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="configuration.html"
-                        title="前の章へ">Application Configuration</a></p>
+                        title="前の章へ">(機械翻訳) アプリケーション構成</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="startup.html"
-                        title="次の章へ">Startup</a></p>
+                        title="次の章へ">(機械翻訳) 起動</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -1385,17 +984,17 @@ version of Python being used.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="startup.html" title="Startup"
+          <a href="startup.html" title="(機械翻訳) 起動"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="configuration.html" title="Application Configuration"
+          <a href="configuration.html" title="(機械翻訳) アプリケーション構成"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

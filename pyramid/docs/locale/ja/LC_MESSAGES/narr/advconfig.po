@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/advconfig.rst:7
 msgid "Advanced Configuration"
-msgstr ""
+msgstr "(機械翻訳) 高度な設定"
 
 #: ../../narr/advconfig.rst:9
 msgid ""
@@ -30,48 +20,48 @@ msgid ""
 "modules.  It also by default performs configuration in two separate "
 "phases.  This allows you to ignore relative configuration statement "
 "ordering in some circumstances."
-msgstr ""
+msgstr "アプリケーションの拡張性をサポートするため、：app： `Pyramid`：term：` Configurator`はデフォルトで設定の競合を検出し、他のパッケージやモジュールからの設定を必須に含めることができます。また、デフォルトでは、2つの別々のフェーズで構成を実行します。これにより、状況によっては相対的な構成ステートメントの順序を無視することができます。"
 
 #: ../../narr/advconfig.rst:21
 msgid "Conflict Detection"
-msgstr ""
+msgstr "競合検出"
 
 #: ../../narr/advconfig.rst:23
 msgid ""
 "Here's a familiar example of one of the simplest :app:`Pyramid` "
 "applications, configured imperatively:"
-msgstr ""
+msgstr "ここでは、最も単純なapp： `Pyramid`アプリケーションのおなじみの例を挙げます。"
 
 #: ../../narr/advconfig.rst:43
 msgid ""
 "When you start this application, all will be OK.  However, what happens "
 "if we try to add another view to the configuration with the same set of "
 ":term:`predicate` arguments as one we've already added?"
-msgstr ""
+msgstr "このアプリケーションを起動すると、すべてがOKになります。しかし、同じ：term： `predicate`引数を既に設定したものと同じ設定で別のビューを設定に追加しようとするとどうなりますか？"
 
 #: ../../narr/advconfig.rst:72
 msgid ""
 "The application now has two conflicting view configuration statements.  "
 "When we try to start it again, it won't start.  Instead we'll receive a "
 "traceback that ends something like this:"
-msgstr ""
+msgstr "アプリケーションに2つの競合するビュー構成ステートメントがあります。もう一度やり直すと、それは始まりません。代わりに、次のような終わりのトレースバックを受け取ります："
 
 #: ../../narr/advconfig.rst:94
 msgid "This traceback is trying to tell us:"
-msgstr ""
+msgstr "このトレースバックは私たちに伝えようとしています："
 
 #: ../../narr/advconfig.rst:96
 msgid ""
 "We've got conflicting information for a set of view configuration "
 "statements (The ``For:`` line)."
-msgstr ""
+msgstr "一連のビュー設定ステートメント（ `` For： ``行）の情報が矛盾しています。"
 
 #: ../../narr/advconfig.rst:99
 msgid ""
 "There are two statements which conflict, shown beneath the ``For:`` line:"
 " ``config.add_view(hello_world. 'hello')`` on line 14 of ``app.py``, and "
 "``config.add_view(goodbye_world, 'hello')`` on line 17 of ``app.py``."
-msgstr ""
+msgstr "`` for： `` app.py`の14行目の `` For： ``の行の下に表示される `` config.add_view（hello_world。 &#39;hello&#39;） ``と `` config.add_view （goodbye_world、 &#39;hello&#39;） `` app.py`の17行目にあります。"
 
 #: ../../narr/advconfig.rst:103
 msgid ""
@@ -81,7 +71,7 @@ msgid ""
 "``goodbye_world`` views are configured to respond under the same set of "
 "circumstances.  This circumstance, the :term:`view name` represented by "
 "the ``name=`` predicate, is ``hello``."
-msgstr ""
+msgstr "これらの2つの構成ステートメントは、両方のビュー構成のset：term： `predicate`値がまったく同じであることをシステムに伝えようとしたため、矛盾しています。 `` hello_world``と `` goodbye_world``の両方のビューは、同じ状況下で応答するように設定されています。この状況は、 `` name = ``述語で表される：term： `view name`は` `hello``です。"
 
 #: ../../narr/advconfig.rst:110
 msgid ""
@@ -89,18 +79,18 @@ msgid ""
 "than allowing the circumstance to go unreported, by default Pyramid "
 "raises a :exc:`ConfigurationConflictError` error and prevents the "
 "application from running."
-msgstr ""
+msgstr "これはあいまいさをもたらす：app： `Pyramid`は解決できません。状況が報告されないようにするのではなく、Pyramidはデフォルトで：exc： `ConfigurationConflictError`エラーを発生させ、アプリケーションの実行を防ぎます。"
 
 #: ../../narr/advconfig.rst:115
 msgid ""
 "Conflict detection happens for any kind of configuration: imperative "
 "configuration or configuration that results from the execution of a "
 ":term:`scan`."
-msgstr ""
+msgstr "競合の検出は、どのような種類の設定でも起こります：a：term： `scan`の実行の結果生じる必須の設定または設定です。"
 
 #: ../../narr/advconfig.rst:122
 msgid "Manually Resolving Conflicts"
-msgstr ""
+msgstr "競合の手動解決"
 
 #: ../../narr/advconfig.rst:124
 msgid ""
@@ -108,11 +98,11 @@ msgid ""
 "registrations to not conflict, by strategically using "
 ":meth:`pyramid.config.Configurator.commit`, or by using an "
 "\"autocommitting\" configurator."
-msgstr ""
+msgstr "競合を手動で解決するには、：meth： `pyramid.config.Configurator.commit`を戦略的に使用するか、または「自動コミット」コンフィギュレータを使用して、競合しないように登録を変更する方法があります。"
 
 #: ../../narr/advconfig.rst:130
 msgid "The Right Thing"
-msgstr ""
+msgstr "良い行い"
 
 #: ../../narr/advconfig.rst:132
 msgid ""
@@ -122,20 +112,20 @@ msgid ""
 "configuration statements made by your application.  Use the detail "
 "provided in the :exc:`ConfigurationConflictError` to track down the "
 "offending conflicts and modify your configuration code accordingly."
-msgstr ""
+msgstr "競合を解決する最も正しい方法は、必要な作業を行うことです：競合する構成ステートメントを持たないように構成コードを変更します。これがどのように行われるかの詳細は、アプリケーションによって行われた構成ステートメントに完全に依存します。 ：exc： `ConfigurationConflictError`で提供されている詳細を使用して問題の衝突を追跡し、それに応じて設定コードを変更します。"
 
 #: ../../narr/advconfig.rst:139
 msgid ""
 "If you're getting a conflict while trying to extend an existing "
 "application, and that application has a function which performs "
 "configuration like this one:"
-msgstr ""
+msgstr "既存のアプリケーションを拡張しようとする際に競合が発生し、そのアプリケーションが次のような構成を実行する機能を持っている場合は、"
 
 #: ../../narr/advconfig.rst:148
 msgid ""
 "Don't call this function directly with ``config`` as an argument.  "
 "Instead, use :meth:`pyramid.config.Configurator.include`:"
-msgstr ""
+msgstr "この関数を `` config``を引数として直接呼び出さないでください。代わりに、：meth： `pyramid.config.Configurator.include`を使用してください："
 
 #: ../../narr/advconfig.rst:156
 msgid ""
@@ -143,17 +133,17 @@ msgid ""
 " function directly provides a modicum of automated conflict resolution, "
 "with the configuration statements you define in the calling code "
 "overriding those of the included function."
-msgstr ""
+msgstr "関数を直接呼び出す代わりに：meth： `〜pyramid.config.Configurator.include`を使うと、呼び出したコードで定義した設定ステートメントが、インクルードされた関数のものよりも優先され、自動的に競合解消が行われます。"
 
 #: ../../narr/advconfig.rst:163
 msgid ""
 "See also :ref:`automatic_conflict_resolution` and "
 ":ref:`including_configuration`."
-msgstr ""
+msgstr "ref： `automatic_conflict_resolution`と：ref：` including_configuration`も参照してください。"
 
 #: ../../narr/advconfig.rst:167
 msgid "Using ``config.commit()``"
-msgstr ""
+msgstr "`` config.commit（） ``を使う"
 
 #: ../../narr/advconfig.rst:169
 msgid ""
@@ -162,13 +152,13 @@ msgid ""
 "calls. For example, we prevent conflicts from occurring in the "
 "application we examined previously as the result of adding a ``commit``."
 "  Here's the application that generates conflicts:"
-msgstr ""
+msgstr "コンフィグレーションコール間で：meth： `〜pyramid.config.Configurator.commit`メソッドを使って手動でコンフィグレーションをコミットすることができます。たとえば、以前に &quot;commit&quot;を追加した結果、アプリケーションで競合が発生しないようにします。競合を生成するアプリケーションは次のとおりです。"
 
 #: ../../narr/advconfig.rst:200
 msgid ""
 "We can prevent the two ``add_view`` calls from conflicting by issuing a "
 "call to :meth:`~pyramid.config.Configurator.commit` between them:"
-msgstr ""
+msgstr "2つの `` add_view``呼び出しが衝突するのを防ぐには：meth： `〜pyramid.config.Configurator.commit`を呼び出します。"
 
 #: ../../narr/advconfig.rst:231
 msgid ""
@@ -176,31 +166,31 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.commit` between the two ``add_view`` "
 "calls. :meth:`~pyramid.config.Configurator.commit` will execute any "
 "pending configuration statements."
-msgstr ""
+msgstr "上記の例では、2つの `` add_view``呼び出しの間に：meth： `〜pyramid.config.Configurator.commit`を呼び出しました。 ：meth： `〜pyramid.config.Configurator.commit`は保留中の設定文を実行します。"
 
 #: ../../narr/advconfig.rst:236
 msgid ""
 "Calling :meth:`~pyramid.config.Configurator.commit` is safe at any time."
 "  It executes all pending configuration actions and leaves the "
 "configuration action list \"clean\"."
-msgstr ""
+msgstr "呼び出し：meth： `〜pyramid.config.Configurator.commit`はいつでも安全です。すべての保留中の設定アクションを実行し、設定アクションリスト\ &quot;クリーン\&quot;を残します。"
 
 #: ../../narr/advconfig.rst:240
 msgid ""
 "Note that :meth:`~pyramid.config.Configurator.commit` has no effect when "
 "you're using an *autocommitting* configurator (see "
 ":ref:`autocommitting_configurator`)."
-msgstr ""
+msgstr "* autocommitting *コンフィギュレータを使っているときは：meth： `〜pyramid.config.Configurator.commit`は効果がありません（ref：` autocommitting_configurator`を参照）。"
 
 #: ../../narr/advconfig.rst:246
 msgid "Using an Autocommitting Configurator"
-msgstr ""
+msgstr "自動コミット・コンフィグレータの使用"
 
 #: ../../narr/advconfig.rst:248
 msgid ""
 "You can also use a heavy hammer to circumvent conflict detection by using"
 " a configurator constructor parameter: ``autocommit=True``.  For example:"
-msgstr ""
+msgstr "重いハンマーを使用して、コンフリクト検出を回避することもできます。コンストラクタコンストラクタのパラメータは `` autocommit = True``です。例えば："
 
 #: ../../narr/advconfig.rst:259
 msgid ""
@@ -208,13 +198,13 @@ msgid ""
 " conflict detection (and :ref:`twophase_config`) is disabled.  "
 "Configuration statements will be executed immediately, and succeeding "
 "statements will override preceding ones."
-msgstr ""
+msgstr "Configuratorに渡される `` autocommit``パラメータが `` True``の場合、競合検出（：：：twophase_config）が無効になります。構成文は直ちに実行され、後続の文は先行する文を上書きします。"
 
 #: ../../narr/advconfig.rst:264
 msgid ""
 ":meth:`~pyramid.config.Configurator.commit` has no effect when "
 "``autocommit`` is ``True``."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.commit`は` `autocommit``が` `True``のときは効果がありません。"
 
 #: ../../narr/advconfig.rst:267
 msgid ""
@@ -222,11 +212,11 @@ msgid ""
 "usually a good idea to use an autocommitting Configurator, because you "
 "are usually unconcerned about conflict detection or two-phase "
 "configuration in test code."
-msgstr ""
+msgstr "単体テストを実行するコードでコンフィグレータを使用する場合は、通常、コンフリクトの検出やテストコードの2段階コンフィグレーションに関心がないため、自動コミットコンフィグレータを使用することをお勧めします。"
 
 #: ../../narr/advconfig.rst:274
 msgid "Automatic Conflict Resolution"
-msgstr ""
+msgstr "自動競合解決"
 
 #: ../../narr/advconfig.rst:276
 msgid ""
@@ -235,7 +225,7 @@ msgid ""
 "resolved. Configuration statements that are made as the result of an "
 "\"include\" will be overridden by configuration statements that happen "
 "within the caller of the \"include\" method."
-msgstr ""
+msgstr "あなたのコードが：meth： `〜pyramid.config.Configurator.include`メソッドを使用して外部設定を組み込む場合、いくつかの競合が自動的に解決されます。 \ &quot;include \&quot;の結果として構成された構成ステートメントは、\ &quot;include \&quot;メソッドの呼び出し元で発生する構成ステートメントによってオーバーライドされます。"
 
 #: ../../narr/advconfig.rst:282
 msgid ""
@@ -248,17 +238,17 @@ msgid ""
 "within the code that does the including, even if configuration statements"
 " in the included code would conflict if it was moved \"up\" to the "
 "calling code."
-msgstr ""
+msgstr "自動競合解決は、この目標をサポートします。 Pyramidアプリケーションを再利用したいときに、コードを外部からハッキングせずにこのアプリケーションの設定をカスタマイズしたい場合は、パッケージの設定関数を &quot;インクルード&quot;して、その一部だけを上書きすることができますインクルードを行うコード内の構成ステートメント含まれているコード内の構成ステートメントが呼び出しコードに移動した場合に競合する場合でも、インクルードするコード内の構成ステートメントによって競合は発生しません。"
 
 #: ../../narr/advconfig.rst:292
 msgid "Methods Which Provide Conflict Detection"
-msgstr ""
+msgstr "競合検出を提供する方法"
 
 #: ../../narr/advconfig.rst:294
 msgid ""
 "These are the methods of the configurator which provide conflict "
 "detection:"
-msgstr ""
+msgstr "競合検出を提供するコンフィギュレータのメソッドは次のとおりです。"
 
 #: ../../narr/advconfig.rst:296
 msgid ""
@@ -278,18 +268,18 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.add_traverser`, "
 ":meth:`~pyramid.config.Configurator.add_resource_url_adapter`, and "
 ":meth:`~pyramid.config.Configurator.add_response_adapter`."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_view`、：meth：`〜pyramid.config.Configurator.add_route`、：meth： `〜pyramid.config.Configurator.add_renderer`、：meth：`〜pyramid.config .Met： `〜pyramid.config.Configurator.set_request_property`：：meth：`〜pyramid.config.Configurator.set_session_factory`、：meth： `〜pyramid.config.Configurator.set_request_property`、：meth ：〜pyramid.config.Configurator.set_root_factory`、：meth： `〜pyramid.config.Configurator.set_view_mapper`、：meth：`〜pyramid.config.Configurator.set_authentication_policy`、：meth： `〜pyramid.config.Configurator .set_authorization_policy`、：meth： `〜pyramid.config.Configurator.add_traverser`、：meth：`〜pyramid.config.Configurator.add_policy`、：meth： `〜pyramid.config.Configurator.add_traverser`、：meth：`〜pyramid.config.Configurator.set_default_permission`、 〜pyramid.config.Configurator.add_resource_url_adapter`、および：meth： `〜pyramid.config.Configurator.add_response_adapter`。"
 
 #: ../../narr/advconfig.rst:313
 msgid ""
 ":meth:`~pyramid.config.Configurator.add_static_view` also indirectly "
 "provides conflict detection, because it's implemented in terms of the "
 "conflict-aware ``add_route`` and ``add_view`` methods."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_static_view`は、コンフリクトを認識した` `add_route``と` `add_view``メソッドの観点から実装されているので、間接的にコンフリクト検出を提供します。"
 
 #: ../../narr/advconfig.rst:323
 msgid "Including Configuration from External Sources"
-msgstr ""
+msgstr "外部ソースからの設定を含む"
 
 #: ../../narr/advconfig.rst:325
 msgid ""
@@ -297,48 +287,48 @@ msgid ""
 " a way that it is easy to reuse and override configuration statements.  "
 "For example, such a developer might factor out a function used to add "
 "routes to their application:"
-msgstr ""
+msgstr "アプリケーションプログラマの中には、構成ステートメントを再利用して上書きする方法で構成コードを考慮するものもあります。たとえば、そのような開発者は、アプリケーションにルートを追加するために使用される関数を除外することができます。"
 
 #: ../../narr/advconfig.rst:336
 msgid ""
 "Rather than calling this function directly with ``config`` as an "
 "argument, instead use :meth:`pyramid.config.Configurator.include`:"
-msgstr ""
+msgstr "この関数を `` config``を引数として直接呼び出すのではなく、代わりに：meth： `pyramid.config.Configurator.include`："
 
 #: ../../narr/advconfig.rst:344
 msgid ""
 "Using ``include`` rather than calling the function directly will allow "
 ":ref:`automatic_conflict_resolution` to work."
-msgstr ""
+msgstr "関数を直接呼び出すのではなく、 `` include``を使うと：ref： `automatic_conflict_resolution`が動作するようになります。"
 
 #: ../../narr/advconfig.rst:347
 msgid ""
 ":meth:`~pyramid.config.Configurator.include` can also accept a "
 ":term:`module` as an argument:"
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.include`は：term：` module`を引数として受け入れることもできます："
 
 #: ../../narr/advconfig.rst:357
 msgid ""
 "For this to work properly, the ``myapp`` module must contain a callable "
 "with the special name ``includeme``, which should perform configuration "
 "(like the ``add_routes`` callable we showed above as an example)."
-msgstr ""
+msgstr "これが正しく動作するためには、 `` myapp``モジュールは特別な名前 `` includeme`を持つ呼び出し可能なものを含んでいなければなりません（上記の `` add_routes``呼び出しのように）"
 
 #: ../../narr/advconfig.rst:361
 msgid ""
 ":meth:`~pyramid.config.Configurator.include` can also accept a "
 ":term:`dotted Python name` to a function or a module."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.include`は、：term：` dotted Python name`を関数またはモジュールに受け入れることもできます。"
 
 #: ../../narr/advconfig.rst:364
 msgid ""
 "See :ref:`the_include_tag` for a declarative alternative to the "
 ":meth:`~pyramid.config.Configurator.include` method."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.include`メソッドの宣言的な代替方法については：ref：` the_include_tag`を参照してください。"
 
 #: ../../narr/advconfig.rst:370
 msgid "Two-Phase Configuration"
-msgstr ""
+msgstr "二相構成"
 
 #: ../../narr/advconfig.rst:372
 msgid ""
@@ -349,7 +339,7 @@ msgid ""
 "executed, and *discriminators* are computed for each of the actions that "
 "depend on the result of the eager actions.  In the second phase, the "
 "discriminators of all actions are compared to do conflict detection."
-msgstr ""
+msgstr "非自動コミッティング：用語：Configuratorを使用して構成（デフォルト）を行うと、構成の実行は2つのフェーズで行われます。最初のフェーズでは、 &quot;eager&quot;構成アクション（レンダラーの登録など、他のすべてのアクションの前に行わなければならないアクション）が実行され、熱心なアクションの結果に依存する各アクションについて* discriminators *が計算されます。第2フェーズでは、すべてのアクションのディスクリミネータが競合検出を行うために比較されます。"
 
 #: ../../narr/advconfig.rst:380
 msgid ""
@@ -359,11 +349,11 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.add_view` and "
 ":meth:`~pyramid.config.Configurator.add_renderer` is unimportant when a "
 "non-autocommitting configurator is used.  This code snippet:"
-msgstr ""
+msgstr "このため、内部順序制約がない構成メソッドの場合、構成メソッド呼び出しの実行順序は重要ではありません。たとえば、非オートコミッティングコンフィギュレータが使用されている場合、：meth： `〜pyramid.config.Configurator.add_view`と：meth：`〜pyramid.config.Configurator.add_renderer`の相対的な順序は重要ではありません。このコードスニペット："
 
 #: ../../narr/advconfig.rst:393
 msgid "Has the same result as:"
-msgstr ""
+msgstr "同じ結果があります："
 
 #: ../../narr/advconfig.rst:401
 msgid ""
@@ -372,7 +362,7 @@ msgid ""
 "configuration statements are issued is not important.  ``add_view`` will "
 "be able to find the ``.rn`` renderer even if ``add_renderer`` is called "
 "after ``add_view``."
-msgstr ""
+msgstr "ビューステートメントは、カスタムレンダラーの登録に依存しますが、2フェーズ構成のため、構成ステートメントの発行順序は重要ではありません。 `` add_view``の後に `` add_renderer``が呼び出されても、 `` add_view``は `` .rn``レンダラーを見つけることができます。"
 
 #: ../../narr/advconfig.rst:406
 msgid ""
@@ -380,7 +370,7 @@ msgid ""
 ":ref:`autocommitting_configurator`).  When an autocommitting configurator"
 " is used, two-phase configuration is disabled, and configuration "
 "statements must be ordered in dependency order."
-msgstr ""
+msgstr "* autocommitting *コンフィギュレータ（ref： `autocommitting_configurator`を参照）を使用すると、これは真実ではありません。自動コミットコンフィギュレータを使用すると、2フェーズ構成は無効になり、構成ステートメントは依存関係の順序で並べ替えられなければなりません。"
 
 #: ../../narr/advconfig.rst:411
 msgid ""
@@ -389,16 +379,16 @@ msgid ""
 "constraints: the routes they imply require relative ordering.  Such "
 "ordering constraints are not absolved by two-phase configuration.  Routes"
 " are still added in configuration execution order."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_route`のような設定メソッドには、内部的な順序制約があります。このような順序制約は、2フェーズ構成では解決されません。経路は構成実行順序で追加されます。"
 
 #: ../../narr/advconfig.rst:418
 msgid "More Information"
-msgstr ""
+msgstr "詳しくは"
 
 #: ../../narr/advconfig.rst:420
 msgid ""
 "For more information, see the article :ref:`A Whirlwind Tour of Advanced "
 "Configuration Tactics <cookbook:whirlwind-adv-conf>` in the Pyramid "
 "Community Cookbook."
-msgstr ""
+msgstr "詳細は、次の記事を参照してください：ref： `高度な構成の戦術の旋風のツアー<cookbook:whirlwind-adv-conf> `ピラミッドコミュニティクックブックで。"
 

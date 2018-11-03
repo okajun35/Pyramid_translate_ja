@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../quick_tutorial/authorization.rst:5
+msgid "21: Protecting Resources With Authorization"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:7
+msgid "Assign security statements to resources describing the permissions required to perform an operation."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:12
+msgid "Background"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:14
+msgid "Our application has URLs that allow people to add/edit/delete content via a web browser. Time to add security to the application. Let's protect our add/edit views to require a login (username of ``editor`` and password of ``editor``). We will allow the other views to continue working without a password."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:21
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:23
+msgid "Introduce the Pyramid concepts of authentication, authorization, permissions, and access control lists (ACLs)."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:26
+msgid "Make a :term:`root factory` that returns an instance of our class for the top of the application."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:29
+msgid "Assign security statements to our root resource."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:31
+msgid "Add a permissions predicate on a view."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:33
+msgid "Provide a :term:`Forbidden view` to handle visiting a URL without adequate permissions."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:38
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:40
+msgid "We are going to use the authentication step as our starting point:"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:47
+msgid "Start by changing ``authorization/tutorial/__init__.py`` to specify a root factory to the :term:`configurator`:"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:53
+msgid "That means we need to implement ``authorization/tutorial/resources.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:58
+msgid "Change ``authorization/tutorial/views.py`` to require the ``edit`` permission on the ``hello`` view and implement the forbidden view:"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:64
+msgid "Run your Pyramid application with:"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:70
+msgid "Open http://localhost:6543/ in a browser."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:72
+msgid "If you are still logged in, click the \"Log Out\" link."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:74
+msgid "Visit http://localhost:6543/howdy in a browser. You should be asked to login."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:79
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:81
+msgid "This simple tutorial step can be boiled down to the following:"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:83
+msgid "A view can require a *permission* (``edit``)."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:85
+msgid "The context for our view (the ``Root``) has an access control list (ACL)."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:87
+msgid "This ACL says that the ``edit`` permission is available on ``Root``  to the ``group:editors`` *principal*."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:90
+msgid "The registered ``groupfinder`` answers whether a particular user (``editor``) has a particular group (``group:editors``)."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:93
+msgid "In summary, ``hello`` wants ``edit`` permission, ``Root`` says ``group:editors`` has ``edit`` permission."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:96
+msgid "Of course, this only applies on ``Root``. Some other part of the site (a.k.a. *context*) might have a different ACL."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:99
+msgid "If you are not logged in and visit ``/howdy``, you need to get shown the login screen. How does Pyramid know what is the login page to use? We explicitly told Pyramid that the ``login`` view should be used by decorating the view with ``@forbidden_view_config``."
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:106
+msgid "Extra credit"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:108
+msgid "Do I have to put a ``renderer`` in my ``@forbidden_view_config`` decorator?"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:110
+msgid "Perhaps you would like the experience of not having enough permissions (forbidden) to be richer. How could you change this?"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:113
+msgid "Perhaps we want to store security statements in a database and allow editing via a browser. How might this be done?"
+msgstr ""
+
+#: ../../quick_tutorial/authorization.rst:116
+msgid "What if we want different security statements on different kinds of objects? Or on the same kinds of objects, but in different parts of a URL hierarchy?"
+msgstr ""
+

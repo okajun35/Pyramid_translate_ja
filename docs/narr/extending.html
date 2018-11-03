@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Extending an Existing Pyramid Application &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) 既存の Pyramid アプリケーションの拡張 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Advanced Configuration" href="advconfig.html" />
-    <link rel="prev" title="Pyramid Configuration Introspection" href="introspector.html" />
+    <link rel="next" title="(機械翻訳) 高度な設定" href="advconfig.html" />
+    <link rel="prev" title="(機械翻訳) ピラミッド構成のイントロスペクション" href="introspector.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="advconfig.html" title="Advanced Configuration"
+          <a href="advconfig.html" title="(機械翻訳) 高度な設定"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="introspector.html" title="Pyramid Configuration Introspection"
+          <a href="introspector.html" title="(機械翻訳) ピラミッド構成のイントロスペクション"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,65 +69,25 @@
           <div class="body" role="main">
             
   <div class="section" id="extending-an-existing-pyramid-application">
-<span id="extending-chapter"></span><h1>Extending an Existing <span>Pyramid</span> Application<a class="headerlink" href="#extending-an-existing-pyramid-application" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>If a <span>Pyramid</span> developer has obeyed certain constraints while building an
-application, a third party should be able to change the application's behavior
-without needing to modify its source code.  The behavior of a <span>Pyramid</span>
-application that obeys certain constraints can be <em>overridden</em> or <em>extended</em>
-without modification.</p>
-<p>We'll define some jargon here for the benefit of identifying the parties
-involved in such an effort.</p>
+<span id="extending-chapter"></span><h1>(機械翻訳) 既存の <span>Pyramid</span> アプリケーションの拡張<a class="headerlink" href="#extending-an-existing-pyramid-application" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>a：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`開発者がアプリケーションを構築する際に一定の制約に従った場合、第三者はソースコードを変更することなくアプリケーションの動作を変更できるはずです。特定の制約に従うa：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`アプリケーションの動作は、変更することなく*オーバーライド*または*拡張*することができます。</p>
+<p>私たちは、このような努力に関与する当事者を特定するために、いくつかの専門用語をここで定義します。</p>
 <dl class="docutils">
-<dt>Developer</dt>
-<dd>The original application developer.</dd>
-<dt>Integrator</dt>
-<dd>Another developer who wishes to reuse the application written by the original
-application developer in an unanticipated context.  They may also wish to
-modify the original application without changing the original application's
-source code.</dd>
+<dt>開発者</dt>
+<dd>元のアプリケーション開発者。</dd>
+<dt>積分器</dt>
+<dd>元のアプリケーション開発者が作成したアプリケーションを予期せぬ状況で再利用したい別の開発者。元のアプリケーションのソースコードを変更せずに元のアプリケーションを変更したい場合もあります。</dd>
 </dl>
 <div class="section" id="the-difference-between-extensible-and-pluggable-applications">
-<h2>The Difference Between &quot;Extensible&quot; and &quot;Pluggable&quot; Applications<a class="headerlink" href="#the-difference-between-extensible-and-pluggable-applications" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Other web frameworks, such as <a class="reference internal" href="../glossary.html#term-django"><span class="xref std std-term">Django</span></a>, advertise that they allow
-developers to create &quot;pluggable applications&quot;.  They claim that if you create
-an application in a certain way, it will be integratable in a sensible,
-structured way into another arbitrarily-written application or project created
-by a third-party developer.</p>
-<p><span>Pyramid</span>, as a platform, does not claim to provide such a feature.  The
-platform provides no guarantee that you can create an application and package
-it up such that an arbitrary integrator can use it as a subcomponent in a
-larger Pyramid application or project.  Pyramid does not mandate the
-constraints necessary for such a pattern to work satisfactorily.  Because
-Pyramid is not very &quot;opinionated&quot;, developers are able to use wildly different
-patterns and technologies to build an application.  A given Pyramid application
-may happen to be reusable by a particular third party integrator because the
-integrator and the original developer may share similar base technology choices
-(such as the use of a particular relational database or ORM).  But the same
-application may not be reusable by a different developer, because they have
-made different technology choices which are incompatible with the original
-developer's.</p>
-<p>As a result, the concept of a &quot;pluggable application&quot; is left to layers built
-above Pyramid, such as a &quot;CMS&quot; layer or &quot;application server&quot; layer.  Such
-layers are apt to provide the necessary &quot;opinions&quot; (such as mandating a storage
-layer, a templating system, and a structured, well-documented pattern of
-registering that certain URLs map to certain bits of code) which makes the
-concept of a &quot;pluggable application&quot; possible.  &quot;Pluggable applications&quot;, thus,
-should not plug into Pyramid itself but should instead plug into a system
-written atop Pyramid.</p>
-<p>Although it does not provide for &quot;pluggable applications&quot;, Pyramid <em>does</em>
-provide a rich set of mechanisms which allows for the extension of a single
-existing application.  Such features can be used by frameworks built using
-Pyramid as a base.  All Pyramid applications may not be <em>pluggable</em>, but all
-Pyramid applications are <em>extensible</em>.</p>
+<h2>&amp;quot;Extensible &amp;quot;と&amp;quot;Pluggable &amp;quot;アプリケーションの違い<a class="headerlink" href="#the-difference-between-extensible-and-pluggable-applications" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>次のような他のWebフレームワーク：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Django`は、開発者が&amp;quot;プラグ可能なアプリケーション&amp;quot;を作成できるようにすることを宣伝します。彼らは、特定の方法でアプリケーションを作成すると、サードパーティの開発者が作成した任意の方法で作成された別のアプリケーションやプロジェクトに、合理的で構造化された方法で統合できると主張しています。</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はプラットフォームとして、そのような機能を提供すると主張していません。プラットフォームは、任意のインテグレータが大きなピラミッドアプリケーションまたはプロジェクトのサブコンポーネントとしてアプリケーションを使用できるように、アプリケーションを作成してパッケージ化できる保証はありません。ピラミッドは、このようなパターンがうまく機能するために必要な制約を強制しません。 Pyramidはあまり「有名人」ではないので、開発者はアプリケーションを構築するために大きく異なるパターンや技術を使用することができます。特定の第三者のインテグレータは、特定のピラミッドアプリケーションを再利用できるようになる可能性があります。インテグレータと元の開発者は、特定のリレーショナルデータベースやORMのような基本テクノロジの選択肢を共有する可能性があるからです。しかし、同じアプリケーションは、元の開発者とは互換性のない異なる技術選択肢を作成したため、異なる開発者が再利用することはできません。</p>
+<p>その結果、&amp;quot;プラグイン可能なアプリケーション&amp;quot;の概念は&amp;quot;CMS &amp;quot;レイヤーまたは&amp;quot;アプリケーションサーバー&amp;quot;レイヤーのようなPyramidの上に構築されたレイヤーに残されます。このような層は、（特定のURLが特定のビットのビットにマッピングされることを記録する、記憶層、テンプレートシステム、構造化された、十分に文書化されたパターンを強制するなどの）必要な「意見」を提供する傾向があります。 &amp;quot;プラグ可能なアプリケーション&amp;quot;が可能です。 &amp;quot;Pluggable applications &amp;quot;はPyramid自体にプラグインするのではなく、Pyramidの上に書かれたシステムにプラグインする必要があります。</p>
+<p>&amp;quot;プラグイン可能なアプリケーション&amp;quot;は提供していませんが、Pyramid <em>は単一の既存アプリケーションの拡張を可能にする豊富なメカニズムを提供します。このような機能は、Pyramidをベースに構築されたフレームワークで使用できます。すべてのPyramidアプリケーションはプラグ可能*ではないかもしれませんが、すべてのPyramidアプリケーションは*拡張可能です</em>。</p>
 </div>
 <div class="section" id="rules-for-building-an-extensible-application">
-<span id="building-an-extensible-app"></span><span id="index-0"></span><h2>Rules for Building an Extensible Application<a class="headerlink" href="#rules-for-building-an-extensible-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>There is only one rule you need to obey if you want to build a maximally
-extensible <span>Pyramid</span> application: as a developer, you should factor any
-overridable <a class="reference internal" href="../glossary.html#term-imperative-configuration"><span class="xref std std-term">imperative configuration</span></a> you've created into functions
-which can be used via <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a>, rather than
-inlined as calls to methods of a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> within the <code class="docutils literal notranslate"><span class="pre">main</span></code>
-function in your application's <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>.  For example, rather than:</p>
+<span id="building-an-extensible-app"></span><span id="index-0"></span><h2>拡張可能なアプリケーションを構築するためのルール<a class="headerlink" href="#rules-for-building-an-extensible-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>app： <cite>Pyramid`アプリケーション：開発者は、あなたが作成したオーバーライド可能な：term：`必須の設定 &amp;#39;をファンクションに因数分解する必要があります。あなたのアプリケーションの `</cite> __init __。py``の `` main``関数内で：term： <cite>Configurator`のメソッドへの呼び出しとしてインラインではなく、：meth：</cite> pyramid.config.Configurator.include`を介して使用されます。たとえば、以下のようになります。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -141,8 +101,7 @@ function in your application's <code class="docutils literal notranslate"><span 
     <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;myapp.views.view2&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;view2&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>You should move the calls to <code class="docutils literal notranslate"><span class="pre">add_view</span></code> outside of the (non-reusable) <code class="docutils literal notranslate"><span class="pre">if</span>
-<span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__'</span></code> block, and into a reusable function:</p>
+<p>呼び出しを（再利用不可能な） `` if __name__ == &amp;#39;__main __&amp;#39; <a href="#id1"><span class="problematic" id="id2">``</span></a>ブロックの外で、再利用可能な関数の外に移動する必要があります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -162,40 +121,20 @@ function in your application's <code class="docutils literal notranslate"><span 
     <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;myapp.views.view2&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;view2&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Doing this allows an integrator to maximally reuse the configuration statements
-that relate to your application by allowing them to selectively include or
-exclude the configuration functions you've created from an &quot;override package&quot;.</p>
-<p>Alternatively you can use <a class="reference internal" href="../glossary.html#term-zcml"><span class="xref std std-term">ZCML</span></a> for the purpose of making configuration
-extensible and overridable. <a class="reference internal" href="../glossary.html#term-zcml"><span class="xref std std-term">ZCML</span></a> declarations that belong to an
-application can be overridden and extended by integrators as necessary in a
-similar fashion.  If you use only <a class="reference internal" href="../glossary.html#term-zcml"><span class="xref std std-term">ZCML</span></a> to configure your application,
-it will automatically be maximally extensible without any manual effort.  See
-<a class="reference internal" href="../glossary.html#term-pyramid-zcml"><span class="xref std std-term">pyramid_zcml</span></a> for information about using ZCML.</p>
+<p>これにより、インテグレータは、アプリケーションに関連する構成文を最大限に再利用することができます。これにより、「上書きパッケージ」から作成した構成機能を選択的に含めるか除外することができます。</p>
+<p>代わりに、設定を拡張したり上書きできるようにするために：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>ZCML`を使用することもできます。 ：term：アプリケーションに属する <a href="#id3"><span class="problematic" id="id4">`</span></a>ZCML`宣言は、必要に応じて同様の方法でオーバーライドし、インテグレータによって拡張することができます。 ：term： <a href="#id5"><span class="problematic" id="id6">`</span></a>ZCML`だけを使ってアプリケーションを設定すると、手動で手を加えることなく自動的に最大限の拡張が可能になります。 ZCMLの使い方についてはterm： <a href="#id7"><span class="problematic" id="id8">`</span></a>pyramid_zcml`を参照してください。</p>
 <div class="section" id="fundamental-plugpoints">
-<h3>Fundamental Plugpoints<a class="headerlink" href="#fundamental-plugpoints" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The fundamental &quot;plug points&quot; of an application developed using <span>Pyramid</span>
-are <em>routes</em>, <em>views</em>, and <em>assets</em>.  Routes are declarations made using the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> method.  Views are declarations
-made using the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> method.  Assets are
-files that are accessed by <span>Pyramid</span> using the <a class="reference internal" href="../glossary.html#term-pkg-resources"><span class="xref std std-term">pkg_resources</span></a> API
-such as static files and templates via a <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a>.  Other
-directives and configurator methods also deal in routes, views, and assets.
-For example, the <code class="docutils literal notranslate"><span class="pre">add_handler</span></code> directive of the <code class="docutils literal notranslate"><span class="pre">pyramid_handlers</span></code> package
-adds a single route and some number of views.</p>
+<h3>基本的なプラグポイント<a class="headerlink" href="#fundamental-plugpoints" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <cite>Pyramid`を使って開発されたアプリケーションの基本的な&amp;quot;プラグポイント &amp;quot;は* routes *、* views *、* assets *です。ルートは：meth： `pyramid.config.Configurator.add_route`メソッドを使って宣言されています。ビューは、：meth： `pyramid.config.Configurator.add_view`メソッドを使用して宣言されます。アセットは：term： `asset specification`を介して静的ファイルやテンプレートのような：term：</cite> pkg_resources` APIを使って：app： <cite>Pyramid`によってアクセスされるファイルです。他のディレクティブおよびコンフィグレータメソッドもルート、ビュー、およびアセットを処理します。たとえば、 `</cite> pyramid_handlers``パッケージの `` add_handler``ディレクティブは、単一のルートといくつかのビュー数を追加します。</p>
 </div>
 </div>
 <div class="section" id="extending-an-existing-application">
-<span id="index-1"></span><h2>Extending an Existing Application<a class="headerlink" href="#extending-an-existing-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The steps for extending an existing application depend largely on whether the
-application does or does not use configuration decorators or imperative code.</p>
+<span id="index-1"></span><h2>既存のアプリケーションの拡張<a class="headerlink" href="#extending-an-existing-application" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>既存のアプリケーションを拡張する手順は、アプリケーションが構成デコレータを使用するかどうか、または必須コードを使用するかどうかによって大きく異なります。</p>
 <div class="section" id="if-the-application-has-configuration-decorations">
-<h3>If the Application Has Configuration Decorations<a class="headerlink" href="#if-the-application-has-configuration-decorations" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You've inherited a <span>Pyramid</span> application which you'd like to extend or
-override that uses <a class="reference internal" href="../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.view.view_config</span></code></a> decorators or other
-<a class="reference internal" href="../glossary.html#term-configuration-decoration"><span class="xref std std-term">configuration decoration</span></a> decorators.</p>
-<p>If you just want to <em>extend</em> the application, you can run a <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a>
-against the application's package, then add additional configuration that
-registers more views or routes.</p>
+<h3>アプリケーションに構成デコレーションがある場合<a class="headerlink" href="#if-the-application-has-configuration-decorations" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>あなたは：class： <cite>pyramid.view.view_config`デコレータや他の：term：</cite> configuration decoration`デコレータを使って拡張またはオーバーライドしたいa：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションを継承しました。</p>
+<p>アプリケーションを*拡張する*だけの場合は、アプリケーションのパッケージに対して：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>scan`を実行して、より多くのビューやルートを登録する追加の設定を追加します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -203,10 +142,7 @@ registers more views or routes.</p>
     <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;mypackage.views.myview&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;myview&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>If you want to <em>override</em> configuration in the application, you <em>may</em> need to
-run <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.commit()</span></code></a> after performing the scan of the
-original package, then add additional configuration that registers more views
-or routes which perform overrides.</p>
+<p>アプリケーションで設定を上書きする場合は、元のパッケージのスキャンを実行した後に：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.commit`を実行し、さらにビューまたはルートを登録する追加の設定を追加する必要がありますオーバーライドを実行します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -216,64 +152,31 @@ or routes which perform overrides.</p>
     <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;mypackage.views.myview&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;myview&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Once this is done, you should be able to extend or override the application
-like any other (see <a class="reference internal" href="#extending-the-application"><span class="std std-ref">Extending the Application</span></a>).</p>
-<p>You can alternatively just prevent a <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a> from happening by omitting
-any call to the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.scan" title="pyramid.config.Configurator.scan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.scan()</span></code></a> method.  This will
-cause the decorators attached to objects in the target application to do
-nothing.  At this point, you will need to convert all the configuration done in
-decorators into equivalent imperative configuration or ZCML, and add that
-configuration or ZCML to a separate Python package as described in
-<a class="reference internal" href="#extending-the-application"><span class="std std-ref">Extending the Application</span></a>.</p>
+<p>これが完了したら、他のアプリケーションのようにアプリケーションを拡張または上書きできなければなりません（：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>extend_the_application`を参照）。</p>
+<p>代わりに、：term： <cite>scan`が：meth：</cite> pyramid.config.Configurator.scan`メソッドへの呼び出しを省略することによって起こるのを防ぐこともできます。これにより、ターゲットアプリケーション内のオブジェクトにアタッチされたデコレータは何もしなくなります。この時点で、デコレータで行われたすべての設定を同等の必須設定またはZCMLに変換し、その設定またはZCMLを：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>extend_the_application`で説明されている別のPythonパッケージに追加する必要があります。</p>
 </div>
 <div class="section" id="extending-the-application">
-<span id="id1"></span><h3>Extending the Application<a class="headerlink" href="#extending-the-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>To extend or override the behavior of an existing application, you will need to
-create a new package which includes the configuration of the old package, and
-you'll perhaps need to create implementations of the types of things you'd like
-to override (such as views), to which they are referred within the original
-package.</p>
-<p>The general pattern for extending an existing application looks something like
-this:</p>
+<span id="id1"></span><h3>アプリケーションの拡張<a class="headerlink" href="#extending-the-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>既存のアプリケーションの動作を拡張またはオーバーライドするには、古いパッケージのコンフィグレーションを含む新しいパッケージを作成する必要があります。オーバーライドするタイプの実装を作成する必要があります（ビューとして）、元のパッケージ内で参照されます。</p>
+<p>既存のアプリケーションを拡張するための一般的なパターンは、次のようになります。</p>
 <ul class="simple">
-<li>Create a new Python package.  The easiest way to do this is to create a new
-<span>Pyramid</span> application using a <a class="reference internal" href="../glossary.html#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a>.  See
-<a class="reference internal" href="project.html#creating-a-project"><span class="std std-ref">Creating the Project</span></a> for more information.</li>
-<li>In the new package, create Python files containing views and other overridden
-elements, such as templates and static assets as necessary.</li>
-<li>Install the new package into the same Python environment as the original
-application (e.g., <code class="docutils literal notranslate"><span class="pre">$VENV/bin/pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> or <code class="docutils literal notranslate"><span class="pre">$VENV/bin/pip</span> <span class="pre">install</span>
-<span class="pre">.</span></code>).</li>
-<li>Change the <code class="docutils literal notranslate"><span class="pre">main</span></code> function in the new package's <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> to include
-the original <span>Pyramid</span> application's configuration functions via
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> statements or a <a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a>.</li>
-<li>Wire the new views and assets created in the new package up using imperative
-registrations within the <code class="docutils literal notranslate"><span class="pre">main</span></code> function of the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file of the
-new application.  This wiring should happen <em>after</em> including the
-configuration functions of the old application.  These registrations will
-extend or override any registrations performed by the original application.
-See <a class="reference internal" href="#overriding-views"><span class="std std-ref">Overriding Views</span></a>, <a class="reference internal" href="#overriding-routes"><span class="std std-ref">Overriding Routes</span></a>, and
-<a class="reference internal" href="#overriding-resources"><span class="std std-ref">Overriding Assets</span></a>.</li>
+<li>新しいPythonパッケージを作成します。これを行う最も簡単な方法は、：term： <cite>cookiecutter`を使って、新しい：app：</cite> Pyramid`アプリケーションを作成することです。詳細は、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>creation_a_project`を参照してください。</li>
+<li>新しいパッケージでは、ビューや必要に応じてテンプレートや静的アセットなどのオーバーライドされた要素を含むPythonファイルを作成します。</li>
+<li>新しいパッケージを元のアプリケーションと同じPython環境にインストールします（ `` $ VENV / bin / pip install -e .``や `` $ VENV / bin / pip install``など）。</li>
+<li>新しいパッケージの `` __init __。py``の `` main``関数を、：meth： <cite>pyramid.config.Configurator.include`文またはa：termを使って元の：app：</cite> Pyramid`アプリケーションの設定関数を含めるように変更してください： <cite>スキャン</cite>。</li>
+<li>新しいパッケージの新しいビューとアセットを、新しいアプリケーションの `` __init __。py``ファイルの `` main``関数内での必須登録を使って配線します。この配線は、古いアプリケーションの設定機能を含めて* <a href="#id1"><span class="problematic" id="id2">*</span></a>後に実行する必要があります。これらの登録は、元のアプリケーションによって行われた登録を延長または上書きします。参照：ref： <cite>overriding_views</cite>、：ref：` overriding_routes`、および：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>overriding_resources`を参照してください。</li>
 </ul>
 </div>
 <div class="section" id="overriding-views">
-<span id="index-2"></span><span id="id2"></span><h3>Overriding Views<a class="headerlink" href="#overriding-views" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <a class="reference internal" href="../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a> declarations that you make which <em>override</em>
-application behavior will usually have the same <a class="reference internal" href="../glossary.html#term-view-predicate"><span class="xref std std-term">view predicate</span></a>
-attributes as the original that you wish to override.  These <code class="docutils literal notranslate"><span class="pre">&lt;view&gt;</span></code>
-declarations will point at &quot;new&quot; view code in the override package that you've
-created.  The new view code itself will usually be copy-and-paste copies of
-view callables from the original application with slight tweaks.</p>
-<p>For example, if the original application has the following <code class="docutils literal notranslate"><span class="pre">configure_views</span></code>
-configuration method:</p>
+<span id="index-2"></span><span id="id2"></span><h3>ビューのオーバーライド<a class="headerlink" href="#overriding-views" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：term： <cite>view configuration`宣言は、アプリケーションの振る舞いをオーバーライドするのに通常は同じです：term：</cite> view predicate`属性をオーバーライドしたい元のものと同じにします。これらの &amp;quot; &lt;view&gt; <a href="#id1"><span class="problematic" id="id2">``</span></a>宣言はあなたが作成したオーバーライドパッケージの&amp;quot;新しい&amp;quot;ビューコードを指します。新しいビューコード自体は、通常、元のアプリケーションからのビュー呼び出し可能なコピーとコピーのコピーをわずかに変更したものです。</p>
+<p>たとえば、元のアプリケーションに以下の `` configure_views``設定メソッドがある場合、</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">configure_views</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
     <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;theoriginalapp.views.theview&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;theview&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>You can override the first view configuration statement made by
-<code class="docutils literal notranslate"><span class="pre">configure_views</span></code> within the override package, after loading the original
-configuration function:</p>
+<p>元のコンフィギュレーション関数をロードした後で、オーバーライドパッケージ内の `` configure_views``によって行われた最初のビュー設定ステートメントをオーバーライドすることができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -289,32 +192,16 @@ configuration function:</p>
     <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;theoverrideapp.views.theview&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;theview&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>In this case, the <code class="docutils literal notranslate"><span class="pre">theoriginalapp.views.theview</span></code> view will never be executed.
-Instead, a new view, <code class="docutils literal notranslate"><span class="pre">theoverrideapp.views.theview</span></code> will be executed when
-request circumstances dictate.</p>
-<p>A similar pattern can be used to <em>extend</em> the application with <code class="docutils literal notranslate"><span class="pre">add_view</span></code>
-declarations.  Just register a new view against some other set of predicates to
-make sure the URLs it implies are available on some other page rendering.</p>
+<p>この場合、 `` theoriginalapp.views.theview``ビューは決して実行されません。代わりに、新しいビュー `` theoverrideapp.views.theview``は、リクエスト状況が指示されたときに実行されます。</p>
+<p>同様のパターンを使用して、アプリケーションを `` add_view``宣言で拡張することができます。他のいくつかの述語セットに対して新しいビューを登録して、それが意味するURLが他のページレンダリングで利用可能であることを確認してください。</p>
 </div>
 <div class="section" id="overriding-routes">
-<span id="index-3"></span><span id="id3"></span><h3>Overriding Routes<a class="headerlink" href="#overriding-routes" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Route setup is currently typically performed in a sequence of ordered calls to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a>.  Because these calls are
-ordered relative to each other, and because this ordering is typically
-important, you should retain their relative ordering when performing an
-override.  Typically this means <em>copying</em> all the <code class="docutils literal notranslate"><span class="pre">add_route</span></code> statements into
-the override package's file and changing them as necessary.  Then exclude any
-<code class="docutils literal notranslate"><span class="pre">add_route</span></code> statements from the original application.</p>
+<span id="index-3"></span><span id="id3"></span><h3>ルートのオーバーライド<a class="headerlink" href="#overriding-routes" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ルート設定は現在、通常は：meth： <cite>〜pyramid.config.Configurator.add_route`への順序付き呼び出しのシーケンスで実行されます。これらの呼び出しは互いに順序付けされているため、この順序付けは通常重要なので、オーバーライドを実行するときには相対順序を保持する必要があります。通常は、すべての `</cite> add_route``文をオーバーライドパッケージのファイルにコピーし、必要に応じて変更します。次に、元のアプリケーションから `` add_route``文を除外します。</p>
 </div>
 <div class="section" id="overriding-assets">
-<span id="overriding-resources"></span><span id="index-4"></span><h3>Overriding Assets<a class="headerlink" href="#overriding-assets" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Assets are files on the filesystem that are accessible within a Python
-<em>package</em>.  An entire chapter is devoted to assets: <a class="reference internal" href="assets.html#assets-chapter"><span class="std std-ref">Static Assets</span></a>.
-Within this chapter is a section named <a class="reference internal" href="assets.html#overriding-assets-section"><span class="std std-ref">Overriding Assets</span></a>. This
-section of that chapter describes in detail how to override package assets with
-other assets by using the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.override_asset" title="pyramid.config.Configurator.override_asset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.override_asset()</span></code></a>
-method.  Add such <code class="docutils literal notranslate"><span class="pre">override_asset</span></code> calls to your override package's
-<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> to perform overrides.</p>
+<span id="overriding-resources"></span><span id="index-4"></span><h3>アセットのオーバーライド<a class="headerlink" href="#overriding-assets" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>アセットは、Python <a href="#id1"><span class="problematic" id="id2">*</span></a>パッケージ内でアクセス可能なファイルシステム上のファイルです。章全体は資産：：ref： <cite>assets_chapter`に充てられます。この章では、ref： `overriding_assets_section`という名前のセクションがあります。この章のこのセクションでは、：meth： `pyramid.config.Configurator.override_asset`メソッドを使用して、パッケージアセットを他のアセットでオーバーライドする方法について詳しく説明します。オーバーライドを実行するためにオーバーライドパッケージの `</cite> __init __。py``にそのような `` override_asset``呼び出しを追加してください。</p>
 </div>
 </div>
 </div>
@@ -327,18 +214,18 @@ method.  Add such <code class="docutils literal notranslate"><span class="pre">o
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Extending an Existing <span>Pyramid</span> Application</a><ul>
-<li><a class="reference internal" href="#the-difference-between-extensible-and-pluggable-applications">The Difference Between &quot;Extensible&quot; and &quot;Pluggable&quot; Applications</a></li>
-<li><a class="reference internal" href="#rules-for-building-an-extensible-application">Rules for Building an Extensible Application</a><ul>
-<li><a class="reference internal" href="#fundamental-plugpoints">Fundamental Plugpoints</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) 既存の <span>Pyramid</span> アプリケーションの拡張</a><ul>
+<li><a class="reference internal" href="#the-difference-between-extensible-and-pluggable-applications">&amp;quot;Extensible &amp;quot;と&amp;quot;Pluggable &amp;quot;アプリケーションの違い</a></li>
+<li><a class="reference internal" href="#rules-for-building-an-extensible-application">拡張可能なアプリケーションを構築するためのルール</a><ul>
+<li><a class="reference internal" href="#fundamental-plugpoints">基本的なプラグポイント</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#extending-an-existing-application">Extending an Existing Application</a><ul>
-<li><a class="reference internal" href="#if-the-application-has-configuration-decorations">If the Application Has Configuration Decorations</a></li>
-<li><a class="reference internal" href="#extending-the-application">Extending the Application</a></li>
-<li><a class="reference internal" href="#overriding-views">Overriding Views</a></li>
-<li><a class="reference internal" href="#overriding-routes">Overriding Routes</a></li>
-<li><a class="reference internal" href="#overriding-assets">Overriding Assets</a></li>
+<li><a class="reference internal" href="#extending-an-existing-application">既存のアプリケーションの拡張</a><ul>
+<li><a class="reference internal" href="#if-the-application-has-configuration-decorations">アプリケーションに構成デコレーションがある場合</a></li>
+<li><a class="reference internal" href="#extending-the-application">アプリケーションの拡張</a></li>
+<li><a class="reference internal" href="#overriding-views">ビューのオーバーライド</a></li>
+<li><a class="reference internal" href="#overriding-routes">ルートのオーバーライド</a></li>
+<li><a class="reference internal" href="#overriding-assets">アセットのオーバーライド</a></li>
 </ul>
 </li>
 </ul>
@@ -347,10 +234,10 @@ method.  Add such <code class="docutils literal notranslate"><span class="pre">o
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="introspector.html"
-                        title="前の章へ">Pyramid Configuration Introspection</a></p>
+                        title="前の章へ">(機械翻訳)  ピラミッド構成のイントロスペクション</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="advconfig.html"
-                        title="次の章へ">Advanced Configuration</a></p>
+                        title="次の章へ">(機械翻訳) 高度な設定</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -384,17 +271,17 @@ method.  Add such <code class="docutils literal notranslate"><span class="pre">o
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="advconfig.html" title="Advanced Configuration"
+          <a href="advconfig.html" title="(機械翻訳) 高度な設定"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="introspector.html" title="Pyramid Configuration Introspection"
+          <a href="introspector.html" title="(機械翻訳) ピラミッド構成のイントロスペクション"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

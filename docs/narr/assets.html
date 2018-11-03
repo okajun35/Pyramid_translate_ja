@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Static Assets &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) 静的資産 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Request and Response Objects" href="webob.html" />
-    <link rel="prev" title="View Configuration" href="viewconfig.html" />
+    <link rel="next" title="(機械翻訳) 要求オブジェクトと応答オブジェクト" href="webob.html" />
+    <link rel="prev" title="(機械翻訳) 設定を表示" href="viewconfig.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="webob.html" title="Request and Response Objects"
+          <a href="webob.html" title="(機械翻訳) 要求オブジェクトと応答オブジェクト"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="viewconfig.html" title="View Configuration"
+          <a href="viewconfig.html" title="(機械翻訳) 設定を表示"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,138 +69,58 @@
           <div class="body" role="main">
             
   <div class="section" id="static-assets">
-<span id="assets-chapter"></span><span id="index-0"></span><h1>Static Assets<a class="headerlink" href="#static-assets" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>An <a class="reference internal" href="../glossary.html#term-asset"><span class="xref std std-term">asset</span></a> is any file contained within a Python <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a> which is
-<em>not</em> a Python source code file.  For example, each of the following is an
-asset:</p>
+<span id="assets-chapter"></span><span id="index-0"></span><h1>(機械翻訳) 静的資産<a class="headerlink" href="#static-assets" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>An：term： <cite>asset`は、PythonソースコードファイルではないPython：term：</cite> package`に含まれるファイルです。たとえば、以下はそれぞれ資産です。</p>
 <ul class="simple">
-<li>a GIF image file contained within a Python package or contained within any
-subdirectory of a Python package.</li>
-<li>a CSS file contained within a Python package or contained within any
-subdirectory of a Python package.</li>
-<li>a JavaScript source file contained within a Python package or contained
-within any subdirectory of a Python package.</li>
-<li>A directory within a package that does not have an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> in it (if
-it possessed an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> it would <em>be</em> a package).</li>
-<li>a <a class="reference internal" href="../glossary.html#term-chameleon"><span class="xref std std-term">Chameleon</span></a> or <a class="reference internal" href="../glossary.html#term-mako"><span class="xref std std-term">Mako</span></a> template file contained within a Python
-package.</li>
+<li>Pythonパッケージに含まれるGIF画像ファイル、またはPythonパッケージのサブディレクトリに含まれるGIF画像ファイル。</li>
+<li>Pythonパッケージに含まれるCSSファイル、またはPythonパッケージのサブディレクトリに含まれるCSSファイル。</li>
+<li>Pythonパッケージに含まれるか、Pythonパッケージのサブディレクトリに含まれるJavaScriptソースファイル。</li>
+<li>それが `` __init __。py``を持たないパッケージ内のディレクトリ（パッケージである `` __init __。py``を持っている場合）です。</li>
+<li>a：term： <cite>Chameleon`または：term：</cite> Mako`テンプレートファイル（Pythonパッケージに含まれています）。</li>
 </ul>
-<p>The use of assets is quite common in most web development projects.  For
-example, when you create a <span>Pyramid</span> application using one of the
-available <a class="reference internal" href="../glossary.html#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a>s, as described in <a class="reference internal" href="project.html#creating-a-project"><span class="std std-ref">Creating the Project</span></a>, the directory
-representing the application contains a Python <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a>. Within that
-Python package, there are directories full of files which are static assets.
-For example, there's a <code class="docutils literal notranslate"><span class="pre">static</span></code> directory which contains <code class="docutils literal notranslate"><span class="pre">.css</span></code>, <code class="docutils literal notranslate"><span class="pre">.js</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">.gif</span></code> files.  These asset files are delivered when a user visits an
-application URL.</p>
+<p>ほとんどのWeb開発プロジェクトでは、資産の使用が非常に一般的です。たとえば、：ref： <cite>creating_a_project`で説明されているように、：app：</cite> Pyramid`アプリケーションを利用可能なterm： <cite>cookiecutter</cite> sで作成すると、アプリケーションを表すディレクトリにPython：term： <cite>パッケージ</cite>。そのPythonパッケージ内には、静的資産であるファイルがいっぱいのディレクトリがあります。たとえば、 `` .css``、 `` .js``、および <cite>.gif``ファイルを含む</cite> <cite>静的</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>ディレクトリがあります。これらのアセットファイルは、ユーザーがアプリケーションURLにアクセスしたときに配信されます。</p>
 <div class="section" id="understanding-asset-specifications">
-<span id="asset-specifications"></span><span id="index-1"></span><h2>Understanding Asset Specifications<a class="headerlink" href="#understanding-asset-specifications" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Let's imagine you've created a <span>Pyramid</span> application that uses a
-<a class="reference internal" href="../glossary.html#term-chameleon"><span class="xref std std-term">Chameleon</span></a> ZPT template via the
-<a class="reference internal" href="../api/renderers.html#pyramid.renderers.render_to_response" title="pyramid.renderers.render_to_response"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.renderers.render_to_response()</span></code></a> API.  For example, the application
-might address the asset using the <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a>
-<code class="docutils literal notranslate"><span class="pre">myapp:templates/some_template.pt</span></code> using that API within a <code class="docutils literal notranslate"><span class="pre">views.py</span></code> file
-inside a <code class="docutils literal notranslate"><span class="pre">myapp</span></code> package:</p>
+<span id="asset-specifications"></span><span id="index-1"></span><h2>資産の仕様の理解<a class="headerlink" href="#understanding-asset-specifications" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：func： <cite>pyramid.renderers.render_to_response</cite> APIを使って：term：` Chameleon` ZPTテンプレートを使用する：app： <cite>Pyramid`アプリケーションを作成したとします。例えば、アプリケーションは `</cite> myapp``パッケージ内の `` views.py``ファイル内でそのAPIを使用して：term： <cite>asset specification`</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>myapp：templates / some_template.pt``を使ってアセットにアクセスするかもしれません：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.renderers</span> <span class="kn">import</span> <span class="n">render_to_response</span>
 <span class="n">render_to_response</span><span class="p">(</span><span class="s1">&#39;myapp:templates/some_template.pt&#39;</span><span class="p">,</span> <span class="p">{},</span> <span class="n">request</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>&quot;Under the hood&quot;, when this API is called, <span>Pyramid</span> attempts to make
-sense out of the string <code class="docutils literal notranslate"><span class="pre">myapp:templates/some_template.pt</span></code> provided by the
-developer.  This string is an <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a>.  It is composed of
-two parts:</p>
+<p>&amp;quot;Under the hood &amp;quot;、このAPIが呼び出されると、：app： <cite>Pyramid`は、開発者によって提供された文字列</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>myapp：templates / some_template.pt`の意味を理解しようとします。この文字列は：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>asset specification`です。これは2つの部分で構成されています。</p>
 <ul class="simple">
-<li>The <em>package name</em> (<code class="docutils literal notranslate"><span class="pre">myapp</span></code>)</li>
-<li>The <em>asset name</em> (<code class="docutils literal notranslate"><span class="pre">templates/some_template.pt</span></code>), relative to the package
-directory.</li>
+<li><a href="#id1"><span class="problematic" id="id2">*</span></a>パッケージ名*（ `` myapp``）</li>
+<li>パッケージディレクトリに対する*アセット名*（ `` templates / some_template.pt``）。</li>
 </ul>
-<p>The two parts are separated by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code> character.</p>
-<p><span>Pyramid</span> uses the Python <a class="reference internal" href="../glossary.html#term-pkg-resources"><span class="xref std std-term">pkg_resources</span></a> API to resolve the package
-name and asset name to an absolute (operating system-specific) file name.  It
-eventually passes this resolved absolute filesystem path to the Chameleon
-templating engine, which then uses it to load, parse, and execute the template
-file.</p>
-<p>There is a second form of asset specification: a <em>relative</em> asset
-specification.  Instead of using an &quot;absolute&quot; asset specification which
-includes the package name, in certain circumstances you can omit the package
-name from the specification.  For example, you might be able to use
-<code class="docutils literal notranslate"><span class="pre">templates/mytemplate.pt</span></code> instead of <code class="docutils literal notranslate"><span class="pre">myapp:templates/some_template.pt</span></code>.
-Such asset specifications are usually relative to a &quot;current package&quot;.  The
-&quot;current package&quot; is usually the package which contains the code that <em>uses</em>
-the asset specification.  <span>Pyramid</span> APIs which accept relative asset
-specifications typically describe to what the asset is relative in their
-individual documentation.</p>
+<p>2つの部分はコロン <a href="#id1"><span class="problematic" id="id2">``</span></a>： <a href="#id3"><span class="problematic" id="id4">``</span></a>文字で区切られています。</p>
+<p>：app： <cite>Pyramid`は、Python：term：</cite> pkg_resources` APIを使用して、パッケージ名とアセット名を絶対（オペレーティングシステム固有の）ファイル名に解決します。最終的には解決されたこの絶対ファイルシステムパスをChameleonテンプレートエンジンに渡し、テンプレートエンジンを使用してテンプレートファイルの読み込み、解析、実行を行います。</p>
+<p>第二の形式の資産指定：相対*資産指定があります。特定の状況では、パッケージ名を含むアセット指定を&amp;quot;絶対&amp;quot;の代わりに指定から省略することができます。たとえば、 `` myapp：templates / some_template.pt``の代わりに `` templates / mytemplate.pt``を使うことができます。このような資産の仕様は、通常、現在のパッケージとの相対的なものです。 &amp;quot;現在のパッケージ&amp;quot;は通常、資産仕様を使用するコードを含むパッケージです。 ：app：ピラミッドAPIは、相対資産仕様を受け入れるもので、一般的に、個々の文書でその資産が相対的なものであることを表します。</p>
 </div>
 <div class="section" id="serving-static-assets">
-<span id="static-assets-section"></span><span id="index-2"></span><h2>Serving Static Assets<a class="headerlink" href="#serving-static-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><span>Pyramid</span> makes it possible to serve up static asset files from a
-directory on a filesystem to an application user's browser.  Use the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_static_view()</span></code></a> to instruct <span>Pyramid</span>
-to serve static assets, such as JavaScript and CSS files. This mechanism makes
-a directory of static files available at a name relative to the application
-root URL, e.g., <code class="docutils literal notranslate"><span class="pre">/static</span></code>, or as an external URL.</p>
+<span id="static-assets-section"></span><span id="index-2"></span><h2>静的資産の提供<a class="headerlink" href="#serving-static-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <cite>Pyramid`は、ファイルシステム上のディレクトリから静的アセットファイルをアプリケーションユーザのブラウザに提供することを可能にします。 ：meth： `pyramid.config.Configurator.add_static_view`を使って、app：</cite> Pyramid`にJavaScriptやCSSファイルなどの静的アセットを提供するよう指示します。このメカニズムは静的ファイルのディレクトリをアプリケーションのルートURLに関連する名前、例えば `` / static``や外部URLとして利用可能にします。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last"><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> cannot serve a single
-file, nor can it serve a directory of static files directly relative to the
-root URL of a <span>Pyramid</span> application.  For these features, see
-<a class="reference internal" href="#advanced-static"><span class="std std-ref">Advanced: Serving Static Assets Using a View Callable</span></a>.</p>
+<p class="last">：meth： <cite>〜pyramid.config.Configurator.add_static_view`は1つのファイルを提供することはできませんし、a：app：</cite> Pyramid`アプリケーションのルートURLに対して直接静的ファイルのディレクトリを提供することもできません。これらの機能については、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>advanced_static`を参照してください。</p>
 </div>
-<p>Here's an example of a use of
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> that will serve files up
-from the <code class="docutils literal notranslate"><span class="pre">/var/www/static</span></code> directory of the computer which runs the
-<span>Pyramid</span> application as URLs beneath the <code class="docutils literal notranslate"><span class="pre">/static</span></code> URL prefix.</p>
+<p>以下は、：meth： <cite>〜pyramid.config.Configurator.add_static_view`の使用例です。これは：app：</cite> Pyramid`を実行するコンピュータの `` / var / www / static``ディレクトリからファイルを提供します。アプリケーションを `` / static`` URL接頭辞の下にURLとして追加します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config is an instance of pyramid.config.Configurator</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_static_view</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/var/www/static&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">name</span></code> represents a URL <em>prefix</em>.  In order for files that live in the
-<code class="docutils literal notranslate"><span class="pre">path</span></code> directory to be served, a URL that requests one of them must begin
-with that prefix.  In the example above, <code class="docutils literal notranslate"><span class="pre">name</span></code> is <code class="docutils literal notranslate"><span class="pre">static</span></code> and <code class="docutils literal notranslate"><span class="pre">path</span></code> is
-<code class="docutils literal notranslate"><span class="pre">/var/www/static</span></code>.  In English this means that you wish to serve the files
-that live in <code class="docutils literal notranslate"><span class="pre">/var/www/static</span></code> as sub-URLs of the <code class="docutils literal notranslate"><span class="pre">/static</span></code> URL prefix.
-Therefore, the file <code class="docutils literal notranslate"><span class="pre">/var/www/static/foo.css</span></code> will be returned when the user
-visits your application's URL <code class="docutils literal notranslate"><span class="pre">/static/foo.css</span></code>.</p>
-<p>A static directory named at <code class="docutils literal notranslate"><span class="pre">path</span></code> may contain subdirectories recursively,
-and any subdirectories may hold files; these will be resolved by the static
-view as you would expect.  The <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> header returned by the static
-view for each particular type of file is dependent upon its file extension.</p>
-<p>By default, all files made available via
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> are accessible by
-completely anonymous users.  Simple authorization can be required, however. To
-protect a set of static files using a permission, in addition to passing the
-required <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">path</span></code> arguments, also pass the <code class="docutils literal notranslate"><span class="pre">permission</span></code> keyword
-argument to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a>. The value of
-the <code class="docutils literal notranslate"><span class="pre">permission</span></code> argument represents the <a class="reference internal" href="../glossary.html#term-permission"><span class="xref std std-term">permission</span></a> that the user
-must have relative to the current <a class="reference internal" href="../glossary.html#term-context"><span class="xref std std-term">context</span></a> when the static view is
-invoked.  A user will be required to possess this permission to view any of the
-files represented by <code class="docutils literal notranslate"><span class="pre">path</span></code> of the static view.  If your static assets must
-be protected by a more complex authorization scheme, see
-<a class="reference internal" href="#advanced-static"><span class="std std-ref">Advanced: Serving Static Assets Using a View Callable</span></a>.</p>
-<p>Here's another example that uses an <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a> instead of an
-absolute path as the <code class="docutils literal notranslate"><span class="pre">path</span></code> argument.  To convince
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> to serve files up under
-the <code class="docutils literal notranslate"><span class="pre">/static</span></code> URL from the <code class="docutils literal notranslate"><span class="pre">a/b/c/static</span></code> directory of the Python package
-named <code class="docutils literal notranslate"><span class="pre">some_package</span></code>, we can use a fully qualified <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset
-specification</span></a> as the <code class="docutils literal notranslate"><span class="pre">path</span></code>:</p>
+<p>`` name``はURL <a href="#id1"><span class="problematic" id="id2">*</span></a>プレフィックス*を表します。 `` path``ディレクトリにあるファイルが提供されるためには、それらのうちの1つを要求するURLがその接頭辞で始まらなければなりません。上記の例では、 `` name``は <code class="docutils literal notranslate"><span class="pre">静的</span> <span class="pre">``で、</span> <span class="pre">``</span> <span class="pre">path``は</span> <span class="pre">``</span> <span class="pre">/</span> <span class="pre">var</span> <span class="pre">/</span> <span class="pre">www</span> <span class="pre">/</span> <span class="pre">static``です。英語では、</span> <span class="pre">``</span> <span class="pre">/</span> <span class="pre">var</span> <span class="pre">/</span> <span class="pre">www</span> <span class="pre">/</span> <span class="pre">static``にあるファイルを</span> <span class="pre">``</span> <span class="pre">/</span> <span class="pre">static</span></code> URL接頭辞のサブURLとして提供したいと考えています。したがって、ユーザーがあなたのアプリケーションのURL「/ static / foo.css」を訪れたときに、ファイル `` / var / www / static / foo.css``が返されます。</p>
+<p>`` path``で指定された静的ディレクトリには、サブディレクトリが再帰的に含まれることがあります。また、サブディレクトリにはファイルが保存されます。これらは静的ビューによって解決されます。特定のファイルタイプごとに静的ビューから返される `` Content-Type``ヘッダーは、そのファイル拡張子に依存します。</p>
+<p>デフォルトでは、：meth： <cite>〜pyramid.config.Configurator.add_static_view`で利用できるすべてのファイルは完全に匿名のユーザーがアクセスできます。ただし、単純な承認が必要な場合があります。パーミッションを使って静的ファイルのセットを保護するには、必要な `</cite> name``と `` path``引数を渡すだけでなく、 `` permission``キーワード引数を：meth： <cite>〜pyramid.configに渡します。 Configurator.add_static_view</cite>。 `` permission``引数の値は、静的ビューが呼び出されたときにユーザがcurrent：term： <cite>context`を基準にして持っていなければならない：term：</cite> permission`を表します。ユーザは静的ビューの `` path``で表されるファイルを見るためにこの許可を持っている必要があります。静的資産をより複雑な認可スキームで保護する必要がある場合は、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>advanced_static`を参照してください。</p>
+<p>`` path``引数として絶対パスの代わりに：term： <cite>asset specification`を使用する別の例を次に示します。確かめるには：meth： `〜pyramid.config.Configurator.add_static_view`は、</cite> <cite>some_packageというPythonパッケージの</cite> <cite>a / b / c / static``ディレクトリから</cite> <cite>/ static`</cite> URLの下にファイルを提供する``、 `` path``として完全修飾：項：資産指定を使うことができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config is an instance of pyramid.config.Configurator</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_static_view</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;some_package:a/b/c/static&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">path</span></code> provided to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a>
-may be a fully qualified <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a> or an <em>absolute path</em>.</p>
-<p>Instead of representing a URL prefix, the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument of a call to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> can alternately be a
-<em>URL</em>.  Each of the examples we've seen so far have shown usage of the <code class="docutils literal notranslate"><span class="pre">name</span></code>
-argument as a URL prefix.  However, when <code class="docutils literal notranslate"><span class="pre">name</span></code> is a <em>URL</em>, static assets can
-be served from an external webserver.  In this mode, the <code class="docutils literal notranslate"><span class="pre">name</span></code> is used as
-the URL prefix when generating a URL using
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.static_url()</span></code></a>.</p>
-<p>For example, <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> may be fed a
-<code class="docutils literal notranslate"><span class="pre">name</span></code> argument which is <code class="docutils literal notranslate"><span class="pre">http://example.com/images</span></code>:</p>
+<p>：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.add_static_view`は、完全修飾語：用語：資産指定または*絶対パス*とすることができます。</p>
+<p>URL接頭辞を表す代わりに、：meth： <cite>〜pyramid.config.Configurator.add_static_view`の呼び出しの</cite> <cite>name``引数は、代わりに* URL *にすることができます。これまでに見てきたそれぞれの例では、URL接頭辞として &amp;quot;name&amp;quot;引数を使用しています。ただし、 `</cite> name``が* URL <a href="#id1"><span class="problematic" id="id2">*</span></a>の場合、静的アセットは外部Webサーバーから提供されます。このモードでは、：meth： <cite>pyramid.request.Request.static_url`を使用してURLを生成するときに、</cite> <a href="#id3"><span class="problematic" id="id4">`</span></a>name``がURLプレフィックスとして使用されます。</p>
+<p>たとえば、：meth： <cite>〜pyramid.config.Configurator.add_static_view`は、</cite> <cite>http：// example.com / images``という名前の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>name``引数を与えられます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># config is an instance of pyramid.config.Configurator</span>
@@ -208,37 +128,18 @@ the URL prefix when generating a URL using
                        <span class="n">path</span><span class="o">=</span><span class="s1">&#39;mypackage:images&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Because <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> is provided with a
-<code class="docutils literal notranslate"><span class="pre">name</span></code> argument that is the URL <code class="docutils literal notranslate"><span class="pre">http://example.com/images</span></code>, subsequent
-calls to <a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a> with paths that start with
-the <code class="docutils literal notranslate"><span class="pre">path</span></code> argument passed to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> will generate a URL
-something like <code class="docutils literal notranslate"><span class="pre">http://example.com/images/logo.png</span></code>.  The external webserver
-listening on <code class="docutils literal notranslate"><span class="pre">example.com</span></code> must be itself configured to respond properly to
-such a request.  The <a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a> API is
-discussed in more detail later in this chapter.</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.add_static_view`は</cite> <cite>http：// example.com / images``のURLである</cite> <cite>name``引数で提供され、それ以降の：meth：</cite>〜 pyramid.request.Request.static_url`に渡された `` path``引数で始まるパス：meth： <cite>〜pyramid.config.Configurator.add_static_view`は、</cite> <cite>http://example.com &amp;#39;のようなURLを生成します/ images / logo.png`</cite>。 `` example.com``をリッスンしている外部Webサーバーは、そのような要求に適切に応答するように構成されていなければなりません。 ：meth： <cite>〜pyramid.request.Request.static_url</cite> APIについては、この章の後半で詳しく説明します。</p>
 <div class="section" id="generating-static-asset-urls">
-<span id="index-3"></span><span id="id1"></span><h3>Generating Static Asset URLs<a class="headerlink" href="#generating-static-asset-urls" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>When an <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> method is used to
-register a static asset directory, a special helper API named
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.static_url()</span></code></a> can be used to generate the
-appropriate URL for an asset that lives in one of the directories named by the
-static registration <code class="docutils literal notranslate"><span class="pre">path</span></code> attribute.</p>
-<p>For example, let's assume you create a set of static declarations like so:</p>
+<span id="index-3"></span><span id="id1"></span><h3>静的資産URLの生成<a class="headerlink" href="#generating-static-asset-urls" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>静的アセットディレクトリを登録するために：meth： <cite>〜pyramid.config.Configurator.add_static_view`メソッドが使用された場合、適切なURLを生成するために：meth：</cite> pyramid.request.Request.static_url`という名前の特殊ヘルパーAPIを使用できます静的登録 `` path``属性によって指定されたディレクトリの1つに存在するアセットのためのものです。</p>
+<p>たとえば、次のような静的宣言のセットを作成するとします。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_static_view</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;static1&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;mypackage:assets/1&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_static_view</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;static2&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;mypackage:assets/2&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>These declarations create URL-accessible directories which have URLs that begin
-with <code class="docutils literal notranslate"><span class="pre">/static1</span></code> and <code class="docutils literal notranslate"><span class="pre">/static2</span></code>, respectively.  The assets in the
-<code class="docutils literal notranslate"><span class="pre">assets/1</span></code> directory of the <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> package are consulted when a user
-visits a URL which begins with <code class="docutils literal notranslate"><span class="pre">/static1</span></code>, and the assets in the <code class="docutils literal notranslate"><span class="pre">assets/2</span></code>
-directory of the <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> package are consulted when a user visits a URL
-which begins with <code class="docutils literal notranslate"><span class="pre">/static2</span></code>.</p>
-<p>You needn't generate the URLs to static assets &quot;by hand&quot; in such a
-configuration.  Instead, use the <a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a>
-API to generate them for you.  For example:</p>
+<p>これらの宣言は、それぞれが `` / static1``と `` / static2``で始まるURLを持つURLアクセス可能なディレクトリを作成します。ユーザーが `` / static1``で始まるURLを訪問し、 `` assets / 2``の資産を参照すると、 `` mypackage``パッケージの `` assets / 1``ディレクトリにある資産が参照されますユーザが `` / static2``で始まるURLにアクセスすると、 `` mypackage``パッケージのディレクトリが参照されます。</p>
+<p>このような構成では、静的アセットへのURLを手作業で生成する必要はありません。代わりに、：meth： <cite>〜pyramid.request.Request.static_url</cite> APIを使用してそれらを生成してください。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -256,43 +157,22 @@ API to generate them for you.  For example:</p>
                               <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>If the request &quot;application URL&quot; of the running system is
-<code class="docutils literal notranslate"><span class="pre">http://example.com</span></code>, the <code class="docutils literal notranslate"><span class="pre">css_url</span></code> generated above would be:
-<code class="docutils literal notranslate"><span class="pre">http://example.com/static1/foo.css</span></code>.  The <code class="docutils literal notranslate"><span class="pre">js_url</span></code> generated above would
-be <code class="docutils literal notranslate"><span class="pre">http://example.com/static2/foo.js</span></code>.</p>
-<p>One benefit of using the <a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a> function
-rather than constructing static URLs &quot;by hand&quot; is that if you need to change
-the <code class="docutils literal notranslate"><span class="pre">name</span></code> of a static URL declaration, the generated URLs will continue to
-resolve properly after the rename.</p>
-<p>URLs may also be generated by <a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a> to
-static assets that live <em>outside</em> the <span>Pyramid</span> application.  This will
-happen when the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> API
-associated with the path fed to <a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a> is
-a <em>URL</em> instead of a view name.  For example, the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument may be
-<code class="docutils literal notranslate"><span class="pre">http://example.com</span></code> while the <code class="docutils literal notranslate"><span class="pre">path</span></code> given may be <code class="docutils literal notranslate"><span class="pre">mypackage:images</span></code>:</p>
+<p>実行中のシステムのリクエスト &amp;quot;アプリケーションURL&amp;quot;が &amp;quot;http：// example.com&amp;quot;の場合、上記で生成された &amp;quot;css_url&amp;quot;は次のようになります： &amp;quot;http://example.com/static1/foo .css``。上記で生成された `` js_url``は `` http：// example.com / static2 / foo.js``です。</p>
+<p>静的URLを手作業で構築するのではなく、：meth： <cite>〜pyramid.request.Request.static_url`関数を使う利点の1つは、静的URL宣言の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>name``を変更する必要がある場合、生成されたURLは名前の変更後も引き続き適切に解決されます。</p>
+<p>URL：：meth： <cite>〜pyramid.request.Request.static_url`を使って：app：</cite> Pyramid`アプリケーションの外部にある静的アセットにURLを生成することもできます。これは、：meth： <cite>〜pyramid.config.Configurator.add_static_view</cite> APIが、：meth：<cite>〜pyramid.request.Request.static_url`に与えられたパスに関連付けられ、ビュー名の代わりに* URL *である場合に発生します。たとえば、 `</cite> name``引数は `` http：// example.com``であり、 `` path``は `` mypackage：images``：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_static_view</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;http://example.com/images&#39;</span><span class="p">,</span>
                        <span class="n">path</span><span class="o">=</span><span class="s1">&#39;mypackage:images&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Under such a configuration, the URL generated by <code class="docutils literal notranslate"><span class="pre">static_url</span></code> for assets
-which begin with <code class="docutils literal notranslate"><span class="pre">mypackage:images</span></code> will be prefixed with
-<code class="docutils literal notranslate"><span class="pre">http://example.com/images</span></code>:</p>
+<p>このような設定では、 `` mypackage：images``で始まるアセットの `` static_url``で生成されるURLの先頭に `` http：// example.com / images``という接頭辞が付きます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">static_url</span><span class="p">(</span><span class="s1">&#39;mypackage:images/logo.png&#39;</span><span class="p">)</span>
 <span class="c1"># -&gt; http://example.com/images/logo.png</span>
 </pre></div>
 </td></tr></table></div>
-<p>Using <a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a> in conjunction with a
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> makes it possible to put
-static media on a separate webserver during production (if the <code class="docutils literal notranslate"><span class="pre">name</span></code>
-argument to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> is a URL),
-while keeping static media package-internal and served by the development
-webserver during development (if the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> is a URL prefix).</p>
-<p>For example, we may define a <a class="reference internal" href="environment.html#adding-a-custom-setting"><span class="std std-ref">custom setting</span></a>
-named <code class="docutils literal notranslate"><span class="pre">media_location</span></code> which we can set to an external URL in production when
-our assets are hosted on a CDN.</p>
+<p>：meth： <cite>〜pyramid.request.Request.static_url`を：meth：</cite>〜pyramid.config.Configurator.add_static_view`と組み合わせて使用​​すると、制作中に別のウェブサーバーに静的メディアを置くことができます（ <a href="#id1"><span class="problematic" id="id2">``</span></a>名前開発中に開発中のWebサーバが静的メディアを内部的に保持しておきながら（meth： <cite>〜pyramid.config.Configurator.add_static_view`はURLです）、</cite> <cite>meth：</cite> ` <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.config.Configurator.add_static_view`はURLプレフィックスです）。</p>
+<p>たとえば、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>カスタム設定を定義することができます&lt;adding_a_custom_setting&gt;私たちの資産がCDN上でホストされているときに、本番環境の外部URLに設定できる <a href="#id3"><span class="problematic" id="id4">`</span></a>media_location`という名前です。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -302,7 +182,7 @@ our assets are hosted on a CDN.</p>
 <span class="n">config</span><span class="o">.</span><span class="n">add_static_view</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;myapp:static&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">media_location</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Now we can optionally define the setting in our ini file:</p>
+<p>これで設定をiniファイルに定義することができます：</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -314,64 +194,28 @@ our assets are hosted on a CDN.</p>
 <span class="na">media_location</span> <span class="o">=</span> <span class="s">http://static.example.com/</span>
 </pre></div>
 </td></tr></table></div>
-<p>It is also possible to serve assets that live outside of the source by
-referring to an absolute path on the filesystem. There are two ways to
-accomplish this.</p>
-<p>First, <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> supports taking an
-absolute path directly instead of an asset spec. This works as expected,
-looking in the file or folder of files and serving them up at some URL within
-your application or externally. Unfortunately, this technique has a drawback in
-that it is not possible to use the <a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a>
-method to generate URLs, since it works based on an asset specification.</p>
+<p>また、ファイルシステム上の絶対パスを参照することで、ソース外にある資産を提供することもできます。これを達成するには2つの方法があります。</p>
+<p>まず、：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.add_static_view`はアセット仕様の代わりに絶対パスを直接取ることをサポートしています。これは期待どおりに動作し、ファイルやファイルのフォルダを探し、アプリケーション内のあるURLや外部から提供します。残念ながら、このテクニックには、アセット仕様に基づいて動作するため、：meth： <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.request.Request.static_url`メソッドを使用してURLを生成することができないという欠点があります。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.6 で追加.</span></p>
 </div>
-<p>The second approach, available in Pyramid 1.6+, uses the asset overriding APIs
-described in the <a class="reference internal" href="#overriding-assets-section"><span class="std std-ref">Overriding Assets</span></a> section. It is then possible
-to configure a &quot;dummy&quot; package which then serves its file or folder from an
-absolute path.</p>
+<p>Pyramid 1.6以降で利用可能な2番目のアプローチは、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>overriding_assets_section`セクションで説明されているアセットオーバーライドAPIを使用しています。 &amp;quot;ダミー&amp;quot;パッケージを構成して、そのファイルまたはフォルダを絶対パスから提供することは可能です。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_static_view</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;myapp:static_images&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;static&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">override_asset</span><span class="p">(</span><span class="n">to_override</span><span class="o">=</span><span class="s1">&#39;myapp:static_images/&#39;</span><span class="p">,</span>
                       <span class="n">override_with</span><span class="o">=</span><span class="s1">&#39;/abs/path/to/images/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>From this configuration it is now possible to use
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a> to generate URLs to the data in the
-folder by doing something like
-<code class="docutils literal notranslate"><span class="pre">request.static_url('myapp:static_images/foo.png')</span></code>. While it is not
-necessary that the <code class="docutils literal notranslate"><span class="pre">static_images</span></code> file or folder actually exist in the
-<code class="docutils literal notranslate"><span class="pre">myapp</span></code> package, it is important that the <code class="docutils literal notranslate"><span class="pre">myapp</span></code> portion points to a valid
-package. If the folder does exist, then the overriden folder is given priority,
-if the file's name exists in both locations.</p>
+<p>この設定から、 `` request.static_url（ &amp;#39;myapp：static_images / foo.png&amp;#39;のようなことをして、フォルダ内のデータへのURLを生成するために：meth： <cite>〜pyramid.request.Request.static_url`を使うことが可能になりました。 ） `</cite>。 `` static_images``ファイルまたはフォルダが実際に `` myapp``パッケージに存在する必要はありませんが、 `` myapp``部分が有効なパッケージを指していることが重要です。フォルダーが存在する場合は、ファイルの名前が両方の場所に存在する場合は、オーバーライドされたフォルダーに優先順位が与えられます。</p>
 </div>
 </div>
 <div class="section" id="cache-busting">
-<span id="index-4"></span><span id="id2"></span><h2>Cache Busting<a class="headerlink" href="#cache-busting" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="index-4"></span><span id="id2"></span><h2>キャッシュバスト<a class="headerlink" href="#cache-busting" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.6 で追加.</span></p>
 </div>
-<p>In order to maximize performance of a web application, you generally want to
-limit the number of times a particular client requests the same static asset.
-Ideally a client would cache a particular static asset &quot;forever&quot;, requiring it
-to be sent to the client a single time.  The HTTP protocol allows you to send
-headers with an HTTP response that can instruct a client to cache a particular
-asset for an amount of time.  As long as the client has a copy of the asset in
-its cache and that cache hasn't expired, the client will use the cached copy
-rather than request a new copy from the server.  The drawback to sending cache
-headers to the client for a static asset is that at some point the static asset
-may change, and then you'll want the client to load a new copy of the asset.
-Under normal circumstances you'd just need to wait for the client's cached copy
-to expire before they get the new version of the static resource.</p>
-<p>A commonly used workaround to this problem is a technique known as
-<a class="reference internal" href="../glossary.html#term-cache-busting"><span class="xref std std-term">cache busting</span></a>.  Cache busting schemes generally involve generating a
-URL for a static asset that changes when the static asset changes.  This way
-headers can be sent along with the static asset instructing the client to cache
-the asset for a very long time.  When a static asset is changed, the URL used
-to refer to it in a web page also changes, so the client sees it as a new
-resource and requests the asset, regardless of any caching policy set for the
-resource's old URL.</p>
-<p><span>Pyramid</span> can be configured to produce cache busting URLs for static
-assets using <code class="xref py py-meth docutils literal notranslate"><span class="pre">add_cache_buster()</span></code>:</p>
+<p>Webアプリケーションのパフォーマンスを最大限にするには、一般に、特定のクライアントが同じ静的資産を要求する回数を制限する必要があります。理想的には、クライアントは特定の静的資産を永久にキャッシュし、クライアントに一度だけ送信する必要があります。 HTTPプロトコルを使用すると、特定のアセットを一定時間キャッシュするようにクライアントに指示できるHTTPレスポンスでヘッダーを送信できます。クライアントがキャッシュ内にアセットのコピーを持ち、そのキャッシュの有効期限が切れていない限り、クライアントはサーバーから新しいコピーを要求するのではなく、キャッシュされたコピーを使用します。静的アセットのクライアントへのキャッシュヘッダーの送信の欠点は、ある時点で静的アセットが変更される可能性があることです。クライアントはアセットの新しいコピーをロードする必要があります。通常の状況下では、クライアントのキャッシュされたコピーが期限切れになるのを待ってから、新しいバージョンの静的リソースを取得する必要があります。</p>
+<p>この問題の一般的な回避策は、term： <a href="#id1"><span class="problematic" id="id2">`</span></a>cache busting`と呼ばれる手法です。キャッシュ無効化方式には、通常、静的資産が変更されたときに変更される静的資産のURLを生成することが含まれます。このようにして、クライアントに静的アセットを送信して、クライアントにアセットを非常に長時間キャッシュするように指示することができます。静的アセットが変更されると、Webページでそれを参照するために使用されるURLも変更されるため、クライアントは新しいリソースとして認識し、リソースの古いURLに設定されたキャッシュポリシーに関係なくアセットを要求します。</p>
+<p>：app： <cite>Pyramid`は、以下を使って静的アセットのキャッシュ破棄URLを生成するように設定できます：meth：</cite>〜pyramid.config.Configurator.add_cache_buster`：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -389,49 +233,26 @@ assets using <code class="xref py py-meth docutils literal notranslate"><span cl
     <span class="n">QueryStringConstantCacheBuster</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))))</span>
 </pre></div>
 </td></tr></table></div>
-<p>Adding the cachebuster instructs <span>Pyramid</span> to add the current time for
-a static asset to the query string in the asset's URL:</p>
+<p>キャッシュバスターを追加すると：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、資産のURLのクエリ文字列に静的アセットの現在の時刻を追加します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">js_url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">static_url</span><span class="p">(</span><span class="s1">&#39;mypackage:folder/static/js/myapp.js&#39;</span><span class="p">)</span>
 <span class="c1"># Returns: &#39;http://www.example.com/static/js/myapp.js?x=1445318121&#39;</span>
 </pre></div>
 </td></tr></table></div>
-<p>When the web server restarts, the time constant will change and therefore so
-will its URL.</p>
+<p>Webサーバーが再起動すると、時定数が変更されるため、URLも変更されます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Cache busting is an inherently complex topic as it integrates the asset
-pipeline and the web application. It is expected and desired that
-application authors will write their own cache buster implementations
-conforming to the properties of their own asset pipelines. See
-<a class="reference internal" href="#custom-cache-busters"><span class="std std-ref">Customizing the Cache Buster</span></a> for information on writing your own.</p>
+<p class="last">キャッシュ・バスト処理は、資産パイプラインとWebアプリケーションを統合するため、本質的に複雑なトピックです。アプリケーション作成者は、独自のアセットパイプラインのプロパティに準拠した独自のキャッシュバスター実装を作成することが期待され、望まれています。独自の記述については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>custom_cache_busters`を参照してください。</p>
 </div>
 <div class="section" id="disabling-the-cache-buster">
-<h3>Disabling the Cache Buster<a class="headerlink" href="#disabling-the-cache-buster" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>It can be useful in some situations (e.g., development) to globally disable all
-configured cache busters without changing calls to
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">add_cache_buster()</span></code>.  To do this set the
-<code class="docutils literal notranslate"><span class="pre">PYRAMID_PREVENT_CACHEBUST</span></code> environment variable or the
-<code class="docutils literal notranslate"><span class="pre">pyramid.prevent_cachebust</span></code> configuration value to a true value.</p>
+<h3>キャッシュ・バスターの無効化<a class="headerlink" href="#disabling-the-cache-buster" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：meth： <cite>〜pyramid.config.Configurator.add_cache_buster`への呼び出しを変更することなく、設定されたすべてのキャッシュバスターをグローバルに無効にすることができます（開発など）。これを行うには、 `</cite> PYRAMID_PREVENT_CACHEBUST``環境変数か `` pyramid.prevent_cachebust``設定値を真の値に設定します。</p>
 </div>
 <div class="section" id="customizing-the-cache-buster">
-<span id="custom-cache-busters"></span><h3>Customizing the Cache Buster<a class="headerlink" href="#customizing-the-cache-buster" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Calls to <code class="xref py py-meth docutils literal notranslate"><span class="pre">add_cache_buster()</span></code> may use
-any object that implements the interface
-<a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.ICacheBuster" title="pyramid.interfaces.ICacheBuster"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICacheBuster</span></code></a>.</p>
-<p><span>Pyramid</span> ships with a very simplistic
-<a class="reference internal" href="../api/static.html#pyramid.static.QueryStringConstantCacheBuster" title="pyramid.static.QueryStringConstantCacheBuster"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryStringConstantCacheBuster</span></code></a>, which adds an
-arbitrary token you provide to the query string of the asset's URL. This
-is almost never what you want in production as it does not allow fine-grained
-busting of individual assets.</p>
-<p>In order to implement your own cache buster, you can write your own class from
-scratch which implements the <a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.ICacheBuster" title="pyramid.interfaces.ICacheBuster"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICacheBuster</span></code></a>
-interface.  Alternatively you may choose to subclass one of the existing
-implementations.  One of the most likely scenarios is you'd want to change the
-way the asset token is generated.  To do this just subclass
-<a class="reference internal" href="../api/static.html#pyramid.static.QueryStringCacheBuster" title="pyramid.static.QueryStringCacheBuster"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryStringCacheBuster</span></code></a> and define a
-<code class="docutils literal notranslate"><span class="pre">tokenize(pathspec)</span></code> method. Here is an example which uses Git to get
-the hash of the current commit:</p>
+<span id="custom-cache-busters"></span><h3>キャッシュ・バスターのカスタマイズ<a class="headerlink" href="#customizing-the-cache-buster" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：meth： <cite>〜pyramid.config.Configurator.add_cache_buster`を呼び出すと、class：</cite>〜pyramid.interfaces.ICacheBuster`というインターフェースを実装するオブジェクトを使用できます。</p>
+<p>：app： <cite>Pyramid`は非常に単純化されています：class：</cite>〜pyramid.static.QueryStringConstantCacheBuster`：アセットのURLのクエリ文字列にあなたが提供する任意のトークンを追加します。これは、個々の資産をきめ細かく破棄することができないため、プロダクションではほとんど望みません。</p>
+<p>独自のキャッシュ・バスターを実装するために、：class： <cite>〜pyramid.interfaces.ICacheBuster`インターフェースを実装して独自のクラスを一から書くことができます。あるいは、既存の実装の1つをサブクラス化することもできます。最も可能性の高いシナリオの1つは、資産トークンの生成方法を変更することです。これを行うにはclass： `〜pyramid.static.QueryStringCacheBuster`をサブクラス化し、</cite> <cite>tokenize（pathspec）</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>メソッドを定義してください。 Gitを使って現在のコミットのハッシュを取得する例を以下に示します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -473,8 +294,7 @@ the hash of the current commit:</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sha1</span>
 </pre></div>
 </td></tr></table></div>
-<p>A simple cache buster that modifies the path segment can be constructed as
-well:</p>
+<p>パスセグメントを変更する簡単なキャッシュバスターも構築できます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -496,41 +316,22 @@ well:</p>
         <span class="k">return</span> <span class="n">new_subpath</span><span class="p">,</span> <span class="n">kw</span>
 </pre></div>
 </td></tr></table></div>
-<p>The caveat with this approach is that modifying the path segment
-changes the file name, and thus must match what is actually on the
-filesystem in order for <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a>
-to find the file. It's better to use the
-<a class="reference internal" href="../api/static.html#pyramid.static.ManifestCacheBuster" title="pyramid.static.ManifestCacheBuster"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManifestCacheBuster</span></code></a> for these situations, as
-described in the next section.</p>
+<p>このアプローチの注意点は、パスセグメントを変更するとファイル名が変更されるため、実際にファイルシステムにあるものと一致して、ファイルを見つけるために：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.add_static_view`が必要であるということです。次のセクションで説明するように、これらの状況には：class： <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.static.ManifestCacheBuster`を使用する方が良いでしょう。</p>
 </div>
 <div class="section" id="path-segments-and-choosing-a-cache-buster">
-<span id="path-segment-cache-busters"></span><h3>Path Segments and Choosing a Cache Buster<a class="headerlink" href="#path-segments-and-choosing-a-cache-buster" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Many caching HTTP proxies will fail to cache a resource if the URL contains
-a query string.  Therefore, in general, you should prefer a cache busting
-strategy which modifies the path segment rather than methods which add a
-token to the query string.</p>
-<p>You will need to consider whether the <span>Pyramid</span> application will be
-serving your static assets, whether you are using an external asset pipeline
-to handle rewriting urls internal to the css/javascript, and how fine-grained
-do you want the cache busting tokens to be.</p>
-<p>In many cases you will want to host the static assets on another web server
-or externally on a CDN. In these cases your <span>Pyramid</span> application may not
-even have access to a copy of the static assets. In order to cache bust these
-assets you will need some information about them.</p>
-<p>If you are using an external asset pipeline to generate your static files you
-should consider using the <a class="reference internal" href="../api/static.html#pyramid.static.ManifestCacheBuster" title="pyramid.static.ManifestCacheBuster"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManifestCacheBuster</span></code></a>.
-This cache buster can load a standard JSON formatted file generated by your
-pipeline and use it to cache bust the assets. This has many performance
-advantages as <span>Pyramid</span> does not need to look at the files to generate
-any cache busting tokens, but still supports fine-grained per-file tokens.</p>
-<p>Assuming an example <code class="docutils literal notranslate"><span class="pre">manifest.json</span></code> like:</p>
+<span id="path-segment-cache-busters"></span><h3>パスセグメントとキャッシュバスターの選択<a class="headerlink" href="#path-segments-and-choosing-a-cache-buster" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>多くのキャッシュHTTPプロキシは、URLにクエリ文字列が含まれている場合、リソースをキャッシュできません。したがって、一般に、トークンをクエリ文字列に追加する方法ではなく、パスセグメントを変更するキャッシュ破棄戦略を使用することをお勧めします。</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションがあなたの静的資産を提供するかどうか、css / javascript内部の書き換えURLを処理するために外部の資産パイプラインを使用しているかどうか、キャッシュをどのように細かくしたいかを検討する必要がありますトークンを破る。</p>
+<p>多くの場合、静的資産を別のWebサーバーまたはCDNの外部にホストする必要があります。これらの場合、your：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションは静的資産のコピーにアクセスすることさえできないことがあります。これらの資産をバストにキャッシュするには、それらに関するいくつかの情報が必要です。</p>
+<p>静的ファイルを生成するために外部アセットパイプラインを使用する場合は、：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.static.ManifestCacheBuster`を使用することを検討する必要があります。このキャッシュ・バスターは、パイプラインによって生成された標準JSON形式のファイルをロードし、それを使用してアセットをバッシュ・キャッシュすることができます。 app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`は、キャッシュ破棄トークンを生成するためにファイルを見る必要はありませんが、ファイル単位の細かいトークンをサポートしています。</p>
+<p>例えば、 `` manifest.json``のような例を考えます：</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;css/main.css&quot;</span><span class="p">:</span> <span class="s2">&quot;css/main-678b7c80.css&quot;</span><span class="p">,</span>
     <span class="nt">&quot;images/background.png&quot;</span><span class="p">:</span> <span class="s2">&quot;images/background-a8169106.png&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The following code would set up a cachebuster:</p>
+<p>次のコードはキャッシュバスターを設定します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -550,85 +351,34 @@ any cache busting tokens, but still supports fine-grained per-file tokens.</p>
     <span class="n">ManifestCacheBuster</span><span class="p">(</span><span class="s1">&#39;myapp:static/manifest.json&#39;</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
-<p>It's important to note that the cache buster only handles generating
-cache-busted URLs for static assets. It does <strong>NOT</strong> provide any solutions for
-serving those assets. For example, if you generated a URL for
-<code class="docutils literal notranslate"><span class="pre">css/main-678b7c80.css</span></code> then that URL needs to be valid either by
-configuring <code class="docutils literal notranslate"><span class="pre">add_static_view</span></code> properly to point to the location of the files
-or some other mechanism such as the files existing on your CDN or rewriting
-the incoming URL to remove the cache bust tokens.</p>
+<p>キャッシュバスターは、静的アセットのキャッシュで破棄されたURLの生成のみを処理することに注意することが重要です。これらの資産を提供するためのソリューションは提供していません**。たとえば、 `` css / main-678b7c80.css``のURLを生成した場合、そのURLはファイルの場所を指すように `` add_static_view``を適切に設定するか、あなたのCDN上に存在するファイル、または着信URLを書き換えてキャッシュバストトークンを削除します。</p>
 </div>
 <div class="section" id="css-and-javascript-source-and-cache-busting">
-<span id="index-5"></span><h3>CSS and JavaScript source and cache busting<a class="headerlink" href="#css-and-javascript-source-and-cache-busting" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Often one needs to refer to images and other static assets inside CSS and
-JavaScript files. If cache busting is active, the final static asset URL is not
-available until the static assets have been assembled. These URLs cannot be
-handwritten. Below is an example of how to integrate the cache buster into
-the entire stack. Remember, it is just an example and should be modified to
-fit your specific tools.</p>
+<span id="index-5"></span><h3>CSSとJavaScriptのソースとキャッシュの破棄<a class="headerlink" href="#css-and-javascript-source-and-cache-busting" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>多くの場合、CSSやJavaScriptファイル内のイメージやその他の静的なアセットを参照する必要があります。キャッシュ無効化が有効な場合、最終的な静的アセットURLは、静的アセットがアセンブルされるまで使用できません。これらのURLは手書きできません。以下は、キャッシュバスターをスタック全体に統合する方法の例です。これは単なる例であり、特定のツールに合わせて修正する必要があることを覚えておいてください。</p>
 <ul class="simple">
-<li>First, process the files by using a precompiler which rewrites URLs to their
-final cache-busted form. Then, you can use the
-<a class="reference internal" href="../api/static.html#pyramid.static.ManifestCacheBuster" title="pyramid.static.ManifestCacheBuster"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManifestCacheBuster</span></code></a> to synchronize your asset
-pipeline with <span>Pyramid</span>, allowing the pipeline to have full control
-over the final URLs of your assets.</li>
+<li>最初に、URLを最終的なキャッシュ・バスト・フォームに書き換えるプリコンパイラを使用してファイルを処理します。次に、：class： <cite>〜pyramid.static.ManifestCacheBuster`を使用してアセットパイプラインを：app：</cite> Pyramid`と同期させることができます。パイプラインはアセットの最終URLを完全に制御できます。</li>
 </ul>
-<p>Now that you are able to generate static URLs within <span>Pyramid</span>,
-you'll need to handle URLs that are out of our control. To do this you may
-use some of the following options to get started:</p>
+<p>これで、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`内で静的URLを生成できるようになったので、あなたがコントロールできないURLを処理する必要があります。これを行うには、以下のオプションのいくつかを使用して開始してください。</p>
 <ul class="simple">
-<li>Configure your asset pipeline to rewrite URL references inline in
-CSS and JavaScript. This is the best approach because then the files
-may be hosted by <span>Pyramid</span> or an external CDN without having to
-change anything. They really are static.</li>
-<li>Templatize JS and CSS, and call <code class="docutils literal notranslate"><span class="pre">request.static_url()</span></code> inside their
-template code. While this approach may work in certain scenarios, it is not
-recommended because your static assets will not really be static and are now
-dependent on <span>Pyramid</span> to be served correctly. See
-<a class="reference internal" href="#advanced-static"><span class="std std-ref">Advanced: Serving Static Assets Using a View Callable</span></a> for more information on this approach.</li>
+<li>アセットパイプラインを設定して、CSSおよびJavaScriptでURL参照をインラインで書き直すようにします。これは、ファイルをapp： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`または外部のCDNで変更することなくホストすることができるため、最良の方法です。彼らは本当に静的です。</li>
+<li>JSとCSSをTemplatizeし、テンプレートコードの中で `` request.static_url（） <a href="#id1"><span class="problematic" id="id2">``</span></a>を呼び出します。このアプローチは特定のシナリオではうまくいくかもしれませんが、静的資産は実際には静的ではなく、app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`が正しく提供されるため、推奨されません。このアプローチの詳細については：ref： <a href="#id5"><span class="problematic" id="id6">`</span></a>advanced_static`を参照してください。</li>
 </ul>
-<p>If your CSS and JavaScript assets use URLs to reference other assets it is
-recommended that you implement an external asset pipeline that can rewrite the
-generated static files with new URLs containing cache busting tokens. The
-machinery inside <span>Pyramid</span> will not help with this step as it has very
-little knowledge of the asset types your application may use. The integration
-into <span>Pyramid</span> is simply for linking those assets into your HTML and
-other dynamic content.</p>
+<p>CSSおよびJavaScriptアセットでURLを使用して他のアセットを参照する場合、生成された静的ファイルをキャッシュ破棄トークンを含む新しいURLに書き換えることができる外部アセットパイプラインを実装することをお勧めします。内部の機械：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、アプリケーションが使用する資産の種類についての知識がほとんどないため、このステップを助けません。 ：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`への統合は、単にそれらのアセットをHTMLや他の動的コンテンツにリンクするためだけです。</p>
 </div>
 </div>
 <div class="section" id="advanced-serving-static-assets-using-a-view-callable">
-<span id="advanced-static"></span><h2>Advanced: Serving Static Assets Using a View Callable<a class="headerlink" href="#advanced-serving-static-assets-using-a-view-callable" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>For more flexibility, static assets can be served by a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>
-which you register manually.  For example, if you're using <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL
-dispatch</span></a>, you may want static assets to only be available as a fallback if no
-previous route matches.  Alternatively, you might like to serve a particular
-static asset manually, because its download requires authentication.</p>
-<p>Note that you cannot use the <a class="reference internal" href="../api/request.html#pyramid.request.Request.static_url" title="pyramid.request.Request.static_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">static_url()</span></code></a> API to
-generate URLs against assets made accessible by registering a custom static
-view.</p>
+<span id="advanced-static"></span><h2>上級者：ビューコールバックを使用した静的資産の処理<a class="headerlink" href="#advanced-serving-static-assets-using-a-view-callable" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>柔軟性を高めるために、静的資産は：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>view callable`によって提供され、手動で登録します。たとえば、：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>URL dispatch`を使用している場合、以前のルートが一致しない場合にのみ静的資産をフォールバックとして使用できるようにすることができます。あるいは、ダウンロードに認証が必要なため、特定の静的資産を手動で提供することもできます。</p>
+<p>：meth： <cite>〜pyramid.request.Request.static_url</cite> APIを使用して、カスタム静的ビューを登録してアクセス可能にしたアセットに対するURLを生成することはできません。</p>
 <div class="section" id="root-relative-custom-static-view-url-dispatch-only">
-<h3>Root-Relative Custom Static View (URL Dispatch Only)<a class="headerlink" href="#root-relative-custom-static-view-url-dispatch-only" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <a class="reference internal" href="../api/static.html#pyramid.static.static_view" title="pyramid.static.static_view"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.static.static_view</span></code></a> helper class generates a Pyramid view
-callable.  This view callable can serve static assets from a directory.  An
-instance of this class is actually used by the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> configuration method, so
-its behavior is almost exactly the same once it's configured.</p>
+<h3>ルート関連のカスタムスタティックビュー（URLディスパッチのみ）<a class="headerlink" href="#root-relative-custom-static-view-url-dispatch-only" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.static.static_view`ヘルパークラスは、呼び出し可能なピラミッドビューを生成します。このビュー呼び出し可能は、ディレクトリから静的資産を提供することができます。このクラスのインスタンスは：meth： <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.config.Configurator.add_static_view`設定メソッドによって実際に使用されるため、設定された動作はほぼ同じになります。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">The following example <em>will not work</em> for applications that use
-<a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>; it will only work if you use <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>
-exclusively.  The root-relative route we'll be registering will always be
-matched before traversal takes place, subverting any views registered via
-<code class="docutils literal notranslate"><span class="pre">add_view</span></code> (at least those without a <code class="docutils literal notranslate"><span class="pre">route_name</span></code>).  A
-<a class="reference internal" href="../api/static.html#pyramid.static.static_view" title="pyramid.static.static_view"><code class="xref py py-class docutils literal notranslate"><span class="pre">static_view</span></code></a> static view cannot be made
-root-relative when you use traversal unless it's registered as a <a class="reference internal" href="../glossary.html#term-not-found-view"><span class="xref std std-term">Not
-Found View</span></a>.</p>
+<p class="last">次の例では、term： <cite>traversal`を使用するアプリケーションで*動作しません。 term： `URL dispatch`を排他的に使用すると動作します。登録するルート相対ルートは、トラバーサルが発生する前に常に一致し、 `</cite> add_view``（少なくとも `` route_name``がないもの）によって登録されたビューを覆します。 A：class： <cite>〜pyramid.static.static_view`静的ビューは：term：</cite> Not Found View`として登録されていない限り、トラバーサルを使用するとroot相対にすることはできません。</p>
 </div>
-<p>To serve files within a directory located on your filesystem at
-<code class="docutils literal notranslate"><span class="pre">/path/to/static/dir</span></code> as the result of a &quot;catchall&quot; route hanging from the
-root that exists at the end of your routing table, create an instance of the
-<a class="reference internal" href="../api/static.html#pyramid.static.static_view" title="pyramid.static.static_view"><code class="xref py py-class docutils literal notranslate"><span class="pre">static_view</span></code></a> class inside a <code class="docutils literal notranslate"><span class="pre">static.py</span></code> file in your
-application root as below.</p>
+<p>ルーティングテーブルの最後にあるルートからハングする&amp;quot;catchall &amp;quot;ルートの結果として、ファイルシステム上にあるディレクトリ内のファイルを `` / path / to / static / dir``に提供するには、あなたのアプリケーションルートの `` static.py``ファイルの中で：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.static.static_view`クラスのインスタンスを作成します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.static</span> <span class="kn">import</span> <span class="n">static_view</span>
 <span class="n">static_view</span> <span class="o">=</span> <span class="n">static_view</span><span class="p">(</span><span class="s1">&#39;/path/to/static/dir&#39;</span><span class="p">,</span> <span class="n">use_subpath</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -636,14 +386,9 @@ application root as below.</p>
 </td></tr></table></div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">For better cross-system flexibility, use an <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a> as
-the argument to <a class="reference internal" href="../api/static.html#pyramid.static.static_view" title="pyramid.static.static_view"><code class="xref py py-class docutils literal notranslate"><span class="pre">static_view</span></code></a> instead of a physical
-absolute filesystem path, e.g., <code class="docutils literal notranslate"><span class="pre">mypackage:static</span></code>, instead of
-<code class="docutils literal notranslate"><span class="pre">/path/to/mypackage/static</span></code>.</p>
+<p class="last">クロスシステムの柔軟性を高めるために、物理的な絶対ファイルシステムパスの代わりに：class： <cite>〜pyramid.static.static_view`の引数として：term：</cite> asset specification`を使用してください。たとえば、 `` mypackage：static``の代わりに`` / path / to / mypackage / static``のようなものです。</p>
 </div>
-<p>Subsequently, you may wire the files that are served by this view up to be
-accessible as <code class="docutils literal notranslate"><span class="pre">/&lt;filename&gt;</span></code> using a configuration method in your
-application's startup code.</p>
+<p>その後、このビューで提供されるファイルを `` / &lt;filename&gt; <a href="#id1"><span class="problematic" id="id2">``</span></a>あなたのアプリケーションのスタートアップコードで設定メソッドを使います。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -655,14 +400,11 @@ application's startup code.</p>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;myapp.static.static_view&#39;</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;catchall_static&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The special name <code class="docutils literal notranslate"><span class="pre">*subpath</span></code> above is used by the
-<a class="reference internal" href="../api/static.html#pyramid.static.static_view" title="pyramid.static.static_view"><code class="xref py py-class docutils literal notranslate"><span class="pre">static_view</span></code></a> view callable to signify the path of the
-file relative to the directory you're serving.</p>
+<p>上の特別な名前 `` * subpath``は：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.static.static_view`ビューによって呼び出され、あなたが提供しているディレクトリを基準にファイルのパスを指定します。</p>
 </div>
 <div class="section" id="registering-a-view-callable-to-serve-a-static-asset">
-<h3>Registering a View Callable to Serve a &quot;Static&quot; Asset<a class="headerlink" href="#registering-a-view-callable-to-serve-a-static-asset" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You can register a simple view callable to serve a single static asset.  To do
-so, do things &quot;by hand&quot;.  First define the view callable.</p>
+<h3>&amp;quot;スタティック&amp;quot;アセットを表示するためのビュー呼び出し可能の登録<a class="headerlink" href="#registering-a-view-callable-to-serve-a-static-asset" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>単一の静的資産を提供するために呼び出し可能な単純ビューを登録することができます。そうするには、手で&amp;quot;手で行います。まず、呼び出し可能なビューを定義します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -678,61 +420,34 @@ so, do things &quot;by hand&quot;.  First define the view callable.</p>
     <span class="k">return</span> <span class="n">FileResponse</span><span class="p">(</span><span class="n">icon</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The above bit of code within <code class="docutils literal notranslate"><span class="pre">favicon_view</span></code> computes &quot;here&quot;, which is a path
-relative to the Python file in which the function is defined.  It then creates
-a <a class="reference internal" href="../api/response.html#pyramid.response.FileResponse" title="pyramid.response.FileResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.FileResponse</span></code></a> using the file path as the response's
-<code class="docutils literal notranslate"><span class="pre">path</span></code> argument and the request as the response's <code class="docutils literal notranslate"><span class="pre">request</span></code> argument.
-<a class="reference internal" href="../api/response.html#pyramid.response.FileResponse" title="pyramid.response.FileResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.FileResponse</span></code></a> will serve the file as quickly as
-possible when it's used this way.  It makes sure to set the right content
-length and content_type, too, based on the file extension of the file you pass.</p>
-<p>You might register such a view via configuration as a view callable that should
-be called as the result of a traversal:</p>
+<p>`` favicon_view``内の上記のコードは&amp;quot;here &amp;quot;を計算します。これは関数が定義されているPythonファイルを基準とした相対パスです。次に、レスポンスの `` path``引数としてファイルパスを使用し、レスポンスの `` request``引数として要求を使用して：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.response.FileResponse`を作成します。 ：class： <a href="#id3"><span class="problematic" id="id4">`</span></a>pyramid.response.FileResponse`は、このように使用されたときにできるだけ早くファイルを提供します。渡すファイルのファイル拡張子に基づいて、正しいコンテンツの長さとcontent_typeを設定します。</p>
+<p>このようなビューは、トラバーサルの結果として呼び出されるビュー呼び出し可能として構成によって登録することができます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;myapp.views.favicon_view&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;favicon.ico&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Or you might register it to be the view callable for a particular route:</p>
+<p>または、特定のルートで呼び出し可能なビューに登録することもできます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;favicon&#39;</span><span class="p">,</span> <span class="s1">&#39;/favicon.ico&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;myapp.views.favicon_view&#39;</span><span class="p">,</span> <span class="n">route_name</span><span class="o">=</span><span class="s1">&#39;favicon&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Because this is a simple view callable, it can be protected with a
-<a class="reference internal" href="../glossary.html#term-permission"><span class="xref std std-term">permission</span></a> or can be configured to respond under different
-circumstances using <a class="reference internal" href="../glossary.html#term-view-predicate"><span class="xref std std-term">view predicate</span></a> arguments.</p>
+<p>これは呼び出し可能な単純なビューなので、：term： <cite>permission`で保護することも、term：</cite> view predicate`引数を使って異なる状況下で応答するように設定することもできます。</p>
 </div>
 </div>
 <div class="section" id="overriding-assets">
-<span id="overriding-assets-section"></span><span id="index-6"></span><h2>Overriding Assets<a class="headerlink" href="#overriding-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>It can often be useful to override specific assets from &quot;outside&quot; a given
-<span>Pyramid</span> application.  For example, you may wish to reuse an existing
-<span>Pyramid</span> application more or less unchanged.  However, some specific
-template file owned by the application might have inappropriate HTML, or some
-static asset (such as a logo file or some CSS file) might not be appropriate.
-You <em>could</em> just fork the application entirely, but it's often more convenient
-to just override the assets that are inappropriate and reuse the application
-&quot;as is&quot;.  This is particularly true when you reuse some &quot;core&quot; application over
-and over again for some set of customers (such as a CMS application, or some
-bug tracking application), and you want to make arbitrary visual modifications
-to a particular application deployment without forking the underlying code.</p>
-<p>To this end, <span>Pyramid</span> contains a feature that makes it possible to
-&quot;override&quot; one asset with one or more other assets.  In support of this
-feature, a <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> API exists named
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.override_asset" title="pyramid.config.Configurator.override_asset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.override_asset()</span></code></a>.  This API allows you to
-<em>override</em> the following kinds of assets defined in any Python package:</p>
+<span id="overriding-assets-section"></span><span id="index-6"></span><h2>アセットのオーバーライド<a class="headerlink" href="#overriding-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>特定の資産をapp： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションの外から上書きすると便利なことがよくあります。たとえば、既存の：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`アプリケーションを多かれ少なかれ変更せずに再利用することができます。ただし、アプリケーションが所有する特定のテンプレートファイルの中に不適切なHTMLが含まれている場合や、スタティックアセット（ロゴファイルやCSSファイルなど）が適切でない場合があります。アプリケーションを完全にフォークすることはできますが、不適切なアセットをオーバーライドしてアプリケーションをそのまま使用すると便利です。これは、いくつかの顧客（CMSアプリケーションやバグ追跡アプリケーションなど）のためにいくつかの&amp;quot;コア&amp;quot;アプリケーションを何度も何度も何度も再利用し、特定のアプリケーションデプロイメントに対して任意の視覚的な変更を加えたい場合に特に当てはまります基礎となるコードをフォークすることなく。</p>
+<p>この目的のために、：app： <cite>Pyramid`には、ある資産を1つ以上の他の資産と&amp;quot;上書き &amp;quot;する機能を含みます。この機能をサポートするために、a：term： `Configurator</cite> APIが存在します：meth：` pyramid.config.Configurator.override_asset`。このAPIを使用すると、任意のPythonパッケージで定義された次の種類のアセットをオーバーライドできます。</p>
 <ul class="simple">
-<li>Individual template files.</li>
-<li>A directory containing multiple template files.</li>
-<li>Individual static files served up by an instance of the
-<code class="docutils literal notranslate"><span class="pre">pyramid.static.static_view</span></code> helper class.</li>
-<li>A directory of static files served up by an instance of the
-<code class="docutils literal notranslate"><span class="pre">pyramid.static.static_view</span></code> helper class.</li>
-<li>Any other asset (or set of assets) addressed by code that uses the setuptools
-<a class="reference internal" href="../glossary.html#term-pkg-resources"><span class="xref std std-term">pkg_resources</span></a> API.</li>
+<li>個々のテンプレートファイル。</li>
+<li>複数のテンプレートファイルを含むディレクトリ。</li>
+<li>個々の静的ファイルは、 `` pyramid.static.static_view``ヘルパークラスのインスタンスによって提供されます。</li>
+<li>静的ファイルのディレクトリで、 `` pyramid.static.static_view``ヘルパークラスのインスタンスによって提供されます。</li>
+<li>setuptools：term： <cite>pkg_resources</cite> APIを使用するコードで扱われるその他のアセット（またはアセットのセット）。</li>
 </ul>
 <div class="section" id="the-override-asset-api">
-<span id="override-asset"></span><span id="index-7"></span><h3>The <code class="docutils literal notranslate"><span class="pre">override_asset</span></code> API<a class="headerlink" href="#the-override-asset-api" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>An individual call to <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.override_asset" title="pyramid.config.Configurator.override_asset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">override_asset()</span></code></a> can
-override a single asset.  For example:</p>
+<span id="override-asset"></span><span id="index-7"></span><h3>`` override_asset`` API<a class="headerlink" href="#the-override-asset-api" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.override_asset`を個別に呼び出すと、単一のアセットをオーバーライドできます。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">override_asset</span><span class="p">(</span>
@@ -740,78 +455,36 @@ override a single asset.  For example:</p>
     <span class="n">override_with</span><span class="o">=</span><span class="s1">&#39;another.package:othertemplates/anothertemplate.pt&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The string value passed to both <code class="docutils literal notranslate"><span class="pre">to_override</span></code> and <code class="docutils literal notranslate"><span class="pre">override_with</span></code> sent to
-the <code class="docutils literal notranslate"><span class="pre">override_asset</span></code> API is called an <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a>.  The colon
-separator in a specification separates the <em>package name</em> from the <em>asset
-name</em>.  The colon and the following asset name are optional.  If they are not
-specified, the override attempts to resolve every lookup into a package from
-the directory of another package.  For example:</p>
+<p>`` override_asset`` APIに送られる `` to_override``と `` override_with``の両方に渡される文字列値は：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>asset specification`と呼ばれます。仕様のコロン区切り記号は、<a href="#id3"><span class="problematic" id="id4">*</span></a>パッケージ名*を*資産名*から分離します。コロンと次のアセット名はオプションです。それらが指定されていない場合、オーバーライドは別のパッケージのディレクトリからパッケージへのすべてのルックアップを解決しようとします。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">override_asset</span><span class="p">(</span><span class="n">to_override</span><span class="o">=</span><span class="s1">&#39;some.package&#39;</span><span class="p">,</span>
                       <span class="n">override_with</span><span class="o">=</span><span class="s1">&#39;another.package&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Individual subdirectories within a package can also be overridden:</p>
+<p>パッケージ内の個々のサブディレクトリも上書きできます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">override_asset</span><span class="p">(</span><span class="n">to_override</span><span class="o">=</span><span class="s1">&#39;some.package:templates/&#39;</span><span class="p">,</span>
                       <span class="n">override_with</span><span class="o">=</span><span class="s1">&#39;another.package:othertemplates/&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>If you wish to override a directory with another directory, you <em>must</em> make
-sure to attach the slash to the end of both the <code class="docutils literal notranslate"><span class="pre">to_override</span></code> specification
-and the <code class="docutils literal notranslate"><span class="pre">override_with</span></code> specification.  If you fail to attach a slash to the
-end of a specification that points to a directory, you will get unexpected
-results.</p>
-<p>You cannot override a directory specification with a file specification, and
-vice versa; a startup error will occur if you try.  You cannot override an
-asset with itself; a startup error will occur if you try.</p>
-<p>Only individual <em>package</em> assets may be overridden.  Overrides will not
-traverse through subpackages within an overridden package.  This means that if
-you want to override assets for both <code class="docutils literal notranslate"><span class="pre">some.package:templates</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">some.package.views:templates</span></code>, you will need to register two overrides.</p>
-<p>The package name in a specification may start with a dot, meaning that the
-package is relative to the package in which the configuration construction file
-resides (or the <code class="docutils literal notranslate"><span class="pre">package</span></code> argument to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> class construction). For example:</p>
+<p>ディレクトリを別のディレクトリで上書きする場合は、スラッシュを `` to_override``仕様と `` override_with``仕様の両方の末尾に付ける必要があります。ディレクトリを指す指定の最後にスラッシュを付けると、予期しない結果が発生します。</p>
+<p>ディレクトリ指定をファイル指定で上書きすることはできません。逆もできません。試してみると起動エラーが発生します。アセット自体をオーバーライドすることはできません。試してみると起動エラーが発生します。</p>
+<p>個々の* package <a href="#id1"><span class="problematic" id="id2">*</span></a>アセットだけがオーバーライドされます。オーバーライドは、オーバーライドされたパッケージ内のサブパッケージを通過しません。これは、 `` some.package：templates``と `` some.package.views：templates``の両方のアセットをオーバーライドする場合、2つのオーバーライドを登録する必要があることを意味します。</p>
+<p>仕様のパッケージ名は、ドットで始まることがあります。これは、パッケージがコンフィギュレーション構築ファイルが存在するパッケージ（または：class： <cite>〜pyramid.config.Configurator`の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>package``引数）に相対的であることを意味します。クラス構造）。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">override_asset</span><span class="p">(</span><span class="n">to_override</span><span class="o">=</span><span class="s1">&#39;.subpackage:templates/&#39;</span><span class="p">,</span>
                       <span class="n">override_with</span><span class="o">=</span><span class="s1">&#39;another.package:templates/&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Multiple calls to <code class="docutils literal notranslate"><span class="pre">override_asset</span></code> which name a shared <code class="docutils literal notranslate"><span class="pre">to_override</span></code> but a
-different <code class="docutils literal notranslate"><span class="pre">override_with</span></code> specification can be &quot;stacked&quot; to form a search
-path.  The first asset that exists in the search path will be used; if no asset
-exists in the override path, the original asset is used.</p>
-<p>Asset overrides can actually override assets other than templates and static
-files.  Any software which uses the
-<code class="xref py py-func docutils literal notranslate"><span class="pre">pkg_resources.get_resource_filename()</span></code>,
-<code class="xref py py-func docutils literal notranslate"><span class="pre">pkg_resources.get_resource_stream()</span></code>, or
-<code class="xref py py-func docutils literal notranslate"><span class="pre">pkg_resources.get_resource_string()</span></code> APIs will obtain an overridden file
-when an override is used.</p>
+<p>共有された `` to_override``を指定するが、別の `` override_with``を指定する `` override_asset``への複数の呼び出しは、検索パスを形成するためにスタックされます。検索パスに存在する最初のアセットが使用されます。上書きパスに資産が存在しない場合は、元の資産が使用されます。</p>
+<p>資産オーバーライドは、テンプレートや静的ファイル以外の資産を実際にオーバーライドできます。 ：func： <cite>pkg_resources.get_resource_filename</cite>、：func：` pkg_resources.get_resource_stream`、または：func： <cite>pkg_resources.get_resource_string</cite> APIを使用するソフトウェアは、オーバーライドが使用されるときにオーバーライドされたファイルを取得します。</p>
 <div class="versionadded">
-<p><span class="versionmodified">バージョン 1.6 で追加: </span>As of Pyramid 1.6, it is also possible to override an asset by supplying an
-absolute path to a file or directory. This may be useful if the assets are
-not distributed as part of a Python package.</p>
+<p><span class="versionmodified">バージョン 1.6 で追加: </span>Pyramid 1.6以降では、ファイルまたはディレクトリへの絶対パスを指定することでアセットをオーバーライドすることもできます。これは、アセットがPythonパッケージの一部として配布されていない場合に便利です。</p>
 </div>
 </div>
 <div class="section" id="cache-busting-and-asset-overrides">
-<h3>Cache Busting and Asset Overrides<a class="headerlink" href="#cache-busting-and-asset-overrides" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Overriding static assets that are being hosted using
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_static_view()</span></code></a> can affect your cache
-busting strategy when using any cache busters that are asset-aware such as
-<a class="reference internal" href="../api/static.html#pyramid.static.ManifestCacheBuster" title="pyramid.static.ManifestCacheBuster"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.static.ManifestCacheBuster</span></code></a>. What sets asset-aware cache
-busters apart is that they have logic tied to specific assets. For example,
-a manifest is only generated for a specific set of pre-defined assets. Now,
-imagine you have overridden an asset defined in this manifest with a new,
-unknown version. By default, the cache buster will be invoked for an asset
-it has never seen before and will likely end up returning a cache busting
-token for the original asset rather than the asset that will actually end up
-being served! In order to get around this issue, it's possible to attach a
-different <a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.ICacheBuster" title="pyramid.interfaces.ICacheBuster"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.ICacheBuster</span></code></a> implementation to the
-new assets. This would cause the original assets to be served by their
-manifest, and the new assets served by their own cache buster. To do this,
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_cache_buster()</span></code> supports an <code class="docutils literal notranslate"><span class="pre">explicit</span></code>
-option. For example:</p>
+<h3>キャッシュバストと資産のオーバーライド<a class="headerlink" href="#cache-busting-and-asset-overrides" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：meth： <cite>pyramid.config.Configurator.add_static_view`を使用してホストされている静的アセットをオーバーライドすると、class：</cite> pyramid.static.ManifestCacheBuster`のようなアセット対応のキャッシュバスターを使用するときのキャッシュ破棄戦略に影響を与える可能性があります。アセット・アウェア・キャッシュ・バスターは、ロジックを特定のアセットに結び付けている点で違いがあります。たとえば、マニフェストは、事前定義された特定のアセットのセットに対してのみ生成されます。今、このマニフェストで定義されたアセットを、新しい未知のバージョンで上書きしたとします。デフォルトでは、これまでに見たことがないアセットに対してキャッシュバスターが呼び出され、実際に配信されるアセットではなく、元のアセットのキャッシュ破棄トークンが返される可能性があります。この問題を回避するために、異なる：class： <cite>pyramid.interfaces.ICacheBuster`実装を新しいアセットに付加することが可能です。これにより、元のアセットはマニフェストによって提供され、新しいアセットは独自のキャッシュ・バスターによって提供されます。これを行うには：meth： `pyramid.config.Configurator.add_cache_buster`は</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>explicit``オプションをサポートしています。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -847,16 +520,8 @@ option. For example:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">add_cache_buster</span><span class="p">(</span><span class="s1">&#39;theme:static&#39;</span><span class="p">,</span> <span class="n">theme_cb</span><span class="p">,</span> <span class="n">explicit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>In the above example there is a default cache buster, <code class="docutils literal notranslate"><span class="pre">my_cb</span></code>, for all
-assets served from the <code class="docutils literal notranslate"><span class="pre">myapp:static</span></code> folder. This would also affect
-<code class="docutils literal notranslate"><span class="pre">theme:static/background.png</span></code> when generating URLs via
-<code class="docutils literal notranslate"><span class="pre">request.static_url('myapp:static/background.png')</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">theme_cb</span></code> is defined explicitly for any assets loaded from the
-<code class="docutils literal notranslate"><span class="pre">theme:static</span></code> folder. Explicit cache busters have priority and thus
-<code class="docutils literal notranslate"><span class="pre">theme_cb</span></code> would be invoked for
-<code class="docutils literal notranslate"><span class="pre">request.static_url('myapp:static/background.png')</span></code>, but <code class="docutils literal notranslate"><span class="pre">my_cb</span></code> would
-be used for any other assets like
-<code class="docutils literal notranslate"><span class="pre">request.static_url('myapp:static/favicon.ico')</span></code>.</p>
+<p>上記の例では、 `` myapp：static``フォルダから提供されるすべてのアセットに対して、デフォルトのキャッシュ・バスター、 `` my_cb``があります。これは、 `` request.static_url（ &amp;#39;myapp：static / background.png&amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>でURLを生成するときに `` theme：static / background.png``にも影響します。</p>
+<p>`` theme_cb``は `` theme：static``フォルダから読み込まれたアセットに対して明示的に定義されています。明示的なキャッシュバスターは優先順位があり、 `` request.static_url（ &amp;#39;myapp：static / background.png&amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>に対して `` theme_cb``が呼び出されますが、 `` my_cb``は ` <cite>request.static_url（ &amp;#39;myapp：static / favicon.ico&amp;#39;）</cite> <a href="#id3"><span class="problematic" id="id4">`</span></a>です。</p>
 </div>
 </div>
 </div>
@@ -869,27 +534,27 @@ be used for any other assets like
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Static Assets</a><ul>
-<li><a class="reference internal" href="#understanding-asset-specifications">Understanding Asset Specifications</a></li>
-<li><a class="reference internal" href="#serving-static-assets">Serving Static Assets</a><ul>
-<li><a class="reference internal" href="#generating-static-asset-urls">Generating Static Asset URLs</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) 静的資産</a><ul>
+<li><a class="reference internal" href="#understanding-asset-specifications">資産の仕様の理解</a></li>
+<li><a class="reference internal" href="#serving-static-assets">静的資産の提供</a><ul>
+<li><a class="reference internal" href="#generating-static-asset-urls">静的資産URLの生成</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cache-busting">Cache Busting</a><ul>
-<li><a class="reference internal" href="#disabling-the-cache-buster">Disabling the Cache Buster</a></li>
-<li><a class="reference internal" href="#customizing-the-cache-buster">Customizing the Cache Buster</a></li>
-<li><a class="reference internal" href="#path-segments-and-choosing-a-cache-buster">Path Segments and Choosing a Cache Buster</a></li>
-<li><a class="reference internal" href="#css-and-javascript-source-and-cache-busting">CSS and JavaScript source and cache busting</a></li>
+<li><a class="reference internal" href="#cache-busting">キャッシュバスト</a><ul>
+<li><a class="reference internal" href="#disabling-the-cache-buster">キャッシュ・バスターの無効化</a></li>
+<li><a class="reference internal" href="#customizing-the-cache-buster">キャッシュ・バスターのカスタマイズ</a></li>
+<li><a class="reference internal" href="#path-segments-and-choosing-a-cache-buster">パスセグメントとキャッシュバスターの選択</a></li>
+<li><a class="reference internal" href="#css-and-javascript-source-and-cache-busting">CSSとJavaScriptのソースとキャッシュの破棄</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#advanced-serving-static-assets-using-a-view-callable">Advanced: Serving Static Assets Using a View Callable</a><ul>
-<li><a class="reference internal" href="#root-relative-custom-static-view-url-dispatch-only">Root-Relative Custom Static View (URL Dispatch Only)</a></li>
-<li><a class="reference internal" href="#registering-a-view-callable-to-serve-a-static-asset">Registering a View Callable to Serve a &quot;Static&quot; Asset</a></li>
+<li><a class="reference internal" href="#advanced-serving-static-assets-using-a-view-callable">上級者：ビューコールバックを使用した静的資産の処理</a><ul>
+<li><a class="reference internal" href="#root-relative-custom-static-view-url-dispatch-only">ルート関連のカスタムスタティックビュー（URLディスパッチのみ）</a></li>
+<li><a class="reference internal" href="#registering-a-view-callable-to-serve-a-static-asset">&amp;quot;スタティック&amp;quot;アセットを表示するためのビュー呼び出し可能の登録</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#overriding-assets">Overriding Assets</a><ul>
-<li><a class="reference internal" href="#the-override-asset-api">The <code class="docutils literal notranslate"><span class="pre">override_asset</span></code> API</a></li>
-<li><a class="reference internal" href="#cache-busting-and-asset-overrides">Cache Busting and Asset Overrides</a></li>
+<li><a class="reference internal" href="#overriding-assets">アセットのオーバーライド</a><ul>
+<li><a class="reference internal" href="#the-override-asset-api">`` override_asset`` API</a></li>
+<li><a class="reference internal" href="#cache-busting-and-asset-overrides">キャッシュバストと資産のオーバーライド</a></li>
 </ul>
 </li>
 </ul>
@@ -898,10 +563,10 @@ be used for any other assets like
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="viewconfig.html"
-                        title="前の章へ">View Configuration</a></p>
+                        title="前の章へ">(機械翻訳) 設定を表示</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="webob.html"
-                        title="次の章へ">Request and Response Objects</a></p>
+                        title="次の章へ">(機械翻訳) 要求オブジェクトと応答オブジェクト</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -935,17 +600,17 @@ be used for any other assets like
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="webob.html" title="Request and Response Objects"
+          <a href="webob.html" title="(機械翻訳) 要求オブジェクトと応答オブジェクト"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="viewconfig.html" title="View Configuration"
+          <a href="viewconfig.html" title="(機械翻訳) 設定を表示"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

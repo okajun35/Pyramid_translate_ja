@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/configuration.rst:7
 msgid "Application Configuration"
-msgstr ""
+msgstr "(機械翻訳) アプリケーション構成"
 
 #: ../../narr/configuration.rst:9
 msgid ""
@@ -35,31 +25,31 @@ msgid ""
 "you've written into :app:`Pyramid` is also referred to within this "
 "documentation as \"configuration\"; you are configuring :app:`Pyramid` to"
 " call the code that makes up your application."
-msgstr ""
+msgstr "ほとんどの人は、アプリケーションの動作に影響を与える設定として、すでに &quot;構成&quot;を理解しています。例えば、アプリケーションの起動時に\ &quot;configuration \&quot;として解析された `` .ini``ファイルの値を考えるのは簡単です。しかし、あなたが合理的にオープンであれば、設定として*コード*を考えるのは簡単です。 Pyramidは他のほとんどのWebアプリケーションプラットフォームと同様に、* framework *であるため、（あなたが呼び出すためのコードである*ライブラリ*とは対照的に）あなたが書くコードを呼び出します。あなたが書いたアプリケーションコードをapp： `Pyramid`に差し込む行為は、このドキュメント内では\&quot; configuration \ &quot;とも呼ばれます。あなたのアプリケーションを構成するコードを呼び出すために：app： `Pyramid`を設定しています。"
 
 #: ../../narr/configuration.rst:21
 msgid ""
 "For information on ``.ini`` files for Pyramid applications see the "
 ":ref:`startup_chapter` chapter."
-msgstr ""
+msgstr "Pyramidアプリケーションの `` .ini``ファイルについては、：ref： `startup_chapter`の章を参照してください。"
 
 #: ../../narr/configuration.rst:24
 msgid ""
 "There are two ways to configure a :app:`Pyramid` application: "
 ":term:`imperative configuration` and :term:`declarative configuration`.  "
 "Both are described below."
-msgstr ""
+msgstr "app： `Pyramid`アプリケーション：：term：`必須の設定 `と：term：`宣言的な設定 &#39;の二つの方法があります。どちらも以下で説明します。"
 
 #: ../../narr/configuration.rst:33
 msgid "Imperative Configuration"
-msgstr ""
+msgstr "指示的な構成"
 
 #: ../../narr/configuration.rst:35
 msgid ""
 "\"Imperative configuration\" just means configuration done by Python "
 "statements, one after the next.  Here's one of the simplest "
 ":app:`Pyramid` applications, configured imperatively:"
-msgstr ""
+msgstr "\ &quot;命令的な設定\&quot;というのは、Pythonの文が次々に行う設定を意味します。ここでは、最も簡単なものの1つがapp： `Pyramid`アプリケーションです。"
 
 #: ../../narr/configuration.rst:56
 msgid ""
@@ -70,11 +60,11 @@ msgid ""
 "statements take place one after the other, and are executed in order, so "
 "the full power of Python, including conditionals, can be employed in this"
 " mode of configuration."
-msgstr ""
+msgstr "このアプリケーションが何をしているのかについてはまだ話しません。設定文は、 `：__name__ == &#39;__main __&#39;：` `スタンザの下で、：term：` Configurator`オブジェクト（例えば、 `` config.add_view ） ``）。これらのステートメントは順番に実行され、順番に実行されるため、条件を含むPythonの完全な機能をこの設定モードで使用できます。"
 
 #: ../../narr/configuration.rst:71
 msgid "Declarative Configuration"
-msgstr ""
+msgstr "宣言的な構成"
 
 #: ../../narr/configuration.rst:73
 msgid ""
@@ -87,7 +77,7 @@ msgid ""
 ":app:`Pyramid` allows you to insert :term:`configuration decoration` "
 "statements very close to code that is referred to by the declaration "
 "itself.  For example:"
-msgstr ""
+msgstr "多くの場合、単一のアプリケーションのコードが多くのファイルに存在することがあるので、すべての設定を命令コードで行うのは苦しいことがあります。構成が1か所に集約されている場合は、少なくとも2つのファイルを一度に開いて「大きな画像」を表示する必要があります。構成を表すファイルと、そのファイルによって参照される実装オブジェクトを含むファイルです。構成。これを避けるために、：app： `Pyramid`は：宣言自体によって参照されるコードに非常に近い：term：` configuration decoration`ステートメントを挿入することを可能にします。例えば："
 
 #: ../../narr/configuration.rst:92
 msgid ""
@@ -96,14 +86,14 @@ msgid ""
 "the configuration of a :app:`Pyramid` application, a configuration "
 "decoration within application code must be found through a process known "
 "as a :term:`scan`."
-msgstr ""
+msgstr "構成デコレーションの存在だけでは、構成登録は実行されません。 a：app： `Pyramid`アプリケーションの設定に影響を与える前に、アプリケーションコード内の設定デコレーションをa：term：` scan`と呼ばれるプロセスを通して見つける必要があります。"
 
 #: ../../narr/configuration.rst:97
 msgid ""
 "For example, the :class:`pyramid.view.view_config` decorator in the code "
 "example above adds an attribute to the ``hello`` function, making it "
 "available for a :term:`scan` to find it later."
-msgstr ""
+msgstr "たとえば、上記のコード例の：class： `pyramid.view.view_config`デコレータは、` `hello``関数に属性を追加し、後でそれを見つけるために：term：` scan`で利用可能にします。"
 
 #: ../../narr/configuration.rst:101
 msgid ""
@@ -112,7 +102,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.scan` method is invoked: scanning "
 "implies searching for configuration declarations in a package and its "
 "subpackages.  For example:"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.scan`メソッドが呼び出されると、term：` module`または `term：` package`のterm： `scan`が発生し、装飾のサブパッケージが発生します。パッケージとそのサブパッケージの構成宣言のためのものです。例えば："
 
 #: ../../narr/configuration.rst:125
 msgid ""
@@ -122,7 +112,7 @@ msgid ""
 " to code via the use of a :term:`decorator`.  For example, the "
 ":class:`~pyramid.view.view_config` decorator can be attached to a "
 "function or instance method."
-msgstr ""
+msgstr "スキャン機構は、パッケージまたはモジュール内の各モジュールおよびサブパッケージを再帰的にインポートし、モジュール内で定義されたオブジェクトに付加された特別な属性を探します。これらの特別な属性は、通常、：term： `decorator`を使用してコードに付加されます。たとえば、：class： `〜pyramid.view.view_config`デコレータは、関数またはインスタンスメソッドにアタッチすることができます。"
 
 #: ../../narr/configuration.rst:132
 msgid ""
@@ -130,25 +120,25 @@ msgid ""
 "by the scanner, a set of calls are made to a :term:`Configurator` on your"
 " behalf. These calls replace the need to add imperative configuration "
 "statements that don't live near the code being configured."
-msgstr ""
+msgstr "スキャンが呼び出され、：term： `configuration decoration`がスキャナによって検出されると、あなたの代わりに：term：` Configurator`への一連の呼び出しが行われます。これらの呼び出しは、構成中のコードの近くには存在しない必須の構成ステートメントを追加する必要性を置き換えます。"
 
 #: ../../narr/configuration.rst:137
 msgid ""
 "The combination of :term:`configuration decoration` and the invocation of"
 " a :term:`scan` is collectively known as :term:`declarative "
 "configuration`."
-msgstr ""
+msgstr "term： `configuration decoration`とa：term：` scan`の呼び出しは、総称してterm： `declarative configuration`と呼ばれます。"
 
 #: ../../narr/configuration.rst:140
 msgid ""
 "In the example above, the scanner translates the arguments to "
 ":class:`~pyramid.view.view_config` into a call to the "
 ":meth:`pyramid.config.Configurator.add_view` method, effectively:"
-msgstr ""
+msgstr "上記の例では、スキャナは：class： `〜pyramid.view.view_config`の引数を：meth：` pyramid.config.Configurator.add_view`メソッドの呼び出しに変換して効果的に行います："
 
 #: ../../narr/configuration.rst:149
 msgid "Summary"
-msgstr ""
+msgstr "概要"
 
 #: ../../narr/configuration.rst:151
 msgid ""
@@ -156,5 +146,5 @@ msgid ""
 "declaratively and imperatively.  You can choose the mode with which "
 "you're most comfortable; both are completely equivalent.  Examples in "
 "this documentation will use both modes interchangeably."
-msgstr ""
+msgstr "app： `Pyramid`アプリケーションを宣言的にかつ必須的に設定するには、2つの方法があります。最も快適なモードを選択できます。どちらも完全に同等です。このドキュメントの例では、両方のモードを同じ意味で使用します。"
 

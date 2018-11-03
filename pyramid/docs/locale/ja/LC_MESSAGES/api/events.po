@@ -7,24 +7,14 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../api/events.rst:4
 msgid ":mod:`pyramid.events`"
-msgstr ""
+msgstr "(機械翻訳) :mod:`pyramid.events`"
 
 #: ../../api/events.rst:9
 msgid "Functions"
-msgstr ""
+msgstr "関数"
 
 #: of pyramid.events.subscriber:1
 msgid ""
@@ -32,29 +22,29 @@ msgid ""
 "decorated as an event subscriber for the set of interfaces passed as "
 "``*ifaces`` and the set of predicate terms passed as ``**predicates`` to "
 "the decorator constructor."
-msgstr ""
+msgstr "デコレータは：term： `scan`によって起動されます。この関数は、` `* ifaces``として渡されたインターフェースのセットと` `**述語&#39;`として渡された述語のセットのイベント加入者として装飾されている関数をデコレータコンストラクタ。"
 
 #: of pyramid.events.subscriber:6
 msgid "For example:"
-msgstr ""
+msgstr "例えば："
 
 #: of pyramid.events.subscriber:17
 msgid ""
 "More than one event type can be passed as a constructor argument.  The "
 "decorated subscriber will be called for each event type."
-msgstr ""
+msgstr "1つ以上のイベントタイプをコンストラクタ引数として渡すことができます。装飾されたサブスクライバは、各イベントタイプに対して呼び出されます。"
 
 #: of pyramid.events.subscriber:29
 msgid ""
 "When the ``subscriber`` decorator is used without passing an arguments, "
 "the function it decorates is called for every event sent:"
-msgstr ""
+msgstr "引数を渡さずに `` subscriber``デコレータを使用すると、それがデコレートする関数は送信されたすべてのイベントに対して呼び出されます："
 
 #: of pyramid.events.subscriber:40
 msgid ""
 "This method will have no effect until a :term:`scan` is performed against"
 " the package or module which contains it, ala:"
-msgstr ""
+msgstr "このメソッドは、term： `scan`がそれを含むパッケージまたはモジュールに対して実行されるまで効果がありません。ala："
 
 #: of pyramid.events.subscriber:49
 msgid ""
@@ -62,13 +52,13 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_subscriber`.  See "
 ":ref:`subscriber_predicates` for a description of how predicates can "
 "narrow the set of circumstances in which a subscriber will be called."
-msgstr ""
+msgstr "`` ** predicate``引数は：meth： `pyramid.config.Configurator.add_subscriber`に渡されます。述語が加入者が呼び出される状況の集合をどのように狭めることができるかについては、：ref： `subscriber_predicates`を参照してください。"
 
 #: of pyramid.events.subscriber:54
 msgid ""
 "Two additional keyword arguments which will be passed to the "
 ":term:`venusian` ``attach`` function are ``_depth`` and ``_category``."
-msgstr ""
+msgstr "：term： `venusian`` `attach``関数に渡される2つの追加のキーワード引数は` `_depth``と` `_category``です。"
 
 #: of pyramid.events.subscriber:57
 msgid ""
@@ -78,28 +68,28 @@ msgid ""
 ":term:`venusian` ``attach`` function as the depth of the callstack when "
 "Venusian checks if the decorator is being used in a class or module "
 "context. It's not often used, but it can be useful in this circumstance."
-msgstr ""
+msgstr "`` _depth``はこのクラスを別のデコレータから再利用したい人に提供されます。デフォルト値は `` 0``であり、 `` subscriber``の呼び出しに関連して指定する必要があります。 Venusianがデコレータがクラスまたはモジュールコンテキストで使用されているかどうかをチェックするときに、callstackの深さとして：term： `venusian`` `attach``関数に渡されます。それは頻繁には使用されませんが、この状況では便利です。"
 
 #: of pyramid.events.subscriber:64
 msgid ""
 "``_category`` sets the decorator category name. It can be useful in "
 "combination with the ``category`` argument of ``scan`` to control which "
 "views should be processed."
-msgstr ""
+msgstr "`` _category``はデコレータのカテゴリ名を設定します。これは、どのビューを処理するかを制御する `` scan``の `` category``引数と組み合わせて使うと便利です。"
 
 #: of pyramid.events.subscriber:68
 msgid ""
 "See the :py:func:`venusian.attach` function in Venusian for more "
 "information about the ``_depth`` and ``_category`` arguments."
-msgstr ""
+msgstr "`` _depth``と `` _category``引数の詳細については、Venusianの：py：func： `venusian.attach`関数を参照してください。"
 
 #: of pyramid.events.subscriber:71
 msgid "Added the ``_depth`` and ``_category`` arguments."
-msgstr ""
+msgstr "`` _depth``と `` _category``引数を追加しました。"
 
 #: ../../api/events.rst:16
 msgid "Event Types"
-msgstr ""
+msgstr "イベントの種類"
 
 #: of pyramid.events.ApplicationCreated:1
 msgid ""
@@ -108,14 +98,14 @@ msgid ""
 "instance has an attribute, ``app``, which is an instance of the "
 ":term:`router` that will handle WSGI requests. This class implements the "
 ":class:`pyramid.interfaces.IApplicationCreated` interface."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.make_wsgi_app`が呼び出されると、このクラスのインスタンスは：term：` event`として発行されます。インスタンスには、属性： `` app``があります。この属性は、WSGI要求を処理する：term： `router`のインスタンスです。このクラスは：class： `pyramid.interfaces.IApplicationCreated`インタフェースを実装しています。"
 
 #: of pyramid.events.ApplicationCreated:10
 msgid ""
 "For backwards compatibility purposes, this class can also be imported as "
 ":class:`pyramid.events.WSGIApplicationCreatedEvent`.  This was the name "
 "of the event class before :app:`Pyramid` 1.0."
-msgstr ""
+msgstr "後方互換性のために、このクラスはclass： `pyramid.events.WSGIApplicationCreatedEvent`としてインポートすることもできます。この前のイベントクラスの名前はapp： `Pyramid` 1.0でした。"
 
 #: of pyramid.events.NewRequest:1
 msgid ""
@@ -123,7 +113,7 @@ msgid ""
 ":app:`Pyramid` begins to process a new request.  The event instance has "
 "an attribute, ``request``, which is a :term:`request` object.  This event"
 " class implements the :class:`pyramid.interfaces.INewRequest` interface."
-msgstr ""
+msgstr "このクラスのインスタンスは：app： `Pyramid`が新しいリクエストを処理し始めるたびに：term：` event`として発行されます。イベントインスタンスには、属性：「request」があります。これは：term： `request`オブジェクトです。このイベントクラスは、：class： `pyramid.interfaces.INewRequest`インターフェースを実装しています。"
 
 #: of pyramid.events.ContextFound:1
 msgid ""
@@ -132,7 +122,7 @@ msgid ""
 "performs traversal) but before any view code is executed.  The instance "
 "has an attribute, ``request``, which is the request object generated by "
 ":app:`Pyramid`."
-msgstr ""
+msgstr "このクラスのインスタンスは：app： `Pyramid`の後に：term：` event`として発行されます：term： `router`はa：term：` context`オブジェクトを見つけます（トラバーサルを実行した後）。実行される。インスタンスには属性：append： `Pyramid`によって生成されたリクエストオブジェクトである` `request``という属性があります。"
 
 #: of pyramid.events.ContextFound:7
 msgid ""
@@ -140,19 +130,19 @@ msgid ""
 "which is the context that will be provided to the view which will "
 "eventually be called, as well as other attributes attached by context-"
 "finding code."
-msgstr ""
+msgstr "特に、リクエストオブジェクトには、 `` context``という名前の属性があります。これは、最終的に呼び出されるビューに提供されるコンテキストだけでなく、コンテキスト発見コードによって付加された他の属性も持ちます。"
 
 #: of pyramid.events.ContextFound:12
 msgid ""
 "This class implements the :class:`pyramid.interfaces.IContextFound` "
 "interface."
-msgstr ""
+msgstr "このクラスは：class： `pyramid.interfaces.IContextFound`インターフェースを実装しています。"
 
 #: of pyramid.events.ContextFound:17
 msgid ""
 "As of :app:`Pyramid` 1.0, for backwards compatibility purposes, this "
 "event may also be imported as :class:`pyramid.events.AfterTraversal`."
-msgstr ""
+msgstr "現在のところ：app： `Pyramid` 1.0では、下位互換性のために、このイベントをクラス：` pyramid.events.AfterTraversal`としてインポートすることもできます。"
 
 #: of pyramid.events.BeforeTraversal:1
 msgid ""
@@ -161,34 +151,34 @@ msgid ""
 "object but before any traversal or view code is executed. The instance "
 "has an attribute, ``request``, which is the request object generated by "
 ":app:`Pyramid`."
-msgstr ""
+msgstr "このクラスのインスタンスは、：app： `Pyramid`：term：` router`が：term： `ルート`オブジェクトを見つけようとしましたが、トラバーサルまたはビューコードが実行される前に：term： `event`として発行されます。インスタンスには属性：append： `Pyramid`によって生成されたリクエストオブジェクトである` `request``という属性があります。"
 
 #: of pyramid.events.BeforeTraversal:7
 msgid ""
 "Notably, the request object **may** have an attribute named "
 "``matched_route``, which is the matched route if found. If no route "
 "matched, this attribute is not available."
-msgstr ""
+msgstr "特に、リクエストオブジェクト**には、一致ルートが見つかった場合は `` matched_route``という属性があります。一致するルートがない場合、この属性は使用できません。"
 
 #: of pyramid.events.BeforeTraversal:11
 msgid ""
 "This class implements the :class:`pyramid.interfaces.IBeforeTraversal` "
 "interface."
-msgstr ""
+msgstr "このクラスは、：class： `pyramid.interfaces.IBeforeTraversal`インターフェースを実装しています。"
 
 #: of pyramid.events.NewResponse:1
 msgid ""
 "An instance of this class is emitted as an :term:`event` whenever any "
 ":app:`Pyramid` :term:`view` or :term:`exception view` returns a "
 ":term:`response`."
-msgstr ""
+msgstr "このクラスのインスタンスは：app： `Pyramid`：term：` view`または：term： `exception view`のいずれかが：term：` response`を返すときはいつでも：term： `event`として発行されます。"
 
 #: of pyramid.events.NewResponse:5
 msgid ""
 "The instance has two attributes:``request``, which is the request which "
 "caused the response, and ``response``, which is the response object "
 "returned by a view or renderer."
-msgstr ""
+msgstr "インスタンスには、レスポンスの原因となったリクエストである `` request``と、ビューやレンダラで返されるレスポンスオブジェクトである `` response``という2つの属性があります。"
 
 #: of pyramid.events.NewResponse:9
 msgid ""
@@ -197,20 +187,20 @@ msgid ""
 "exception object which caused the exception view to be executed.  If the "
 "response was generated by a 'normal' view, this attribute of the request "
 "will be ``None``."
-msgstr ""
+msgstr "：term： `exception view`によって` `response``が生成された場合、要求は例外ビューを実行させた例外オブジェクトである` `exception``という属性を持ちます。応答が &#39;通常の&#39;ビューによって生成された場合、この属性の属性は `` None``になります。"
 
 #: of pyramid.events.NewResponse:15
 msgid ""
 "This event will not be generated if a response cannot be created due to "
 "an exception that is not caught by an exception view (no response is "
 "created under this circumstace)."
-msgstr ""
+msgstr "このイベントは、例外ビュー（この状況では応答が作成されない）によって捕捉されなかった例外のために応答を作成できない場合には生成されません。"
 
 #: of pyramid.events.NewResponse:19
 msgid ""
 "This class implements the :class:`pyramid.interfaces.INewResponse` "
 "interface."
-msgstr ""
+msgstr "このクラスは：class： `pyramid.interfaces.INewResponse`インターフェースを実装しています。"
 
 #: of pyramid.events.NewResponse:24
 msgid ""
@@ -219,7 +209,7 @@ msgid ""
 ":class:`pyramid.interfaces.INewResponse` event. The "
 ":class:`pyramid.interfaces.INewResponse` event exists almost purely for "
 "symmetry with the :class:`pyramid.interfaces.INewRequest` event."
-msgstr ""
+msgstr "レスポンスの後処理は、通常：class： `pyramid.interfaces.INewResponse`イベントによって呼び出されるサブスクライバコードよりも、WSGI：term：`ミドルウェア（middleware） &#39;コンポーネントで処理するほうが優れています。 ：class： `pyramid.interfaces.INewResponse`イベントはほぼ：class：` pyramid.interfaces.INewRequest`イベントで対称性のために存在します。"
 
 #: of pyramid.events.BeforeRender:1
 msgid ""
@@ -227,13 +217,13 @@ msgid ""
 ":term:`renderer globals` before they are passed to a :term:`renderer`. "
 "This event object iself has a dictionary-like interface that can be used "
 "for this purpose.  For example::"
-msgstr ""
+msgstr "このイベントのサブスクライバは：term： `renderer globals`のセットをin：term：` renderer`に渡す前にイントロスペクトして変更することができます。このイベントオブジェクトiselfは、この目的のために使用できる辞書のようなインターフェイスを備えています。例えば：："
 
 #: of pyramid.events.BeforeRender:13
 msgid ""
 "An object of this type is sent as an event just before a :term:`renderer`"
 " is invoked."
-msgstr ""
+msgstr "この型のオブジェクトは、a：term： `renderer`が呼び出される直前のイベントとして送信されます。"
 
 #: of pyramid.events.BeforeRender:16
 msgid ""
@@ -246,66 +236,66 @@ msgid ""
 "need to ensure no value already exists in the renderer globals dictionary"
 " before setting an overriding value (which can be done using ``.get`` or "
 "``__contains__`` of the event object)."
-msgstr ""
+msgstr "サブスクライバが、レンダラグローバルディクショナリにすでに存在する `` __setitem__``を介してキーを追加すると、古い値がそこに上書きされます。これは、BeforeRenderイベントへのイベントサブスクライバが相対的な順序付けを保持していないため問題となります。他のサードパーティのサブスクライバとの最大限の相互運用性を実現するために、BeforeRenderサブスクライバとして使用するイベントサブスクライバを作成する場合、サブスクライバコードはオーバーライド値を設定する前にレンダラグローバルディクショナリに値が存在しないことを確認する必要がありますイベントオブジェクトの `` .get``または `` __contains__``を使って行われます）。"
 
 #: of pyramid.events.BeforeRender:26
 msgid ""
 "The dictionary returned from the view is accessible through the "
 ":attr:`rendering_val` attribute of a "
 ":class:`~pyramid.events.BeforeRender` event."
-msgstr ""
+msgstr "ビューから返された辞書は：class： `〜pyramid.events.BeforeRender`イベントの：attr：` rendering_val`属性からアクセスできます。"
 
 #: of pyramid.events.BeforeRender:30
 msgid ""
 "Suppose you return ``{'mykey': 'somevalue', 'mykey2': 'somevalue2'}`` "
 "from your view callable, like so::"
-msgstr ""
+msgstr "`` {&#39;mykey&#39;： &#39;somevalue&#39;、 &#39;mykey2&#39;： &#39;somevalue2&#39;} ``を呼び出し可能なビューから返すとします："
 
 #: of pyramid.events.BeforeRender:39
 msgid ""
 ":attr:`rendering_val` can be used to access these values from the "
 ":class:`~pyramid.events.BeforeRender` object::"
-msgstr ""
+msgstr "：attr： `rendering_val`は：class：`〜pyramid.events.BeforeRender`オブジェクトからこれらの値にアクセスするために使用できます::"
 
 #: of pyramid.events.BeforeRender:50
 msgid ""
 "In other words, :attr:`rendering_val` is the (non-system) value returned "
 "by a view or passed to ``render*`` as ``value``.  This feature is new in "
 "Pyramid 1.2."
-msgstr ""
+msgstr "言い換えれば、：attr： `rendering_val`は、ビューによって返される（システム以外の）値であるか、` `render *` `に` `value``として渡されます。この機能はPyramid 1.2の新機能です。"
 
 #: of pyramid.events.BeforeRender:54
 msgid ""
 "For a description of the values present in the renderer globals "
 "dictionary, see :ref:`renderer_system_values`."
-msgstr ""
+msgstr "レンダラーグローバルディクショナリに存在する値の説明については、：ref： `renderer_system_values`を参照してください。"
 
 #: of pyramid.events.BeforeRender:59
 msgid "See also :class:`pyramid.interfaces.IBeforeRender`."
-msgstr ""
+msgstr "クラス： `pyramid.interfaces.IBeforeRender`も参照してください。"
 
 #: ../../api/events.rst:35
 msgid ""
 "Update D from dict/iterable E and F. If E has a .keys() method, does: for"
 " k in E: D[k] = E[k] If E lacks .keys() method, does: for (k, v) in E: "
 "D[k] = v.  In either case, this is followed by: for k in F: D[k] = F[k]."
-msgstr ""
+msgstr "Eが.keys（）メソッドを持っている場合、E：D [k] = E [k] Eが.keys（）メソッドを持たない場合、for（k 、v：E：D [k] = vどちらの場合でも、Fの次のものが続きます。D [k] = F [k]。"
 
 #: of pyramid.events.BeforeRender.fromkeys:1
 msgid "Returns a new dict with keys from iterable and values equal to value."
-msgstr ""
+msgstr "iterableのキーとvalueに等しい値を持つ新しいdictを返します。"
 
 #: of pyramid.events.BeforeRender.pop:1
 msgid "If key is not found, d is returned if given, otherwise KeyError is raised"
-msgstr ""
+msgstr "keyが見つからなければ、与えられればdが返され、そうでなければKeyErrorが発生します"
 
 #: of pyramid.events.BeforeRender.popitem:1
 msgid "2-tuple; but raise KeyError if D is empty."
-msgstr ""
+msgstr "2タプル; Dが空の場合はKeyErrorを上げます。"
 
 #: ../../api/events.rst:40
 msgid ""
 "See :ref:`events_chapter` for more information about how to register code"
 " which subscribes to these events."
-msgstr ""
+msgstr "これらのイベントにサブスクライブするコードの登録方法の詳細については、ref： `events_chapter`を参照してください。"
 

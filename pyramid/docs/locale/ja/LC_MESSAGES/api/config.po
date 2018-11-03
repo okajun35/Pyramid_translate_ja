@@ -7,26 +7,16 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../api/config.rst:7
 msgid ":mod:`pyramid.config`"
-msgstr ""
+msgstr "(機械翻訳) :mod:`pyramid.config`"
 
 #: of pyramid.config.Configurator:1
 msgid ""
 "A Configurator is used to configure a :app:`Pyramid` :term:`application "
 "registry`."
-msgstr ""
+msgstr "Configuratorは、：app： `Pyramid`：term：`アプリケーションレジストリ &#39;を設定するために使われます。"
 
 #: of pyramid.config.Configurator:4
 msgid ""
@@ -34,7 +24,7 @@ msgid ""
 "automatically handle calling :meth:`pyramid.config.Configurator.begin` "
 "and :meth:`pyramid.config.Configurator.end` as well as "
 ":meth:`pyramid.config.Configurator.commit`."
-msgstr ""
+msgstr "コンフィギュレータのライフサイクルはコンテキストマネージャを使って：meth： `pyramid.config.Configurator.begin`と：meth：` pyramid.config.Configurator.end`と：meth： `pyramid.config .Configurator.commit`。"
 
 #: of pyramid.config.Configurator:15
 msgid ""
@@ -45,13 +35,13 @@ msgid ""
 "some default configuration that would not otherwise be done.  After its "
 "construction, the configurator may be used to add further configuration "
 "to the registry."
-msgstr ""
+msgstr "`` registry``引数が `` None``でなければ、設定するレジストリを表す：class： `pyramid.registry.Registry`クラスのインスタンスでなければなりません。 `` registry``が `` None``の場合、コンフィギュレータは：class： `pyramid.registry.Registry`インスタンス自体を作成します。それ以外の場合は実行されないデフォルト設定も実行されます。構築後、コンフィギュレータを使用してレジストリに設定を追加することができます。"
 
 #: of pyramid.config.Configurator:23
 msgid ""
 "If ``registry`` is assigned the above-mentioned class instance, all other"
 " constructor arguments are ignored, with the exception of ``package``."
-msgstr ""
+msgstr "`` registry``に上記のクラスインスタンスが割り当てられている場合、 `` package``を除いて、他のすべてのコンストラクタ引数は無視されます。"
 
 #: of pyramid.config.Configurator:27
 msgid ""
@@ -62,7 +52,7 @@ msgid ""
 "which accept a ``renderer`` argument, into absolute paths.  If ``None`` "
 "is passed (the default), the package is assumed to be the Python package "
 "in which the *caller* of the ``Configurator`` constructor lives."
-msgstr ""
+msgstr "`` package``引数が渡された場合、それはPython：term： `package`（例えば` `sys.modules [&#39;thepackage&#39;]` `）やa：term：`点線のPython名 `同じに。この値は、 `` renderer``引数を受け入れるメソッドなど、さまざまな設定メソッドに渡される相対パスを絶対パスに変換するための基礎として使用されます。 `` None``が渡された場合（デフォルト）、パッケージは `` Configurator``コンストラクタの* caller *が存在するPythonパッケージとみなされます。"
 
 #: of pyramid.config.Configurator:35
 msgid ""
@@ -73,7 +63,7 @@ msgid ""
 "be derived from the ``package`` argument. The ``package`` attribute is "
 "always pointing at the package being included when using "
 ":meth:`.include`, whereas the ``root_package`` does not change."
-msgstr ""
+msgstr "`` root_package``が渡された場合は、インクルードされたパッケージがメインの `` Configurator``が作成されたパッケージに関連するリソースを見つける方法として、設定階層に伝播します。 `` None``が渡された場合（デフォルト）、 `` root_package``は `` package``引数から派生します。 `` package``属性は、：meth： `.include`を使用するときに常に含まれるパッケージを指していますが、` `root_package``は変更されません。"
 
 #: of pyramid.config.Configurator:43
 msgid ""
@@ -82,7 +72,7 @@ msgid ""
 " are later retrievable using the "
 ":attr:`pyramid.registry.Registry.settings` attribute (aka "
 "``request.registry.settings``)."
-msgstr ""
+msgstr "`` settings``引数が渡された場合は、このアプリケーションの：term： `deployment settings`を表すPython辞書でなければなりません。これらは後で：attr： `pyramid.registry.Registry.settings`属性（別名` `request.registry.settings``）を使って取り出すことができます。"
 
 #: of pyramid.config.Configurator:49
 msgid ""
@@ -90,27 +80,27 @@ msgid ""
 "representing the default :term:`root factory` for your application or a "
 ":term:`dotted Python name` to the same.  If it is ``None``, a default "
 "root factory will be used."
-msgstr ""
+msgstr "`` root_factory``引数が渡された場合は、アプリケーションのデフォルト：term： `root factory`またはa：term：` dotted Python name`を同じオブジェクトにする必要があります。 `` None``の場合、デフォルトのルートファクトリが使用されます。"
 
 #: of pyramid.config.Configurator:54
 msgid ""
 "If ``authentication_policy`` is passed, it should be an instance of an "
 ":term:`authentication policy` or a :term:`dotted Python name` to the "
 "same."
-msgstr ""
+msgstr "`` authentication_policy``が渡された場合、それは：term： `認証ポリシー`またはa：term： `ドット付きPython名`のインスタンスでなければなりません。"
 
 #: of pyramid.config.Configurator:58
 msgid ""
 "If ``authorization_policy`` is passed, it should be an instance of an "
 ":term:`authorization policy` or a :term:`dotted Python name` to the same."
-msgstr ""
+msgstr "`` authorization_policy``が渡された場合、それは：term： `認証ポリシー`またはa：term： `ドット付きPython名`のインスタンスでなければなりません。"
 
 #: of pyramid.config.Configurator:62
 msgid ""
 "A ``ConfigurationError`` will be raised when an authorization policy is "
 "supplied without also supplying an authentication policy (authorization "
 "requires authentication)."
-msgstr ""
+msgstr "認証ポリシーが指定されている場合（認証には認証が必要）、認証ポリシーを指定せずに `` ConfigurationError``が発生します。"
 
 #: of pyramid.config.Configurator:66
 msgid ""
@@ -120,7 +110,7 @@ msgid ""
 "this application, and each tuple representing a set of positional values "
 "that should be passed to "
 ":meth:`pyramid.config.Configurator.add_renderer`."
-msgstr ""
+msgstr "`` renderers``が `` None``（デフォルト）の場合、term： `renderer`ファクトリのデフォルトセットが使用されます。そうでなければ、このアプリケーションに設定されるべきレンダラーファクトリのセットを表すタプルのリストと、meth： `pyramid.config.Configurator.add_renderer`に渡される位置値のセットを表す各タプルが必要です。"
 
 #: of pyramid.config.Configurator:73
 msgid ""
@@ -130,14 +120,14 @@ msgid ""
 "instance of the :class:`logging.Logger` (PEP 282) standard library class "
 "or a Python logger name.  The debug logger is used by :app:`Pyramid` "
 "itself to log warnings and authorization debugging information."
-msgstr ""
+msgstr "`` debug_logger``が渡されないと、ロガーにログするデフォルトのデバッグロガーが使用されます（ロガー名はこのコンフィギュレータの* caller *のパッケージ名になります）。それが渡された場合、それは：class： `logging.Logger`（PEP 282）標準ライブラリクラスまたはPythonロガー名のインスタンスでなければなりません。デバッグロガーは：app： `Pyramid`自身が警告と認可のデバッグ情報を記録するために使用します。"
 
 #: of pyramid.config.Configurator:80
 msgid ""
 "If ``locale_negotiator`` is passed, it should be a :term:`locale "
 "negotiator` implementation or a :term:`dotted Python name` to same.  See "
 ":ref:`custom_locale_negotiator`."
-msgstr ""
+msgstr "`` locale_negotiator``が渡された場合は、：term： `locale negotiator`の実装か、a：term：` dotted Python name`を同じものにする必要があります。参照：ref： `custom_locale_negotiator`を参照してください。"
 
 #: of pyramid.config.Configurator:84
 msgid ""
@@ -145,7 +135,7 @@ msgid ""
 "implementation or a :term:`dotted Python name` to the same. See "
 ":ref:`changing_the_request_factory`.  By default it is ``None``, which "
 "means use the default request factory."
-msgstr ""
+msgstr "`` request_factory``が渡された場合は、：term： `request factory`実装か、：term：` dotted Python name`を同じものにする必要があります。 ref： `changing_the_request_factory`を参照してください。デフォルトでは `` None``です。これは、デフォルトのリクエストファクトリを使用することを意味します。"
 
 #: of pyramid.config.Configurator:89
 msgid ""
@@ -153,7 +143,7 @@ msgid ""
 "factory` implementation or a :term:`dotted Python name` to the same. See "
 ":ref:`changing_the_response_factory`.  By default it is ``None``, which "
 "means use the default response factory."
-msgstr ""
+msgstr "`` response_factory``が渡された場合は、：term： `応答ファクトリ`の実装か、：term： `ドット付きのPythonの名前 &#39;でなければなりません。参照：ref： `changing_the_response_factory`を参照してください。デフォルトでは `` None``です。これはデフォルトのレスポンスファクトリを使用することを意味します。"
 
 #: of pyramid.config.Configurator:94
 msgid ""
@@ -167,12 +157,12 @@ msgid ""
 "that view configurations which do not explicitly declare a permission "
 "will always be executable by entirely anonymous users (any authorization "
 "policy in effect is ignored)."
-msgstr ""
+msgstr "`` default_permission``が渡された場合は、このコンフィグレータに対して実行されたすべてのビュー設定登録のデフォルトパーミッションとして使用される：term： `permission`文字列でなければなりません。パーミッション文字列の例： `` &#39;view&#39; ``。既定のアクセス許可を追加すると、アプリケーションポリシーが特定のビューに対して何らかの例外を必要としない限り、明示的なアクセス許可で各ビュー構成を保護する必要はありません。デフォルトでは、 `` default_permission``は `` None``です。つまり、明示的にパーミッションを宣言していないビューの設定は、完全に匿名のユーザ（常に有効な権限ポリシーは無視されます）によって常に実行可能です。"
 
 #: of pyramid.config.Configurator:108
 #: pyramid.config.Configurator.set_default_permission:31
 msgid "See also :ref:`setting_a_default_permission`."
-msgstr ""
+msgstr "参照：ref： `setting_a_default_permission`を参照してください。"
 
 #: of pyramid.config.Configurator:110
 msgid ""
@@ -185,7 +175,7 @@ msgid ""
 "this argument is ``None``, indicating that no session factory will be "
 "configured (and thus accessing ``request.session`` will throw an error) "
 "unless ``set_session_factory`` is called later during configuration."
-msgstr ""
+msgstr "`` session_factory``が渡された場合、それは：term： `session factory`インターフェースを実装するオブジェクトでなければなりません。デフォルト以外の値が渡された場合、 `` request.session``がアクセスされたときに `` session_factory``がセッションオブジェクトを作成するために使われます。同じ結果は、meth： `pyramid.config.Configurator.set_session_factory`を呼び出すことで実現できることに注意してください。デフォルトでは、この引数は `` None``であり、設定中に `` set_session_factory``が後で呼び出されない限り、セッションファクトリが設定されない（したがって、 `` request.session``にアクセスするとエラーが発生します）ことを示します。"
 
 #: of pyramid.config.Configurator:121
 msgid ""
@@ -200,7 +190,7 @@ msgid ""
 "``ConfigurationConflictError`` will be raised.  Calling "
 ":meth:`pyramid.config.Configurator.make_wsgi_app` always implies a final "
 "commit."
-msgstr ""
+msgstr "`` autocommit``が `` True``の場合、コンフィギュレータ上で呼び出されたすべてのメソッドは即座のアクションを引き起こし、コンフィグレーションコンフリクト検出は使用されません。 `` autocommit``が `` False``の場合、コンフィギュレータのほとんどのメソッドは：meth： `pyramid.config.Configurator.commit`が呼び出されるまで、アクションを延期します。 ：meth： `pyramid.config.Configurator.commit`が呼び出されたとき、` `autocommit``が` `True``でなければ、呼び出されたメソッドが暗示するアクションは設定の競合をチェックされます。競合が検出された場合、 `` ConfigurationConflictError``が発生します。 Calling：meth： `pyramid.config.Configurator.make_wsgi_app`は、常に最後のコミットを意味します。"
 
 #: of pyramid.config.Configurator:133
 msgid ""
@@ -209,7 +199,7 @@ msgid ""
 "specify one (see :class:`pyramid.interfaces.IViewMapperFactory`).  If "
 "``default_view_mapper`` is not passed, a superdefault view mapper will be"
 " used."
-msgstr ""
+msgstr "`` default_view_mapper``が渡された場合、デフォルトではterm： `view mapper`ファクトリとして使用され、それ以外のものを指定しないビュー設定の場合（class：` pyramid.interfaces.IViewMapperFactory`を参照してください）。 `` default_view_mapper``が渡されないと、スーパーディファクトビューマッパーが使用されます。"
 
 #: of pyramid.config.Configurator:139
 msgid ""
@@ -221,14 +211,14 @@ msgid ""
 "Pyramid's caller.  By default, the "
 "``pyramid.httpexceptions.default_exceptionresponse_view`` function is "
 "used as the ``exceptionresponse_view``."
-msgstr ""
+msgstr "`` exceptionresponse_view``が渡された場合は、：term： `view callable`または` `None``でなければなりません。呼び出し可能なビューの場合は、：term： `exception response`が発生したときに呼び出すことができる例外ビューとして使用されます。 `` exceptionresponse_view``が `` None``の場合、例外レスポンスビューは登録されず、すべての発生した例外レスポンスはPyramidの呼び出し側にバブリングされます。デフォルトでは、 `` pyramid.httpexceptions.default_exceptionresponse_view``関数が `` exceptionresponse_view``として使われます。"
 
 #: of pyramid.config.Configurator:148
 msgid ""
 "If ``route_prefix`` is passed, all routes added with "
 ":meth:`pyramid.config.Configurator.add_route` will have the specified "
 "path prepended to their pattern."
-msgstr ""
+msgstr "`` route_prefix``が渡された場合、：meth： `pyramid.config.Configurator.add_route`で追加されたすべてのルートは、パターンの前に指定されたパスを持ちます。"
 
 #: of pyramid.config.Configurator:152
 msgid ""
@@ -236,34 +226,34 @@ msgid ""
 "``True``, introspection values during actions will be kept for use for "
 "tools like the debug toolbar.  If it's ``False``, introspection values "
 "provided by registrations will be ignored.  By default, it is ``True``."
-msgstr ""
+msgstr "`` introspection``が渡された場合は、ブール値でなければなりません。それが `` True``の場合、アクション中のイントロスペクション値は、デバッグツールバーのようなツールで使用するために保持されます。それが `` False``の場合、登録によって提供されるイントロスペクション値は無視されます。デフォルトでは `` True``です。"
 
 #: of pyramid.config.Configurator:158
 msgid "The ``exceptionresponse_view`` argument."
-msgstr ""
+msgstr "`` exceptionresponse_view``引数です。"
 
 #: of pyramid.config.Configurator:161
 msgid "The ``route_prefix`` argument."
-msgstr ""
+msgstr "`` route_prefix``引数です。"
 
 #: of pyramid.config.Configurator:164
 msgid "The ``introspection`` argument."
-msgstr ""
+msgstr "`` introspection``引数です。"
 
 #: of pyramid.config.Configurator:167
 msgid "The ``root_package`` argument. The ``response_factory`` argument."
-msgstr ""
+msgstr "`` root_package``引数です。 `` response_factory``引数です。"
 
 #: of pyramid.config.Configurator:171
 msgid ""
 "The ability to use the configurator as a context manager with the "
 "``with``-statement to make threadlocal configuration available for "
 "further configuration with an implicit commit."
-msgstr ""
+msgstr "スレッドローカル設定を暗黙的なコミットを伴うさらなる設定に利用できるようにするために、コンテキストマネージャとしてコンフィギュレータを `` with``ステートメントとともに使用する能力。"
 
 #: ../../api/config.rst:13
 msgid ":methodcategory:`Controlling Configuration State`"
-msgstr ""
+msgstr "：methodcategory： `設定状態を制御する`"
 
 #: of pyramid.config.Configurator.commit:1
 msgid ""
@@ -272,7 +262,7 @@ msgid ""
 ":exc:`ConfigurationConflictError`; within the traceback of this error "
 "will be information about the source of the conflict, usually including "
 "file names and line numbers of the cause of the configuration conflicts."
-msgstr ""
+msgstr "保留中の構成アクションをコミットします。保留中の設定アクションで設定の競合が検出された場合、このメソッドは：exc： `ConfigurationConflictError`を送出します。このエラーのトレースバック内には、コンフリクトの原因に関する情報が含まれます。通常、ファイル名と構成の競合の原因の行番号が含まれます。"
 
 #: of pyramid.config.Configurator.commit:9
 msgid ""
@@ -280,7 +270,7 @@ msgid ""
 "Especially not as part of any reusable configuration methods. Normally it"
 " should only be done by an application author at the end of configuration"
 " in order to override certain aspects of an addon."
-msgstr ""
+msgstr "手動で `` commit（） ``を呼び出す前に、非常に注意深く考えるべきです。特に、再利用可能な設定方法の一部ではありません。通常は、アドオンの特定の側面を無効にするためには、構成の最後にアプリケーション作成者が行う必要があります。"
 
 #: of pyramid.config.Configurator.begin:1
 msgid ""
@@ -289,40 +279,40 @@ msgid ""
 "``registry`` attribute of this configurator and the :term:`request` "
 "implied by the ``request`` argument onto the :term:`thread local` stack "
 "consulted by various :mod:`pyramid.threadlocal` API functions."
-msgstr ""
+msgstr "アプリケーションまたはテストの構成が開始されたことを示します。これは、このコンフィグレータの `` registry``属性によって暗示された：term： `アプリケーションレジストリ &#39;と：term：` thread local`に `` request``引数によって暗示された：term： `request`を含む辞書をプッシュします。 stack：さまざまな：mod： `pyramid.threadlocal` API関数によって参照されます。"
 
 #: of pyramid.config.Configurator.begin:9
 msgid ""
 "If ``request`` is not specified and the registry owned by the "
 "configurator is already pushed as the current threadlocal registry then "
 "this method will keep the current threadlocal request unchanged."
-msgstr ""
+msgstr "`` request``が指定されておらず、コンフィギュレータが所有するレジストリがすでに現在のスレッドローカルレジストリとしてプッシュされている場合、このメソッドは現在のスレッドローカル要求を変更しません。"
 
 #: of pyramid.config.Configurator.begin:13
 msgid ""
 "The current threadlocal request is propagated if the current threadlocal "
 "registry remains unchanged."
-msgstr ""
+msgstr "現在のスレッドローカルレジストリが変更されない場合、現在のスレッドローカルリクエストは伝播されます。"
 
 #: of pyramid.config.Configurator.end:1
 msgid ""
 "Indicate that application or test configuration has ended. This pops the "
 "last value pushed onto the :term:`thread local` stack (usually by the "
 "``begin`` method) and returns that value."
-msgstr ""
+msgstr "アプリケーションまたはテスト構成が終了したことを示します。これは：term： `thread local`スタックにプッシュされた最後の値をポップし（通常` `begin``メソッドによって）、その値を返します。"
 
 #: of pyramid.config.Configurator.include:1
 msgid ""
 "Include a configuration callable, to support imperative application "
 "extensibility."
-msgstr ""
+msgstr "必須のアプリケーションの拡張性をサポートするために、呼び出し可能な構成を含めます。"
 
 #: of pyramid.config.Configurator.include:4
 msgid ""
 "In versions of :app:`Pyramid` prior to 1.2, this function accepted "
 "``*callables``, but this has been changed to support only a single "
 "callable."
-msgstr ""
+msgstr "1.2より前の：app： `Pyramid`のバージョンでは、この関数は` `* callables``を受け入れましたが、これは単一の呼び出し可能関数をサポートするように変更されました。"
 
 #: of pyramid.config.Configurator.include:8
 msgid ""
@@ -333,7 +323,7 @@ msgid ""
 " as a result of calling the callable should invoke methods on the "
 "configurator passed to it which add configuration state.  The return "
 "value of a callable will be ignored."
-msgstr ""
+msgstr "設定可能な呼び出しは、 `` config``という名前の単一の引数を受け入れる呼び出し可能でなければなりません。これは：term： `Configurator`のインスタンスになります。ただし、このメソッドを呼び出すコンフィグレータインスタンスと同じではないことに注意してください。 callableを呼び出した結果として実行されるコードは、渡されたコンフィグレータのメソッドを呼び出して、コンフィグレーション状態を追加する必要があります。呼び出し可能な関数の戻り値は無視されます。"
 
 #: of pyramid.config.Configurator.include:16
 msgid ""
@@ -343,30 +333,30 @@ msgid ""
 ":term:`module`, in which case, the module will be searched for a callable"
 " named ``includeme``, which will be treated as the configuration "
 "callable."
-msgstr ""
+msgstr "このメソッドに `` callable``引数で指定できる値は、呼び出し可能なPythonオブジェクト、または呼び出し可能なPythonオブジェクトに解決するany：term： `ドット付きPython名`です。これはPython：term： `module`でもかまいません。この場合、モジュールは呼び出し可能な名前の` `includeme``が検索され、設定可能な呼び出しとして扱われます。"
 
 #: of pyramid.config.Configurator.include:23
 msgid ""
 "For example, if the ``includeme`` function below lives in a module named "
 "``myapp.myconfig``:"
-msgstr ""
+msgstr "たとえば、以下の `` includeme``関数が `` myapp.myconfig``という名前のモジュールに存在する場合、"
 
 #: of pyramid.config.Configurator.include:38
 msgid "You might cause it to be included within your Pyramid application like so:"
-msgstr ""
+msgstr "Pyramidアプリケーションに以下のように組み込むことができます："
 
 #: of pyramid.config.Configurator.include:50
 msgid ""
 "Because the function is named ``includeme``, the function name can also "
 "be omitted from the dotted name reference:"
-msgstr ""
+msgstr "この関数の名前は `` includeme``なので、関数名は点線の名前の参照からも省略することができます："
 
 #: of pyramid.config.Configurator.include:62
 msgid ""
 "Included configuration statements will be overridden by local "
 "configuration statements if an included callable causes a configuration "
 "conflict by registering something with the same configuration parameters."
-msgstr ""
+msgstr "含まれている呼び出し可能ファイルが、同じ構成パラメーターで何かを登録して構成競合を引き起こす場合、組み込まれた構成ステートメントは、ローカル構成ステートメントによってオーバーライドされます。"
 
 #: of pyramid.config.Configurator.include:67
 msgid ""
@@ -376,25 +366,25 @@ msgid ""
 "``route_prefix``. This can be used to help mount a set of routes at a "
 "different location than the included callable's author intended, while "
 "still maintaining the same route names.  For example:"
-msgstr ""
+msgstr "`` route_prefix``が指定された場合、それは文字列でなければなりません。インクルードされた呼び出し可能ファイル内の：meth： `pyramid.config.Configurator.add_route`への呼び出しには、` `route_prefix``の値の接頭辞が付きます。これは、同じルート名を維持しながら、インクルードされた呼び出し可能な作成者が意図した場所とは異なる場所に一連のルートをマウントするのに役立ちます。例えば："
 
 #: of pyramid.config.Configurator.include:86
 msgid ""
 "In the above configuration, the ``show_users`` route will have an "
 "effective route pattern of ``/users/show``, instead of ``/show`` because "
 "the ``route_prefix`` argument will be prepended to the pattern."
-msgstr ""
+msgstr "上記の設定では、 `` show_users``ルートは、 `` / show``の代わりに `` / users / show``の効果的なルートパターンを持ちます。なぜなら、 `` route_prefix``引数はパターンの前に付加されるからです。"
 
 #: of pyramid.config.Configurator.include:91
 msgid "The ``route_prefix`` parameter."
-msgstr ""
+msgstr "`` route_prefix``パラメータ。"
 
 #: of pyramid.config.Configurator.include:94
 msgid ""
 "The included function is wrapped with a call to "
 ":meth:`pyramid.config.Configurator.begin` and "
 ":meth:`pyramid.config.Configurator.end` while it is executed."
-msgstr ""
+msgstr "含まれている関数は、実行中に：meth： `pyramid.config.Configurator.begin`と：meth：` pyramid.config.Configurator.end`の呼び出しでラップされます。"
 
 #: of pyramid.config.Configurator.make_wsgi_app:1
 msgid ""
@@ -403,7 +393,7 @@ msgid ""
 "this configuration's registry to "
 ":attr:`pyramid.config.global_registries`, and returns a :app:`Pyramid` "
 "WSGI application representing the committed configuration state."
-msgstr ""
+msgstr "すべてのリスナーに：class： `pyramid.events.ApplicationCreated`イベントを送信し、この設定のレジストリを：attr：` pyramid.config.global_registries`に追加し、：app： `Pyramid` WSGIアプリケーションを返します。コミットされた構成状態を表す。"
 
 #: of pyramid.config.Configurator.scan:1
 msgid ""
@@ -411,7 +401,7 @@ msgid ""
 ":term:`configuration decoration` such as "
 ":class:`pyramid.view.view_config`.  Any decorated object found will "
 "influence the current configuration state."
-msgstr ""
+msgstr "Pythonパッケージとそのサブパッケージのいずれかを、class： `pyramid.view.view_config`のように：term：` configuration decoration`とマークされたオブジェクトに対してスキャンします。見つかった装飾されたオブジェクトは、現在の構成状態に影響します。"
 
 #: of pyramid.config.Configurator.scan:6
 msgid ""
@@ -419,7 +409,7 @@ msgid ""
 "object (or a :term:`dotted Python name` which refers to such a package or"
 " module).  If ``package`` is ``None``, the package of the *caller* is "
 "used."
-msgstr ""
+msgstr "`` package``引数は、Python：term： `package`またはモジュールオブジェクト（または：term：そのようなパッケージやモジュールを指す` `点在するPython名 &#39;）でなければなりません。 `` package``が `` None``の場合、* caller *のパッケージが使われます。"
 
 #: of pyramid.config.Configurator.scan:11
 msgid ""
@@ -431,7 +421,7 @@ msgid ""
 "such as :class:`pyramid.view.view_config`.  See the :term:`Venusian` "
 "documentation for more information about limiting a scan by using an "
 "explicit set of categories."
-msgstr ""
+msgstr "`` categories``引数が提供されている場合は、スキャン中に使用する：term： `Venusian` &#39;スキャンカテゴリ&#39;でなければなりません。この議論を提供することはしばしば必要ではない。スキャンカテゴリを指定することは非常に高度な使い方です。デフォルトでは、 `` categories``は `` None``です。これは、すべてのVenusianデコレータコールバックを実行します：class： `pyramid.view.view_config`のようなapp：` Pyramid`関連のデコレータ。明示的なカテゴリのセットを使用してスキャンを制限する方法の詳細は、：term： `Venusian`のドキュメントを参照してください。"
 
 #: of pyramid.config.Configurator.scan:21
 msgid ""
@@ -441,7 +431,7 @@ msgid ""
 "exception is raised during the scanning process.  See the "
 ":term:`Venusian` documentation for more information about ``onerror`` "
 "callbacks."
-msgstr ""
+msgstr "`` onerror``引数が与えられれば、それはVenusの `` onerror``コールバック関数でなければなりません。 onerror関数は：meth： `venusian.Scanner.scan`に渡され、スキャン処理中に例外が発生したときのエラー動作に影響を与えます。 `` onerror``コールバックの詳細については、：term： `Venusian`のドキュメントを参照してください。"
 
 #: of pyramid.config.Configurator.scan:28
 msgid ""
@@ -456,7 +446,7 @@ msgid ""
 "subpackage and any of its submodules from being imported and scanned.  "
 "See the :term:`Venusian` documentation for more information about the "
 "``ignore`` argument."
-msgstr ""
+msgstr "`` ignore``引数が与えられれば、Venusianの `` ignore``値でなければなりません。 `` ignore``引数を指定すると、スキャン中にスキャンが特定のモジュール、パッケージ、またはグローバルオブジェクトを無視することができます。 `` ignore``は、文字列か呼び出し可能なもの、または文字列や呼び出し可能なものを含むリストです。 `` ignore``の最も簡単な使い方は、点線の名前への完全なパスを与えることによってモジュールまたはパッケージを提供することです。たとえば、 `` config.scan（ignore = &#39;my.module.subpackage&#39;） ``は、スキャン中に `` my.module.subpackage``パッケージを無視するので、サブパッケージとそのサブモジュールが存在しないようになりますインポートおよびスキャンします。 `` ignore``引数の詳細については、：term： `Venusian`のドキュメントを参照してください。"
 
 #: of pyramid.config.Configurator.scan:40
 msgid ""
@@ -470,19 +460,19 @@ msgid ""
 "Pyramid decorators, but extension systems may require additional "
 "arguments.  Providing this argument is not often necessary; it's an "
 "advanced usage."
-msgstr ""
+msgstr "`` scan``を実行するために、PyramidはVenusianの `` Scanner``オブジェクトを作成します。 `` kw``引数は、金星の `` Scanner``オブジェクトのコンストラクタに渡す一連のキーワード引数を表します。コンストラクタの詳細については、：term： `venusian`のドキュメント（` `Scanner``クラス）を参照してください。デフォルトでは、Scannerコンストラクタに渡される唯一のキーワード引数は `` {&#39;config&#39;：self} ``です。ここで `` self``はこのコンフィギュレータオブジェクトです。これはすべての組み込みPyramidデコレータの要件を満たしますが、拡張システムには追加の引数が必要な場合があります。この議論を提供することはしばしば必要ではない。それは高度な使い方です。"
 
 #: of pyramid.config.Configurator.scan:51
 msgid "The ``**kw`` argument."
-msgstr ""
+msgstr "`` ** kw``の議論。"
 
 #: of pyramid.config.Configurator.scan:54
 msgid "The ``ignore`` argument."
-msgstr ""
+msgstr "`` ignore``引数です。"
 
 #: ../../api/config.rst:22
 msgid ":methodcategory:`Adding Routes and Views`"
-msgstr ""
+msgstr "：methodcategory： `ルートとビューを追加する`"
 
 #: of pyramid.config.Configurator.add_route:1
 msgid ""
@@ -493,27 +483,27 @@ msgid ""
 "and *view-related* types.  :term:`Route predicate` arguments narrow the "
 "circumstances in which a route will be match a request; non-predicate "
 "arguments are informational."
-msgstr ""
+msgstr "現在の設定状態にa：term： `ルート設定 &#39;を追加するだけでなく、このルートが一致するときに呼び出される：term：` view callable`を指定するために、おそらくa：term： `view configuration&#39;を追加します。このメソッドの引数は、* predicate *、* non-predicate *、* view-related *型に分かれています。 ：term： `Route predicate`引数は、ルートがリクエストと一致する状況を絞り込みます。非述語の引数は情報です。"
 
 #: of pyramid.config.Configurator.add_route:10
 #: pyramid.config.Configurator.add_view:9
 msgid "Non-Predicate Arguments"
-msgstr ""
+msgstr "非述語引数"
 
 #: of pyramid.config.Configurator.add_route:12
 #: pyramid.config.Configurator.add_view:275
 msgid "name"
-msgstr ""
+msgstr "名"
 
 #: of pyramid.config.Configurator.add_route:14
 msgid ""
 "The name of the route, e.g. ``myroute``.  This attribute is required.  It"
 " must be unique among all defined routes in a given application."
-msgstr ""
+msgstr "ルートの名前、例えば「myroute」。この属性は必須です。特定のアプリケーションで定義されたすべてのルート間で一意でなければなりません。"
 
 #: of pyramid.config.Configurator.add_route:18
 msgid "factory"
-msgstr ""
+msgstr "工場"
 
 #: of pyramid.config.Configurator.add_route:20
 msgid ""
@@ -523,11 +513,11 @@ msgid ""
 "``mypackage.resources.MyFactory``.  If this argument is not specified, a "
 "default root factory will be used.  See :ref:`the_resource_tree` for more"
 " information about root factories."
-msgstr ""
+msgstr "このルートが一致したときに：app： `Pyramid`ルートリソースオブジェクトを生成する同じオブジェクトを参照するPythonオブジェクト（関数またはクラス）、または：term：`ドット付きPython名 `。たとえば、 `` mypackage.resources.MyFactory``などです。この引数を指定しないと、デフォルトのルートファクトリが使用されます。ルートファクトリの詳細については：ref： `the_resource_tree`を参照してください。"
 
 #: of pyramid.config.Configurator.add_route:27
 msgid "traverse"
-msgstr ""
+msgstr "トラバース"
 
 #: of pyramid.config.Configurator.add_route:29
 msgid ""
@@ -537,7 +527,7 @@ msgid ""
 "will be used as the traversal path: traversal will begin at the root "
 "object implied by this route (either the global root, or the object "
 "returned by the ``factory`` associated with this route)."
-msgstr ""
+msgstr "このルートが一致したときに、：term： `context`を：term：`ルート `オブジェクト以外のものにしたい場合は、トラバースパターンを` `traverse``引数として綴ることができます。このトラバーサルパターンは、トラバーサルパスとして使用されます。トラバーサルは、このルートが意味するルートオブジェクト（グローバルルートまたはこのルートに関連付けられた `` factory``によって返されるオブジェクト）から開始します。"
 
 #: of pyramid.config.Configurator.add_route:38
 msgid ""
@@ -552,7 +542,7 @@ msgid ""
 " phase.  If the ``'1'`` object exists, it will become the :term:`context`"
 " of the request. :ref:`traversal_chapter` has more information about "
 "traversal."
-msgstr ""
+msgstr "`` traverse`引数の構文は `` pattern``の構文と同じです。例えば、 `` add_route``に与えられた `` pattern``が `` articles / {article} / edit``であり、 `` add_route``に与えられた `` traverse``引数が `` /リクエストのURIが `` / articles / 1 / `&#39;である場合、` `article``の値が` `&#39; 1 &#39;` ` edit``）、トラバーサルパスは `` / 1``として生成されます。これは、ルートオブジェクトの `` __getitem__``がトラバーサルフェーズ中に `` &#39;1&#39;``という名前で呼び出されることを意味します。 `` &#39;1&#39; &#39;`オブジェクトが存在する場合、要求の：term：` context`になります。 ：ref： `traversal_chapter`は、トラバースに関するより多くの情報を持っています。"
 
 #: of pyramid.config.Configurator.add_route:52
 msgid ""
@@ -560,7 +550,7 @@ msgid ""
 " in the ``pattern`` argument, a runtime error will occur.  The "
 "``traverse`` pattern should not contain segment markers that do not exist"
 " in the ``pattern`` argument."
-msgstr ""
+msgstr "トラバーサルパスに `` pattern``引数に存在しないセグメントマーカー名が含まれていると、実行時エラーが発生します。 `` traverse``パターンは `` pattern``引数に存在しないセグメントマーカーを含んではいけません。"
 
 #: of pyramid.config.Configurator.add_route:58
 msgid ""
@@ -570,18 +560,18 @@ msgid ""
 "argument to add_route allows you to associate route patterns with an "
 "arbitrary traversal path without using a ``*traverse`` remainder marker; "
 "instead you can use other match information."
-msgstr ""
+msgstr "同様の経路とトラバーサルの組み合わせは、そのパターンに `` * traverse``残余マーカを含むルートがマッチしたときに利用できます（ref： `using_traverse_in_a_route_pattern`を参照）。 add_routeへの `` traverse``引数は、 `` * traverse``剰余マーカを使わずに任意のトラバーサルパスにルートパターンを関連付けることができます。代わりに他の一致情報を使用することができます。"
 
 #: of pyramid.config.Configurator.add_route:67
 msgid ""
 "Note that the ``traverse`` argument to ``add_route`` is ignored when "
 "attached to a route that has a ``*traverse`` remainder marker in its "
 "pattern."
-msgstr ""
+msgstr "`` add_route``への `` traverse``引数は、そのパターンに `` traverse``残余マーカを持つルートに接続されているときは無視されることに注意してください。"
 
 #: of pyramid.config.Configurator.add_route:71
 msgid "pregenerator"
-msgstr ""
+msgstr "事前発生者"
 
 #: of pyramid.config.Configurator.add_route:73
 msgid ""
@@ -592,11 +582,11 @@ msgid ""
 "the arguments it is passed when generating a URL for the route.  This is "
 "a feature not often used directly by applications, it is meant to be "
 "hooked by frameworks that use :app:`Pyramid` as a base."
-msgstr ""
+msgstr "このオプションは、：class： `pyramid.interfaces.IRoutePregenerator`インターフェースを実装する呼び出し可能なオブジェクトでなければなりません。 A：term： `pregenerator`は、ルートのURLを生成するときに渡される引数を増やしたり、置き換えるために：meth：` pyramid.request.Request.route_url`関数によって呼び出される呼び出し可能な呼び出しです。これは、アプリケーションによって直接使用されることは少なく、app： `Pyramid`をベースにしたフレームワークにフックされます。"
 
 #: of pyramid.config.Configurator.add_route:82
 msgid "use_global_views"
-msgstr ""
+msgstr "use_global_views"
 
 #: of pyramid.config.Configurator.add_route:84
 msgid ""
@@ -605,23 +595,23 @@ msgid ""
 " to fall back to using a view that otherwise matches the context, "
 "request, and view name (but which does not match the route_name "
 "predicate)."
-msgstr ""
+msgstr "要求がこのルートに一致し、ビューの検索でルートに一致する `` route_name``述語引数を持つビューが見つからない場合は、コンテキスト、要求、およびビューの名前と一致するビューを使用してフォールバックしようとしますこれはroute_name述部と一致しません）。"
 
 #: of pyramid.config.Configurator.add_route:90
 msgid "static"
-msgstr ""
+msgstr "静的"
 
 #: of pyramid.config.Configurator.add_route:92
 msgid ""
 "If ``static`` is ``True``, this route will never match an incoming "
 "request; it will only be useful for URL generation.  By default, "
 "``static`` is ``False``.  See :ref:`static_route_narr`."
-msgstr ""
+msgstr "`` static``が `` True``の場合、このルートは着信要求と決して一致しません。 URL生成にのみ役立ちます。デフォルトでは `` static``は `` False``です。参照：ref： `static_route_narr`を参照してください。"
 
 #: of pyramid.config.Configurator.add_route:98
 #: pyramid.config.Configurator.add_view:261
 msgid "accept"
-msgstr ""
+msgstr "受け入れる"
 
 #: of pyramid.config.Configurator.add_route:100
 msgid ""
@@ -634,16 +624,16 @@ msgid ""
 "``Accept`` header isn't set at all in the request, this will match the "
 "current route. If this does not match the ``Accept`` header of the "
 "request, route matching continues."
-msgstr ""
+msgstr "この値は、 `` Accept`` HTTPリクエストヘッダの1つまたは複数のMIMEタイプの一致クエリを表します。この値が指定されていれば、 `` text / plain``形式のmimetypeマッチトークン、 `` text / * ``形式のワイルドカードmimetypeマッチトークン、すべてのワイルドカードmimetypeは `` * / * ``形式のトークンとマッチします。いずれかのフォームがリクエストの `` Accept``ヘッダーと一致する場合、または `` Accept``ヘッダーがリクエストにまったく設定されていない場合、これは現在のルートと一致します。これが要求の `` Accept``ヘッダーと一致しない場合、ルートマッチングは継続します。"
 
 #: of pyramid.config.Configurator.add_route:110
 #: pyramid.config.Configurator.add_view:273
 msgid "Predicate Arguments"
-msgstr ""
+msgstr "述語引数"
 
 #: of pyramid.config.Configurator.add_route:112
 msgid "pattern"
-msgstr ""
+msgstr "パターン"
 
 #: of pyramid.config.Configurator.add_route:114
 msgid ""
@@ -651,7 +641,7 @@ msgid ""
 "required.  See :ref:`route_pattern_syntax` for information about the "
 "syntax of route patterns.  If the pattern doesn't match the current URL, "
 "route matching continues."
-msgstr ""
+msgstr "ルートのパターン、例えば `` ideas / {idea} ``。この引数は必須です。ルートパターンの構文については、ref： `route_pattern_syntax`を参照してください。パターンが現在のURLと一致しない場合は、ルートマッチングが続行されます。"
 
 #: of pyramid.config.Configurator.add_route:122
 msgid ""
@@ -659,12 +649,12 @@ msgid ""
 "``path`` keyword argument passed to this function will be used to "
 "represent the pattern value if the ``pattern`` argument is ``None``.  If "
 "both ``path`` and ``pattern`` are passed, ``pattern`` wins."
-msgstr ""
+msgstr "下位互換性のために（：app： `Pyramid` 1.0）、この関数に渡される` `path``キーワード引数は` `pattern``引数が` `None``ならばパターン値を表現するために使われます。 `` path``と `` pattern``の両方が渡された場合、 `` pattern``が勝ちます。"
 
 #: of pyramid.config.Configurator.add_route:128
 #: pyramid.config.Configurator.add_view:376
 msgid "xhr"
-msgstr ""
+msgstr "xhr"
 
 #: of pyramid.config.Configurator.add_route:130
 msgid ""
@@ -674,12 +664,12 @@ msgid ""
 "route to match.  This is useful for detecting AJAX requests issued from "
 "jQuery, Prototype and other Javascript libraries.  If this predicate "
 "returns ``False``, route matching continues."
-msgstr ""
+msgstr "この値は `` True``または `` False``のいずれかでなければなりません。この値が指定され、 `` True``である場合、：term： `request`は、このルートが一致するための` `HTTP_X_REQUESTED_WITH``（別名` `X-Requested-With``）ヘッダを持っていなければなりません。これは、jQuery、PrototypeなどのJavascriptライブラリから発行されたAJAXリクエストを検出するのに便利です。この述語が `` False``を返した場合、ルートマッチングは継続します。"
 
 #: of pyramid.config.Configurator.add_route:138
 #: pyramid.config.Configurator.add_view:319
 msgid "request_method"
-msgstr ""
+msgstr "request_method"
 
 #: of pyramid.config.Configurator.add_route:140
 msgid ""
@@ -688,19 +678,19 @@ msgid ""
 "method names.  If this argument is not specified, this route will match "
 "if the request has *any* request method.  If this predicate returns "
 "``False``, route matching continues."
-msgstr ""
+msgstr "`` GET``、 `` POST``、 `` HEAD``、 `` DELETE``、 `` PUT``、HTTPメソッド名を含む要素のタプルなどのHTTPメソッド名を表す文字列です。この引数が指定されていない場合、要求に* any * requestメソッドがある場合、このルートは一致します。この述語が `` False``を返した場合、ルートマッチングは継続します。"
 
 #: of pyramid.config.Configurator.add_route:146
 #: pyramid.config.Configurator.add_view:330
 msgid ""
 "The ability to pass a tuple of items as ``request_method``. Previous "
 "versions allowed only a string."
-msgstr ""
+msgstr "アイテムのタプルを `` request_method``として渡すことができます。以前のバージョンでは文字列しか使用できませんでした。"
 
 #: of pyramid.config.Configurator.add_route:150
 #: pyramid.config.Configurator.add_view:405
 msgid "path_info"
-msgstr ""
+msgstr "path_info"
 
 #: of pyramid.config.Configurator.add_route:152
 msgid ""
@@ -708,12 +698,12 @@ msgid ""
 "against the ``PATH_INFO`` WSGI environment variable.  If the regex "
 "matches, this predicate will return ``True``.  If this predicate returns "
 "``False``, route matching continues."
-msgstr ""
+msgstr "この値は、 `` PATH_INFO``のWSGI環境変数に対してテストされる正規表現パターンを表します。正規表現が一致する場合、この述語は `` True``を返します。この述語が `` False``を返した場合、ルートマッチングは継続します。"
 
 #: of pyramid.config.Configurator.add_route:158
 #: pyramid.config.Configurator.add_view:334
 msgid "request_param"
-msgstr ""
+msgstr "request_param"
 
 #: of pyramid.config.Configurator.add_route:160
 msgid ""
@@ -727,12 +717,12 @@ msgid ""
 "hand side of the expression (``123``) for the route to \"match\" the "
 "current request.  If this predicate returns ``False``, route matching "
 "continues."
-msgstr ""
+msgstr "この値には任意の文字列を使用できます。この引数を指定したビュー宣言は、リクエストに `` request.params``辞書（HTTPの `` GET``または `` POST``変数）にキーがある場合にのみ関連するルートが一致することを保証します供給された値と一致する。引数として与えられた値に `` = ``という記号がある場合、 `` request_param = \ &quot;foo = 123 \&quot; ``のように、キー（ `` foo``） request.params``ディクショナリであり、その値は現在のリクエストに &quot;一致&quot;するための式の右側（ `` 123``）と一致しなければなりません。この述語が `` False``を返した場合、ルートマッチングは継続します。"
 
 #: of pyramid.config.Configurator.add_route:172
 #: pyramid.config.Configurator.add_view:386
 msgid "header"
-msgstr ""
+msgstr "ヘッダ"
 
 #: of pyramid.config.Configurator.add_route:174
 msgid ""
@@ -750,12 +740,12 @@ msgid ""
 "Whether or not the value represents a header name or a header name/value "
 "pair, the case of the header name is not significant.  If this predicate "
 "returns ``False``, route matching continues."
-msgstr ""
+msgstr "この引数は、HTTPヘッダー名またはヘッダー名/値のペアを表します。引数に ``： ``（コロン）が含まれていると、それは名前と値のペア（ `` User-Agent：Mozilla /.* ``や `` Host：localhost``など）とみなされます。値にコロンが含まれる場合、値の部分は正規表現でなければなりません。値にコロンが含まれていない場合、値全体がヘッダー名と見なされます（たとえば `` If-Modified-Since``）。値がヘッダー名のみに評価される場合は、この述部がtrueになるように、名前で指定されたヘッダーが要求内に存在していなければなりません。値がヘッダーの名前/値のペアに評価される場合、名前で指定されたヘッダーが要求に存在していなければなりません。*また、値として指定された正規表現はヘッダーの値と一致する必要があります。値がヘッダー名またはヘッダー名/値のペアを表すかどうかに関係なく、ヘッダー名の大文字小文字は重要ではありません。この述語が `` False``を返した場合、ルートマッチングは継続します。"
 
 #: of pyramid.config.Configurator.add_route:192
 #: pyramid.config.Configurator.add_view:460
 msgid "effective_principals"
-msgstr ""
+msgstr "effective_principals"
 
 #: of pyramid.config.Configurator.add_route:194
 #: pyramid.config.Configurator.add_view:462
@@ -768,12 +758,12 @@ msgid ""
 "False.  For example: "
 "``effective_principals=pyramid.security.Authenticated`` or "
 "``effective_principals=('fred', 'group:admins')``."
-msgstr ""
+msgstr "指定する場合、この値は：term： `principal`識別子または一連のプリンシパル識別子でなければなりません。 ：attr： `pyramid.request.Request.effective_principals`プロパティが、引数リストに指定されたすべてのプリンシパルが現在のリクエストに存在することを示す場合、この述語はTrueを返します。それ以外の場合はFalseを返します。たとえば、 `` effective_principals = pyramid.security.Authenticated``や `` effective_principals =（ &#39;fred&#39;、 &#39;group：admins&#39;） ``などです。"
 
 #: of pyramid.config.Configurator.add_route:205
 #: pyramid.config.Configurator.add_view:473
 msgid "custom_predicates"
-msgstr ""
+msgstr "custom_predicates"
 
 #: of pyramid.config.Configurator.add_route:207
 msgid ""
@@ -789,11 +779,11 @@ msgid ""
 "continues.  Note that the value ``info`` passed to a custom route "
 "predicate is a dictionary containing matching information; see "
 ":ref:`custom_route_predicates` for more information about ``info``."
-msgstr ""
+msgstr "この値は、カスタム述部呼び出し可能関数への参照のシーケンスでなければなりません。あらかじめ定義された述語のセットが必要な場合には、カスタム述部を使用します。カスタム述部は、必要に応じて事前定義された述部と組み合わせることができます。呼び出し可能な各カスタム述語は、 `` info``と `` request``という2つの引数を受け取り、情報や要求を任意に評価した後、 `` True``または `` False``を返す必要があります。すべてのカスタムおよび非カスタム述語コールバックが `` True``を返す場合、関連するルートは特定の要求に対して実行可能であると見なされます。いずれかの述語呼び出し可能関数が `` False``を返した場合、ルートマッチングは継続します。カスタム経路述語に渡される値 `` info``は、一致する情報を含む辞書であることに注意してください。 `` info``の詳細については：ref： `custom_route_predicates`を参照してください。"
 
 #: of pyramid.config.Configurator.add_route:224
 msgid "predicates"
-msgstr ""
+msgstr "述語"
 
 #: of pyramid.config.Configurator.add_route:226
 msgid ""
@@ -802,24 +792,24 @@ msgid ""
 "key/value pair can be used at the same time.  See "
 ":ref:`view_and_route_predicates` for more information about third-party "
 "predicates."
-msgstr ""
+msgstr "ここでキー/値のペアを渡して：meth： `pyramid.config.Configurator.add_route_predicate`で登録されたサードパーティの述語を使用します。複数のキーと値のペアを同時に使用できます。第三者の述語の詳細については、ref： `view_and_route_predicates`を参照してください。"
 
 #: of pyramid.config.Configurator.add_static_view:1
 msgid "Add a view used to render static assets such as images and CSS files."
-msgstr ""
+msgstr "画像やCSSファイルなどの静的アセットをレンダリングするために使用するビューを追加します。"
 
 #: of pyramid.config.Configurator.add_static_view:4
 msgid ""
 "The ``name`` argument is a string representing an application-relative "
 "local URL prefix.  It may alternately be a full URL."
-msgstr ""
+msgstr "`` name``引数はアプリケーション相対のローカルURLプレフィックスを表す文字列です。代わりに完全なURLでもかまいません。"
 
 #: of pyramid.config.Configurator.add_static_view:8
 msgid ""
 "The ``path`` argument is the path on disk where the static files reside."
 "  This can be an absolute path, a package-relative path, or a "
 ":term:`asset specification`."
-msgstr ""
+msgstr "`` path``引数は、静的ファイルが存在するディスク上のパスです。これは、絶対パス、パッケージ相対パス、または：term： `資産指定 &#39;です。"
 
 #: of pyramid.config.Configurator.add_static_view:12
 msgid ""
@@ -828,7 +818,7 @@ msgid ""
 "argument has no effect when the ``name`` is a *url prefix*.  By default, "
 "this argument is ``None``, meaning that no particular Expires or Cache-"
 "Control headers are set in the response."
-msgstr ""
+msgstr "`` cache_max_age``キーワード引数は、提供される静的資産の `` Expires``と `` Cache-Control``ヘッダーを設定するために入力されます。この引数は、 `` name``が* url接頭辞*のときは効果がないことに注意してください。デフォルトでは、この引数は `` None``です。これは、ExpiresまたはCache-Controlヘッダーが応答に設定されていないことを意味します。"
 
 #: of pyramid.config.Configurator.add_static_view:18
 msgid ""
@@ -842,18 +832,18 @@ msgid ""
 "apps, static assets seldom need protection from viewing.  If "
 "``permission`` is specified, the security checking will be performed "
 "against the default root factory ACL."
-msgstr ""
+msgstr "`` permission``キーワード引数は、ユーザが静的ビューを実行するために必要な：term： `permission`を指定するために使用されます。デフォルトでは、次の文字列があります：data： `pyramid.security.NO_PERMISSION_REQUIRED`：現在のアプリケーションにa：term：` default permission`が存在する場合でも、静的ビューは完全に匿名にレンダリングされるべきであることを示す特別な監視コードです。ユーザー。ほとんどのWebアプリケーションでは、静的資産の保護がほとんど必要ないため、このデフォルト値は許容値です。 `` permission``が指定されている場合、セキュリティチェックはデフォルトのルートファクトリACLに対して実行されます。"
 
 #: of pyramid.config.Configurator.add_static_view:29
 msgid ""
 "Any other keyword arguments sent to ``add_static_view`` are passed on to "
 ":meth:`pyramid.config.Configurator.add_route` (e.g. ``factory``, perhaps "
 "to define a custom factory with a custom ACL for this static view)."
-msgstr ""
+msgstr "`` add_static_view``に送られた他のキーワード引数は、：meth： `pyramid.config.Configurator.add_route`（例えば` `factory``、おそらくこの静的ビューのカスタムACLを持つカスタムファクトリを定義するために）に渡されます。 。"
 
 #: of pyramid.config.Configurator.add_static_view:34
 msgid "*Usage*"
-msgstr ""
+msgstr "*使用法*"
 
 #: of pyramid.config.Configurator.add_static_view:36
 msgid ""
@@ -862,7 +852,7 @@ msgid ""
 "``add_static_view`` adds a view which renders a static asset when some "
 "URL is visited; :meth:`pyramid.request.Request.static_url` generates a "
 "URL to that asset."
-msgstr ""
+msgstr "`` add_static_view``関数は、通常：meth： `pyramid.request.Request.static_url`メソッドと組み合わせて使用​​されます。 `` add_static_view``は、あるURLが訪れたときに静的資産をレンダリングするビューを追加します。 ：meth： `pyramid.request.Request.static_url`はそのアセットへのURLを生成します。"
 
 #: of pyramid.config.Configurator.add_static_view:42
 msgid ""
@@ -871,13 +861,13 @@ msgid ""
 ":meth:`pyramid.request.Request.static_url` API will generate a URL which "
 "points to a Pyramid view, which will serve up a set of assets that live "
 "in the package itself. For example:"
-msgstr ""
+msgstr "`` add_static_view``の `` name``引数は通常、単純なURL接頭辞です（例えば `` &#39;images&#39;``）。この場合、：meth： `pyramid.request.Request.static_url` APIはPyramidビューを指し示すURLを生成し、ピラミッドビューはパッケージ自体に存在する一連のアセットを提供します。例えば："
 
 #: of pyramid.config.Configurator.add_static_view:52
 msgid ""
 "Code that registers such a view can generate URLs to the view via "
 ":meth:`pyramid.request.Request.static_url`:"
-msgstr ""
+msgstr "このようなビューを登録するコードは、次のようにしてビューへのURLを生成できます：meth： `pyramid.request.Request.static_url`："
 
 #: of pyramid.config.Configurator.add_static_view:59
 msgid ""
@@ -888,7 +878,7 @@ msgid ""
 "something like ``http://<Pyramid app URL>/images/logo.png``, which will "
 "cause the ``logo.png`` file in the ``images`` subdirectory of the "
 "``mypackage`` package to be served."
-msgstr ""
+msgstr "上記のように、URL接頭辞を表す `` name``引数を指定して `` add_static_view``を呼び出すと、 `` meth： `pyramid.request.Request.static_url`の後に` `` `` add_static_view``に渡されたpath引数は `` http：//のようなURLを生成します<Pyramid app URL> / images / logo.png``を実行すると、 `` mypackage``パッケージの `` images``サブディレクトリにある `` logo.png``ファイルが提供されます。"
 
 #: of pyramid.config.Configurator.add_static_view:67
 msgid ""
@@ -901,11 +891,11 @@ msgid ""
 "protocol-relative URL (e.g. ``//example.com/images``) is used as the "
 "``name`` argument, the generated URL will use the protocol of the request"
 " (http or https, respectively)."
-msgstr ""
+msgstr "`` add_static_view``は `` URL` *引数である `` name``引数と交互に使うことができ、外部のウェブサーバから静的資産を提供します。これは、 `` name``引数が完全修飾URL（ `` http：// ``などで始まるURL）である場合に発生します。このモードでは、：meth： `pyramid.request.Request.static_url`を使用してURLを生成するときに、` `name``が完全なURLの接頭辞として使用されます。さらに、プロトコル相対URL（ `` // example.com / images``など）が `` name``引数として使用された場合、生成されたURLは要求のプロトコル（それぞれhttpまたはhttps）を使用します。 。"
 
 #: of pyramid.config.Configurator.add_static_view:77
 msgid "For example, if ``add_static_view`` is called like so:"
-msgstr ""
+msgstr "たとえば、 `` add_static_view``が次のように呼び出されたとします："
 
 #: of pyramid.config.Configurator.add_static_view:83
 msgid ""
@@ -914,11 +904,11 @@ msgid ""
 "prefixed with ``http://example.com/images`` (the external webserver "
 "listening on ``example.com`` must be itself configured to respond "
 "properly to such a request.):"
-msgstr ""
+msgstr "その後、静的ビューの：meth： `pyramid.request.Request.static_url`によって生成されたURLには、` `http：// example.com / images``（` `example.comをリッスンしている外部Webサーバー``はそのような要求に適切に応答するように構成されていなければなりません）。"
 
 #: of pyramid.config.Configurator.add_static_view:93
 msgid "See :ref:`static_assets_section` for more information."
-msgstr ""
+msgstr "詳細はref： `static_assets_section`を参照してください。"
 
 #: of pyramid.config.Configurator.add_view:1
 msgid ""
@@ -928,11 +918,11 @@ msgid ""
 "circumstances in which the view callable will be invoked when a request "
 "is presented to :app:`Pyramid`; non-predicate arguments are "
 "informational."
-msgstr ""
+msgstr "a：term： `view configuration`を現在の設定状態に追加します。 `` add_view``への引数は、*述語*引数と*非述語*引数に分割されています。述語引数は、要求がapp： `Pyramid`に提示されたときにビュー呼び出し可能関数が呼び出される状況を狭めます。非述語の引数は情報です。"
 
 #: of pyramid.config.Configurator.add_view:11
 msgid "view"
-msgstr ""
+msgstr "見る"
 
 #: of pyramid.config.Configurator.add_view:13
 msgid ""
@@ -941,11 +931,11 @@ msgid ""
 " also exists.  If a ``renderer`` argument is passed, and a ``view`` "
 "argument is not provided, the view callable defaults to a callable that "
 "returns an empty dictionary (see :ref:`views_which_use_a_renderer`)."
-msgstr ""
+msgstr "A：term： `view callable`またはa：term：点滅したPython名` `` callable &#39;&#39;を参照します。 `` renderer``引数も存在しない限り、この引数は必須です。 `` renderer``引数が渡され、 `` view``引数が指定されていない場合、ビューの呼び出し可能なデフォルトは空の辞書を返す呼び出し可能です（参照：ref： `views_which_use_a_renderer`）。"
 
 #: of pyramid.config.Configurator.add_view:21
 msgid "permission"
-msgstr ""
+msgstr "許可"
 
 #: of pyramid.config.Configurator.add_view:23
 msgid ""
@@ -953,7 +943,7 @@ msgid ""
 ":term:`view callable`.  See :ref:`view_security_section` for more "
 "information about view security and permissions.  This is often a string "
 "like ``view`` or ``edit``."
-msgstr ""
+msgstr "A：term： `permission：`を呼び出すためにユーザが持っていなければならない `permission：` `callable``です。ビューのセキュリティと権限の詳細については、：ref： `view_security_section`を参照してください。これはしばしば `` view``や `` edit``のような文字列です。"
 
 #: of pyramid.config.Configurator.add_view:28
 msgid ""
@@ -967,15 +957,15 @@ msgid ""
 "argument to explicitly indicate that the view should always be executable"
 " by entirely anonymous users, regardless of the default permission, "
 "bypassing any :term:`authorization policy` that may be in effect."
-msgstr ""
+msgstr "`` permission``が省略された場合、：class： `pyramid.config.Configurator`コンストラクタの` `default_permission``引数、または以下の場合には、このビューの登録に* default *このビュー登録の前に `pyramid.config.Configurator.set_default_permission`が使用されました。値：data： `pyramid.security.NO_PERMISSION_REQUIRED`をパーミッション引数として渡して、デフォルトのパーミッションにかかわらず、完全に匿名のユーザがビューを常に実行可能にすることを明示します。term：` authorization policy`事実上。"
 
 #: of pyramid.config.Configurator.add_view:40
 msgid "attr"
-msgstr ""
+msgstr "アトリエ"
 
 #: of pyramid.config.Configurator.add_view:42
 msgid "This knob is most useful when the view definition is a class."
-msgstr ""
+msgstr "このノブは、ビュー定義がクラスである場合に最も便利です。"
 
 #: of pyramid.config.Configurator.add_view:44
 msgid ""
@@ -987,11 +977,11 @@ msgid ""
 "wanted to use this method instead of the class' ``__call__`` method to "
 "return the response, you'd say ``attr=\"index\"`` in the view "
 "configuration for the view."
-msgstr ""
+msgstr "ビュー機構は、デフォルトで：term： `view callable`（ビュー呼び出し可能関数が関数の場合は関数自体）の` `__call__``メソッドを使用して応答を取得します。 `` attr``値は、レスポンスを取得するために使用されるメソッド属性を変更することを可能にします。たとえば、ビューがクラスで、クラスに `` index``という名前のメソッドがあり、クラスの `` __call__``メソッドの代わりにこのメソッドを使用してレスポンスを返す場合は、ビューのビュー設定で `attr = \&quot; index \ &quot;` `"
 
 #: of pyramid.config.Configurator.add_view:54
 msgid "renderer"
-msgstr ""
+msgstr "レンダラー"
 
 #: of pyramid.config.Configurator.add_view:56
 msgid ""
@@ -1006,14 +996,14 @@ msgid ""
 "used to look up the renderer implementation, which will be passed the "
 "full path.  The renderer implementation will be used to construct a "
 ":term:`response` from the view return value."
-msgstr ""
+msgstr "これは、単一の文字列（例えば、 `` json``）やパスを意味する文字列、または：term： `資産指定`（例えば、 `` templates / views.pt``）の命名です：term： `renderer`の実装。 `` renderer``の値にドット `` .``が含まれていない場合、指定された文字列はレンダラー実装をルックアップするために使用され、レンダラー実装はビュー戻り値からの応答を構築するために使用されます。 `` renderer``の値にドット（ `` .``）が含まれている場合、指定された用語はパスとして扱われ、パスの最後の要素のファイル名拡張子はレンダラー実装をルックアップするために使われます。それは完全なパスを通過します。レンダラーの実装は、ビューの戻り値から：term： `response`を構築するために使用されます。"
 
 #: of pyramid.config.Configurator.add_view:71
 msgid ""
 "Note that if the view itself returns a :term:`response` (see "
 ":ref:`the_response`), the specified renderer implementation is never "
 "called."
-msgstr ""
+msgstr "ビュー自体が：term： `response`（：ref：` the_response`を参照）を返した場合、指定されたレンダラー実装は決して呼び出されません。"
 
 #: of pyramid.config.Configurator.add_view:75
 msgid ""
@@ -1025,18 +1015,18 @@ msgid ""
 "Windows.  The path can alternately be a :term:`asset specification` in "
 "the form ``some.dotted.package_name:relative/path``, making it possible "
 "to address template assets which live in a separate package."
-msgstr ""
+msgstr "レンダラーがパスである場合、パスは通常単純な相対パス名ですが（例えば、 `` templates / foo.pt``、\ &quot;foo.pt \&quot;という名前のテンプレートは\ &quot;templates \&quot;ディレクトリにあることを意味しますConfiguratorのcurrent：term： `package &#39;のディレクトリに対して）、パスはUNIX上のスラッシュまたはWindows上のドライブ文字プレフィックスから始まる絶対パスで指定できます。パスは、 `` some.dotted.package_name：relative / path``の形式でa：term： `asset specification &#39;にすることもできます。これにより、別のパッケージに入っているテンプレートアセットを扱うことができます。"
 
 #: of pyramid.config.Configurator.add_view:87
 msgid ""
 "The ``renderer`` attribute is optional.  If it is not defined, the "
 "\"null\" renderer is assumed (no rendering is performed and the value is "
 "passed back to the upstream :app:`Pyramid` machinery unmodified)."
-msgstr ""
+msgstr "`` renderer``属性はオプションです。定義されていない場合、レンダリングは行われません（レンダリングは行われず、値は変更されずにアップストリーム：app： `Pyramid`機械に戻されます）。"
 
 #: of pyramid.config.Configurator.add_view:92
 msgid "http_cache"
-msgstr ""
+msgstr "http_cache"
 
 #: of pyramid.config.Configurator.add_view:96
 msgid ""
@@ -1044,7 +1034,7 @@ msgid ""
 "``Expires`` and ``Cache-Control`` headers of a response generated by the "
 "associated view callable are modified.  The value for ``http_cache`` may "
 "be one of the following:"
-msgstr ""
+msgstr "ビュー設定に `` http_cache``値を指定すると、関連するview呼び出し可能で生成されたレスポンスの `` Expires``と `` Cache-Control``ヘッダーが変更されます。 `` http_cache``の値は次のいずれかです："
 
 #: of pyramid.config.Configurator.add_view:101
 msgid ""
@@ -1054,7 +1044,7 @@ msgid ""
 "responses to requests which call this view. For example: "
 "``http_cache=3600`` instructs the requesting browser to 'cache this "
 "response for an hour, please'."
-msgstr ""
+msgstr "非ゼロの整数。ゼロ以外の整数の場合、秒数として扱われます。この秒数は、このビューを呼び出すリクエストに対するレスポンスの `` Expires``ヘッダと `` Cache-Control：max-age``パラメータを計算するために使用されます。たとえば、 `` http_cache = 3600``は、リクエストしているブラウザに「この応答を1時間キャッシュしてください」と指示します。"
 
 #: of pyramid.config.Configurator.add_view:108
 msgid ""
@@ -1065,7 +1055,7 @@ msgid ""
 "this view. For example: ``http_cache=datetime.timedelta(days=1)`` "
 "instructs the requesting browser to 'cache this response for a day, "
 "please'."
-msgstr ""
+msgstr "`` datetime.timedelta``インスタンスです。 `` datetime.timedelta``インスタンスの場合、秒数に変換され、その秒数が `` Expires``ヘッダーと `` Cache-Control：max-age &#39;&#39;を計算するために使われますこのビューを呼び出す要求への応答のパラメータ。例： `` http_cache = datetime.timedelta（days = 1） ``は、リクエストしているブラウザに「この応答を1日キャッシュしてください」と指示します。"
 
 #: of pyramid.config.Configurator.add_view:116
 msgid ""
@@ -1073,7 +1063,7 @@ msgid ""
 "``Expires`` headers present in all responses from this view will be "
 "composed such that client browser cache (and any intermediate caches) are"
 " instructed to never cache the response."
-msgstr ""
+msgstr "0（ `` 0``）。値がゼロの場合、このビューからのすべての応答に存在する `` Cache-Control``と `` Expires``ヘッダーは、クライアントブラウザのキャッシュ（および任意の中間キャッシュ）にレスポンスをキャッシュしないように構成されます。"
 
 #: of pyramid.config.Configurator.add_view:121
 msgid ""
@@ -1089,19 +1079,19 @@ msgid ""
 "``webob.cachecontrol.CacheControl`` interface may be added to the "
 "dictionary.  Supplying ``{'public':True}`` is equivalent to calling "
 "``response.cache_control.public = True``."
-msgstr ""
+msgstr "2タプル。それが2つのタプル（例えば `` http_cache =（1、{&#39;public&#39;：True）） ``）の場合、タプルの最初の値は非ゼロの整数か `` datetime.timedelta``インスタンスです。どちらの場合も、この値はレスポンスをキャッシュする秒数として使用されます。タプルの2番目の値は辞書でなければなりません。辞書にある値は `` Cache-Control``レスポンスヘッダへの入力として使われます。例えば、 `` http_cache =（3600、{&#39;public&#39;：True}）は ``キャッシュを1時間意味し、 `` public``をレスポンスのCache-Controlヘッダに追加します。 `` webob.cachecontrol.CacheControl``インターフェースでサポートされているすべてのキーと値を辞書に追加することができます。 `` {&#39;public&#39;：True} ``を提供することは、 `` response.cache_control.public = True``を呼び出すことと等価です。"
 
 #: of pyramid.config.Configurator.add_view:135
 msgid ""
 "Providing a non-tuple value as ``http_cache`` is equivalent to calling "
 "``response.cache_expires(value)`` within your view's body."
-msgstr ""
+msgstr "`` http_cache``として非タプルの値を与えることは、あなたのビューのボディ内で `` response.cache_expires（value） ``を呼び出すことと同じです。"
 
 #: of pyramid.config.Configurator.add_view:138
 msgid ""
 "Providing a two-tuple value as ``http_cache`` is equivalent to calling "
 "``response.cache_expires(value[0], **value[1])`` within your view's body."
-msgstr ""
+msgstr "`` http_cache``として2タプルの値を与えることは、あなたのビューのボディ内で `` response.cache_expires（value [0]、** value [1]） ``を呼び出すのと同じです。"
 
 #: of pyramid.config.Configurator.add_view:142
 msgid ""
@@ -1109,7 +1099,7 @@ msgid ""
 "wish to only influence ``Cache-Control`` headers, pass a tuple as "
 "``http_cache`` with the first element of ``None``, e.g.: ``(None, "
 "{'public':True})``."
-msgstr ""
+msgstr "`` Expires``ヘッダーに影響を与えず、 `` Cache-Control``ヘッダにのみ影響を与えたい場合は、 `` None``の最初の要素を持つ `` http_cache``としてタプルを渡し、例： ``（None、{&#39;public&#39;：True}） ``。"
 
 #: of pyramid.config.Configurator.add_view:147
 msgid ""
@@ -1118,54 +1108,54 @@ msgid ""
 "machinery, set ``response.cache_control.prevent_auto = True`` before "
 "returning the response from the view.  This effectively disables any HTTP"
 " caching done by ``http_cache`` for that response."
-msgstr ""
+msgstr "設定で `` http_cache``を使用するビューがこのマシンによってキャッシュレスポンスヘッダが変更されないようにするには、ビューからレスポンスを返す前に `` response.cache_control.prevent_auto = True``を設定してください。これは、その応答に対して `` http_cache``によって行われるHTTPキャッシングを事実上無効にします。"
 
 #: of pyramid.config.Configurator.add_view:153
 msgid "require_csrf"
-msgstr ""
+msgstr "require_csrf"
 
 #: of pyramid.config.Configurator.add_view:157
 msgid "A boolean option or ``None``. Default: ``None``."
-msgstr ""
+msgstr "booleanオプションか `` None``です。デフォルト： `` None``。"
 
 #: of pyramid.config.Configurator.add_view:159
 msgid ""
 "If this option is set to ``True`` then CSRF checks will be enabled for "
 "requests to this view. The required token or header default to "
 "``csrf_token`` and ``X-CSRF-Token``, respectively."
-msgstr ""
+msgstr "このオプションが `` True``に設定されている場合、CSRFチェックはこのビューに対する要求に対して有効になります。必要なトークンまたはヘッダのデフォルトは、それぞれ `` csrf_token``と `` X-CSRF-Token``です。"
 
 #: of pyramid.config.Configurator.add_view:163
 msgid ""
 "CSRF checks only affect \"unsafe\" methods as defined by RFC2616. By "
 "default, these methods are anything except ``GET``, ``HEAD``, "
 "``OPTIONS``, and ``TRACE``."
-msgstr ""
+msgstr "CSRFチェックは、RFC2616で定義されているように、\ &quot;安全ではない\&quot;というメソッドにのみ影響します。デフォルトでは、これらのメソッドは `` GET``、 `` HEAD``、 `` OPTIONS``、および `` TRACE``以外のものです。"
 
 #: of pyramid.config.Configurator.add_view:167
 msgid ""
 "The defaults here may be overridden by "
 ":meth:`pyramid.config.Configurator.set_default_csrf_options`."
-msgstr ""
+msgstr "ここでのデフォルトは：meth： `pyramid.config.Configurator.set_default_csrf_options`によって上書きされるかもしれません。"
 
 #: of pyramid.config.Configurator.add_view:170
 msgid "This feature requires a configured :term:`session factory`."
-msgstr ""
+msgstr "この機能には、設定済み：term： `セッションファクトリ`が必要です。"
 
 #: of pyramid.config.Configurator.add_view:172
 msgid ""
 "If this option is set to ``False`` then CSRF checks will be disabled "
 "regardless of the default ``require_csrf`` setting passed to "
 "``set_default_csrf_options``."
-msgstr ""
+msgstr "このオプションが `` False``に設定されている場合、 `` set_default_csrf_options``に渡されるデフォルトの `` require_csrf``設定にかかわらず、CSRFチェックは無効になります。"
 
 #: of pyramid.config.Configurator.add_view:176
 msgid "See :ref:`auto_csrf_checking` for more information."
-msgstr ""
+msgstr "詳細は：ref： `auto_csrf_checking`を参照してください。"
 
 #: of pyramid.config.Configurator.add_view:178
 msgid "wrapper"
-msgstr ""
+msgstr "ラッパー"
 
 #: of pyramid.config.Configurator.add_view:180
 msgid ""
@@ -1183,11 +1173,11 @@ msgid ""
 "'wrapper_viewname')``. The context and request of a wrapper view is the "
 "same context and request of the inner view.  If this attribute is "
 "unspecified, no view wrapping is done."
-msgstr ""
+msgstr "このビューの応答本体をそれ自身の：request.wrapped_body`属性として受け取る：term： `request`と： term： `response`は、このビューによって自身の要求の` `request.wrapped_response``属性として返されます。ラッパーを使用すると、ビューをまとめて\ &quot;チェーン\&quot;して複合レスポンスを形成することができます。最も外側のラッパー・ビューの応答がユーザーに戻されます。ラッパービューはすべてのビューが見つかると見つかります：see：ref： `view_lookup`。ルックアップの順序に基づいて\ &quot;ベスト\&quot;ラッパービューが見つけられます：\ &quot;under the hood \&quot;このラッパービューは `` pyramid.view.render_view_to_response（context、request、 &#39;wrapper_viewname&#39;） ``で検索されます。ラッパー・ビューのコンテキストおよび要求は、同じコンテキストおよび内部ビューの要求です。この属性が指定されていない場合、ビューの折り返しは行われません。"
 
 #: of pyramid.config.Configurator.add_view:197
 msgid "decorator"
-msgstr ""
+msgstr "デコレータ"
 
 #: of pyramid.config.Configurator.add_view:199
 msgid ""
@@ -1198,17 +1188,17 @@ msgid ""
 " is passed will accept ``(context, request)``.  The decorator(s) must "
 "return a replacement view callable which also accepts ``(context, "
 "request)``."
-msgstr ""
+msgstr "A：term：登録された：term： `view callable`をデコレートするために使用される` `dotted Python name`（または関数自体、または前述のiterable）。デコレータ関数は呼び出し可能なビューを単一の引数として呼び出されます。呼び出し可能なビューは ``（context、request） `&#39;を受け入れます。デコレータは、 ``（context、request） `&#39;を受け付ける代わりのview callableを返さなければなりません。"
 
 #: of pyramid.config.Configurator.add_view:208
 msgid ""
 "If decorator is an iterable, the callables will be combined and used in "
 "the order provided as a decorator. For example::"
-msgstr ""
+msgstr "デコレータが反復可能である場合、コール可能オブジェクトは結合され、デコレータとして提供される順序で使用されます。例えば：："
 
 #: of pyramid.config.Configurator.add_view:218
 msgid "Is similar to doing::"
-msgstr ""
+msgstr "やっていることに似ています::"
 
 #: of pyramid.config.Configurator.add_view:226
 msgid ""
@@ -1216,7 +1206,7 @@ msgid ""
 "decorator syntax for all view calling conventions and not having to think"
 " about preserving function attributes such as ``__name__`` and "
 "``__module__`` within decorator logic)."
-msgstr ""
+msgstr "`` decorator = ``（すべてのビュー呼び出し規約に共通のデコレータ構文を持ち、デコレータロジック内で `` __name__``や `` __module__``などの関数属性を保存することについて考える必要はありません）の既存の利点を除いて。"
 
 #: of pyramid.config.Configurator.add_view:231
 msgid ""
@@ -1224,15 +1214,15 @@ msgid ""
 "object implementing :class:`pyramid.interfaces.IResponse` instead of the "
 "raw value returned from the view callable. All decorators in the chain "
 "must return a response object or raise an exception:"
-msgstr ""
+msgstr "重要な違いは、各デコレータはビュー呼び出し可能から返された生の値の代わりに：class： `pyramid.interfaces.IResponse`を実装する応答オブジェクトを受け取ることです。チェーン内のすべてのデコレータは、レスポンスオブジェクトを返すか、例外を送出する必要があります。"
 
 #: of pyramid.config.Configurator.add_view:249
 msgid "Passing an iterable."
-msgstr ""
+msgstr "iterableを渡します。"
 
 #: of pyramid.config.Configurator.add_view:252
 msgid "mapper"
-msgstr ""
+msgstr "マッパ"
 
 #: of pyramid.config.Configurator.add_view:254
 msgid ""
@@ -1242,7 +1232,7 @@ msgid ""
 "point is useful for Pyramid extension developers, but it's not very "
 "useful for 'civilians' who are just developing stock Pyramid "
 "applications. Pay no attention to the man behind the curtain."
-msgstr ""
+msgstr "Pythonオブジェクトまたは：term： `dotted Python name`：：term：` view mapper`または `` None``を参照してください。デフォルトでは `` None``です。これは、ビューがデフォルトビューマッパーを使用する必要があることを示します。このプラグインはPyramid拡張開発者には便利ですが、株式ピラミッドアプリケーションを開発している「一般市民」にとってあまり役に立ちません。カーテンの後ろの男には注意を払わないでください。"
 
 #: of pyramid.config.Configurator.add_view:263
 msgid ""
@@ -1255,17 +1245,17 @@ msgid ""
 "``Accept`` header isn't set at all in the request, this will match the "
 "current view. If this does not match the ``Accept`` header of the "
 "request, view matching continues."
-msgstr ""
+msgstr "この値は、 `` Accept`` HTTPリクエストヘッダの1つまたは複数のMIMEタイプの一致クエリを表します。この値が指定されていれば、 `` text / plain``形式のmimetypeマッチトークン、 `` text / * ``形式のワイルドカードmimetypeマッチトークン、すべてのワイルドカードmimetypeは `` * / * ``形式のトークンとマッチします。いずれかのフォームがリクエストの `` Accept``ヘッダーと一致する場合、または `` Accept``ヘッダーがリクエストにまったく設定されていない場合、これは現在のビューと一致します。これが要求の `` Accept``ヘッダーと一致しない場合、ビューの一致が続きます。"
 
 #: of pyramid.config.Configurator.add_view:277
 msgid ""
 "The :term:`view name`.  Read :ref:`traversal_chapter` to understand the "
 "concept of a view name."
-msgstr ""
+msgstr "：term： `ビュー名`。ビュー名の概念を理解するために：ref： `traversal_chapter`を読んでください。"
 
 #: of pyramid.config.Configurator.add_view:280
 msgid "context"
-msgstr ""
+msgstr "コンテキスト"
 
 #: of pyramid.config.Configurator.add_view:282
 msgid ""
@@ -1278,11 +1268,11 @@ msgid ""
 "false.  This argument may also be provided to ``add_view`` as ``for_`` "
 "(an older, still-supported spelling). If the view should *only* match "
 "when handling exceptions, then set the ``exception_only`` to ``True``."
-msgstr ""
+msgstr "オブジェクトまたは：term： `dotted Python name`は、インタフェースまたはクラスオブジェクトを参照しています。：term：` context`は、：term： `context`のインスタンスでなければなりません`このビューを見つけて呼び出すために提供する必要があります。この述語は：term： `context`が表現されたクラスのインスタンスである場合、または：term：` context`が表現されたインタフェースを提供する場合に真です。それ以外の場合はfalseです。この引数は、 `` for_``（古い、依然としてサポートされているスペル）として `` add_view``に提供することもできます。例外を処理するときにビューが* only *一致する必要がある場合は、 `` exception_only``を `` True``に設定してください。"
 
 #: of pyramid.config.Configurator.add_view:294
 msgid "exception_only"
-msgstr ""
+msgstr "例外のみ"
 
 #: of pyramid.config.Configurator.add_view:298
 msgid ""
@@ -1293,29 +1283,29 @@ msgid ""
 " subclass of ``Exception`` and this value is ``False`` (the default), "
 "then a view will be registered to match the traversal :term:`context` as "
 "well."
-msgstr ""
+msgstr "この値が `` True``の場合、 `` context``引数は `` Exception``のサブクラスでなければなりません。このフラグは、：term： `例外ビュー &#39;のみを作成し、traversal：term：` context`が `` context``引数と一致する場合、このビューは一致してはならないことを示します。 `` context``が `` Exception``のサブクラスで、この値が `` False``（デフォルト）の場合、トラバーサル：term： `context`にもマッチするビューが登録されます。"
 
 #: of pyramid.config.Configurator.add_view:306
 msgid "route_name"
-msgstr ""
+msgstr "ルート名"
 
 #: of pyramid.config.Configurator.add_view:308
 msgid ""
 "This value must match the ``name`` of a :term:`route configuration` "
 "declaration (see :ref:`urldispatch_chapter`) that must match before this "
 "view will be called."
-msgstr ""
+msgstr "この値は、このビューが呼び出される前に一致しなければならない：term： `ルート設定`宣言（：ref： `urldispatch_chapter`参照）の` `name``と一致しなければなりません。"
 
 #: of pyramid.config.Configurator.add_view:312
 msgid "request_type"
-msgstr ""
+msgstr "リクエストの種類"
 
 #: of pyramid.config.Configurator.add_view:314
 msgid ""
 "This value should be an :term:`interface` that the :term:`request` must "
 "provide in order for this view to be found and called.  This value exists"
 " only for backwards compatibility purposes."
-msgstr ""
+msgstr "この値は、：term： `request`がこのビューを見つけて呼び出すために提供しなければならない：term：` interface`でなければなりません。この値は下位互換性の目的でのみ存在します。"
 
 #: of pyramid.config.Configurator.add_view:321
 msgid ""
@@ -1327,7 +1317,7 @@ msgid ""
 "request (aka the ``REQUEST_METHOD`` of the WSGI environment) matches a "
 "supplied value.  Note that use of ``GET`` also implies that the view will"
 " respond to ``HEAD`` as of Pyramid 1.4."
-msgstr ""
+msgstr "この値は、文字列（ `` \ &quot;GET \&quot; ``、 `` POST &quot;&quot;、 `` \ &quot;PUT \&quot; ``、 `` \ &quot;DELETE \&quot; ``、 `` \ &quot;HEAD \&quot; ``または `` \ &quot;OPTIONS \&quot; ``）、またはこれらの文字列の1つ以上を含むタプルを返します。この引数を指定したビュー宣言は、リクエストの `` method``属性（WSGI環境の `` REQUEST_METHOD``）が指定された値と一致する場合にのみビューが呼び出されることを保証します。 `` GET``を使うと、ビューがPyramid 1.4の `` HEAD``に応答することにも注意してください。"
 
 #: of pyramid.config.Configurator.add_view:336
 msgid ""
@@ -1341,17 +1331,17 @@ msgid ""
 "the ``request.params`` dictionary, *and* the value must match the right "
 "hand side of the expression (``123``) for the view to \"match\" the "
 "current request."
-msgstr ""
+msgstr "この値は、任意の文字列または文字列の任意のシーケンスです。この引数を指定したビュー宣言は、：term： `request`が` `request.params``ディクショナリ（HTTPの` `GET``または` `POST``変数）は、指定された値（文字列の場合）または値（タプルの場合）と一致する名前を持ちます。 `` request_param = \ &quot;foo = 123 \&quot; ``のように `` = ``記号が与えられている場合、キー（ `` foo``）は `` request.params ``ディクショナリ、*、*の値は、現在の要求に &quot;一致&quot;するための式の右側（ &quot;123&quot;）と一致しなければなりません。"
 
 #: of pyramid.config.Configurator.add_view:348
 msgid "match_param"
-msgstr ""
+msgstr "match_param"
 
 #: of pyramid.config.Configurator.add_view:352
 msgid ""
 "This value can be a string of the format \"key=value\" or a tuple "
 "containing one or more of these strings."
-msgstr ""
+msgstr "この値は、\ &quot;key = value \&quot;という形式の文字列、またはこれらの文字列の1つ以上を含むタプルです。"
 
 #: of pyramid.config.Configurator.add_view:355
 msgid ""
@@ -1361,17 +1351,17 @@ msgid ""
 "``match_param=\"action=edit\"`` would require the ``action`` parameter in"
 " the :term:`matchdict` match the right hand side of the expression "
 "(``edit``) for the view to \"match\" the current request."
-msgstr ""
+msgstr "この引数を指定したビュー宣言は、：term： `request`が：term：` matchdict`にキーと値のペアを持ち、述語で与えられたものと等しい場合にのみビューが呼び出されることを保証します。例えば、 `` match_param = \ &quot;action = edit \&quot; ``は、 `` action``パラメータを必要とします：term： `matchdict`は、ビューの式の右側（` `edit``）にマッチします。現在の要求に &quot;一致&quot;します。"
 
 #: of pyramid.config.Configurator.add_view:363
 msgid ""
 "If the ``match_param`` is a tuple, every key/value pair must match for "
 "the predicate to pass."
-msgstr ""
+msgstr "`` match_param``がタプルの場合、すべてのキーと値のペアは述語が渡すために一致しなければなりません。"
 
 #: of pyramid.config.Configurator.add_view:366
 msgid "containment"
-msgstr ""
+msgstr "封じ込め"
 
 #: of pyramid.config.Configurator.add_view:368
 msgid ""
@@ -1381,7 +1371,7 @@ msgid ""
 "nodes in your object graph must be \"location-aware\" to use this "
 "feature.  See :ref:`location_aware` for more information about location-"
 "awareness."
-msgstr ""
+msgstr "この値は、コンテキストの：term： `lineage`のオブジェクトがこのビューを見つけるために提供しなければならないPythonクラスまたは：term：` interface`（またはa：term： `dotted Python name`）でなければなりませんと呼ばれる。この機能を使用するには、オブジェクトグラフのノードが\ &quot;位置認識\&quot;でなければなりません。位置認識の詳細については：ref： `location_aware`を参照してください。"
 
 #: of pyramid.config.Configurator.add_view:378
 msgid ""
@@ -1391,7 +1381,7 @@ msgid ""
 "value ``XMLHttpRequest`` for this view to be found and called. This is "
 "useful for detecting AJAX requests issued from jQuery, Prototype and "
 "other Javascript libraries."
-msgstr ""
+msgstr "この値は `` True``または `` False``のいずれかでなければなりません。この値が指定され、 `` True``である場合、：term： `request`は` `XMLHttpRequest``という値を持つ` `HTTP-X_REQUESTED_WITH``（別名` `X-Requested-With``）このビューを見つけて呼び出します。これは、jQuery、PrototypeなどのJavascriptライブラリから発行されたAJAXリクエストを検出するのに便利です。"
 
 #: of pyramid.config.Configurator.add_view:388
 msgid ""
@@ -1408,24 +1398,24 @@ msgid ""
 "match the header value.  Whether or not the value represents a header "
 "name or a header name/value pair, the case of the header name is not "
 "significant."
-msgstr ""
+msgstr "この値は、HTTPヘッダー名またはヘッダー名/値のペアを表します。値に ``： ``（コロン）が含まれていると、名前と値のペアとみなされます（例えば、 `` User-Agent：Mozilla /.* ``や `` Host：localhost``）。値の部分は正規表現でなければなりません。値にコロンが含まれていない場合、値全体がヘッダー名と見なされます（たとえば `` If-Modified-Since``）。値がヘッダー名のみに評価される場合は、この述部がtrueになるように、名前で指定されたヘッダーが要求内に存在していなければなりません。値がヘッダーの名前/値のペアに評価される場合、名前で指定されたヘッダーが要求に存在していなければなりません。*また、値として指定された正規表現はヘッダーの値と一致する必要があります。値がヘッダー名またはヘッダー名/値のペアを表すかどうかに関係なく、ヘッダー名の大文字小文字は重要ではありません。"
 
 #: of pyramid.config.Configurator.add_view:407
 msgid ""
 "This value represents a regular expression pattern that will be tested "
 "against the ``PATH_INFO`` WSGI environment variable.  If the regex "
 "matches, this predicate will be ``True``."
-msgstr ""
+msgstr "この値は、 `` PATH_INFO``のWSGI環境変数に対してテストされる正規表現パターンを表します。正規表現が一致する場合、この述語は `` True``になります。"
 
 #: of pyramid.config.Configurator.add_view:412
 msgid "check_csrf"
-msgstr ""
+msgstr "check_csrf"
 
 #: of pyramid.config.Configurator.add_view:414
 msgid ""
 "Use the ``require_csrf`` option or see :ref:`auto_csrf_checking` instead "
 "to have :class:`pyramid.exceptions.BadCSRFToken` exceptions raised."
-msgstr ""
+msgstr "代わりに：class： `pyramid.exceptions.BadCSRFToken`例外を発生させるには、` `require_csrf``オプションを使うか、：ref：` auto_csrf_checking`を参照してください。"
 
 #: of pyramid.config.Configurator.add_view:419
 msgid ""
@@ -1433,14 +1423,14 @@ msgid ""
 "or a string representing the 'check name'.  If the value is ``True`` or a"
 " string, CSRF checking will be performed.  If the value is ``False`` or "
 "``None``, CSRF checking will not be performed."
-msgstr ""
+msgstr "指定する場合、この値は `` None``、 `` True``、 `` False``、または `check name &#39;を表す文字列のいずれかでなければなりません。値が `` True``または文字列の場合、CSRFチェックが実行されます。値が `` False``または `` None``の場合、CSRFチェックは実行されません。"
 
 #: of pyramid.config.Configurator.add_view:424
 msgid ""
 "If the value provided is a string, that string will be used as the 'check"
 " name'.  If the value provided is ``True``, ``csrf_token`` will be used "
 "as the check name."
-msgstr ""
+msgstr "指定された値が文字列の場合、その文字列は「チェック名」として使用されます。指定された値が `` True``の場合、 `` csrf_token``がチェック名として使用されます。"
 
 #: of pyramid.config.Configurator.add_view:428
 msgid ""
@@ -1451,18 +1441,18 @@ msgid ""
 " check will pass if these two values are the same. If the check passes, "
 "the associated view will be permitted to execute. If the check fails, the"
 " associated view will not be permitted to execute."
-msgstr ""
+msgstr "CSRFチェックが実行されると、チェックされた値は `` request.params [check_name] ``の値になります。この値は `` policy.get_csrf_token（） ``の値と比較されます（ `` policy``は：meth： `pyramid.interfaces.ICSRFStoragePolicy`の実装です）、これらの2つの値同じだ。チェックが合格すると、関連するビューの実行が許可されます。検査が失敗した場合、関連するビューは実行できません。"
 
 #: of pyramid.config.Configurator.add_view:438
 msgid ""
 "This feature requires either a :term:`session factory` to have been "
 "configured, or a :term:`CSRF storage policy` other than the default to be"
 " in use."
-msgstr ""
+msgstr "この機能は、：term： `セッションファクトリ`が設定されているか、デフォルトでは使用されていないa：term： `CSRF storage policy`が必要です。"
 
 #: of pyramid.config.Configurator.add_view:444
 msgid "physical_path"
-msgstr ""
+msgstr "physical_path"
 
 #: of pyramid.config.Configurator.add_view:446
 msgid ""
@@ -1477,7 +1467,7 @@ msgid ""
 "elements inbetween slash characters or in tuple elements should be the "
 "Unicode representation of the name of the resource and should not be "
 "encoded in any way."
-msgstr ""
+msgstr "指定された場合、この値は、この述語が真と一致するために、トラバーサルによって見つかったコンテキストの：term： `物理パス &#39;を表す文字列またはタプルでなければなりません。例： `` physical_path = &#39;/&#39; ``または `` physical_path = &#39;/ a / b / c``または `` physical_path =（&#39; &#39;、&#39; a &#39;、&#39; b &#39;、&#39; c &#39;） `` 。これはパス接頭辞の一致または正規表現ではなく、パス全体の一致です。これは、あるオブジェクトがトラバースされているときに常にビューを表示したいときに便利ですが、どのようなオブジェクトであるかを確かめることができないので、 `` context``述語を使うことはできません。スラッシュ文字またはタプル要素の間の個々のパス要素は、リソース名のUnicode表現である必要があります。"
 
 #: of pyramid.config.Configurator.add_view:475
 msgid ""
@@ -1491,11 +1481,11 @@ msgid ""
 "register third-party view predicates via "
 ":meth:`pyramid.config.Configurator.add_view_predicate` obsoletes this "
 "argument, but it is kept around for backwards compatibility."
-msgstr ""
+msgstr "この値は、カスタム述部呼び出し可能関数への参照のシーケンスでなければなりません。事前定義された述部のセットが必要な場合には、カスタム述部を使用します。カスタム述部は、必要に応じて事前定義された述部と組み合わせることができます。呼び出し可能な各カスタム述語は、 `` context``と `` request``の2つの引数を受け取り、コンテキストや要求の任意の評価を行った後、 `` True``または `` False``を返す必要があります。このメソッドの `` predicates``引数と：meth： `pyramid.config.Configurator.add_view_predicate`を介してサードパーティのビュー述語を登録する機能は、この引数を廃止しますが、下位互換性のために保持されます。"
 
 #: of pyramid.config.Configurator.add_view:490
 msgid "view_options"
-msgstr ""
+msgstr "view_options"
 
 #: of pyramid.config.Configurator.add_view:492
 msgid ""
@@ -1505,7 +1495,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_view_deriver`. See "
 ":ref:`view_and_route_predicates` for more information about third-party "
 "predicates and :ref:`view_derivers` for information about view derivers."
-msgstr ""
+msgstr "キー/値のペアをここに渡して、サードパーティーの述語を使用するか、ビュー・デリバーの値を設定します。参照：meth： `pyramid.config.Configurator.add_view_predicate`と：meth：` pyramid.config.Configurator.add_view_deriver`。サードパーティの述語についての詳細は：ref： `view_and_route_predicates`、ビューデリバーについては：ref：` view_derivers`を参照してください。"
 
 #: of pyramid.config.Configurator.add_notfound_view:1
 msgid ""
@@ -1513,14 +1503,14 @@ msgid ""
 "The view will be called when Pyramid or application code raises an "
 ":exc:`pyramid.httpexceptions.HTTPNotFound` exception (e.g., when a view "
 "cannot be found for the request).  The simplest example is:"
-msgstr ""
+msgstr "デフォルト：term： `Not Found View`を現在の設定状態に追加します。ピラミッドまたはアプリケーションコードが：exc： `pyramid.httpexceptions.HTTPNotFound`例外を発生させると、ビューが呼び出されます（例えば、要求がビューを見つけることができない場合）。最も単純な例は次のとおりです。"
 
 #: of pyramid.config.Configurator.add_forbidden_view:14
 #: pyramid.config.Configurator.add_notfound_view:13
 msgid ""
 "If ``view`` argument is not provided, the view callable defaults to "
 ":func:`~pyramid.httpexceptions.default_exceptionresponse_view`."
-msgstr ""
+msgstr "`` view``引数が与えられていない場合、ビューの呼び出し可能なデフォルトは：func： `〜pyramid.httpexceptions.default_exceptionresponse_view`です。"
 
 #: of pyramid.config.Configurator.add_notfound_view:16
 msgid ""
@@ -1532,7 +1522,7 @@ msgid ""
 "``require_csrf``, ``context``, ``for_``, or ``exception_only`` keyword "
 "arguments. These argument values make no sense in the context of a Not "
 "Found View."
-msgstr ""
+msgstr "`` append_slash``を除くすべての引数は：meth： `pyramid.config.Configurator.add_view`と同じ意味を持ち、各述語引数はこの未知のビューが呼び出される環境の集合を制限します。 ：meth： `pyramid.config.Configurator.add_view`とは異なり、このメソッドは` `name``、` `permission``、` `require_csrf``、` `context``、` `for_`を渡すと例外を送出します。 `、` `exception_only``のキーワード引数を指定します。これらの引数の値は、見つからないビューのコンテキストでは意味を持ちません。"
 
 #: of pyramid.config.Configurator.add_notfound_view:25
 msgid ""
@@ -1542,7 +1532,7 @@ msgid ""
 "suffixed with a slash.  If such a route exists, Pyramid will issue a "
 "redirect to the URL implied by the route; if it does not, Pyramid will "
 "return the result of the view callable provided as ``view``, as normal."
-msgstr ""
+msgstr "`` append_slash``が `` True``の場合、このNot Found Viewが呼び出され、現在のパス情報がスラッシュで終わらない場合、notfoundロジックは：term： `route`を見つけようとします。リクエストのパス情報の末尾にスラッシュが付きます。このようなルートが存在する場合、Pyramidはそのルートが意味するURLにリダイレクトを発行します。もしそうでなければ、Pyramidは通常通り `` view``として提供された呼び出し可能なビューの結果を返します。"
 
 #: of pyramid.config.Configurator.add_notfound_view:33
 msgid ""
@@ -1552,7 +1542,7 @@ msgid ""
 "provided class will be used as the response class instead of the default "
 ":class:`~pyramid.httpexceptions.HTTPFound` response class when a redirect"
 " is performed.  For example:"
-msgstr ""
+msgstr "`` append_slash``として提供された引数がブール値ではなく、代わりに：class： `〜pyramid.interfaces.IResponse`を実装する場合、append_slashロジックは` `append_slash = True``が渡されたかのように動作しますが、リダイレクトが実行されたときのデフォルト：class： `〜pyramid.httpexceptions.HTTPFound`レスポンスクラスの代わりにレスポンスクラスとして使用されます。例えば："
 
 #: of pyramid.config.Configurator.add_notfound_view:45
 msgid ""
@@ -1560,19 +1550,19 @@ msgid ""
 "attempted, but instead of :class:`~pyramid.httpexceptions.HTTPFound` "
 "being used, :class:`~pyramid.httpexceptions.HTTPMovedPermanently will be "
 "used` for the redirect response if a slash-appended route is found."
-msgstr ""
+msgstr "上記のことは、スラッシュが追加されたルートへのリダイレクトが試みられるが、class： `〜pyramid.httpexceptions.HTTPFound`の代わりに：class：`〜pyramid.httpexceptions.HTTPMovedPermanently`がリダイレクトに使用されることを意味するスラッシュが追加されたルートが見つかった場合の応答。"
 
 #: of pyramid.config.Configurator.add_notfound_view:54
 msgid ""
 "The ``append_slash`` argument was modified to allow any object that "
 "implements the ``IResponse`` interface to specify the response class used"
 " when a redirect is performed."
-msgstr ""
+msgstr "`` append_slash``引数は、 `` IResponse``インターフェースを実装しているオブジェクトが、リダイレクトが実行されたときに使われるレスポンスクラスを指定できるように変更されました。"
 
 #: of pyramid.config.Configurator.add_forbidden_view:31
 #: pyramid.config.Configurator.add_notfound_view:60
 msgid "The view is created using ``exception_only=True``."
-msgstr ""
+msgstr "ビューは `` exception_only = True``を使って作成されます。"
 
 #: of pyramid.config.Configurator.add_forbidden_view:1
 msgid ""
@@ -1581,7 +1571,7 @@ msgid ""
 ":exc:`pyramid.httpexceptions.HTTPForbidden` exception and the set of "
 "circumstances implied by the predicates provided are matched.  The "
 "simplest example is:"
-msgstr ""
+msgstr "禁止されたビューを現在の設定状態に追加します。ピラミッドまたはアプリケーションコードがa：exc： `pyramid.httpexceptions.HTTPForbidden`例外を発生し、提供された述語が暗示する状況のセットが一致したときにビューが呼び出されます。最も単純な例は次のとおりです。"
 
 #: of pyramid.config.Configurator.add_forbidden_view:17
 msgid ""
@@ -1593,38 +1583,38 @@ msgid ""
 "``require_csrf``, ``context``, ``for_``, or ``exception_only`` keyword "
 "arguments. These argument values make no sense in the context of a "
 "forbidden :term:`exception view`."
-msgstr ""
+msgstr "すべての引数は：meth： `pyramid.config.Configurator.add_view`と同じ意味を持ち、各述語引数は、この禁止されたビューが呼び出される環境のセットを制限します。 ：meth： `pyramid.config.Configurator.add_view`とは異なり、このメソッドは` `name``、` `permission``、` `require_csrf``、` `context``、` `for_`を渡すと例外を送出します。 `、` `exception_only``のキーワード引数を指定します。これらの引数の値は、禁止：用語：例外ビューのコンテキストで意味をなさない。"
 
 #: of pyramid.config.Configurator.add_exception_view:1
 msgid ""
 "Add an :term:`exception view` for the specified ``exception`` to the "
 "current configuration state. The view will be called when Pyramid or "
 "application code raises the given exception."
-msgstr ""
+msgstr "指定した `` exception``の：term： `exception view`を現在の設定状態に追加します。ピラミッドまたはアプリケーションコードが指定された例外を呼び出すと、ビューが呼び出されます。"
 
 #: of pyramid.config.Configurator.add_exception_view:5
 msgid ""
 "This method accepts almost all of the same arguments as "
 ":meth:`pyramid.config.Configurator.add_view` except for ``name``, "
 "``permission``, ``for_``, ``require_csrf``, and ``exception_only``."
-msgstr ""
+msgstr "このメソッドは、 `` name``、 `` permission``、 `` for_``、 `` require_csrf``、および `` require_csrf``を除いて、meth： `pyramid.config.Configurator.add_view`とほぼ同じ引数を受け取ります。 `exception_only``です。"
 
 #: of pyramid.config.Configurator.add_exception_view:9
 msgid ""
 "By default, this method will set ``context=Exception``, thus registering "
 "for most default Python exceptions. Any subclass of ``Exception`` may be "
 "specified."
-msgstr ""
+msgstr "デフォルトでは、このメソッドは `` context = Exception``を設定し、ほとんどのデフォルトのPython例外を登録します。 `` Exception``のサブクラスを指定することができます。"
 
 #: ../../api/config.rst:31
 msgid ":methodcategory:`Adding an Event Subscriber`"
-msgstr ""
+msgstr "：methodcategory： `イベント加入者を追加する`"
 
 #: of pyramid.config.Configurator.add_subscriber:1
 msgid ""
 "Add an event :term:`subscriber` for the event stream implied by the "
 "supplied ``iface`` interface."
-msgstr ""
+msgstr "指定された `` iface``インタフェースが暗示しているイベントストリームのためのterm： `subscriber`イベントを追加します。"
 
 #: of pyramid.config.Configurator.add_subscriber:4
 msgid ""
@@ -1634,14 +1624,14 @@ msgid ""
 ":term:`event` associated with the ``iface``, which may be an "
 ":term:`interface` or a class or a :term:`dotted Python name` to a global "
 "object representing an interface or a class."
-msgstr ""
+msgstr "`` subscriber``引数は、呼び出し可能なオブジェクト（または、a：term：呼び出し可能なものを識別する `ドット付きPython名`）を表します。 app： `Pyramid`は` `iface``に関連付けられた：term：` event`を出力します：term： `interface`またはクラスであるかもしれません。または：a：term： `dotted Python name`をインタフェースまたはクラスを表すグローバルオブジェクトに追加します。"
 
 #: of pyramid.config.Configurator.add_subscriber:11
 msgid ""
 "Using the default ``iface`` value, ``None`` will cause the subscriber to "
 "be registered for all event types. See :ref:`events_chapter` for more "
 "information about events and subscribers."
-msgstr ""
+msgstr "デフォルトの `` iface``値を使うと、 `` None``はすべてのイベントタイプに対してサブスクライバを登録します。イベントとサブスクライバの詳細は、：ref： `events_chapter`を参照してください。"
 
 #: of pyramid.config.Configurator.add_subscriber:15
 msgid ""
@@ -1651,15 +1641,15 @@ msgid ""
 "predicate must have been registered via "
 ":meth:`pyramid.config.Configurator.add_subscriber_predicate` before it "
 "can be used.  See :ref:`subscriber_predicates` for more information."
-msgstr ""
+msgstr "任意の数の述語キーワード引数を `` **述語 &#39;&#39;に渡すことができます。指定された各述部は、サブスクライバーが呼び出される一連の状況を絞り込みます。それぞれの名前付き述語は、それが使用される前に：meth： `pyramid.config.Configurator.add_subscriber_predicate`を介して登録されていなければなりません。詳細は、：ref： `subscriber_predicates`を参照してください。"
 
 #: of pyramid.config.Configurator.add_subscriber:22
 msgid "The ``**predicates`` argument."
-msgstr ""
+msgstr "`` ** predicates``引数です。"
 
 #: ../../api/config.rst:35
 msgid ":methodcategory:`Using Security`"
-msgstr ""
+msgstr "：methodcategory： `セキュリティを使う`"
 
 #: of pyramid.config.Configurator.set_authentication_policy:1
 msgid ""
@@ -1667,14 +1657,14 @@ msgid ""
 "configuration.  The ``policy`` argument must be an instance of an "
 "authentication policy or a :term:`dotted Python name` that points at an "
 "instance of an authentication policy."
-msgstr ""
+msgstr "現在の設定で：app： `Pyramid`：term：`認証ポリシー `をオーバーライドします。 `` policy``引数は、認証ポリシーのインスタンスでなければなりません。認証ポリシーのインスタンスを指すa：term： `dotted Python name`です。"
 
 #: of pyramid.config.Configurator.set_authentication_policy:8
 msgid ""
 "Using the ``authentication_policy`` argument to the "
 ":class:`pyramid.config.Configurator` constructor can be used to achieve "
 "the same purpose."
-msgstr ""
+msgstr "：class： `pyramid.config.Configurator`コンストラクタに対する` `authentication_policy``引数を使用すると、同じ目的を達成できます。"
 
 #: of pyramid.config.Configurator.set_authorization_policy:1
 msgid ""
@@ -1682,18 +1672,18 @@ msgid ""
 "configuration.  The ``policy`` argument must be an instance of an "
 "authorization policy or a :term:`dotted Python name` that points at an "
 "instance of an authorization policy."
-msgstr ""
+msgstr "現在の設定で：app： `Pyramid`：term：`認証ポリシー `をオーバーライドします。 `` policy``引数は、認可ポリシーのインスタンスでなければならず、認可ポリシーのインスタンスを指すa：term： `dotted Python name`でなければなりません。"
 
 #: of pyramid.config.Configurator.set_authorization_policy:8
 msgid ""
 "Using the ``authorization_policy`` argument to the "
 ":class:`pyramid.config.Configurator` constructor can be used to achieve "
 "the same purpose."
-msgstr ""
+msgstr "：class： `pyramid.config.Configurator`コンストラクタへの` `authorization_policy``引数を使用すると、同じ目的を達成できます。"
 
 #: of pyramid.config.Configurator.set_default_csrf_options:1
 msgid "Set the default CSRF options used by subsequent view registrations."
-msgstr ""
+msgstr "後続のビュー登録で使用されるデフォルトのCSRFオプションを設定します。"
 
 #: of pyramid.config.Configurator.set_default_csrf_options:3
 msgid ""
@@ -1701,25 +1691,25 @@ msgid ""
 "enabled on each view in the application. This value is used as the "
 "fallback when ``require_csrf`` is left at the default of ``None`` on "
 ":meth:`pyramid.config.Configurator.add_view`."
-msgstr ""
+msgstr "`` require_csrf``は、アプリケーションの各ビューでCSRFチェックが自動的に有効になるかどうかを制御します。この値は、 `` require_csrf``がデフォルトで `` None``のままで、meth： `pyramid.config.Configurator.add_view`に置き換えられたときのフォールバックとして使用されます。"
 
 #: of pyramid.config.Configurator.set_default_csrf_options:8
 msgid ""
 "``token`` is the name of the CSRF token used in the body of the request, "
 "accessed via ``request.POST[token]``. Default: ``csrf_token``."
-msgstr ""
+msgstr "`` token``は、 `` request.POST [token] ``によってアクセスされる、要求の本体で使用されるCSRFトークンの名前です。デフォルト： `` csrf_token``。"
 
 #: of pyramid.config.Configurator.set_default_csrf_options:11
 msgid ""
 "``header`` is the name of the header containing the CSRF token, accessed "
 "via ``request.headers[header]``. Default: ``X-CSRF-Token``."
-msgstr ""
+msgstr "`` header``は、 `` request.headers [header] ``でアクセスされるCSRFトークンを含むヘッダの名前です。デフォルト： `` X-CSRF-Token``。"
 
 #: of pyramid.config.Configurator.set_default_csrf_options:14
 msgid ""
 "If ``token`` or ``header`` are set to ``None`` they will not be used for "
 "checking CSRF tokens."
-msgstr ""
+msgstr "`` token``や `` header``が `` None``に設定されている場合、CSRFトークンのチェックには使われません。"
 
 #: of pyramid.config.Configurator.set_default_csrf_options:17
 msgid ""
@@ -1727,7 +1717,7 @@ msgid ""
 " contain side-effects as defined by RFC2616. Safe methods will never be "
 "automatically checked for CSRF tokens. Default: ``('GET', 'HEAD', "
 "'OPTIONS', TRACE')``."
-msgstr ""
+msgstr "`` safe_methods``は、RFC2616で定義されているような副作用を含んでいないと予想されるHTTPメソッドの反復可能なものです。 CSRFトークンについて安全なメソッドが自動的にチェックされることはありません。デフォルト： ``（ &#39;GET&#39;、 &#39;HEAD&#39;、 &#39;OPTIONS&#39;、TRACE &#39;） ``"
 
 #: of pyramid.config.Configurator.set_default_csrf_options:22
 msgid ""
@@ -1740,22 +1730,22 @@ msgid ""
 "for that request so that clients do not need to send the ``X-CSRF-Token``"
 " header. The callback is only tested for non-safe methods as defined by "
 "``safe_methods``."
-msgstr ""
+msgstr "`` callback``が設定されている場合、有効なCSRFトークンが要求されているかどうかをチェックする必要がある場合は、 ``（request） ``を受け取り、 `` True``を返す呼び出し可能でなければなりません。このコールバックにより、アプリケーションは、CSRF攻撃を受けないクッキーに依存しない代替認証方法をサポートできます。例えば、リクエストがクッキーの代わりに `` Authorization``ヘッダを使って認証された場合、クライアントは `` X-CSRF-Token``を送信する必要がないように、リクエストに `` False``を返します。ヘッダ。コールバックは、 `` safe_methods``で定義されている安全でないメソッドに対してのみテストされます。"
 
 #: of pyramid.config.Configurator.set_default_csrf_options:34
 msgid "Added the ``callback`` option."
-msgstr ""
+msgstr "`` callback``オプションを追加しました。"
 
 #: of pyramid.config.Configurator.set_csrf_storage_policy:1
 msgid "Set the :term:`CSRF storage policy` used by subsequent view registrations."
-msgstr ""
+msgstr "次のビュー登録で使用される：term： `CSRF storage policy`を設定します。"
 
 #: of pyramid.config.Configurator.set_csrf_storage_policy:4
 msgid ""
 "``policy`` is a class that implements the "
 ":meth:`pyramid.interfaces.ICSRFStoragePolicy` interface and defines how "
 "to generate and persist CSRF tokens."
-msgstr ""
+msgstr "`` policy``は、：meth： `pyramid.interfaces.ICSRFStoragePolicy`インターフェースを実装し、CSRFトークンを生成して持続させる方法を定義するクラスです。"
 
 #: of pyramid.config.Configurator.set_default_permission:1
 msgid ""
@@ -1766,7 +1756,7 @@ msgid ""
 "makes it unnecessary to protect each view configuration with an explicit "
 "permission, unless your application policy requires some exception for a "
 "particular view."
-msgstr ""
+msgstr "すべての後続の：term： `view configuration`の登録で使用されるデフォルトのアクセス権を設定します。 `` permission``は：term： `permission`文字列でなければなりません。パーミッション文字列の例： `` &#39;view&#39; ``。既定のアクセス許可を追加すると、アプリケーションポリシーが特定のビューに対して何らかの例外を必要としない限り、明示的なアクセス許可で各ビュー構成を保護する必要はありません。"
 
 #: of pyramid.config.Configurator.set_default_permission:10
 msgid ""
@@ -1774,14 +1764,14 @@ msgid ""
 "configuration registrations which do not explicitly declare a permission "
 "will be executable by entirely anonymous users (any authorization policy "
 "is ignored)."
-msgstr ""
+msgstr "デフォルトの権限が* not *に設定されている場合、明示的に権限を宣言していないビュー構成登録によって表されるビューは、完全に匿名のユーザーによって実行可能になります（権限ポリシーは無視されます）。"
 
 #: of pyramid.config.Configurator.set_default_permission:15
 msgid ""
 "Later calls to this method override will conflict with earlier calls; "
 "there can be only one default permission active at a time within an "
 "application."
-msgstr ""
+msgstr "後でこのメソッドをオーバーライドすると、以前の呼び出しと競合します。アプリケーション内で一度にアクティブにできるデフォルトのアクセス権は1つだけです。"
 
 #: of pyramid.config.Configurator.set_default_permission:21
 msgid ""
@@ -1792,14 +1782,14 @@ msgid ""
 "used as the ``permission`` for a view configuration, the default "
 "permission is ignored, and the view is registered, making it available to"
 " all callers regardless of their credentials."
-msgstr ""
+msgstr "デフォルトの権限が有効な場合、真に匿名でアクセス可能なビュー（term： `exception view`ビュー）を作成するための設定を表示するには、以下のようにインポート可能な権限の値を使用しなければなりません：data：` pyramid.security.NO_PERMISSION_REQUIRED` 。この文字列がビュー設定の `` permission``として使用されると、デフォルトのアクセス権は無視され、ビューは登録され、証明書に関係なくすべての呼び出し元が利用できるようになります。"
 
 #: of pyramid.config.Configurator.set_default_permission:35
 msgid ""
 "Using the ``default_permission`` argument to the "
 ":class:`pyramid.config.Configurator` constructor can be used to achieve "
 "the same purpose."
-msgstr ""
+msgstr "：class： `pyramid.config.Configurator`コンストラクタへの` `default_permission``引数を使用すると、同じ目的を達成することができます。"
 
 #: of pyramid.config.Configurator.add_permission:1
 msgid ""
@@ -1808,22 +1798,22 @@ msgid ""
 "the permission shows up in the introspectable data under the "
 "``permissions`` category (permissions mentioned via ``add_view`` already "
 "end up in there).  For example::"
-msgstr ""
+msgstr "自立したパーミッションをビュー呼び出し可能に関連付けることなく登録するコンフィギュレータ・ディレクティブ。これは、 `` permissions``カテゴリ（ `` add_view`を介してすでに述べられている権限がすでにそこにある）の下でイントロスペクターブルなデータにパーミッションが現れるように使用できます。例えば：："
 
 #: ../../api/config.rst:44
 msgid ":methodcategory:`Extending the Request Object`"
-msgstr ""
+msgstr "：methodcategory： `要求オブジェクトを拡張する`"
 
 #: of pyramid.config.Configurator.add_request_method:1
 msgid "Add a property or method to the request object."
-msgstr ""
+msgstr "リクエストオブジェクトにプロパティまたはメソッドを追加します。"
 
 #: of pyramid.config.Configurator.add_request_method:3
 msgid ""
 "When adding a method to the request, ``callable`` may be any function "
 "that receives the request object as the first parameter. If ``name`` is "
 "``None`` then it will be computed from the name of the ``callable``."
-msgstr ""
+msgstr "リクエストにメソッドを追加する場合、 `` callable``は、リクエストオブジェクトを最初のパラメータとして受け取る関数です。 `` name``が `` None``なら `` callable``の名前から計算されます。"
 
 #: of pyramid.config.Configurator.add_request_method:8
 msgid ""
@@ -1831,55 +1821,55 @@ msgid ""
 "callable that accepts the request as its single positional parameter, or "
 "it can be a property descriptor. If ``name`` is ``None``, the name of the"
 " property will be computed from the name of the ``callable``."
-msgstr ""
+msgstr "リクエストにプロパティを追加する場合、 `` callable``はリクエストをその単一の位置パラメータとして受け入れる呼び出し可能なものか、またはプロパティ記述子である可能性があります。 `` name``が `` None``の場合、プロパティの名前は `` callable``の名前から計算されます。"
 
 #: of pyramid.config.Configurator.add_request_method:14
 msgid ""
 "If the ``callable`` is a property descriptor a ``ValueError`` will be "
 "raised if ``name`` is ``None`` or ``reify`` is ``True``."
-msgstr ""
+msgstr "`` callable``がプロパティ記述子の場合、 `` name``が `` None``または `` reify``が `` True``の場合、 `` ValueError``が発生します。"
 
 #: of pyramid.config.Configurator.add_request_method:17
 msgid ""
 "See :meth:`pyramid.request.Request.set_property` for more details on "
 "``property`` vs ``reify``. When ``reify`` is ``True``, the value of "
 "``property`` is assumed to also be ``True``."
-msgstr ""
+msgstr "`` property``と `` reify``の詳細については、meth： `pyramid.request.Request.set_property`を参照してください。 `` reify``が `` True``のとき、 `` property``の値も `` True``とみなされます。"
 
 #: of pyramid.config.Configurator.add_request_method:22
 msgid ""
 "In all cases, ``callable`` may also be a :term:`dotted Python name` which"
 " refers to either a callable or a property descriptor."
-msgstr ""
+msgstr "すべての場合において、 `` callable``は：term： ``点在したPython名 ``であって、呼び出し可能なものか、またはプロパティ記述子のどちらかを指します。"
 
 #: of pyramid.config.Configurator.add_request_method:26
 msgid ""
 "If ``callable`` is ``None`` then the method is only used to assist in "
 "conflict detection between different addons requesting the same attribute"
 " on the request object."
-msgstr ""
+msgstr "`` callable``が `` None``の場合、メソッドは要求オブジェクト上の同じ属性を要求する異なるアドオン間の競合検出を支援するためだけに使用されます。"
 
 #: of pyramid.config.Configurator.add_request_method:30
 msgid ""
 "This is the recommended method for extending the request object and "
 "should be used in favor of providing a custom request factory via "
 ":meth:`pyramid.config.Configurator.set_request_factory`."
-msgstr ""
+msgstr "これはリクエストオブジェクトを拡張するために推奨されるメソッドであり、：meth： `pyramid.config.Configurator.set_request_factory`を介してカスタムリクエストファクトリを提供するために使用する必要があります。"
 
 #: of pyramid.config.Configurator.set_request_property:1
 msgid "Add a property to the request object."
-msgstr ""
+msgstr "リクエストオブジェクトにプロパティを追加します。"
 
 #: of pyramid.config.Configurator.set_request_property:3
 msgid ""
 ":meth:`pyramid.config.Configurator.add_request_method` should be used "
 "instead.  (This method was docs-deprecated in 1.4 and issues a real "
 "deprecation warning in 1.5)."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_request_method`を代わりに使うべきです。 （このメソッドは1.4では廃止され、1.5では実際の非推奨警告を発行しています）。"
 
 #: ../../api/config.rst:49
 msgid ":methodcategory:`Using I18N`"
-msgstr ""
+msgstr "：methodcategory： `I18Nを使う`"
 
 #: of pyramid.config.Configurator.add_translation_dirs:1
 msgid ""
@@ -1888,17 +1878,17 @@ msgid ""
 "contain absolute directory paths (e.g. ``/usr/share/locale``) or "
 ":term:`asset specification` names naming a directory path (e.g. "
 "``some.package:locale``) or a combination of the two."
-msgstr ""
+msgstr "1つまたは複数の：term： `translation directory`パスを現在の設定状態に追加します。 `` specs``引数は、絶対ディレクトリパス（ `` / usr / share / locale``など）や：term： `資産指定`の名前にディレクトリパスを指定するシーケンスです（例えば `` some.package：ロケール &quot;）またはその2つの組み合わせ。"
 
 #: of pyramid.config.Configurator.add_translation_dirs:8
 msgid "Example:"
-msgstr ""
+msgstr "例："
 
 #: of pyramid.config.Configurator.add_translation_dirs:15
 msgid ""
 "The translation directories are defined as a list in which translations "
 "defined later have precedence over translations defined earlier."
-msgstr ""
+msgstr "翻訳ディレクトリは、後に定義された翻訳が先に定義された翻訳よりも優先されるリストとして定義されます。"
 
 #: of pyramid.config.Configurator.add_translation_dirs:19
 msgid ""
@@ -1907,21 +1897,21 @@ msgid ""
 "``add_translation_dirs`` will have their translations trumped by earlier "
 "calls. If you explicitly need this call to trump an earlier call then you"
 " may set ``override`` to ``True``."
-msgstr ""
+msgstr "デフォルトでは、 `` add_translation_dirs``を連続して呼び出して、ディレクトリをリストの先頭に追加します。これは、後で `` add_translation_dirs``への呼び出しが、以前の呼び出しによって翻訳されたものになることを意味します。以前の呼び出しよりもこの呼び出しを明示的に必要とする場合は、 `` override``を `` True``に設定することができます。"
 
 #: of pyramid.config.Configurator.add_translation_dirs:25
 msgid ""
 "If multiple specs are provided in a single call to "
 "``add_translation_dirs``, the directories will be inserted in the order "
 "they're provided (earlier items are trumped by later items)."
-msgstr ""
+msgstr "複数の仕様が `` add_translation_dirs``の1回の呼び出しで提供された場合、ディレクトリはそれらが提供された順序で挿入されます（それより前の項目は後の項目で切り捨てられます）。"
 
 #: of pyramid.config.Configurator.add_translation_dirs:31
 msgid ""
 "The ``override`` parameter was added to allow a later call to "
 "``add_translation_dirs`` to override an earlier call, inserting folders "
 "at the beginning of the translation directory list."
-msgstr ""
+msgstr "`` override``パラメータは、後で `` add_translation_dirs``を呼び出して、変換ディレクトリリストの先頭にフォルダを挿入して前の呼び出しを上書きできるようにするために追加されました。"
 
 #: of pyramid.config.Configurator.set_locale_negotiator:1
 msgid ""
@@ -1930,61 +1920,61 @@ msgid ""
 "object and which returns a :term:`locale name`.  The ``negotiator`` "
 "argument should be the locale negotiator implementation or a "
 ":term:`dotted Python name` which refers to such an implementation."
-msgstr ""
+msgstr "このアプリケーション用に：term： `locale negotiator &#39;を設定します。 ：term： `locale negotiator`は：term：` request`オブジェクトを受け入れ、：term： `locale name`を返す呼び出し可能オブジェクトです。 `` negotiator``引数は、ロケールネゴシエーターの実装か、そのような実装を指す ``点在するPython名 ``でなければなりません。"
 
 #: of pyramid.config.Configurator.set_locale_negotiator:8
 msgid ""
 "Later calls to this method override earlier calls; there can be only one "
 "locale negotiator active at a time within an application.  See "
 ":ref:`activating_translation` for more information."
-msgstr ""
+msgstr "後でこのメソッドを呼び出すと、以前の呼び出しが上書きされます。アプリケーション内で一度にアクティブなロケールネゴシエーターは1つだけです。詳細は、：ref： `activating_translation`を参照してください。"
 
 #: of pyramid.config.Configurator.set_locale_negotiator:15
 msgid ""
 "Using the ``locale_negotiator`` argument to the "
 ":class:`pyramid.config.Configurator` constructor can be used to achieve "
 "the same purpose."
-msgstr ""
+msgstr "：class： `pyramid.config.Configurator`コンストラクタへの` `locale_negotiator``引数を使用すると、同じ目的を達成できます。"
 
 #: ../../api/config.rst:54
 msgid ":methodcategory:`Overriding Assets`"
-msgstr ""
+msgstr "：methodcategory： `Assetsをオーバーライドする`"
 
 #: of pyramid.config.Configurator.override_asset:1
 msgid "Add a :app:`Pyramid` asset override to the current configuration state."
-msgstr ""
+msgstr "a：app： `Pyramid`アセットを現在の設定状態に上書きします。"
 
 #: of pyramid.config.Configurator.override_asset:4
 msgid ""
 "``to_override`` is an :term:`asset specification` to the asset being "
 "overridden."
-msgstr ""
+msgstr "`` to_override``は、オーバーライドされる資産に対する：term： `asset specification &#39;です。"
 
 #: of pyramid.config.Configurator.override_asset:7
 msgid ""
 "``override_with`` is an :term:`asset specification` to the asset that is "
 "performing the override. This may also be an absolute path."
-msgstr ""
+msgstr "`` override_with``は、オーバーライドを実行している資産に対する：term： `asset specification &#39;です。これは絶対パスでもよい。"
 
 #: of pyramid.config.Configurator.override_asset:11
 msgid "See :ref:`assets_chapter` for more information about asset overrides."
-msgstr ""
+msgstr "アセットのオーバーライドの詳細については、ref： `assets_chapter`を参照してください。"
 
 #: ../../api/config.rst:58
 msgid ":methodcategory:`Getting and Adding Settings`"
-msgstr ""
+msgstr "：methodcategory： `設定の取得と追加`"
 
 #: of pyramid.config.Configurator.add_settings:1
 msgid "Augment the :term:`deployment settings` with one or more key/value pairs."
-msgstr ""
+msgstr "1つ以上のキーと値のペアを使用して：term： `deployment settings`を拡張します。"
 
 #: of pyramid.config.Configurator.add_settings:4
 msgid "You may pass a dictionary::"
-msgstr ""
+msgstr "あなたは辞書を渡すことができます::"
 
 #: of pyramid.config.Configurator.add_settings:8
 msgid "Or a set of key/value pairs::"
-msgstr ""
+msgstr "またはキーと値のペアのセット::"
 
 #: of pyramid.config.Configurator.add_settings:12
 msgid ""
@@ -1992,7 +1982,7 @@ msgid ""
 ":attr:`pyramid.registry.Registry.settings` API (or the "
 ":meth:`pyramid.config.Configurator.get_settings` API) and which uses "
 "values from that API."
-msgstr ""
+msgstr "この関数は、：attr： `pyramid.registry.Registry.settings` API（または：meth：` pyramid.config.Configurator.get_settings` API）にアクセスするコードをテストし、そのAPIの値を使用するコードをテストする必要がある場合に便利です。"
 
 #: of pyramid.config.Configurator.get_settings:1
 msgid ""
@@ -2000,34 +1990,34 @@ msgid ""
 "  A deployment settings object is a dictionary-like object that contains "
 "key/value pairs based on the dictionary passed as the ``settings`` "
 "argument to the :class:`pyramid.config.Configurator` constructor."
-msgstr ""
+msgstr "現在のアプリケーションのa：term： `deployment settings`オブジェクトを返します。デプロイメント設定オブジェクトは、：class： `pyramid.config.Configurator`コンストラクタの` `settings``引数として渡されるディクショナリに基づくキー/値のペアを含むディクショナリのようなオブジェクトです。"
 
 #: of pyramid.config.Configurator.get_settings:7
 msgid "the :attr:`pyramid.registry.Registry.settings` API performs the same duty."
-msgstr ""
+msgstr "：attr： `pyramid.registry.Registry.settings` APIも同じ働きをします。"
 
 #: ../../api/config.rst:63
 msgid ":methodcategory:`Hooking Pyramid Behavior`"
-msgstr ""
+msgstr "：methodcategory： `フックピラミッドの振る舞い`"
 
 #: of pyramid.config.Configurator.add_renderer:1
 msgid ""
 "Add a :app:`Pyramid` :term:`renderer` factory to the current "
 "configuration state."
-msgstr ""
+msgstr "a：app： `Pyramid`：term：` renderer`ファクトリを現在の設定状態に追加します。"
 
 #: of pyramid.config.Configurator.add_renderer:4
 msgid ""
 "The ``name`` argument is the renderer name.  Use ``None`` to represent "
 "the default renderer (a renderer which will be used for all views unless "
 "they name another renderer specifically)."
-msgstr ""
+msgstr "`` name``引数はレンダラー名です。既定のレンダラー（他のレンダラーの名前を特に指定しない限り、すべてのビューに使用されるレンダラー）を表すには `` None``を使用します。"
 
 #: of pyramid.config.Configurator.add_renderer:8
 msgid ""
 "The ``factory`` argument is Python reference to an implementation of a "
 ":term:`renderer` factory or a :term:`dotted Python name` to same."
-msgstr ""
+msgstr "`` factory``引数は、：term： `renderer`ファクトリ、または：term：` dotted Python name`を同じものに実装するPythonのリファレンスです。"
 
 #: of pyramid.config.Configurator.add_resource_url_adapter:3
 msgid ""
@@ -2037,14 +2027,14 @@ msgid ""
 " traversal is done may have been modified, the URLs that ``resource_url``"
 " generates by default may be incorrect when resources are returned by a "
 "custom traverser."
-msgstr ""
+msgstr "：ref： `changing_the_traverser`で説明されているようにトラバーサを追加すると、：meth：` pyramid.request.Request.resource_url` APIを使い続けると便利です。しかし、トラバーサルが行われる方法が変更されている可能性があるため、カスタムトラバーサルによってリソースが返されたときに、デフォルトで `` resource_url``が生成するURLが正しくない可能性があります。"
 
 #: of pyramid.config.Configurator.add_resource_url_adapter:10
 msgid ""
 "If you've added a traverser, you can change how "
 ":meth:`~pyramid.request.Request.resource_url` generates a URL for a "
 "specific type of resource by calling this method."
-msgstr ""
+msgstr "トラバーサを追加した場合、メソッドを変更することができます：meth： `〜pyramid.request.Request.resource_url`は、このメソッドを呼び出すことによって、特定のタイプのリソースのURLを生成します。"
 
 #: of pyramid.config.Configurator.add_resource_url_adapter:14
 msgid ""
@@ -2054,7 +2044,7 @@ msgid ""
 "and the request) and the resulting instance should provide the attributes"
 " detailed in that interface (``virtual_path`` and ``physical_path``, in "
 "particular)."
-msgstr ""
+msgstr "`` adapter``引数は：class： `〜pyramid.interfaces.IResourceURL`インタフェースを実装するクラスを表します。クラスコンストラクターは、コンストラクター（リソースと要求）で2つの引数を受け取り、その結果得られるインスタンスは、そのインタフェースで詳細な属性（特に、 `` virtual_path``と `` physical_path``）を提供する必要があります。"
 
 #: of pyramid.config.Configurator.add_resource_url_adapter:21
 msgid ""
@@ -2063,11 +2053,11 @@ msgid ""
 ":meth:`pyramid.request.Request.resource_url` looks up a resource url "
 "adapter.  If ``resource_iface`` is not passed, or it is passed as "
 "``None``, the url adapter will be used for every type of resource."
-msgstr ""
+msgstr "`` resource_iface``引数は：meth： `pyramid.request.Request.resource_url`がリソースurlアダプタを参照するときにこのURLアダプタが使用するリソースが持つべきクラスまたはインタフェースを表します。 `` resource_iface``が渡されなかったり、 `` None``として渡された場合、URLアダプタはあらゆるタイプのリソースに使われます。"
 
 #: of pyramid.config.Configurator.add_resource_url_adapter:27
 msgid "See :ref:`changing_resource_url` for more information."
-msgstr ""
+msgstr "詳細はref： `changing_resource_url`を参照してください。"
 
 #: of pyramid.config.Configurator.add_response_adapter:1
 msgid ""
@@ -2076,17 +2066,17 @@ msgid ""
 "into an object which implements the :class:`pyramid.interfaces.IResponse`"
 " interface.  If ``adapter`` is None, an object returned of type (or "
 "interface) ``type_or_iface`` will itself be used as a response object."
-msgstr ""
+msgstr "タイプ（またはインタフェース） `` type_or_iface``のオブジェクトがビュー呼び出し可能から返されると、Pyramidはアダプタ `` adapter``を使用して：class： `pyramid.interfaces.IResponse`を実装するオブジェクトに変換しますインタフェース。 `` adapter``がNoneの場合、型（またはインタフェース） `` type_or_iface``が返されたオブジェクト自体が応答オブジェクトとして使用されます。"
 
 #: of pyramid.config.Configurator.add_response_adapter:8
 msgid ""
 "``adapter`` and ``type_or_interface`` may be Python objects or strings "
 "representing dotted names to importable Python global objects."
-msgstr ""
+msgstr "`` adapter``と `` type_or_interface``は、Pythonオブジェクト、またはインポート可能なPythonグローバルオブジェクトへのドット付きの名前を表す文字列です。"
 
 #: of pyramid.config.Configurator.add_response_adapter:12
 msgid "See :ref:`using_iresponse` for more information."
-msgstr ""
+msgstr "詳細は、：ref： `using_iresponse`を参照してください。"
 
 #: of pyramid.config.Configurator.add_traverser:1
 msgid ""
@@ -2095,13 +2085,13 @@ msgid ""
 "this default algorithm can be swapped out selectively for a different "
 "traversal pattern via configuration.  The section entitled "
 ":ref:`changing_the_traverser` details how to create a traverser class."
-msgstr ""
+msgstr "app： `Pyramid`が使用するsuperdefault：term：` traversal`アルゴリズムは、ref： `traversal_algorithm`で説明されています。ほとんどの場合は必要ではありませんが、このデフォルトアルゴリズムは、コンフィギュレーションを介して異なるトラバーサルパターンに対して選択的にスワップアウトできます。 ：ref： `changing_the_traverser`セクションでは、トラバーサクラスの作成方法について詳しく説明しています。"
 
 #: of pyramid.config.Configurator.add_traverser:8
 msgid ""
 "For example, to override the superdefault traverser used by Pyramid, you "
 "might do something like this:"
-msgstr ""
+msgstr "たとえば、Pyramidで使用されているスーパーデフォルトトラバーサをオーバーライドするには、次のようにします。"
 
 #: of pyramid.config.Configurator.add_traverser:16
 msgid ""
@@ -2112,7 +2102,7 @@ msgid ""
 "keyword parameter.  The default value of ``iface``, ``None`` represents "
 "that the registered traverser should be used when no other more specific "
 "traverser is available for the object returned by the root factory."
-msgstr ""
+msgstr "これは、ピラミッドのスーパーディフェクトトラバーサを決して使用しないようにします。代わりに、このアプリケーションの：term： `ルートファクトリ &#39;によってどのオブジェクトが返されても、あなたの` `MyCustomTraverser``クラスを使ってすべてのトラバーサルが行われます。 `` iface``キーワードパラメータに引数を渡していないことに注意してください。 `` iface``、 `` None``のデフォルト値は、ルートファクトリから返されたオブジェクトに対して他の特別なトラバーサが利用できないときに、登録されたトラバーサを使うべきであることを表します。"
 
 #: of pyramid.config.Configurator.add_traverser:25
 msgid ""
@@ -2126,30 +2116,30 @@ msgid ""
 "Otherwise, the default traverser would be used.  The ``iface`` argument "
 "represents the class of the object that the root factory might return or "
 "an :term:`interface` that the object might implement."
-msgstr ""
+msgstr "ただし、複数のトラバーサルアルゴリズムを同時にアクティブにすることはできます。使用されるトラバーサは：term： `ルートファクトリ &#39;の結果に依存する可能性があります。たとえば、ルート・ファクトリが複数のタイプのオブジェクトを条件付きで戻す場合は、そのルート・ファクトリから戻された特定のクラスまたはインタフェースに対して代替のトラバーサ・アダプタを使用する必要があります。ルートファクトリがそのクラスまたはインターフェイスを実装したオブジェクトを返すと、カスタムトラバーサが使用されます。それ以外の場合は、デフォルトのトラバーサが使用されます。 `` iface``引数は、ルートファクトリが返すオブジェクトのクラス、またはオブジェクトが実装するかもしれない：term： `interface`を表します。"
 
 #: of pyramid.config.Configurator.add_traverser:37
 msgid ""
 "To use a particular traverser only when the root factory returns a "
 "particular class:"
-msgstr ""
+msgstr "ルートファクトリが特定のクラスを返すときにのみ特定のトラバーサを使用するには："
 
 #: of pyramid.config.Configurator.add_traverser:44
 msgid ""
 "When more than one traverser is active, the \"most specific\" traverser "
 "will be used (the one that matches the class or interface of the value "
 "returned by the root factory most closely)."
-msgstr ""
+msgstr "複数のトラバーサがアクティブになっている場合、ルートファクトリから返された値のクラスまたはインタフェースに最も近いものとして、最も特定されたトラバーサが使用されます。"
 
 #: of pyramid.config.Configurator.add_traverser:48
 msgid ""
 "Note that either ``adapter`` or ``iface`` can be a :term:`dotted Python "
 "name` or a Python object."
-msgstr ""
+msgstr "`` adapter``や `` iface``は：term： `dotted Python name`やPythonオブジェクトであることに注意してください。"
 
 #: of pyramid.config.Configurator.add_traverser:51
 msgid "See :ref:`changing_the_traverser` for more information."
-msgstr ""
+msgstr "詳細はref： `changing_the_traverser`を参照してください。"
 
 #: of pyramid.config.Configurator.add_tween:3
 msgid ""
@@ -2164,20 +2154,20 @@ msgid ""
 "have the benefit of running in a context in which they have access to the"
 " Pyramid :term:`application registry` as well as the Pyramid rendering "
 "machinery."
-msgstr ""
+msgstr "&#39;トゥイーン工場&#39;を追加します。 A：term： `tween`（ &#39;between&#39;の短縮形）は、ピラミッドルータのメインリクエスト処理関数と、app：Pyramidを使用するアップストリームWSGIコンポーネントの間にあるコードです。 Tweensは、Pyramidフレームワークの拡張機能で使用される機能で、Pyramid固有のビュータイミングのサポート、上流WSGIアプリケーションに返される前に例外を調べる簿記コード、その他さまざまな機能を提供します。 Tweensは、用語：WSGIミドルウェアのように動作しますが、ピラミッド用語：アプリケーションレジストリとピラミッドレンダリング機構にアクセスできるコンテキストで動作する利点があります。"
 
 #: of pyramid.config.Configurator.add_tween:15
 msgid ""
 "You can view the tween ordering configured into a given Pyramid "
 "application by using the ``ptweens`` command.  See "
 ":ref:`displaying_tweens`."
-msgstr ""
+msgstr "`` ptweens``コマンドを使って、与えられたPyramidアプリケーションに設定されているトゥイーンの順序を見ることができます。参照：ref： `displaying_tweens`を参照してください。"
 
 #: of pyramid.config.Configurator.add_tween:19
 msgid ""
 "The ``tween_factory`` argument must be a :term:`dotted Python name` to a "
 "global object representing the tween factory."
-msgstr ""
+msgstr "`` tween_factory``引数は：term： `dotted Python name`で、トゥイーンファクトリを表すグローバルオブジェクトにする必要があります。"
 
 #: of pyramid.config.Configurator.add_tween:22
 msgid ""
@@ -2187,37 +2177,37 @@ msgid ""
 " when an explicit tween chain is not used (when the ``pyramid.tweens`` "
 "configuration value is not set). Allowable values for ``under`` or "
 "``over`` (or both) are:"
-msgstr ""
+msgstr "`` under``と `` over``引数は、 `` add_tween``の呼び出し側が、暗黙的なトゥイーンチェーンが使用されているときに、このトゥイーンファクトリがどこに置かれるべきかについてヒントを提供することを可能にします。これらのヒントは、明示的なトゥイーンチェーンが使用されていない場合（ `` pyramid.tweens``設定値が設定されていない場合）にのみ使用されます。 `` under``または `` over``（または両方）の許容値は以下のとおりです："
 
 #: of pyramid.config.Configurator.add_tween:29
 msgid "``None`` (the default)."
-msgstr ""
+msgstr "`` None``（デフォルト）。"
 
 #: of pyramid.config.Configurator.add_tween:31
 msgid ""
 "A :term:`dotted Python name` to a tween factory: a string representing "
 "the dotted name of a tween factory added in a call to ``add_tween`` in "
 "the same configuration session."
-msgstr ""
+msgstr "A：term： `dotted Python name`をトゥイーンファクトリに：同じコンフィグレーションセッションで` `add_tween``の呼び出しで追加されたトゥイーンファクトリの点線の名前を表す文字列。"
 
 #: of pyramid.config.Configurator.add_tween:35
 msgid ""
 "One of the constants :attr:`pyramid.tweens.MAIN`, "
 ":attr:`pyramid.tweens.INGRESS`, or :attr:`pyramid.tweens.EXCVIEW`."
-msgstr ""
+msgstr "定数の1つ：attr： `pyramid.tweens.MAIN`、：attr：` pyramid.tweens.INGRESS`、または：attr： `pyramid.tweens.EXCVIEW`です。"
 
 #: of pyramid.config.Configurator.add_tween:38
 msgid ""
 "An iterable of any combination of the above. This allows the user to "
 "specify fallbacks if the desired tween is not included, as well as "
 "compatibility with multiple other tweens."
-msgstr ""
+msgstr "上記の任意の組み合わせの繰り返し可能です。これにより、必要なトゥイーンが含まれていない場合や複数の他のトゥイーンとの互換性がある場合にフォールバックを指定することができます。"
 
 #: of pyramid.config.Configurator.add_tween:42
 msgid ""
 "``under`` means 'closer to the main Pyramid application than', ``over`` "
 "means 'closer to the request ingress than'."
-msgstr ""
+msgstr "「アンダー」は「ピラミッドの主なアプリケーションに近い」を意味し、「オーバー」は「要求よりも進んだ」という意味です。"
 
 #: of pyramid.config.Configurator.add_tween:45
 msgid ""
@@ -2229,7 +2219,7 @@ msgid ""
 "under='mypkg.someothertween')`` will attempt to place this tween factory "
 "'above' the main handler but 'below' (a fictional) 'mypkg.someothertween'"
 " tween factory."
-msgstr ""
+msgstr "たとえば、 `` add_tween（ &#39;myapp.tfactory&#39;、over = pyramid.tweens.MAIN） ``を呼び出すと、点線で囲まれた名前 `` myapp.tfactory``で表されるトゥイーンファクトリを ` `` ptweens``）のメインピラミッドリクエストハンドラです。同様に、 `` add_tween（ &#39;myapp.tfactory&#39;、over = pyramid.tweens.MAIN、under = &#39;mypkg.someothertween&#39;） ``を呼び出すと、このトゥイーンファクトリをメインハンドラの上に配置しようとしますが、 &#39;below&#39;（a架空の） &#39;mypkg.someothertween&#39; tweenファクトリー。"
 
 #: of pyramid.config.Configurator.add_tween:54
 msgid ""
@@ -2242,13 +2232,13 @@ msgid ""
 " and INGRESS. If any of these is not in the current configuration, this "
 "constraint will only organize itself based on the tweens that are "
 "present."
-msgstr ""
+msgstr "`` under``（または `` over``）のすべてのオプションが現在の設定で見つからない場合、それはエラーです。一部のオプションが純粋に他のトゥイーンとの互換性のために指定されている場合は、MAINまたはINGRESSのフォールバックを追加するだけです。たとえば、 `` under =（ &#39;mypkg.someothertween&#39;、 &#39;mypkg.someothertween2&#39;、INGRESS） ``とします。この制約により、トゥイーンは、 &#39;mypkg.someothertween&#39;トゥイーン、 &#39;mypkg.someothertween2&#39;トゥイーン、およびINGRESSの両方に配置する必要があります。これらのいずれかが現在の構成にない場合、この制約は存在するトゥイーンに基づいて構成されます。"
 
 #: of pyramid.config.Configurator.add_tween:64
 msgid ""
 "Specifying neither ``over`` nor ``under`` is equivalent to specifying "
 "``under=INGRESS``."
-msgstr ""
+msgstr "`` over``と `` under``のどちらも指定しない場合、 `` under = INGRESS``を指定するのと同じです。"
 
 #: of pyramid.config.Configurator.add_tween:67
 msgid ""
@@ -2257,29 +2247,29 @@ msgid ""
 "only surefire way to get any particular ordering is to use an explicit "
 "tween order.  A user may always override the implicit tween ordering by "
 "using an explicit ``pyramid.tweens`` configuration value setting."
-msgstr ""
+msgstr "明示的なトゥイーンの順序は、明らかにベストエフォートのみです。ピラミッドは可能な限りトゥイーンの暗黙の順序を提示しようとしますが、特定の順序を取得する唯一の確実な方法は明示的なトゥイーンの順序を使用することです。明示的な `` pyramid.tweens``設定値の設定を使用することで、暗黙的なトゥイーンの順序付けを常に上書きすることができます。"
 
 #: of pyramid.config.Configurator.add_tween:74
 msgid ""
 "``under``, and ``over`` arguments are ignored when an explicit tween "
 "chain is specified using the ``pyramid.tweens`` configuration value."
-msgstr ""
+msgstr "明示的なトゥイーンチェーンが `` pyramid.tweens``設定値を使って指定されている場合、 `` under``と `` over``引数は無視されます。"
 
 #: of pyramid.config.Configurator.add_tween:77
 msgid "For more information, see :ref:`registering_tweens`."
-msgstr ""
+msgstr "詳細については、ref： `registration_tweens`を参照してください。"
 
 #: of pyramid.config.Configurator.add_route_predicate:1
 msgid ""
 "Adds a route predicate factory.  The view predicate can later be named as"
 " a keyword argument to :meth:`pyramid.config.Configurator.add_route`."
-msgstr ""
+msgstr "ルート述語ファクトリを追加します。ビュー述語は、後で：meth： `pyramid.config.Configurator.add_route`のキーワード引数として名前を付けることができます。"
 
 #: of pyramid.config.Configurator.add_route_predicate:5
 msgid ""
 "``name`` should be the name of the predicate.  It must be a valid Python "
 "identifier (it will be used as a keyword argument to ``add_route``)."
-msgstr ""
+msgstr "`` name``は述語の名前でなければなりません。これは有効なPython識別子でなければなりません（これは `` add_route``のキーワード引数として使用されます）。"
 
 #: of pyramid.config.Configurator.add_route_predicate:9
 #: pyramid.config.Configurator.add_subscriber_predicate:12
@@ -2287,12 +2277,12 @@ msgstr ""
 msgid ""
 "``factory`` should be a :term:`predicate factory` or :term:`dotted Python"
 " name` which refers to a predicate factory."
-msgstr ""
+msgstr "`` factory``は：term： `predicate factory`または：term：` `dotted Python name``で、述語ファクトリを参照する必要があります。"
 
 #: of pyramid.config.Configurator.add_route_predicate:12
 #: pyramid.config.Configurator.add_view_predicate:15
 msgid "See :ref:`view_and_route_predicates` for more information."
-msgstr ""
+msgstr "詳細は：ref： `view_and_route_predicates`を参照してください。"
 
 #: of pyramid.config.Configurator.add_subscriber_predicate:3
 msgid ""
@@ -2300,18 +2290,18 @@ msgid ""
 " can later be named as a keyword argument to "
 ":meth:`pyramid.config.Configurator.add_subscriber` in the "
 "``**predicates`` anonymous keyword argument dictionary."
-msgstr ""
+msgstr "サブスクライバ述語ファクトリを追加します。関連するサブスクライバ述語は、後で `` ** predicates``匿名キーワード引数辞書の：meth： `pyramid.config.Configurator.add_subscriber`のキーワード引数として指定できます。"
 
 #: of pyramid.config.Configurator.add_subscriber_predicate:8
 msgid ""
 "``name`` should be the name of the predicate.  It must be a valid Python "
 "identifier (it will be used as a ``**predicates`` keyword argument to "
 ":meth:`~pyramid.config.Configurator.add_subscriber`)."
-msgstr ""
+msgstr "`` name``は述語の名前でなければなりません。これは有効なPython識別子でなければなりません（これは：meth： `〜pyramid.config.Configurator.add_subscriber`の` `** predicates``キーワード引数として使用されます）。"
 
 #: of pyramid.config.Configurator.add_subscriber_predicate:15
 msgid "See :ref:`subscriber_predicates` for more information."
-msgstr ""
+msgstr "詳細は、：ref： `subscriber_predicates`を参照してください。"
 
 #: of pyramid.config.Configurator.add_view_predicate:3
 msgid ""
@@ -2319,34 +2309,34 @@ msgid ""
 "be named as a keyword argument to "
 ":meth:`pyramid.config.Configurator.add_view` in the ``predicates`` "
 "anonyous keyword argument dictionary."
-msgstr ""
+msgstr "ビュー述部ファクトリーを追加します。関連付けられたビュー述語は、 ``述語 `` anonyousキーワード引数辞書の：meth： `pyramid.config.Configurator.add_view`のキーワード引数として後で名前を付けることができます。"
 
 #: of pyramid.config.Configurator.add_view_predicate:8
 msgid ""
 "``name`` should be the name of the predicate.  It must be a valid Python "
 "identifier (it will be used as a keyword argument to ``add_view`` by "
 "others)."
-msgstr ""
+msgstr "`` name``は述語の名前でなければなりません。それは有効なPython識別子でなければなりません（他の人が `` add_view``のキーワード引数として使用します）。"
 
 #: of pyramid.config.Configurator.add_view_deriver:3
 msgid ""
 "Add a :term:`view deriver` to the view pipeline. View derivers are a "
 "feature used by extension authors to wrap views in custom code "
 "controllable by view-specific options."
-msgstr ""
+msgstr "ビューパイプラインにa：term： `view deriver &#39;を追加します。ビューデリバーは、ビュー固有のオプションで制御可能なカスタムコードでビューをラップするために拡張機能の作成者が使用する機能です。"
 
 #: of pyramid.config.Configurator.add_view_deriver:7
 msgid ""
 "``deriver`` should be a callable conforming to the "
 ":class:`pyramid.interfaces.IViewDeriver` interface."
-msgstr ""
+msgstr "`` deriver``は：class： `pyramid.interfaces.IViewDeriver`インタフェースに従う呼び出し可能でなければなりません。"
 
 #: of pyramid.config.Configurator.add_view_deriver:10
 msgid ""
 "``name`` should be the name of the view deriver.  There are no "
 "restrictions on the name of a view deriver. If left unspecified, the name"
 " will be constructed from the name of the ``deriver``."
-msgstr ""
+msgstr "`` name``はビュー・デリバーの名前でなければなりません。ビュー・デリバーの名前には制限はありません。指定されていない場合、名前は `` deriver``の名前から構築されます。"
 
 #: of pyramid.config.Configurator.add_view_deriver:14
 msgid ""
@@ -2355,13 +2345,13 @@ msgid ""
 "deriver is used. Each option may be a string or a list of strings. At "
 "least one view deriver in each, the over and under directions, must exist"
 " to fully satisfy the constraints."
-msgstr ""
+msgstr "`` under``と `` over``オプションは、ビューパイプラインのどこでデリバを使用するかについてのヒントを提供することによって、ビューデリバの順序を制御するために使用できます。各オプションは文字列または文字列のリストです。制約を完全に満足させるためには、それぞれ上下方向に少なくとも1つのビュー・デリバーが存在しなければならない。"
 
 #: of pyramid.config.Configurator.add_view_deriver:20
 msgid ""
 "``under`` means closer to the user-defined :term:`view callable`, and "
 "``over`` means closer to view pipeline ingress."
-msgstr ""
+msgstr "`` under``はユーザー定義：term： `view callable`に近いことを意味し、` `over``はビューのパイプライン入力に近いことを意味します。"
 
 #: of pyramid.config.Configurator.add_view_deriver:23
 msgid ""
@@ -2372,11 +2362,11 @@ msgid ""
 "``under`` to something earlier in the order, or a "
 "``CyclicDependencyError`` will be raised when trying to sort the "
 "derivers."
-msgstr ""
+msgstr "`` over``のデフォルト値は `` rendered_view``で、 `` under``は `` decorated_view``です。これにより、ビューパイプラインの2つの間のどこかにデリバリが配置されます。もし、デリバーが `` decorated_view``のようにパイプラインのどこかに配置されなければならない場合、順序の早い方に `` under``を指定しなければならない、あるいは `` CyclicDependencyError``が起きるでしょうデリバーを並べ替えます。"
 
 #: of pyramid.config.Configurator.add_view_deriver:31
 msgid "See :ref:`view_derivers` for more information."
-msgstr ""
+msgstr "詳細は、：ref： `view_derivers`を参照してください。"
 
 #: of pyramid.config.Configurator.set_execution_policy:1
 msgid ""
@@ -2384,7 +2374,7 @@ msgid ""
 "configuration.  The ``policy`` argument must be an instance of an "
 ":class:`pyramid.interfaces.IExecutionPolicy` or a :term:`dotted Python "
 "name` that points at an instance of an execution policy."
-msgstr ""
+msgstr "現在の設定で：app： `Pyramid`：term：`実行ポリシー `をオーバーライドします。 `` policy``引数は、実行ポリシーのインスタンスを指す：class： `pyramid.interfaces.IExecutionPolicy`またはa：term：`ドット付きPython名 `のインスタンスでなければなりません。"
 
 #: of pyramid.config.Configurator.set_request_factory:1
 msgid ""
@@ -2394,49 +2384,49 @@ msgid ""
 " must have the same methods and attributes as the "
 ":class:`pyramid.request.Request` class (particularly ``__call__``, and "
 "``blank``)."
-msgstr ""
+msgstr "`` factory``として渡されるオブジェクトは、：app： `Pyramid`ルータがすべての要求オブジェクトを作成するために使用するオブジェクト（または、a：term：`オブジェクトを参照する点線のPython名 `）でなければなりません。このファクトリオブジェクトは：class： `pyramid.request.Request`クラス（特に` `__call__``、` `blank``）と同じメソッドと属性を持たなければなりません。"
 
 #: of pyramid.config.Configurator.set_request_factory:9
 msgid ""
 "See :meth:`pyramid.config.Configurator.add_request_method` for a less "
 "intrusive way to extend the request objects with custom methods and "
 "properties."
-msgstr ""
+msgstr "参照：meth： `pyramid.config.Configurator.add_request_method`：カスタムメソッドとプロパティで要求オブジェクトを拡張する方法をあまり強要しません。"
 
 #: of pyramid.config.Configurator.set_request_factory:15
 msgid ""
 "Using the ``request_factory`` argument to the "
 ":class:`pyramid.config.Configurator` constructor can be used to achieve "
 "the same purpose."
-msgstr ""
+msgstr "：class： `pyramid.config.Configurator`コンストラクタに対する` `request_factory``引数を使用すると、同じ目的を達成できます。"
 
 #: of pyramid.config.Configurator.set_root_factory:1
 msgid ""
 "Add a :term:`root factory` to the current configuration state.  If the "
 "``factory`` argument is ``None`` a default root factory will be "
 "registered."
-msgstr ""
+msgstr "a：term： `ルートファクトリ &#39;を現在の設定状態に追加します。 `` factory``引数が `` None``の場合、デフォルトのルートファクトリが登録されます。"
 
 #: of pyramid.config.Configurator.set_root_factory:7
 msgid ""
 "Using the ``root_factory`` argument to the "
 ":class:`pyramid.config.Configurator` constructor can be used to achieve "
 "the same purpose."
-msgstr ""
+msgstr "：class： `pyramid.config.Configurator`コンストラクタに対する` `root_factory``引数を使用すると、同じ目的を達成できます。"
 
 #: of pyramid.config.Configurator.set_session_factory:1
 msgid ""
 "Configure the application with a :term:`session factory`.  If this method"
 " is called, the ``factory`` argument must be a session factory callable "
 "or a :term:`dotted Python name` to that factory."
-msgstr ""
+msgstr "：term： `session factory`でアプリケーションを設定します。このメソッドが呼び出された場合、 `` factory``引数はそのファクトリに対してセッションファクトリ呼び出し可能またはa：term： `dotted Python name`でなければなりません。"
 
 #: of pyramid.config.Configurator.set_session_factory:7
 msgid ""
 "Using the ``session_factory`` argument to the "
 ":class:`pyramid.config.Configurator` constructor can be used to achieve "
 "the same purpose."
-msgstr ""
+msgstr "：class： `pyramid.config.Configurator`コンストラクタに対する` `session_factory``引数を使用すると、同じ目的を達成できます。"
 
 #: of pyramid.config.Configurator.set_view_mapper:1
 msgid ""
@@ -2444,7 +2434,7 @@ msgid ""
 ":term:`view callable` objects which implement different call signatures "
 "than the ones supported by :app:`Pyramid` as described in its narrative "
 "documentation."
-msgstr ""
+msgstr "a：term： `view mapper &#39;を設定することで、term：` view callable`オブジェクトを利用することができます。これは、物語のドキュメンテーションで説明されているように：app： `Pyramid`でサポートされているものとは異なる呼び出しシグネチャを実装します。"
 
 #: of pyramid.config.Configurator.set_view_mapper:6
 msgid ""
@@ -2453,29 +2443,29 @@ msgid ""
 "name` to such an object.  The provided ``mapper`` will become the default"
 " view mapper to be used by all subsequent :term:`view configuration` "
 "registrations."
-msgstr ""
+msgstr "`` mapper``引数は、class： `pyramid.interfaces.IViewMapperFactory`またはa：term：`ドット付きPython名 `を実装するオブジェクトでなければなりません。提供された `` mapper``はすべての後続：term： `view configuration`の登録で使われるデフォルトのビューマッパーになります。"
 
 #: of pyramid.config.Configurator.set_view_mapper:14
 msgid "See also :ref:`using_a_view_mapper`."
-msgstr ""
+msgstr "参照：ref： `using_a_view_mapper`を参照してください。"
 
 #: of pyramid.config.Configurator.set_view_mapper:18
 msgid ""
 "Using the ``default_view_mapper`` argument to the "
 ":class:`pyramid.config.Configurator` constructor can be used to achieve "
 "the same purpose."
-msgstr ""
+msgstr "：class： `pyramid.config.Configurator`コンストラクタへの` `default_view_mapper``引数を使って、同じ目的を達成することができます。"
 
 #: ../../api/config.rst:80
 msgid ":methodcategory:`Extension Author APIs`"
-msgstr ""
+msgstr "：methodcategory： `Extension Author APIs`"
 
 #: of pyramid.config.Configurator.action:1
 msgid ""
 "Register an action which will be executed when "
 ":meth:`pyramid.config.Configurator.commit` is called (or executed "
 "immediately if ``autocommit`` is ``True``)."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.commit`が呼び出されたとき（または` `autocommit``が` `True``のときに直ちに実行される）に実行されるアクションを登録します。"
 
 #: of pyramid.config.Configurator.action:5
 #: pyramid.config.Configurator.add_directive:3
@@ -2483,33 +2473,33 @@ msgstr ""
 msgid ""
 "This method is typically only used by :app:`Pyramid` framework extension "
 "authors, not by :app:`Pyramid` application developers."
-msgstr ""
+msgstr "このメソッドは通常、：app： `Pyramid`アプリケーション開発者ではなく、：app：` Pyramid`フレームワーク拡張の著者によってのみ使用されます。"
 
 #: of pyramid.config.Configurator.action:9
 msgid ""
 "The ``discriminator`` uniquely identifies the action.  It must be given, "
 "but it can be ``None``, to indicate that the action never conflicts.  It "
 "must be a hashable value."
-msgstr ""
+msgstr "「弁別者」はその行動を一意に識別する。それは与えられなければならないが、アクションが矛盾しないことを示すために `` None``にすることができる。ハッシュ値でなければなりません。"
 
 #: of pyramid.config.Configurator.action:13
 msgid ""
 "The ``callable`` is a callable object which performs the task associated "
 "with the action when the action is executed.  It is optional."
-msgstr ""
+msgstr "`` callable``は、アクションが実行されたときにアクションに関連付けられたタスクを実行する呼び出し可能なオブジェクトです。オプションです。"
 
 #: of pyramid.config.Configurator.action:17
 msgid ""
 "``args`` and ``kw`` are tuple and dict objects respectively, which are "
 "passed to ``callable`` when this action is executed.  Both are optional."
-msgstr ""
+msgstr "`` args``と `` kw``はそれぞれタプルとディクショナリオブジェクトであり、このアクションが実行されるときに `` callable``に渡されます。どちらもオプションです。"
 
 #: of pyramid.config.Configurator.action:21
 msgid ""
 "``order`` is a grouping mechanism; an action with a lower order will be "
 "executed before an action with a higher order (has no effect when "
 "autocommit is ``True``)."
-msgstr ""
+msgstr "`` order``はグループ化の仕組みです。より低い次数のアクションは、より高い次数のアクションの前に実行されます（自動コミットが `` True``のときは効果がありません）。"
 
 #: of pyramid.config.Configurator.action:25
 msgid ""
@@ -2517,17 +2507,17 @@ msgid ""
 "the empty sequence if no introspectable objects are associated with this "
 "action).  If this configurator's ``introspection`` attribute is "
 "``False``, these introspectables will be ignored."
-msgstr ""
+msgstr "`` introspectables``はterm： `introspectable`オブジェクトのシーケンスです（または、イントロスペクターブルオブジェクトがこのアクションに関連付けられていない場合は空のシーケンス）。このコンフィギュレータの `` introspection``属性が `` False``の場合、これらのイントロスペクティブは無視されます。"
 
 #: of pyramid.config.Configurator.action:30
 msgid ""
 "``extra`` provides a facility for inserting extra keys and values into an"
 " action dictionary."
-msgstr ""
+msgstr "`` extra``は余分なキーと値をアクションディクショナリに挿入する機能を提供します。"
 
 #: of pyramid.config.Configurator.add_directive:1
 msgid "Add a directive method to the configurator."
-msgstr ""
+msgstr "コンフィギュレータにディレクティブメソッドを追加します。"
 
 #: of pyramid.config.Configurator.add_directive:7
 msgid ""
@@ -2539,7 +2529,7 @@ msgid ""
 "keyword arguments following.  It should use config.action as necessary to"
 " perform actions.  Directive methods can then be invoked like 'built-in' "
 "directives such as ``add_view``, ``add_route``, etc."
-msgstr ""
+msgstr "フレームワークエクステンダは、ユーザに `` config.add_directive（ &#39;somename&#39;、 &#39;some.callable&#39;） ``を呼び出すよう指示することによって、コンフィグレータにディレクティブメソッドを追加することができます。これにより `` some.callable``は `` config.somename``としてアクセス可能になります。 `` some.callable``は `` config``を最初の引数として受け取り、任意の位置とキーワードの引数を受け付ける関数でなければなりません。アクションを実行するには、必要に応じてconfig.actionを使用する必要があります。ディレクティブメソッドは、 `` add_view``、 `` add_route``などの &#39;組み込み&#39;ディレクティブのように呼び出すことができます。"
 
 #: of pyramid.config.Configurator.add_directive:16
 msgid ""
@@ -2547,27 +2537,27 @@ msgid ""
 "perform ``config.action`` with potentially conflicting discriminators.  "
 "``action_wrap`` will cause the directive to be wrapped in a decorator "
 "which provides more accurate conflict cause information."
-msgstr ""
+msgstr "`` action_wrap``引数は、競合する可能性のあるディスクリミネータと `` config.action``を実行するディレクティブに対して `` True``でなければなりません。 `` action_wrap``は、ディレクティブをより正確な衝突原因情報を提供するデコレータにラップさせます。"
 
 #: of pyramid.config.Configurator.add_directive:22
 msgid ""
 "``add_directive`` does not participate in conflict detection, and later "
 "calls to ``add_directive`` will override earlier calls."
-msgstr ""
+msgstr "`` add_directive``は競合検出に関与せず、 `` add_directive``への呼び出しは以前の呼び出しを無効にします。"
 
 #: of pyramid.config.Configurator.with_package:1
 msgid ""
 "Return a new Configurator instance with the same registry as this "
 "configurator. ``package`` may be an actual Python package object or a "
 ":term:`dotted Python name` representing a package."
-msgstr ""
+msgstr "このコンフィギュレータと同じレジストリを持つ新しいConfiguratorインスタンスを返します。 `` package``は実際のPythonパッケージオブジェクトか、パッケージを表す：term： `dotted Python name`です。"
 
 #: of pyramid.config.Configurator.derive_view:1
 msgid ""
 "Create a :term:`view callable` using the function, instance, or class (or"
 " :term:`dotted Python name` referring to the same) provided as ``view`` "
 "object."
-msgstr ""
+msgstr "`` view``オブジェクトとして提供された関数、インスタンス、クラス（または：term： `dotted Python name`を参照）を使ってa：term：` view callable`を作成します。"
 
 #: of pyramid.config.Configurator.derive_view:10
 msgid ""
@@ -2582,56 +2572,56 @@ msgid ""
 " know how to call the user-supplied object.  Running it through "
 "``derive_view`` normalizes it to a callable which accepts two arguments: "
 "``context`` and ``request``."
-msgstr ""
+msgstr "これは、a：app： `Pyramid`ビューの呼び出し可能な要件を満たす関数、インスタンス、またはクラスに対して &#39;proxy&#39; view callablesを登録する必要がある、プラグイン可能なシステムを作成するフレームワークエクステンダにとって有用です。例えば、別のフレームワークの `` some_other_framework``関数は、ユーザがビューを呼び出し可能にしたいと思っているかもしれませんが、：app： `Pyramid`ビューとしてラッパーを登録する前に自分自身で呼び出し可能なビューをラップしたいかもしれません呼び出し可能。 a：app： `Pyramid`ビューは、呼び出し可能ないくつかの有効なオブジェクトのどれかである可能性があるため、フレームワークエクステンダはユーザ提供のオブジェクトの呼び出し方法を知らないでしょう。 `` derive_view``を通してそれを実行すると、 `` context``と `` request``という2つの引数を受け入れる呼び出し可能関数に正規化されます。"
 
 #: of pyramid.config.Configurator.derive_view:24
 msgid "For example:"
-msgstr ""
+msgstr "例えば："
 
 #: of pyramid.config.Configurator.derive_view:36
 msgid "The ``view`` object provided should be one of the following:"
-msgstr ""
+msgstr "提供される `` view``オブジェクトは、次のいずれかです。"
 
 #: of pyramid.config.Configurator.derive_view:38
 msgid ""
 "A function or another non-class callable object that accepts a "
 ":term:`request` as a single positional argument and which returns a "
 ":term:`response` object."
-msgstr ""
+msgstr "：term： `request`を単一の位置引数として受け入れ、：term：` response`オブジェクトを返す関数または他の非クラス呼び出し可能オブジェクトです。"
 
 #: of pyramid.config.Configurator.derive_view:42
 msgid ""
 "A function or other non-class callable object that accepts two positional"
 " arguments, ``context, request`` and which returns a :term:`response` "
 "object."
-msgstr ""
+msgstr "`` context、request``という2つの位置引数を受け取り、a：term： `response`オブジェクトを返す関数または他の非クラス呼び出し可能オブジェクトです。"
 
 #: of pyramid.config.Configurator.derive_view:46
 msgid ""
 "A class which accepts a single positional argument in its constructor "
 "named ``request``, and which has a ``__call__`` method that accepts no "
 "arguments that returns a :term:`response` object."
-msgstr ""
+msgstr "`` request``というコンストラクタで単一の位置引数を受け取り、：term： `response`オブジェクトを返す引数を受け入れない` `__call__``メソッドを持つクラスです。"
 
 #: of pyramid.config.Configurator.derive_view:51
 msgid ""
 "A class which accepts two positional arguments named ``context, "
 "request``, and which has a ``__call__`` method that accepts no arguments "
 "that returns a :term:`response` object."
-msgstr ""
+msgstr "`context、request`という名前の2つの位置引数を受け取り、：term：` response`オブジェクトを返す引数を受け入れない `` __call__``メソッドを持つクラスです。"
 
 #: of pyramid.config.Configurator.derive_view:56
 msgid ""
 "A :term:`dotted Python name` which refers to any of the kinds of objects "
 "above."
-msgstr ""
+msgstr "A：term： `dotted Python name`。上のオブジェクトのどれかを指します。"
 
 #: of pyramid.config.Configurator.derive_view:59
 msgid ""
 "This API returns a callable which accepts the arguments ``context, "
 "request`` and which returns the result of calling the provided ``view`` "
 "object."
-msgstr ""
+msgstr "このAPIは、 `` context、request``の引数を受け取り、 `` view``オブジェクトを呼び出した結果を返す呼び出し可能オブジェクトを返します。"
 
 #: of pyramid.config.Configurator.derive_view:63
 msgid ""
@@ -2639,7 +2629,7 @@ msgid ""
 "class.  It names the method that should be used as the callable.  If "
 "``attr`` is not provided, the attribute effectively defaults to "
 "``__call__``.  See :ref:`class_as_view` for more information."
-msgstr ""
+msgstr "`` attr``キーワードの引数は、ビューオブジェクトがクラスの場合に最も便利です。これは、呼び出し可能として使用するメソッドの名前を指定します。 `` attr``が提供されていない場合、属性は実質的に `` __call__``にデフォルト設定されます。詳細は：ref： `class_as_view`を参照してください。"
 
 #: of pyramid.config.Configurator.derive_view:69
 msgid ""
@@ -2648,11 +2638,11 @@ msgid ""
 " the user-supplied view result to a :term:`response` object.  If a "
 "``renderer`` argument is not supplied, the user-supplied view must itself"
 " return a :term:`response` object."
-msgstr ""
+msgstr "`` renderer``キーワード引数はレンダラー名でなければなりません。これが指定された場合、返された呼び出し可能オブジェクトは：term： `renderer`を使ってユーザ提供のビュー結果を：term：` response`オブジェクトに変換します。 `` renderer``引数が与えられていない場合、ユーザ提供ビューは：term： `response`オブジェクトを返さなければなりません。"
 
 #: ../../api/config.rst:87
 msgid ":methodcategory:`Utility Methods`"
-msgstr ""
+msgstr "：methodcategory： `ユーティリティメソッド`"
 
 #: of pyramid.config.Configurator.absolute_asset_spec:1
 msgid ""
@@ -2663,7 +2653,7 @@ msgid ""
 " generating an absolute asset specification.  If the provided "
 "``relative_spec`` argument is already absolute, or if the "
 "``relative_spec`` is not a string, it is simply returned."
-msgstr ""
+msgstr "絶対的な資産指定文字列に `` relative_spec``として渡される潜在的なrelative：term： `asset specification`文字列を解決し、その文字列を返します。このコンフィグレータの `` package``を、アセット仕様が絶対アセット仕様を生成するときに相対的に考慮されるパッケージとして使用します。指定された `` relative_spec``引数がすでに絶対値であるか、 `` relative_spec``が文字列でない場合、単に返されます。"
 
 #: of pyramid.config.Configurator.maybe_dotted:1
 msgid ""
@@ -2672,11 +2662,11 @@ msgid ""
 "do any name resolution.  If ``dotted`` is a relative dotted name (e.g. "
 "``.foo.bar``, consider it relative to the ``package`` argument supplied "
 "to this Configurator's constructor."
-msgstr ""
+msgstr "`` dotted Python name``を `` `dotted``をグローバルなPythonオブジェクトに解決してください。 `` dotted``が文字列でない場合は、名前解決を試みずに返します。 `` dotted``が相対的な点線の名前（ `` .foo.bar``など）の場合は、このConfiguratorのコンストラクタに与えられた `` package``引数を基準にして相対的なものであると考えてください。"
 
 #: ../../api/config.rst:92
 msgid ":methodcategory:`ZCA-Related APIs`"
-msgstr ""
+msgstr "：methodcategory： `ZCA関連のAPI &#39;"
 
 #: of pyramid.config.Configurator.hook_zca:1
 msgid ""
@@ -2686,13 +2676,13 @@ msgid ""
 ":func:`zope.component.getSiteManager`, :func:`zope.component.getAdapter` "
 "and others to use the :app:`Pyramid` :term:`application registry` rather "
 "than the Zope 'global' registry."
-msgstr ""
+msgstr "引数：data： `pyramid.threadlocal.get_current_registry`を指定して：func：` zope.component.getSiteManager.sethook`を呼び出し、：term： `Zopeコンポーネントアーキテクチャ` &#39;global&#39; APIを生成します：func： `zope.component .getSiteManager`、：func： `zope.component.getAdapter`などを使用して、：app：` Pyramid`：term： `アプリケーションレジストリ`を使用します。"
 
 #: of pyramid.config.Configurator.unhook_zca:1
 msgid ""
 "Call :func:`zope.component.getSiteManager.reset` to undo the action of "
 ":meth:`pyramid.config.Configurator.hook_zca`."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.hook_zca`のアクションを元に戻すには、func：` zope.component.getSiteManager.reset`を呼び出します。"
 
 #: of pyramid.config.Configurator.setup_registry:1
 msgid ""
@@ -2706,7 +2696,7 @@ msgid ""
 " a registry, you *do* want to explicitly initialize the registry "
 "associated with a Configurator for use under :app:`Pyramid`.  Use "
 "``setup_registry`` to do this initialization."
-msgstr ""
+msgstr "： `` Non`` `` `` `` `` `` `` `` `引数を：term：` Configurator`コンストラクタに渡すと、レジストリに対して初期設定は行われません。これは、あなたが渡したレジストリが、別のコンフィギュレータを介して：app： `Pyramid &#39;の下で使用するために既に初期化されている可能性があるためです。ただし、Configuratorコンストラクタの結果として作成されたレジストリの代わりにグローバルレジストリを使用する場合や、レジストリの初期設定をリセットしたい場合などは、明示的にしたい場合もありますConfiguratorに関連付けられたレジストリを、app： `Pyramid`の下で使用するために初期化します。この初期化を行うには `` setup_registry``を使います。"
 
 #: of pyramid.config.Configurator.setup_registry:12
 msgid ""
@@ -2714,11 +2704,11 @@ msgid ""
 "policies, renderers, a debug logger, a locale negotiator, and various "
 "other settings using the configurator's current registry, as per the "
 "descriptions in the Configurator constructor."
-msgstr ""
+msgstr "`` setup_registry``は、コンフィギュレータのコンストラクタの説明に従って、コンフィグレータの現在のレジストリを使って、設定、ルートファクトリ、セキュリティポリシー、レンダラ、デバッグロガー、ロケールネゴシエータ、およびその他のさまざまな設定を行います。"
 
 #: ../../api/config.rst:98
 msgid ":methodcategory:`Testing Helper APIs`"
-msgstr ""
+msgstr "：methodcategory： `ヘルパーAPIのテスト &#39;"
 
 #: of pyramid.config.Configurator.testing_add_renderer:1
 msgid ""
@@ -2729,7 +2719,7 @@ msgid ""
 " that calls the :func:`pyramid.renderers.render` function or "
 ":func:`pyramid.renderers.render_to_response` function or any other "
 "``render_*`` or ``get_*`` API of the :mod:`pyramid.renderers` module."
-msgstr ""
+msgstr "ユニット/統合テストヘルパー：レンダラーを `` path``（通常相対ファイル名ala `` templates / foo.pt``または資産指定）に登録し、レンダラーオブジェクトを返します。 `` renderer``引数がNoneの場合、 &#39;ダミー&#39;レンダラが使用されます。この関数は：func： `pyramid.renderers.render`関数または：func：` pyramid.renderers.render_to_response`関数または他の `` render_ * ``や `` get_ * `` APIを呼び出すコードをテストするときに便利です：mod： `pyramid.renderers`モジュールの中にあります。"
 
 #: of pyramid.config.Configurator.testing_add_renderer:11
 msgid ""
@@ -2737,13 +2727,13 @@ msgid ""
 " renderer factory type (e.g. for ``foo.pt`` usually implies the "
 "``chameleon_zpt`` renderer factory) clobbers any existing renderer "
 "factory registered for that type."
-msgstr ""
+msgstr "レンダラーファクトリタイプ（ `` foo.pt``など）を表す `` path``引数を使ってこのメソッドを呼び出すことは、通常、 `` chameleon_zpt``レンダリングファクトリを意味します）、そのタイプに登録されている既存のレンダラーファクトリを奪うことに注意してください。"
 
 #: of pyramid.config.Configurator.testing_add_renderer:17
 msgid ""
 "This method is also available under the alias ``testing_add_template`` "
 "(an older name for it)."
-msgstr ""
+msgstr "このメソッドは別名 `testing_add_template`（旧名）の下でも利用できます。"
 
 #: of pyramid.config.Configurator.testing_add_subscriber:1
 msgid ""
@@ -2751,7 +2741,7 @@ msgid ""
 "listens for events of the type ``event_iface``.  This method returns a "
 "list object which is appended to by the subscriber whenever an event is "
 "captured."
-msgstr ""
+msgstr "ユニット/統合テストヘルパー： `` event_iface``型のイベントをリッスンするa：term： `subscriber`を登録します。このメソッドは、イベントがキャプチャされるたびにサブスクライバによって追加されるリストオブジェクトを返します。"
 
 #: of pyramid.config.Configurator.testing_add_subscriber:6
 msgid ""
@@ -2761,20 +2751,20 @@ msgid ""
 "  This method is useful when testing code that wants to call "
 ":meth:`pyramid.registry.Registry.notify`, or "
 ":func:`zope.component.event.dispatch`."
-msgstr ""
+msgstr "`` event_iface``引数が意味する値と一致するイベントがディスパッチされると、そのイベントはリストに追加されます。次に、リスト内の値を予想されるイベント通知と比較できます。このメソッドは、meth： `pyramid.registry.Registry.notify`または：func：` zope.component.event.dispatch`を呼び出すコードをテストするときに便利です。"
 
 #: of pyramid.config.Configurator.testing_add_subscriber:14
 msgid ""
 "The default value of ``event_iface`` (``None``) implies a subscriber "
 "registered for *any* kind of event."
-msgstr ""
+msgstr "`` event_iface``（ `` None``）のデフォルト値は、* any *種類のイベントに対して登録されたサブスクライバを意味します。"
 
 #: of pyramid.config.Configurator.testing_resources:1
 msgid ""
 "Unit/integration testing helper: registers a dictionary of "
 ":term:`resource` objects that can be resolved via the "
 ":func:`pyramid.traversal.find_resource` API."
-msgstr ""
+msgstr "ユニット/統合テストヘルパー：：func： `pyramid.traversal.find_resource` APIで解決できるterm：` resource`オブジェクトの辞書を登録します。"
 
 #: of pyramid.config.Configurator.testing_resources:5
 msgid ""
@@ -2785,14 +2775,14 @@ msgid ""
 "``find_resource`` (and thus to your code) when "
 ":func:`pyramid.traversal.find_resource` is called with an equivalent path"
 " string or tuple."
-msgstr ""
+msgstr "：func： `pyramid.traversal.find_resource` APIは、その引数の1つとしてパスを指定して呼び出されます。このメソッドを呼び出すときに登録した辞書がそのパスを文字列キー（例えば `` / foo / bar``や `` foo / bar``）として含んでいる場合、対応する値は `` find_resource``に返されますfunc： `pyramid.traversal.find_resource`が同等のパス文字列またはタプルで呼び出されます。"
 
 #: of pyramid.config.Configurator.testing_securitypolicy:1
 msgid ""
 "Unit/integration testing helper: Registers a pair of faux :app:`Pyramid` "
 "security policies: a :term:`authentication policy` and a "
 ":term:`authorization policy`."
-msgstr ""
+msgstr "Unit / integration testing helper：faux：app： `Pyramid`セキュリティポリシーのペアを登録します：a：term：`認証ポリシー `と：term：`認証ポリシー `。"
 
 #: of pyramid.config.Configurator.testing_securitypolicy:5
 msgid ""
@@ -2801,7 +2791,7 @@ msgid ""
 ":term:`authorization policy` is registered; this policy allows all "
 "access.  If ``permissive`` is false, a nonpermissive :term:`authorization"
 " policy` is registered; this policy denies all access."
-msgstr ""
+msgstr "登録された：term： `認証ポリシー &#39;の動作は、` `permissive``引数に依存します。 `` permissive``が真であれば、permissive：term： `authorization policy`が登録されます。このポリシーはすべてのアクセスを許可します。 `` permissive``がfalseの場合、nonpermissive：term： `authorization policy`が登録されます。このポリシーはすべてのアクセスを拒否します。"
 
 #: of pyramid.config.Configurator.testing_securitypolicy:12
 msgid ""
@@ -2809,7 +2799,7 @@ msgid ""
 "``remember`` method of the faux authentication policy.  If it is not "
 "provided (or it is provided, and is ``None``), the default value ``[]`` "
 "(the empty list) will be returned by ``remember``."
-msgstr ""
+msgstr "`` remember_result``が指定されていれば、faux認証ポリシーの `` remember``メソッドによって返された結果でなければなりません。提供されていない（または提供されていて `` None``である）場合、デフォルト値 `` [] ``（空リスト）は `` remember``によって返されます。"
 
 #: of pyramid.config.Configurator.testing_securitypolicy:17
 msgid ""
@@ -2817,7 +2807,7 @@ msgid ""
 "``forget`` method of the faux authentication policy.  If it is not "
 "provided (or it is provided, and is ``None``), the default value ``[]`` "
 "(the empty list) will be returned by ``forget``."
-msgstr ""
+msgstr "`` forget_result``が指定されている場合は、faux認証ポリシーの `` forget``メソッドによって返された結果でなければなりません。提供されていない（または提供されていて `` None``である）場合、デフォルト値 `` [] ``（空リスト）は `` forget``によって返されます。"
 
 #: of pyramid.config.Configurator.testing_securitypolicy:22
 msgid ""
@@ -2827,7 +2817,7 @@ msgid ""
 "``userid`` argument and the group ids implied by the ``groupids`` "
 "argument when the :attr:`pyramid.request.Request.authenticated_userid` or"
 " :attr:`pyramid.request.Request.effective_principals` APIs are used."
-msgstr ""
+msgstr "登録された：term： `認証ポリシー`の動作は、 `` userid``と `` groupids``引数の値によって異なります。認証ポリシーは、 `` userid``引数によって暗示されたuserid識別子と、 `` groupids``引数によって暗示されるグループidを返します。：attr： `pyramid.request.Request.authenticated_userid`または：attr：` pyramid .request.Request.effective_principals` APIが使用されます。"
 
 #: of pyramid.config.Configurator.testing_securitypolicy:31
 msgid ""
@@ -2836,39 +2826,39 @@ msgid ""
 ":attr:`pyramid.request.Request.authenticated_userid`, "
 ":attr:`pyramid.request.Request.effective_principals`, and "
 ":func:`pyramid.security.principals_allowed_by_permission`."
-msgstr ""
+msgstr "この関数は、meth： `pyramid.request.Request.has_permission`、：attr：` pyramid.request.Request.authenticated_userid`、：attr： `pyramid.request.Request.effective_principalsという名前のAPIを使用するコードをテストするときに最も便利です。 `、および：func：` pyramid.security.principals_allowed_by_permission`。"
 
 #: of pyramid.config.Configurator.testing_securitypolicy:37
 msgid "The ``remember_result`` argument."
-msgstr ""
+msgstr "`` remember_result``引数です。"
 
 #: of pyramid.config.Configurator.testing_securitypolicy:40
 msgid "The ``forget_result`` argument."
-msgstr ""
+msgstr "`` forget_result``引数です。"
 
 #: ../../api/config.rst:105
 msgid ":methodcategory:`Attributes`"
-msgstr ""
+msgstr "：methodcategory： `Attributes`"
 
 #: ../../api/config.rst:109
 msgid ""
 "A shortcut attribute which points to the "
 ":class:`pyramid.registry.Introspectable` class (used during directives to"
 " provide introspection to actions)."
-msgstr ""
+msgstr "：class： `pyramid.registry.Introspectable`クラス（アクションにイントロスペクションを提供するためにディレクティブで使用される）を指すショートカット属性です。"
 
 #: ../../api/config.rst:117
 msgid ""
 "The :term:`introspector` related to this configuration.  It is an "
 "instance implementing the :class:`pyramid.interfaces.IIntrospector` "
 "interface."
-msgstr ""
+msgstr "この設定に関係する：term： `introspector`です。これは：class： `pyramid.interfaces.IIntrospector`インターフェースを実装するインスタンスです。"
 
 #: ../../api/config.rst:125
 msgid ""
 "The :term:`application registry` which holds the configuration associated"
 " with this configurator."
-msgstr ""
+msgstr "このコンフィグレータに関連する設定を保持する：term： `アプリケーションレジストリ &#39;。"
 
 #: ../../api/config.rst:130
 msgid ""
@@ -2877,50 +2867,50 @@ msgid ""
 ":meth:`pyramid.config.Configurator.make_wsgi_app` in the current process."
 " The object itself supports iteration and has a ``last`` property "
 "containing the last registry loaded."
-msgstr ""
+msgstr "：app： `Pyramid`アプリケーション用に作成されたレジストリのセット。現在のプロセスの：meth：` pyramid.config.Configurator.make_wsgi_app`への各呼び出しに対して1つです。オブジェクト自体は反復をサポートし、ロードされた最後のレジストリを含む `` last``プロパティを持っています。"
 
 #: ../../api/config.rst:136
 msgid ""
 "The registries contained in this object are stored as weakrefs, thus they"
 " will only exist for the lifetime of the actual applications for which "
 "they are being used."
-msgstr ""
+msgstr "このオブジェクトに含まれるレジストリはweakrefsとして格納されているため、実際に使用されているアプリケーションの存続期間中にのみ存在します。"
 
 #: of pyramid.config.not_:1
 msgid ""
 "You can invert the meaning of any predicate value by wrapping it in a "
 "call to :class:`pyramid.config.not_`."
-msgstr ""
+msgstr "任意の述語値の意味を、class： `pyramid.config.not_`への呼び出しでラップすることによって、その意味を逆転させることができます。"
 
 #: of pyramid.config.not_:15
 msgid ""
 "The above example will ensure that the view is called if the request "
 "method is *not* ``POST``, at least if no other view is more specific."
-msgstr ""
+msgstr "上記の例では、少なくとも他のビューがより具体的でない場合、リクエストメソッドが* `*` `POST`でない場合にビューが呼び出されることを保証します。"
 
 #: of pyramid.config.not_:18
 msgid ""
 "This technique of wrapping a predicate value in ``not_`` can be used "
 "anywhere predicate values are accepted:"
-msgstr ""
+msgstr "述部の値を `` not_``にラップするこの手法は、述部の値が受け入れられればどこでも使用できます："
 
 #: of pyramid.config.not_:21
 msgid ":meth:`pyramid.config.Configurator.add_view`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_view`"
 
 #: of pyramid.config.not_:23
 msgid ":meth:`pyramid.config.Configurator.add_route`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_route`"
 
 #: of pyramid.config.not_:25
 msgid ":meth:`pyramid.config.Configurator.add_subscriber`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_subscriber`"
 
 #: of pyramid.config.not_:27
 msgid ":meth:`pyramid.view.view_config`"
-msgstr ""
+msgstr "：meth： `pyramid.view.view_config`"
 
 #: of pyramid.config.not_:29
 msgid ":meth:`pyramid.events.subscriber`"
-msgstr ""
+msgstr "：meth： `pyramid.events.subscriber`"
 

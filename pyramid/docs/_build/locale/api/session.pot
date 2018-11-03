@@ -1,0 +1,291 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/session.rst:4
+msgid ":mod:`pyramid.session`"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.signed_serialize:1
+msgid "Serialize any pickleable structure (``data``) and sign it using the ``secret`` (must be a string).  Return the serialization, which includes the signature as its first 40 bytes. The ``signed_deserialize`` method will deserialize such a value."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.signed_serialize:6
+msgid "This function is useful for creating signed cookies.  For example:"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.signed_deserialize:1
+msgid "Deserialize the value returned from ``signed_serialize``.  If the value cannot be deserialized for any reason, a :exc:`ValueError` exception will be raised."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.signed_deserialize:5
+msgid "This function is useful for deserializing a signed cookie value created by ``signed_serialize``.  For example:"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:3
+msgid "Configure a :term:`session factory` which will provide signed cookie-based sessions.  The return value of this function is a :term:`session factory`, which may be provided as the ``session_factory`` argument of a :class:`pyramid.config.Configurator` constructor, or used as the ``session_factory`` argument of the :meth:`pyramid.config.Configurator.set_session_factory` method."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:12
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:17
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:10
+msgid "The session factory returned by this function will create sessions which are limited to storing fewer than 4000 bytes of data (as the payload must fit into a single cookie)."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:16
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:21
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:20
+msgid "Parameters:"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:23
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:24
+msgid "``secret``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:19
+msgid "A string which is used to sign the cookie. The secret should be at least as long as the block size of the selected hash algorithm. For ``sha512`` this would mean a 512 bit (64 character) secret.  It should be unique within the set of secret values provided to Pyramid for its various subsystems (see :ref:`admonishment_against_secret_sharing`)."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:27
+msgid "``hashalg``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:26
+msgid "The HMAC digest algorithm to use for signing. The algorithm must be supported by the :mod:`hashlib` library. Default: ``'sha512'``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:33
+msgid "``salt``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:30
+msgid "A namespace to avoid collisions between different uses of a shared secret. Reusing a secret for different parts of an application is strongly discouraged (see :ref:`admonishment_against_secret_sharing`). Default: ``'pyramid.session.'``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:36
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:30
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:29
+msgid "``cookie_name``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:36
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:29
+msgid "The name of the cookie used for sessioning. Default: ``'session'``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:40
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:33
+msgid "``max_age``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:39
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:33
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:32
+msgid "The maximum age of the cookie used for sessioning (in seconds). Default: ``None`` (browser scope)."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:43
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:36
+msgid "``path``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:43
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:36
+msgid "The path used for the session cookie. Default: ``'/'``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:46
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:39
+msgid "``domain``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:46
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:40
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:39
+msgid "The domain used for the session cookie.  Default: ``None`` (no domain)."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:49
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:42
+msgid "``secure``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:49
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:42
+msgid "The 'secure' flag of the session cookie. Default: ``False``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:53
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:46
+msgid "``httponly``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:52
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:45
+msgid "Hide the cookie from Javascript by setting the 'HttpOnly' flag of the session cookie. Default: ``False``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:60
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:27
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:53
+msgid "``timeout``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:56
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:49
+msgid "A number of seconds of inactivity before a session times out. If ``None`` then the cookie never expires. This lifetime only applies to the *value* within the cookie. Meaning that if the cookie expires due to a lower ``max_age``, then this setting has no effect. Default: ``1200``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:77
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:70
+msgid "``reissue_time``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:63
+msgid "The number of seconds that must pass before the cookie is automatically reissued as the result of accessing the session. The duration is measured as the number of seconds since the last session cookie was issued and 'now'.  If this value is ``0``, a new cookie will be reissued on every request accessing the session. If ``None`` then the cookie's lifetime will never be extended."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:70
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:63
+msgid "A good rule of thumb: if you want auto-expired cookies based on inactivity: set the ``timeout`` value to 1200 (20 mins) and set the ``reissue_time`` value to perhaps a tenth of the ``timeout`` value (120 or 2 mins).  It's nonsensical to set the ``timeout`` value lower than the ``reissue_time`` value, as the ticket will never be reissued. However, such a configuration is not explicitly prevented."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:77
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:70
+msgid "Default: ``0``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:81
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:74
+msgid "``set_on_exception``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:80
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:73
+msgid "If ``True``, set a session cookie even if an exception occurs while rendering a view. Default: ``True``."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:88
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:26
+msgid "``serializer``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.SignedCookieSessionFactory:84
+msgid "An object with two methods: ``loads`` and ``dumps``.  The ``loads`` method should accept bytes and return a Python object.  The ``dumps`` method should accept a Python object and return bytes.  A ``ValueError`` should be raised for malformed inputs.  If a serializer is not passed, the :class:`pyramid.session.PickleSerializer` serializer will be used."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:1
+msgid "Use :func:`pyramid.session.SignedCookieSessionFactory` instead. Caveat: Cookies generated using ``SignedCookieSessionFactory`` are not compatible with cookies generated using ``UnencryptedCookieSessionFactory``, so existing user session data will be destroyed if you switch to it."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:8
+msgid "Configure a :term:`session factory` which will provide unencrypted (but signed) cookie-based sessions.  The return value of this function is a :term:`session factory`, which may be provided as the ``session_factory`` argument of a :class:`pyramid.config.Configurator` constructor, or used as the ``session_factory`` argument of the :meth:`pyramid.config.Configurator.set_session_factory` method."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:24
+msgid "A string which is used to sign the cookie."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:27
+msgid "A number of seconds of inactivity before a session times out."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:30
+msgid "The name of the cookie used for sessioning."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:34
+msgid "``cookie_max_age``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:37
+msgid "``cookie_path``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:37
+msgid "The path used for the session cookie."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:40
+msgid "``cookie_domain``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:43
+msgid "``cookie_secure``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:43
+msgid "The 'secure' flag of the session cookie."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:46
+msgid "``cookie_httponly``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:46
+msgid "The 'httpOnly' flag of the session cookie."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:50
+msgid "``cookie_on_exception``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:49
+msgid "If ``True``, set a session cookie even if an exception occurs while rendering a view."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:55
+msgid "``signed_serialize``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:53
+msgid "A callable which takes more or less arbitrary Python data structure and a secret and returns a signed serialization in bytes. Default: ``signed_serialize`` (using pickle)."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:59
+msgid "``signed_deserialize``"
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.UnencryptedCookieSessionFactoryConfig:58
+msgid "A callable which takes a signed and serialized data structure in bytes and a secret and returns the original data structure if the signature is valid. Default: ``signed_deserialize`` (using pickle)."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:3
+msgid "Configure a :term:`session factory` which will provide cookie-based sessions.  The return value of this function is a :term:`session factory`, which may be provided as the ``session_factory`` argument of a :class:`pyramid.config.Configurator` constructor, or used as the ``session_factory`` argument of the :meth:`pyramid.config.Configurator.set_session_factory` method."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:23
+msgid "An object with two methods: ``loads`` and ``dumps``.  The ``loads`` method should accept bytes and return a Python object.  The ``dumps`` method should accept a Python object and return bytes.  A ``ValueError`` should be raised for malformed inputs."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.BaseCookieSessionFactory:56
+msgid "The number of seconds that must pass before the cookie is automatically reissued as the result of a request which accesses the session. The duration is measured as the number of seconds since the last session cookie was issued and 'now'.  If this value is ``0``, a new cookie will be reissued on every request accessing the session. If ``None`` then the cookie's lifetime will never be extended."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.PickleSerializer:1
+msgid "A serializer that uses the pickle protocol to dump Python data to bytes."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.PickleSerializer:4
+msgid "This is the default serializer used by Pyramid."
+msgstr ""
+
+#: ../../../../../../../../home/okazaki/.local/lib/python3.6/site-packages/pyramid/session.py:docstring of pyramid.session.PickleSerializer:6
+msgid "``protocol`` may be specified to control the version of pickle used. Defaults to :attr:`pickle.HIGHEST_PROTOCOL`."
+msgstr ""
+

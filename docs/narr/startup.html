@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Startup &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) 起動 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -19,7 +19,7 @@
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
     <link rel="next" title="リクエスト処理(Request Processing)" href="router.html" />
-    <link rel="prev" title="Creating a Pyramid Project" href="project.html" />
+    <link rel="prev" title="(機械翻訳) Pyramid プロジェクトの作成" href="project.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -57,7 +57,7 @@
           <a href="router.html" title="リクエスト処理(Request Processing)"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="project.html" title="Creating a Pyramid Project"
+          <a href="project.html" title="(機械翻訳) Pyramid プロジェクトの作成"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,70 +69,32 @@
           <div class="body" role="main">
             
   <div class="section" id="startup">
-<span id="startup-chapter"></span><h1>Startup<a class="headerlink" href="#startup" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>When you cause a <span>Pyramid</span> application to start up in a console window,
-you'll see something much like this show up on the console:</p>
+<span id="startup-chapter"></span><h1>(機械翻訳) 起動<a class="headerlink" href="#startup" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションをコンソールウィンドウで起動させると、コンソールに次のように表示されます：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pserve development.ini
 Starting server in PID <span class="m">16305</span>.
 Serving on http://localhost:6543
 Serving on http://localhost:6543
 </pre></div>
 </div>
-<p>This chapter explains what happens between the time you press the &quot;Return&quot; key
-on your keyboard after typing <code class="docutils literal notranslate"><span class="pre">pserve</span> <span class="pre">development.ini</span></code> and the time the lines
-<code class="docutils literal notranslate"><span class="pre">Serving</span> <span class="pre">on</span> <span class="pre">http://localhost:6543</span></code> are output to your console.</p>
+<p>この章では、 `` pserve development.ini``とタイプした後にキーボードの&amp;quot;Return &amp;quot;キーを押してから `` Serving on http：// localhost：6543``という行が出力されるまであなたのコンソールに。</p>
 <div class="section" id="the-startup-process">
-<span id="index-0"></span><h2>The Startup Process<a class="headerlink" href="#the-startup-process" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The easiest and best-documented way to start and serve a <span>Pyramid</span>
-application is to use the <code class="docutils literal notranslate"><span class="pre">pserve</span></code> command against a <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a>
-<code class="docutils literal notranslate"><span class="pre">.ini</span></code> file.  This uses the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file to infer settings and starts a
-server listening on a port.  For the purposes of this discussion, we'll assume
-that you are using this command to run your <span>Pyramid</span> application.</p>
-<p>Here's a high-level time-ordered overview of what happens when you press
-<code class="docutils literal notranslate"><span class="pre">return</span></code> after running <code class="docutils literal notranslate"><span class="pre">pserve</span> <span class="pre">development.ini</span></code>.</p>
+<span id="index-0"></span><h2>スタートアッププロセス<a class="headerlink" href="#the-startup-process" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>a：app： <cite>Pyramid`アプリケーションを起動して提供する最も簡単で最良の方法は：term：</cite> PasteDeploy` `` .ini``ファイルに対して `` pserve``コマンドを使うことです。これは、 `` .ini``ファイルを使用して設定を推測し、ポートでリッスンするサーバを起動します。ここでは、このコマンドを使って：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションを実行していると仮定します。</p>
+<p>ここでは、 `` pserve development.ini``を実行した後に `` return``を押すと何が起きるのかを、時間順にまとめた高レベルの概要を示します。</p>
 <ol class="arabic">
-<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">pserve</span></code> command is invoked under your shell with the argument
-<code class="docutils literal notranslate"><span class="pre">development.ini</span></code>.  As a result, Pyramid recognizes that it is meant to
-begin to run and serve an application using the information contained
-within the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file.</p>
+<li><p class="first">`` pserve``コマンドはあなたのシェルの下で引数 `` development.ini``で呼び出されます。その結果、Pyramidは `` development.ini``ファイルに含まれる情報を使ってアプリケーションを実行して提供することを意味することを認識しています。</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pserve</span></code> passes the <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> path to <a class="reference internal" href="../glossary.html#term-plaster"><span class="xref std std-term">plaster</span></a> which
-finds an available configuration loader that recognizes the <code class="docutils literal notranslate"><span class="pre">ini</span></code> format.</p>
+<li><p class="first">`` pserve``は `` development.ini``パスを：term： <cite>plaster`に渡します。これは</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>ini``フォーマットを認識する利用可能な設定ローダを見つけます。</p>
 </li>
-<li><p class="first"><a class="reference internal" href="../glossary.html#term-plaster"><span class="xref std std-term">plaster</span></a> finds the <code class="docutils literal notranslate"><span class="pre">plaster_pastedeploy</span></code> library which binds
-the <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> library and returns a parser that can understand
-the format.</p>
+<li><p class="first">：term： <cite>plaster`は：term：</cite> PasteDeploy`ライブラリをバインドし、フォーマットを理解できるパーサを返してくれる `` plaster_pastedeploy``ライブラリを見つけます。</p>
 </li>
-<li><p class="first">The <a class="reference internal" href="../glossary.html#term-pastedeploy"><span class="xref std std-term">PasteDeploy</span></a> finds a section named either <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code>,
-<code class="docutils literal notranslate"><span class="pre">[pipeline:main]</span></code>, or <code class="docutils literal notranslate"><span class="pre">[composite:main]</span></code> in the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file.  This
-section represents the configuration of a <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> application that will
-be served.  If you're using a simple application (e.g., <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code>), the
-application's <code class="docutils literal notranslate"><span class="pre">paste.app_factory</span></code> <a class="reference internal" href="../glossary.html#term-entry-point"><span class="xref std std-term">entry point</span></a> will be named on the
-<code class="docutils literal notranslate"><span class="pre">use=</span></code> line within the section's configuration.  If instead of a simple
-application, you're using a WSGI <a class="reference internal" href="../glossary.html#term-pipeline"><span class="xref std std-term">pipeline</span></a> (e.g., a
-<code class="docutils literal notranslate"><span class="pre">[pipeline:main]</span></code> section), the application named on the &quot;last&quot; element
-will refer to your <span>Pyramid</span> application.  If instead of a simple
-application or a pipeline, you're using a &quot;composite&quot; (e.g.,
-<code class="docutils literal notranslate"><span class="pre">[composite:main]</span></code>), refer to the documentation for that particular
-composite to understand how to make it refer to your <span>Pyramid</span>
-application.  In most cases, a Pyramid application built from a cookiecutter
-will have a single <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section in it, and this will be the
-application served.</p>
+<li><p class="first">：term： <cite>PasteDeploy`は、</cite> <cite>.ini``に</cite> <cite>[app：main]</cite> <cite>、</cite> <cite>[pipeline：main]</cite> <cite>、</cite> <cite>[composite：main]ファイル。このセクションは、提供される：term： `WSGI`アプリケーションの構成を表します。単純なアプリケーション（ `</cite> [app：main] <code class="docutils literal notranslate"><span class="pre">など）を使用している場合、アプリケーションの</span> <span class="pre">``</span> <span class="pre">paste.app_factory</span></code>：term： <cite>entry point`は</cite> <cite>use =</cite> <cite>セクションの構成内にあります。単純なアプリケーションではなく、WSGI：term： `pipeline`（例えば</cite> <cite>[pipeline：main]</cite> <cite>セクション）を使用している場合、&amp;quot; last &amp;quot;要素に指定されたアプリケーションはあなたの：app： `Pyramid`アプリケーション。単純なアプリケーションやパイプラインの代わりに、&amp;quot;composite &amp;quot;（例えば、 `</cite> [composite：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>）を使用している場合は、その特定の複合体のドキュメントを参照して、あなたの：app： <cite>Pyramid`アプリケーション。ほとんどの場合、cookiecutterから作成されたPyramidアプリケーションには、単一の `[app：main]</cite> <a href="#id3"><span class="problematic" id="id4">`</span></a>セクションがあり、これは提供されるアプリケーションになります。</p>
 </li>
-<li><p class="first">The framework finds all <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> related configuration in the <code class="docutils literal notranslate"><span class="pre">.ini</span></code>
-file and uses it to configure the Python standard library logging system for
-this application.  See <a class="reference internal" href="logging.html#logging-config"><span class="std std-ref">Logging Configuration</span></a> for more information.</p>
+<li><p class="first">このフレームワークは、 `` .ini``ファイル内のall：mod： <a href="#id1"><span class="problematic" id="id2">`</span></a>logging`関連の設定を見つけ、それを使ってこのアプリケーションのPython標準ライブラリロギングシステムを設定します。詳細は、：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>logging_config`を参照してください。</p>
 </li>
-<li><p class="first">The application's <em>constructor</em> named by the entry point referenced on the
-<code class="docutils literal notranslate"><span class="pre">use=</span></code> line of the section representing your <span>Pyramid</span> application is
-passed the key/value parameters mentioned within the section in which it's
-defined.  The constructor is meant to return a <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> instance,
-which is a <a class="reference internal" href="../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> application.</p>
-<p>For <span>Pyramid</span> applications, the constructor will be a function named
-<code class="docutils literal notranslate"><span class="pre">main</span></code> in the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file within the <a class="reference internal" href="../glossary.html#term-package"><span class="xref std std-term">package</span></a> in which
-your application lives.  If this function succeeds, it will return a
-<span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> instance.  Here's the contents of an example
-<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> module:</p>
+<li><p class="first">：app： <cite>Pyramid`アプリケーションを表すセクションの</cite> <cite>use =</cite> <cite>行で参照されるエントリポイントによって指定されたアプリケーションの*コンストラクタ*は、定義されているセクション内で言及されているkey / valueパラメータに渡されます。コンストラクタは：term： `router`インスタンスを返します。これは、：term：</cite> WSGI`アプリケーションです。</p>
+<p>：app： <cite>Pyramid`アプリケーションの場合、コンストラクタはあなたのアプリケーションが存在する：term：</cite> package`内の `` __init __。py``ファイルの `` main``という名前の関数になります。この関数が成功すると、：app： <cite>Pyramid</cite>：term：` router`インスタンスを返します。以下は `` __init __。py``モジュールの例です：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -158,15 +120,8 @@ your application lives.  If this function succeeds, it will return a
     <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>Note that the constructor function accepts a <code class="docutils literal notranslate"><span class="pre">global_config</span></code> argument,
-which is a dictionary of key/value pairs mentioned in the <code class="docutils literal notranslate"><span class="pre">[DEFAULT]</span></code>
-section of an <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file (if <a class="reference internal" href="paste.html#defaults-section-of-pastedeploy-file"><span class="std std-ref">[DEFAULT]</span></a> is present).  It also accepts a
-<code class="docutils literal notranslate"><span class="pre">**settings</span></code> argument, which collects another set of arbitrary key/value
-pairs.  The arbitrary key/value pairs received by this function in
-<code class="docutils literal notranslate"><span class="pre">**settings</span></code> will be composed of all the key/value pairs that are present
-in the <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section (except for the <code class="docutils literal notranslate"><span class="pre">use=</span></code> setting) when this
-function is called when you run <code class="docutils literal notranslate"><span class="pre">pserve</span></code>.</p>
-<p>Our generated <code class="docutils literal notranslate"><span class="pre">development.ini</span></code> file looks like so:</p>
+<p>コンストラクタ関数は、 `` .ini``ファイルの `` [DEFAULT] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションで述べられているキーと値のペアの辞書である `` global_config``引数を受け入れます（if：ref： <cite>[デフォルト] &lt;defaults_section_of_pastedeploy_file&gt; `存在している）。また、 `</cite> ** settings``引数を受け取ります。この引数は、別のキー/値の組を集めます。この関数が `` ** settings``で受け取った任意のキーと値のペアは、 `` [app：main] <a href="#id3"><span class="problematic" id="id4">``</span></a>セクションにあるすべてのキーと値のペアで構成されます（ `` use = <a href="#id5"><span class="problematic" id="id6">``</span></a>設定） `` pserve``を実行したときにこの関数が呼び出されたときに発生します。</p>
+<p>生成された `` development.ini``ファイルは次のようになります：</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -286,68 +241,30 @@ function is called when you run <code class="docutils literal notranslate"><span
 <span class="na">format</span> <span class="o">=</span> <span class="s">%(asctime)s %(levelname)-5.5s [%(name)s:%(lineno)s][%(threadName)s] %(message)s</span>
 </pre></div>
 </td></tr></table></div>
-<p>In this case, the <code class="docutils literal notranslate"><span class="pre">myproject.__init__:main</span></code> function referred to by the
-entry point URI <code class="docutils literal notranslate"><span class="pre">egg:myproject</span></code> (see <a class="reference internal" href="project.html#myproject-ini"><span class="std std-ref">development.ini</span></a> for more
-information about entry point URIs, and how they relate to callables) will
-receive the key/value pairs <code class="docutils literal notranslate"><span class="pre">{pyramid.reload_templates</span> <span class="pre">=</span> <span class="pre">true,</span>
-<span class="pre">pyramid.debug_authorization</span> <span class="pre">=</span> <span class="pre">false,</span> <span class="pre">pyramid.debug_notfound</span> <span class="pre">=</span> <span class="pre">false,</span>
-<span class="pre">pyramid.debug_routematch</span> <span class="pre">=</span> <span class="pre">false,</span> <span class="pre">pyramid.default_locale_name</span> <span class="pre">=</span> <span class="pre">en,</span> <span class="pre">and</span>
-<span class="pre">pyramid.includes</span> <span class="pre">=</span> <span class="pre">pyramid_debugtoolbar}</span></code>.  See <a class="reference internal" href="environment.html#environment-chapter"><span class="std std-ref">Environment Variables and .ini File Settings</span></a>
-for the meanings of these keys.</p>
+<p>この場合、エントリーポイントURIの詳細については、エントリーポイントのURI「egg：myproject」（ref： <cite>myproject_ini`を参照してください）とそれらがどのように関連しているかを参照する</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>myproject .__ init __：main``関数pyramid.debug_authorization = false、pyramid.debug_notfound = false、pyramid.debug_routematch = false、pyramid.default_locale_name = en、pyramid.includes = pyramid_debugtoolbar}のキーと値のペアを受け取ります。 <a href="#id3"><span class="problematic" id="id4">`</span></a>。これらのキーの意味については：ref： <a href="#id5"><span class="problematic" id="id6">`</span></a>environment_chapter`を参照してください。</p>
 </li>
-<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">main</span></code> function first constructs a
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> instance, passing the <code class="docutils literal notranslate"><span class="pre">settings</span></code>
-dictionary captured via the <code class="docutils literal notranslate"><span class="pre">**settings</span></code> kwarg as its <code class="docutils literal notranslate"><span class="pre">settings</span></code>
-argument.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">settings</span></code> dictionary contains all the options in the <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code>
-section of our .ini file except the <code class="docutils literal notranslate"><span class="pre">use</span></code> option (which is internal to
-PasteDeploy) such as <code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code>,
-<code class="docutils literal notranslate"><span class="pre">pyramid.debug_authorization</span></code>, etc.</p>
+<li><p class="first">`` main``関数は最初にclass： <cite>〜pyramid.config.Configurator`インスタンスを構築し、</cite> <cite>settings`</cite> kwargを使って` <cite>settings``引数として取り込んだ</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>settings``辞書を渡します。</p>
+<p>`` settings``辞書には、.iniファイルの `` [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションのすべてのオプションが含まれています（ `` pyramid.reload_templates <a href="#id3"><span class="problematic" id="id4">``</span></a>、 `` pyramid.debug_authorization``など</p>
 </li>
-<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">main</span></code> function then calls various methods on the instance of the
-class <a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> created in the previous step.
-The intent of calling these methods is to populate an <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application
-registry</span></a>, which represents the <span>Pyramid</span> configuration related to the
-application.</p>
+<li><p class="first">`` main``関数は、前のステップで作成したclass： <cite>〜pyramid.config.Configurator`というクラスのインスタンスに対してさまざまなメソッドを呼び出します。これらのメソッドを呼び出す意図は、アプリケーションに関連する：app： `Pyramid`設定を表す：term：</cite> application registry`です。</p>
 </li>
-<li><p class="first">The <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">make_wsgi_app()</span></code></a> method is called. The
-result is a <a class="reference internal" href="../glossary.html#term-router"><span class="xref std std-term">router</span></a> instance.  The router is associated with the
-<a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> implied by the configurator previously
-populated by other methods run against the Configurator.  The router is a
-WSGI application.</p>
+<li><p class="first">：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.make_wsgi_app`メソッドが呼び出されます。結果は：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>router`インスタンスです。ルータはコンフィグレータに対して実行される他のメソッドによって以前に設定されたコンフィグレータによって暗示される：term： <a href="#id5"><span class="problematic" id="id6">`</span></a>アプリケーションレジストリ &amp;#39;に関連付けられます。ルータはWSGIアプリケーションです。</p>
 </li>
-<li><p class="first">An <a class="reference internal" href="../api/events.html#pyramid.events.ApplicationCreated" title="pyramid.events.ApplicationCreated"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationCreated</span></code></a> event is emitted (see
-<a class="reference internal" href="events.html#events-chapter"><span class="std std-ref">Using Events</span></a> for more information about events).</p>
+<li><p class="first">An：class： <cite>〜pyramid.events.ApplicationCreated`イベントが送出されます（イベントの詳細については：ref：</cite> events_chapter`を参照してください）。</p>
 </li>
-<li><p class="first">Assuming there were no errors, the <code class="docutils literal notranslate"><span class="pre">main</span></code> function in <code class="docutils literal notranslate"><span class="pre">myproject</span></code>
-returns the router instance created by
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.make_wsgi_app()</span></code></a> back to <code class="docutils literal notranslate"><span class="pre">pserve</span></code>.  As
-far as <code class="docutils literal notranslate"><span class="pre">pserve</span></code> is concerned, it is &quot;just another WSGI application&quot;.</p>
+<li><p class="first">エラーがないと仮定すると、 `` myproject``の `` main``関数は：meth： <cite>pyramid.config.Configurator.make_wsgi_app`で作成されたルータインスタンスを</cite> <cite>pserve``に戻します。 `</cite> pserve``に関する限り、それは&amp;quot;ただ一つのWSGIアプリケーション&amp;quot;です。</p>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pserve</span></code> starts the WSGI <em>server</em> defined within the <code class="docutils literal notranslate"><span class="pre">[server:main]</span></code>
-section.  In our case, this is the Waitress server (<code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">=</span>
-<span class="pre">egg:waitress#main</span></code>), and it will listen on all interfaces on port 6543
-for both IPv4 and IPv6 (<code class="docutils literal notranslate"><span class="pre">listen</span> <span class="pre">=</span> <span class="pre">localhost:6543</span></code>). The server
-code itself is what prints <code class="docutils literal notranslate"><span class="pre">Serving</span> <span class="pre">on</span> <span class="pre">http://localhost:6543</span></code>. The server
-serves the application, and the application is running, waiting to receive requests.</p>
+<li><p class="first">`` pserve``は `` [server：main] <code class="docutils literal notranslate"><span class="pre">セクションで定義されたWSGI</span> <span class="pre">*サーバ*を起動します。私たちの場合、これはウェイトレスサーバー（</span> <span class="pre">``</span> <span class="pre">use</span> <span class="pre">=</span> <span class="pre">egg：waitress＃main</span></code>）で、ポート6543のすべてのインターフェイスでIPv4とIPv6（ `` listen = localhost：6543``）を待ち受けます。サーバコード自体は、 `` http：// localhost：6543でサーブする &amp;#39;&amp;#39;というものを表示します。サーバーがアプリケーションにサービスを提供し、アプリケーションが実行され、要求の受信を待機しています。</p>
 </li>
 </ol>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">Logging configuration is described in the <a class="reference internal" href="logging.html#logging-chapter"><span class="std std-ref">Logging</span></a> chapter.
-There, in <a class="reference internal" href="logging.html#request-logging-with-pastes-translogger"><span class="std std-ref">Request Logging with Paste's TransLogger</span></a>, you will also find
-an example of how to configure <a class="reference internal" href="../glossary.html#term-middleware"><span class="xref std std-term">middleware</span></a> to add pre-packaged
-functionality to your application.</p>
+<p class="last">ロギング設定については、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>logging_chapter`の章を参照してください。そこに、：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>request_logging_with_pastes_translogger`には、アプリケーションにあらかじめパッケージ化された機能を追加するための：term：<a href="#id5"><span class="problematic" id="id6">`</span></a>ミドルウェア &amp;#39;を設定する方法の例があります。</p>
 </div>
 </div>
 <div class="section" id="deployment-settings">
-<span id="index-1"></span><span id="id1"></span><h2>Deployment Settings<a class="headerlink" href="#deployment-settings" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Note that an augmented version of the values passed as <code class="docutils literal notranslate"><span class="pre">**settings</span></code> to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a> constructor will be available in
-<span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> code as <code class="docutils literal notranslate"><span class="pre">request.registry.settings</span></code>. You
-can create objects you wish to access later from view code, and put them into
-the dictionary you pass to the configurator as <code class="docutils literal notranslate"><span class="pre">settings</span></code>.  They will then be
-present in the <code class="docutils literal notranslate"><span class="pre">request.registry.settings</span></code> dictionary at application runtime.</p>
+<span id="index-1"></span><span id="id1"></span><h2>展開設定<a class="headerlink" href="#deployment-settings" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：class： <cite>〜pyramid.config.Configurator`コンストラクタに</cite> <cite>** settings``として渡された値の拡張バージョンは、app：</cite> Pyramid`：term： <cite>view callable`というコードで利用できることに注意してください。 `</cite> request.registry.settings``です。後でビューコードからアクセスしたいオブジェクトを作成し、それをコンフィグレータに渡す辞書に `` settings``として入れることができます。それらはアプリケーション実行時に `` request.registry.settings``ディクショナリに存在します。</p>
 </div>
 </div>
 
@@ -359,16 +276,16 @@ present in the <code class="docutils literal notranslate"><span class="pre">requ
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Startup</a><ul>
-<li><a class="reference internal" href="#the-startup-process">The Startup Process</a></li>
-<li><a class="reference internal" href="#deployment-settings">Deployment Settings</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) 起動</a><ul>
+<li><a class="reference internal" href="#the-startup-process">スタートアッププロセス</a></li>
+<li><a class="reference internal" href="#deployment-settings">展開設定</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="project.html"
-                        title="前の章へ">Creating a <span>Pyramid</span> Project</a></p>
+                        title="前の章へ">(機械翻訳) <span>Pyramid</span> プロジェクトの作成</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="router.html"
                         title="次の章へ">リクエスト処理(Request Processing)</a></p>
@@ -408,14 +325,14 @@ present in the <code class="docutils literal notranslate"><span class="pre">requ
           <a href="router.html" title="リクエスト処理(Request Processing)"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="project.html" title="Creating a Pyramid Project"
+          <a href="project.html" title="(機械翻訳) Pyramid プロジェクトの作成"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

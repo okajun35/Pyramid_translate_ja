@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Upgrading Pyramid &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) ピラミッドのアップグレード &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Thread Locals" href="threadlocals.html" />
-    <link rel="prev" title="Creating Pyramid Scaffolds" href="scaffolding.html" />
+    <link rel="next" title="(機械翻訳) スレッドローカル" href="threadlocals.html" />
+    <link rel="prev" title="(機械翻訳) ピラミッド足場の作成" href="scaffolding.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="threadlocals.html" title="Thread Locals"
+          <a href="threadlocals.html" title="(機械翻訳) スレッドローカル"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="scaffolding.html" title="Creating Pyramid Scaffolds"
+          <a href="scaffolding.html" title="(機械翻訳) ピラミッド足場の作成"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,48 +69,25 @@
           <div class="body" role="main">
             
   <div class="section" id="upgrading-pyramid">
-<span id="upgrading-chapter"></span><h1>Upgrading Pyramid<a class="headerlink" href="#upgrading-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>When a new version of Pyramid is released, it will sometimes deprecate a
-feature or remove a feature that was deprecated in an older release.  When
-features are removed from Pyramid, applications that depend on those features
-will begin to break.  This chapter explains how to ensure your Pyramid
-applications keep working when you upgrade the Pyramid version you're using.</p>
+<span id="upgrading-chapter"></span><h1>(機械翻訳) ピラミッドのアップグレード<a class="headerlink" href="#upgrading-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>新しいバージョンのPyramidがリリースされると、機能が廃止されたり、古いリリースで廃止された機能が削除されることがあります。フィーチャーがPyramidから削除されると、それらのフィーチャーに依存するアプリケーションが中断し始めます。この章では、使用しているPyramidのバージョンをアップグレードするときにPyramidアプリケーションが動作し続けるようにする方法について説明します。</p>
 <div class="sidebar">
-<p class="first sidebar-title">About Release Numbering</p>
-<p class="last">Conventionally, application version numbering in Python is described as
-<code class="docutils literal notranslate"><span class="pre">major.minor.micro</span></code>.  If your Pyramid version is &quot;1.2.3&quot;, it means you're
-running a version of Pyramid with the major version &quot;1&quot;, the minor version
-&quot;2&quot; and the micro version &quot;3&quot;.  A &quot;major&quot; release is one that increments the
-first-dot number; 2.X.X might follow 1.X.X.  A &quot;minor&quot; release is one that
-increments the second-dot number; 1.3.X might follow 1.2.X.  A &quot;micro&quot;
-release is one that increments the third-dot number; 1.2.3 might follow
-1.2.2.  In general, micro releases are &quot;bugfix-only&quot;, and contain no new
-features, minor releases contain new features but are largely backwards
-compatible with older versions, and a major release indicates a large set of
-backwards incompatibilities.</p>
+<p class="first sidebar-title">リリース番号について</p>
+<p class="last">従来、Pythonでのアプリケーションのバージョン番号は `` major.minor.micro``と記述されていました。 Pyramidのバージョンが&amp;quot;1.2.3 &amp;quot;であれば、メジャーバージョン&amp;quot;1 &amp;quot;、マイナーバージョン&amp;quot;2 &amp;quot;、マイクロバージョン&amp;quot;3 &amp;quot;のピラミッドバージョンを実行していることを意味します。 。 &amp;quot;メジャー&amp;quot;リリースとは、最初のドット番号をインクリメントするものです。 2.XXは1.XXに従うかもしれません。&amp;quot;マイナー&amp;quot;リリースは、第2のドット番号をインクリメントするものです。 1.3.Xは1.2.Xに続く可能性があります。 &amp;quot;マイクロ&amp;quot;リリースは、3番目のドット番号をインクリメントするものです。 1.2.3は1.2.2に続くかもしれない。一般に、マイクロリリースは「バグ修正のみ」で新機能は含まれていません。マイナーリリースには新機能が含まれていますが、旧バージョンとの下位互換性があります。メジャーリリースでは大きな互換性がありません。</p>
 </div>
-<p>The Pyramid core team is conservative when it comes to removing features.  We
-don't remove features unnecessarily, but we're human and we make mistakes which
-cause some features to be evolutionary dead ends.  Though we are willing to
-support dead-end features for some amount of time, some eventually have to be
-removed when the cost of supporting them outweighs the benefit of keeping them
-around, because each feature in Pyramid represents a certain documentation and
-maintenance burden.</p>
+<p>ピラミッドのコアチームは、機能を削除する際には控えめです。不必要に機能を削除するわけではありませんが、私たちは人間であり、いくつかの機能を進化的なデッドエンドにする間違いを犯します。デッドエンド機能をある程度サポートしていますが、Pyramidの各機能は特定の文書化とメンテナンスの負担を抱いているため、それらをサポートするコストよりもコストを削減する必要があります。</p>
 <div class="section" id="deprecation-and-removal-policy">
-<h2>Deprecation and removal policy<a class="headerlink" href="#deprecation-and-removal-policy" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>When a feature is scheduled for removal from Pyramid or any of its official
-add-ons, the core development team takes these steps:</p>
+<h2>廃止と削除のポリシー<a class="headerlink" href="#deprecation-and-removal-policy" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>機能がPyramidまたはその公式のアドオンから削除される予定の場合、コア開発チームは次の手順を実行します。</p>
 <ul class="simple">
-<li>Using the feature will begin to generate a <cite>DeprecationWarning</cite>, indicating
-the version in which the feature became deprecated.</li>
-<li>A note is added to the documentation indicating that the feature is
-deprecated.</li>
-<li>A note is added to the <a class="reference internal" href="../changes.html#changelog"><span class="std std-ref">Pyramid Change History</span></a> about the deprecation.</li>
+<li>この機能を使用すると、その機能が非難されたバージョンを示す <a href="#id1"><span class="problematic" id="id2">`</span></a>DeprecationWarning`が生成され始めます。</li>
+<li>その機能が推奨されていないことを示すメモが文書に追加されます。</li>
+<li>非推奨について：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>changelog`にメモが追加されています。</li>
 </ul>
-<p>When a deprecated feature is eventually removed:</p>
+<p>廃止予定の機能が最終的に削除されると、</p>
 <ul class="simple">
-<li>The feature is removed.</li>
-<li>A note is added to the <a class="reference internal" href="../changes.html#changelog"><span class="std std-ref">Pyramid Change History</span></a> about the removal.</li>
+<li>この機能は削除されました。</li>
+<li>削除について：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>changelog`にメモが追加されています。</li>
 </ul>
 <p>Features are never removed in <em>micro</em> releases.  They are only removed in minor
 and major releases.  Deprecated features are kept around for at least <em>three</em>
@@ -118,69 +95,34 @@ minor releases from the time the feature became deprecated. Therefore, if a
 feature is added in Pyramid 1.0, but it's deprecated in Pyramid 1.1, it will be
 kept around through all 1.1.X releases, all 1.2.X releases and all 1.3.X
 releases.  It will finally be removed in the first 1.4.X release.</p>
-<p>Sometimes features are &quot;docs-deprecated&quot; instead of formally deprecated. This
-means that the feature will be kept around indefinitely, but it will be removed
-from the documentation or a note will be added to the documentation telling
-folks to use some other newer feature.  This happens when the cost of keeping
-an old feature around is very minimal and the support and documentation burden
-is very low.  For example, we might rename a function that is an API without
-changing the arguments it accepts.  In this case, we'll often rename the
-function, and change the docs to point at the new function name, but leave
-around a backwards compatibility alias to the old function name so older code
-doesn't break.</p>
-<p>&quot;Docs deprecated&quot; features tend to work &quot;forever&quot;, meaning that they won't be
-removed, and they'll never generate a deprecation warning.  However, such
-changes are noted in the <a class="reference internal" href="../changes.html#changelog"><span class="std std-ref">Pyramid Change History</span></a>, so it's possible to know that you
-should change older spellings to newer ones to ensure that people reading your
-code can find the APIs you're using in the Pyramid docs.</p>
+<p>フィーチャは、正式に廃止されるのではなく、&amp;quot;docs-deprecated &amp;quot;です。これは、その機能が無期限に保持されることを意味しますが、その機能は文書から削除されるか、または他の新しい機能を使用するように伝える文書に追加されます。これは、古い機能を維持するコストが非常に低く、サポートとドキュメントの負担が非常に少ないときに発生します。たとえば、受け入れる引数を変更せずにAPIである関数の名前を変更することができます。この場合、関数の名前を変更し、新しい関数名を指すようにドキュメントを変更しますが、古い関数名への下位互換性のある別名を残して、古いコードが壊れないようにします。</p>
+<p>&amp;quot;Docs deprecated &amp;quot;機能は&amp;quot;forever &amp;quot;で動作する傾向があります。つまり、削除されず、廃止予定の警告が生成されることはありません。しかし、そのような変更は：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>changelog`に書かれているので、あなたのコードを読んでいる人がPyramidのドキュメントで使用しているAPIを見つけることができるように古いスペルを新しいものに変更する必要があることを知ることは可能です。</p>
 <div class="section" id="python-support-policy">
-<h3>Python support policy<a class="headerlink" href="#python-support-policy" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>At the time of a Pyramid version release, each supports all versions of Python
-through the end of their lifespans. The end-of-life for a given version of
-Python is when security updates are no longer released.</p>
+<h3>Pythonサポートポリシー<a class="headerlink" href="#python-support-policy" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Pyramidのバージョンリリース時には、Pythonのすべてのバージョンがライフスパンの終わりまでサポートされています。特定のバージョンのPythonの廃止は、セキュリティアップデートがリリースされなくなったときです。</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0392/#lifespan">Python 3.2 Lifespan</a>
-ends February 2016.</li>
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0392/#lifespan">Python 3.3 Lifespan</a>
-ends September 2017.</li>
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0429/">Python 3.4 Lifespan</a> TBD.</li>
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0478/">Python 3.5 Lifespan</a> TBD.</li>
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0494/#id4">Python 3.6 Lifespan</a>
-December 2021.</li>
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>Python 3.2の寿命&lt;<a class="reference external" href="https://www.python.org/dev/peps/pep-0392/#lifespan">https://www.python.org/dev/peps/pep-0392/#lifespan</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_は2016年2月に終了します。</li>
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>Python 3.3の寿命&lt;<a class="reference external" href="https://www.python.org/dev/peps/pep-0392/#lifespan">https://www.python.org/dev/peps/pep-0392/#lifespan</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_は、2017年9月に終わります。</li>
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>Python 3.4の寿命&lt;<a class="reference external" href="https://www.python.org/dev/peps/pep-0429/">https://www.python.org/dev/peps/pep-0429/</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_ TBD。</li>
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>Python 3.5の寿命&lt;<a class="reference external" href="https://www.python.org/dev/peps/pep-0478/">https://www.python.org/dev/peps/pep-0478/</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_ TBD。</li>
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>Python 3.6の寿命&lt;<a class="reference external" href="https://www.python.org/dev/peps/pep-0494/#id4">https://www.python.org/dev/peps/pep-0494/#id4</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_ 2021年12月。</li>
 </ul>
-<p>To determine the Python support for a specific release of Pyramid, view its
-<code class="docutils literal notranslate"><span class="pre">tox.ini</span></code> file at the root of the repository's version.</p>
+<p>Pyramidの特定のリリースのPythonサポートを確認するには、リポジトリのバージョンのルートにある `` tox.ini``ファイルを参照してください。</p>
 </div>
 </div>
 <div class="section" id="consulting-the-change-history">
-<h2>Consulting the change history<a class="headerlink" href="#consulting-the-change-history" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Your first line of defense against application failures caused by upgrading to
-a newer Pyramid release is always to read the <a class="reference internal" href="../changes.html#changelog"><span class="std std-ref">Pyramid Change History</span></a> to find the
-deprecations and removals for each release between the release you're currently
-running and the one to which you wish to upgrade.  The change history notes
-every deprecation within a <code class="docutils literal notranslate"><span class="pre">Deprecation</span></code> section and every removal within a
-<code class="docutils literal notranslate"><span class="pre">Backwards</span> <span class="pre">Incompatibilies</span></code> section for each release.</p>
-<p>The change history often contains instructions for changing your code to avoid
-deprecation warnings and how to change docs-deprecated spellings to newer ones.
-You can follow along with each deprecation explanation in the change history,
-simply doing a grep or other code search to your application, using the change
-log examples to remediate each potential problem.</p>
+<h2>変更履歴に相談する<a class="headerlink" href="#consulting-the-change-history" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>最新のPyramidリリースへのアップグレードによるアプリケーションの失敗に対する最初の防衛線は、常に：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>changelog`を読んで、現在実行しているリリースと現在実行しているリリースの間の各リリースの廃止と削除を見つけますアップグレードしたい変更履歴は、「非推奨」セクション内のすべての非推奨と、各リリース用の「後方互換性のない」セクション内のすべての削除を記録します。</p>
+<p>変更履歴には、コードを変更して廃止予定の警告を回避する方法や、廃止予定のスペルを新しいものに変更する方法が含まれることがよくあります。変更履歴の各非推奨説明に従って、アプリケーションにgrepやその他のコード検索を行い、変更ログの例を使用して潜在的な問題を修正することができます。</p>
 </div>
 <div class="section" id="testing-your-application-under-a-new-pyramid-release">
-<span id="testing-under-new-release"></span><h2>Testing your application under a new Pyramid release<a class="headerlink" href="#testing-your-application-under-a-new-pyramid-release" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Once you've upgraded your application to a new Pyramid release and you've
-remediated as much as possible by using the change history notes, you'll want
-to run your application's tests (see <a class="reference internal" href="../tutorials/wiki/installation.html#running-tests"><span class="std std-ref">Run the tests</span></a>) in such a way that
-you can see DeprecationWarnings printed to the console when the tests run.</p>
+<span id="testing-under-new-release"></span><h2>新しいPyramidリリースでアプリケーションをテストする<a class="headerlink" href="#testing-your-application-under-a-new-pyramid-release" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アプリケーションを新しいPyramidリリースにアップグレードし、変更履歴ノートを使用してできるだけ修正を加えたら、アプリケーションのテストを実行したいと思うでしょう（ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>running_tests`を参照）。テスト実行時にDeprecationWarningsがコンソールに表示されることがわかります。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -Wd setup.py <span class="nb">test</span> -q
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">-Wd</span></code> argument tells Python to print deprecation warnings to the console.
-See <a class="reference external" href="https://docs.python.org/2/using/cmdline.html#cmdoption-W">the Python -W flag documentation</a> for more
-information.</p>
-<p>As your tests run, deprecation warnings will be printed to the console
-explaining the deprecation and providing instructions about how to prevent the
-deprecation warning from being issued.  For example:</p>
+<p>`` -Wd``引数はPythonに、廃止予定の警告をコンソールに表示するように指示します。 <a href="#id1"><span class="problematic" id="id2">`</span></a>Python -Wフラグのドキュメント&lt;<a class="reference external" href="https://docs.python.org/2/using/cmdline.html#cmdoption-W">https://docs.python.org/2/using/cmdline.html#cmdoption-W</a>&gt;詳細は_を参照してください。</p>
+<p>テストが実行されると、廃止予定を説明するコンソールに廃止予定の警告が出力され、廃止予定の警告が表示されないようにする方法が示されます。例えば：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -Wd setup.py <span class="nb">test</span> -q
 <span class="c1"># .. elided ...</span>
 running build_ext
@@ -196,8 +138,7 @@ Ran <span class="m">1</span> <span class="nb">test</span> in <span class="m">0</
 OK
 </pre></div>
 </div>
-<p>In the above case, it's line #3 in the <code class="docutils literal notranslate"><span class="pre">myproj.views</span></code> module (<code class="docutils literal notranslate"><span class="pre">from</span>
-<span class="pre">pyramid.view</span> <span class="pre">import</span> <span class="pre">static</span></code>) that is causing the problem:</p>
+<p>上記の場合、問題を引き起こしている `` myproj.views``モジュール（ `` from pyramid.view import static``）の3行目です：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -207,8 +148,7 @@ OK
 <span class="n">myview</span> <span class="o">=</span> <span class="n">static</span><span class="p">(</span><span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The deprecation warning tells me how to fix it, so I can change the code to do
-things the newer way:</p>
+<p>廃止予定の警告は私にそれを修正する方法を教えているので、コードを変更してより新しい方法で行うことができます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -218,8 +158,7 @@ things the newer way:</p>
 <span class="n">myview</span> <span class="o">=</span> <span class="n">static_view</span><span class="p">(</span><span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="n">use_subpath</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>When I run the tests again, the deprecation warning is no longer printed to my
-console:</p>
+<p>テストをもう一度実行すると、廃止予定の警告がコンソールに表示されなくなります。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -Wd setup.py <span class="nb">test</span> -q
 <span class="c1"># .. elided ...</span>
 running build_ext
@@ -232,53 +171,29 @@ OK
 </div>
 </div>
 <div class="section" id="my-application-doesn-t-have-any-tests-or-has-few-tests">
-<h2>My application doesn't have any tests or has few tests<a class="headerlink" href="#my-application-doesn-t-have-any-tests-or-has-few-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If your application has no tests, or has only moderate test coverage, running
-tests won't tell you very much, because the Pyramid codepaths that generate
-deprecation warnings won't be executed.</p>
-<p>In this circumstance, you can start your application interactively under a
-server run with the <code class="docutils literal notranslate"><span class="pre">PYTHONWARNINGS</span></code> environment variable set to <code class="docutils literal notranslate"><span class="pre">default</span></code>.
-On UNIX, you can do that via:</p>
+<h2>私のアプリケーションにはテストがありません。<a class="headerlink" href="#my-application-doesn-t-have-any-tests-or-has-few-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>あなたのアプリケーションにテストがない場合、または適度なテストカバレッジしかない場合は、テストの実行はあまり意味しません。なぜなら、非推奨警告を生成するピラミッドコードパスは実行されないからです。</p>
+<p>この状況では、 `` PYTHONWARNINGS``環境変数が `` default``に設定された状態で、サーバを起動してアプリケーションを対話的に起動することができます。 UNIXでは、次の方法でこれを行うことができます。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">PYTHONWARNINGS</span><span class="o">=</span>default <span class="nv">$VENV</span>/bin/pserve development.ini
 </pre></div>
 </div>
-<p>On Windows, you need to issue two commands:</p>
+<p>Windowsでは、次の2つのコマンドを発行する必要があります。</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\&gt;</span> <span class="k">set</span> <span class="nv">PYTHONWARNINGS</span><span class="p">=</span>default
 <span class="gp">c:\&gt;</span> Scripts\pserve development.ini
 </pre></div>
 </div>
-<p>At this point, it's ensured that deprecation warnings will be printed to the
-console whenever a codepath is hit that generates one.  You can then click
-around in your application interactively to try to generate them, and remediate
-as explained in <a class="reference internal" href="#testing-under-new-release"><span class="std std-ref">Testing your application under a new Pyramid release</span></a>.</p>
-<p>See <a class="reference external" href="https://docs.python.org/2/using/cmdline.html#envvar-PYTHONWARNINGS">the PYTHONWARNINGS environment variable documentation</a> or <a class="reference external" href="https://docs.python.org/2/using/cmdline.html#cmdoption-W">the
-Python -W flag documentation</a> for more
-information.</p>
+<p>この時点では、コードパスが生成されるたびに非推奨警告がコンソールに出力されることが保証されています。対話的にアプリケーションをクリックして生成することができます：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>testing_under_new_release`で説明されているように修正してください。</p>
+<p><cite>PYTHONWARNINGS環境変数のドキュメント&lt;https://docs.python.org/2/using/cmdline.html#envvar-PYTHONWARNINGS&gt; `_または</cite> Python -Wフラグのドキュメント&lt;<a class="reference external" href="https://docs.python.org/2/using/cmdline.html#cmdoption-W">https://docs.python.org/2/using/cmdline.html#cmdoption-W</a>&gt;詳細は_を参照してください。</p>
 </div>
 <div class="section" id="upgrading-to-the-very-latest-pyramid-release">
-<h2>Upgrading to the very latest Pyramid release<a class="headerlink" href="#upgrading-to-the-very-latest-pyramid-release" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>When you upgrade your application to the most recent Pyramid release,
-it's advisable to upgrade step-wise through each most recent minor release,
-beginning with the one that you know your application currently runs under,
-and ending on the most recent release.  For example, if your application is
-running in production on Pyramid 1.2.1, and the most recent Pyramid 1.3
-release is Pyramid 1.3.3, and the most recent Pyramid release is 1.4.4, it's
-advisable to do this:</p>
+<h2>最新のPyramidリリースへのアップグレード<a class="headerlink" href="#upgrading-to-the-very-latest-pyramid-release" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アプリケーションを最新のPyramidリリースにアップグレードする場合は、最新のマイナーリリースを段階的にアップグレードしてから、アプリケーションが現在実行しているものから最新のリリースで終了するものまで、アップグレードすることをお勧めします。たとえば、アプリケーションがPyramid 1.2.1で本番環境で動作していて、最新のPyramid 1.3リリースがPyramid 1.3.3で、最新のPyramidリリースが1.4.4の場合は、これを行うことをお勧めします。</p>
 <ul class="simple">
-<li>Upgrade your environment to the most recent 1.2 release.  For example, the
-most recent 1.2 release might be 1.2.3, so upgrade to it.  Then run your
-application's tests under 1.2.3 as described in
-<a class="reference internal" href="#testing-under-new-release"><span class="std std-ref">Testing your application under a new Pyramid release</span></a>.  Note any deprecation warnings and
-remediate.</li>
-<li>Upgrade to the most recent 1.3 release, 1.3.3.  Run your application's tests,
-note any deprecation warnings, and remediate.</li>
-<li>Upgrade to 1.4.4.  Run your application's tests, note any deprecation
-warnings, and remediate.</li>
+<li>最新の1.2リリースに環境をアップグレードしてください。たとえば、最新の1.2リリースは1.2.3かもしれないので、アップグレードしてください。次に、：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>testing_under_new_release`で説明されているように、アプリケーションのテストを1.2.3で実行します。廃止予定の警告と修正を書き留めておいてください。</li>
+<li>最新の1.3リリース1.3.3にアップグレードしてください。アプリケーションのテストを実行し、廃止予定の警告を書き留め、修復します。</li>
+<li>1.4.4にアップグレードしてください。アプリケーションのテストを実行し、廃止予定の警告を書き留め、修復します。</li>
 </ul>
-<p>If you skip testing your application under each minor release (for example if
-you upgrade directly from 1.2.1 to 1.4.4), you might miss a deprecation warning
-and waste more time trying to figure out an error caused by a feature removal
-than it would take to upgrade stepwise through each minor release.</p>
+<p>各マイナーリリースでアプリケーションのテストをスキップした場合（たとえば、1.2.1から1.4.4に直接アップグレードする場合）、廃止予定の警告が表示されず、機能の削除によって発生したエラーを特定するのに時間がかかることがありますマイナーリリースごとに段階的にアップグレードすることになります。</p>
 </div>
 </div>
 
@@ -290,25 +205,25 @@ than it would take to upgrade stepwise through each minor release.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Upgrading Pyramid</a><ul>
-<li><a class="reference internal" href="#deprecation-and-removal-policy">Deprecation and removal policy</a><ul>
-<li><a class="reference internal" href="#python-support-policy">Python support policy</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) ピラミッドのアップグレード</a><ul>
+<li><a class="reference internal" href="#deprecation-and-removal-policy">廃止と削除のポリシー</a><ul>
+<li><a class="reference internal" href="#python-support-policy">Pythonサポートポリシー</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#consulting-the-change-history">Consulting the change history</a></li>
-<li><a class="reference internal" href="#testing-your-application-under-a-new-pyramid-release">Testing your application under a new Pyramid release</a></li>
-<li><a class="reference internal" href="#my-application-doesn-t-have-any-tests-or-has-few-tests">My application doesn't have any tests or has few tests</a></li>
-<li><a class="reference internal" href="#upgrading-to-the-very-latest-pyramid-release">Upgrading to the very latest Pyramid release</a></li>
+<li><a class="reference internal" href="#consulting-the-change-history">変更履歴に相談する</a></li>
+<li><a class="reference internal" href="#testing-your-application-under-a-new-pyramid-release">新しいPyramidリリースでアプリケーションをテストする</a></li>
+<li><a class="reference internal" href="#my-application-doesn-t-have-any-tests-or-has-few-tests">私のアプリケーションにはテストがありません。</a></li>
+<li><a class="reference internal" href="#upgrading-to-the-very-latest-pyramid-release">最新のPyramidリリースへのアップグレード</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="scaffolding.html"
-                        title="前の章へ">Creating Pyramid Scaffolds</a></p>
+                        title="前の章へ">(機械翻訳) ピラミッド足場の作成</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="threadlocals.html"
-                        title="次の章へ">Thread Locals</a></p>
+                        title="次の章へ">(機械翻訳) スレッドローカル</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -342,17 +257,17 @@ than it would take to upgrade stepwise through each minor release.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="threadlocals.html" title="Thread Locals"
+          <a href="threadlocals.html" title="(機械翻訳) スレッドローカル"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="scaffolding.html" title="Creating Pyramid Scaffolds"
+          <a href="scaffolding.html" title="(機械翻訳) ピラミッド足場の作成"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

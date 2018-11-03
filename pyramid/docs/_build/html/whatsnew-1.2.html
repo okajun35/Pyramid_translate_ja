@@ -82,13 +82,13 @@ additions.</p>
 <h3>Debug Toolbar<a class="headerlink" href="#debug-toolbar" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>The scaffolding packages that come with Pyramid now include a debug toolbar
 component which can be used to interactively debug an application.  See
-<a class="reference internal" href="narr/project.html#debug-toolbar"><span class="std std-ref">The Debug Toolbar</span></a> for more information.</p>
+<a class="reference internal" href="narr/project.html#debug-toolbar"><span class="std std-ref">デバッグツールバー</span></a> for more information.</p>
 </div>
 <div class="section" id="route-prefix-argument-to-include">
 <h3><code class="docutils literal notranslate"><span class="pre">route_prefix</span></code> Argument to include<a class="headerlink" href="#route-prefix-argument-to-include" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>The <a class="reference internal" href="api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> method now accepts a
 <code class="docutils literal notranslate"><span class="pre">route_prefix</span></code> argument.  This argument allows you to compose URL dispatch
-applications together from disparate packages.  See <a class="reference internal" href="narr/urldispatch.html#route-prefix"><span class="std std-ref">Using a Route Prefix to Compose Applications</span></a> for
+applications together from disparate packages.  See <a class="reference internal" href="narr/urldispatch.html#route-prefix"><span class="std std-ref">ルートプレフィックスを使用したアプリケーションの作成</span></a> for
 more information.</p>
 </div>
 <div class="section" id="tweens">
@@ -102,10 +102,10 @@ and a full-featured request object.</p>
 <p>To support this feature, a new configurator directive exists named
 <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_tween" title="pyramid.config.Configurator.add_tween"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_tween()</span></code></a>.  This directive adds a
 &quot;tween&quot;.</p>
-<p>Tweens are further described in <a class="reference internal" href="narr/hooks.html#registering-tweens"><span class="std std-ref">Registering Tweens</span></a>.</p>
+<p>Tweens are further described in <a class="reference internal" href="narr/hooks.html#registering-tweens"><span class="std std-ref">Tweensの登録</span></a>.</p>
 <p>A new paster command now exists: <code class="docutils literal notranslate"><span class="pre">paster</span> <span class="pre">ptweens</span></code>.  This command prints the
 current tween configuration for an application.  See the section entitled
-<a class="reference internal" href="narr/commandline.html#displaying-tweens"><span class="std std-ref">Displaying &quot;Tweens&quot;</span></a> for more info.</p>
+<a class="reference internal" href="narr/commandline.html#displaying-tweens"><span class="std std-ref">&amp;quot;Tweens </span></a> for more info.</p>
 </div>
 <div class="section" id="scaffolding-changes">
 <h3>Scaffolding Changes<a class="headerlink" href="#scaffolding-changes" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -133,9 +133,9 @@ package (see <a class="reference external" href="http://docs.pylonsproject.org/p
 <code class="docutils literal notranslate"><span class="pre">setup</span></code> key as a dotted name that points to a callable that is passed the
 bootstrap environment.  It can mutate the environment as necessary during a
 <code class="docutils literal notranslate"><span class="pre">paster</span> <span class="pre">pshell</span></code> session.  This feature is described in
-<a class="reference internal" href="narr/commandline.html#writing-a-script"><span class="std std-ref">Writing a Script</span></a>.</li>
+<a class="reference internal" href="narr/commandline.html#writing-a-script"><span class="std std-ref">スクリプトを書く</span></a>.</li>
 <li>A new configuration setting named <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> is now available.
-It is described in <a class="reference internal" href="narr/environment.html#including-packages"><span class="std std-ref">Including Packages</span></a>.</li>
+It is described in <a class="reference internal" href="narr/environment.html#including-packages"><span class="std std-ref">パッケージを含む</span></a>.</li>
 <li>Added a <a class="reference internal" href="api/security.html#pyramid.security.NO_PERMISSION_REQUIRED" title="pyramid.security.NO_PERMISSION_REQUIRED"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.NO_PERMISSION_REQUIRED</span></code></a> constant for use in
 <code class="docutils literal notranslate"><span class="pre">permission=</span></code> statements to view configuration.  This constant has a
 value of the string <code class="docutils literal notranslate"><span class="pre">__no_permission_required__</span></code>.  This string value was
@@ -303,23 +303,23 @@ permissions, an IOError (or similar) will be raised.</li>
 <code class="docutils literal notranslate"><span class="pre">route_path</span></code>, <code class="docutils literal notranslate"><span class="pre">resource_url</span></code>, <code class="docutils literal notranslate"><span class="pre">static_url</span></code>, and <code class="docutils literal notranslate"><span class="pre">current_route_url</span></code>
 functions in the <a class="reference internal" href="api/url.html#module-pyramid.url" title="pyramid.url"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.url</span></code></a> package have now been changed to use
 eponymous methods of the request instead.</li>
-<li>Added a section entitled <a class="reference internal" href="narr/urldispatch.html#route-prefix"><span class="std std-ref">Using a Route Prefix to Compose Applications</span></a> to the &quot;URL Dispatch&quot;
+<li>Added a section entitled <a class="reference internal" href="narr/urldispatch.html#route-prefix"><span class="std std-ref">ルートプレフィックスを使用したアプリケーションの作成</span></a> to the &quot;URL Dispatch&quot;
 narrative documentation chapter.</li>
 <li>Added a new module to the API docs: <a class="reference internal" href="api/tweens.html#module-pyramid.tweens" title="pyramid.tweens"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.tweens</span></code></a>.</li>
-<li>Added a <a class="reference internal" href="narr/hooks.html#registering-tweens"><span class="std std-ref">Registering Tweens</span></a> section to the &quot;Hooks&quot; narrative chapter.</li>
-<li>Added a <a class="reference internal" href="narr/commandline.html#displaying-tweens"><span class="std std-ref">Displaying &quot;Tweens&quot;</span></a> section to the &quot;Command-Line Pyramid&quot;
+<li>Added a <a class="reference internal" href="narr/hooks.html#registering-tweens"><span class="std std-ref">Tweensの登録</span></a> section to the &quot;Hooks&quot; narrative chapter.</li>
+<li>Added a <a class="reference internal" href="narr/commandline.html#displaying-tweens"><span class="std std-ref">&amp;quot;Tweens </span></a> section to the &quot;Command-Line Pyramid&quot;
 narrative chapter.</li>
-<li>Added documentation for <a class="reference internal" href="narr/environment.html#explicit-tween-config"><span class="std std-ref">Explicit Tween Configuration</span></a> and
-<a class="reference internal" href="narr/environment.html#including-packages"><span class="std std-ref">Including Packages</span></a> to the &quot;Environment Variables and <code class="docutils literal notranslate"><span class="pre">.ini</span></code> Files
+<li>Added documentation for <a class="reference internal" href="narr/environment.html#explicit-tween-config"><span class="std std-ref">明示的なTween構成</span></a> and
+<a class="reference internal" href="narr/environment.html#including-packages"><span class="std std-ref">パッケージを含む</span></a> to the &quot;Environment Variables and <code class="docutils literal notranslate"><span class="pre">.ini</span></code> Files
 Settings&quot; chapter.</li>
-<li>Added a <a class="reference internal" href="narr/logging.html#logging-chapter"><span class="std std-ref">Logging</span></a> chapter to the narrative docs.</li>
+<li>Added a <a class="reference internal" href="narr/logging.html#logging-chapter"><span class="std std-ref">(機械翻訳) ロギング</span></a> chapter to the narrative docs.</li>
 <li>All tutorials now use - The <code class="docutils literal notranslate"><span class="pre">route_url</span></code>, <code class="docutils literal notranslate"><span class="pre">route_path</span></code>,
 <code class="docutils literal notranslate"><span class="pre">resource_url</span></code>, <code class="docutils literal notranslate"><span class="pre">static_url</span></code>, and <code class="docutils literal notranslate"><span class="pre">current_route_url</span></code> methods of the
 <a class="reference internal" href="api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a> rather than the function variants imported
 from <code class="docutils literal notranslate"><span class="pre">pyramid.url</span></code>.</li>
 <li>The ZODB wiki tutorial now uses the <code class="docutils literal notranslate"><span class="pre">pyramid_zodbconn</span></code> package rather
 than the <code class="docutils literal notranslate"><span class="pre">repoze.zodbconn</span></code> package to provide ZODB integration.</li>
-<li>Added <a class="reference internal" href="narr/introduction.html#what-makes-pyramid-unique"><span class="std std-ref">What makes Pyramid unique</span></a> to the Introduction narrative
+<li>Added <a class="reference internal" href="narr/introduction.html#what-makes-pyramid-unique"><span class="std std-ref">ピラミッドをユニークなものにする理由</span></a> to the Introduction narrative
 chapter.</li>
 </ul>
 </div>
@@ -410,7 +410,7 @@ keyword argument to <a class="reference internal" href="api/config.html#pyramid.
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

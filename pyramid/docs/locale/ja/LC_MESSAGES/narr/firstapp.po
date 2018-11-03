@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/firstapp.rst:7
 msgid "Creating Your First :app:`Pyramid` Application"
-msgstr ""
+msgstr "(機械翻訳) あなたの最初の作成 :app:`Pyramid` アプリケーション"
 
 #: ../../narr/firstapp.rst:9
 msgid ""
@@ -29,30 +19,30 @@ msgid ""
 "application, we'll explain in more detail how it works. It assumes you "
 "already have :app:`Pyramid` installed. If you do not, head over to the "
 ":ref:`installing_chapter` section."
-msgstr ""
+msgstr "この章では、小さな：app： `Pyramid`アプリケーションの作成について説明します。アプリケーションの作成が完了したら、その動作をより詳しく説明します。既に：app： `Pyramid`がインストールされていることを前提としています。もしそうでなければ、：ref： `installing_chapter`セクションに向かいます。"
 
 #: ../../narr/firstapp.rst:17
 msgid "Hello World"
-msgstr ""
+msgstr "こんにちは世界"
 
 #: ../../narr/firstapp.rst:19
 msgid "Here's one of the very simplest :app:`Pyramid` applications:"
-msgstr ""
+msgstr "非常にシンプルなアプリケーションのひとつ：app： `Pyramid`アプリケーション："
 
 #: ../../narr/firstapp.rst:24
 msgid ""
 "When this code is inserted into a Python script named ``helloworld.py`` "
 "and executed by a Python interpreter which has the :app:`Pyramid` "
 "software installed, an HTTP server is started on TCP port 8080."
-msgstr ""
+msgstr "このコードを `` helloworld.py``という名前のPythonスクリプトに挿入し、：app： `Pyramid`ソフトウェアがインストールされたPythonインタプリタで実行すると、TCPポート8080でHTTPサーバが起動します。"
 
 #: ../../narr/firstapp.rst:28
 msgid "On UNIX:"
-msgstr ""
+msgstr "UNIXの場合："
 
 #: ../../narr/firstapp.rst:34
 msgid "On Windows:"
-msgstr ""
+msgstr "Windowsの場合："
 
 #: ../../narr/firstapp.rst:40
 msgid ""
@@ -62,7 +52,7 @@ msgid ""
 "application is running on your local system, using "
 "`<http://localhost:8080/hello/world>`_ in a browser will show this "
 "result."
-msgstr ""
+msgstr "このコマンドは戻らず、コンソールに何も表示されません。ポート8080がブラウザーによって `` / hello / world``のURLにアクセスされると、サーバーは単純に\ &quot;Hello world！\&quot;というテキストを提供します。あなたのアプリケーションがあなたのローカルシステムで実行されている場合は、 <http://localhost:8080/hello/world> `_はブラウザでこの結果を表示します。"
 
 #: ../../narr/firstapp.rst:46
 msgid ""
@@ -72,27 +62,27 @@ msgid ""
 " output is done by the wsgiref server we've used to serve this "
 "application.  It logs an \"access log\" in Apache combined logging format"
 " to the console."
-msgstr ""
+msgstr "ブラウザでアプリケーションが提供しているURLにアクセスするたびに、ホスト名、日付、要求の方法とパス、およびその他の情報が表示されます。この出力は、このアプリケーションを提供するために使用したwsgirefサーバーによって行われます。これは、コンソールにログ記録形式を組み合わせたApacheの\ &quot;アクセスログ\&quot;を記録します。"
 
 #: ../../narr/firstapp.rst:52
 msgid "Press ``Ctrl-C`` (or ``Ctrl-Break`` on Windows) to stop the application."
-msgstr ""
+msgstr "アプリケーションを停止するには、 `` Ctrl-C``（Windowsでは `` Ctrl-Break``）を押してください。"
 
 #: ../../narr/firstapp.rst:54
 msgid ""
 "Now that we have a rudimentary understanding of what the application "
 "does, let's examine it piece by piece."
-msgstr ""
+msgstr "アプリケーションが何をしているのかについての初歩的な理解があったので、それを少しずつ調べてみましょう。"
 
 #: ../../narr/firstapp.rst:58
 msgid "Imports"
-msgstr ""
+msgstr "輸入"
 
 #: ../../narr/firstapp.rst:60
 msgid ""
 "The above ``helloworld.py`` script uses the following set of import "
 "statements:"
-msgstr ""
+msgstr "上記の `` helloworld.py``スクリプトは、以下のimport文のセットを使用します："
 
 #: ../../narr/firstapp.rst:66
 msgid ""
@@ -100,7 +90,7 @@ msgid ""
 "the :mod:`pyramid.config` module.  An instance of the "
 ":class:`~pyramid.config.Configurator` class is later used to configure "
 "your :app:`Pyramid` application."
-msgstr ""
+msgstr "このスクリプトは、：mod： `pyramid.config`モジュールから：class：`〜pyramid.config.Configurator`クラスをインポートします。 ：class： `〜pyramid.config.Configurator`クラスのインスタンスは、後で：app：` Pyramid`アプリケーションを設定するために使われます。"
 
 #: ../../narr/firstapp.rst:71
 msgid ""
@@ -109,24 +99,24 @@ msgid ""
 "together.  The :mod:`wsgiref` server is used in this example as a WSGI "
 "server for convenience, as it is shipped within the Python standard "
 "library."
-msgstr ""
+msgstr "他の多くのPython Webフレームワークと同様に、：app： `Pyramid`は：term：` WSGI`プロトコルを使用して、アプリケーションとWebサーバーを一緒に接続します。 ：mod： `wsgiref`サーバは、この例では、Python標準ライブラリに含まれているため、便宜上WSGIサーバとして使用しています。"
 
 #: ../../narr/firstapp.rst:76
 msgid ""
 "The script also imports the :class:`pyramid.response.Response` class for "
 "later use.  An instance of this class will be used to create a web "
 "response."
-msgstr ""
+msgstr "このスクリプトは、後で使うために：class： `pyramid.response.Response`クラスもインポートします。このクラスのインスタンスは、Webレスポンスの作成に使用されます。"
 
 #: ../../narr/firstapp.rst:80
 msgid "View Callable Declarations"
-msgstr ""
+msgstr "コール可能な宣言の表示"
 
 #: ../../narr/firstapp.rst:82
 msgid ""
 "The above script, beneath its set of imports, defines a function named "
 "``hello_world``."
-msgstr ""
+msgstr "上記のスクリプトは、インポートセットの下に、 `` hello_world``という名前の関数を定義しています。"
 
 #: ../../narr/firstapp.rst:89
 msgid ""
@@ -134,7 +124,7 @@ msgid ""
 "instance of the :class:`pyramid.response.Response` class.  The single "
 "argument to the class' constructor is a string computed from parameters "
 "matched from the URL. This value becomes the body of the response."
-msgstr ""
+msgstr "関数は単一の引数（ `` request``）を受け取り、：class： `pyramid.response.Response`クラスのインスタンスを返します。クラスのコンストラクタへの単一の引数は、URLから一致したパラメータから計算された文字列です。この値は応答の本体になります。"
 
 #: ../../narr/firstapp.rst:94
 msgid ""
@@ -143,14 +133,14 @@ msgid ""
 ":term:`response` object.  A view callable doesn't need to be a function; "
 "it can be represented via another type of object, like a class or an "
 "instance, but for our purposes here, a function serves us well."
-msgstr ""
+msgstr "この関数はa：term： `view callable`と呼ばれます。ビュー呼び出し可能関数は、単一の引数 `` request``を受け取ります。 ：term： `response`オブジェクトを返すことが期待されます。ビュー呼び出し可能は関数である必要はありません。クラスやインスタンスのような別のタイプのオブジェクトを介して表現することもできますが、ここでは関数がうまく機能します。"
 
 #: ../../narr/firstapp.rst:100
 msgid ""
 "A view callable is always called with a :term:`request` object.  A "
 "request object is a representation of an HTTP request sent to "
 ":app:`Pyramid` via the active :term:`WSGI` server."
-msgstr ""
+msgstr "ビューcallableは常に：term： `request`オブジェクトで呼び出されます。リクエストオブジェクトは、active：term： `WSGI`サーバを介して：app：` Pyramid`に送信されたHTTPリクエストの表現です。"
 
 #: ../../narr/firstapp.rst:104
 msgid ""
@@ -161,11 +151,11 @@ msgid ""
 "browser.  To return a response, each view callable creates an instance of"
 " the :class:`~pyramid.response.Response` class.  In the ``hello_world`` "
 "function, a string is passed as the body to the response."
-msgstr ""
+msgstr "レスポンスオブジェクトは実際のHTTPレスポンスを定式化するのに必要なすべての情報を持っているため、view：callableはa：term： `response`オブジェクトを返す必要があります。このオブジェクトはPyramidを呼び出した：term： `WSGI`サーバによってテキストに変換され、要求元のブラウザに返送されます。レスポンスを返すために、呼び出し可能な各ビューは：class： `〜pyramid.response.Response`クラスのインスタンスを作成します。 `` hello_world``関数では、文字列が本文として応答に渡されます。"
 
 #: ../../narr/firstapp.rst:120
 msgid "Application Configuration"
-msgstr ""
+msgstr "アプリケーション構成"
 
 #: ../../narr/firstapp.rst:122
 msgid ""
@@ -173,15 +163,15 @@ msgid ""
 " this simple application. The application is configured using the "
 "previously defined imports and function definitions, placed within the "
 "confines of an ``if`` statement:"
-msgstr ""
+msgstr "上記のスクリプトでは、次のコードはこの単純なアプリケーションの*設定*を表しています。アプリケーションは、定義済みのインポートと関数定義を使用して設定され、 `` if``ステートメントの範囲内に配置されます："
 
 #: ../../narr/firstapp.rst:131
 msgid "Let's break this down piece by piece."
-msgstr ""
+msgstr "これを一枚ずつ壊しましょう。"
 
 #: ../../narr/firstapp.rst:134
 msgid "Configurator Construction"
-msgstr ""
+msgstr "コンフィグレータの構築"
 
 #: ../../narr/firstapp.rst:140
 msgid ""
@@ -192,7 +182,7 @@ msgid ""
 "contains the entire script body, the code within the ``if`` statement "
 "will only be invoked when ``python helloworld.py`` is executed from the "
 "command line."
-msgstr ""
+msgstr "上のコードサンプルの `` if __name__ == &#39;__main __&#39;： ``行は、Pythonイディオムを表します。このif節内のコードは、このコードを含むスクリプトがオペレーティングシステムのコマンドラインから直接実行されない限り呼び出されません。たとえば、 `` helloworld.py``という名前のファイルにスクリプト本体全体が含まれている場合、 `` if``文内のコードは `` python helloworld.py``がコマンドラインから実行されたときにのみ呼び出されます。"
 
 #: ../../narr/firstapp.rst:147
 msgid ""
@@ -204,7 +194,7 @@ msgid ""
 "that it does not want the code within the ``if`` statement to execute if "
 "this module is imported from another; the code within the ``if`` block "
 "should only be run during a direct script execution."
-msgstr ""
+msgstr "Pythonの `` .py``ファイルのコードは、Pythonの `` import``文を介して別の `` .py``でインポートされる可能性があるため、 `` if``節を使用する必要があります。ファイル。他の `` .py``ファイルによってインポートされる `` .py``ファイルは、* modules *と呼ばれます。上記のスクリプトは、 `` if __name__ == &#39;__main __&#39;： ``イディオムを使用することによって、このモジュールが別のモジュールからインポートされた場合に `` if``文内のコードを実行したくないことを示しています。 `` if``ブロック内のコードは直接スクリプトの実行中にのみ実行されるべきです。"
 
 #: ../../narr/firstapp.rst:156
 msgid ""
@@ -214,11 +204,11 @@ msgid ""
 "script uses to configure this particular :app:`Pyramid` application.  "
 "Methods called on the Configurator will cause registrations to be made in"
 " an :term:`application registry` associated with the application."
-msgstr ""
+msgstr "上記の `` Configurator（）as config： ``行は、：term： `context manager`を使用して：class：`〜pyramid.config.Configurator`クラスのインスタンスを作成します。生成される `` config``オブジェクトは、この特定の：app： `Pyramid`アプリケーションを設定するためにスクリプトが使用するAPIを表します。コンフィグレータで呼び出されるメソッドは、アプリケーションに関連付けられた：term： `アプリケーションレジストリ &#39;で登録を行います。"
 
 #: ../../narr/firstapp.rst:166
 msgid "Adding Configuration"
-msgstr ""
+msgstr "設定の追加"
 
 #: ../../narr/firstapp.rst:172
 msgid ""
@@ -226,18 +216,18 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_route` method, which registers a "
 ":term:`route` to match any URL path that begins with ``/hello/`` followed"
 " by a string."
-msgstr ""
+msgstr "上記の最初の行は：meth： `pyramid.config.Configurator.add_route`メソッドを呼び出します。このメソッドは、` `/ hello /` `で始まり、その後に文字列が続くURLパスにマッチする：term：` route`を登録します。"
 
 #: ../../narr/firstapp.rst:176
 msgid ""
 "The second line registers the ``hello_world`` function as a :term:`view "
 "callable` and makes sure that it will be called when the ``hello`` route "
 "is matched."
-msgstr ""
+msgstr "2行目は `` hello_world``関数を：term： `view callable`として登録し、` `hello``ルートが一致したときに呼び出されるようにします。"
 
 #: ../../narr/firstapp.rst:185
 msgid "WSGI Application Creation"
-msgstr ""
+msgstr "WSGIアプリケーションの作成"
 
 #: ../../narr/firstapp.rst:191
 msgid ""
@@ -253,7 +243,7 @@ msgid ""
 "discuss :term:`WSGI` in any depth within this book, but you can learn "
 "more about it by reading its `documentation "
 "<https://wsgi.readthedocs.io/en/latest/>`_."
-msgstr ""
+msgstr "ビューの設定と設定の終了後、スクリプトは：meth： `pyramid.config.Configurator.make_wsgi_app`メソッドを使用してWSGI *アプリケーション*を作成します。 `` make_wsgi_app``を呼び出すことは、すべての設定が終了したことを意味します（ビューやその他の設定を行うコンフィギュレータへのすべてのメソッドコールが実行されたことを意味します）。 `` make_wsgi_app``メソッドは：term： `WSGI`アプリケーションオブジェクトを返します。これは、任意のWSGIサーバがリクエスタにアプリケーションを提示するために使用できます。 ：term： `WSGI`はサーバがPythonアプリケーションと通信するためのプロトコルです。私たちは議論しません：用語： `WSGI`はこの本の中で深く考えていますが、 <https://wsgi.readthedocs.io/en/latest/> `_。"
 
 #: ../../narr/firstapp.rst:202
 msgid ""
@@ -265,11 +255,11 @@ msgid ""
 "policy choices were informed by method calls to the :term:`Configurator` "
 "made earlier; in our case, the only policy choices made were implied by "
 "calls to its ``add_view`` and ``add_route`` methods."
-msgstr ""
+msgstr "：app： `Pyramid`アプリケーションオブジェクトは、特に：app：` Pyramid`：term： `router`を表すクラスのインスタンスです。これには：term： `アプリケーションレジストリ &#39;への参照があります。これは、それを設定するために使用されたコンフィギュレータへのメソッド呼び出しに起因します。 ：term： `router`は、単一のアプリケーションによって行われたポリシー選択に従うためにレジストリに問い合わせます。これらのポリシー選択は、：term： `Configurator`へのメソッド呼び出しによって通知されました。私たちの場合、唯一のポリシー選択は、 `` add_view``と `` add_route``メソッドの呼び出しによって暗示されました。"
 
 #: ../../narr/firstapp.rst:212
 msgid "WSGI Application Serving"
-msgstr ""
+msgstr "WSGIアプリケーションの提供"
 
 #: ../../narr/firstapp.rst:218
 msgid ""
@@ -285,7 +275,7 @@ msgid ""
 " application we wish to serve.  Finally, we call the server's "
 "``serve_forever`` method, which starts the main loop in which it will "
 "wait for requests from the outside world."
-msgstr ""
+msgstr "最後に、実際にはWSGIサーバーを起動してリクエスタにアプリケーションを提供します。この目的のために、：mod： `wsgiref`` `make_server``サーバメーカーを使用します。我々は最初の引数 `` &#39;0.0.0.0&#39;``として渡します。これは\ &quot;すべてのTCPインタフェースで待ち受ける\&quot;を意味します。デフォルトでは、HTTPサーバーは `` 127.0.0.1``インターフェースのみをlistenします。これは、リモートシステム上でサーバーを実行していて、ローカルシステムからWebブラウザーでアクセスしたい場合に問題になります。また、待機するTCPポート番号を8080に指定し、2番目の引数として渡します。最後の引数は `` app``オブジェクト（a：term： `router`）です。これは私たちが提供したいアプリケーションです。最後に、サーバーの `` serve_forever``メソッドを呼び出して、メインループを開始します。メインループでは、外部からの要求を待機します。"
 
 #: ../../narr/firstapp.rst:230
 msgid ""
@@ -293,11 +283,11 @@ msgid ""
 " port 8080.  The server will serve requests forever, or at least until we"
 " stop it by killing the process which runs it (usually by pressing "
 "``Ctrl-C`` or ``Ctrl-Break`` in the terminal we used to start it)."
-msgstr ""
+msgstr "この行が呼び出されると、サーバはTCPポート8080でリッスンを開始します。サーバは要求を永遠に、あるいは少なくとも実行するプロセスを強制終了するまで（通常は `` Ctrl-C``を押して）それを起動するために使用した端末では `` Ctrl-Break``を実行します）。"
 
 #: ../../narr/firstapp.rst:236
 msgid "Conclusion"
-msgstr ""
+msgstr "結論"
 
 #: ../../narr/firstapp.rst:238
 msgid ""
@@ -305,21 +295,21 @@ msgid ""
 ":app:`Pyramid` applications, configured \"imperatively\".  We can see "
 "that it's configured imperatively because the full power of Python is "
 "available to us as we perform configuration tasks."
-msgstr ""
+msgstr "私たちのhello worldアプリケーションは、可能な限りシンプルなapp： `Pyramid`アプリケーションの1つです。これは、設定タスクを実行するときに、Pythonの完全機能を利用できるため、必須の設定であることがわかります。"
 
 #: ../../narr/firstapp.rst:244
 msgid "References"
-msgstr ""
+msgstr "参考文献"
 
 #: ../../narr/firstapp.rst:246
 msgid ""
 "For more information about the API of a :term:`Configurator` object, see "
 ":class:`~pyramid.config.Configurator` ."
-msgstr ""
+msgstr "a：term： `Configurator`オブジェクトのAPIの詳細については、：class：`〜pyramid.config.Configurator`を参照してください。"
 
 #: ../../narr/firstapp.rst:249
 msgid ""
 "For more information about :term:`view configuration`, see "
 ":ref:`view_config_chapter`."
-msgstr ""
+msgstr "：term： `view configuration`の詳細については、：ref：` view_config_chapter`を参照してください。"
 

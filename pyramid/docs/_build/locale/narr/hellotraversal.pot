@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../narr/hellotraversal.rst:4
+msgid "Hello Traversal World"
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:9
+msgid "Traversal is an alternative to URL dispatch which allows Pyramid applications to map URLs to code."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:12
+msgid "If code speaks louder than words, maybe this will help. Here is a single-file Pyramid application that uses traversal:"
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:18
+msgid "You may notice that this application is intentionally very similar to the \"hello world\" application from :doc:`firstapp`."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:21
+msgid "On lines 5-6, we create a trivial :term:`resource` class that's just a dictionary subclass."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:24
+msgid "On lines 8-9, we hard-code a :term:`resource tree` in our :term:`root factory` function."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:27
+msgid "On lines 11-13, we define a single :term:`view callable` that can display a single instance of our ``Resource`` class, passed as the ``context`` argument."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:30
+msgid "The rest of the file sets up and serves our :app:`Pyramid` WSGI app.  Line 18 is where our view gets configured for use whenever the traversal ends with an instance of our ``Resource`` class."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:34
+msgid "Interestingly, there are no URLs explicitly configured in this application. Instead, the URL space is defined entirely by the keys in the resource tree."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:38
+msgid "Example requests"
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:40
+msgid "If this example is running on http://localhost:8080, and the user browses to http://localhost:8080/a/b, Pyramid will call ``get_root(request)`` to get the root resource, then traverse the tree from there by key; starting from the root, it will find the child with key ``\"a\"``, then its child with key ``\"b\"``; then use that as the ``context`` argument for calling ``hello_world_of_resources``."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:47
+msgid "Or, if the user browses to http://localhost:8080/, Pyramid will stop at the root—the outermost ``Resource`` instance, in this case—and use that as the ``context`` argument to the same view."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:51
+msgid "Or, if the user browses to a key that doesn't exist in this resource tree, like http://localhost:8080/xyz or http://localhost:8080/a/b/c/d, the traversal will end by raising a KeyError, and Pyramid will turn that into a 404 HTTP response."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:55
+msgid "A more complicated application could have many types of resources, with different view callables defined for each type, and even multiple views for each type."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:61
+msgid "Full technical details may be found in :doc:`traversal`."
+msgstr ""
+
+#: ../../narr/hellotraversal.rst:63
+msgid "For more about *why* you might use traversal, see :doc:`muchadoabouttraversal`."
+msgstr ""
+

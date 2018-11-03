@@ -7,57 +7,47 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/assets.rst:8
 msgid "Static Assets"
-msgstr ""
+msgstr "(機械翻訳) 静的資産"
 
 #: ../../narr/assets.rst:10
 msgid ""
 "An :term:`asset` is any file contained within a Python :term:`package` "
 "which is *not* a Python source code file.  For example, each of the "
 "following is an asset:"
-msgstr ""
+msgstr "An：term： `asset`は、PythonソースコードファイルではないPython：term：` package`に含まれるファイルです。たとえば、以下はそれぞれ資産です。"
 
 #: ../../narr/assets.rst:14
 msgid ""
 "a GIF image file contained within a Python package or contained within "
 "any subdirectory of a Python package."
-msgstr ""
+msgstr "Pythonパッケージに含まれるGIF画像ファイル、またはPythonパッケージのサブディレクトリに含まれるGIF画像ファイル。"
 
 #: ../../narr/assets.rst:17
 msgid ""
 "a CSS file contained within a Python package or contained within any "
 "subdirectory of a Python package."
-msgstr ""
+msgstr "Pythonパッケージに含まれるCSSファイル、またはPythonパッケージのサブディレクトリに含まれるCSSファイル。"
 
 #: ../../narr/assets.rst:20
 msgid ""
 "a JavaScript source file contained within a Python package or contained "
 "within any subdirectory of a Python package."
-msgstr ""
+msgstr "Pythonパッケージに含まれるか、Pythonパッケージのサブディレクトリに含まれるJavaScriptソースファイル。"
 
 #: ../../narr/assets.rst:23
 msgid ""
 "A directory within a package that does not have an ``__init__.py`` in it "
 "(if it possessed an ``__init__.py`` it would *be* a package)."
-msgstr ""
+msgstr "それが `` __init __。py``を持たないパッケージ内のディレクトリ（パッケージである `` __init __。py``を持っている場合）です。"
 
 #: ../../narr/assets.rst:26
 msgid ""
 "a :term:`Chameleon` or :term:`Mako` template file contained within a "
 "Python package."
-msgstr ""
+msgstr "a：term： `Chameleon`または：term：` Mako`テンプレートファイル（Pythonパッケージに含まれています）。"
 
 #: ../../narr/assets.rst:29
 msgid ""
@@ -70,11 +60,11 @@ msgid ""
 " ``static`` directory which contains ``.css``, ``.js``, and ``.gif`` "
 "files.  These asset files are delivered when a user visits an application"
 " URL."
-msgstr ""
+msgstr "ほとんどのWeb開発プロジェクトでは、資産の使用が非常に一般的です。たとえば、：ref： `creating_a_project`で説明されているように、：app：` Pyramid`アプリケーションを利用可能なterm： `cookiecutter` \\ sで作成すると、アプリケーションを表すディレクトリにPython：term： `パッケージ`。そのPythonパッケージ内には、静的資産であるファイルがいっぱいのディレクトリがあります。たとえば、 `` .css``、 `` .js``、および `.gif``ファイルを含む` `静的` `ディレクトリがあります。これらのアセットファイルは、ユーザーがアプリケーションURLにアクセスしたときに配信されます。"
 
 #: ../../narr/assets.rst:44
 msgid "Understanding Asset Specifications"
-msgstr ""
+msgstr "資産の仕様の理解"
 
 #: ../../narr/assets.rst:46
 msgid ""
@@ -84,7 +74,7 @@ msgid ""
 "application might address the asset using the :term:`asset specification`"
 " ``myapp:templates/some_template.pt`` using that API within a "
 "``views.py`` file inside a ``myapp`` package:"
-msgstr ""
+msgstr "：func： `pyramid.renderers.render_to_response` APIを使って：term：` Chameleon` ZPTテンプレートを使用する：app： `Pyramid`アプリケーションを作成したとします。例えば、アプリケーションは `` myapp``パッケージ内の `` views.py``ファイル内でそのAPIを使用して：term： `asset specification`` `myapp：templates / some_template.pt``を使ってアセットにアクセスするかもしれません："
 
 #: ../../narr/assets.rst:59
 msgid ""
@@ -92,21 +82,21 @@ msgid ""
 "make sense out of the string ``myapp:templates/some_template.pt`` "
 "provided by the developer.  This string is an :term:`asset "
 "specification`.  It is composed of two parts:"
-msgstr ""
+msgstr "\ &quot;Under the hood \&quot;、このAPIが呼び出されると、：app： `Pyramid`は、開発者によって提供された文字列` `myapp：templates / some_template.pt`の意味を理解しようとします。この文字列は：term： `asset specification`です。これは2つの部分で構成されています。"
 
 #: ../../narr/assets.rst:64
 msgid "The *package name* (``myapp``)"
-msgstr ""
+msgstr "*パッケージ名*（ `` myapp``）"
 
 #: ../../narr/assets.rst:66
 msgid ""
 "The *asset name* (``templates/some_template.pt``), relative to the "
 "package directory."
-msgstr ""
+msgstr "パッケージディレクトリに対する*アセット名*（ `` templates / some_template.pt``）。"
 
 #: ../../narr/assets.rst:69
 msgid "The two parts are separated by a colon ``:`` character."
-msgstr ""
+msgstr "2つの部分はコロン ``： ``文字で区切られています。"
 
 #: ../../narr/assets.rst:71
 msgid ""
@@ -115,7 +105,7 @@ msgid ""
 "file name.  It eventually passes this resolved absolute filesystem path "
 "to the Chameleon templating engine, which then uses it to load, parse, "
 "and execute the template file."
-msgstr ""
+msgstr "：app： `Pyramid`は、Python：term：` pkg_resources` APIを使用して、パッケージ名とアセット名を絶対（オペレーティングシステム固有の）ファイル名に解決します。最終的には解決されたこの絶対ファイルシステムパスをChameleonテンプレートエンジンに渡し、テンプレートエンジンを使用してテンプレートファイルの読み込み、解析、実行を行います。"
 
 #: ../../narr/assets.rst:77
 msgid ""
@@ -130,11 +120,11 @@ msgid ""
 "specification.  :app:`Pyramid` APIs which accept relative asset "
 "specifications typically describe to what the asset is relative in their "
 "individual documentation."
-msgstr ""
+msgstr "第二の形式の資産指定：相対*資産指定があります。特定の状況では、パッケージ名を含むアセット指定を\ &quot;絶対\&quot;の代わりに指定から省略することができます。たとえば、 `` myapp：templates / some_template.pt``の代わりに `` templates / mytemplate.pt``を使うことができます。このような資産の仕様は、通常、現在のパッケージとの相対的なものです。 \ &quot;現在のパッケージ\&quot;は通常、資産仕様を使用するコードを含むパッケージです。 ：app：ピラミッドAPIは、相対資産仕様を受け入れるもので、一般的に、個々の文書でその資産が相対的なものであることを表します。"
 
 #: ../../narr/assets.rst:95
 msgid "Serving Static Assets"
-msgstr ""
+msgstr "静的資産の提供"
 
 #: ../../narr/assets.rst:97
 msgid ""
@@ -145,7 +135,7 @@ msgid ""
 "This mechanism makes a directory of static files available at a name "
 "relative to the application root URL, e.g., ``/static``, or as an "
 "external URL."
-msgstr ""
+msgstr "：app： `Pyramid`は、ファイルシステム上のディレクトリから静的アセットファイルをアプリケーションユーザのブラウザに提供することを可能にします。 ：meth： `pyramid.config.Configurator.add_static_view`を使って、app：` Pyramid`にJavaScriptやCSSファイルなどの静的アセットを提供するよう指示します。このメカニズムは静的ファイルのディレクトリをアプリケーションのルートURLに関連する名前、例えば `` / static``や外部URLとして利用可能にします。"
 
 #: ../../narr/assets.rst:106
 msgid ""
@@ -153,7 +143,7 @@ msgid ""
 "single file, nor can it serve a directory of static files directly "
 "relative to the root URL of a :app:`Pyramid` application.  For these "
 "features, see :ref:`advanced_static`."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_static_view`は1つのファイルを提供することはできませんし、a：app：` Pyramid`アプリケーションのルートURLに対して直接静的ファイルのディレクトリを提供することもできません。これらの機能については、：ref： `advanced_static`を参照してください。"
 
 #: ../../narr/assets.rst:111
 msgid ""
@@ -162,7 +152,7 @@ msgid ""
 "files up from the ``/var/www/static`` directory of the computer which "
 "runs the :app:`Pyramid` application as URLs beneath the ``/static`` URL "
 "prefix."
-msgstr ""
+msgstr "以下は、：meth： `〜pyramid.config.Configurator.add_static_view`の使用例です。これは：app：` Pyramid`を実行するコンピュータの `` / var / www / static``ディレクトリからファイルを提供します。アプリケーションを `` / static`` URL接頭辞の下にURLとして追加します。"
 
 #: ../../narr/assets.rst:122
 msgid ""
@@ -174,7 +164,7 @@ msgid ""
 "``/static`` URL prefix. Therefore, the file ``/var/www/static/foo.css`` "
 "will be returned when the user visits your application's URL "
 "``/static/foo.css``."
-msgstr ""
+msgstr "`` name``はURL *プレフィックス*を表します。 `` path``ディレクトリにあるファイルが提供されるためには、それらのうちの1つを要求するURLがその接頭辞で始まらなければなりません。上記の例では、 `` name``は ``静的 ``で、 `` path``は `` / var / www / static``です。英語では、 `` / var / www / static``にあるファイルを `` / static`` URL接頭辞のサブURLとして提供したいと考えています。したがって、ユーザーがあなたのアプリケーションのURL「/ static / foo.css」を訪れたときに、ファイル `` / var / www / static / foo.css``が返されます。"
 
 #: ../../narr/assets.rst:130
 msgid ""
@@ -183,7 +173,7 @@ msgid ""
 "resolved by the static view as you would expect.  The ``Content-Type`` "
 "header returned by the static view for each particular type of file is "
 "dependent upon its file extension."
-msgstr ""
+msgstr "`` path``で指定された静的ディレクトリには、サブディレクトリが再帰的に含まれることがあります。また、サブディレクトリにはファイルが保存されます。これらは静的ビューによって解決されます。特定のファイルタイプごとに静的ビューから返される `` Content-Type``ヘッダーは、そのファイル拡張子に依存します。"
 
 #: ../../narr/assets.rst:135
 msgid ""
@@ -200,7 +190,7 @@ msgid ""
 " of the files represented by ``path`` of the static view.  If your static"
 " assets must be protected by a more complex authorization scheme, see "
 ":ref:`advanced_static`."
-msgstr ""
+msgstr "デフォルトでは、：meth： `〜pyramid.config.Configurator.add_static_view`で利用できるすべてのファイルは完全に匿名のユーザーがアクセスできます。ただし、単純な承認が必要な場合があります。パーミッションを使って静的ファイルのセットを保護するには、必要な `` name``と `` path``引数を渡すだけでなく、 `` permission``キーワード引数を：meth： `〜pyramid.configに渡します。 Configurator.add_static_view`。 `` permission``引数の値は、静的ビューが呼び出されたときにユーザがcurrent：term： `context`を基準にして持っていなければならない：term：` permission`を表します。ユーザは静的ビューの `` path``で表されるファイルを見るためにこの許可を持っている必要があります。静的資産をより複雑な認可スキームで保護する必要がある場合は、：ref： `advanced_static`を参照してください。"
 
 #: ../../narr/assets.rst:148
 msgid ""
@@ -210,14 +200,14 @@ msgid ""
 "under the ``/static`` URL from the ``a/b/c/static`` directory of the "
 "Python package named ``some_package``, we can use a fully qualified "
 ":term:`asset specification` as the ``path``:"
-msgstr ""
+msgstr "`` path``引数として絶対パスの代わりに：term： `asset specification`を使用する別の例を次に示します。確かめるには：meth： `〜pyramid.config.Configurator.add_static_view`は、` `some_packageというPythonパッケージの` `a / b / c / static``ディレクトリから` `/ static`` URLの下にファイルを提供する``、 `` path``として完全修飾：項：資産指定を使うことができます："
 
 #: ../../narr/assets.rst:161
 msgid ""
 "The ``path`` provided to "
 ":meth:`~pyramid.config.Configurator.add_static_view` may be a fully "
 "qualified :term:`asset specification` or an *absolute path*."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_static_view`は、完全修飾語：用語：資産指定または*絶対パス*とすることができます。"
 
 #: ../../narr/assets.rst:164
 msgid ""
@@ -228,13 +218,13 @@ msgid ""
 "static assets can be served from an external webserver.  In this mode, "
 "the ``name`` is used as the URL prefix when generating a URL using "
 ":meth:`pyramid.request.Request.static_url`."
-msgstr ""
+msgstr "URL接頭辞を表す代わりに、：meth： `〜pyramid.config.Configurator.add_static_view`の呼び出しの` `name``引数は、代わりに* URL *にすることができます。これまでに見てきたそれぞれの例では、URL接頭辞として &quot;name&quot;引数を使用しています。ただし、 `` name``が* URL *の場合、静的アセットは外部Webサーバーから提供されます。このモードでは、：meth： `pyramid.request.Request.static_url`を使用してURLを生成するときに、` `name``がURLプレフィックスとして使用されます。"
 
 #: ../../narr/assets.rst:172
 msgid ""
 "For example, :meth:`~pyramid.config.Configurator.add_static_view` may be "
 "fed a ``name`` argument which is ``http://example.com/images``:"
-msgstr ""
+msgstr "たとえば、：meth： `〜pyramid.config.Configurator.add_static_view`は、` `http：// example.com / images``という名前の` `name``引数を与えられます："
 
 #: ../../narr/assets.rst:182
 msgid ""
@@ -248,11 +238,11 @@ msgid ""
 "respond properly to such a request.  The "
 ":meth:`~pyramid.request.Request.static_url` API is discussed in more "
 "detail later in this chapter."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_static_view`は` `http：// example.com / images``のURLである` `name``引数で提供され、それ以降の：meth：`〜 pyramid.request.Request.static_url`に渡された `` path``引数で始まるパス：meth： `〜pyramid.config.Configurator.add_static_view`は、` `http://example.com &#39;のようなURLを生成します/ images / logo.png``。 `` example.com``をリッスンしている外部Webサーバーは、そのような要求に適切に応答するように構成されていなければなりません。 ：meth： `〜pyramid.request.Request.static_url` APIについては、この章の後半で詳しく説明します。"
 
 #: ../../narr/assets.rst:200
 msgid "Generating Static Asset URLs"
-msgstr ""
+msgstr "静的資産URLの生成"
 
 #: ../../narr/assets.rst:202
 msgid ""
@@ -261,11 +251,11 @@ msgid ""
 ":meth:`pyramid.request.Request.static_url` can be used to generate the "
 "appropriate URL for an asset that lives in one of the directories named "
 "by the static registration ``path`` attribute."
-msgstr ""
+msgstr "静的アセットディレクトリを登録するために：meth： `〜pyramid.config.Configurator.add_static_view`メソッドが使用された場合、適切なURLを生成するために：meth：` pyramid.request.Request.static_url`という名前の特殊ヘルパーAPIを使用できます静的登録 `` path``属性によって指定されたディレクトリの1つに存在するアセットのためのものです。"
 
 #: ../../narr/assets.rst:208
 msgid "For example, let's assume you create a set of static declarations like so:"
-msgstr ""
+msgstr "たとえば、次のような静的宣言のセットを作成するとします。"
 
 #: ../../narr/assets.rst:216
 msgid ""
@@ -275,7 +265,7 @@ msgid ""
 "when a user visits a URL which begins with ``/static1``, and the assets "
 "in the ``assets/2`` directory of the ``mypackage`` package are consulted "
 "when a user visits a URL which begins with ``/static2``."
-msgstr ""
+msgstr "これらの宣言は、それぞれが `` / static1``と `` / static2``で始まるURLを持つURLアクセス可能なディレクトリを作成します。ユーザーが `` / static1``で始まるURLを訪問し、 `` assets / 2``の資産を参照すると、 `` mypackage``パッケージの `` assets / 1``ディレクトリにある資産が参照されますユーザが `` / static2``で始まるURLにアクセスすると、 `` mypackage``パッケージのディレクトリが参照されます。"
 
 #: ../../narr/assets.rst:223
 msgid ""
@@ -283,7 +273,7 @@ msgid ""
 "configuration.  Instead, use the "
 ":meth:`~pyramid.request.Request.static_url` API to generate them for you."
 "  For example:"
-msgstr ""
+msgstr "このような構成では、静的アセットへのURLを手作業で生成する必要はありません。代わりに、：meth： `〜pyramid.request.Request.static_url` APIを使用してそれらを生成してください。例えば："
 
 #: ../../narr/assets.rst:239
 msgid ""
@@ -291,7 +281,7 @@ msgid ""
 "``http://example.com``, the ``css_url`` generated above would be: "
 "``http://example.com/static1/foo.css``.  The ``js_url`` generated above "
 "would be ``http://example.com/static2/foo.js``."
-msgstr ""
+msgstr "実行中のシステムのリクエスト &quot;アプリケーションURL&quot;が &quot;http：// example.com&quot;の場合、上記で生成された &quot;css_url&quot;は次のようになります： &quot;http://example.com/static1/foo .css``。上記で生成された `` js_url``は `` http：// example.com / static2 / foo.js``です。"
 
 #: ../../narr/assets.rst:244
 msgid ""
@@ -299,7 +289,7 @@ msgid ""
 "function rather than constructing static URLs \"by hand\" is that if you "
 "need to change the ``name`` of a static URL declaration, the generated "
 "URLs will continue to resolve properly after the rename."
-msgstr ""
+msgstr "静的URLを手作業で構築するのではなく、：meth： `〜pyramid.request.Request.static_url`関数を使う利点の1つは、静的URL宣言の` `name``を変更する必要がある場合、生成されたURLは名前の変更後も引き続き適切に解決されます。"
 
 #: ../../narr/assets.rst:249
 msgid ""
@@ -311,14 +301,14 @@ msgid ""
 "instead of a view name.  For example, the ``name`` argument may be "
 "``http://example.com`` while the ``path`` given may be "
 "``mypackage:images``:"
-msgstr ""
+msgstr "URL：：meth： `〜pyramid.request.Request.static_url`を使って：app：` Pyramid`アプリケーションの外部にある静的アセットにURLを生成することもできます。これは、：meth： `〜pyramid.config.Configurator.add_static_view` APIが、：meth：`〜pyramid.request.Request.static_url`に与えられたパスに関連付けられ、ビュー名の代わりに* URL *である場合に発生します。たとえば、 `` name``引数は `` http：// example.com``であり、 `` path``は `` mypackage：images``："
 
 #: ../../narr/assets.rst:262
 msgid ""
 "Under such a configuration, the URL generated by ``static_url`` for "
 "assets which begin with ``mypackage:images`` will be prefixed with "
 "``http://example.com/images``:"
-msgstr ""
+msgstr "このような設定では、 `` mypackage：images``で始まるアセットの `` static_url``で生成されるURLの先頭に `` http：// example.com / images``という接頭辞が付きます："
 
 #: ../../narr/assets.rst:272
 msgid ""
@@ -329,25 +319,25 @@ msgid ""
 " is a URL), while keeping static media package-internal and served by the"
 " development webserver during development (if the ``name`` argument to "
 ":meth:`~pyramid.config.Configurator.add_static_view` is a URL prefix)."
-msgstr ""
+msgstr "：meth： `〜pyramid.request.Request.static_url`を：meth：`〜pyramid.config.Configurator.add_static_view`と組み合わせて使用​​すると、制作中に別のウェブサーバーに静的メディアを置くことができます（ ``名前開発中に開発中のWebサーバが静的メディアを内部的に保持しておきながら（meth： `〜pyramid.config.Configurator.add_static_view`はURLです）、` `meth：` ` `〜pyramid.config.Configurator.add_static_view`はURLプレフィックスです）。"
 
 #: ../../narr/assets.rst:280
 msgid ""
 "For example, we may define a :ref:`custom setting "
 "<adding_a_custom_setting>` named ``media_location`` which we can set to "
 "an external URL in production when our assets are hosted on a CDN."
-msgstr ""
+msgstr "たとえば、：ref： `カスタム設定を定義することができます<adding_a_custom_setting>私たちの資産がCDN上でホストされているときに、本番環境の外部URLに設定できる `media_location`という名前です。"
 
 #: ../../narr/assets.rst:292
 msgid "Now we can optionally define the setting in our ini file:"
-msgstr ""
+msgstr "これで設定をiniファイルに定義することができます："
 
 #: ../../narr/assets.rst:303
 msgid ""
 "It is also possible to serve assets that live outside of the source by "
 "referring to an absolute path on the filesystem. There are two ways to "
 "accomplish this."
-msgstr ""
+msgstr "また、ファイルシステム上の絶対パスを参照することで、ソース外にある資産を提供することもできます。これを達成するには2つの方法があります。"
 
 #: ../../narr/assets.rst:307
 msgid ""
@@ -358,7 +348,7 @@ msgid ""
 "technique has a drawback in that it is not possible to use the "
 ":meth:`~pyramid.request.Request.static_url` method to generate URLs, "
 "since it works based on an asset specification."
-msgstr ""
+msgstr "まず、：meth： `〜pyramid.config.Configurator.add_static_view`はアセット仕様の代わりに絶対パスを直接取ることをサポートしています。これは期待どおりに動作し、ファイルやファイルのフォルダを探し、アプリケーション内のあるURLや外部から提供します。残念ながら、このテクニックには、アセット仕様に基づいて動作するため、：meth： `〜pyramid.request.Request.static_url`メソッドを使用してURLを生成することができないという欠点があります。"
 
 #: ../../narr/assets.rst:316
 msgid ""
@@ -366,7 +356,7 @@ msgid ""
 " APIs described in the :ref:`overriding_assets_section` section. It is "
 "then possible to configure a \"dummy\" package which then serves its file"
 " or folder from an absolute path."
-msgstr ""
+msgstr "Pyramid 1.6以降で利用可能な2番目のアプローチは、：ref： `overriding_assets_section`セクションで説明されているアセットオーバーライドAPIを使用しています。 \ &quot;ダミー\&quot;パッケージを構成して、そのファイルまたはフォルダを絶対パスから提供することは可能です。"
 
 #: ../../narr/assets.rst:327
 msgid ""
@@ -378,11 +368,11 @@ msgid ""
 " ``myapp`` package, it is important that the ``myapp`` portion points to "
 "a valid package. If the folder does exist, then the overriden folder is "
 "given priority, if the file's name exists in both locations."
-msgstr ""
+msgstr "この設定から、 `` request.static_url（ &#39;myapp：static_images / foo.png&#39;のようなことをして、フォルダ内のデータへのURLを生成するために：meth： `〜pyramid.request.Request.static_url`を使うことが可能になりました。 ） ``。 `` static_images``ファイルまたはフォルダが実際に `` myapp``パッケージに存在する必要はありませんが、 `` myapp``部分が有効なパッケージを指していることが重要です。フォルダーが存在する場合は、ファイルの名前が両方の場所に存在する場合は、オーバーライドされたフォルダーに優先順位が与えられます。"
 
 #: ../../narr/assets.rst:342
 msgid "Cache Busting"
-msgstr ""
+msgstr "キャッシュバスト"
 
 #: ../../narr/assets.rst:346
 msgid ""
@@ -400,7 +390,7 @@ msgid ""
 "Under normal circumstances you'd just need to wait for the client's "
 "cached copy to expire before they get the new version of the static "
 "resource."
-msgstr ""
+msgstr "Webアプリケーションのパフォーマンスを最大限にするには、一般に、特定のクライアントが同じ静的資産を要求する回数を制限する必要があります。理想的には、クライアントは特定の静的資産を永久にキャッシュし、クライアントに一度だけ送信する必要があります。 HTTPプロトコルを使用すると、特定のアセットを一定時間キャッシュするようにクライアントに指示できるHTTPレスポンスでヘッダーを送信できます。クライアントがキャッシュ内にアセットのコピーを持ち、そのキャッシュの有効期限が切れていない限り、クライアントはサーバーから新しいコピーを要求するのではなく、キャッシュされたコピーを使用します。静的アセットのクライアントへのキャッシュヘッダーの送信の欠点は、ある時点で静的アセットが変更される可能性があることです。クライアントはアセットの新しいコピーをロードする必要があります。通常の状況下では、クライアントのキャッシュされたコピーが期限切れになるのを待ってから、新しいバージョンの静的リソースを取得する必要があります。"
 
 #: ../../narr/assets.rst:359
 msgid ""
@@ -412,25 +402,25 @@ msgid ""
 "static asset is changed, the URL used to refer to it in a web page also "
 "changes, so the client sees it as a new resource and requests the asset, "
 "regardless of any caching policy set for the resource's old URL."
-msgstr ""
+msgstr "この問題の一般的な回避策は、term： `cache busting`と呼ばれる手法です。キャッシュ無効化方式には、通常、静的資産が変更されたときに変更される静的資産のURLを生成することが含まれます。このようにして、クライアントに静的アセットを送信して、クライアントにアセットを非常に長時間キャッシュするように指示することができます。静的アセットが変更されると、Webページでそれを参照するために使用されるURLも変更されるため、クライアントは新しいリソースとして認識し、リソースの古いURLに設定されたキャッシュポリシーに関係なくアセットを要求します。"
 
 #: ../../narr/assets.rst:368
 msgid ""
 ":app:`Pyramid` can be configured to produce cache busting URLs for static"
 " assets using :meth:`~pyramid.config.Configurator.add_cache_buster`:"
-msgstr ""
+msgstr "：app： `Pyramid`は、以下を使って静的アセットのキャッシュ破棄URLを生成するように設定できます：meth：`〜pyramid.config.Configurator.add_cache_buster`："
 
 #: ../../narr/assets.rst:383
 msgid ""
 "Adding the cachebuster instructs :app:`Pyramid` to add the current time "
 "for a static asset to the query string in the asset's URL:"
-msgstr ""
+msgstr "キャッシュバスターを追加すると：app： `Pyramid`は、資産のURLのクエリ文字列に静的アセットの現在の時刻を追加します："
 
 #: ../../narr/assets.rst:392
 msgid ""
 "When the web server restarts, the time constant will change and therefore"
 " so will its URL."
-msgstr ""
+msgstr "Webサーバーが再起動すると、時定数が変更されるため、URLも変更されます。"
 
 #: ../../narr/assets.rst:397
 msgid ""
@@ -439,11 +429,11 @@ msgid ""
 "application authors will write their own cache buster implementations "
 "conforming to the properties of their own asset pipelines. See "
 ":ref:`custom_cache_busters` for information on writing your own."
-msgstr ""
+msgstr "キャッシュ・バスト処理は、資産パイプラインとWebアプリケーションを統合するため、本質的に複雑なトピックです。アプリケーション作成者は、独自のアセットパイプラインのプロパティに準拠した独自のキャッシュバスター実装を作成することが期待され、望まれています。独自の記述については、ref： `custom_cache_busters`を参照してください。"
 
 #: ../../narr/assets.rst:404
 msgid "Disabling the Cache Buster"
-msgstr ""
+msgstr "キャッシュ・バスターの無効化"
 
 #: ../../narr/assets.rst:406
 msgid ""
@@ -452,18 +442,18 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.add_cache_buster`.  To do this set "
 "the ``PYRAMID_PREVENT_CACHEBUST`` environment variable or the "
 "``pyramid.prevent_cachebust`` configuration value to a true value."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_cache_buster`への呼び出しを変更することなく、設定されたすべてのキャッシュバスターをグローバルに無効にすることができます（開発など）。これを行うには、 `` PYRAMID_PREVENT_CACHEBUST``環境変数か `` pyramid.prevent_cachebust``設定値を真の値に設定します。"
 
 #: ../../narr/assets.rst:415
 msgid "Customizing the Cache Buster"
-msgstr ""
+msgstr "キャッシュ・バスターのカスタマイズ"
 
 #: ../../narr/assets.rst:417
 msgid ""
 "Calls to :meth:`~pyramid.config.Configurator.add_cache_buster` may use "
 "any object that implements the interface "
 ":class:`~pyramid.interfaces.ICacheBuster`."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_cache_buster`を呼び出すと、class：`〜pyramid.interfaces.ICacheBuster`というインターフェースを実装するオブジェクトを使用できます。"
 
 #: ../../narr/assets.rst:421
 msgid ""
@@ -472,7 +462,7 @@ msgid ""
 "arbitrary token you provide to the query string of the asset's URL. This "
 "is almost never what you want in production as it does not allow fine-"
 "grained busting of individual assets."
-msgstr ""
+msgstr "：app： `Pyramid`は非常に単純化されています：class：`〜pyramid.static.QueryStringConstantCacheBuster`：アセットのURLのクエリ文字列にあなたが提供する任意のトークンを追加します。これは、個々の資産をきめ細かく破棄することができないため、プロダクションではほとんど望みません。"
 
 #: ../../narr/assets.rst:427
 msgid ""
@@ -485,13 +475,13 @@ msgid ""
 ":class:`~pyramid.static.QueryStringCacheBuster` and define a "
 "``tokenize(pathspec)`` method. Here is an example which uses Git to get "
 "the hash of the current commit:"
-msgstr ""
+msgstr "独自のキャッシュ・バスターを実装するために、：class： `〜pyramid.interfaces.ICacheBuster`インターフェースを実装して独自のクラスを一から書くことができます。あるいは、既存の実装の1つをサブクラス化することもできます。最も可能性の高いシナリオの1つは、資産トークンの生成方法を変更することです。これを行うにはclass： `〜pyramid.static.QueryStringCacheBuster`をサブクラス化し、` `tokenize（pathspec）` `メソッドを定義してください。 Gitを使って現在のコミットのハッシュを取得する例を以下に示します："
 
 #: ../../narr/assets.rst:460
 msgid ""
 "A simple cache buster that modifies the path segment can be constructed "
 "as well:"
-msgstr ""
+msgstr "パスセグメントを変更する簡単なキャッシュバスターも構築できます。"
 
 #: ../../narr/assets.rst:477
 msgid ""
@@ -501,11 +491,11 @@ msgid ""
 "the file. It's better to use the "
 ":class:`~pyramid.static.ManifestCacheBuster` for these situations, as "
 "described in the next section."
-msgstr ""
+msgstr "このアプローチの注意点は、パスセグメントを変更するとファイル名が変更されるため、実際にファイルシステムにあるものと一致して、ファイルを見つけるために：meth： `〜pyramid.config.Configurator.add_static_view`が必要であるということです。次のセクションで説明するように、これらの状況には：class： `〜pyramid.static.ManifestCacheBuster`を使用する方が良いでしょう。"
 
 #: ../../narr/assets.rst:487
 msgid "Path Segments and Choosing a Cache Buster"
-msgstr ""
+msgstr "パスセグメントとキャッシュバスターの選択"
 
 #: ../../narr/assets.rst:489
 msgid ""
@@ -513,7 +503,7 @@ msgid ""
 "contains a query string.  Therefore, in general, you should prefer a "
 "cache busting strategy which modifies the path segment rather than "
 "methods which add a token to the query string."
-msgstr ""
+msgstr "多くのキャッシュHTTPプロキシは、URLにクエリ文字列が含まれている場合、リソースをキャッシュできません。したがって、一般に、トークンをクエリ文字列に追加する方法ではなく、パスセグメントを変更するキャッシュ破棄戦略を使用することをお勧めします。"
 
 #: ../../narr/assets.rst:494
 msgid ""
@@ -521,7 +511,7 @@ msgid ""
 "serving your static assets, whether you are using an external asset "
 "pipeline to handle rewriting urls internal to the css/javascript, and how"
 " fine-grained do you want the cache busting tokens to be."
-msgstr ""
+msgstr "：app： `Pyramid`アプリケーションがあなたの静的資産を提供するかどうか、css / javascript内部の書き換えURLを処理するために外部の資産パイプラインを使用しているかどうか、キャッシュをどのように細かくしたいかを検討する必要がありますトークンを破る。"
 
 #: ../../narr/assets.rst:499
 msgid ""
@@ -530,7 +520,7 @@ msgid ""
 "application may not even have access to a copy of the static assets. In "
 "order to cache bust these assets you will need some information about "
 "them."
-msgstr ""
+msgstr "多くの場合、静的資産を別のWebサーバーまたはCDNの外部にホストする必要があります。これらの場合、your：app： `Pyramid`アプリケーションは静的資産のコピーにアクセスすることさえできないことがあります。これらの資産をバストにキャッシュするには、それらに関するいくつかの情報が必要です。"
 
 #: ../../narr/assets.rst:504
 msgid ""
@@ -541,15 +531,15 @@ msgid ""
 "cache bust the assets. This has many performance advantages as "
 ":app:`Pyramid` does not need to look at the files to generate any cache "
 "busting tokens, but still supports fine-grained per-file tokens."
-msgstr ""
+msgstr "静的ファイルを生成するために外部アセットパイプラインを使用する場合は、：class： `〜pyramid.static.ManifestCacheBuster`を使用することを検討する必要があります。このキャッシュ・バスターは、パイプラインによって生成された標準JSON形式のファイルをロードし、それを使用してアセットをバッシュ・キャッシュすることができます。 app： `Pyramid`は、キャッシュ破棄トークンを生成するためにファイルを見る必要はありませんが、ファイル単位の細かいトークンをサポートしています。"
 
 #: ../../narr/assets.rst:511
 msgid "Assuming an example ``manifest.json`` like:"
-msgstr ""
+msgstr "例えば、 `` manifest.json``のような例を考えます："
 
 #: ../../narr/assets.rst:520
 msgid "The following code would set up a cachebuster:"
-msgstr ""
+msgstr "次のコードはキャッシュバスターを設定します："
 
 #: ../../narr/assets.rst:535
 msgid ""
@@ -560,11 +550,11 @@ msgid ""
 "configuring ``add_static_view`` properly to point to the location of the "
 "files or some other mechanism such as the files existing on your CDN or "
 "rewriting the incoming URL to remove the cache bust tokens."
-msgstr ""
+msgstr "キャッシュバスターは、静的アセットのキャッシュで破棄されたURLの生成のみを処理することに注意することが重要です。これらの資産を提供するためのソリューションは提供していません**。たとえば、 `` css / main-678b7c80.css``のURLを生成した場合、そのURLはファイルの場所を指すように `` add_static_view``を適切に設定するか、あなたのCDN上に存在するファイル、または着信URLを書き換えてキャッシュバストトークンを削除します。"
 
 #: ../../narr/assets.rst:547
 msgid "CSS and JavaScript source and cache busting"
-msgstr ""
+msgstr "CSSとJavaScriptのソースとキャッシュの破棄"
 
 #: ../../narr/assets.rst:549
 msgid ""
@@ -574,7 +564,7 @@ msgid ""
 " cannot be handwritten. Below is an example of how to integrate the cache"
 " buster into the entire stack. Remember, it is just an example and should"
 " be modified to fit your specific tools."
-msgstr ""
+msgstr "多くの場合、CSSやJavaScriptファイル内のイメージやその他の静的なアセットを参照する必要があります。キャッシュ無効化が有効な場合、最終的な静的アセットURLは、静的アセットがアセンブルされるまで使用できません。これらのURLは手書きできません。以下は、キャッシュバスターをスタック全体に統合する方法の例です。これは単なる例であり、特定のツールに合わせて修正する必要があることを覚えておいてください。"
 
 #: ../../narr/assets.rst:556
 msgid ""
@@ -583,14 +573,14 @@ msgid ""
 ":class:`~pyramid.static.ManifestCacheBuster` to synchronize your asset "
 "pipeline with :app:`Pyramid`, allowing the pipeline to have full control "
 "over the final URLs of your assets."
-msgstr ""
+msgstr "最初に、URLを最終的なキャッシュ・バスト・フォームに書き換えるプリコンパイラを使用してファイルを処理します。次に、：class： `〜pyramid.static.ManifestCacheBuster`を使用してアセットパイプラインを：app：` Pyramid`と同期させることができます。パイプラインはアセットの最終URLを完全に制御できます。"
 
 #: ../../narr/assets.rst:562
 msgid ""
 "Now that you are able to generate static URLs within :app:`Pyramid`, "
 "you'll need to handle URLs that are out of our control. To do this you "
 "may use some of the following options to get started:"
-msgstr ""
+msgstr "これで、：app： `Pyramid`内で静的URLを生成できるようになったので、あなたがコントロールできないURLを処理する必要があります。これを行うには、以下のオプションのいくつかを使用して開始してください。"
 
 #: ../../narr/assets.rst:566
 msgid ""
@@ -598,7 +588,7 @@ msgid ""
 " JavaScript. This is the best approach because then the files may be "
 "hosted by :app:`Pyramid` or an external CDN without having to change "
 "anything. They really are static."
-msgstr ""
+msgstr "アセットパイプラインを設定して、CSSおよびJavaScriptでURL参照をインラインで書き直すようにします。これは、ファイルをapp： `Pyramid`または外部のCDNで変更することなくホストすることができるため、最良の方法です。彼らは本当に静的です。"
 
 #: ../../narr/assets.rst:571
 msgid ""
@@ -607,7 +597,7 @@ msgid ""
 "not recommended because your static assets will not really be static and "
 "are now dependent on :app:`Pyramid` to be served correctly. See "
 ":ref:`advanced_static` for more information on this approach."
-msgstr ""
+msgstr "JSとCSSをTemplatizeし、テンプレートコードの中で `` request.static_url（） ``を呼び出します。このアプローチは特定のシナリオではうまくいくかもしれませんが、静的資産は実際には静的ではなく、app： `Pyramid`が正しく提供されるため、推奨されません。このアプローチの詳細については：ref： `advanced_static`を参照してください。"
 
 #: ../../narr/assets.rst:577
 msgid ""
@@ -618,11 +608,11 @@ msgid ""
 " as it has very little knowledge of the asset types your application may "
 "use. The integration into :app:`Pyramid` is simply for linking those "
 "assets into your HTML and other dynamic content."
-msgstr ""
+msgstr "CSSおよびJavaScriptアセットでURLを使用して他のアセットを参照する場合、生成された静的ファイルをキャッシュ破棄トークンを含む新しいURLに書き換えることができる外部アセットパイプラインを実装することをお勧めします。内部の機械：app： `Pyramid`は、アプリケーションが使用する資産の種類についての知識がほとんどないため、このステップを助けません。 ：app： `Pyramid`への統合は、単にそれらのアセットをHTMLや他の動的コンテンツにリンクするためだけです。"
 
 #: ../../narr/assets.rst:588
 msgid "Advanced: Serving Static Assets Using a View Callable"
-msgstr ""
+msgstr "上級者：ビューコールバックを使用した静的資産の処理"
 
 #: ../../narr/assets.rst:590
 msgid ""
@@ -632,18 +622,18 @@ msgid ""
 "a fallback if no previous route matches.  Alternatively, you might like "
 "to serve a particular static asset manually, because its download "
 "requires authentication."
-msgstr ""
+msgstr "柔軟性を高めるために、静的資産は：term： `view callable`によって提供され、手動で登録します。たとえば、：term： `URL dispatch`を使用している場合、以前のルートが一致しない場合にのみ静的資産をフォールバックとして使用できるようにすることができます。あるいは、ダウンロードに認証が必要なため、特定の静的資産を手動で提供することもできます。"
 
 #: ../../narr/assets.rst:596
 msgid ""
 "Note that you cannot use the :meth:`~pyramid.request.Request.static_url` "
 "API to generate URLs against assets made accessible by registering a "
 "custom static view."
-msgstr ""
+msgstr "：meth： `〜pyramid.request.Request.static_url` APIを使用して、カスタム静的ビューを登録してアクセス可能にしたアセットに対するURLを生成することはできません。"
 
 #: ../../narr/assets.rst:601
 msgid "Root-Relative Custom Static View (URL Dispatch Only)"
-msgstr ""
+msgstr "ルート関連のカスタムスタティックビュー（URLディスパッチのみ）"
 
 #: ../../narr/assets.rst:603
 msgid ""
@@ -652,7 +642,7 @@ msgid ""
 "directory.  An instance of this class is actually used by the "
 ":meth:`~pyramid.config.Configurator.add_static_view` configuration "
 "method, so its behavior is almost exactly the same once it's configured."
-msgstr ""
+msgstr "：class： `pyramid.static.static_view`ヘルパークラスは、呼び出し可能なピラミッドビューを生成します。このビュー呼び出し可能は、ディレクトリから静的資産を提供することができます。このクラスのインスタンスは：meth： `〜pyramid.config.Configurator.add_static_view`設定メソッドによって実際に使用されるため、設定された動作はほぼ同じになります。"
 
 #: ../../narr/assets.rst:611
 msgid ""
@@ -664,7 +654,7 @@ msgid ""
 ":class:`~pyramid.static.static_view` static view cannot be made root-"
 "relative when you use traversal unless it's registered as a :term:`Not "
 "Found View`."
-msgstr ""
+msgstr "次の例では、term： `traversal`を使用するアプリケーションで*動作しません。 term： `URL dispatch`を排他的に使用すると動作します。登録するルート相対ルートは、トラバーサルが発生する前に常に一致し、 `` add_view``（少なくとも `` route_name``がないもの）によって登録されたビューを覆します。 A：class： `〜pyramid.static.static_view`静的ビューは：term：` Not Found View`として登録されていない限り、トラバーサルを使用するとroot相対にすることはできません。"
 
 #: ../../narr/assets.rst:620
 msgid ""
@@ -673,7 +663,7 @@ msgid ""
 "from the root that exists at the end of your routing table, create an "
 "instance of the :class:`~pyramid.static.static_view` class inside a "
 "``static.py`` file in your application root as below."
-msgstr ""
+msgstr "ルーティングテーブルの最後にあるルートからハングする\ &quot;catchall \&quot;ルートの結果として、ファイルシステム上にあるディレクトリ内のファイルを `` / path / to / static / dir``に提供するには、あなたのアプリケーションルートの `` static.py``ファイルの中で：class： `〜pyramid.static.static_view`クラスのインスタンスを作成します。"
 
 #: ../../narr/assets.rst:634
 msgid ""
@@ -681,31 +671,31 @@ msgid ""
 "as the argument to :class:`~pyramid.static.static_view` instead of a "
 "physical absolute filesystem path, e.g., ``mypackage:static``, instead of"
 " ``/path/to/mypackage/static``."
-msgstr ""
+msgstr "クロスシステムの柔軟性を高めるために、物理的な絶対ファイルシステムパスの代わりに：class： `〜pyramid.static.static_view`の引数として：term：` asset specification`を使用してください。たとえば、 `` mypackage：static``の代わりに`` / path / to / mypackage / static``のようなものです。"
 
 #: ../../narr/assets.rst:639
 msgid ""
 "Subsequently, you may wire the files that are served by this view up to "
 "be accessible as ``/<filename>`` using a configuration method in your "
 "application's startup code."
-msgstr ""
+msgstr "その後、このビューで提供されるファイルを `` / <filename> ``あなたのアプリケーションのスタートアップコードで設定メソッドを使います。"
 
 #: ../../narr/assets.rst:652
 msgid ""
 "The special name ``*subpath`` above is used by the "
 ":class:`~pyramid.static.static_view` view callable to signify the path of"
 " the file relative to the directory you're serving."
-msgstr ""
+msgstr "上の特別な名前 `` * subpath``は：class： `〜pyramid.static.static_view`ビューによって呼び出され、あなたが提供しているディレクトリを基準にファイルのパスを指定します。"
 
 #: ../../narr/assets.rst:657
 msgid "Registering a View Callable to Serve a \"Static\" Asset"
-msgstr ""
+msgstr "\ &quot;スタティック\&quot;アセットを表示するためのビュー呼び出し可能の登録"
 
 #: ../../narr/assets.rst:659
 msgid ""
 "You can register a simple view callable to serve a single static asset.  "
 "To do so, do things \"by hand\".  First define the view callable."
-msgstr ""
+msgstr "単一の静的資産を提供するために呼び出し可能な単純ビューを登録することができます。そうするには、手で\ &quot;手で行います。まず、呼び出し可能なビューを定義します。"
 
 #: ../../narr/assets.rst:673
 msgid ""
@@ -717,28 +707,28 @@ msgid ""
 "will serve the file as quickly as possible when it's used this way.  It "
 "makes sure to set the right content length and content_type, too, based "
 "on the file extension of the file you pass."
-msgstr ""
+msgstr "`` favicon_view``内の上記のコードは\ &quot;here \&quot;を計算します。これは関数が定義されているPythonファイルを基準とした相対パスです。次に、レスポンスの `` path``引数としてファイルパスを使用し、レスポンスの `` request``引数として要求を使用して：class： `pyramid.response.FileResponse`を作成します。 ：class： `pyramid.response.FileResponse`は、このように使用されたときにできるだけ早くファイルを提供します。渡すファイルのファイル拡張子に基づいて、正しいコンテンツの長さとcontent_typeを設定します。"
 
 #: ../../narr/assets.rst:681
 msgid ""
 "You might register such a view via configuration as a view callable that "
 "should be called as the result of a traversal:"
-msgstr ""
+msgstr "このようなビューは、トラバーサルの結果として呼び出されるビュー呼び出し可能として構成によって登録することができます。"
 
 #: ../../narr/assets.rst:689
 msgid "Or you might register it to be the view callable for a particular route:"
-msgstr ""
+msgstr "または、特定のルートで呼び出し可能なビューに登録することもできます。"
 
 #: ../../narr/assets.rst:697
 msgid ""
 "Because this is a simple view callable, it can be protected with a "
 ":term:`permission` or can be configured to respond under different "
 "circumstances using :term:`view predicate` arguments."
-msgstr ""
+msgstr "これは呼び出し可能な単純なビューなので、：term： `permission`で保護することも、term：` view predicate`引数を使って異なる状況下で応答するように設定することもできます。"
 
 #: ../../narr/assets.rst:708
 msgid "Overriding Assets"
-msgstr ""
+msgstr "アセットのオーバーライド"
 
 #: ../../narr/assets.rst:710
 msgid ""
@@ -755,7 +745,7 @@ msgid ""
 "tracking application), and you want to make arbitrary visual "
 "modifications to a particular application deployment without forking the "
 "underlying code."
-msgstr ""
+msgstr "特定の資産をapp： `Pyramid`アプリケーションの外から上書きすると便利なことがよくあります。たとえば、既存の：app： `Pyramid`アプリケーションを多かれ少なかれ変更せずに再利用することができます。ただし、アプリケーションが所有する特定のテンプレートファイルの中に不適切なHTMLが含まれている場合や、スタティックアセット（ロゴファイルやCSSファイルなど）が適切でない場合があります。アプリケーションを完全にフォークすることはできますが、不適切なアセットをオーバーライドしてアプリケーションをそのまま使用すると便利です。これは、いくつかの顧客（CMSアプリケーションやバグ追跡アプリケーションなど）のためにいくつかの\ &quot;コア\&quot;アプリケーションを何度も何度も何度も再利用し、特定のアプリケーションデプロイメントに対して任意の視覚的な変更を加えたい場合に特に当てはまります基礎となるコードをフォークすることなく。"
 
 #: ../../narr/assets.rst:722
 msgid ""
@@ -765,43 +755,43 @@ msgid ""
 ":meth:`pyramid.config.Configurator.override_asset`.  This API allows you "
 "to *override* the following kinds of assets defined in any Python "
 "package:"
-msgstr ""
+msgstr "この目的のために、：app： `Pyramid`には、ある資産を1つ以上の他の資産と&quot;上書き &quot;する機能を含みます。この機能をサポートするために、a：term： `Configurator` APIが存在します：meth：` pyramid.config.Configurator.override_asset`。このAPIを使用すると、任意のPythonパッケージで定義された次の種類のアセットをオーバーライドできます。"
 
 #: ../../narr/assets.rst:728
 msgid "Individual template files."
-msgstr ""
+msgstr "個々のテンプレートファイル。"
 
 #: ../../narr/assets.rst:730
 msgid "A directory containing multiple template files."
-msgstr ""
+msgstr "複数のテンプレートファイルを含むディレクトリ。"
 
 #: ../../narr/assets.rst:732
 msgid ""
 "Individual static files served up by an instance of the "
 "``pyramid.static.static_view`` helper class."
-msgstr ""
+msgstr "個々の静的ファイルは、 `` pyramid.static.static_view``ヘルパークラスのインスタンスによって提供されます。"
 
 #: ../../narr/assets.rst:735
 msgid ""
 "A directory of static files served up by an instance of the "
 "``pyramid.static.static_view`` helper class."
-msgstr ""
+msgstr "静的ファイルのディレクトリで、 `` pyramid.static.static_view``ヘルパークラスのインスタンスによって提供されます。"
 
 #: ../../narr/assets.rst:738
 msgid ""
 "Any other asset (or set of assets) addressed by code that uses the "
 "setuptools :term:`pkg_resources` API."
-msgstr ""
+msgstr "setuptools：term： `pkg_resources` APIを使用するコードで扱われるその他のアセット（またはアセットのセット）。"
 
 #: ../../narr/assets.rst:747
 msgid "The ``override_asset`` API"
-msgstr ""
+msgstr "`` override_asset`` API"
 
 #: ../../narr/assets.rst:749
 msgid ""
 "An individual call to :meth:`~pyramid.config.Configurator.override_asset`"
 " can override a single asset.  For example:"
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.override_asset`を個別に呼び出すと、単一のアセットをオーバーライドできます。例えば："
 
 #: ../../narr/assets.rst:759
 msgid ""
@@ -812,11 +802,11 @@ msgid ""
 "name are optional.  If they are not specified, the override attempts to "
 "resolve every lookup into a package from the directory of another "
 "package.  For example:"
-msgstr ""
+msgstr "`` override_asset`` APIに送られる `` to_override``と `` override_with``の両方に渡される文字列値は：term： `asset specification`と呼ばれます。仕様のコロン区切り記号は、*パッケージ名*を*資産名*から分離します。コロンと次のアセット名はオプションです。それらが指定されていない場合、オーバーライドは別のパッケージのディレクトリからパッケージへのすべてのルックアップを解決しようとします。例えば："
 
 #: ../../narr/assets.rst:772
 msgid "Individual subdirectories within a package can also be overridden:"
-msgstr ""
+msgstr "パッケージ内の個々のサブディレクトリも上書きできます。"
 
 #: ../../narr/assets.rst:780
 msgid ""
@@ -825,14 +815,14 @@ msgid ""
 "specification and the ``override_with`` specification.  If you fail to "
 "attach a slash to the end of a specification that points to a directory, "
 "you will get unexpected results."
-msgstr ""
+msgstr "ディレクトリを別のディレクトリで上書きする場合は、スラッシュを `` to_override``仕様と `` override_with``仕様の両方の末尾に付ける必要があります。ディレクトリを指す指定の最後にスラッシュを付けると、予期しない結果が発生します。"
 
 #: ../../narr/assets.rst:786
 msgid ""
 "You cannot override a directory specification with a file specification, "
 "and vice versa; a startup error will occur if you try.  You cannot "
 "override an asset with itself; a startup error will occur if you try."
-msgstr ""
+msgstr "ディレクトリ指定をファイル指定で上書きすることはできません。逆もできません。試してみると起動エラーが発生します。アセット自体をオーバーライドすることはできません。試してみると起動エラーが発生します。"
 
 #: ../../narr/assets.rst:790
 msgid ""
@@ -841,7 +831,7 @@ msgid ""
 "that if you want to override assets for both ``some.package:templates``, "
 "and ``some.package.views:templates``, you will need to register two "
 "overrides."
-msgstr ""
+msgstr "個々の* package *アセットだけがオーバーライドされます。オーバーライドは、オーバーライドされたパッケージ内のサブパッケージを通過しません。これは、 `` some.package：templates``と `` some.package.views：templates``の両方のアセットをオーバーライドする場合、2つのオーバーライドを登録する必要があることを意味します。"
 
 #: ../../narr/assets.rst:795
 msgid ""
@@ -849,7 +839,7 @@ msgid ""
 "the package is relative to the package in which the configuration "
 "construction file resides (or the ``package`` argument to the "
 ":class:`~pyramid.config.Configurator` class construction). For example:"
-msgstr ""
+msgstr "仕様のパッケージ名は、ドットで始まることがあります。これは、パッケージがコンフィギュレーション構築ファイルが存在するパッケージ（または：class： `〜pyramid.config.Configurator`の` `package``引数）に相対的であることを意味します。クラス構造）。例えば："
 
 #: ../../narr/assets.rst:806
 msgid ""
@@ -858,7 +848,7 @@ msgid ""
 "form a search path.  The first asset that exists in the search path will "
 "be used; if no asset exists in the override path, the original asset is "
 "used."
-msgstr ""
+msgstr "共有された `` to_override``を指定するが、別の `` override_with``を指定する `` override_asset``への複数の呼び出しは、検索パスを形成するためにスタックされます。検索パスに存在する最初のアセットが使用されます。上書きパスに資産が存在しない場合は、元の資産が使用されます。"
 
 #: ../../narr/assets.rst:811
 msgid ""
@@ -868,18 +858,18 @@ msgid ""
 ":func:`pkg_resources.get_resource_stream`, or "
 ":func:`pkg_resources.get_resource_string` APIs will obtain an overridden "
 "file when an override is used."
-msgstr ""
+msgstr "資産オーバーライドは、テンプレートや静的ファイル以外の資産を実際にオーバーライドできます。 ：func： `pkg_resources.get_resource_filename`、：func：` pkg_resources.get_resource_stream`、または：func： `pkg_resources.get_resource_string` APIを使用するソフトウェアは、オーバーライドが使用されるときにオーバーライドされたファイルを取得します。"
 
 #: ../../narr/assets.rst:818
 msgid ""
 "As of Pyramid 1.6, it is also possible to override an asset by supplying "
 "an absolute path to a file or directory. This may be useful if the assets"
 " are not distributed as part of a Python package."
-msgstr ""
+msgstr "Pyramid 1.6以降では、ファイルまたはディレクトリへの絶対パスを指定することでアセットをオーバーライドすることもできます。これは、アセットがPythonパッケージの一部として配布されていない場合に便利です。"
 
 #: ../../narr/assets.rst:824
 msgid "Cache Busting and Asset Overrides"
-msgstr ""
+msgstr "キャッシュバストと資産のオーバーライド"
 
 #: ../../narr/assets.rst:826
 msgid ""
@@ -900,7 +890,7 @@ msgid ""
 "manifest, and the new assets served by their own cache buster. To do "
 "this, :meth:`pyramid.config.Configurator.add_cache_buster` supports an "
 "``explicit`` option. For example:"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_static_view`を使用してホストされている静的アセットをオーバーライドすると、class：` pyramid.static.ManifestCacheBuster`のようなアセット対応のキャッシュバスターを使用するときのキャッシュ破棄戦略に影響を与える可能性があります。アセット・アウェア・キャッシュ・バスターは、ロジックを特定のアセットに結び付けている点で違いがあります。たとえば、マニフェストは、事前定義された特定のアセットのセットに対してのみ生成されます。今、このマニフェストで定義されたアセットを、新しい未知のバージョンで上書きしたとします。デフォルトでは、これまでに見たことがないアセットに対してキャッシュバスターが呼び出され、実際に配信されるアセットではなく、元のアセットのキャッシュ破棄トークンが返される可能性があります。この問題を回避するために、異なる：class： `pyramid.interfaces.ICacheBuster`実装を新しいアセットに付加することが可能です。これにより、元のアセットはマニフェストによって提供され、新しいアセットは独自のキャッシュ・バスターによって提供されます。これを行うには：meth： `pyramid.config.Configurator.add_cache_buster`は` `explicit``オプションをサポートしています。例えば："
 
 #: ../../narr/assets.rst:864
 msgid ""
@@ -908,7 +898,7 @@ msgid ""
 "assets served from the ``myapp:static`` folder. This would also affect "
 "``theme:static/background.png`` when generating URLs via "
 "``request.static_url('myapp:static/background.png')``."
-msgstr ""
+msgstr "上記の例では、 `` myapp：static``フォルダから提供されるすべてのアセットに対して、デフォルトのキャッシュ・バスター、 `` my_cb``があります。これは、 `` request.static_url（ &#39;myapp：static / background.png&#39;） ``でURLを生成するときに `` theme：static / background.png``にも影響します。"
 
 #: ../../narr/assets.rst:869
 msgid ""
@@ -918,5 +908,5 @@ msgid ""
 "``request.static_url('myapp:static/background.png')``, but ``my_cb`` "
 "would be used for any other assets like "
 "``request.static_url('myapp:static/favicon.ico')``."
-msgstr ""
+msgstr "`` theme_cb``は `` theme：static``フォルダから読み込まれたアセットに対して明示的に定義されています。明示的なキャッシュバスターは優先順位があり、 `` request.static_url（ &#39;myapp：static / background.png&#39;） ``に対して `` theme_cb``が呼び出されますが、 `` my_cb``は ` `request.static_url（ &#39;myapp：static / favicon.ico&#39;）` `です。"
 

@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/extending.rst:4
 msgid "Extending an Existing :app:`Pyramid` Application"
-msgstr ""
+msgstr "(機械翻訳) 既存の :app:`Pyramid` アプリケーションの拡張"
 
 #: ../../narr/extending.rst:6
 msgid ""
@@ -29,25 +19,25 @@ msgid ""
 "application's behavior without needing to modify its source code.  The "
 "behavior of a :app:`Pyramid` application that obeys certain constraints "
 "can be *overridden* or *extended* without modification."
-msgstr ""
+msgstr "a：app： `Pyramid`開発者がアプリケーションを構築する際に一定の制約に従った場合、第三者はソースコードを変更することなくアプリケーションの動作を変更できるはずです。特定の制約に従うa：app： `Pyramid`アプリケーションの動作は、変更することなく*オーバーライド*または*拡張*することができます。"
 
 #: ../../narr/extending.rst:12
 msgid ""
 "We'll define some jargon here for the benefit of identifying the parties "
 "involved in such an effort."
-msgstr ""
+msgstr "私たちは、このような努力に関与する当事者を特定するために、いくつかの専門用語をここで定義します。"
 
 #: ../../narr/extending.rst:16
 msgid "Developer"
-msgstr ""
+msgstr "開発者"
 
 #: ../../narr/extending.rst:16
 msgid "The original application developer."
-msgstr ""
+msgstr "元のアプリケーション開発者。"
 
 #: ../../narr/extending.rst:22
 msgid "Integrator"
-msgstr ""
+msgstr "積分器"
 
 #: ../../narr/extending.rst:19
 msgid ""
@@ -55,11 +45,11 @@ msgid ""
 "original application developer in an unanticipated context.  They may "
 "also wish to modify the original application without changing the "
 "original application's source code."
-msgstr ""
+msgstr "元のアプリケーション開発者が作成したアプリケーションを予期せぬ状況で再利用したい別の開発者。元のアプリケーションのソースコードを変更せずに元のアプリケーションを変更したい場合もあります。"
 
 #: ../../narr/extending.rst:25
 msgid "The Difference Between \"Extensible\" and \"Pluggable\" Applications"
-msgstr ""
+msgstr "\ &quot;Extensible \&quot;と\ &quot;Pluggable \&quot;アプリケーションの違い"
 
 #: ../../narr/extending.rst:27
 msgid ""
@@ -68,7 +58,7 @@ msgid ""
 "create an application in a certain way, it will be integratable in a "
 "sensible, structured way into another arbitrarily-written application or "
 "project created by a third-party developer."
-msgstr ""
+msgstr "次のような他のWebフレームワーク：term： `Django`は、開発者が\&quot;プラグ可能なアプリケーション\ &quot;を作成できるようにすることを宣伝します。彼らは、特定の方法でアプリケーションを作成すると、サードパーティの開発者が作成した任意の方法で作成された別のアプリケーションやプロジェクトに、合理的で構造化された方法で統合できると主張しています。"
 
 #: ../../narr/extending.rst:33
 msgid ""
@@ -86,7 +76,7 @@ msgid ""
 "not be reusable by a different developer, because they have made "
 "different technology choices which are incompatible with the original "
 "developer's."
-msgstr ""
+msgstr "：app： `Pyramid`はプラットフォームとして、そのような機能を提供すると主張していません。プラットフォームは、任意のインテグレータが大きなピラミッドアプリケーションまたはプロジェクトのサブコンポーネントとしてアプリケーションを使用できるように、アプリケーションを作成してパッケージ化できる保証はありません。ピラミッドは、このようなパターンがうまく機能するために必要な制約を強制しません。 Pyramidはあまり「有名人」ではないので、開発者はアプリケーションを構築するために大きく異なるパターンや技術を使用することができます。特定の第三者のインテグレータは、特定のピラミッドアプリケーションを再利用できるようになる可能性があります。インテグレータと元の開発者は、特定のリレーショナルデータベースやORMのような基本テクノロジの選択肢を共有する可能性があるからです。しかし、同じアプリケーションは、元の開発者とは互換性のない異なる技術選択肢を作成したため、異なる開発者が再利用することはできません。"
 
 #: ../../narr/extending.rst:47
 msgid ""
@@ -98,7 +88,7 @@ msgid ""
 "bits of code) which makes the concept of a \"pluggable application\" "
 "possible.  \"Pluggable applications\", thus, should not plug into Pyramid"
 " itself but should instead plug into a system written atop Pyramid."
-msgstr ""
+msgstr "その結果、\ &quot;プラグイン可能なアプリケーション\&quot;の概念は\ &quot;CMS \&quot;レイヤーまたは\ &quot;アプリケーションサーバー\&quot;レイヤーのようなPyramidの上に構築されたレイヤーに残されます。このような層は、（特定のURLが特定のビットのビットにマッピングされることを記録する、記憶層、テンプレートシステム、構造化された、十分に文書化されたパターンを強制するなどの）必要な「意見」を提供する傾向があります。 \ &quot;プラグ可能なアプリケーション\&quot;が可能です。 \ &quot;Pluggable applications \&quot;はPyramid自体にプラグインするのではなく、Pyramidの上に書かれたシステムにプラグインする必要があります。"
 
 #: ../../narr/extending.rst:56
 msgid ""
@@ -107,11 +97,11 @@ msgid ""
 " a single existing application.  Such features can be used by frameworks "
 "built using Pyramid as a base.  All Pyramid applications may not be "
 "*pluggable*, but all Pyramid applications are *extensible*."
-msgstr ""
+msgstr "\ &quot;プラグイン可能なアプリケーション\&quot;は提供していませんが、Pyramid *は単一の既存アプリケーションの拡張を可能にする豊富なメカニズムを提供します。このような機能は、Pyramidをベースに構築されたフレームワークで使用できます。すべてのPyramidアプリケーションはプラグ可能*ではないかもしれませんが、すべてのPyramidアプリケーションは*拡張可能です*。"
 
 #: ../../narr/extending.rst:68
 msgid "Rules for Building an Extensible Application"
-msgstr ""
+msgstr "拡張可能なアプリケーションを構築するためのルール"
 
 #: ../../narr/extending.rst:70
 msgid ""
@@ -122,13 +112,13 @@ msgid ""
 ":meth:`pyramid.config.Configurator.include`, rather than inlined as calls"
 " to methods of a :term:`Configurator` within the ``main`` function in "
 "your application's ``__init__.py``.  For example, rather than:"
-msgstr ""
+msgstr "app： `Pyramid`アプリケーション：開発者は、あなたが作成したオーバーライド可能な：term：`必須の設定 &#39;をファンクションに因数分解する必要があります。あなたのアプリケーションの `` __init __。py``の `` main``関数内で：term： `Configurator`のメソッドへの呼び出しとしてインラインではなく、：meth：` pyramid.config.Configurator.include`を介して使用されます。たとえば、以下のようになります。"
 
 #: ../../narr/extending.rst:87
 msgid ""
 "You should move the calls to ``add_view`` outside of the (non-reusable) "
 "``if __name__ == '__main__'`` block, and into a reusable function:"
-msgstr ""
+msgstr "呼び出しを（再利用不可能な） `` if __name__ == &#39;__main __&#39; ``ブロックの外で、再利用可能な関数の外に移動する必要があります："
 
 #: ../../narr/extending.rst:103
 msgid ""
@@ -136,7 +126,7 @@ msgid ""
 "statements that relate to your application by allowing them to "
 "selectively include or exclude the configuration functions you've created"
 " from an \"override package\"."
-msgstr ""
+msgstr "これにより、インテグレータは、アプリケーションに関連する構成文を最大限に再利用することができます。これにより、「上書きパッケージ」から作成した構成機能を選択的に含めるか除外することができます。"
 
 #: ../../narr/extending.rst:107
 msgid ""
@@ -147,11 +137,11 @@ msgid ""
 "configure your application, it will automatically be maximally extensible"
 " without any manual effort.  See :term:`pyramid_zcml` for information "
 "about using ZCML."
-msgstr ""
+msgstr "代わりに、設定を拡張したり上書きできるようにするために：term： `ZCML`を使用することもできます。 ：term：アプリケーションに属する `ZCML`宣言は、必要に応じて同様の方法でオーバーライドし、インテグレータによって拡張することができます。 ：term： `ZCML`だけを使ってアプリケーションを設定すると、手動で手を加えることなく自動的に最大限の拡張が可能になります。 ZCMLの使い方についてはterm： `pyramid_zcml`を参照してください。"
 
 #: ../../narr/extending.rst:115
 msgid "Fundamental Plugpoints"
-msgstr ""
+msgstr "基本的なプラグポイント"
 
 #: ../../narr/extending.rst:117
 msgid ""
@@ -166,36 +156,36 @@ msgid ""
 " assets. For example, the ``add_handler`` directive of the "
 "``pyramid_handlers`` package adds a single route and some number of "
 "views."
-msgstr ""
+msgstr "：app： `Pyramid`を使って開発されたアプリケーションの基本的な&quot;プラグポイント &quot;は* routes *、* views *、* assets *です。ルートは：meth： `pyramid.config.Configurator.add_route`メソッドを使って宣言されています。ビューは、：meth： `pyramid.config.Configurator.add_view`メソッドを使用して宣言されます。アセットは：term： `asset specification`を介して静的ファイルやテンプレートのような：term：` pkg_resources` APIを使って：app： `Pyramid`によってアクセスされるファイルです。他のディレクティブおよびコンフィグレータメソッドもルート、ビュー、およびアセットを処理します。たとえば、 `` pyramid_handlers``パッケージの `` add_handler``ディレクティブは、単一のルートといくつかのビュー数を追加します。"
 
 #: ../../narr/extending.rst:131
 msgid "Extending an Existing Application"
-msgstr ""
+msgstr "既存のアプリケーションの拡張"
 
 #: ../../narr/extending.rst:133
 msgid ""
 "The steps for extending an existing application depend largely on whether"
 " the application does or does not use configuration decorators or "
 "imperative code."
-msgstr ""
+msgstr "既存のアプリケーションを拡張する手順は、アプリケーションが構成デコレータを使用するかどうか、または必須コードを使用するかどうかによって大きく異なります。"
 
 #: ../../narr/extending.rst:137
 msgid "If the Application Has Configuration Decorations"
-msgstr ""
+msgstr "アプリケーションに構成デコレーションがある場合"
 
 #: ../../narr/extending.rst:139
 msgid ""
 "You've inherited a :app:`Pyramid` application which you'd like to extend "
 "or override that uses :class:`pyramid.view.view_config` decorators or "
 "other :term:`configuration decoration` decorators."
-msgstr ""
+msgstr "あなたは：class： `pyramid.view.view_config`デコレータや他の：term：` configuration decoration`デコレータを使って拡張またはオーバーライドしたいa：app： `Pyramid`アプリケーションを継承しました。"
 
 #: ../../narr/extending.rst:143
 msgid ""
 "If you just want to *extend* the application, you can run a :term:`scan` "
 "against the application's package, then add additional configuration that"
 " registers more views or routes."
-msgstr ""
+msgstr "アプリケーションを*拡張する*だけの場合は、アプリケーションのパッケージに対して：term： `scan`を実行して、より多くのビューやルートを登録する追加の設定を追加します。"
 
 #: ../../narr/extending.rst:154
 msgid ""
@@ -203,13 +193,13 @@ msgid ""
 "need to run :meth:`pyramid.config.Configurator.commit` after performing "
 "the scan of the original package, then add additional configuration that "
 "registers more views or routes which perform overrides."
-msgstr ""
+msgstr "アプリケーションで設定を上書きする場合は、元のパッケージのスキャンを実行した後に：meth： `pyramid.config.Configurator.commit`を実行し、さらにビューまたはルートを登録する追加の設定を追加する必要がありますオーバーライドを実行します。"
 
 #: ../../narr/extending.rst:167
 msgid ""
 "Once this is done, you should be able to extend or override the "
 "application like any other (see :ref:`extending_the_application`)."
-msgstr ""
+msgstr "これが完了したら、他のアプリケーションのようにアプリケーションを拡張または上書きできなければなりません（：ref： `extend_the_application`を参照）。"
 
 #: ../../narr/extending.rst:170
 msgid ""
@@ -220,11 +210,11 @@ msgid ""
 "the configuration done in decorators into equivalent imperative "
 "configuration or ZCML, and add that configuration or ZCML to a separate "
 "Python package as described in :ref:`extending_the_application`."
-msgstr ""
+msgstr "代わりに、：term： `scan`が：meth：` pyramid.config.Configurator.scan`メソッドへの呼び出しを省略することによって起こるのを防ぐこともできます。これにより、ターゲットアプリケーション内のオブジェクトにアタッチされたデコレータは何もしなくなります。この時点で、デコレータで行われたすべての設定を同等の必須設定またはZCMLに変換し、その設定またはZCMLを：ref： `extend_the_application`で説明されている別のPythonパッケージに追加する必要があります。"
 
 #: ../../narr/extending.rst:181
 msgid "Extending the Application"
-msgstr ""
+msgstr "アプリケーションの拡張"
 
 #: ../../narr/extending.rst:183
 msgid ""
@@ -233,33 +223,33 @@ msgid ""
 "package, and you'll perhaps need to create implementations of the types "
 "of things you'd like to override (such as views), to which they are "
 "referred within the original package."
-msgstr ""
+msgstr "既存のアプリケーションの動作を拡張またはオーバーライドするには、古いパッケージのコンフィグレーションを含む新しいパッケージを作成する必要があります。オーバーライドするタイプの実装を作成する必要があります（ビューとして）、元のパッケージ内で参照されます。"
 
 #: ../../narr/extending.rst:189
 msgid ""
 "The general pattern for extending an existing application looks something"
 " like this:"
-msgstr ""
+msgstr "既存のアプリケーションを拡張するための一般的なパターンは、次のようになります。"
 
 #: ../../narr/extending.rst:192
 msgid ""
 "Create a new Python package.  The easiest way to do this is to create a "
 "new :app:`Pyramid` application using a :term:`cookiecutter`.  See "
 ":ref:`creating_a_project` for more information."
-msgstr ""
+msgstr "新しいPythonパッケージを作成します。これを行う最も簡単な方法は、：term： `cookiecutter`を使って、新しい：app：` Pyramid`アプリケーションを作成することです。詳細は、ref： `creation_a_project`を参照してください。"
 
 #: ../../narr/extending.rst:196
 msgid ""
 "In the new package, create Python files containing views and other "
 "overridden elements, such as templates and static assets as necessary."
-msgstr ""
+msgstr "新しいパッケージでは、ビューや必要に応じてテンプレートや静的アセットなどのオーバーライドされた要素を含むPythonファイルを作成します。"
 
 #: ../../narr/extending.rst:199
 msgid ""
 "Install the new package into the same Python environment as the original "
 "application (e.g., ``$VENV/bin/pip install -e .`` or ``$VENV/bin/pip "
 "install .``)."
-msgstr ""
+msgstr "新しいパッケージを元のアプリケーションと同じPython環境にインストールします（ `` $ VENV / bin / pip install -e .``や `` $ VENV / bin / pip install``など）。"
 
 #: ../../narr/extending.rst:203
 msgid ""
@@ -267,7 +257,7 @@ msgid ""
 "include the original :app:`Pyramid` application's configuration functions"
 " via :meth:`pyramid.config.Configurator.include` statements or a "
 ":term:`scan`."
-msgstr ""
+msgstr "新しいパッケージの `` __init __。py``の `` main``関数を、：meth： `pyramid.config.Configurator.include`文またはa：termを使って元の：app：` Pyramid`アプリケーションの設定関数を含めるように変更してください： `スキャン`。"
 
 #: ../../narr/extending.rst:207
 msgid ""
@@ -278,11 +268,11 @@ msgid ""
 "These registrations will extend or override any registrations performed "
 "by the original application. See :ref:`overriding_views`, "
 ":ref:`overriding_routes`, and :ref:`overriding_resources`."
-msgstr ""
+msgstr "新しいパッケージの新しいビューとアセットを、新しいアプリケーションの `` __init __。py``ファイルの `` main``関数内での必須登録を使って配線します。この配線は、古いアプリケーションの設定機能を含めて* *後に実行する必要があります。これらの登録は、元のアプリケーションによって行われた登録を延長または上書きします。参照：ref： `overriding_views`、：ref：` overriding_routes`、および：ref： `overriding_resources`を参照してください。"
 
 #: ../../narr/extending.rst:221
 msgid "Overriding Views"
-msgstr ""
+msgstr "ビューのオーバーライド"
 
 #: ../../narr/extending.rst:223
 msgid ""
@@ -293,27 +283,27 @@ msgid ""
 "package that you've created.  The new view code itself will usually be "
 "copy-and-paste copies of view callables from the original application "
 "with slight tweaks."
-msgstr ""
+msgstr "：term： `view configuration`宣言は、アプリケーションの振る舞いをオーバーライドするのに通常は同じです：term：` view predicate`属性をオーバーライドしたい元のものと同じにします。これらの &quot; <view> ``宣言はあなたが作成したオーバーライドパッケージの\ &quot;新しい\&quot;ビューコードを指します。新しいビューコード自体は、通常、元のアプリケーションからのビュー呼び出し可能なコピーとコピーのコピーをわずかに変更したものです。"
 
 #: ../../narr/extending.rst:230
 msgid ""
 "For example, if the original application has the following "
 "``configure_views`` configuration method:"
-msgstr ""
+msgstr "たとえば、元のアプリケーションに以下の `` configure_views``設定メソッドがある場合、"
 
 #: ../../narr/extending.rst:239
 msgid ""
 "You can override the first view configuration statement made by "
 "``configure_views`` within the override package, after loading the "
 "original configuration function:"
-msgstr ""
+msgstr "元のコンフィギュレーション関数をロードした後で、オーバーライドパッケージ内の `` configure_views``によって行われた最初のビュー設定ステートメントをオーバーライドすることができます："
 
 #: ../../narr/extending.rst:254
 msgid ""
 "In this case, the ``theoriginalapp.views.theview`` view will never be "
 "executed. Instead, a new view, ``theoverrideapp.views.theview`` will be "
 "executed when request circumstances dictate."
-msgstr ""
+msgstr "この場合、 `` theoriginalapp.views.theview``ビューは決して実行されません。代わりに、新しいビュー `` theoverrideapp.views.theview``は、リクエスト状況が指示されたときに実行されます。"
 
 #: ../../narr/extending.rst:258
 msgid ""
@@ -321,11 +311,11 @@ msgid ""
 "``add_view`` declarations.  Just register a new view against some other "
 "set of predicates to make sure the URLs it implies are available on some "
 "other page rendering."
-msgstr ""
+msgstr "同様のパターンを使用して、アプリケーションを `` add_view``宣言で拡張することができます。他のいくつかの述語セットに対して新しいビューを登録して、それが意味するURLが他のページレンダリングで利用可能であることを確認してください。"
 
 #: ../../narr/extending.rst:268
 msgid "Overriding Routes"
-msgstr ""
+msgstr "ルートのオーバーライド"
 
 #: ../../narr/extending.rst:270
 msgid ""
@@ -337,11 +327,11 @@ msgid ""
 "``add_route`` statements into the override package's file and changing "
 "them as necessary.  Then exclude any ``add_route`` statements from the "
 "original application."
-msgstr ""
+msgstr "ルート設定は現在、通常は：meth： `〜pyramid.config.Configurator.add_route`への順序付き呼び出しのシーケンスで実行されます。これらの呼び出しは互いに順序付けされているため、この順序付けは通常重要なので、オーバーライドを実行するときには相対順序を保持する必要があります。通常は、すべての `` add_route``文をオーバーライドパッケージのファイルにコピーし、必要に応じて変更します。次に、元のアプリケーションから `` add_route``文を除外します。"
 
 #: ../../narr/extending.rst:284
 msgid "Overriding Assets"
-msgstr ""
+msgstr "アセットのオーバーライド"
 
 #: ../../narr/extending.rst:286
 msgid ""
@@ -353,5 +343,5 @@ msgid ""
 ":meth:`pyramid.config.Configurator.override_asset` method.  Add such "
 "``override_asset`` calls to your override package's ``__init__.py`` to "
 "perform overrides."
-msgstr ""
+msgstr "アセットは、Python *パッケージ内でアクセス可能なファイルシステム上のファイルです。章全体は資産：：ref： `assets_chapter`に充てられます。この章では、ref： `overriding_assets_section`という名前のセクションがあります。この章のこのセクションでは、：meth： `pyramid.config.Configurator.override_asset`メソッドを使用して、パッケージアセットを他のアセットでオーバーライドする方法について詳しく説明します。オーバーライドを実行するためにオーバーライドパッケージの `` __init __。py``にそのような `` override_asset``呼び出しを追加してください。"
 

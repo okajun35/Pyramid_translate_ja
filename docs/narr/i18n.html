@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Internationalization and Localization &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) 国際化とローカリゼーション &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Virtual Hosting" href="vhosting.html" />
-    <link rel="prev" title="Command-Line Pyramid" href="commandline.html" />
+    <link rel="next" title="(機械翻訳) 仮想ホスティング" href="vhosting.html" />
+    <link rel="prev" title="(機械翻訳) コマンドラインピラミッド" href="commandline.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="vhosting.html" title="Virtual Hosting"
+          <a href="vhosting.html" title="(機械翻訳) 仮想ホスティング"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="commandline.html" title="Command-Line Pyramid"
+          <a href="commandline.html" title="(機械翻訳) コマンドラインピラミッド"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,68 +69,39 @@
           <div class="body" role="main">
             
   <div class="section" id="internationalization-and-localization">
-<span id="i18n-chapter"></span><span id="index-0"></span><h1>Internationalization and Localization<a class="headerlink" href="#internationalization-and-localization" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><a class="reference internal" href="../glossary.html#term-internationalization"><span class="xref std std-term">Internationalization</span></a> (i18n) is the act of creating software with a user
-interface that can potentially be displayed in more than one language or
-cultural context.  <a class="reference internal" href="../glossary.html#term-localization"><span class="xref std std-term">Localization</span></a> (l10n) is the process of displaying the
-user interface of an internationalized application in a <em>particular</em> language
-or cultural context.</p>
-<p><span>Pyramid</span> offers internationalization and localization subsystems that can
-be used to translate the text of buttons, error messages, and other software-
-and template-defined values into the native language of a user of your
-application.</p>
+<span id="i18n-chapter"></span><span id="index-0"></span><h1>(機械翻訳) 国際化とローカリゼーション<a class="headerlink" href="#internationalization-and-localization" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>用語：「国際化」（i18n）は、複数の言語や文化の中で潜在的に表示される可能性のあるユーザインタフェースを備えたソフトウェアを作成する行為です。 ：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Localization`（110n）は国際化されたアプリケーションのユーザインタフェースを特定の*言語や文化的背景で表示するプロセスです。</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、ボタンやエラーメッセージ、その他のソフトウェア定義やテンプレート定義の値をアプリケーションのユーザの母国語に翻訳するために使用できる、国際化とローカリゼーションのサブシステムを提供します。</p>
 <div class="section" id="creating-a-translation-string">
-<span id="index-1"></span><h2>Creating a Translation String<a class="headerlink" href="#creating-a-translation-string" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>While you write your software, you can insert specialized markup into your
-Python code that makes it possible for the system to translate text values into
-the languages used by your application's users.  This markup creates a
-<a class="reference internal" href="../glossary.html#term-translation-string"><span class="xref std std-term">translation string</span></a>.  A translation string is an object that behaves
-mostly like a normal Unicode object, except that it also carries around extra
-information related to its job as part of the <span>Pyramid</span> translation
-machinery.</p>
+<span id="index-1"></span><h2>変換文字列の作成<a class="headerlink" href="#creating-a-translation-string" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>あなたのソフトウェアを書いている間、Pythonコードに特別なマークアップを挿入することで、システムがテキスト値をアプリケーションのユーザが使用する言語に翻訳することができます。このマークアップは：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>翻訳文字列`を作成します。翻訳文字列は：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`翻訳機構の一部としてその仕事に関連する余分な情報を持ち歩いている点を除けば、通常のUnicodeオブジェクトとほとんど同じように動作するオブジェクトです。</p>
 <div class="section" id="using-the-translationstring-class">
-<h3>Using the <code class="docutils literal notranslate"><span class="pre">TranslationString</span></code> Class<a class="headerlink" href="#using-the-translationstring-class" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The most primitive way to create a translation string is to use the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.i18n.TranslationString</span></code> callable:</p>
+<h3>`` TranslationString``クラスの使用<a class="headerlink" href="#using-the-translationstring-class" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>翻訳文字列を作成する最も基本的な方法は、：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.i18n.TranslationString`呼び出し可能を使用することです：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.i18n</span> <span class="kn">import</span> <span class="n">TranslationString</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">TranslationString</span><span class="p">(</span><span class="s1">&#39;Add&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>This creates a Unicode-like object that is a TranslationString.</p>
+<p>これにより、TranslationStringであるUnicodeのようなオブジェクトが作成されます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">For people more familiar with <a class="reference internal" href="../glossary.html#term-zope"><span class="xref std std-term">Zope</span></a> i18n, a TranslationString is a
-lot like a <code class="docutils literal notranslate"><span class="pre">zope.i18nmessageid.Message</span></code> object.  It is not a subclass,
-however.  For people more familiar with <a class="reference internal" href="../glossary.html#term-pylons"><span class="xref std std-term">Pylons</span></a> or <a class="reference internal" href="../glossary.html#term-django"><span class="xref std std-term">Django</span></a>
-i18n, using a TranslationString is a lot like using &quot;lazy&quot; versions of
-related gettext APIs.</p>
+<p class="last">term： <cite>Zope</cite> i18nをよく知っている人のために、TranslationStringは` <cite>zope.i18nmessageid.Message``オブジェクトのようなものです。しかし、それはサブクラスではありません。 term： `Pylons`や：term：</cite> Django` i18nにもっと精通している方は、関連するgettext APIの&amp;quot;lazy &amp;quot;バージョンを使うのと似ています。</p>
 </div>
-<p>The first argument to <code class="xref py py-class docutils literal notranslate"><span class="pre">TranslationString</span></code> is the
-<code class="docutils literal notranslate"><span class="pre">msgid</span></code>; it is required.  It represents the key into the translation mappings
-provided by a particular localization. The <code class="docutils literal notranslate"><span class="pre">msgid</span></code> argument must be a Unicode
-object or an ASCII string.  The msgid may optionally contain <em>replacement
-markers</em>.  For instance:</p>
+<p>：class： <cite>〜pyramid.i18n.TranslationString`の最初の引数は</cite> <cite>msgid``です。それが必要です。これは、特定のローカリゼーションによって提供される翻訳マッピングのキーを表します。 `</cite> msgid``引数は、UnicodeオブジェクトまたはASCII文字列でなければなりません。 msgidはオプションで*置換マーカー*を含むことができます。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.i18n</span> <span class="kn">import</span> <span class="n">TranslationString</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">TranslationString</span><span class="p">(</span><span class="s1">&#39;Add ${number}&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Within the string above, <code class="docutils literal notranslate"><span class="pre">${number}</span></code> is a replacement marker.  It will be
-replaced by whatever is in the <em>mapping</em> for a translation string.  The mapping
-may be supplied at the same time as the replacement marker itself:</p>
+<p>上記の文字列の中で、 `` $ {number} <a href="#id1"><span class="problematic" id="id2">``</span></a>は置換マーカーです。翻訳文字列の*マッピング*にあるものに置換されます。マッピングは、置換マーカー自体と同時に供給することができます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.i18n</span> <span class="kn">import</span> <span class="n">TranslationString</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">TranslationString</span><span class="p">(</span><span class="s1">&#39;Add ${number}&#39;</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;number&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
 </pre></div>
 </td></tr></table></div>
-<p>Any number of replacement markers can be present in the msgid value, any number
-of times.  Only markers which can be replaced by the values in the <em>mapping</em>
-will be replaced at translation time.  The others will not be interpolated and
-will be output literally.</p>
-<p>A translation string should also usually carry a <em>domain</em>.  The domain
-represents a translation category to disambiguate it from other translations of
-the same msgid, in case they conflict.</p>
+<p>msgidの値に任意の数の置換マーカーを任意の回数追加できます。 <a href="#id1"><span class="problematic" id="id2">*</span></a>マッピング*の値で置き換えられるマーカーのみが翻訳時に置き換えられます。他は補間されず、文字通り出力されます。</p>
+<p>翻訳文字列には、通常、* domain <a href="#id1"><span class="problematic" id="id2">*</span></a>も含める必要があります。ドメインは、競合する場合に、同じmsgidの他の翻訳との曖昧さを解消するための翻訳カテゴリを表します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.i18n</span> <span class="kn">import</span> <span class="n">TranslationString</span>
@@ -138,24 +109,12 @@ the same msgid, in case they conflict.</p>
                        <span class="n">domain</span><span class="o">=</span><span class="s1">&#39;form&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The above translation string named a domain of <code class="docutils literal notranslate"><span class="pre">form</span></code>.  A <a class="reference internal" href="../glossary.html#term-translator"><span class="xref std std-term">translator</span></a>
-function will often use the domain to locate the right translator file on the
-filesystem which contains translations for a given domain.  In this case, if it
-were trying to translate our msgid to German, it might try to find a
-translation from a <a class="reference internal" href="../glossary.html#term-gettext"><span class="xref std std-term">gettext</span></a> file within a <a class="reference internal" href="../glossary.html#term-translation-directory"><span class="xref std std-term">translation directory</span></a>
-like this one:</p>
+<p>上記の翻訳文字列は、 `` form``のドメイン名です。 A：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>translator`関数は、ドメインを使用して、指定されたドメインの翻訳を含むファイルシステム上の正しい翻訳ファイルを見つけることがよくあります。この場合、私たちのmsgidをドイツ語に翻訳しようとすると、term： <a href="#id3"><span class="problematic" id="id4">`</span></a>gettext`ファイル内の：term：<a href="#id5"><span class="problematic" id="id6">`</span></a>翻訳ディレクトリ &amp;#39;のような翻訳を見つけようとするかもしれません：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>locale/de/LC_MESSAGES/form.mo
 </pre></div>
 </div>
-<p>In other words, it would want to take translations from the <code class="docutils literal notranslate"><span class="pre">form.mo</span></code>
-translation file in the German language.</p>
-<p>Finally, the TranslationString constructor accepts a <code class="docutils literal notranslate"><span class="pre">default</span></code> argument.  If
-a <code class="docutils literal notranslate"><span class="pre">default</span></code> argument is supplied, it replaces usages of the <code class="docutils literal notranslate"><span class="pre">msgid</span></code> as the
-<em>default value</em> for the translation string. When <code class="docutils literal notranslate"><span class="pre">default</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the
-<code class="docutils literal notranslate"><span class="pre">msgid</span></code> value passed to a TranslationString is used as an implicit message
-identifier.  Message identifiers are matched with translations in translation
-files, so it is often useful to create translation strings with &quot;opaque&quot;
-message identifiers unrelated to their default text:</p>
+<p>言い換えれば、ドイツ語の `` form.mo``翻訳ファイルから翻訳を受けたいと思うでしょう。</p>
+<p>最後に、TranslationStringコンストラクタは `` default``引数を受け取ります。 `` default``引数が指定された場合、 `` msgid``の使用法を変換文字列の*デフォルト値*に置き換えます。 `` default``が `` None``のとき、TranslationStringに渡される `` msgid``値は暗黙のメッセージ識別子として使われます。メッセージ識別子は翻訳ファイルの翻訳と一致しているので、デフォルトのテキストとは無関係の&amp;quot;不透明&amp;quot;メッセージ識別子で翻訳文字列を作成すると便利です。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.i18n</span> <span class="kn">import</span> <span class="n">TranslationString</span>
@@ -163,15 +122,11 @@ message identifiers unrelated to their default text:</p>
                         <span class="n">domain</span><span class="o">=</span><span class="s1">&#39;form&#39;</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;number&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
 </pre></div>
 </td></tr></table></div>
-<p>When default text is used, Default text objects may contain replacement values.</p>
+<p>デフォルトのテキストが使用されている場合、デフォルトのテキストオブジェクトには置換値が含まれている場合があります。</p>
 </div>
 <div class="section" id="using-the-translationstringfactory-class">
-<span id="index-2"></span><h3>Using the <code class="docutils literal notranslate"><span class="pre">TranslationStringFactory</span></code> Class<a class="headerlink" href="#using-the-translationstringfactory-class" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Another way to generate a translation string is to use the
-<a class="reference internal" href="../api/i18n.html#pyramid.i18n.TranslationStringFactory" title="pyramid.i18n.TranslationStringFactory"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TranslationStringFactory</span></code></a> object.  This object is a
-<em>translation string factory</em>.  Basically a translation string factory presets
-the <code class="docutils literal notranslate"><span class="pre">domain</span></code> value of any <a class="reference internal" href="../glossary.html#term-translation-string"><span class="xref std std-term">translation string</span></a> generated by using it.
-For example:</p>
+<span id="index-2"></span><h3>`` TranslationStringFactory``クラスの使用<a class="headerlink" href="#using-the-translationstringfactory-class" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>変換文字列を生成する別の方法は、：attr： <cite>〜pyramid.i18n.TranslationStringFactory`オブジェクトを使用することです。このオブジェクトは、*翻訳文字列ファクトリ*です。基本的に翻訳文字列ファクトリは、それを使用して生成された：term： `翻訳文字列 &amp;#39;の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>domain``値をプリセットします。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.i18n</span> <span class="kn">import</span> <span class="n">TranslationStringFactory</span>
@@ -181,18 +136,9 @@ For example:</p>
 </td></tr></table></div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">We assigned the translation string factory to the name <code class="docutils literal notranslate"><span class="pre">_</span></code>.  This
-is a convention which will be supported by translation file generation
-tools.</p>
+<p class="last">変換文字列ファクトリを `` <a href="#id1"><span class="problematic" id="id2">_`</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>という名前に割り当てました。これは翻訳ファイル生成ツールでサポートされる規約です。</p>
 </div>
-<p>After assigning <code class="docutils literal notranslate"><span class="pre">_</span></code> to the result of a
-<a class="reference internal" href="../api/i18n.html#pyramid.i18n.TranslationStringFactory" title="pyramid.i18n.TranslationStringFactory"><code class="xref py py-func docutils literal notranslate"><span class="pre">TranslationStringFactory()</span></code></a>, the subsequent result of
-calling <code class="docutils literal notranslate"><span class="pre">_</span></code> will be a <code class="xref py py-class docutils literal notranslate"><span class="pre">TranslationString</span></code> instance.
-Even though a <code class="docutils literal notranslate"><span class="pre">domain</span></code> value was not passed to <code class="docutils literal notranslate"><span class="pre">_</span></code> (as would have been
-necessary if the <code class="xref py py-class docutils literal notranslate"><span class="pre">TranslationString</span></code> constructor were used
-instead of a translation string factory), the <code class="docutils literal notranslate"><span class="pre">domain</span></code> attribute of the
-resulting translation string will be <code class="docutils literal notranslate"><span class="pre">pyramid</span></code>.  As a result, the previous
-code example is completely equivalent (except for spelling) to:</p>
+<p>：func： <cite>〜pyramid.i18n.TranslationStringFactory`の結果に</cite> <cite>_``を代入した後、</cite> <cite>_``を呼び出す結果は：class：</cite>〜pyramid.i18n.TranslationString`インスタンスになります。変換文字列ファクトリの代わりに：class： <cite>〜pyramid.i18n.TranslationString`コンストラクタが使用された場合に必要だったように、</cite> <cite>domain``値が</cite> <cite>_``に渡されなかったとしても、結果の翻訳文字列の `domain``属性は</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid``になります。結果として、前のコード例は、（スペルを除いて）完全に同等です：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.i18n</span> <span class="kn">import</span> <span class="n">TranslationString</span> <span class="k">as</span> <span class="n">_</span>
@@ -200,11 +146,7 @@ code example is completely equivalent (except for spelling) to:</p>
        <span class="n">domain</span><span class="o">=</span><span class="s1">&#39;pyramid&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>You can set up your own translation string factory much like the one provided
-above by using the <a class="reference internal" href="../api/i18n.html#pyramid.i18n.TranslationStringFactory" title="pyramid.i18n.TranslationStringFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">TranslationStringFactory</span></code></a> class.  For
-example, if you'd like to create a translation string factory which presets the
-<code class="docutils literal notranslate"><span class="pre">domain</span></code> value of generated translation strings to <code class="docutils literal notranslate"><span class="pre">form</span></code>, you'd do
-something like this:</p>
+<p>：class： <cite>〜pyramid.i18n.TranslationStringFactory`クラスを使用して、上で提供されているような独自の翻訳文字列ファクトリを設定できます。たとえば、生成された翻訳文字列の `</cite> domain``値を `` form``にプリセットする翻訳文字列ファクトリを作成したい場合は、次のようにします：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.i18n</span> <span class="kn">import</span> <span class="n">TranslationStringFactory</span>
@@ -212,140 +154,81 @@ something like this:</p>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s1">&#39;add-number&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Add ${number}&#39;</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;number&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
 </pre></div>
 </td></tr></table></div>
-<p>Creating a unique domain for your application via a translation string factory
-is best practice.  Using your own unique translation domain allows another
-person to reuse your application without needing to merge your translation
-files with their own.  Instead they can just include your package's
-<a class="reference internal" href="../glossary.html#term-translation-directory"><span class="xref std std-term">translation directory</span></a> via the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_translation_dirs" title="pyramid.config.Configurator.add_translation_dirs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_translation_dirs()</span></code></a> method.</p>
+<p>翻訳文字列ファクトリを使用してアプリケーションの一意のドメインを作成することがベストプラクティスです。独自の翻訳ドメインを使用すると、別の人が自分の翻訳ファイルをマージすることなく、アプリケーションを再利用することができます。代わりに、：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.add_translation_dirs`メソッドを使って、あなたのパッケージの：term：<a href="#id3"><span class="problematic" id="id4">`</span></a>翻訳ディレクトリ &amp;#39;を含めることができます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">For people familiar with Zope internationalization, a
-TranslationStringFactory is a lot like a
-<code class="docutils literal notranslate"><span class="pre">zope.i18nmessageid.MessageFactory</span></code> object.  It is not a subclass,
-however.</p>
+<p class="last">Zopeの国際化に精通している人のために、TranslationStringFactoryは `` zope.i18nmessageid.MessageFactory``オブジェクトによく似ています。しかし、それはサブクラスではありません。</p>
 </div>
 </div>
 </div>
 <div class="section" id="working-with-gettext-translation-files">
-<span id="index-3"></span><h2>Working with <code class="docutils literal notranslate"><span class="pre">gettext</span></code> Translation Files<a class="headerlink" href="#working-with-gettext-translation-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The basis of <span>Pyramid</span> translation services is GNU <a class="reference internal" href="../glossary.html#term-gettext"><span class="xref std std-term">gettext</span></a>. Once
-your application source code files and templates are marked up with translation
-markers, you can work on translations by creating various kinds of gettext
-files.</p>
+<span id="index-3"></span><h2>`` gettext``翻訳ファイルの操作<a class="headerlink" href="#working-with-gettext-translation-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <cite>Pyramid`翻訳サービスの基礎はGNU：term：</cite> gettext`です。アプリケーションのソースコードファイルとテンプレートに翻訳マーカがマークアップされたら、さまざまな種類のgettextファイルを作成して翻訳作業を行うことができます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">The steps a developer must take to work with <a class="reference internal" href="../glossary.html#term-gettext"><span class="xref std std-term">gettext</span></a> <a class="reference internal" href="../glossary.html#term-message-catalog"><span class="xref std std-term">message
-catalog</span></a> files within a <span>Pyramid</span> application are very similar to the
-steps a <a class="reference internal" href="../glossary.html#term-pylons"><span class="xref std std-term">Pylons</span></a> developer must take to do the same.  See the
-<a class="reference external" href="https://docs.pylonsproject.org/projects/pylons-webframework/en/latest/i18n.html#i18n" title="(in Pylons Framework v1.0.2)"><span class="xref std std-ref">Pylons Internationalization and Localization documentation</span></a> for more information.</p>
+<p class="last">開発者がa：app： <cite>Pyramid`アプリケーション内でterm：</cite> gettext`：term： <cite>message catalog`ファイルを処理するために必要な手順は、a：term：</cite> Pylons`開発者が行う必要のある手順に非常に似ています同じ。 ：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pylonsの国際化とローカリゼーションのドキュメントを参照してください。 &lt;pylonswebframework:i18n&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>を参照してください。</p>
 </div>
-<p>GNU gettext uses three types of files in the translation framework, <code class="docutils literal notranslate"><span class="pre">.pot</span></code>
-files, <code class="docutils literal notranslate"><span class="pre">.po</span></code> files, and <code class="docutils literal notranslate"><span class="pre">.mo</span></code> files.</p>
-<p><code class="docutils literal notranslate"><span class="pre">.pot</span></code> (Portable Object Template) files</p>
+<p>GNU gettextは、翻訳フレームワークでは `` .pot``ファイル、 `` .po``ファイル、 `` .mo``ファイルの3種類のファイルを使います。</p>
+<p>`` .pot``（ポータブルオブジェクトテンプレート）ファイル</p>
 <blockquote>
-<div>A <code class="docutils literal notranslate"><span class="pre">.pot</span></code> file is created by a program which searches through your project's
-source code and which picks out every <a class="reference internal" href="../glossary.html#term-message-identifier"><span class="xref std std-term">message identifier</span></a> passed to
-one of the <code class="docutils literal notranslate"><span class="pre">_()</span></code> functions (e.g., <a class="reference internal" href="../glossary.html#term-translation-string"><span class="xref std std-term">translation string</span></a>
-constructions). The list of all message identifiers is placed into a <code class="docutils literal notranslate"><span class="pre">.pot</span></code>
-file, which serves as a template for creating <code class="docutils literal notranslate"><span class="pre">.po</span></code> files.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">.po</span></code> (Portable Object) files</p>
+<div>`` .pot``ファイルは、あなたのプロジェクトのソースコードを検索し、 `` _（） <a href="#id1"><span class="problematic" id="id2">``</span></a>関数に渡されるすべての：term： <cite>message identifier`を選ぶプログラムによって作成されます：term ： `翻訳ストリング`構造）。すべてのメッセージ識別子のリストは `</cite> .pot``ファイルに置かれます。これは `` .po``ファイルを作るためのテンプレートとして機能します。</div></blockquote>
+<p>`` .po``（Portable Object）ファイル</p>
 <blockquote>
-<div>The list of messages in a <code class="docutils literal notranslate"><span class="pre">.pot</span></code> file are translated by a human to a
-particular language; the result is saved as a <code class="docutils literal notranslate"><span class="pre">.po</span></code> file.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">.mo</span></code> (Machine Object) files</p>
+<div>`` .pot``ファイル中のメッセージのリストは人間によって特定の言語に翻訳されます。結果は `` .po``ファイルとして保存されます。</div></blockquote>
+<p>`` .mo``（マシンオブジェクト）ファイル</p>
 <blockquote>
-<div>A <code class="docutils literal notranslate"><span class="pre">.po</span></code> file is turned into a machine-readable binary file, which is the
-<code class="docutils literal notranslate"><span class="pre">.mo</span></code> file. Compiling the translations to machine code makes the
-localized program start faster.</div></blockquote>
-<p>The tools for working with <a class="reference internal" href="../glossary.html#term-gettext"><span class="xref std std-term">gettext</span></a> translation files related to a
-<span>Pyramid</span> application are <a class="reference internal" href="../glossary.html#term-lingua"><span class="xref std std-term">Lingua</span></a> and <a class="reference internal" href="../glossary.html#term-gettext"><span class="xref std std-term">Gettext</span></a>. Lingua can
-scrape i18n references out of Python and Chameleon files and create the
-<code class="docutils literal notranslate"><span class="pre">.pot</span></code> file. Gettext includes <code class="docutils literal notranslate"><span class="pre">msgmerge</span></code> tool to update a <code class="docutils literal notranslate"><span class="pre">.po</span></code> file from
-an updated <code class="docutils literal notranslate"><span class="pre">.pot</span></code> file and <code class="docutils literal notranslate"><span class="pre">msgfmt</span></code> to compile <code class="docutils literal notranslate"><span class="pre">.po</span></code> files to <code class="docutils literal notranslate"><span class="pre">.mo</span></code>
-files.</p>
+<div>`` .po``ファイルは `` .mo``ファイルである機械可読バイナリファイルに変換されます。翻訳を機械コードにコンパイルすると、ローカライズされたプログラムがより早く開始します。</div></blockquote>
+<p>a：app： <cite>Pyramid`アプリケーションに関連する：term：</cite> gettext`翻訳ファイルは：term： <cite>Lingua`と：term：</cite> Gettext`です。 LinguaはPythonとChameleonのファイルからi18nの参照を取り除き、 `` .pot``ファイルを作成することができます。 Gettextには更新された `` .pot``ファイルと `` .po``ファイルを `` .mo``にコンパイルする `` msgfmt``から `` .po``ファイルを更新する `` msgmerge``ツールが含まれています。ファイル。</p>
 <div class="section" id="installing-lingua-and-gettext">
-<span id="installing-babel"></span><span id="index-4"></span><h3>Installing Lingua and Gettext<a class="headerlink" href="#installing-lingua-and-gettext" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>In order for the commands related to working with <code class="docutils literal notranslate"><span class="pre">gettext</span></code> translation files
-to work properly, you will need to have <a class="reference internal" href="../glossary.html#term-lingua"><span class="xref std std-term">Lingua</span></a> and <a class="reference internal" href="../glossary.html#term-gettext"><span class="xref std std-term">Gettext</span></a>
-installed into the same environment in which <span>Pyramid</span> is installed.</p>
+<span id="installing-babel"></span><span id="index-4"></span><h3>LinguaとGettextのインストール<a class="headerlink" href="#installing-lingua-and-gettext" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` gettext``翻訳ファイルの操作に関連するコマンドが正しく動作するためには、：term： <cite>Lingua`と：term：</cite> Gettext`が同じ環境にインストールされている必要があります：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid <a href="#id3"><span class="problematic" id="id4">`</span></a>がインストールされています。</p>
 <div class="section" id="installation-on-unix">
-<h4>Installation on UNIX<a class="headerlink" href="#installation-on-unix" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>Gettext is often already installed on UNIX systems. You can check if it is
-installed by testing if the <code class="docutils literal notranslate"><span class="pre">msgfmt</span></code> command is available. If it is not
-available you can install it through the packaging system from your OS; the
-package name is almost always <code class="docutils literal notranslate"><span class="pre">gettext</span></code>. For example on a Debian or Ubuntu
-system run this command:</p>
+<h4>UNIXへのインストール<a class="headerlink" href="#installation-on-unix" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>Gettextは、UNIXシステムにすでにインストールされていることがよくあります。 `` msgfmt``コマンドが利用可能かどうかをテストすることで、インストールされているかどうかを確認することができます。使用できない場合は、ご使​​用のOSのパッケージシステムを使用してインストールできます。パッケージ名はほとんど常に `` gettext``です。例えば、DebianやUbuntuのシステムでは、次のコマンドを実行します：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install gettext
 </pre></div>
 </div>
-<p>Installing Lingua is done with the Python packaging tools. If the
-<a class="reference internal" href="../glossary.html#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a> into which you've installed your <span>Pyramid</span>
-application lives at the environment variable <code class="docutils literal notranslate"><span class="pre">$VENV</span></code>, you can install Lingua
-like so:</p>
+<p>Linguaのインストールは、Pythonのパッケージツールを使って行います。 ：app： <cite>Pyramid`アプリケーションをインストールした：term：`仮想環境 &amp;#39;が環境変数 `</cite> $ VENV``にある場合、Linguaを以下のようにインストールすることができます：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install lingua
 </pre></div>
 </div>
 </div>
 <div class="section" id="installation-on-windows">
-<h4>Installation on Windows<a class="headerlink" href="#installation-on-windows" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>There are several ways to install Gettext on Windows: it is included in the
-<a class="reference external" href="http://www.cygwin.com/">Cygwin</a> collection, or you can use the <a class="reference external" href="http://gnuwin32.sourceforge.net/packages/gettext.htm">installer
-from the GnuWin32</a>, or
-compile it yourself. Make sure the installation path is added to your
-<code class="docutils literal notranslate"><span class="pre">$PATH</span></code>.</p>
-<p>Installing Lingua is done with the Python packaging tools. If the
-<a class="reference internal" href="../glossary.html#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a> into which you've installed your <span>Pyramid</span>
-application lives at the environment variable <code class="docutils literal notranslate"><span class="pre">%VENV%</span></code>, you can install
-Lingua like so:</p>
+<h4>Windowsへのインストール<a class="headerlink" href="#installation-on-windows" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>GettextをWindowsにインストールするにはいくつかの方法があります： <cite>Cygwin &lt;http://www.cygwin.com/&gt; `_ collection、または</cite> GnuWin32のインストーラを使うことができます&lt;<a class="reference external" href="http://gnuwin32.sourceforge.net/packages/gettext.htm">http://gnuwin32.sourceforge.net/packages/gettext.htm</a>&gt; <cite>_、または自分でコンパイルしてください。インストールパスが `</cite> $ PATH``に追加されていることを確認してください。</p>
+<p>Linguaのインストールは、Pythonのパッケージツールを使って行います。 ：app： <cite>Pyramid`アプリケーションをインストールした：term：`仮想環境 &amp;#39;が環境変数 `</cite>％VENV％ <a href="#id1"><span class="problematic" id="id2">``</span></a>にある場合、Linguaを以下のようにインストールすることができます：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\&gt;</span> <span class="nv">%VENV%</span>\Scripts\pip install lingua
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="extracting-messages-from-code-and-templates">
-<span id="extracting-messages"></span><span id="index-5"></span><h3>Extracting Messages from Code and Templates<a class="headerlink" href="#extracting-messages-from-code-and-templates" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Once Lingua is installed, you may extract a message catalog template from the
-code and <a class="reference internal" href="../glossary.html#term-chameleon"><span class="xref std std-term">Chameleon</span></a> templates which reside in your <span>Pyramid</span>
-application.  You run a <code class="docutils literal notranslate"><span class="pre">pot-create</span></code> command to extract the messages:</p>
+<span id="extracting-messages"></span><span id="index-5"></span><h3>コードとテンプレートからのメッセージの抽出<a class="headerlink" href="#extracting-messages-from-code-and-templates" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Linguaがインストールされたら、app： <cite>Pyramid`アプリケーションにあるcode and：term：</cite> Chameleon`テンプレートからメッセージカタログテンプレートを抽出することができます。 `` pot-create``コマンドを実行してメッセージを抽出します：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /file/path/to/myapplication_setup.py
 $ mkdir -p myapplication/locale
 $ <span class="nv">$VENV</span>/bin/pot-create -o myapplication/locale/myapplication.pot src
 </pre></div>
 </div>
-<p>The message catalog <code class="docutils literal notranslate"><span class="pre">.pot</span></code> template will end up in
-<code class="docutils literal notranslate"><span class="pre">myapplication/locale/myapplication.pot</span></code>.</p>
+<p>メッセージカタログの `` .pot``テンプレートは `` myapplication / locale / myapplication.pot``に終ります。</p>
 </div>
 <div class="section" id="initializing-a-message-catalog-file">
-<span id="index-6"></span><h3>Initializing a Message Catalog File<a class="headerlink" href="#initializing-a-message-catalog-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Once you've extracted messages into a <code class="docutils literal notranslate"><span class="pre">.pot</span></code> file (see
-<a class="reference internal" href="#extracting-messages"><span class="std std-ref">Extracting Messages from Code and Templates</span></a>), to begin localizing the messages present in the
-<code class="docutils literal notranslate"><span class="pre">.pot</span></code> file, you need to generate at least one <code class="docutils literal notranslate"><span class="pre">.po</span></code> file. A <code class="docutils literal notranslate"><span class="pre">.po</span></code> file
-represents translations of a particular set of messages to a particular locale.
-Initialize a <code class="docutils literal notranslate"><span class="pre">.po</span></code> file for a specific locale from a pre-generated <code class="docutils literal notranslate"><span class="pre">.pot</span></code>
-template by using the <code class="docutils literal notranslate"><span class="pre">msginit</span></code> command from Gettext:</p>
+<span id="index-6"></span><h3>メッセージカタログファイルの初期化<a class="headerlink" href="#initializing-a-message-catalog-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` .pot``ファイルにメッセージを抽出したら（：ref： <cite>extraction_messages`を参照）、</cite> <cite>.pot``ファイルにあるメッセージのローカライズを開始するには、少なくとも一つの</cite> <cite>.pot``ファイルを生成する必要があります。 .po``ファイルです。 `</cite> .po``ファイルは特定のロケールへの特定のメッセージの翻訳を表します。 Gettextの `` msginit``コマンドを使って、あらかじめ生成された `` .pot``テンプレートから特定のロケール用の `` .po``ファイルを初期化します：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /file/path/to/myapplication_setup.py
 $ <span class="nb">cd</span> myapplication/locale
 $ mkdir -p es/LC_MESSAGES
 $ msginit -l es -o es/LC_MESSAGES/myapplication.po
 </pre></div>
 </div>
-<p>This will create a new message catalog <code class="docutils literal notranslate"><span class="pre">.po</span></code> file in
-<code class="docutils literal notranslate"><span class="pre">myapplication/locale/es/LC_MESSAGES/myapplication.po</span></code>.</p>
-<p>Once the file is there, it can be worked on by a human translator. One tool
-which may help with this is <a class="reference external" href="https://poedit.net/">Poedit</a>.</p>
-<p>Note that <span>Pyramid</span> itself ignores the existence of all <code class="docutils literal notranslate"><span class="pre">.po</span></code> files.
-For a running application to have translations available, a <code class="docutils literal notranslate"><span class="pre">.mo</span></code> file must
-exist.  See <a class="reference internal" href="#compiling-message-catalog"><span class="std std-ref">Compiling a Message Catalog File</span></a>.</p>
+<p>これにより、 `` myapplication / locale / es / LC_MESSAGES / myapplication.po``に新しいメッセージカタログ `` .po``ファイルが作成されます。</p>
+<p>ファイルがそこにあると、それは人間の翻訳者が作業することができます。これを助ける一つのツールは <a href="#id1"><span class="problematic" id="id2">`</span></a>Poedit &lt;<a class="reference external" href="https://poedit.net/">https://poedit.net/</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_。</p>
+<p>app： <cite>Pyramid`自体はすべての</cite> <cite>.po``ファイルの存在を無視しています。実行中のアプリケーションが翻訳を利用できるようにするには、 `</cite> .mo``ファイルが存在しなければなりません。参考文献：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>compiling_message_catalog`を参照してください。</p>
 </div>
 <div class="section" id="updating-a-catalog-file">
-<span id="index-7"></span><h3>Updating a Catalog File<a class="headerlink" href="#updating-a-catalog-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If more translation strings are added to your application, or translation
-strings change, you will need to update existing <code class="docutils literal notranslate"><span class="pre">.po</span></code> files based on changes
-to the <code class="docutils literal notranslate"><span class="pre">.pot</span></code> file, so that the new and changed messages can also be
-translated or re-translated.</p>
-<p>First, regenerate the <code class="docutils literal notranslate"><span class="pre">.pot</span></code> file as per <a class="reference internal" href="#extracting-messages"><span class="std std-ref">Extracting Messages from Code and Templates</span></a>. Then use
-the <code class="docutils literal notranslate"><span class="pre">msgmerge</span></code> command from Gettext.</p>
+<span id="index-7"></span><h3>カタログファイルの更新<a class="headerlink" href="#updating-a-catalog-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>アプリケーションに翻訳文字列が追加されたり、翻訳文字列が変更されたりすると、 `` .pot``ファイルの変更に基づいて既存の `` .po``ファイルを更新する必要があります。翻訳されるか、または再翻訳される。</p>
+<p>まず、：ref： <cite>extracted_messages`に従って</cite> <cite>.pot``ファイルを再生成します。次に、Gettextから `</cite> msgmerge``コマンドを使います。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /file/path/to/myapplication_setup.py
 $ <span class="nb">cd</span> myapplication/locale
 $ msgmerge --update es/LC_MESSAGES/myapplication.po myapplication.pot
@@ -353,30 +236,19 @@ $ msgmerge --update es/LC_MESSAGES/myapplication.po myapplication.pot
 </div>
 </div>
 <div class="section" id="compiling-a-message-catalog-file">
-<span id="compiling-message-catalog"></span><span id="index-8"></span><h3>Compiling a Message Catalog File<a class="headerlink" href="#compiling-a-message-catalog-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Finally, to prepare an application for performing actual runtime translations,
-compile <code class="docutils literal notranslate"><span class="pre">.po</span></code> files to <code class="docutils literal notranslate"><span class="pre">.mo</span></code> files using the <code class="docutils literal notranslate"><span class="pre">msgfmt</span></code> command from
-Gettext:</p>
+<span id="compiling-message-catalog"></span><span id="index-8"></span><h3>メッセージカタログファイルのコンパイル<a class="headerlink" href="#compiling-a-message-catalog-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>最後に、実際のランタイム変換を実行するためのアプリケーションを用意するには、Gettextの `` msgfmt``コマンドを使って `` .po``ファイルを `` .mo``ファイルにコンパイルします：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /file/path/to/myapplication_setup.py
 $ msgfmt -o myapplication/locale/es/LC_MESSAGES/myapplication.mo <span class="se">\</span>
       myapplication/locale/es/LC_MESSAGES/myapplication.po
 </pre></div>
 </div>
-<p>This will create a <code class="docutils literal notranslate"><span class="pre">.mo</span></code> file for each <code class="docutils literal notranslate"><span class="pre">.po</span></code> file in your application.  As
-long as the <a class="reference internal" href="../glossary.html#term-translation-directory"><span class="xref std std-term">translation directory</span></a> in which the <code class="docutils literal notranslate"><span class="pre">.mo</span></code> file ends up in
-is configured into your application (see
-<a class="reference internal" href="#adding-a-translation-directory"><span class="std std-ref">Adding a Translation Directory</span></a>), these translations will be available to
-<span>Pyramid</span>.</p>
+<p>これにより、アプリケーションの `` .po``ファイルごとに `` .mo``ファイルが作成されます。 `` .mo``ファイルが終わる：term： <cite>翻訳ディレクトリ &amp;#39;があなたのアプリケーションに設定されている限り（これらの翻訳は、app_</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
 </div>
 </div>
 <div class="section" id="using-a-localizer">
-<span id="index-9"></span><h2>Using a Localizer<a class="headerlink" href="#using-a-localizer" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A <a class="reference internal" href="../glossary.html#term-localizer"><span class="xref std std-term">localizer</span></a> is an object that allows you to perform translation or
-pluralization &quot;by hand&quot; in an application.  You may use the
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.localizer" title="pyramid.request.Request.localizer"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyramid.request.Request.localizer</span></code></a> attribute to obtain a
-<a class="reference internal" href="../glossary.html#term-localizer"><span class="xref std std-term">localizer</span></a>.  The localizer object will be configured to produce
-translations implied by the active <a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale negotiator</span></a>, or a default
-localizer object if no explicit locale negotiator is registered.</p>
+<span id="index-9"></span><h2>ローカライザの使用<a class="headerlink" href="#using-a-localizer" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>A：term： <cite>localizer`は、アプリケーション内で手で翻訳や複数形変換を行うためのオブジェクトです。 ：attr： `pyramid.request.Request.localizer`属性を使って：term：</cite> localizer`を取得することができます。ローカライザオブジェクトは、active：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>locale negotiator`によって暗黙の翻訳を生成するように設定されます。明示的ロケールネゴシエーターが登録されていない場合、デフォルトローカライザオブジェクトです。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">aview</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">localizer</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">localizer</span>
@@ -384,15 +256,11 @@ localizer object if no explicit locale negotiator is registered.</p>
 </td></tr></table></div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">If you need to create a localizer for a locale, use the
-<a class="reference internal" href="../api/i18n.html#pyramid.i18n.make_localizer" title="pyramid.i18n.make_localizer"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.i18n.make_localizer()</span></code></a> function.</p>
+<p class="last">ロケール用のローカライザーを作成する必要がある場合は、：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.i18n.make_localizer`関数を使用してください。</p>
 </div>
 <div class="section" id="performing-a-translation">
-<span id="index-10"></span><span id="id1"></span><h3>Performing a Translation<a class="headerlink" href="#performing-a-translation" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>A <a class="reference internal" href="../glossary.html#term-localizer"><span class="xref std std-term">localizer</span></a> has a <code class="docutils literal notranslate"><span class="pre">translate</span></code> method which accepts either a
-<a class="reference internal" href="../glossary.html#term-translation-string"><span class="xref std std-term">translation string</span></a> or a Unicode string and which returns a Unicode
-object representing the translation.  Generating a translation in a view
-component of an application might look like so:</p>
+<span id="index-10"></span><span id="id1"></span><h3>翻訳の実行<a class="headerlink" href="#performing-a-translation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>A：term： <cite>localizer`は：term：`翻訳文字列 `またはUnicode文字列のいずれかを受け取り、翻訳を表すUnicodeオブジェクトを返す</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>translate``メソッドを持っています。アプリケーションのビューコンポーネントで翻訳を生成すると、次のようになります。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -412,28 +280,21 @@ component of an application might look like so:</p>
     <span class="c1"># ... use translated ...</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">request.localizer</span></code> attribute will be a <a class="reference internal" href="../api/i18n.html#pyramid.i18n.Localizer" title="pyramid.i18n.Localizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.i18n.Localizer</span></code></a>
-object bound to the locale name represented by the request.  The translation
-returned from its <a class="reference internal" href="../api/i18n.html#pyramid.i18n.Localizer.translate" title="pyramid.i18n.Localizer.translate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.i18n.Localizer.translate()</span></code></a> method will depend
-on the <code class="docutils literal notranslate"><span class="pre">domain</span></code> attribute of the provided translation string as well as the
-locale of the localizer.</p>
+<p>`` request.localizer``属性は：class： <cite>pyramid.i18n.Localizer`オブジェクトで、要求によって表されるロケール名にバインドされます。 ：meth： `pyramid.i18n.Localizer.translate`メソッドから返される翻訳は、提供された翻訳文字列のローカライザのロケールと</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>domain``属性に依存します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">If you're using <a class="reference internal" href="../glossary.html#term-chameleon"><span class="xref std std-term">Chameleon</span></a> templates, you don't need to pre-translate
-translation strings this way.  See <a class="reference internal" href="#chameleon-translation-strings"><span class="std std-ref">Chameleon Template Support for Translation Strings</span></a>.</p>
+<p class="last">：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Chameleon`テンプレートを使用している場合、このように翻訳文字列をあらかじめ翻訳する必要はありません。参照：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>chameleon_translation_strings`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="performing-a-pluralization">
-<span id="index-11"></span><span id="id2"></span><h3>Performing a Pluralization<a class="headerlink" href="#performing-a-pluralization" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>A <a class="reference internal" href="../glossary.html#term-localizer"><span class="xref std std-term">localizer</span></a> has a <code class="docutils literal notranslate"><span class="pre">pluralize</span></code> method with the following signature:</p>
+<span id="index-11"></span><span id="id2"></span><h3>複数化の実行<a class="headerlink" href="#performing-a-pluralization" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>A：term： <cite>localizer`は以下のシグネチャを持つ</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>pluralize``メソッドを持っています：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pluralize</span><span class="p">(</span><span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </td></tr></table></div>
-<p>The simplest case is the <code class="docutils literal notranslate"><span class="pre">singular</span></code> and <code class="docutils literal notranslate"><span class="pre">plural</span></code> arguments being passed as
-Unicode literals. This returns the appropriate literal according to the locale
-pluralization rules for the number <code class="docutils literal notranslate"><span class="pre">n</span></code>, and interpolates <code class="docutils literal notranslate"><span class="pre">mapping</span></code>.</p>
+<p>最も単純なケースは、Unicodeリテラルとして渡される &amp;quot;単数形&amp;quot;と &amp;quot;複数形&amp;quot;の引数です。これは、数字 `` n``のロケール複数化規則に従って適切なリテラルを返し、 `` mapping``を補間します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -443,17 +304,9 @@ pluralization rules for the number <code class="docutils literal notranslate"><s
     <span class="c1"># ... use translated ...</span>
 </pre></div>
 </td></tr></table></div>
-<p>However, for support of other languages, the <code class="docutils literal notranslate"><span class="pre">singular</span></code> argument should be a
-Unicode value representing a <a class="reference internal" href="../glossary.html#term-message-identifier"><span class="xref std std-term">message identifier</span></a>.  In this case the
-<code class="docutils literal notranslate"><span class="pre">plural</span></code> value is ignored. <code class="docutils literal notranslate"><span class="pre">domain</span></code> should be a <a class="reference internal" href="../glossary.html#term-translation-domain"><span class="xref std std-term">translation domain</span></a>,
-and <code class="docutils literal notranslate"><span class="pre">mapping</span></code> should be a dictionary that is used for <em>replacement value</em>
-interpolation of the translated string.</p>
-<p>The value of <code class="docutils literal notranslate"><span class="pre">n</span></code> will be used to find the appropriate plural form for the
-current language, and <code class="docutils literal notranslate"><span class="pre">pluralize</span></code> will return a Unicode translation for the
-message id <code class="docutils literal notranslate"><span class="pre">singular</span></code>. The message file must have defined <code class="docutils literal notranslate"><span class="pre">singular</span></code> as a
-translation with plural forms.</p>
-<p>The argument provided as <code class="docutils literal notranslate"><span class="pre">singular</span></code> may be a <a class="reference internal" href="../glossary.html#term-translation-string"><span class="xref std std-term">translation string</span></a>
-object, but the domain and mapping information attached is ignored.</p>
+<p>しかし、他の言語のサポートのために、 `` singular``引数は：term： <cite>message identifier`を表すUnicode値でなければなりません。この場合、 `</cite> plural``値は無視されます。 「domain」は：term： <cite>translation domain`でなければならず、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>mapping``は翻訳された文字列の* replacement value <a href="#id3"><span class="problematic" id="id4">*</span></a>補間に使われる辞書でなければなりません。</p>
+<p>`` n``の値は現在の言語に対して適切な複数形を見つけるのに使われ、 `` pluralize``はメッセージid `` singular``のUnicode変換を返します。メッセージファイルは、複数形の翻訳として「単数形」を定義していなければなりません。</p>
+<p>`` singular``として提供される引数は：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>translation string`オブジェクトですが、添付されるドメインとマッピング情報は無視されます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -465,8 +318,7 @@ object, but the domain and mapping information attached is ignored.</p>
         <span class="n">num</span><span class="p">,</span> <span class="s1">&#39;mydomain&#39;</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;number&#39;</span><span class="p">:</span><span class="n">num</span><span class="p">})</span>
 </pre></div>
 </td></tr></table></div>
-<p>The corresponding message catalog must have language plural definitions and
-plural alternatives set.</p>
+<p>対応するメッセージカタログには、複数の言語定義と複数の代替案が設定されている必要があります。</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -482,28 +334,19 @@ msgstr[1] &quot;${number} item&quot;
 msgstr[2] &quot;${number} items&quot;
 </pre></div>
 </td></tr></table></div>
-<p>More information on complex plurals can be found in the <a class="reference external" href="https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/Plural-forms.html">gettext documentation</a>.</p>
+<p>複雑な複数形の詳細は、 <a href="#id1"><span class="problematic" id="id2">`</span></a>gettext documentation &lt;<a class="reference external" href="https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/Plural-forms.html">https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/Plural-forms.html</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_。</p>
 </div>
 </div>
 <div class="section" id="obtaining-the-locale-name-for-a-request">
-<span id="obtaining-the-locale-name"></span><span id="index-12"></span><h2>Obtaining the Locale Name for a Request<a class="headerlink" href="#obtaining-the-locale-name-for-a-request" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>You can obtain the locale name related to a request by using the
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.locale_name" title="pyramid.request.Request.locale_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.request.Request.locale_name()</span></code></a> attribute of the request.</p>
+<span id="obtaining-the-locale-name"></span><span id="index-12"></span><h2>リクエストのロケール名の取得<a class="headerlink" href="#obtaining-the-locale-name-for-a-request" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>リクエストに関連するロケール名は、リクエストの：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.request.Request.locale_name`属性を使用して取得できます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">aview</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">locale_name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">locale_name</span>
 </pre></div>
 </td></tr></table></div>
-<p>The locale name of a request is dynamically computed; it will be the locale
-name negotiated by the currently active <a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale negotiator</span></a>, or the
-<a class="reference internal" href="../glossary.html#term-default-locale-name"><span class="xref std std-term">default locale name</span></a> if the locale negotiator returns <code class="docutils literal notranslate"><span class="pre">None</span></code>. You can
-change the default locale name by changing the <code class="docutils literal notranslate"><span class="pre">pyramid.default_locale_name</span></code>
-setting. See <a class="reference internal" href="environment.html#default-locale-name-setting"><span class="std std-ref">Default Locale Name</span></a>.</p>
-<p>Once <a class="reference internal" href="../api/request.html#pyramid.request.Request.locale_name" title="pyramid.request.Request.locale_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale_name()</span></code></a> is first run, the locale name
-is stored on the request object.  Subsequent calls to
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.locale_name" title="pyramid.request.Request.locale_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale_name()</span></code></a> will return the stored locale name
-without invoking the <a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale negotiator</span></a>.  To avoid this caching, you can
-use the <a class="reference internal" href="../api/i18n.html#pyramid.i18n.negotiate_locale_name" title="pyramid.i18n.negotiate_locale_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.i18n.negotiate_locale_name()</span></code></a> function:</p>
+<p>要求のロケール名は動的に計算されます。ロケールネゴシエーターが `` None``を返す場合、それは現在アクティブな：term： <cite>locale negotiator`または：term：`デフォルトロケール名 `によって交渉されるロケール名になります。デフォルトのロケール名は `</cite> pyramid.default_locale_name``の設定を変更することで変更できます。参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>default_locale_name_setting`を参照してください。</p>
+<p>いったん：func： <cite>〜pyramid.request.Request.locale_name`が最初に実行されると、ロケール名はリクエストオブジェクトに格納されます。それ以降の：func： `〜pyramid.request.Request.locale_name`の呼び出しは、：term：</cite> locale negotiator`を呼び出さずに、格納されたロケール名を返します。このキャッシングを避けるには、：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.i18n.negotiate_locale_name`関数を使用します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -513,8 +356,7 @@ use the <a class="reference internal" href="../api/i18n.html#pyramid.i18n.negoti
     <span class="n">locale_name</span> <span class="o">=</span> <span class="n">negotiate_locale_name</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>You can also obtain the locale name related to a request using the
-<code class="docutils literal notranslate"><span class="pre">locale_name</span></code> attribute of a <a class="reference internal" href="../glossary.html#term-localizer"><span class="xref std std-term">localizer</span></a>.</p>
+<p>：term： <cite>localizer`の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>locale_name``属性を使ってリクエストに関連するロケール名を取得することもできます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">aview</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
@@ -522,22 +364,12 @@ use the <a class="reference internal" href="../api/i18n.html#pyramid.i18n.negoti
     <span class="n">locale_name</span> <span class="o">=</span> <span class="n">localizer</span><span class="o">.</span><span class="n">locale_name</span>
 </pre></div>
 </td></tr></table></div>
-<p>Obtaining the locale name as an attribute of a localizer is equivalent to
-obtaining a locale name by asking for the
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.locale_name" title="pyramid.request.Request.locale_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale_name()</span></code></a> attribute.</p>
+<p>ローカライザの属性としてロケール名を取得することは、：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.request.Request.locale_name`属性を要求することによってロケール名を取得することと同じです。</p>
 </div>
 <div class="section" id="performing-date-formatting-and-currency-formatting">
-<span id="index-13"></span><h2>Performing Date Formatting and Currency Formatting<a class="headerlink" href="#performing-date-formatting-and-currency-formatting" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><span>Pyramid</span> does not itself perform date and currency formatting for
-different locales.  However, <a class="reference internal" href="../glossary.html#term-babel"><span class="xref std std-term">Babel</span></a> can help you do this via the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">babel.core.Locale</span></code> class.  The <a class="reference external" href="http://babel.pocoo.org/en/latest/api/core.html#basic-interface">Babel documentation for this class</a> provides
-minimal information about how to perform date and currency related locale
-operations. See <a class="reference internal" href="#installing-babel"><span class="std std-ref">Installing Lingua and Gettext</span></a> for information about how to install
-Babel.</p>
-<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">babel.core.Locale</span></code> class requires a <a class="reference internal" href="../glossary.html#term-locale-name"><span class="xref std std-term">locale name</span></a> as an
-argument to its constructor. You can use <span>Pyramid</span> APIs to obtain the
-locale name for a request to pass to the <code class="xref py py-class docutils literal notranslate"><span class="pre">babel.core.Locale</span></code>
-constructor.  See <a class="reference internal" href="#obtaining-the-locale-name"><span class="std std-ref">Obtaining the Locale Name for a Request</span></a>.  For example:</p>
+<span id="index-13"></span><h2>日付書式設定および通貨書式設定の実行<a class="headerlink" href="#performing-date-formatting-and-currency-formatting" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <cite>Pyramid`はそれ自身で異なるロケールの日付と通貨の書式設定を行いません。しかし、：term： `Babel`は：class：</cite> babel.core.Locale`クラスでこれを行うのを助けることができます。このクラスの <a href="#id1"><span class="problematic" id="id2">`</span></a>Babelのドキュメント&lt;<a class="reference external" href="http://babel.pocoo.org/en/latest/api/core.html#basic-interface">http://babel.pocoo.org/en/latest/api/core.html#basic-interface</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_は、日付と通貨に関連するロケール操作の実行方法に関する最小限の情報を提供します。 Babelのインストール方法については、ref： <a href="#id5"><span class="problematic" id="id6">`</span></a>installation_babel`を参照してください。</p>
+<p>：class： <cite>babel.core.Locale`クラスは、コンストラクタへの引数として：term：</cite> locale name`を必要とします。 ：app： <cite>Pyramid</cite> APIを使って：class：` babel.core.Locale`コンストラクタに渡すリクエストのロケール名を取得できます。参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>obtain_the_locale_name`を参照してください。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -551,14 +383,9 @@ constructor.  See <a class="reference internal" href="#obtaining-the-locale-name
 </td></tr></table></div>
 </div>
 <div class="section" id="chameleon-template-support-for-translation-strings">
-<span id="chameleon-translation-strings"></span><span id="index-14"></span><h2>Chameleon Template Support for Translation Strings<a class="headerlink" href="#chameleon-template-support-for-translation-strings" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>When a <a class="reference internal" href="../glossary.html#term-translation-string"><span class="xref std std-term">translation string</span></a> is used as the subject of textual rendering
-by a <a class="reference internal" href="../glossary.html#term-chameleon"><span class="xref std std-term">Chameleon</span></a> template renderer, it will automatically be translated
-to the requesting user's language if a suitable translation exists. This is
-true of both the ZPT and text variants of the Chameleon template renderers.</p>
-<p>For example, in a Chameleon ZPT template, the translation string represented by
-&quot;some_translation_string&quot; in each example below will go through translation
-before being rendered:</p>
+<span id="chameleon-translation-strings"></span><span id="index-14"></span><h2>翻訳文字列のカメレオンテンプレートのサポート<a class="headerlink" href="#chameleon-template-support-for-translation-strings" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>a：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>翻訳文字列`がa：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>Chameleon`テンプレートレンダラーによるテキストレンダリングの対象として使用される場合、適切な翻訳が存在する場合、自動的に要求ユーザの言語に翻訳されます。これは、カメレオンテンプレートレンダラのZPTとテキストバリアントの両方に当てはまります。</p>
+<p>たとえば、カメレオンのZPTテンプレートでは、下の各例の&amp;quot;some_translation_string &amp;quot;で表される翻訳文字列がレンダリングされる前に翻訳されます。</p>
 <div class="highlight-xml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;span</span> <span class="na">tal:content=</span><span class="s">&quot;some_translation_string&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </td></tr></table></div>
@@ -571,47 +398,30 @@ before being rendered:</p>
 <div class="highlight-xml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;a</span> <span class="na">tal:attributes=</span><span class="s">&quot;href some_translation_string&quot;</span><span class="nt">&gt;</span>Click here<span class="nt">&lt;/a&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>The features represented by attributes of the <code class="docutils literal notranslate"><span class="pre">i18n</span></code> namespace of Chameleon
-will also consult the <span>Pyramid</span> translations. See
-<a class="reference external" href="https://chameleon.readthedocs.io/en/latest/reference.html#translation-i18n">https://chameleon.readthedocs.io/en/latest/reference.html#translation-i18n</a>.</p>
+<p>Chameleonの `` i18n``名前空間の属性によって表される機能は：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`の翻訳も参照します。 <a class="reference external" href="https://chameleon.readthedocs.io/en/latest/reference.html#translation">https://chameleon.readthedocs.io/en/latest/reference.html#translation</a>-i18nを参照してください。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Unlike when Chameleon is used outside of <span>Pyramid</span>, when it is used
-<em>within</em> <span>Pyramid</span>, it does not support use of the <code class="docutils literal notranslate"><span class="pre">zope.i18n</span></code>
-translation framework.  Applications which use <span>Pyramid</span> should use the
-features documented in this chapter rather than <code class="docutils literal notranslate"><span class="pre">zope.i18n</span></code>.</p>
+<p class="last">Chameleonが：app： <cite>Pyramid`の外で使用されているのとは異なり、*：*：app：</cite> Pyramid`内で使用された場合、 `` zope.i18n``翻訳フレームワークの使用はサポートされません。 app： <cite>Pyramid`を使うアプリケーションは、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>zope.i18n``ではなく、この章で説明している機能を使うべきです。</p>
 </div>
-<p>Third party <span>Pyramid</span> template renderers might not provide this support
-out of the box and may need special code to do an equivalent.  For those, you
-can always use the more manual translation facility described in
-<a class="reference internal" href="#performing-a-translation"><span class="std std-ref">Performing a Translation</span></a>.</p>
+<p>サードパーティー：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`テンプレートレンダラーがこのサポートを提供していない可能性があり、同等の機能を実行するために特別なコードが必要な場合があります。そのためには、：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>performing_a_translation`で説明されているより手作業の翻訳機能をいつでも使用できます。</p>
 </div>
 <div class="section" id="mako-pyramid-i18n-support">
-<span id="index-15"></span><h2>Mako Pyramid i18n Support<a class="headerlink" href="#mako-pyramid-i18n-support" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>There exists a recipe within the <a class="reference internal" href="../glossary.html#term-pyramid-community-cookbook"><span class="xref std std-term">Pyramid Community Cookbook</span></a> named
-<a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-cookbook/en/latest/templates/mako_i18n.html#mako-i18n" title="(in Pyramid Community Cookbook v0.2)"><span class="xref std std-ref">Mako Internationalization</span></a> which explains how to add
-idiomatic i18n support to <a class="reference internal" href="../glossary.html#term-mako"><span class="xref std std-term">Mako</span></a> templates.</p>
+<span id="index-15"></span><h2>マコピラミッドi18nサポート<a class="headerlink" href="#mako-pyramid-i18n-support" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>「ピラミッドコミュニティクックブック」という名前のレシピがあります：ref： <cite>Mako Internationalization &lt;cookbook:mako_i18n&gt; `は：term：</cite> Mako`テンプレートに慣用的なi18nサポートを追加する方法を説明しています。</p>
 </div>
 <div class="section" id="jinja2-pyramid-i18n-support">
-<span id="index-16"></span><h2>Jinja2 Pyramid i18n Support<a class="headerlink" href="#jinja2-pyramid-i18n-support" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The add-on <a class="reference external" href="https://github.com/Pylons/pyramid_jinja2">pyramid_jinja2</a>
-provides a scaffold with an example of how to use internationalization with
-Jinja2 in Pyramid. See the documentation sections <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest/#internalization-i18n">Internalization (i18n)</a>
-and <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest/#paster-template-i18n">Paster Template I18N</a>.</p>
+<span id="index-16"></span><h2>Jinja2ピラミッドi18nサポート<a class="headerlink" href="#jinja2-pyramid-i18n-support" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アドオンの <cite>pyramid_jinja2 &lt;https://github.com/Pylons/pyramid_jinja2&gt; `_はPyramidのJinja2で国際化を使用する方法の例を足場に提供します。ドキュメントの `内部化（i18n） &lt;https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest/#internalization-i18n&gt; `_ and</cite> Paster Template I18N &lt;<a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest/#paster-template-i18n">https://docs.pylonsproject.org/projects/pyramid-jinja2/en/latest/#paster-template-i18n</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_。</p>
 </div>
 <div class="section" id="localization-related-deployment-settings">
-<span id="localization-deployment-settings"></span><span id="index-17"></span><h2>Localization-Related Deployment Settings<a class="headerlink" href="#localization-related-deployment-settings" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A <span>Pyramid</span> application will have a <code class="docutils literal notranslate"><span class="pre">pyramid.default_locale_name</span></code>
-setting.  This value represents the <a class="reference internal" href="../glossary.html#term-default-locale-name"><span class="xref std std-term">default locale name</span></a> used when the
-<a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale negotiator</span></a> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.  Pass it to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Configurator</span></code></a> constructor at startup time:</p>
+<span id="localization-deployment-settings"></span><span id="index-17"></span><h2>ローカリゼーション関連の展開設定<a class="headerlink" href="#localization-related-deployment-settings" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>A：app： <cite>Pyramid`アプリケーションには</cite> <cite>pyramid.default_locale_name``という設定があります。この値は：term： `locale negotiator`が</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>None``を返すときに使われる：term：<a href="#id3"><span class="problematic" id="id4">`</span></a>デフォルトロケール名 <a href="#id5"><span class="problematic" id="id6">`</span></a>を表します。起動時に：mod： <a href="#id7"><span class="problematic" id="id8">`</span></a>〜pyramid.config.Configurator`コンストラクタに渡します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pyramid.default_locale_name&#39;</span><span class="p">:</span><span class="s1">&#39;de&#39;</span><span class="p">})</span>
 </pre></div>
 </td></tr></table></div>
-<p>You may alternately supply a <code class="docutils literal notranslate"><span class="pre">pyramid.default_locale_name</span></code> via an
-application's <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file:</p>
+<p>あなたは `` pyramid.default_locale_name``をアプリケーションの `` .ini``ファイルで指定することもできます：</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -625,10 +435,8 @@ application's <code class="docutils literal notranslate"><span class="pre">.ini<
 <span class="na">pyramid.default_locale_name</span> <span class="o">=</span> <span class="s">de</span>
 </pre></div>
 </td></tr></table></div>
-<p>If this value is not supplied via the Configurator constructor or via a config
-file, it will default to <code class="docutils literal notranslate"><span class="pre">en</span></code>.</p>
-<p>If this setting is supplied within the <span>Pyramid</span> application <code class="docutils literal notranslate"><span class="pre">.ini</span></code>
-file, it will be available as a settings key:</p>
+<p>この値がConfiguratorコンストラクタまたは設定ファイルを介して供給されない場合、デフォルトは `` en``になります。</p>
+<p>この設定が：app： <cite>Pyramid`アプリケーションの</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>.ini``ファイルで提供されている場合、それは設定キーとして利用できます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.threadlocal</span> <span class="kn">import</span> <span class="n">get_current_registry</span>
@@ -638,30 +446,13 @@ file, it will be available as a settings key:</p>
 </td></tr></table></div>
 </div>
 <div class="section" id="detecting-available-languages">
-<span id="index-18"></span><h2>&quot;Detecting&quot; Available Languages<a class="headerlink" href="#detecting-available-languages" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Other systems provide an API that returns the set of &quot;available languages&quot; as
-indicated by the union of all languages in all translation directories on disk
-at the time of the call to the API.</p>
-<p>It is by design that <span>Pyramid</span> doesn't supply such an API. Instead the
-application itself is responsible for knowing the &quot;available languages&quot;.  The
-rationale is this: any particular application deployment must always know which
-languages it should be translatable to anyway, regardless of which translation
-files are on disk.</p>
-<p>Here's why: it's not a given that because translations exist in a particular
-language within the registered set of translation directories that this
-particular deployment wants to allow translation to that language.  For
-example, some translations may exist but they may be incomplete or incorrect.
-Or there may be translations to a language but not for all translation domains.</p>
-<p>Any nontrivial application deployment will always need to be able to
-selectively choose to allow only some languages even if that set of languages
-is smaller than all those detected within registered translation directories.
-The easiest way to allow for this is to make the application entirely
-responsible for knowing which languages are allowed to be translated to instead
-of relying on the framework to divine this information from translation
-directory file info.</p>
-<p>You can set up a system to allow a deployer to select available languages based
-on convention by using the <a class="reference internal" href="../api/settings.html#module-pyramid.settings" title="pyramid.settings"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.settings</span></code></a> mechanism.</p>
-<p>Allow a deployer to modify your application's <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file:</p>
+<span id="index-18"></span><h2>&amp;quot;使用可能な言語の検出&amp;quot;<a class="headerlink" href="#detecting-available-languages" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>他のシステムでは、APIの呼び出し時にディスク上のすべての翻訳ディレクトリにあるすべての言語の組み合わせで示される&amp;quot;利用可能な言語&amp;quot;のセットを返すAPIが提供されています。</p>
+<p>それは設計上のものです：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はそのようなAPIを提供しません。代わりに、アプリケーション自体が&amp;quot;利用可能な言語&amp;quot;を知る責任があります。どのような翻訳ファイルがディスク上にあるかにかかわらず、特定のアプリケーション展開では常にどの言語に翻訳できるかを常に把握しておく必要があります。</p>
+<p>理由は次のとおりです。この特定の配備で登録されている翻訳ディレクトリ内の特定の言語に翻訳が存在するため、その言語への翻訳を許可したいからです。たとえば、一部の翻訳が存在する可能性がありますが、不完全または間違っている可能性があります。または、ある言語への翻訳があるかもしれませんが、すべての翻訳ドメインではありません。</p>
+<p>すべての重要なアプリケーションの配備は、登録された翻訳ディレクトリ内で検出されたすべての言語よりも言語セットが小さい場合でも、いくつかの言語のみを選択できるように選択する必要が常にあります。これを可能にする最も簡単な方法は、翻訳ディレクトリファイル情報からこの情報を抽出するためにフレームワークに頼るのではなく、どの言語を翻訳することができるかをアプリケーションが完全に認識できるようにすることです。</p>
+<p>配備者が：mod： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.settings`メカニズムを使って規約に基づいて利用可能な言語を選択できるようにシステムを設定することができます。</p>
+<p>デプロイヤーにアプリケーションの `` .ini``ファイルを変更させる：</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -671,7 +462,7 @@ on convention by using the <a class="reference internal" href="../api/settings.h
 <span class="na">available_languages</span> <span class="o">=</span> <span class="s">fr de en ru</span>
 </pre></div>
 </td></tr></table></div>
-<p>Then as a part of the code of a custom <a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale negotiator</span></a>:</p>
+<p>そして、カスタムのコードの一部として：用語： <cite>ロケールネゴシエーター</cite>：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -683,34 +474,20 @@ on convention by using the <a class="reference internal" href="../api/settings.h
     <span class="c1"># ...</span>
 </pre></div>
 </td></tr></table></div>
-<p>This is only a suggestion.  You can create your own &quot;available languages&quot;
-configuration scheme as necessary.</p>
+<p>これは単なる提案です。必要に応じて、独自の「使用可能な言語」構成スキームを作成できます。</p>
 <span class="target" id="index-19"></span></div>
 <div class="section" id="activating-translation">
-<span id="index-20"></span><span id="id3"></span><h2>Activating Translation<a class="headerlink" href="#activating-translation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>By default, a <span>Pyramid</span> application performs no translation. To turn
-translation on you must:</p>
+<span id="index-20"></span><span id="id3"></span><h2>翻訳の有効化<a class="headerlink" href="#activating-translation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>デフォルトでは、a：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションは翻訳を実行しません。翻訳を有効にするには、以下が必要です。</p>
 <ul class="simple">
-<li>add at least one <a class="reference internal" href="../glossary.html#term-translation-directory"><span class="xref std std-term">translation directory</span></a> to your application.</li>
-<li>ensure that your application sets the <a class="reference internal" href="../glossary.html#term-locale-name"><span class="xref std std-term">locale name</span></a> correctly.</li>
+<li>少なくとも1つ：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>翻訳ディレクトリ &amp;#39;をアプリケーションに追加してください。</li>
+<li>アプリケーションで：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>locale name`が正しく設定されていることを確認してください。</li>
 </ul>
 <div class="section" id="adding-a-translation-directory">
-<span id="index-21"></span><span id="id4"></span><h3>Adding a Translation Directory<a class="headerlink" href="#adding-a-translation-directory" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference internal" href="../glossary.html#term-gettext"><span class="xref std std-term">gettext</span></a> is the underlying machinery behind the <span>Pyramid</span>
-translation machinery.  A translation directory is a directory organized to be
-useful to <a class="reference internal" href="../glossary.html#term-gettext"><span class="xref std std-term">gettext</span></a>.  A translation directory usually includes a listing
-of language directories, each of which itself includes an <code class="docutils literal notranslate"><span class="pre">LC_MESSAGES</span></code>
-directory.  Each <code class="docutils literal notranslate"><span class="pre">LC_MESSAGES</span></code> directory should contain one or more <code class="docutils literal notranslate"><span class="pre">.mo</span></code>
-files. Each <code class="docutils literal notranslate"><span class="pre">.mo</span></code> file represents a <a class="reference internal" href="../glossary.html#term-message-catalog"><span class="xref std std-term">message catalog</span></a>, which is used to
-provide translations to your application.</p>
-<p>Adding a <a class="reference internal" href="../glossary.html#term-translation-directory"><span class="xref std std-term">translation directory</span></a> registers all of its constituent
-<a class="reference internal" href="../glossary.html#term-message-catalog"><span class="xref std std-term">message catalog</span></a> files within your <span>Pyramid</span> application to be
-available to use for translation services.  This includes all of the <code class="docutils literal notranslate"><span class="pre">.mo</span></code>
-files found within all <code class="docutils literal notranslate"><span class="pre">LC_MESSAGES</span></code> directories within each locale directory
-in the translation directory.</p>
-<p>You can add a translation directory imperatively by using the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_translation_dirs" title="pyramid.config.Configurator.add_translation_dirs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_translation_dirs()</span></code></a> during application
-startup.  For example:</p>
+<span id="index-21"></span><span id="id4"></span><h3>翻訳ディレクトリの追加<a class="headerlink" href="#adding-a-translation-directory" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：term： <cite>gettext`は：app：</cite> Pyramid`翻訳機構の背後にある基礎となる機械です。翻訳ディレクトリは、term： <cite>gettext`に役立つように編成されたディレクトリです。翻訳ディレクトリには通常、言語ディレクトリのリストが含まれており、それぞれに `</cite> LC_MESSAGES``ディレクトリがあります。それぞれの `` LC_MESSAGES``ディレクトリには、一つ以上の `` .mo``ファイルが含まれていなければなりません。各 `` .mo``ファイルは、アプリケーションに翻訳を提供するために使用される：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>message catalog`を表します。</p>
+<p>a：term： <cite>translation directory`を追加すると：app：</cite> Pyramid`アプリケーション内のterm： <cite>message catalog`ファイルがすべて翻訳サービスに使用できるように登録されます。これには、翻訳ディレクトリ内の各ロケールディレクトリ内のすべての `</cite> LC_MESSAGES``ディレクトリ内にある `` .mo``ファイルのすべてが含まれます。</p>
+<p>アプリケーションの起動時に、：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.add_translation_dirs`を使用して、変換ディレクトリを必須に追加できます。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
@@ -718,78 +495,42 @@ startup.  For example:</p>
                             <span class="s1">&#39;another.application:locale/&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>A message catalog in a translation directory added via
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_translation_dirs" title="pyramid.config.Configurator.add_translation_dirs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_translation_dirs()</span></code></a> will be merged into
-translations from a message catalog added earlier if both translation
-directories contain translations for the same locale and <a class="reference internal" href="../glossary.html#term-translation-domain"><span class="xref std std-term">translation
-domain</span></a>.</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.add_translation_dirs`を介して追加された翻訳ディレクトリ内のメッセージカタログは、両方の翻訳ディレクトリに同じロケールと：term：`翻訳ドメインの翻訳が含まれている場合、以前に追加されたメッセージカタログの翻訳にマージされます</cite>。</p>
 </div>
 <div class="section" id="setting-the-locale">
-<span id="index-22"></span><h3>Setting the Locale<a class="headerlink" href="#setting-the-locale" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>When the <em>default locale negotiator</em> (see <a class="reference internal" href="#default-locale-negotiator"><span class="std std-ref">The Default Locale Negotiator</span></a>) is
-in use, you can inform <span>Pyramid</span> of the current locale name by doing any
-of these things before any translations need to be performed:</p>
+<span id="index-22"></span><h3>ロケールの設定<a class="headerlink" href="#setting-the-locale" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>デフォルトのロケールネゴシエーター*（参照：ref： <cite>default_locale_negotiator`を参照）が使用されている場合、翻訳を実行する前にこれらのことを実行することによって、現在のロケール名のapp：</cite> Pyramid &amp;#39;</p>
 <ul class="simple">
-<li>Set the <code class="docutils literal notranslate"><span class="pre">_LOCALE_</span></code> attribute of the request to a valid locale name (usually
-directly within view code), e.g., <code class="docutils literal notranslate"><span class="pre">request._LOCALE_</span> <span class="pre">=</span> <span class="pre">'de'</span></code>.</li>
-<li>Ensure that a valid locale name value is in the <code class="docutils literal notranslate"><span class="pre">request.params</span></code> dictionary
-under the key named <code class="docutils literal notranslate"><span class="pre">_LOCALE_</span></code>.  This is usually the result of passing a
-<code class="docutils literal notranslate"><span class="pre">_LOCALE_</span></code> value in the query string or in the body of a form post
-associated with a request.  For example, visiting
-<code class="docutils literal notranslate"><span class="pre">http://my.application?_LOCALE_=de</span></code>.</li>
-<li>Ensure that a valid locale name value is in the <code class="docutils literal notranslate"><span class="pre">request.cookies</span></code>
-dictionary under the key named <code class="docutils literal notranslate"><span class="pre">_LOCALE_</span></code>.  This is usually the result of
-setting a <code class="docutils literal notranslate"><span class="pre">_LOCALE_</span></code> cookie in a prior response, e.g.,
-<code class="docutils literal notranslate"><span class="pre">response.set_cookie('_LOCALE_',</span> <span class="pre">'de')</span></code>.</li>
+<li>要求の `` _LOCALE_``属性を有効なロケール名（通常はビューコード内で直接）に設定します。たとえば、 `` request._LOCALE_ = &amp;#39;de&amp;#39;``です。</li>
+<li>有効なロケール名の値が、 `` _LOCALE_``という名前のキーの下にある `` request.params``ディクショナリにあることを確認してください。これは、通常、クエリ文字列または要求に関連付けられたフォームポストの本文に `` _LOCALE_``値を渡した結果です。たとえば、「http：//my.application？_LOCALE_ = de``にアクセスします。</li>
+<li>有効なロケール名の値が `` _LOCALE_``という名前のキーの下にある `` request.cookies``ディクショナリにあることを確認してください。これは、通常、 `` response.set_cookie（ &amp;#39;_ LOCALE_&amp;#39;、 &amp;#39;de&amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>のように、以前のレスポンスに `` _LOCALE_``クッキーを設定した結果です。</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">If this locale negotiation scheme is inappropriate for a particular
-application, you can configure a custom <a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale negotiator</span></a> function
-into that application as required.  See <a class="reference internal" href="#custom-locale-negotiator"><span class="std std-ref">Using a Custom Locale Negotiator</span></a>.</p>
+<p class="last">このロケールネゴシエーションスキームが特定のアプリケーションにとって不適切な場合は、必要に応じてそのアプリケーションにcustom：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>locale negotiator`関数を設定することができます。参照：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>custom_locale_negotiator`を参照してください。</p>
 </div>
 </div>
 </div>
 <div class="section" id="locale-negotiators">
-<span id="index-23"></span><span id="id5"></span><h2>Locale Negotiators<a class="headerlink" href="#locale-negotiators" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A <a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale negotiator</span></a> informs the operation of a <a class="reference internal" href="../glossary.html#term-localizer"><span class="xref std std-term">localizer</span></a> by
-telling it what <a class="reference internal" href="../glossary.html#term-locale-name"><span class="xref std std-term">locale name</span></a> is related to a particular request.  A
-locale negotiator is a bit of code which accepts a request and which returns a
-<a class="reference internal" href="../glossary.html#term-locale-name"><span class="xref std std-term">locale name</span></a>.  It is consulted when
-<a class="reference internal" href="../api/i18n.html#pyramid.i18n.Localizer.translate" title="pyramid.i18n.Localizer.translate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.i18n.Localizer.translate()</span></code></a> or
-<a class="reference internal" href="../api/i18n.html#pyramid.i18n.Localizer.pluralize" title="pyramid.i18n.Localizer.pluralize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.i18n.Localizer.pluralize()</span></code></a> is invoked.  It is also consulted when
-<a class="reference internal" href="../api/request.html#pyramid.request.Request.locale_name" title="pyramid.request.Request.locale_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale_name()</span></code></a> is accessed or when
-<a class="reference internal" href="../api/i18n.html#pyramid.i18n.negotiate_locale_name" title="pyramid.i18n.negotiate_locale_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">negotiate_locale_name()</span></code></a> is invoked.</p>
+<span id="index-23"></span><span id="id5"></span><h2>ロケールネゴシエーター<a class="headerlink" href="#locale-negotiators" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>A：term： <cite>locale negotiator`は：term：</cite> localizer`の動作に、 <cite>：locale name`が特定の要求に関連していることを伝えて通知します。ロケールネゴシエーターは、要求を受け取り、：term： `ロケール名`を返すコードです。それは：meth： `pyramid.i18n.Localizer.translate`または：meth：</cite> pyramid.i18n.Localizer.pluralize`が呼び出されたときに参照されます。それは：func： <cite>〜pyramid.request.Request.locale_name`がアクセスされたとき、または：func：</cite>〜pyramid.i18n.negotiate_locale_name`が呼び出されたときにも参照されます。</p>
 <div class="section" id="the-default-locale-negotiator">
-<span id="default-locale-negotiator"></span><h3>The Default Locale Negotiator<a class="headerlink" href="#the-default-locale-negotiator" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Most applications can make use of the default locale negotiator, which requires
-no additional coding or configuration.</p>
-<p>The default locale negotiator implementation named
-<a class="reference internal" href="../api/i18n.html#pyramid.i18n.default_locale_negotiator" title="pyramid.i18n.default_locale_negotiator"><code class="xref py py-class docutils literal notranslate"><span class="pre">default_locale_negotiator</span></code></a> uses the following set of
-steps to determine the locale name.</p>
+<span id="default-locale-negotiator"></span><h3>デフォルトロケールネゴシエーター<a class="headerlink" href="#the-default-locale-negotiator" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ほとんどのアプリケーションでは、デフォルトのロケールネゴシエーターを使用できます。追加のコーディングや構成は必要ありません。</p>
+<p>class： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.i18n.default_locale_negotiator`という名前のデフォルトのロケールネゴシエーター実装は、以下の一連のステップを使用してロケール名を決定します。</p>
 <ul class="simple">
-<li>First the negotiator looks for the <code class="docutils literal notranslate"><span class="pre">_LOCALE_</span></code> attribute of the request
-object (possibly set directly by view code or by a listener for an
-<a class="reference internal" href="../glossary.html#term-event"><span class="xref std std-term">event</span></a>).</li>
-<li>Then it looks for the <code class="docutils literal notranslate"><span class="pre">request.params['_LOCALE_']</span></code> value.</li>
-<li>Then it looks for the <code class="docutils literal notranslate"><span class="pre">request.cookies['_LOCALE_']</span></code> value.</li>
-<li>If no locale can be found via the request, it falls back to using the
-<a class="reference internal" href="../glossary.html#term-default-locale-name"><span class="xref std std-term">default locale name</span></a> (see <a class="reference internal" href="#localization-deployment-settings"><span class="std std-ref">Localization-Related Deployment Settings</span></a>).</li>
-<li>Finally if the default locale name is not explicitly set, it uses the locale
-name <code class="docutils literal notranslate"><span class="pre">en</span></code>.</li>
+<li>最初に、ネゴシエーターは要求オブジェクトの `` _LOCALE_``属性を探します（おそらく、ビューコードによって直接設定されるか、または：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>event`のリスナーによって設定されます）。</li>
+<li>それから、 `` request.params [&amp;#39;_ LOCALE _&amp;#39;] <a href="#id1"><span class="problematic" id="id2">``</span></a>の値を探します。</li>
+<li>それから、 `` request.cookies [&amp;#39;_ LOCALE _&amp;#39;] <a href="#id1"><span class="problematic" id="id2">``</span></a>の値を探します。</li>
+<li>リクエストによってロケールが見つからない場合は、：term： <cite>デフォルトのロケール名`（参照：ref： `localization_deployment_settings</cite>）を使用します。</li>
+<li>最後に、デフォルトロケール名が明示的に設定されていない場合は、ロケール名 `` en``を使用します。</li>
 </ul>
 </div>
 <div class="section" id="using-a-custom-locale-negotiator">
-<span id="custom-locale-negotiator"></span><h3>Using a Custom Locale Negotiator<a class="headerlink" href="#using-a-custom-locale-negotiator" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Locale negotiation is sometimes policy-laden and complex.  If the (simple)
-default locale negotiation scheme described in <a class="reference internal" href="#activating-translation"><span class="std std-ref">Activating Translation</span></a> is
-inappropriate for your application, you may create a special <a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale
-negotiator</span></a>.  Subsequently you may override the default locale negotiator by
-adding your newly created locale negotiator to your application's
-configuration.</p>
-<p>A locale negotiator is simply a callable which accepts a request and returns a
-single <a class="reference internal" href="../glossary.html#term-locale-name"><span class="xref std std-term">locale name</span></a> or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no locale can be determined.</p>
-<p>Here's an implementation of a simple locale negotiator:</p>
+<span id="custom-locale-negotiator"></span><h3>カスタムロケールネゴシエーターの使用<a class="headerlink" href="#using-a-custom-locale-negotiator" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ロケールネゴシエーションは時にはポリシーが重く複雑です。 ：ref： <cite>activating_translation`で説明されている（単純な）デフォルトのロケールネゴシエーションスキームがあなたのアプリケーションには不適切な場合、特別な：term：</cite> locale negotiator`を作成することができます。その後、新しく作成したロケールネゴシエーターをアプリケーションの構成に追加して、デフォルトのロケールネゴシエーターをオーバーライドすることができます。</p>
+<p>ロケールネゴシエーターは、単に要求を受け入れ、ロケールが決まらない場合には：term： <cite>ロケール名`または `</cite> None``を返します。</p>
+<p>単純なロケールネゴシエーターの実装を次に示します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_locale_negotiator</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
@@ -797,21 +538,15 @@ single <a class="reference internal" href="../glossary.html#term-locale-name"><s
     <span class="k">return</span> <span class="n">locale_name</span>
 </pre></div>
 </td></tr></table></div>
-<p>If a locale negotiator returns <code class="docutils literal notranslate"><span class="pre">None</span></code>, it signifies to <span>Pyramid</span> that
-the default application locale name should be used.</p>
-<p>You may add your newly created locale negotiator to your application's
-configuration by passing an object which can act as the negotiator (or a
-<a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted Python name</span></a> referring to the object) as the
-<code class="docutils literal notranslate"><span class="pre">locale_negotiator</span></code> argument of the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Configurator</span></code></a>
-instance during application startup.  For example:</p>
+<p>ロケールネゴシエーターが `` None``を返すと、デフォルトのアプリケーションロケール名を使用すべきであることをapp： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`に示します。</p>
+<p>：新しく作成したロケールネゴシエーターを、アプリケーションの設定に追加することができます。ネゴシエーターとして機能するオブジェクトを渡します（または：term： <cite>オブジェクトを参照する点線のPythonの名前</cite>）を：classの `` locale_negotiator``引数として渡します： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator`インスタンス。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">locale_negotiator</span><span class="o">=</span><span class="n">my_locale_negotiator</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Alternatively, use the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_locale_negotiator" title="pyramid.config.Configurator.set_locale_negotiator"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_locale_negotiator()</span></code></a> method.</p>
-<p>For example:</p>
+<p>代わりに、：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.set_locale_negotiator`メソッドを使用してください。</p>
+<p>例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
@@ -831,44 +566,44 @@ instance during application startup.  For example:</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Internationalization and Localization</a><ul>
-<li><a class="reference internal" href="#creating-a-translation-string">Creating a Translation String</a><ul>
-<li><a class="reference internal" href="#using-the-translationstring-class">Using the <code class="docutils literal notranslate"><span class="pre">TranslationString</span></code> Class</a></li>
-<li><a class="reference internal" href="#using-the-translationstringfactory-class">Using the <code class="docutils literal notranslate"><span class="pre">TranslationStringFactory</span></code> Class</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) 国際化とローカリゼーション</a><ul>
+<li><a class="reference internal" href="#creating-a-translation-string">変換文字列の作成</a><ul>
+<li><a class="reference internal" href="#using-the-translationstring-class">`` TranslationString``クラスの使用</a></li>
+<li><a class="reference internal" href="#using-the-translationstringfactory-class">`` TranslationStringFactory``クラスの使用</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#working-with-gettext-translation-files">Working with <code class="docutils literal notranslate"><span class="pre">gettext</span></code> Translation Files</a><ul>
-<li><a class="reference internal" href="#installing-lingua-and-gettext">Installing Lingua and Gettext</a><ul>
-<li><a class="reference internal" href="#installation-on-unix">Installation on UNIX</a></li>
-<li><a class="reference internal" href="#installation-on-windows">Installation on Windows</a></li>
+<li><a class="reference internal" href="#working-with-gettext-translation-files">`` gettext``翻訳ファイルの操作</a><ul>
+<li><a class="reference internal" href="#installing-lingua-and-gettext">LinguaとGettextのインストール</a><ul>
+<li><a class="reference internal" href="#installation-on-unix">UNIXへのインストール</a></li>
+<li><a class="reference internal" href="#installation-on-windows">Windowsへのインストール</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#extracting-messages-from-code-and-templates">Extracting Messages from Code and Templates</a></li>
-<li><a class="reference internal" href="#initializing-a-message-catalog-file">Initializing a Message Catalog File</a></li>
-<li><a class="reference internal" href="#updating-a-catalog-file">Updating a Catalog File</a></li>
-<li><a class="reference internal" href="#compiling-a-message-catalog-file">Compiling a Message Catalog File</a></li>
+<li><a class="reference internal" href="#extracting-messages-from-code-and-templates">コードとテンプレートからのメッセージの抽出</a></li>
+<li><a class="reference internal" href="#initializing-a-message-catalog-file">メッセージカタログファイルの初期化</a></li>
+<li><a class="reference internal" href="#updating-a-catalog-file">カタログファイルの更新</a></li>
+<li><a class="reference internal" href="#compiling-a-message-catalog-file">メッセージカタログファイルのコンパイル</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#using-a-localizer">Using a Localizer</a><ul>
-<li><a class="reference internal" href="#performing-a-translation">Performing a Translation</a></li>
-<li><a class="reference internal" href="#performing-a-pluralization">Performing a Pluralization</a></li>
+<li><a class="reference internal" href="#using-a-localizer">ローカライザの使用</a><ul>
+<li><a class="reference internal" href="#performing-a-translation">翻訳の実行</a></li>
+<li><a class="reference internal" href="#performing-a-pluralization">複数化の実行</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#obtaining-the-locale-name-for-a-request">Obtaining the Locale Name for a Request</a></li>
-<li><a class="reference internal" href="#performing-date-formatting-and-currency-formatting">Performing Date Formatting and Currency Formatting</a></li>
-<li><a class="reference internal" href="#chameleon-template-support-for-translation-strings">Chameleon Template Support for Translation Strings</a></li>
-<li><a class="reference internal" href="#mako-pyramid-i18n-support">Mako Pyramid i18n Support</a></li>
-<li><a class="reference internal" href="#jinja2-pyramid-i18n-support">Jinja2 Pyramid i18n Support</a></li>
-<li><a class="reference internal" href="#localization-related-deployment-settings">Localization-Related Deployment Settings</a></li>
-<li><a class="reference internal" href="#detecting-available-languages">&quot;Detecting&quot; Available Languages</a></li>
-<li><a class="reference internal" href="#activating-translation">Activating Translation</a><ul>
-<li><a class="reference internal" href="#adding-a-translation-directory">Adding a Translation Directory</a></li>
-<li><a class="reference internal" href="#setting-the-locale">Setting the Locale</a></li>
+<li><a class="reference internal" href="#obtaining-the-locale-name-for-a-request">リクエストのロケール名の取得</a></li>
+<li><a class="reference internal" href="#performing-date-formatting-and-currency-formatting">日付書式設定および通貨書式設定の実行</a></li>
+<li><a class="reference internal" href="#chameleon-template-support-for-translation-strings">翻訳文字列のカメレオンテンプレートのサポート</a></li>
+<li><a class="reference internal" href="#mako-pyramid-i18n-support">マコピラミッドi18nサポート</a></li>
+<li><a class="reference internal" href="#jinja2-pyramid-i18n-support">Jinja2ピラミッドi18nサポート</a></li>
+<li><a class="reference internal" href="#localization-related-deployment-settings">ローカリゼーション関連の展開設定</a></li>
+<li><a class="reference internal" href="#detecting-available-languages">&amp;quot;使用可能な言語の検出&amp;quot;</a></li>
+<li><a class="reference internal" href="#activating-translation">翻訳の有効化</a><ul>
+<li><a class="reference internal" href="#adding-a-translation-directory">翻訳ディレクトリの追加</a></li>
+<li><a class="reference internal" href="#setting-the-locale">ロケールの設定</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#locale-negotiators">Locale Negotiators</a><ul>
-<li><a class="reference internal" href="#the-default-locale-negotiator">The Default Locale Negotiator</a></li>
-<li><a class="reference internal" href="#using-a-custom-locale-negotiator">Using a Custom Locale Negotiator</a></li>
+<li><a class="reference internal" href="#locale-negotiators">ロケールネゴシエーター</a><ul>
+<li><a class="reference internal" href="#the-default-locale-negotiator">デフォルトロケールネゴシエーター</a></li>
+<li><a class="reference internal" href="#using-a-custom-locale-negotiator">カスタムロケールネゴシエーターの使用</a></li>
 </ul>
 </li>
 </ul>
@@ -877,10 +612,10 @@ instance during application startup.  For example:</p>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="commandline.html"
-                        title="前の章へ">Command-Line Pyramid</a></p>
+                        title="前の章へ">(機械翻訳) コマンドラインピラミッド</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="vhosting.html"
-                        title="次の章へ">Virtual Hosting</a></p>
+                        title="次の章へ">(機械翻訳) 仮想ホスティング</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -914,17 +649,17 @@ instance during application startup.  For example:</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="vhosting.html" title="Virtual Hosting"
+          <a href="vhosting.html" title="(機械翻訳) 仮想ホスティング"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="commandline.html" title="Command-Line Pyramid"
+          <a href="commandline.html" title="(機械翻訳) コマンドラインピラミッド"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

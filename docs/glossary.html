@@ -128,7 +128,7 @@ separates a Python <a class="reference internal" href="#term-package"><span clas
 For example, the asset specification
 <code class="docutils literal notranslate"><span class="pre">my.package:static/baz.css</span></code> identifies the file named
 <code class="docutils literal notranslate"><span class="pre">baz.css</span></code> in the <code class="docutils literal notranslate"><span class="pre">static</span></code> subdirectory of the <code class="docutils literal notranslate"><span class="pre">my.package</span></code>
-Python <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a>.  See <a class="reference internal" href="narr/assets.html#asset-specifications"><span class="std std-ref">Understanding Asset Specifications</span></a> for more
+Python <a class="reference internal" href="#term-package"><span class="xref std std-term">package</span></a>.  See <a class="reference internal" href="narr/assets.html#asset-specifications"><span class="std std-ref">資産の仕様の理解</span></a> for more
 info.</dd>
 <dt id="term-authentication">authentication</dt>
 <dd>The act of determining that the credentials a user presents
@@ -159,7 +159,7 @@ Babel to operate, but if Babel is installed, additional locale
 functionality becomes available to your application.</dd>
 <dt id="term-cache-busting">cache busting</dt>
 <dd>A technique used when serving a cacheable static asset in order to force
-a client to query the new version of the asset. See <a class="reference internal" href="narr/assets.html#cache-busting"><span class="std std-ref">Cache Busting</span></a>
+a client to query the new version of the asset. See <a class="reference internal" href="narr/assets.html#cache-busting"><span class="std std-ref">キャッシュバスト</span></a>
 for more information.</dd>
 <dt id="term-chameleon">Chameleon</dt>
 <dd><a class="reference external" href="https://chameleon.readthedocs.io/en/latest/">chameleon</a> is an
@@ -187,7 +187,7 @@ attributes, such as <a class="reference internal" href="api/view.html#pyramid.vi
 <dd>A method of the <a class="reference internal" href="#term-configurator"><span class="xref std std-term">Configurator</span></a> which causes a configuration action
 to occur.  The method <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_view()</span></code></a> is a
 configuration directive, and application developers can add their own
-directives as necessary (see <a class="reference internal" href="narr/extconfig.html#add-directive"><span class="std std-ref">Adding Methods to the Configurator via add_directive</span></a>).</dd>
+directives as necessary (see <a class="reference internal" href="narr/extconfig.html#add-directive"><span class="std std-ref">`` add_directive``を使ってコンフィグレータにメソッドを追加する</span></a>).</dd>
 <dt id="term-configurator">configurator</dt>
 <dd>An object used to do <a class="reference internal" href="#term-configuration-declaration"><span class="xref std std-term">configuration declaration</span></a> within an
 application.  The most common configurator is an instance of the
@@ -196,9 +196,9 @@ application.  The most common configurator is an instance of the
 <dd>Pyramid attempts to resolve ambiguous configuration statements made by
 application developers via automatic conflict resolution.  Automatic
 conflict resolution is described in
-<a class="reference internal" href="narr/advconfig.html#automatic-conflict-resolution"><span class="std std-ref">Automatic Conflict Resolution</span></a>.  If Pyramid cannot resolve
+<a class="reference internal" href="narr/advconfig.html#automatic-conflict-resolution"><span class="std std-ref">自動競合解決</span></a>.  If Pyramid cannot resolve
 ambiguous configuration statements, it is possible to manually resolve
-them as described in <a class="reference internal" href="narr/advconfig.html#manually-resolving-conflicts"><span class="std std-ref">Manually Resolving Conflicts</span></a>.</dd>
+them as described in <a class="reference internal" href="narr/advconfig.html#manually-resolving-conflicts"><span class="std std-ref">競合の手動解決</span></a>.</dd>
 <dt id="term-console-script">console script</dt>
 <dd>A script written to the <code class="docutils literal notranslate"><span class="pre">bin</span></code> (on UNIX, or <code class="docutils literal notranslate"><span class="pre">Scripts</span></code> on Windows)
 directory of a Python installation or <a class="reference internal" href="#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a> as the
@@ -210,8 +210,8 @@ it's usually a <a class="reference internal" href="#term-resource"><span class="
 if it's found via <a class="reference internal" href="#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>, it's an object manufactured on
 behalf of the route's &quot;factory&quot;.  A context resource becomes the subject
 of a <a class="reference internal" href="#term-view"><span class="xref std std-term">view</span></a>, and often has security information attached to
-it.  See the <a class="reference internal" href="narr/traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a> chapter and the
-<a class="reference internal" href="narr/urldispatch.html#urldispatch-chapter"><span class="std std-ref">URL Dispatch</span></a> chapter for more information about how a URL
+it.  See the <a class="reference internal" href="narr/traversal.html#traversal-chapter"><span class="std std-ref">(機械翻訳) トラバーサル</span></a> chapter and the
+<a class="reference internal" href="narr/urldispatch.html#urldispatch-chapter"><span class="std std-ref">(機械翻訳) URLディスパッチ</span></a> chapter for more information about how a URL
 is resolved to a context resource.</dd>
 <dt id="term-context-manager">context manager</dt>
 <dd>A context manager is an object that defines the runtime context to be established when executing a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with" title="(in Python v3.7)"><span class="xref std std-ref">with</span></a> statement in Python. The context manager handles the entry into, and the exit from, the desired runtime context for the execution of the block of code. Context managers are normally invoked using the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement, but can also be used by directly invoking their methods. Pyramid adds context managers for <a class="reference internal" href="api/config.html#pyramid.config.Configurator" title="pyramid.config.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.config.Configurator</span></code></a>, <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.IRouter.request_context" title="pyramid.interfaces.IRouter.request_context"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.interfaces.IRouter.request_context()</span></code></a>, <a class="reference internal" href="api/paster.html#pyramid.paster.bootstrap" title="pyramid.paster.bootstrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.paster.bootstrap()</span></code></a>, <a class="reference internal" href="api/scripting.html#pyramid.scripting.prepare" title="pyramid.scripting.prepare"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.scripting.prepare()</span></code></a>, and <a class="reference internal" href="api/testing.html#pyramid.testing.testConfig" title="pyramid.testing.testConfig"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.testing.testConfig()</span></code></a>. See also the Python documentation for <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#context-managers" title="(in Python v3.7)"><span class="xref std std-ref">With Statement Context Managers</span></a> and <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0343"><strong>PEP 343</strong></a>.</dd>
@@ -258,7 +258,7 @@ used for configuration and return value modification purposes.</p>
 </dd>
 <dt id="term-default-locale-name">Default Locale Name</dt>
 <dd>The <a class="reference internal" href="#term-locale-name"><span class="xref std std-term">locale name</span></a> used by an application when no explicit
-locale name is set.  See <a class="reference internal" href="narr/i18n.html#localization-deployment-settings"><span class="std std-ref">Localization-Related Deployment Settings</span></a>.</dd>
+locale name is set.  See <a class="reference internal" href="narr/i18n.html#localization-deployment-settings"><span class="std std-ref">ローカリゼーション関連の展開設定</span></a>.</dd>
 <dt id="term-default-permission">default permission</dt>
 <dd><p class="first">A <a class="reference internal" href="#term-permission"><span class="xref std std-term">permission</span></a> which is registered as the default for an
 entire application.  When a default permission is in effect,
@@ -269,7 +269,7 @@ order to successfully execute the associated <a class="reference internal" href=
 callable</span></a>.</p>
 <div class="last admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="narr/security.html#setting-a-default-permission"><span class="std std-ref">Setting a Default Permission</span></a>.</p>
+<p class="last">See also <a class="reference internal" href="narr/security.html#setting-a-default-permission"><span class="std std-ref">既定のアクセス許可の設定</span></a>.</p>
 </div>
 </dd>
 <dt id="term-default-root-factory">default root factory</dt>
@@ -327,7 +327,7 @@ distribution.</dd>
 during normal <span>Pyramid</span> system operations during the
 lifetime of an application.  Application code can subscribe to
 these events by using the subscriber functionality described in
-<a class="reference internal" href="narr/events.html#events-chapter"><span class="std std-ref">Using Events</span></a>.</dd>
+<a class="reference internal" href="narr/events.html#events-chapter"><span class="std std-ref">(機械翻訳) イベントの使用</span></a>.</dd>
 <dt id="term-exception-response">exception response</dt>
 <dd>A <a class="reference internal" href="#term-response"><span class="xref std std-term">response</span></a> that is generated as the result of a raised exception
 being caught by an <a class="reference internal" href="#term-exception-view"><span class="xref std std-term">exception view</span></a>.</dd>
@@ -346,7 +346,7 @@ See <a class="reference internal" href="api/config.html#pyramid.config.Configura
 <dt id="term-finished-callback">finished callback</dt>
 <dd>A user-defined callback executed by the <a class="reference internal" href="#term-router"><span class="xref std std-term">router</span></a>
 unconditionally at the very end of request processing .  See
-<a class="reference internal" href="narr/hooks.html#using-finished-callbacks"><span class="std std-ref">Using Finished Callbacks</span></a>.</dd>
+<a class="reference internal" href="narr/hooks.html#using-finished-callbacks"><span class="std std-ref">終了コールバックの使用</span></a>.</dd>
 <dt id="term-forbidden-view">Forbidden view</dt>
 <dd>An <a class="reference internal" href="#term-exception-view"><span class="xref std std-term">exception view</span></a> invoked by <span>Pyramid</span> when the developer
 explicitly raises a <a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPForbidden" title="pyramid.httpexceptions.HTTPForbidden"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.httpexceptions.HTTPForbidden</span></code></a>
@@ -354,7 +354,7 @@ exception from within <a class="reference internal" href="#term-view"><span clas
 or when the <a class="reference internal" href="#term-view-configuration"><span class="xref std std-term">view configuration</span></a> and <a class="reference internal" href="#term-authorization-policy"><span class="xref std std-term">authorization policy</span></a>
 found for a request disallows a particular view invocation.
 <span>Pyramid</span> provides a default implementation of a forbidden view;
-it can be overridden.  See <a class="reference internal" href="narr/hooks.html#changing-the-forbidden-view"><span class="std std-ref">Changing the Forbidden View</span></a>.</dd>
+it can be overridden.  See <a class="reference internal" href="narr/hooks.html#changing-the-forbidden-view"><span class="std std-ref">禁止されたビューの変更</span></a>.</dd>
 <dt id="term-genshi">Genshi</dt>
 <dd>An <a class="reference external" href="https://pypi.org/project/Genshi/">XML templating language</a>
 by Christopher Lenz.</dd>
@@ -483,7 +483,7 @@ application.  It is retrieved via the
 <a class="reference internal" href="api/i18n.html#pyramid.i18n.get_localizer" title="pyramid.i18n.get_localizer"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.i18n.get_localizer()</span></code></a> function.</dd>
 <dt id="term-location">location</dt>
 <dd>The path to an object in a <a class="reference internal" href="#term-resource-tree"><span class="xref std std-term">resource tree</span></a>.  See
-<a class="reference internal" href="narr/resources.html#location-aware"><span class="std std-ref">Location-Aware Resources</span></a> for more information about how to make a resource
+<a class="reference internal" href="narr/resources.html#location-aware"><span class="std std-ref">位置認識リソース</span></a> for more information about how to make a resource
 object <em>location-aware</em>.</dd>
 <dt id="term-mako">Mako</dt>
 <dd><a class="reference external" href="http://www.makotemplates.org/">Mako</a> is a template language
@@ -523,7 +523,7 @@ the extension <code class="docutils literal notranslate"><span class="pre">.py</
 <dd>An ordered dictionary that can have multiple values for each key. Adds
 the methods <code class="docutils literal notranslate"><span class="pre">getall</span></code>, <code class="docutils literal notranslate"><span class="pre">getone</span></code>, <code class="docutils literal notranslate"><span class="pre">mixed</span></code>, <code class="docutils literal notranslate"><span class="pre">add</span></code> and
 <code class="docutils literal notranslate"><span class="pre">dict_of_lists</span></code> to the normal dictionary interface.  See
-<a class="reference internal" href="narr/webob.html#multidict-narr"><span class="std std-ref">Multidict</span></a> and <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.IMultiDict" title="pyramid.interfaces.IMultiDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IMultiDict</span></code></a>.</dd>
+<a class="reference internal" href="narr/webob.html#multidict-narr"><span class="std std-ref">マルチディック</span></a> and <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.IMultiDict" title="pyramid.interfaces.IMultiDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IMultiDict</span></code></a>.</dd>
 <dt id="term-mutable">mutable</dt>
 <dd>In Python, a value is mutable if it can be changed <em>in place</em>.
 The Python <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code> types are mutable.
@@ -536,7 +536,7 @@ exception from within <a class="reference internal" href="#term-view"><span clas
 or when the current request doesn't match any <a class="reference internal" href="#term-view-configuration"><span class="xref std std-term">view
 configuration</span></a>.  <span>Pyramid</span> provides a default implementation of a
 Not Found View; it can be overridden.  See
-<a class="reference internal" href="narr/hooks.html#changing-the-notfound-view"><span class="std std-ref">Changing the Not Found View</span></a>.</dd>
+<a class="reference internal" href="narr/hooks.html#changing-the-notfound-view"><span class="std std-ref">見つからないビューの変更</span></a>.</dd>
 <dt id="term-package">package</dt>
 <dd>A directory on disk which contains an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file, making
 it recognizable to Python as a location which can be <code class="docutils literal notranslate"><span class="pre">import</span></code> -ed.
@@ -567,7 +567,7 @@ object, e.g. <code class="docutils literal notranslate"><span class="pre">('',</
 <dt id="term-physical-root">physical root</dt>
 <dd>The object returned by the application <a class="reference internal" href="#term-root-factory"><span class="xref std std-term">root factory</span></a>.
 Unlike the <a class="reference internal" href="#term-virtual-root"><span class="xref std std-term">virtual root</span></a> of a request, it is not impacted by
-<a class="reference internal" href="narr/vhosting.html#vhosting-chapter"><span class="std std-ref">Virtual Hosting</span></a>: it will always be the actual object returned by
+<a class="reference internal" href="narr/vhosting.html#vhosting-chapter"><span class="std std-ref">(機械翻訳) 仮想ホスティング</span></a>: it will always be the actual object returned by
 the root factory, never a subobject.</dd>
 <dt id="term-pip">pip</dt>
 <dd>The <a class="reference internal" href="#term-python-packaging-authority"><span class="xref std std-term">Python Packaging Authority</span></a>'s recommended tool for installing
@@ -602,7 +602,7 @@ and a <a class="reference internal" href="#term-route-predicate"><span class="xr
 <dt id="term-predicate-factory">predicate factory</dt>
 <dd>A callable which is used by a third party during the registration of a
 route, view, or subscriber predicates to extend the configuration
-system.  See <a class="reference internal" href="narr/hooks.html#registering-thirdparty-predicates"><span class="std std-ref">Adding a Third Party View, Route, or Subscriber Predicate</span></a> for more
+system.  See <a class="reference internal" href="narr/hooks.html#registering-thirdparty-predicates"><span class="std std-ref">第三者のビュー、ルート、またはサブスクライバの述語を追加する</span></a> for more
 information.</dd>
 <dt id="term-pregenerator">pregenerator</dt>
 <dd>A pregenerator is a function associated by a developer with a
@@ -688,10 +688,10 @@ but it was deprecated in 3.6 in favor of <code class="docutils literal notransla
 <a class="reference internal" href="#term-view"><span class="xref std std-term">view</span></a> into a string, and ultimately into a response, usually
 through <a class="reference internal" href="#term-view-configuration"><span class="xref std std-term">view configuration</span></a>. Using a renderer can make writing
 views that require templating or other serialization, like JSON, less
-tedious. See <a class="reference internal" href="narr/renderers.html#views-which-use-a-renderer"><span class="std std-ref">Writing View Callables Which Use a Renderer</span></a> for more information.</dd>
+tedious. See <a class="reference internal" href="narr/renderers.html#views-which-use-a-renderer"><span class="std std-ref">レンダラーを使用するビュー呼び出し可能コードの記述</span></a> for more information.</dd>
 <dt id="term-renderer-factory">renderer factory</dt>
 <dd>A factory which creates a <a class="reference internal" href="#term-renderer"><span class="xref std std-term">renderer</span></a>.  See
-<a class="reference internal" href="narr/renderers.html#adding-and-overriding-renderers"><span class="std std-ref">Adding and Changing Renderers</span></a> for more information.</dd>
+<a class="reference internal" href="narr/renderers.html#adding-and-overriding-renderers"><span class="std std-ref">レンダラーの追加と変更</span></a> for more information.</dd>
 <dt id="term-renderer-globals">renderer globals</dt>
 <dd>Values injected as names into a renderer by a
 <code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.event.BeforeRender</span></code> event.</dd>
@@ -718,8 +718,8 @@ provide authentication information.</dd>
 <span>Pyramid</span> to form a workflow system.</dd>
 <dt id="term-request">request</dt>
 <dd>An object that represents an HTTP request, usually an instance of the
-<a class="reference internal" href="api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a> class.  See <a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">Request and Response Objects</span></a>
-(narrative) and <a class="reference internal" href="api/request.html#request-module"><span class="std std-ref">pyramid.request</span></a> (API documentation) for
+<a class="reference internal" href="api/request.html#pyramid.request.Request" title="pyramid.request.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.request.Request</span></code></a> class.  See <a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">(機械翻訳) 要求オブジェクトと応答オブジェクト</span></a>
+(narrative) and <a class="reference internal" href="api/request.html#request-module"><span class="std std-ref">(機械翻訳) pyramid.request</span></a> (API documentation) for
 information about request objects.</dd>
 <dt id="term-request-factory">request factory</dt>
 <dd>An object which, provided a <a class="reference internal" href="#term-wsgi"><span class="xref std std-term">WSGI</span></a> environment as a single
@@ -752,17 +752,17 @@ data returned to the requesting user agent.  It must implement the
 <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.IResponse" title="pyramid.interfaces.IResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IResponse</span></code></a> interface.  A response object is
 typically an instance of the <a class="reference internal" href="api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> class or
 a subclass such as <a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.HTTPFound" title="pyramid.httpexceptions.HTTPFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.httpexceptions.HTTPFound</span></code></a>.  See
-<a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">Request and Response Objects</span></a> for information about response objects.</dd>
+<a class="reference internal" href="narr/webob.html#webob-chapter"><span class="std std-ref">(機械翻訳) 要求オブジェクトと応答オブジェクト</span></a> for information about response objects.</dd>
 <dt id="term-response-adapter">response adapter</dt>
 <dd>A callable which accepts an arbitrary object and &quot;converts&quot; it to a
-<a class="reference internal" href="api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> object.  See <a class="reference internal" href="narr/hooks.html#using-iresponse"><span class="std std-ref">Changing How Pyramid Treats View Responses</span></a>
+<a class="reference internal" href="api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> object.  See <a class="reference internal" href="narr/hooks.html#using-iresponse"><span class="std std-ref">ピラミッドが応答を見る方法を変える</span></a>
 for more information.</dd>
 <dt id="term-response-callback">response callback</dt>
 <dd><p class="first">A user-defined callback executed by the <a class="reference internal" href="#term-router"><span class="xref std std-term">router</span></a> at a
 point after a <a class="reference internal" href="#term-response"><span class="xref std std-term">response</span></a> object is successfully created.</p>
 <div class="last admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="narr/hooks.html#using-response-callbacks"><span class="std std-ref">Using Response Callbacks</span></a>.</p>
+<p class="last">See also <a class="reference internal" href="narr/hooks.html#using-response-callbacks"><span class="std std-ref">応答コールバックの使用</span></a>.</p>
 </div>
 </dd>
 <dt id="term-response-factory">response factory</dt>
@@ -798,7 +798,7 @@ ultimately a <a class="reference internal" href="#term-view"><span class="xref s
 <dt id="term-route-configuration">route configuration</dt>
 <dd>Route configuration is the act of associating request parameters with a
 particular <a class="reference internal" href="#term-route"><span class="xref std std-term">route</span></a> using pattern matching and <a class="reference internal" href="#term-route-predicate"><span class="xref std std-term">route
-predicate</span></a> statements.  See <a class="reference internal" href="narr/urldispatch.html#urldispatch-chapter"><span class="std std-ref">URL Dispatch</span></a> for more
+predicate</span></a> statements.  See <a class="reference internal" href="narr/urldispatch.html#urldispatch-chapter"><span class="std std-ref">(機械翻訳) URLディスパッチ</span></a> for more
 information about route configuration.</dd>
 <dt id="term-route-predicate">route predicate</dt>
 <dd>An argument to a <a class="reference internal" href="#term-route-configuration"><span class="xref std std-term">route configuration</span></a> which implies a value
@@ -821,7 +821,7 @@ mappings. The URL pattern matching syntax in <span>Pyramid</span> is inspired by
 the Routes syntax (which was inspired by Ruby On Rails pattern syntax).</dd>
 <dt id="term-routes-mapper">routes mapper</dt>
 <dd>An object which compares path information from a request to an
-ordered set of route patterns.  See <a class="reference internal" href="narr/urldispatch.html#urldispatch-chapter"><span class="std std-ref">URL Dispatch</span></a>.</dd>
+ordered set of route patterns.  See <a class="reference internal" href="narr/urldispatch.html#urldispatch-chapter"><span class="std std-ref">(機械翻訳) URLディスパッチ</span></a>.</dd>
 <dt id="term-scaffold">scaffold</dt>
 <dd><p class="first">A project template that generates some of the major parts of a Pyramid
 application and helps users to quickly get started writing larger
@@ -845,8 +845,8 @@ application.</dd>
 <dt id="term-session-factory">session factory</dt>
 <dd>A callable, which, when called with a single argument named <code class="docutils literal notranslate"><span class="pre">request</span></code>
 (a <a class="reference internal" href="#term-request"><span class="xref std std-term">request</span></a> object), returns a <a class="reference internal" href="#term-session"><span class="xref std std-term">session</span></a> object.  See
-<a class="reference internal" href="narr/sessions.html#using-the-default-session-factory"><span class="std std-ref">Using the Default Session Factory</span></a>,
-<a class="reference internal" href="narr/sessions.html#using-alternate-session-factories"><span class="std std-ref">Using Alternate Session Factories</span></a> and
+<a class="reference internal" href="narr/sessions.html#using-the-default-session-factory"><span class="std std-ref">デフォルトセッションファクトリの使用</span></a>,
+<a class="reference internal" href="narr/sessions.html#using-alternate-session-factories"><span class="std std-ref">代替セッションファクトリの使用</span></a> and
 <a class="reference internal" href="api/config.html#pyramid.config.Configurator.set_session_factory" title="pyramid.config.Configurator.set_session_factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_session_factory()</span></code></a> for more
 information.</dd>
 <dt id="term-setuptools">setuptools</dt>
@@ -875,11 +875,11 @@ performed a successful traversal to a view.  The subpath is a
 sequence of strings, e.g. <code class="docutils literal notranslate"><span class="pre">['left',</span> <span class="pre">'over',</span> <span class="pre">'names']</span></code>.  Within
 Pyramid applications that use URL dispatch rather than traversal, you
 can use <code class="docutils literal notranslate"><span class="pre">*subpath</span></code> in the route pattern to influence the
-subpath.  See <a class="reference internal" href="narr/hybrid.html#star-subpath"><span class="std std-ref">Using *subpath in a Route Pattern</span></a> for more information.</dd>
+subpath.  See <a class="reference internal" href="narr/hybrid.html#star-subpath"><span class="std std-ref">ルートパターンで `` * subpath``を使う</span></a> for more information.</dd>
 <dt id="term-subscriber">subscriber</dt>
 <dd>A callable which receives an <a class="reference internal" href="#term-event"><span class="xref std std-term">event</span></a>.  A callable becomes a
 subscriber via <a class="reference internal" href="#term-imperative-configuration"><span class="xref std std-term">imperative configuration</span></a> or via
-<a class="reference internal" href="#term-configuration-decoration"><span class="xref std std-term">configuration decoration</span></a>.  See <a class="reference internal" href="narr/events.html#events-chapter"><span class="std std-ref">Using Events</span></a> for more
+<a class="reference internal" href="#term-configuration-decoration"><span class="xref std std-term">configuration decoration</span></a>.  See <a class="reference internal" href="narr/events.html#events-chapter"><span class="std std-ref">(機械翻訳) イベントの使用</span></a> for more
 information.</dd>
 <dt id="term-template">template</dt>
 <dd>A file with replaceable parts that is capable of representing some
@@ -889,7 +889,7 @@ text, XML, or HTML when rendered.</dd>
 in terms of how it is accessed and treated, however, each <a class="reference external" href="https://en.wikipedia.org/wiki/Thread_(computer_science)">thread</a> used by the
 application may have a different value for this same &quot;global&quot; variable.
 <span>Pyramid</span> uses a small number of thread local variables, as
-described in <a class="reference internal" href="narr/threadlocals.html#threadlocals-chapter"><span class="std std-ref">Thread Locals</span></a>.</p>
+described in <a class="reference internal" href="narr/threadlocals.html#threadlocals-chapter"><span class="std std-ref">(機械翻訳) スレッドローカル</span></a>.</p>
 <div class="last admonition seealso">
 <p class="first admonition-title">参考</p>
 <p class="last">See also the <a class="reference external" href="https://docs.python.org/3/library/threading.html#threading.local" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">stdlib</span> <span class="pre">documentation</span></code></a>
@@ -922,7 +922,7 @@ extra attributes such as <code class="docutils literal notranslate"><span class=
 for use during translation.  Translation strings are usually
 created by hand within software, but are sometimes created on the
 behalf of the system for automatic template translation.  For
-more information, see <a class="reference internal" href="narr/i18n.html#i18n-chapter"><span class="std std-ref">Internationalization and Localization</span></a>.</dd>
+more information, see <a class="reference internal" href="narr/i18n.html#i18n-chapter"><span class="std std-ref">(機械翻訳) 国際化とローカリゼーション</span></a>.</dd>
 <dt id="term-translator">Translator</dt>
 <dd>A callable which receives a <a class="reference internal" href="#term-translation-string"><span class="xref std std-term">translation string</span></a> and returns a
 translated Unicode object for the purposes of internationalization.  A
@@ -933,9 +933,9 @@ accessible via its <a class="reference internal" href="api/i18n.html#pyramid.i18
 resource in order to find a <a class="reference internal" href="#term-context"><span class="xref std std-term">context</span></a> resource.  The
 <span>Pyramid</span> <a class="reference internal" href="#term-router"><span class="xref std std-term">router</span></a> performs traversal of resource objects
 when a <a class="reference internal" href="#term-root-factory"><span class="xref std std-term">root factory</span></a> is specified.  See the
-<a class="reference internal" href="narr/traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a> chapter for more information.  Traversal can be
+<a class="reference internal" href="narr/traversal.html#traversal-chapter"><span class="std std-ref">(機械翻訳) トラバーサル</span></a> chapter for more information.  Traversal can be
 performed <em>instead</em> of <a class="reference internal" href="#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> or can be combined <em>with</em>
-URL dispatch.  See <a class="reference internal" href="narr/hybrid.html#hybrid-chapter"><span class="std std-ref">Combining Traversal and URL Dispatch</span></a> for more information about
+URL dispatch.  See <a class="reference internal" href="narr/hybrid.html#hybrid-chapter"><span class="std std-ref">(機械翻訳) トラバーサルとURLディスパッチの組み合わせ</span></a> for more information about
 combining traversal and URL dispatch (advanced).</dd>
 <dt id="term-truthy-string">truthy string</dt>
 <dd>A string represeting a value of <code class="docutils literal notranslate"><span class="pre">True</span></code>. Acceptable values are
@@ -951,13 +951,13 @@ WSGI application, or a variety of other features.  Tweens behave a bit
 like <a class="reference internal" href="#term-wsgi"><span class="xref std std-term">WSGI</span></a> <a class="reference internal" href="#term-middleware"><span class="xref std std-term">middleware</span></a> but they have the benefit of running in a
 context in which they have access to the Pyramid <a class="reference internal" href="#term-application-registry"><span class="xref std std-term">application
 registry</span></a> as well as the Pyramid rendering machinery.  See
-<a class="reference internal" href="narr/hooks.html#registering-tweens"><span class="std std-ref">Registering Tweens</span></a>.</dd>
+<a class="reference internal" href="narr/hooks.html#registering-tweens"><span class="std std-ref">Tweensの登録</span></a>.</dd>
 <dt id="term-url-dispatch">URL dispatch</dt>
 <dd>An alternative to <a class="reference internal" href="#term-traversal"><span class="xref std std-term">traversal</span></a> as a mechanism for locating a
 <a class="reference internal" href="#term-context"><span class="xref std std-term">context</span></a> resource for a <a class="reference internal" href="#term-view"><span class="xref std std-term">view</span></a>.  When you use a
 <a class="reference internal" href="#term-route"><span class="xref std std-term">route</span></a> in your <span>Pyramid</span> application via a <a class="reference internal" href="#term-route-configuration"><span class="xref std std-term">route
 configuration</span></a>, you are using URL dispatch. See the
-<a class="reference internal" href="narr/urldispatch.html#urldispatch-chapter"><span class="std std-ref">URL Dispatch</span></a> for more information.</dd>
+<a class="reference internal" href="narr/urldispatch.html#urldispatch-chapter"><span class="std std-ref">(機械翻訳) URLディスパッチ</span></a> for more information.</dd>
 <dt id="term-userid">userid</dt>
 <dd>A <em>userid</em> is a string or Unicode object used to identify and authenticate
 a real-world user or client. A userid is supplied to an
@@ -1002,7 +1002,7 @@ map a given <a class="reference internal" href="#term-request"><span class="xref
 influence the response of a view callable.  <span>Pyramid</span> views can be
 configured via <a class="reference internal" href="#term-imperative-configuration"><span class="xref std std-term">imperative configuration</span></a>, or by a special
 <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator coupled with a <a class="reference internal" href="#term-scan"><span class="xref std std-term">scan</span></a>.  See
-<a class="reference internal" href="narr/viewconfig.html#view-config-chapter"><span class="std std-ref">View Configuration</span></a> for more information about view
+<a class="reference internal" href="narr/viewconfig.html#view-config-chapter"><span class="std std-ref">(機械翻訳) 設定を表示</span></a> for more information about view
 configuration.</dd>
 <dt id="term-view-deriver">view deriver</dt>
 <dd>A view deriver is a composable component of the view pipeline which is
@@ -1040,7 +1040,7 @@ given request.</dd>
 use by a particular application, rather than being installed system wide.</dd>
 <dt id="term-virtual-root">virtual root</dt>
 <dd>A resource object representing the &quot;virtual&quot; root of a request; this is
-typically the <a class="reference internal" href="#term-physical-root"><span class="xref std std-term">physical root</span></a> object unless <a class="reference internal" href="narr/vhosting.html#vhosting-chapter"><span class="std std-ref">Virtual Hosting</span></a>
+typically the <a class="reference internal" href="#term-physical-root"><span class="xref std std-term">physical root</span></a> object unless <a class="reference internal" href="narr/vhosting.html#vhosting-chapter"><span class="std std-ref">(機械翻訳) 仮想ホスティング</span></a>
 is in use.</dd>
 <dt id="term-virtualenv">virtualenv</dt>
 <dd><p class="first">The <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv tool</a> that allows
@@ -1137,7 +1137,7 @@ templating language.</dd>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

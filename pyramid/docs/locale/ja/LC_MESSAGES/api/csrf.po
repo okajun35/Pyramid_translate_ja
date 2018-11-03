@@ -7,68 +7,58 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../api/csrf.rst:4
 msgid ":mod:`pyramid.csrf`"
-msgstr ""
+msgstr "(機械翻訳) :mod:`pyramid.csrf`"
 
 #: of pyramid.csrf.LegacySessionCSRFStoragePolicy:1
 msgid "A CSRF storage policy that defers control of CSRF storage to the session."
-msgstr ""
+msgstr "セッションへのCSRFストレージの制御を代行するCSRFストレージポリシー。"
 
 #: of pyramid.csrf.LegacySessionCSRFStoragePolicy:4
 msgid ""
 "This policy maintains compatibility with legacy ISession implementations "
 "that know how to manage CSRF tokens themselves via "
 "``ISession.new_csrf_token`` and ``ISession.get_csrf_token``."
-msgstr ""
+msgstr "このポリシーは、 `` ISession.new_csrf_token``と `` ISession.get_csrf_token``を介してCSRFトークンを管理する方法を知っているレガシーISession実装との互換性を維持します。"
 
 #: of pyramid.csrf.LegacySessionCSRFStoragePolicy:8
 #: pyramid.csrf.SessionCSRFStoragePolicy:3
 msgid ""
 "Note that using this CSRF implementation requires that a :term:`session "
 "factory` is configured."
-msgstr ""
+msgstr "このCSRF実装を使用するには、a：term： `session factory`が設定されている必要があります。"
 
 #: of pyramid.csrf.CookieCSRFStoragePolicy.check_csrf_token:1
 #: pyramid.csrf.LegacySessionCSRFStoragePolicy.check_csrf_token:1
 #: pyramid.csrf.SessionCSRFStoragePolicy.check_csrf_token:1
 msgid "Returns ``True`` if the ``supplied_token`` is valid."
-msgstr ""
+msgstr "`` given_token``が有効であれば `` True``を返します。"
 
 #: of pyramid.csrf.LegacySessionCSRFStoragePolicy.get_csrf_token:1
 #: pyramid.csrf.SessionCSRFStoragePolicy.get_csrf_token:1
 msgid ""
 "Returns the currently active CSRF token from the session, generating a "
 "new one if needed."
-msgstr ""
+msgstr "セッションから現在アクティブなCSRFトークンを返し、必要に応じて新しいトークンを生成します。"
 
 #: of pyramid.csrf.LegacySessionCSRFStoragePolicy.new_csrf_token:1
 #: pyramid.csrf.SessionCSRFStoragePolicy.new_csrf_token:1
 msgid "Sets a new CSRF token into the session and returns it."
-msgstr ""
+msgstr "新しいCSRFトークンをセッションに設定して返します。"
 
 #: of pyramid.csrf.SessionCSRFStoragePolicy:1
 msgid "A CSRF storage policy that persists the CSRF token in the session."
-msgstr ""
+msgstr "セッションでCSRFトークンを保持するCSRFストレージポリシー。"
 
 #: of pyramid.csrf.SessionCSRFStoragePolicy:6
 msgid "``key``"
-msgstr ""
+msgstr "``キー ``"
 
 #: of pyramid.csrf.SessionCSRFStoragePolicy:8
 msgid "The session key where the CSRF token will be stored. Default: `_csrft_`."
-msgstr ""
+msgstr "CSRFトークンが格納されるセッションキー。デフォルト： `_csrft_`。"
 
 #: of pyramid.csrf.CookieCSRFStoragePolicy:1
 msgid ""
@@ -79,37 +69,37 @@ msgid ""
 "Double_Submit_Cookie>`_. This gives some additional flexibility with "
 "regards to scaling as the tokens can be generated and verified by a "
 "front-end server."
-msgstr ""
+msgstr "「OWASP CSRFガイドライン」の「Double Submit Cookie」メソッドとして知られている認証されていないクッキーに情報を格納する代替CSRF実装<https://www.owasp.org/index.php/ Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet# Double_Submit_Cookie> `_。フロントエンドサーバーでトークンを生成して検証できるようになるため、スケーリングに関していくつかの柔軟性があります。"
 
 #: of pyramid.csrf.CookieCSRFStoragePolicy.get_csrf_token:1
 msgid ""
 "Returns the currently active CSRF token by checking the cookies sent with"
 " the current request."
-msgstr ""
+msgstr "現在のリクエストで送信されたCookieをチェックすることにより、現在アクティブなCSRFトークンを返します。"
 
 #: of pyramid.csrf.CookieCSRFStoragePolicy.new_csrf_token:1
 msgid "Sets a new CSRF token into the request and returns it."
-msgstr ""
+msgstr "新しいCSRFトークンを要求に設定して返します。"
 
 #: of pyramid.csrf.get_csrf_token:1
 msgid ""
 "Get the currently active CSRF token for the request passed, generating a "
 "new one using ``new_csrf_token(request)`` if one does not exist. This "
 "calls the equivalent method in the chosen CSRF protection implementation."
-msgstr ""
+msgstr "渡されたリクエストに対して現在アクティブなCSRFトークンを取得し、存在しない場合は `` new_csrf_token（request） ``を使って新しいCSRFトークンを生成します。これにより、選択されたCSRF保護の実装で同等のメソッドが呼び出されます。"
 
 #: of pyramid.csrf.new_csrf_token:1
 msgid ""
 "Generate a new CSRF token for the request passed and persist it in an "
 "implementation defined manner. This calls the equivalent method in the "
 "chosen CSRF protection implementation."
-msgstr ""
+msgstr "渡された要求に対して新しいCSRFトークンを生成し、実装定義の方法で永続化します。これにより、選択されたCSRF保護の実装で同等のメソッドが呼び出されます。"
 
 #: of pyramid.csrf.check_csrf_origin:1
 msgid ""
 "Check the ``Origin`` of the request to see if it is a cross site request "
 "or not."
-msgstr ""
+msgstr "リクエストの `` Origin``をチェックして、クロスサイトリクエストかどうかを調べます。"
 
 #: of pyramid.csrf.check_csrf_origin:4
 msgid ""
@@ -119,7 +109,7 @@ msgid ""
 "``raises`` is ``False``, this function will return ``False`` instead. If "
 "the CSRF origin checks are successful this function will return ``True`` "
 "unconditionally."
-msgstr ""
+msgstr "`` Origin``や `` Referer``ヘッダーで指定された値が信頼できる起点ではなく、 `` raise``が `` True``の場合、この関数は：exc： `ピラミッドを生成します。 exceptions.BadCSRFOrigin`例外がありますが、 `` raise``が `` False``の場合、この関数は代わりに `` False``を返します。 CSRF起点チェックが成功した場合、この関数は無条件に `` True``を返します。"
 
 #: of pyramid.csrf.check_csrf_origin:10
 msgid ""
@@ -128,17 +118,17 @@ msgid ""
 "in with the ``trusted_origins`` parameter. If ``trusted_origins`` is "
 "``None`` (the default) this list of additional domains will be pulled "
 "from the ``pyramid.csrf_trusted_origins`` setting."
-msgstr ""
+msgstr "追加の信頼できる起点は、 `` [&#39;example.com&#39;、 &#39;dev.example.com:8080&#39;] ``のような非標準的な場合はドメインのリストを `` trusted_origins``に渡すことで追加できますパラメータ。 `` trusted_origins``が `` None``（デフォルト）の場合、この追加ドメインのリストは `` pyramid.csrf_trusted_origins``設定から引き出されます。"
 
 #: of pyramid.csrf.check_csrf_origin:16
 msgid ""
 "Note that this function will do nothing if ``request.scheme`` is not "
 "``https``."
-msgstr ""
+msgstr "`` request.scheme``が `` https``でなければ、この関数は何もしません。"
 
 #: of pyramid.csrf.check_csrf_origin:21
 msgid "Moved from :mod:`pyramid.session` to :mod:`pyramid.csrf`"
-msgstr ""
+msgstr "mod： `pyramid.session`から：mod：` pyramid.csrf`に移動しました。"
 
 #: of pyramid.csrf.check_csrf_token:1
 msgid ""
@@ -150,7 +140,7 @@ msgid ""
 "token in ``request.POST``. If a ``header`` keyword is not supplied to "
 "this function, the string ``X-CSRF-Token`` will be used to look up the "
 "token in ``request.headers``."
-msgstr ""
+msgstr "：class： `pyramid.interfaces.ICSRFStoragePolicy`実装から返されたCSRFトークンを、` `request.POST.get（token）` `（POSTリクエストの場合）または` `request.headers.get（header ） ``。この関数に `` token``キーワードが与えられていない場合、文字列 `` csrf_token``が `` request.POST``のトークンを検索するために使われます。この関数に `` header``キーワードが与えられていない場合、文字列 `` X-CSRF-Token``が `` request.headers``でトークンを検索するために使われます。"
 
 #: of pyramid.csrf.check_csrf_token:10
 msgid ""
@@ -161,25 +151,25 @@ msgid ""
 "and ``raises`` is ``False``, this function will return ``False``.  If the"
 " CSRF check is successful, this function will return ``True`` "
 "unconditionally."
-msgstr ""
+msgstr "post：またはheaderで指定された値が：class： `pyramid.interfaces.ICSRFStoragePolicy`で検証できず、` `raise``が` `True``の場合、この関数は：exc：` pyramid.exceptions .BadCSRFToken`例外です。値が異なり、 `` raise``が `` False``の場合、この関数は `` False``を返します。 CSRFチェックが成功すると、この関数は無条件に `` True``を返します。"
 
 #: of pyramid.csrf.check_csrf_token:18
 msgid ""
 "See :ref:`auto_csrf_checking` for information about how to secure your "
 "application automatically against CSRF attacks."
-msgstr ""
+msgstr "CSRF攻撃に対して自動的にアプリケーションを保護する方法については、ref： `auto_csrf_checking`を参照してください。"
 
 #: of pyramid.csrf.check_csrf_token:23
 msgid ""
 "A CSRF token passed in the query string of the request is no longer "
 "considered valid. It must be passed in either the request body or a "
 "header."
-msgstr ""
+msgstr "要求のクエリー文字列で渡されたCSRFトークンは、もはや有効とみなされません。要求本体またはヘッダーのいずれかに渡す必要があります。"
 
 #: of pyramid.csrf.check_csrf_token:28
 msgid ""
 "Moved from :mod:`pyramid.session` to :mod:`pyramid.csrf` and updated to "
 "use the configured :class:`pyramid.interfaces.ICSRFStoragePolicy` to "
 "verify the CSRF token."
-msgstr ""
+msgstr "mod： `pyramid.session`をmod：` pyramid.csrf`に移動し、configured：class： `pyramid.interfaces.ICSRFStoragePolicy`を使用してCSRFトークンを検証するように更新しました。"
 

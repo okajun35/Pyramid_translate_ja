@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/renderers.rst:4
 msgid "Renderers"
-msgstr ""
+msgstr "(機械翻訳) レンダラー"
 
 #: ../../narr/renderers.rst:6
 msgid ""
@@ -28,7 +18,7 @@ msgid ""
 "view happens to return something which does not implement the Pyramid "
 "Response interface, :app:`Pyramid` will attempt to use a :term:`renderer`"
 " to construct a response.  For example:"
-msgstr ""
+msgstr "ビュー呼び出し可能なものは常に：term： `Response`オブジェクトを返す必要はありません。ビューがPyramidレスポンスインターフェイスを実装していないものを返す場合、：app： `Pyramid`は：term：` renderer`を使ってレスポンスを作成しようとします。例えば："
 
 #: ../../narr/renderers.rst:20
 msgid ""
@@ -40,7 +30,7 @@ msgid ""
 ":func:`~pyramid.view.view_config`), if the view does *not* return a "
 "Response object, the renderer will attempt to convert the result of the "
 "view to a response on the developer's behalf."
-msgstr ""
+msgstr "上の例は、呼び出し可能なビューから*辞書*を返します。ディクショナリはPyramidレスポンスインターフェイスを実装していないので、この例が失敗すると思われるかもしれません。しかし、 `` renderer``は：term： `view configuration`（この場合、` `renderer``引数を使って：func：`〜pyramid.view.view_config``に渡すことができるビューに関連付けられています。 ）、ビューがResponseオブジェクトを返さない*場合、レンダラーはビューの結果を開発者に代わってレスポンスに変換しようとします。"
 
 #: ../../narr/renderers.rst:28
 msgid ""
@@ -49,24 +39,24 @@ msgid ""
 "interface will result in an error.  And, if a renderer *is* used, "
 "whatever is returned by the view must be compatible with the particular "
 "kind of renderer used, or an error may occur during view invocation."
-msgstr ""
+msgstr "もちろん、レンダラーがビューの構成に関連付けられていない場合は、Responseインターフェイスを実装するオブジェクト以外を返すとエラーになります。レンダラー*が使用されている場合、ビューによって返されるものは、使用される特定の種類のレンダラーと互換性がなければならず、ビューの呼び出し中にエラーが発生する可能性があります。"
 
 #: ../../narr/renderers.rst:34
 msgid ""
 "One exception exists: it is *always* OK to return a Response object, even"
 " when a ``renderer`` is configured.  In such cases, the renderer is "
 "bypassed entirely."
-msgstr ""
+msgstr "1つの例外が存在します。レンダラーが設定されている場合でも、Responseオブジェクトを返すことは常に* OKです。そのような場合、レンダラーは完全にバイパスされます。"
 
 #: ../../narr/renderers.rst:38
 msgid ""
 "Various types of renderers exist, including serialization renderers and "
 "renderers which use templating systems."
-msgstr ""
+msgstr "シリアライズレンダラーやテンプレートシステムを使用するレンダラーなど、さまざまなタイプのレンダラーが存在します。"
 
 #: ../../narr/renderers.rst:48
 msgid "Writing View Callables Which Use a Renderer"
-msgstr ""
+msgstr "レンダラーを使用するビュー呼び出し可能コードの記述"
 
 #: ../../narr/renderers.rst:50
 msgid ""
@@ -77,7 +67,7 @@ msgid ""
 "renderers use object serialization techniques.  In practice, renderers "
 "obtain application data values from Python dictionaries so, in practice, "
 "view callables which use renderers return Python dictionaries."
-msgstr ""
+msgstr "これまで見てきたように、View呼び出し可能オブジェクトは常にResponseオブジェクトを返す必要はありません。代わりに、a：term： `renderer`があなたの代わりにそのオブジェクトをレスポンスインスタンスに変換することを期待して、任意のPythonオブジェクトを返すかもしれません。一部のレンダラーはテンプレートシステムを使用しますが、他のレンダラーはオブジェクトの直列化技術を使用します。実際には、レンダラーはPython辞書からアプリケーションデータ値を取得するので、実際にレンダラーがPython辞書を返す呼び出し可能ビューを表示します。"
 
 #: ../../narr/renderers.rst:58
 msgid ""
@@ -87,7 +77,7 @@ msgid ""
 "callable's results.  This is done with the ``renderer`` attribute.  For "
 "example, this call to :meth:`~pyramid.config.Configurator.add_view` "
 "associates the ``json`` renderer with a view callable:"
-msgstr ""
+msgstr "ビュー呼び出し可能な関数：ref： `明示的に呼び出す<example_render_to_response_call> `レンダラーですが、通常はしません。代わりに、ビュー構成は、ビュー呼び出し可能な結果を​​レンダリングするために使用されるレンダラーを宣言します。これは `` renderer``属性で行います。たとえば、：meth： `〜pyramid.config.Configurator.add_view`を呼び出すと、` `json``レンダラーがビュー呼び出し可能に関連付けられます。"
 
 #: ../../narr/renderers.rst:69
 msgid ""
@@ -95,14 +85,14 @@ msgid ""
 "``myproject.views.my_view`` view callable will now use a ``json`` "
 "renderer, which renders view return values to a :term:`JSON` response "
 "serialization."
-msgstr ""
+msgstr "この設定がアプリケーションに追加されたとき、 `` myproject.views.my_view``ビューのcallableはview戻り値を：term： `JSON`レスポンスの直列化にレンダリングする` `json``レンダラーを使用するようになりました。"
 
 #: ../../narr/renderers.rst:73
 msgid ""
 "Pyramid defines several :ref:`built_in_renderers`, and additional "
 "renderers can be added by developers to the system as necessary. See "
 ":ref:`adding_and_overriding_renderers`."
-msgstr ""
+msgstr "Pyramidはいくつかの：ref： `built_in_renderers`を定義し、必要に応じて開発者が追加のレンダラーをシステムに追加することができます。参照：ref： `adding_and_overriding_renderers`を参照してください。"
 
 #: ../../narr/renderers.rst:77
 msgid ""
@@ -110,7 +100,7 @@ msgid ""
 "body response attributes (such as headers and the HTTP status code) by "
 "attaching a property to the ``request.response`` attribute. See "
 ":ref:`request_response_attr`."
-msgstr ""
+msgstr "レンダラーを使用し、レスポンス以外の値を返すビューは、ヘッダーやHTTPステータスコードなどの非レスポンス属性を `` request.response``属性に追加することで変更できます。参照：ref： `request_response_attr`を参照してください。"
 
 #: ../../narr/renderers.rst:82
 msgid ""
@@ -118,37 +108,37 @@ msgid ""
 ":term:`view configuration` returns a Response object (or its instance), "
 "any renderer associated with the view configuration is ignored, and the "
 "response is passed back to :app:`Pyramid` unchanged.  For example:"
-msgstr ""
+msgstr "すでに述べたように、：term： `view callable`がa：term：` view configuration`に関連付けられていると、Viewオブジェクト（またはそのインスタンス）が返された場合、ビュー設定に関連付けられたレンダラーは無視され、 ：app： `Pyramid`は変更されていません。例えば："
 
 #: ../../narr/renderers.rst:97
 msgid "Likewise for an :term:`HTTP exception` response:"
-msgstr ""
+msgstr "同様に、：term： `HTTP exception`レスポンス："
 
 #: ../../narr/renderers.rst:109
 msgid ""
 "You can of course also return the ``request.response`` attribute instead "
 "to avoid rendering:"
-msgstr ""
+msgstr "もちろん、レンダリングを避けるために、 `` request.response``属性を返すこともできます："
 
 #: ../../narr/renderers.rst:129
 msgid "Built-in Renderers"
-msgstr ""
+msgstr "ビルトインレンダラー"
 
 #: ../../narr/renderers.rst:131
 msgid ""
 "Several built-in renderers exist in :app:`Pyramid`.  These renderers can "
 "be used in the ``renderer`` attribute of view configurations."
-msgstr ""
+msgstr "app： `Pyramid`にはいくつかのビルトインレンダラーがあります。これらのレンダラは、ビュー設定の &quot;renderer&quot;属性で使用できます。"
 
 #: ../../narr/renderers.rst:136
 msgid ""
 "Bindings for officially supported templating languages can be found at "
 ":ref:`available_template_system_bindings`."
-msgstr ""
+msgstr "公式にサポートされているテンプレート言語のバインディングは、：ref： `available_template_system_bindings`にあります。"
 
 #: ../../narr/renderers.rst:143
 msgid "``string``: String Renderer"
-msgstr ""
+msgstr "`` string``：文字列レンダラー"
 
 #: ../../narr/renderers.rst:145
 msgid ""
@@ -158,7 +148,7 @@ msgid ""
 "the object through the Python ``str`` function to generate a string.  "
 "Note that if a Unicode object is returned by the view callable, it is not"
 " ``str()``-ified."
-msgstr ""
+msgstr "`` string``レンダラーは、ビューの呼び出し可能な結果を​​文字列にレンダリングします。ビュー呼び出し可能オブジェクトが非応答オブジェクトを返し、そのビューの設定で `` string``レンダラーが関連付けられている場合、その結果はPythonの `` str``関数を通してオブジェクトを実行して文字列を生成します。 Unicodeオブジェクトがビュー呼び出し可能で返された場合、それは `` str（） ``ではないことに注意してください。"
 
 #: ../../narr/renderers.rst:151
 msgid ""
@@ -166,24 +156,24 @@ msgid ""
 " renderer is specified in the configuration for this view, the view will "
 "render the returned dictionary to the ``str()`` representation of the "
 "dictionary:"
-msgstr ""
+msgstr "辞書を返すビューの例を次に示します。このビューの設定で `` string``レンダラが指定されている場合、ビューは返された辞書を辞書の `` str（） ``表現にレンダリングします："
 
 #: ../../narr/renderers.rst:164
 msgid ""
 "The body of the response returned by such a view will be a string "
 "representing the ``str()`` serialization of the return value:"
-msgstr ""
+msgstr "このようなビューによって返される応答の本文は、戻り値の `` str（） ``を表す文字列になります："
 
 #: ../../narr/renderers.rst:171
 msgid ""
 "Views which use the string renderer can vary non-body response attributes"
 " by using the API of the ``request.response`` attribute.  See "
 ":ref:`request_response_attr`."
-msgstr ""
+msgstr "文字列レンダラーを使用するビューは、 `` request.response``属性のAPIを使用して非ボディレスポンス属性を変更できます。参照：ref： `request_response_attr`を参照してください。"
 
 #: ../../narr/renderers.rst:181
 msgid "JSON Renderer"
-msgstr ""
+msgstr "JSONレンダラー"
 
 #: ../../narr/renderers.rst:183
 msgid ""
@@ -191,66 +181,66 @@ msgid ""
 "default, it passes the return value through the ``json.dumps`` standard "
 "library function, and wraps the result in a response object.  It also "
 "sets the response content-type to ``application/json``."
-msgstr ""
+msgstr "`` json``レンダラは、ビュー呼び出し可能な結果を​​：term： `JSON`にレンダリングします。デフォルトでは、戻り値を `` json.dumps``標準ライブラリ関数に渡し、その結果を応答オブジェクトにラップします。また、応答のcontent-typeを `` application / json``に設定します。"
 
 #: ../../narr/renderers.rst:188
 msgid ""
 "Here's an example of a view that returns a dictionary.  Since the "
 "``json`` renderer is specified in the configuration for this view, the "
 "view will render the returned dictionary to a JSON serialization:"
-msgstr ""
+msgstr "辞書を返すビューの例を次に示します。このビューの設定で `` json``レンダラが指定されているので、ビューは返された辞書をJSONシリアライゼーションにレンダリングします："
 
 #: ../../narr/renderers.rst:201
 msgid ""
 "The body of the response returned by such a view will be a string "
 "representing the JSON serialization of the return value:"
-msgstr ""
+msgstr "このようなビューによって返される応答の本文は、戻り値のJSON直列化を表す文字列になります。"
 
 #: ../../narr/renderers.rst:208
 msgid ""
 "The return value needn't be a dictionary, but the return value must "
 "contain values serializable by the configured serializer (by default "
 "``json.dumps``)."
-msgstr ""
+msgstr "戻り値はディクショナリである必要はありませんが、戻り値にはコンフィグレーションされたシリアライザによってシリアライズ可能な値が含まれている必要があります（デフォルトでは `` json.dumps``）。"
 
 #: ../../narr/renderers.rst:211
 msgid ""
 "You can configure a view to use the JSON renderer by naming ``json`` as "
 "the ``renderer`` argument of a view configuration, e.g., by using "
 ":meth:`~pyramid.config.Configurator.add_view`:"
-msgstr ""
+msgstr "たとえば、：meth： `〜pyramid.config.Configurator.add_view`を使用して、ビュー構成の` `renderer``引数として` `json``という名前を付けて、JSONレンダラーを使用するようにビューを設定できます："
 
 #: ../../narr/renderers.rst:223
 msgid ""
 "Views which use the JSON renderer can vary non-body response attributes "
 "by using the API of the ``request.response`` attribute.  See "
 ":ref:`request_response_attr`."
-msgstr ""
+msgstr "JSONレンダラーを使用するビューは、 `` request.response``属性のAPIを使用して非ボディレスポンス属性を変更できます。参照：ref： `request_response_attr`を参照してください。"
 
 #: ../../narr/renderers.rst:230
 msgid "Serializing Custom Objects"
-msgstr ""
+msgstr "カスタムオブジェクトのシリアライズ"
 
 #: ../../narr/renderers.rst:232
 msgid ""
 "Some objects are not, by default, JSON-serializable (such as datetimes "
 "and other arbitrary Python objects).  You can, however, register code "
 "that makes non-serializable objects serializable in two ways:"
-msgstr ""
+msgstr "いくつかのオブジェクトは、デフォルトでJSON-serializable（datetimesや他の任意のPythonオブジェクトなど）ではありません。ただし、直列化できないオブジェクトを直列化可能にするコードを登録するには、次の2つの方法があります。"
 
 #: ../../narr/renderers.rst:236
 msgid "Define a ``__json__`` method on objects in your application."
-msgstr ""
+msgstr "アプリケーション内のオブジェクトに対して `` __json__``メソッドを定義してください。"
 
 #: ../../narr/renderers.rst:238
 msgid ""
 "For objects you don't \"own\", you can register a JSON renderer that "
 "knows about an *adapter* for that kind of object."
-msgstr ""
+msgstr "\ &quot;own \&quot;ではないオブジェクトの場合、その種のオブジェクトの* adapter *を知っているJSONレンダラーを登録することができます。"
 
 #: ../../narr/renderers.rst:242
 msgid "Using a Custom ``__json__`` Method"
-msgstr ""
+msgstr "カスタム `` __json__``メソッドの使用"
 
 #: ../../narr/renderers.rst:244
 msgid ""
@@ -260,11 +250,11 @@ msgid ""
 "dictionaries, strings, and so forth).  It should accept a single "
 "additional argument, ``request``, which will be the active request object"
 " at render time."
-msgstr ""
+msgstr "オブジェクトのクラスに対して `` __json__``メソッドを定義することで、カスタムオブジェクトをPyramidで簡単にJSON直列化可能にすることができます。このメソッドは、ネイティブでJSON直列化可能な値（int、リスト、辞書、文字列など）を返す必要があります。レンダリング時にアクティブなリクエストオブジェクトとなる単一の追加の引数 `` request``を受け入れる必要があります。"
 
 #: ../../narr/renderers.rst:270
 msgid "Using the ``add_adapter`` Method of a Custom JSON Renderer"
-msgstr ""
+msgstr "カスタムJSONレンダラの `` add_adapter``メソッドの使用"
 
 #: ../../narr/renderers.rst:272
 msgid ""
@@ -277,14 +267,14 @@ msgid ""
 "adding adapters to handle custom types. The renderer will attempt to "
 "adapt non-serializable objects using the registered adapters. A short "
 "example follows:"
-msgstr ""
+msgstr "シリアライズされるオブジェクトの作成者でない場合は、シリアライズに影響を与えるためにカスタムの `` __json__``メソッドをクラスに追加することはできません（少なくとも妥当ではありません）。レンダラーに渡されたオブジェクトがシリアライズ可能な型でなく、 `` __json__``メソッドを持たない場合、通常、シリアライズ時にa：exc： `TypeError`が生成されます。この動作を変更するには、カスタムJSONレンダラーを作成し、カスタムタイプを処理するためのアダプターを追加します。レンダラーは、登録されたアダプターを使用して、直列化不可能なオブジェクトを適合させようとします。簡単な例を次に示します。"
 
 #: ../../narr/renderers.rst:294
 msgid ""
 "The ``add_adapter`` method should accept two arguments: the *class* of "
 "the object that you want this adapter to run for (in the example above, "
 "``datetime.datetime``), and the adapter itself."
-msgstr ""
+msgstr "`` add_adapter``メソッドは、このアダプタを実行させたいオブジェクトの* class *（上記の例では `` datetime.datetime``）とアダプタそのものの2つの引数を受け付けるべきです。"
 
 #: ../../narr/renderers.rst:298
 msgid ""
@@ -292,21 +282,21 @@ msgid ""
 "object needing to be serialized and ``request``, which will be the "
 "current request object at render time. The adapter should raise a "
 ":exc:`TypeError` if it can't determine what  to do with the object."
-msgstr ""
+msgstr "アダプターは呼び出し可能でなければなりません。 2つの引数、つまり直列化が必要なオブジェクトと、 `` request``を受け取ります。これは、レンダリング時に現在の要求オブジェクトになります。アダプターは、オブジェクトで何をすべきかを判断できない場合、：exc： `TypeError`を送出します。"
 
 #: ../../narr/renderers.rst:303
 msgid ""
 "See :class:`pyramid.renderers.JSON` and "
 ":ref:`adding_and_overriding_renderers` for more information."
-msgstr ""
+msgstr "詳細はclass： `pyramid.renderers.JSON`と：ref：` adding_and_overriding_renderers`を参照してください。"
 
 #: ../../narr/renderers.rst:306
 msgid "Serializing custom objects."
-msgstr ""
+msgstr "カスタムオブジェクトのシリアライズ"
 
 #: ../../narr/renderers.rst:315
 msgid "JSONP Renderer"
-msgstr ""
+msgstr "JSONPレンダラー"
 
 #: ../../narr/renderers.rst:319
 msgid ""
@@ -314,14 +304,14 @@ msgid ""
 "<https://en.wikipedia.org/wiki/JSONP>`_ renderer factory helper which "
 "implements a hybrid JSON/JSONP renderer.  JSONP is useful for making "
 "cross-domain AJAX requests."
-msgstr ""
+msgstr "：class： `pyramid.renderers.JSONP`は` JSONP <https://en.wikipedia.org/wiki/JSONP> `_ rendererハイブリッドJSON / JSONPレンダラを実装するファクトリヘルパです。 JSONPは、クロスドメインAJAXリクエストを作成するのに便利です。"
 
 #: ../../narr/renderers.rst:324
 msgid ""
 "Unlike other renderers, a JSONP renderer needs to be configured at "
 "startup time \"by hand\".  Configure a JSONP renderer using the "
 ":meth:`pyramid.config.Configurator.add_renderer` method:"
-msgstr ""
+msgstr "他のレンダラーとは異なり、起動時にJSONPレンダラーを手作業で構成する必要があります。 ：meth： `pyramid.config.Configurator.add_renderer`メソッドを使用してJSONPレンダラを設定する："
 
 #: ../../narr/renderers.rst:336
 msgid ""
@@ -329,11 +319,11 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.add_renderer` as above, you can use "
 "``jsonp`` as the ``renderer=`` parameter to ``@view_config`` or "
 ":meth:`pyramid.config.Configurator.add_view`:"
-msgstr ""
+msgstr "上記のように、このレンダラーが：meth： `〜pyramid.config.Configurator.add_renderer`を介して登録されると、レンダラー=` `@ view_config``または：meth：` `renderer =` `パラメーターとして` `jsonp``を使用することができます。 `pyramid.config.Configurator.add_view`："
 
 #: ../../narr/renderers.rst:349
 msgid "When a view is called that uses a JSONP renderer:"
-msgstr ""
+msgstr "JSONPレンダラを使用するビューが呼び出されると、次のようになります。"
 
 #: ../../narr/renderers.rst:351
 msgid ""
@@ -341,13 +331,13 @@ msgid ""
 "``request.GET``) that matches the ``param_name`` of the registered JSONP "
 "renderer (by default, ``callback``), the renderer will return a JSONP "
 "response."
-msgstr ""
+msgstr "登録されたJSONPレンダラ（デフォルトで `` callback``）の `` param_name``と一致するリクエストのHTTPクエリ文字列（別名 `` request.GET``）にパラメータがある場合、レンダラはa JSONPレスポンス。"
 
 #: ../../narr/renderers.rst:356
 msgid ""
 "If there is no callback parameter in the request's query string, the "
 "renderer will return a \"plain\" JSON response."
-msgstr ""
+msgstr "リクエストのクエリ文字列にコールバックパラメータがない場合、レンダラは\ &quot;plain \&quot; JSON応答を返します。"
 
 #: ../../narr/renderers.rst:359
 msgid ""
@@ -356,11 +346,11 @@ msgid ""
 "<http://api.jquery.com/jQuery.getJSON/>`_, and has equivalent (but more "
 "complicated) functionality in its `ajax function "
 "<http://api.jquery.com/jQuery.ajax/>`_."
-msgstr ""
+msgstr "JavscriptライブラリAJAXの機能は、JSONPリクエストを作成するのに役立ちます。例えば、JQueryには `getJSON`関数があります<http://api.jquery.com/jQuery.getJSON/> `_、そしてそれに相当する（しかしもっと複雑な）機能を` ajax関数<http://api.jquery.com/jQuery.ajax/> `_。"
 
 #: ../../narr/renderers.rst:365
 msgid "For example (JavaScript):"
-msgstr ""
+msgstr "例えば（JavaScript）："
 
 #: ../../narr/renderers.rst:376
 msgid ""
@@ -368,25 +358,25 @@ msgid ""
 "``getJSON`` function indicates to jQuery that the query should be made as"
 " a JSONP request; the ``callback`` parameter will be automatically filled"
 " in for you and used."
-msgstr ""
+msgstr "JQueryの `` getJSON``関数の `` url``パラメータの上にある `` callback =？ &#39;`という文字列は、jQueryに対して、その問い合わせをJSONPリクエストとして行う必要があることを示しています。 `` callback``パラメータはあなたのために自動的に記入され使用されます。"
 
 #: ../../narr/renderers.rst:380
 msgid ""
 "The same custom-object serialization scheme defined used for a \"normal\""
 " JSON renderer in :ref:`json_serializing_custom_objects` can be used when"
 " passing values to a JSONP renderer too."
-msgstr ""
+msgstr "JSONPレンダラに値を渡すときに、：ref： `json_serializing_custom_objects`の\&quot; normal \ JSONレンダラで使用されるのと同じカスタムオブジェクトシリアル化スキームを使用できます。"
 
 #: ../../narr/renderers.rst:391
 msgid "Varying Attributes of Rendered Responses"
-msgstr ""
+msgstr "レンダリングされたレスポンスの様々な属性"
 
 #: ../../narr/renderers.rst:393
 msgid ""
 "Before a response constructed by a :term:`renderer` is returned to "
 ":app:`Pyramid`, several attributes of the request are examined which have"
 " the potential to influence response behavior."
-msgstr ""
+msgstr "：term： `renderer`で生成された応答がapp：` Pyramid`に返される前に、応答の振る舞いに影響を与える可能性のある要求のいくつかの属性が調べられます。"
 
 #: ../../narr/renderers.rst:397
 msgid ""
@@ -394,14 +384,14 @@ msgid ""
 "of the :class:`pyramid.response.Response` attribute, available as "
 "``request.response`` during their execution, to influence associated "
 "response behavior."
-msgstr ""
+msgstr "応答を直接返さないビューの呼び出し可能ファイルは、実行中に `` request.response``として利用可能な：class： `pyramid.response.Response`属性のAPIを使用して、関連する応答の動作に影響を与える必要があります。"
 
 #: ../../narr/renderers.rst:401
 msgid ""
 "For example, if you need to change the response status from within a view"
 " callable that uses a renderer, assign the ``status`` attribute to the "
 "``response`` attribute of the request before returning a result:"
-msgstr ""
+msgstr "たとえば、レンダラを使用するビュー呼び出し可能な呼び出しの中から応答ステータスを変更する必要がある場合、結果を返す前に、リクエストの `` response``属性に `` status``属性を割り当てます。"
 
 #: ../../narr/renderers.rst:415
 msgid ""
@@ -410,24 +400,24 @@ msgid ""
 "returned *is* ``request.response``.  For example, the following example "
 "calls ``request.response.set_cookie``, but this call will have no effect "
 "because a different Response object is returned."
-msgstr ""
+msgstr "返されるレスポンスオブジェクトが* `` request.response``でない限り、Responseオブジェクトを直接返すビューにおける `` request.response``の突然変異は効果がないことに注意してください。たとえば、次の例では `` request.response.set_cookie``を呼び出しますが、別のResponseオブジェクトが返されるためこの呼び出しは効果がありません。"
 
 #: ../../narr/renderers.rst:430
 msgid ""
 "If you mutate ``request.response`` and you'd like the mutations to have "
 "an effect, you must return ``request.response``:"
-msgstr ""
+msgstr "`` request.response``を変異させて変異を効果的にしたい場合、 `` request.response``を返す必要があります："
 
 #: ../../narr/renderers.rst:440
 msgid ""
 "For more information on attributes of the request, see the API "
 "documentation in :ref:`request_module`.  For more information on the API "
 "of ``request.response``, see :attr:`pyramid.request.Request.response`."
-msgstr ""
+msgstr "リクエストの属性の詳細については、ref： `request_module`のAPIドキュメントを参照してください。 `` request.response``のAPIの詳細については、attr： `pyramid.request.Request.response`を参照してください。"
 
 #: ../../narr/renderers.rst:447
 msgid "Adding and Changing Renderers"
-msgstr ""
+msgstr "レンダラーの追加と変更"
 
 #: ../../narr/renderers.rst:449
 msgid ""
@@ -435,36 +425,36 @@ msgid ""
 ":app:`Pyramid` renderer names.  To this end, configuration declarations "
 "can be made which change an existing :term:`renderer factory`, and which "
 "add a new renderer factory."
-msgstr ""
+msgstr "新しいテンプレートシステムとシリアライザは、app： `Pyramid`レンダラー名に関連付けることができます。この目的のために、既存の：用語：レンダラー・ファクトリを変更し、新しいレンダラー・ファクトリを追加する構成宣言を行うことができる。"
 
 #: ../../narr/renderers.rst:454
 msgid ""
 "Renderers can be registered imperatively using the "
 ":meth:`pyramid.config.Configurator.add_renderer` API."
-msgstr ""
+msgstr "レンダラーは：meth： `pyramid.config.Configurator.add_renderer` APIを使用して命令的に登録することができます。"
 
 #: ../../narr/renderers.rst:457
 msgid ""
 "For example, to add a renderer which renders views which have a "
 "``renderer`` attribute that is a path that ends in ``.jinja2``:"
-msgstr ""
+msgstr "たとえば、 `` .jinja2``で終わるパスである `` renderer``属性を持つビューをレンダリングするレンダラーを追加するには："
 
 #: ../../narr/renderers.rst:464
 msgid ""
 "The first argument is the renderer name.  The second argument is a "
 "reference to an implementation of a :term:`renderer factory` or a "
 ":term:`dotted Python name` referring to such an object."
-msgstr ""
+msgstr "最初の引数はレンダラー名です。 2番目の引数は、：term： `レンダラーファクトリ`またはa：term：そのようなオブジェクトを参照する ``点在するPython名 &#39;の実装への参照です。"
 
 #: ../../narr/renderers.rst:474
 msgid "Adding a New Renderer"
-msgstr ""
+msgstr "新しいレンダラーを追加する"
 
 #: ../../narr/renderers.rst:476
 msgid ""
 "You may add a new renderer by creating and registering a :term:`renderer "
 "factory`."
-msgstr ""
+msgstr "：term： `renderer factory`を作成して登録することで、新しいレンダラーを追加することができます。"
 
 #: ../../narr/renderers.rst:479
 msgid ""
@@ -473,18 +463,18 @@ msgid ""
 "capable of creating an object that conforms to the "
 ":class:`pyramid.interfaces.IRenderer` interface. A typical class that "
 "follows this setup is as follows:"
-msgstr ""
+msgstr "レンダラーファクトリの実装は、：class： `pyramid.interfaces.IRendererFactory`インタフェースに準拠する必要があります。それは、：class： `pyramid.interfaces.IRenderer`インタフェースに従うオブジェクトを生成することができます。この設定に従う典型的なクラスは次のとおりです。"
 
 #: ../../narr/renderers.rst:504
 msgid ""
 "The formal interface definition of the ``info`` object passed to a "
 "renderer factory constructor is available as "
 ":class:`pyramid.interfaces.IRendererInfo`."
-msgstr ""
+msgstr "レンダラーファクトリコンストラクタに渡される `` info``オブジェクトの正式なインタフェース定義は、class： `pyramid.interfaces.IRendererInfo`として利用できます。"
 
 #: ../../narr/renderers.rst:507
 msgid "There are essentially two different kinds of renderer factories:"
-msgstr ""
+msgstr "本質的に2つの異なる種類のレンダラー・ファクトリーがあります。"
 
 #: ../../narr/renderers.rst:509
 msgid ""
@@ -494,7 +484,7 @@ msgid ""
 "registered with a ``name`` value that begins with a dot (``.``).  These "
 "types of renderer factories usually relate to a file on the filesystem, "
 "such as a template."
-msgstr ""
+msgstr "コンストラクタに渡される `` info``オブジェクトの `` name``属性として：term： `asset specification`、または絶対パスを受け入れることを予期するレンダラーファクトリです。これらのレンダラーファクトリは、ドット（ `` .``）で始まる `` name``値で登録されます。これらのタイプのレンダラーファクトリは、通常、テンプレートなどのファイルシステム上のファイルに関係します。"
 
 #: ../../narr/renderers.rst:515
 msgid ""
@@ -503,10 +493,10 @@ msgid ""
 "attribute of the ``info`` object fed to its constructor.  These renderer "
 "factories are registered with a ``name`` value that does not begin with a"
 " dot.  These renderer factories are typically object serializers."
-msgstr ""
+msgstr "コンストラクタに渡される `` info``オブジェクトの `` name``属性にファイルシステムパスまたはアセット指定を表さないトークンを受け入れることを予期するレンダラーファクトリです。これらのレンダラーファクトリはドットで始まらない `` name``値で登録されます。これらのレンダラファクトリは、通常オブジェクトシリアライザです。"
 
 msgid "Asset Specifications"
-msgstr ""
+msgstr "資産の仕様"
 
 #: ../../narr/renderers.rst:523
 msgid ""
@@ -515,14 +505,14 @@ msgid ""
 "package subpath. For example, the asset specification "
 "``my.package:static/baz.css`` identifies the file named ``baz.css`` in "
 "the ``static`` subdirectory of the ``my.package`` Python :term:`package`."
-msgstr ""
+msgstr "資産の指定は：term： `asset`のコロンで区切られた識別子です。コロンはPython：term： `package`名をパッケージのサブパスから分離します。たとえば、資産仕様「my.package：static / baz.css」は、 `` my.package``の `` static``サブディレクトリにある `` baz.css``というファイルを識別します。Python：term ： `パッケージ`。"
 
 #: ../../narr/renderers.rst:529
 msgid ""
 "Here's an example of the registration of a simple renderer factory via "
 ":meth:`~pyramid.config.Configurator.add_renderer`, where ``config`` is an"
 " instance of :meth:`pyramid.config.Configurator`:"
-msgstr ""
+msgstr "単純なレンダラーファクトリの登録の例を以下に示します：meth： `〜pyramid.config.Configurator.add_renderer`、` `config``はインスタンスです：meth：` pyramid.config.Configurator`："
 
 #: ../../narr/renderers.rst:537
 msgid ""
@@ -531,7 +521,7 @@ msgid ""
 "implementation in view configurations. Your application can use this "
 "renderer by specifying ``amf`` in the ``renderer`` attribute of a "
 ":term:`view configuration`:"
-msgstr ""
+msgstr "上記のコードをアプリケーションのスタートアップコンフィギュレーションに追加すると、ビュー設定で `` my.package.MyAMFRenderer``レンダラファクトリ実装を使用することができます。あなたのアプリケーションは、このレンダラーを、次の：renderer`属性に `` amf``を指定することで使用できます：term： `view configuration`："
 
 #: ../../narr/renderers.rst:552
 msgid ""
@@ -542,13 +532,13 @@ msgid ""
 " an ``MyAMFRenderer`` for each view configuration which includes ``amf`` "
 "as its renderer value.  The ``name`` passed to the ``MyAMFRenderer`` "
 "constructor will always be ``amf``."
-msgstr ""
+msgstr "起動時に、ドットを含まない `` name``属性を持つa：term： `view configuration`が発生した場合、完全な` `name``値を使用して、関連するレンダラファクトリからレンダラを構築します。この場合、ビューの設定は、レンダラー値として `` amf``を含む各ビュー設定のための `` MyAMFRenderer``のインスタンスを作成します。 `` MyAMFRenderer``コンストラクタに渡される `` name``は常に `` amf``です。"
 
 #: ../../narr/renderers.rst:559
 msgid ""
 "Here's an example of the registration of a more complicated renderer "
 "factory, which expects to be passed a filesystem path:"
-msgstr ""
+msgstr "ファイルシステムのパスを渡す必要があるより複雑なレンダリングファクトリの登録の例を次に示します。"
 
 #: ../../narr/renderers.rst:566
 msgid ""
@@ -557,7 +547,7 @@ msgid ""
 "view configurations by referring to any ``renderer`` which *ends in* "
 "``.jinja2`` in the ``renderer`` attribute of a :term:`view "
 "configuration`:"
-msgstr ""
+msgstr "上記のコードをアプリケーションのスタートアップに追加すると、 `` my.package.MyJinja2Renderer``レンダラファクトリの実装をビューのコンフィグレーションで* `` .jinja2``で終わる `` renderer``を参照して使用することができます：term： `view configuration`の` `renderer``属性："
 
 #: ../../narr/renderers.rst:580
 msgid ""
@@ -572,22 +562,22 @@ msgid ""
 "ending with ``.jinja2`` in its ``renderer`` value.  The ``name`` passed "
 "to the ``MyJinja2Renderer`` constructor will be the full value that was "
 "set as ``renderer=`` in the view configuration."
-msgstr ""
+msgstr "起動時にドットを含む `` name``属性を持つa：term： `view configuration`が見つかると、name属性の値は最後のドットで分割されます。分割の2番目の要素は、通常、ファイル名の拡張子です。この拡張機能は、設定されたビューのレンダラーファクトリをルックアップするために使用されます。次に、 `` renderer``の値がファクトリに渡され、ビューのレンダラが作成されます。この場合、ビューの設定では、各ビュー設定に対して、 `` myJinja2Renderer``のインスタンスが作成されます。このインスタンスには、 `` renderer``値に `` .jinja2``で終わるものが含まれます。 `` MyJinja2Renderer``コンストラクタに渡される `` name``は、ビュー設定で `` renderer = ``として設定された完全な値になります。"
 
 #: ../../narr/renderers.rst:592
 msgid "Adding a Default Renderer"
-msgstr ""
+msgstr "デフォルトレンダラーの追加"
 
 #: ../../narr/renderers.rst:594
 msgid ""
 "To associate a *default* renderer with *all* view configurations (even "
 "ones which do not possess a ``renderer`` attribute), pass ``None`` as the"
 " ``name`` attribute to the renderer tag:"
-msgstr ""
+msgstr "レンダラータグに `` name``属性として `` None``を渡します：*デフォルトの*レンダラーを* all *ビュー構成（ `` renderer``属性を持たないもの）に関連付けるには、"
 
 #: ../../narr/renderers.rst:606
 msgid "Changing an Existing Renderer"
-msgstr ""
+msgstr "既存のレンダラの変更"
 
 #: ../../narr/renderers.rst:608
 msgid ""
@@ -598,21 +588,21 @@ msgid ""
 "redefine the template extension. For example, if you would like to "
 "override the ``json`` renderer to specify a new renderer, you could do "
 "the following:"
-msgstr ""
+msgstr "Pyramidは、セットアップのほぼすべての側面を以下のようにオーバーライドすることをサポートしています：ref： `Conflict Resolution <automatic_conflict_resolution> `メカニズム。つまり、ほとんどの場合、レンダラーをオーバーライドすることは、：meth： `pyramid.config.Configurator.add_renderer`メソッドを使用してテンプレート拡張を再定義するのと同じくらい簡単です。たとえば、新しいレンダラを指定するために `` json``レンダラをオーバーライドする場合は、次のようにします。"
 
 #: ../../narr/renderers.rst:620
 msgid ""
 "After doing this, any views registered with the ``json`` renderer will "
 "use the new renderer."
-msgstr ""
+msgstr "これを実行した後、 `` json``レンダラで登録されたビューは新しいレンダラを使用します。"
 
 #: ../../narr/renderers.rst:627
 msgid "Overriding a Renderer at Runtime"
-msgstr ""
+msgstr "ランタイム時のレンダラーのオーバーライド"
 
 #: ../../narr/renderers.rst:629
 msgid "This is an advanced feature, not typically used by \"civilians\"."
-msgstr ""
+msgstr "これは高度な機能であり、通常は &quot;一般市民&quot;が使用しません。"
 
 #: ../../narr/renderers.rst:631
 msgid ""
@@ -625,7 +615,7 @@ msgid ""
 "template renderer with one that uses an XML-RPC renderer.  This renderer "
 "would produce an XML-RPC representation of the data returned by an "
 "arbitrary view callable."
-msgstr ""
+msgstr "状況によっては、ビューのコンフィグレーションで開発者が提供する静的レンダラ宣言を無視するようにシステムに指示する必要があります。要求の開始後にレンダラを別の*に置き換えます*。たとえば、XML-RPCクライアントからの要求であることを検出する\ &quot;遍在\&quot; XML-RPC実装は、XML-RPCクライアントを使用するテンプレートレンダラーを使用するようにビューに指示する、 RPCレンダラ。このレンダラーは、呼び出し可能な任意のビューから返されたデータのXML-RPC表現を生成します。"
 
 #: ../../narr/renderers.rst:640
 msgid ""
@@ -634,12 +624,12 @@ msgid ""
 "conditionally sets an ``override_renderer`` attribute on the request "
 "itself, which in turn is the *name* of a registered renderer.  For "
 "example:"
-msgstr ""
+msgstr "この機能を使用するには、リクエストデータをスニッフィングし、リクエスト自体に `` override_renderer``属性を条件付きで設定するa：class： `〜pyramid.events.NewRequest`：term：` subscriber`を作成します。登録されたレンダラーの* name *例えば："
 
 #: ../../narr/renderers.rst:664
 msgid ""
 "The result of such a subscriber will be to replace any existing static "
 "renderer configured by the developer with a (notional, nonexistent) XML-"
 "RPC renderer, if the request appears to come from an XML-RPC client."
-msgstr ""
+msgstr "そのようなサブスクライバの結果は、XML-RPCクライアントからの要求であると思われる場合、開発者が設定した既存の静的レンダラを（概念的で存在しない）XML-RPCレンダラに置き換えることになります。"
 

@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Renderers" href="renderers.html" />
-    <link rel="prev" title="URL Dispatch" href="urldispatch.html" />
+    <link rel="next" title="(機械翻訳) レンダラー" href="renderers.html" />
+    <link rel="prev" title="(機械翻訳) URLディスパッチ" href="urldispatch.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="renderers.html" title="Renderers"
+          <a href="renderers.html" title="(機械翻訳) レンダラー"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="urldispatch.html" title="URL Dispatch"
+          <a href="urldispatch.html" title="(機械翻訳) URLディスパッチ"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -75,7 +75,7 @@
 <p class="first admonition-title">注釈</p>
 <p class="last"><span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> は、会話での省略表現でしばしば <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> と呼ばれます。しかし、「<em>設定</em>」ビューと*callable*」ビューを実装するコード、および「<em>検索</em>」ビュー  プロセスの間に著しい違いがあるので、このドキュメンテーションでは、それほど曖昧でない用語を使用する必要があります。</p>
 </div>
-<p>本章では、ビュー callable をどのように定義するかを説明します。実際にどのようにして特定の URL パターンおよび他のリクエスト状況に対してビューcallable を接続するように <span>Pyramid</span> に伝えるかを理解するためには、次章 (<a class="reference internal" href="viewconfig.html#view-config-chapter"><span class="std std-ref">View Configuration</span></a>) まで待たなければなりません。</p>
+<p>本章では、ビュー callable をどのように定義するかを説明します。実際にどのようにして特定の URL パターンおよび他のリクエスト状況に対してビューcallable を接続するように <span>Pyramid</span> に伝えるかを理解するためには、次章 (<a class="reference internal" href="viewconfig.html#view-config-chapter"><span class="std std-ref">(機械翻訳) 設定を表示</span></a>) まで待たなければなりません。</p>
 <div class="section" id="view-callables">
 <span id="index-0"></span><h2>Callablesビュー(View Callables)<a class="headerlink" href="#view-callables" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Callableビューは、明らかに呼び出し可能なPythonオブジェクトを検出する危険性があります。 具体的には、ビュー callable は、関数、クラス、または <code class="docutils literal notranslate"><span class="pre">__call__</span></code> メソッド (これによりインスタンスが呼び出し可能になります) を実装したインスタンスです。</p>
@@ -121,7 +121,7 @@
 </pre></div>
 </td></tr></table></div>
 <p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> に渡された request オブジェクトは <a class="reference internal" href="#function-as-view"><span class="std std-ref">callableビューを関数として定義する(Defining a View Callable as a Function)</span></a> で述べたのと同じ型の request オブジェクトです。</p>
-<p>レスポンスを返すことが期待されるメソッドを表わすために <code class="docutils literal notranslate"><span class="pre">__call__</span></code> とは別の属性を使用したければ、ビュー設定の一部として <code class="docutils literal notranslate"><span class="pre">attr</span></code> 値を使用するできます。 <a class="reference internal" href="viewconfig.html#view-configuration-parameters"><span class="std std-ref">View Configuration Parameters</span></a> を参照してください。クラスが関連するcallableビュー のコレクションを表したければ、各々クラスの異なるメソッドを指す異なる <cite>attr</cite> 値を用いて同じビューcallable クラスを異なるビュー設定の中で使用できます。</p>
+<p>レスポンスを返すことが期待されるメソッドを表わすために <code class="docutils literal notranslate"><span class="pre">__call__</span></code> とは別の属性を使用したければ、ビュー設定の一部として <code class="docutils literal notranslate"><span class="pre">attr</span></code> 値を使用するできます。 <a class="reference internal" href="viewconfig.html#view-configuration-parameters"><span class="std std-ref">設定パラメータの表示</span></a> を参照してください。クラスが関連するcallableビュー のコレクションを表したければ、各々クラスの異なるメソッドを指す異なる <cite>attr</cite> 値を用いて同じビューcallable クラスを異なるビュー設定の中で使用できます。</p>
 </div>
 <div class="section" id="view-callable-responses">
 <span id="the-response"></span><span id="index-3"></span><h2>callableビューレスポンス(View Callable Responses)<a class="headerlink" href="#view-callable-responses" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -138,7 +138,7 @@
 <p><span>Pyramid</span> は、 <a class="reference internal" href="../api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> を継承する一連の様々な「例外」クラスを提供しています。例えばクラス <a class="reference internal" href="../api/httpexceptions.html#pyramid.httpexceptions.HTTPFound" title="pyramid.httpexceptions.HTTPFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.httpexceptions.HTTPFound</span></code></a> のインスタンスは <a class="reference internal" href="../api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a> を継承するのでこれも有効なresponse オブジェクトです。例については、 <a class="reference internal" href="#http-exceptions"><span class="std std-ref">HTTPの例外(HTTP Exceptions)</span></a> と <a class="reference internal" href="#http-redirect"><span class="std std-ref">HTTP リダイレクトを行うためにcallableビューを使用する(Using a View Callable to do an HTTP Redirect)</span></a> を参照してください。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">様々な状況で <a class="reference internal" href="../api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> のインスタンスでないオブジェクトをcallableビューから返すこともできます。これはテストを書くときや複数のビュー callable の間でコードを共有しようとするときに有用な時があります。これを可能にする通常の方法については <a class="reference internal" href="renderers.html#renderers-chapter"><span class="std std-ref">Renderers</span></a> を参照してください。それよりもまれな、callableビューが Response オブジェクト以外を返すことを可能にする方法は <a class="reference internal" href="hooks.html#using-iresponse"><span class="std std-ref">Changing How Pyramid Treats View Responses</span></a> の中で文書化されています。</p>
+<p class="last">様々な状況で <a class="reference internal" href="../api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> のインスタンスでないオブジェクトをcallableビューから返すこともできます。これはテストを書くときや複数のビュー callable の間でコードを共有しようとするときに有用な時があります。これを可能にする通常の方法については <a class="reference internal" href="renderers.html#renderers-chapter"><span class="std std-ref">(機械翻訳) レンダラー</span></a> を参照してください。それよりもまれな、callableビューが Response オブジェクト以外を返すことを可能にする方法は <a class="reference internal" href="hooks.html#using-iresponse"><span class="std std-ref">ピラミッドが応答を見る方法を変える</span></a> の中で文書化されています。</p>
 </div>
 </div>
 <div class="section" id="using-special-exceptions-in-view-callables">
@@ -248,7 +248,7 @@
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p>ほとんどの場合、<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_exception_view" title="pyramid.config.Configurator.add_exception_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_exception_view()</span></code></a> を使用して <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a> を登録する必要があります。 しかしながら、<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> （すなわち、<code class="docutils literal notranslate"><span class="pre">config.add_view(context=Exception)</span></code>）を継承するコンテキストリソースタイプに対して「通常の」（すなわち例外ではない）ビューの登録が可能である。 ビュー構成が処理されると、2つのビューが登録されます。 1つは「通常の」ビュー、もう1つは <a class="reference internal" href="../glossary.html#term-exception-view"><span class="xref std std-term">exception view</span></a> です。これは、通常のビューのコンテキストとして例外を使用できることを意味します。</p>
-<p class="last">これら2つのビューをラップするビューデリバーは、異なる動作をする可能性があります。 詳細については、 <a class="reference internal" href="hooks.html#exception-view-derivers"><span class="std std-ref">Exception Views and View Derivers</span></a> を参照してください。</p>
+<p class="last">これら2つのビューをラップするビューデリバーは、異なる動作をする可能性があります。 詳細については、 <a class="reference internal" href="hooks.html#exception-view-derivers"><span class="std std-ref">例外ビューとビューデリバー</span></a> を参照してください。</p>
 </div>
 <p>例外ビューは任意のビュー登録メカニズムで構成できます: <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> デコレータまたは命令的な <code class="docutils literal notranslate"><span class="pre">add_view</span></code> スタイル。</p>
 <div class="admonition note">
@@ -283,8 +283,8 @@
 </div>
 <div class="section" id="handling-form-submissions-in-view-callables-unicode-and-character-set-issues">
 <span id="index-8"></span><h2>callableビューの中でフォーム送信を扱う (Unicodeと文字集合の問題)Handling Form Submissions in View Callables (Unicode and Character Set Issues)<a class="headerlink" href="#handling-form-submissions-in-view-callables-unicode-and-character-set-issues" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ほとんどのウェブアプリケーションは、ウェブブラウザおよび様々な他のクライアントからフォーム送信を受け取る必要があります。 <span>Pyramid</span> では、フォーム送信を扱うロジックは常に <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> の一部です。<a class="reference internal" href="../glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> APIを使用してフォーム送信データを処理する方法の一般的な概要については、 <a class="reference internal" href="webob.html#webob-chapter"><span class="std std-ref">Request and Response Objects</span></a> と <a class="reference external" href="http://docs.webob.org/en/latest/reference.html#query-post-variables">WebObドキュメンテーション内の `&quot;Query and POST variables&quot;</a> を見てください。 <span>Pyramid</span> は、リクエストとレスポンスの実装についてはWebOb に任せています。また、フォーム送信データの取り扱いはリクエスト実装の特性です。 WebOb のリクエスト API を理解することは、フォーム送信データを処理する方法を理解するための鍵です。</p>
-<p><span>Pyramid</span> ビュー内でフォーム送信データを処理しようとする場合、意識する必要のあるいくつかのデフォルトがあります。フォーム送信データに上位ビットが立った (つまり非 ASCII) 文字が含まれていることは、非常に一般的です。また、 UTF-8 符号化はウェブ上で文字データに使用される最も一般的な符号化です。バイト文字列を扱ったり格納したりするよりもUnicode 値の方がはるかに健全なので、 <span>Pyramid</span> はフォーム送信値を可能なら UTF-8 から Unicode へ暗黙的にデコードするように <a class="reference internal" href="../glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> リクエスト機能を構成します。ビューコードが <code class="docutils literal notranslate"><span class="pre">request.params</span></code> , <code class="docutils literal notranslate"><span class="pre">request.GET</span></code> あるいは <code class="docutils literal notranslate"><span class="pre">request.POST</span></code> API によってフォームフィールド値を得る場合、暗黙のデコードが起こります (これらの API に関する詳細に関しては <a class="reference internal" href="../api/request.html#request-module"><span class="std std-ref">pyramid.request</span></a> を参照)&quot;</p>
+<p>ほとんどのウェブアプリケーションは、ウェブブラウザおよび様々な他のクライアントからフォーム送信を受け取る必要があります。 <span>Pyramid</span> では、フォーム送信を扱うロジックは常に <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> の一部です。<a class="reference internal" href="../glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> APIを使用してフォーム送信データを処理する方法の一般的な概要については、 <a class="reference internal" href="webob.html#webob-chapter"><span class="std std-ref">(機械翻訳) 要求オブジェクトと応答オブジェクト</span></a> と <a class="reference external" href="http://docs.webob.org/en/latest/reference.html#query-post-variables">WebObドキュメンテーション内の `&quot;Query and POST variables&quot;</a> を見てください。 <span>Pyramid</span> は、リクエストとレスポンスの実装についてはWebOb に任せています。また、フォーム送信データの取り扱いはリクエスト実装の特性です。 WebOb のリクエスト API を理解することは、フォーム送信データを処理する方法を理解するための鍵です。</p>
+<p><span>Pyramid</span> ビュー内でフォーム送信データを処理しようとする場合、意識する必要のあるいくつかのデフォルトがあります。フォーム送信データに上位ビットが立った (つまり非 ASCII) 文字が含まれていることは、非常に一般的です。また、 UTF-8 符号化はウェブ上で文字データに使用される最も一般的な符号化です。バイト文字列を扱ったり格納したりするよりもUnicode 値の方がはるかに健全なので、 <span>Pyramid</span> はフォーム送信値を可能なら UTF-8 から Unicode へ暗黙的にデコードするように <a class="reference internal" href="../glossary.html#term-webob"><span class="xref std std-term">WebOb</span></a> リクエスト機能を構成します。ビューコードが <code class="docutils literal notranslate"><span class="pre">request.params</span></code> , <code class="docutils literal notranslate"><span class="pre">request.GET</span></code> あるいは <code class="docutils literal notranslate"><span class="pre">request.POST</span></code> API によってフォームフィールド値を得る場合、暗黙のデコードが起こります (これらの API に関する詳細に関しては <a class="reference internal" href="../api/request.html#request-module"><span class="std std-ref">(機械翻訳) pyramid.request</span></a> を参照)&quot;</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">Many people find the difference between Unicode and UTF-8 confusing. Unicode
@@ -422,7 +422,7 @@ and a <code class="docutils literal notranslate"><span class="pre">__call__</spa
 </div>
 <div class="section" id="passing-configuration-variables-to-a-view">
 <span id="passing-in-config-variables"></span><span id="index-10"></span><h2>設定変数をビューへ渡す(Passing Configuration Variables to a View)<a class="headerlink" href="#passing-configuration-variables-to-a-view" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>設定(.ini)ファイルからビューに変数を渡すことに関する情報は <a class="reference internal" href="startup.html#deployment-settings"><span class="std std-ref">Deployment Settings</span></a> を参照してください。</p>
+<p>設定(.ini)ファイルからビューに変数を渡すことに関する情報は <a class="reference internal" href="startup.html#deployment-settings"><span class="std std-ref">展開設定</span></a> を参照してください。</p>
 </div>
 <div class="section" id="pylons-1-0-style-controller-dispatch">
 <span id="index-11"></span><h2>Pylons 1.0 スタイルの &quot;コントローラ&quot; ディスパッチ(Pylons-1.0-Style &quot;Controller&quot; Dispatch)<a class="headerlink" href="#pylons-1-0-style-controller-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -460,10 +460,10 @@ and a <code class="docutils literal notranslate"><span class="pre">__call__</spa
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="urldispatch.html"
-                        title="前の章へ">URL Dispatch</a></p>
+                        title="前の章へ">(機械翻訳) URLディスパッチ</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="renderers.html"
-                        title="次の章へ">Renderers</a></p>
+                        title="次の章へ">(機械翻訳) レンダラー</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -497,17 +497,17 @@ and a <code class="docutils literal notranslate"><span class="pre">__call__</spa
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="renderers.html" title="Renderers"
+          <a href="renderers.html" title="(機械翻訳) レンダラー"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="urldispatch.html" title="URL Dispatch"
+          <a href="urldispatch.html" title="(機械翻訳) URLディスパッチ"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

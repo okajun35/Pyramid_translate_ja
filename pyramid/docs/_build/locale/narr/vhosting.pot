@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../narr/vhosting.rst:7
+msgid "Virtual Hosting"
+msgstr ""
+
+#: ../../narr/vhosting.rst:9
+msgid "\"Virtual hosting\" is, loosely, the act of serving a :app:`Pyramid` application or a portion of a :app:`Pyramid` application under a URL space that it does not \"naturally\" inhabit."
+msgstr ""
+
+#: ../../narr/vhosting.rst:13
+msgid ":app:`Pyramid` provides facilities for serving an application under a URL \"prefix\", as well as serving a *portion* of a :term:`traversal` based application under a root URL."
+msgstr ""
+
+#: ../../narr/vhosting.rst:21
+msgid "Hosting an Application Under a URL Prefix"
+msgstr ""
+
+#: ../../narr/vhosting.rst:23
+msgid ":app:`Pyramid` supports a common form of virtual hosting whereby you can host a :app:`Pyramid` application as a \"subset\" of some other site (e.g., under ``http://example.com/mypyramidapplication/`` as opposed to under ``http://example.com/``)."
+msgstr ""
+
+#: ../../narr/vhosting.rst:28
+msgid "If you use a \"pure Python\" environment, this functionality can be provided by `rutter <http://rutter.readthedocs.io/en/latest/>`_, forming a \"composite\" WSGI application.  Alternatively, you can use :term:`mod_wsgi` to serve your application, which handles this virtual hosting translation for you \"under the hood\"."
+msgstr ""
+
+#: ../../narr/vhosting.rst:34
+msgid "If you use the ``rutter`` composite application \"in front\" of a :app:`Pyramid` application or if you use :term:`mod_wsgi` to serve up a :app:`Pyramid` application, nothing special needs to be done within the application for URLs to be generated that contain a prefix. Rutter and :term:`mod_wsgi` manipulate the :term:`WSGI` environment in such a way that the ``PATH_INFO`` and ``SCRIPT_NAME`` variables are correct for some given prefix."
+msgstr ""
+
+#: ../../narr/vhosting.rst:41
+msgid "Here's an example of a PasteDeploy configuration snippet that includes a ``rutter`` composite."
+msgstr ""
+
+#: ../../narr/vhosting.rst:54
+msgid "This \"roots\" the :app:`Pyramid` application at the prefix ``/pyramidapp`` and serves up the composite as the \"main\" application in the file."
+msgstr ""
+
+#: ../../narr/vhosting.rst:57
+msgid "If you're using an Apache server to proxy to a ``urlmap`` composite, you may have to use the `ProxyPreserveHost <http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost>`_ directive to pass the original ``HTTP_HOST`` header along to the application, so URLs get generated properly.  As of this writing the ``urlmap`` composite does not seem to respect the ``HTTP_X_FORWARDED_HOST`` parameter, which will contain the original host header even if ``HTTP_HOST`` is incorrect."
+msgstr ""
+
+#: ../../narr/vhosting.rst:66
+msgid "If you use :term:`mod_wsgi`, you do not need to use a ``composite`` application in your ``.ini`` file.  The ``WSGIScriptAlias`` configuration setting in a :term:`mod_wsgi` configuration does the work for you:"
+msgstr ""
+
+#: ../../narr/vhosting.rst:75
+msgid "In the above configuration, we root a :app:`Pyramid` application at ``/pyramidapp`` within the Apache configuration."
+msgstr ""
+
+#: ../../narr/vhosting.rst:84
+msgid "Virtual Root Support"
+msgstr ""
+
+#: ../../narr/vhosting.rst:86
+msgid ":app:`Pyramid` also supports \"virtual roots\", which can be used in :term:`traversal`-based (but not :term:`URL dispatch`-based) applications."
+msgstr ""
+
+#: ../../narr/vhosting.rst:89
+msgid "Virtual root support is useful when you'd like to host some resource in a :app:`Pyramid` resource tree as an application under a URL pathname that does not include the resource path itself.  For example, you might want to serve the object at the traversal path ``/cms`` as an application reachable via ``http://example.com/`` (as opposed to ``http://example.com/cms``)."
+msgstr ""
+
+#: ../../narr/vhosting.rst:95
+msgid "To specify a virtual root, cause an environment variable to be inserted into the WSGI environ named ``HTTP_X_VHM_ROOT`` with a value that is the absolute pathname to the resource object in the resource tree that should behave as the \"root\" resource.  As a result, the traversal machinery will respect this value during traversal (prepending it to the PATH_INFO before traversal starts), and the :meth:`pyramid.request.Request.resource_url` API will generate the \"correct\" virtually-rooted URLs."
+msgstr ""
+
+#: ../../narr/vhosting.rst:103
+msgid "An example of an Apache ``mod_proxy`` configuration that will host the ``/cms`` subobject as ``http://www.example.com/`` using this facility is below:"
+msgstr ""
+
+#: ../../narr/vhosting.rst:119
+msgid "Use of the ``RequestHeader`` directive requires that the Apache `mod_headers <http://httpd.apache.org/docs/2.2/mod/mod_headers.html>`_ module be available in the Apache environment you're using."
+msgstr ""
+
+#: ../../narr/vhosting.rst:123
+msgid "For a :app:`Pyramid` application running under :term:`mod_wsgi`, the same can be achieved using ``SetEnv``:"
+msgstr ""
+
+#: ../../narr/vhosting.rst:133
+msgid "Setting a virtual root has no effect when using an application based on :term:`URL dispatch`."
+msgstr ""
+
+#: ../../narr/vhosting.rst:137
+msgid "Further Documentation and Examples"
+msgstr ""
+
+#: ../../narr/vhosting.rst:139
+msgid "The API documentation in :ref:`traversal_module` documents a :func:`pyramid.traversal.virtual_root` API.  When called, it returns the virtual root object (or the physical root object if no virtual root has been specified)."
+msgstr ""
+
+#: ../../narr/vhosting.rst:144
+msgid ":ref:`modwsgi_tutorial` has detailed information about using :term:`mod_wsgi` to serve :app:`Pyramid` applications."
+msgstr ""
+

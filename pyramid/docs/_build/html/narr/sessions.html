@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Sessions &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) セッション &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Using Events" href="events.html" />
-    <link rel="prev" title="Request and Response Objects" href="webob.html" />
+    <link rel="next" title="(機械翻訳) イベントの使用" href="events.html" />
+    <link rel="prev" title="(機械翻訳) 要求オブジェクトと応答オブジェクト" href="webob.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="events.html" title="Using Events"
+          <a href="events.html" title="(機械翻訳) イベントの使用"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="webob.html" title="Request and Response Objects"
+          <a href="webob.html" title="(機械翻訳) 要求オブジェクトと応答オブジェクト"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,33 +69,19 @@
           <div class="body" role="main">
             
   <div class="section" id="sessions">
-<span id="sessions-chapter"></span><span id="index-0"></span><h1>Sessions<a class="headerlink" href="#sessions" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>A <a class="reference internal" href="../glossary.html#term-session"><span class="xref std std-term">session</span></a> is a namespace which is valid for some period of continual
-activity that can be used to represent a user's interaction with a web
-application.</p>
-<p>This chapter describes how to configure sessions, what session implementations
-<span>Pyramid</span> provides out of the box, how to store and retrieve data from
-sessions, and a session-specific feature: flash messages.</p>
+<span id="sessions-chapter"></span><span id="index-0"></span><h1>(機械翻訳) セッション<a class="headerlink" href="#sessions" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>A：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>session`は、Webアプリケーションとのユーザーの対話を表現するために使用できる一定期間の継続的な活動に対して有効な名前空間です。</p>
+<p>この章では、セッションの設定方法、セッションの実装方法について説明します。app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、即座に提供され、セッションからのデータの保存および取得方法、およびセッション固有の機能です。</p>
 <div class="section" id="using-the-default-session-factory">
-<span id="index-1"></span><span id="id1"></span><h2>Using the Default Session Factory<a class="headerlink" href="#using-the-default-session-factory" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In order to use sessions, you must set up a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a> during your
-<span>Pyramid</span> configuration.</p>
-<p>A very basic, insecure sample session factory implementation is provided in the
-<span>Pyramid</span> core.  It uses a cookie to store session information.  This
-implementation has the following limitations:</p>
+<span id="index-1"></span><span id="id1"></span><h2>デフォルトセッションファクトリの使用<a class="headerlink" href="#using-the-default-session-factory" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>セッションを使用するには、：app： <cite>Pyramid`設定中に：term：</cite> session factory`を設定する必要があります。</p>
+<p>非常に基本的で安全でないサンプルセッションファクトリの実装は、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`コアで提供されています。セッション情報を保存するためにクッキーを使用します。この実装には次の制限があります。</p>
 <ul class="simple">
-<li>The session information in the cookies used by this implementation is <em>not</em>
-encrypted, so it can be viewed by anyone with access to the cookie storage of
-the user's browser or anyone with access to the network along which the
-cookie travels.</li>
-<li>The maximum number of bytes that are storable in a serialized representation
-of the session is fewer than 4000.  This is suitable only for very small data
-sets.</li>
+<li>この実装で使用されるクッキー内のセッション情報は暗号化されていない*ため、ユーザーのブラウザのクッキーストレージまたはクッキーが移動するネットワークにアクセスできる人は誰でも閲覧できます。</li>
+<li>セッションのシリアライズされた表現で格納可能な最大バイト数は4000未満です。これは非常に小さいデータセットにのみ適しています。</li>
 </ul>
-<p>It is digitally signed, however, and thus its data cannot easily be tampered
-with.</p>
-<p>You can configure this session factory in your <span>Pyramid</span> application by
-using the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_session_factory" title="pyramid.config.Configurator.set_session_factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_session_factory()</span></code></a> method.</p>
+<p>しかし、それはデジタル署名されているため、そのデータを簡単に改ざんすることはできません。</p>
+<p>このセッションファクトリは：app： <cite>Pyramid`アプリケーションで：meth：</cite> pyramid.config.Configurator.set_session_factory`メソッドを使って設定できます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -111,26 +97,12 @@ using the <a class="reference internal" href="../api/config.html#pyramid.config.
 </td></tr></table></div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">By default the <a class="reference internal" href="../api/session.html#pyramid.session.SignedCookieSessionFactory" title="pyramid.session.SignedCookieSessionFactory"><code class="xref py py-func docutils literal notranslate"><span class="pre">SignedCookieSessionFactory()</span></code></a>
-implementation is <em>unencrypted</em>.  You should not use it when you keep
-sensitive information in the session object, as the information can be
-easily read by both users of your application and third parties who have
-access to your users' network traffic.  And, if you use this sessioning
-implementation, and you inadvertently create a cross-site scripting
-vulnerability in your application, because the session data is stored
-unencrypted in a cookie, it will also be easier for evildoers to obtain the
-current user's cross-site scripting token.  In short, use a different
-session factory implementation (preferably one which keeps session data on
-the server) for anything but the most basic of applications where &quot;session
-security doesn't matter&quot;, and you are sure your application has no
-cross-site scripting vulnerabilities.</p>
+<p class="last">デフォルトでは：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.session.SignedCookieSessionFactory`実装は*暗号化されていません*。アプリケーションのユーザーとユーザーのネットワークトラフィックにアクセスできる第三者が情報を簡単に読むことができるため、セッションオブジェクトに機密情報を保存するときには使用しないでください。セッションデータがCookieに暗号化されて保存されているため、このセッション実装を使用してアプリケーションでクロスサイトスクリプティングの脆弱性を誤って作成した場合、悪意のあるユーザーが現在のユーザーのクロスサイトスクリプティングトークン。要するに、&amp;quot;セッションセキュリティは重要ではない&amp;quot;というアプリケーションの最も基本的なもの以外は、別のセッションファクトリ実装（好ましくはサーバー上にセッションデータを保持するもの）を使用してください。アプリケーションには、サイトスクリプティングの脆弱性。</p>
 </div>
 </div>
 <div class="section" id="using-a-session-object">
-<span id="index-2"></span><h2>Using a Session Object<a class="headerlink" href="#using-a-session-object" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Once a session factory has been configured for your application, you can access
-session objects provided by the session factory via the <code class="docutils literal notranslate"><span class="pre">session</span></code> attribute
-of any <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a> object.  For example:</p>
+<span id="index-2"></span><h2>セッションオブジェクトの使用<a class="headerlink" href="#using-a-session-object" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アプリケーション用にセッションファクトリがコンフィグレーションされたら、any：term： <cite>request`オブジェクトの</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>session``属性を介して、セッションファクトリによって提供されるセッションオブジェクトにアクセスできます。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -154,51 +126,32 @@ of any <a class="reference internal" href="../glossary.html#term-request"><span 
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;Fred was not in the session&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The first time this view is invoked produces <code class="docutils literal notranslate"><span class="pre">Fred</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">session</span></code>.
-Subsequent invocations produce <code class="docutils literal notranslate"><span class="pre">Fred</span> <span class="pre">was</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">session</span></code>, assuming of course
-that the client side maintains the session's identity across multiple requests.</p>
-<p>You can use a session much like a Python dictionary.  It supports all
-dictionary methods, along with some extra attributes and methods.</p>
-<p>Extra attributes:</p>
+<p>このビューが初めて呼び出されると、「フレッドはセッションに参加していません」と表示されます。その後の呼び出しでは、クライアント側が複数の要求にまたがってセッションの識別情報を保持していることを前提として、「Fredがセッション中です。</p>
+<p>あなたはPython辞書のようにセッションを使うことができます。それはいくつかの追加の属性とメソッドと共に、すべての辞書メソッドをサポートしています。</p>
+<p>追加属性：</p>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">created</span></code></dt>
-<dd>An integer timestamp indicating the time that this session was created.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">new</span></code></dt>
-<dd>A boolean.  If <code class="docutils literal notranslate"><span class="pre">new</span></code> is True, this session is new.  Otherwise, it has been
-constituted from data that was already serialized.</dd>
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a>作られた ``</dt>
+<dd>このセッションが作成された時刻を示す整数のタイムスタンプ。</dd>
+<dt>「新」</dt>
+<dd>ブール値`` new``がTrueの場合、このセッションは新規です。それ以外の場合は、既にシリアライズされたデータから構成されています。</dd>
 </dl>
-<p>Extra methods:</p>
+<p>余分な方法：</p>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">changed()</span></code></dt>
-<dd>Call this when you mutate a mutable value in the session namespace. See the
-gotchas below for details on when and why you should call this.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">invalidate()</span></code></dt>
-<dd>Call this when you want to invalidate the session (dump all data, and perhaps
-set a clearing cookie).</dd>
+<dt>`` changed（） ``</dt>
+<dd>セッションネームスペース内の変更可能な値を変更するときにこれを呼び出します。これをいつ、なぜ呼び出すべきかについての詳細は、下の問題点を参照してください。</dd>
+<dt>`` invalidate（） ``</dt>
+<dd>セッションを無効にする（すべてのデータをダンプし、おそらくクリアクッキーを設定する）ときにこれを呼び出します。</dd>
 </dl>
-<p>The formal definition of the methods and attributes supported by the session
-object are in the <a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.ISession" title="pyramid.interfaces.ISession"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.ISession</span></code></a> documentation.</p>
-<p>Some gotchas:</p>
+<p>セッションオブジェクトがサポートするメソッドと属性の正式な定義は：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.interfaces.ISession`のドキュメントにあります。</p>
+<p>いくつかの問題：</p>
 <ul class="simple">
-<li>Keys and values of session data must be <em>pickleable</em>.  This means, typically,
-that they are instances of basic types of objects, such as strings, lists,
-dictionaries, tuples, integers, etc.  If you place an object in a session
-data key or value that is not pickleable, an error will be raised when the
-session is serialized.</li>
-<li>If you place a mutable value (for example, a list or a dictionary) in a
-session object, and you subsequently mutate that value, you must call the
-<code class="docutils literal notranslate"><span class="pre">changed()</span></code> method of the session object. In this case, the session has no
-way to know that it was modified.  However, when you modify a session object
-directly, such as setting a value (i.e., <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code>), or removing a key
-(e.g., <code class="docutils literal notranslate"><span class="pre">del</span></code> or <code class="docutils literal notranslate"><span class="pre">pop</span></code>), the session will automatically know that it needs
-to re-serialize its data, thus calling <code class="docutils literal notranslate"><span class="pre">changed()</span></code> is unnecessary. There is
-no harm in calling <code class="docutils literal notranslate"><span class="pre">changed()</span></code> in either case, so when in doubt, call it
-after you've changed sessioning data.</li>
+<li>セッションデータのキーと値は* pickleable <a href="#id1"><span class="problematic" id="id2">*</span></a>でなければなりません。これは、通常、文字列、リスト、辞書、タプル、整数などのオブジェクトの基本型のインスタンスであることを意味します。オブジェクトをpickleableではないセッションデータキーまたは値に配置すると、エラーが発生しますセッションがシリアライズされるときに発生します。</li>
+<li>セッションオブジェクトに変更可能な値（リストや辞書など）を入れた後、その値を変更する場合は、セッションオブジェクトの `` changed（） <code class="docutils literal notranslate"><span class="pre">メソッドを呼び出す必要があります。この場合、セッションは変更されたことを知る方法がありません。しかし、セッションオブジェクトを直接変更する場合（例えば、</span> <span class="pre">``</span> <span class="pre">__setitem__</span></code>）、キーを削除する場合（ `` del``や `` pop``など）には、セッションは自動的にそのデータを再シリアライズする必要があるため、 `` changed（） <a href="#id1"><span class="problematic" id="id2">``</span></a>を呼び出すことは不要です。いずれにしても `` changed（） <a href="#id3"><span class="problematic" id="id4">``</span></a>を呼び出すことには何の害もないので、疑わしいときはセッションデータを変更した後に呼び出してください。</li>
 </ul>
 </div>
 <div class="section" id="using-alternate-session-factories">
-<span id="index-3"></span><span id="id2"></span><h2>Using Alternate Session Factories<a class="headerlink" href="#using-alternate-session-factories" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The following session factories exist at the time of this writing.</p>
+<span id="index-3"></span><span id="id2"></span><h2>代替セッションファクトリの使用<a class="headerlink" href="#using-alternate-session-factories" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この執筆時点では、以下のセッションファクトリが存在します。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="39%" />
@@ -206,97 +159,59 @@ after you've changed sessioning data.</li>
 <col width="49%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Session Factory</th>
-<th class="head">Backend</th>
-<th class="head">Description</th>
+<tr class="row-odd"><th class="head">セッションファクトリー</th>
+<th class="head">バックエンド</th>
+<th class="head">説明</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference external" href="https://pypi.org/project/pyramid_nacl_session/">pyramid_nacl_session</a></td>
 <td><a class="reference external" href="https://pynacl.readthedocs.io/en/latest/secret/">PyNaCl</a></td>
-<td>Defines an encrypting,
-pickle-based cookie
-serializer, using PyNaCl to
-generate the symmetric
-encryption for the cookie
-state.</td>
+<td>PyNaClを使用してCookie状態の対称暗号化を生成する、暗号化されたpickleベースのCookieシリアライザを定義します。</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://pypi.org/project/pyramid_redis_sessions/">pyramid_redis_sessions</a></td>
 <td><a class="reference external" href="https://redis.io/">Redis</a></td>
-<td>Server-side session library
-for Pyramid, using Redis for
-storage.</td>
+<td>Pyramid用のサーバー側のセッションライブラリ。Redisをストレージに使用します。</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="https://pypi.org/project/pyramid_beaker/">pyramid_beaker</a></td>
-<td><a class="reference external" href="https://beaker.readthedocs.io/en/latest/">Beaker</a></td>
-<td>Session factory for Pyramid
-backed by the Beaker
-sessioning system.</td>
+<tr class="row-even"><td><a class="reference external" href="https://pypi.org/project/pyramid_beaker/">ピラミッドビーカー</a></td>
+<td><a class="reference external" href="https://beaker.readthedocs.io/en/latest/">ビーカー</a></td>
+<td>ビーカーのセッションシステムに支えられたピラミッドのセッションファクトリ。</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="creating-your-own-session-factory">
-<span id="index-4"></span><h2>Creating Your Own Session Factory<a class="headerlink" href="#creating-your-own-session-factory" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If none of the default or otherwise available sessioning implementations for
-<span>Pyramid</span> suit you, you may create your own session object by implementing
-a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a>.  Your session factory should return a
-<a class="reference internal" href="../glossary.html#term-session"><span class="xref std std-term">session</span></a>.  The interfaces for both types are available in
-<a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.ISessionFactory" title="pyramid.interfaces.ISessionFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.ISessionFactory</span></code></a> and
-<a class="reference internal" href="../api/interfaces.html#pyramid.interfaces.ISession" title="pyramid.interfaces.ISession"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.ISession</span></code></a>. You might use the cookie implementation
-in the <a class="reference internal" href="../api/session.html#module-pyramid.session" title="pyramid.session"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.session</span></code></a> module as inspiration.</p>
+<span id="index-4"></span><h2>独自のセッションファクトリーを作成する<a class="headerlink" href="#creating-your-own-session-factory" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>もし：app： <cite>Pyramid`のためのデフォルトやその他のセッションの実装があなたに合っていないなら、：term：</cite> session factory`を実装することであなた自身のセッションオブジェクトを作成できます。あなたのセッションファクトリは：term： <cite>session`を返すべきです。両方の型のインタフェースはclass： `pyramid.interfaces.ISessionFactory`と：class：</cite> pyramid.interfaces.ISession`で利用できます。 ：mod： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.session`モジュールのcookie実装をインスピレーションとして使うかもしれません。</p>
 </div>
 <div class="section" id="flash-messages">
-<span id="index-5"></span><span id="id3"></span><h2>Flash Messages<a class="headerlink" href="#flash-messages" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>&quot;Flash messages&quot; are simply a queue of message strings stored in the
-<a class="reference internal" href="../glossary.html#term-session"><span class="xref std std-term">session</span></a>.  To use flash messaging, you must enable a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session
-factory</span></a> as described in <a class="reference internal" href="#using-the-default-session-factory"><span class="std std-ref">Using the Default Session Factory</span></a> or
-<a class="reference internal" href="#using-alternate-session-factories"><span class="std std-ref">Using Alternate Session Factories</span></a>.</p>
-<p>Flash messaging has two main uses: to display a status message only once to the
-user after performing an internal redirect, and to allow generic code to log
-messages for single-time display without having direct access to an HTML
-template. The user interface consists of a number of methods of the
-<a class="reference internal" href="../glossary.html#term-session"><span class="xref std std-term">session</span></a> object.</p>
+<span id="index-5"></span><span id="id3"></span><h2>フラッシュメッセージ<a class="headerlink" href="#flash-messages" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>&amp;quot;Flash messages &amp;quot;は：term： <cite>session`に格納されたメッセージ文字列の単なるキューです。フラッシュメッセージを使用するには、：ref： `using_the_default_session_factory`または：ref：</cite> using_alternate_session_factories`で説明されているように、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>session factory`を有効にする必要があります。</p>
+<p>Flashリダイレクトは、内部リダイレクトを実行した後でステータスメッセージを1回だけユーザに表示し、HTMLテンプレートに直接アクセスせずにメッセージをログに記録できるようにします。ユーザインタフェースは、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>session`オブジェクトのいくつかのメソッドで構成されています。</p>
 <div class="section" id="using-the-session-flash-method">
-<span id="index-6"></span><h3>Using the <code class="docutils literal notranslate"><span class="pre">session.flash</span></code> Method<a class="headerlink" href="#using-the-session-flash-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>To add a message to a flash message queue, use a session object's <code class="docutils literal notranslate"><span class="pre">flash()</span></code>
-method:</p>
+<span id="index-6"></span><h3>`` session.flash``メソッドの使用<a class="headerlink" href="#using-the-session-flash-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>フラッシュメッセージキューにメッセージを追加するには、セッションオブジェクトの `` flash（） <a href="#id1"><span class="problematic" id="id2">``</span></a>メソッドを使用します：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">flash</span><span class="p">(</span><span class="s1">&#39;mymessage&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">flash()</span></code> method appends a message to a flash queue, creating the queue
-if necessary.</p>
-<p><code class="docutils literal notranslate"><span class="pre">flash()</span></code> accepts three arguments:</p>
+<p>`` flash（） <a href="#id1"><span class="problematic" id="id2">``</span></a>メソッドはフラッシュキューにメッセージを追加し、必要に応じてキューを作成します。</p>
+<p>`` flash（） <a href="#id1"><span class="problematic" id="id2">``</span></a>は3つの引数を受け取ります：</p>
 <dl class="method">
 <dt id="flash">
 <code class="descname">flash</code><span class="sig-paren">(</span><em>message</em>, <em>queue=''</em>, <em>allow_duplicate=True</em><span class="sig-paren">)</span><a class="headerlink" href="#flash" title="この定義へのパーマリンク">¶</a></dt>
 <dd></dd></dl>
 
-<p>The <code class="docutils literal notranslate"><span class="pre">message</span></code> argument is required.  It represents a message you wish to
-later display to a user.  It is usually a string but the <code class="docutils literal notranslate"><span class="pre">message</span></code> you
-provide is not modified in any way.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">queue</span></code> argument allows you to choose a queue to which to append the
-message you provide.  This can be used to push different kinds of messages into
-flash storage for later display in different places on a page.  You can pass
-any name for your queue, but it must be a string. Each queue is independent,
-and can be popped by <code class="docutils literal notranslate"><span class="pre">pop_flash()</span></code> or examined via <code class="docutils literal notranslate"><span class="pre">peek_flash()</span></code>
-separately.  <code class="docutils literal notranslate"><span class="pre">queue</span></code> defaults to the empty string.  The empty string
-represents the default flash message queue.</p>
+<p>`` message``引数が必要です。後でユーザーに表示したいメッセージを表します。通常は文字列ですが、あなたが提供する `` message``は決して変更されません。</p>
+<p>`` queue``引数は、あなたが提供するメッセージを追加するキューを選択することを可能にします。これを使用して、さまざまな種類のメッセージをフラッシュストレージにプッシュして、後でページの別の場所に表示することができます。キューには任意の名前を渡すことができますが、文字列でなければなりません。各キューは独立していて、 `` pop_flash（） <a href="#id1"><span class="problematic" id="id2">``</span></a>でポップするか、 `` peek_flash（） <a href="#id3"><span class="problematic" id="id4">``</span></a>で個別に調べることができます。 `` queue``はデフォルトで空文字列になります。空の文字列は、デフォルトのフラッシュメッセージキューを表します。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">flash</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s1">&#39;myappsqueue&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">allow_duplicate</span></code> argument defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.  If this is <code class="docutils literal notranslate"><span class="pre">False</span></code>,
-and you attempt to add a message value which is already present in the queue,
-it will not be added.</p>
+<p>`` allow_duplicate``引数のデフォルトは `` True``です。これが `` False``で、既にキューに存在するメッセージ値を追加しようとすると、追加されません。</p>
 </div>
 <div class="section" id="using-the-session-pop-flash-method">
-<span id="index-7"></span><h3>Using the <code class="docutils literal notranslate"><span class="pre">session.pop_flash</span></code> Method<a class="headerlink" href="#using-the-session-pop-flash-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Once one or more messages have been added to a flash queue by the
-<code class="docutils literal notranslate"><span class="pre">session.flash()</span></code> API, the <code class="docutils literal notranslate"><span class="pre">session.pop_flash()</span></code> API can be used to pop an
-entire queue and return it for use.</p>
-<p>To pop a particular queue of messages from the flash object, use the session
-object's <code class="docutils literal notranslate"><span class="pre">pop_flash()</span></code> method. This returns a list of the messages that were
-added to the flash queue, and empties the queue.</p>
+<span id="index-7"></span><h3>`` session.pop_flash``メソッドの使用<a class="headerlink" href="#using-the-session-pop-flash-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>1つまたは複数のメッセージが `` session.flash（） <cite>APIによってフラッシュキューに追加されると、</cite> <cite>session.pop_flash（）</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>APIを使用してキュー全体をポップし、使用するために返すことができます。</p>
+<p>特定のキューのメッセージをフラッシュオブジェクトからポップするには、セッションオブジェクトの `` pop_flash（） <a href="#id1"><span class="problematic" id="id2">``</span></a>メソッドを使用します。これにより、フラッシュキューに追加されたメッセージのリストが返され、キューが空になります。</p>
 <dl class="method">
 <dt id="pop_flash">
 <code class="descname">pop_flash</code><span class="sig-paren">(</span><em>queue=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pop_flash" title="この定義へのパーマリンク">¶</a></dt>
@@ -307,9 +222,7 @@ added to the flash queue, and empties the queue.</p>
 <span class="go">[&#39;info message&#39;]</span>
 </pre></div>
 </div>
-<p>Calling <code class="docutils literal notranslate"><span class="pre">session.pop_flash()</span></code> again like above without a corresponding call
-to <code class="docutils literal notranslate"><span class="pre">session.flash()</span></code> will return an empty list, because the queue has already
-been popped.</p>
+<p>上記のように `` session.pop_flash（） <a href="#id1"><span class="problematic" id="id2">``</span></a>をもう一度呼び出すと、 `` session.flash（） <a href="#id3"><span class="problematic" id="id4">``</span></a>に対応する呼び出しは、キューが既にポップされているので空のリストを返します。</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">flash</span><span class="p">(</span><span class="s1">&#39;info message&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">pop_flash</span><span class="p">()</span>
 <span class="go">[&#39;info message&#39;]</span>
@@ -319,11 +232,8 @@ been popped.</p>
 </div>
 </div>
 <div class="section" id="using-the-session-peek-flash-method">
-<span id="index-8"></span><h3>Using the <code class="docutils literal notranslate"><span class="pre">session.peek_flash</span></code> Method<a class="headerlink" href="#using-the-session-peek-flash-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Once one or more messages have been added to a flash queue by the
-<code class="docutils literal notranslate"><span class="pre">session.flash()</span></code> API, the <code class="docutils literal notranslate"><span class="pre">session.peek_flash()</span></code> API can be used to &quot;peek&quot;
-at that queue.  Unlike <code class="docutils literal notranslate"><span class="pre">session.pop_flash()</span></code>, the queue is not popped from
-flash storage.</p>
+<span id="index-8"></span><h3>`` session.peek_flash``メソッドの使用<a class="headerlink" href="#using-the-session-peek-flash-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>1つまたは複数のメッセージが `` session.flash（） <cite>APIによってフラッシュキューに追加されると、</cite> <cite>session.peek_flash（）</cite> <cite>APIを使ってそのキューで&amp;quot; peek &amp;quot;を使うことができます。 `</cite> session.pop_flash（） <a href="#id1"><span class="problematic" id="id2">``</span></a>とは異なり、キューはフラッシュストレージからポップされません。</p>
 <dl class="method">
 <dt id="peek_flash">
 <code class="descname">peek_flash</code><span class="sig-paren">(</span><em>queue=''</em><span class="sig-paren">)</span><a class="headerlink" href="#peek_flash" title="この定義へのパーマリンク">¶</a></dt>
@@ -352,15 +262,15 @@ flash storage.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Sessions</a><ul>
-<li><a class="reference internal" href="#using-the-default-session-factory">Using the Default Session Factory</a></li>
-<li><a class="reference internal" href="#using-a-session-object">Using a Session Object</a></li>
-<li><a class="reference internal" href="#using-alternate-session-factories">Using Alternate Session Factories</a></li>
-<li><a class="reference internal" href="#creating-your-own-session-factory">Creating Your Own Session Factory</a></li>
-<li><a class="reference internal" href="#flash-messages">Flash Messages</a><ul>
-<li><a class="reference internal" href="#using-the-session-flash-method">Using the <code class="docutils literal notranslate"><span class="pre">session.flash</span></code> Method</a></li>
-<li><a class="reference internal" href="#using-the-session-pop-flash-method">Using the <code class="docutils literal notranslate"><span class="pre">session.pop_flash</span></code> Method</a></li>
-<li><a class="reference internal" href="#using-the-session-peek-flash-method">Using the <code class="docutils literal notranslate"><span class="pre">session.peek_flash</span></code> Method</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) セッション</a><ul>
+<li><a class="reference internal" href="#using-the-default-session-factory">デフォルトセッションファクトリの使用</a></li>
+<li><a class="reference internal" href="#using-a-session-object">セッションオブジェクトの使用</a></li>
+<li><a class="reference internal" href="#using-alternate-session-factories">代替セッションファクトリの使用</a></li>
+<li><a class="reference internal" href="#creating-your-own-session-factory">独自のセッションファクトリーを作成する</a></li>
+<li><a class="reference internal" href="#flash-messages">フラッシュメッセージ</a><ul>
+<li><a class="reference internal" href="#using-the-session-flash-method">`` session.flash``メソッドの使用</a></li>
+<li><a class="reference internal" href="#using-the-session-pop-flash-method">`` session.pop_flash``メソッドの使用</a></li>
+<li><a class="reference internal" href="#using-the-session-peek-flash-method">`` session.peek_flash``メソッドの使用</a></li>
 </ul>
 </li>
 </ul>
@@ -369,10 +279,10 @@ flash storage.</p>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="webob.html"
-                        title="前の章へ">Request and Response Objects</a></p>
+                        title="前の章へ">(機械翻訳) 要求オブジェクトと応答オブジェクト</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="events.html"
-                        title="次の章へ">Using Events</a></p>
+                        title="次の章へ">(機械翻訳) イベントの使用</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -406,17 +316,17 @@ flash storage.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="events.html" title="Using Events"
+          <a href="events.html" title="(機械翻訳) イベントの使用"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="webob.html" title="Request and Response Objects"
+          <a href="webob.html" title="(機械翻訳) 要求オブジェクトと応答オブジェクト"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

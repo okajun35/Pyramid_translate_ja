@@ -7,27 +7,17 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/logging.rst:4
 msgid "Logging"
-msgstr ""
+msgstr "(機械翻訳) ロギング"
 
 #: ../../narr/logging.rst:6
 msgid ""
 ":app:`Pyramid` allows you to make use of the Python standard library "
 ":mod:`logging` module.  This chapter describes how to configure logging "
 "and how to send log messages to loggers that you've configured."
-msgstr ""
+msgstr "：app： `Pyramid`は、Pythonの標準ライブラリmod：` logging`モジュールを利用できます。この章では、ロギングを設定する方法と、設定したロガーにログメッセージを送信する方法について説明します。"
 
 #: ../../narr/logging.rst:12
 msgid ""
@@ -38,11 +28,11 @@ msgid ""
 " you've used a third-party cookiecutter which does not create these "
 "files, the configuration information in this chapter may not be "
 "applicable."
-msgstr ""
+msgstr "この章では、：term： `cookiecutter`を使って、` `development.ini``と` `production.ini``ファイルを含むプロジェクトを作成し、ロギングの設定を支援すると仮定しています。 Pylonsプロジェクトによって提供されたピラミッドのcookiecuttersはすべてこれを行います。 cookiecutterを使用していない場合、またはこれらのファイルを作成しないサードパーティのcookiecutterを使用している場合は、この章の設定情報が適用されない場合があります。"
 
 #: ../../narr/logging.rst:27
 msgid "Logging Configuration"
-msgstr ""
+msgstr "ロギング設定"
 
 #: ../../narr/logging.rst:29
 msgid ""
@@ -52,7 +42,7 @@ msgid ""
 "particular, the :term:`PasteDeploy` ``development.ini`` and "
 "``production.ini`` files created when you use a cookiecutter include a "
 "basic configuration for the Python :mod:`logging` package."
-msgstr ""
+msgstr "A：app： `Pyramid`プロジェクトは：term：` cookiecutter`から作成し、あなたにメッセージを送るように設定されています：mod： `Python標準ライブラリloggingパッケージ<logging> `あなたのアプリケーション内のロガー。特に、cookiecutterを使用するときに作成される：term： `PasteDeploy`` `development.ini``と` `production.ini``ファイルには、Python：mod：` logging`パッケージの基本設定が含まれています。"
 
 #: ../../narr/logging.rst:36
 msgid ""
@@ -62,7 +52,7 @@ msgid ""
 "config-fileformat>`. The application-related and logging-related sections"
 " in the configuration file can coexist peacefully, and the logging-"
 "related sections in the file are used from when you run ``pserve``."
-msgstr ""
+msgstr "PasteDeploy `` .ini``ファイルはPython標準ライブラリを使います：mod： `ConfigParser format <ConfigParser> `。これは、Python：ref： `loggingモジュールの設定ファイルフォーマットと同じフォーマットです<logging-config-fileformat> `。設定ファイルのアプリケーション関連とロギング関連のセクションは平和的に共存でき、 `` pserve``を実行するときにはファイルのログ関連のセクションが使用されます。"
 
 #: ../../narr/logging.rst:43
 msgid ""
@@ -72,7 +62,7 @@ msgid ""
 " (all of the cookiecutter-generated ``.ini`` files do). ``setup_logging``"
 " reads the logging configuration from the ini file upon which ``pserve`` "
 "was invoked."
-msgstr ""
+msgstr "`` pserve``コマンドは：func： `pyramid.paster.setup_logging`関数を呼び出します。これは指定された` .ini`ファイルを使って：func： `logging.config.fileConfig`のシンラッパーです。 `` [loggers] ``セクション（cookiecutterによって生成された `` .ini``ファイルのすべてが行います）。 `` setup_logging``は、 `` pserve``が呼び出されたiniファイルからログ設定を読み込みます。"
 
 #: ../../narr/logging.rst:49
 msgid ""
@@ -81,30 +71,30 @@ msgid ""
 "``pyramid-cookiecutter-starter`` to generate a Pyramid project with the "
 "name of the package as ``hello_world``, then the logging configuration in"
 " the ``development.ini`` file is as follows:"
-msgstr ""
+msgstr "デフォルトのロギング設定は、デフォルトの `` development.ini``と `` production.ini``ファイルの両方で提供されます。 `` pyramid-cookiecutter-starter``を使ってパッケージの名前を `` hello_world``としてPyramidプロジェクトを生成すると、 `` development.ini``ファイルのロギング設定は次のようになります："
 
 #: ../../narr/logging.rst:58
 msgid ""
 "The ``production.ini`` file uses the ``WARN`` level in its logger "
 "configuration instead of ``DEBUG``, but it is otherwise identical."
-msgstr ""
+msgstr "`` production.ini``ファイルは `` DEBUG``の代わりに `` WARN``​​レベルをロガー設定で使用しますが、それ以外は同じです。"
 
 #: ../../narr/logging.rst:61
 msgid "In this logging configuration:"
-msgstr ""
+msgstr "このロギング構成では、"
 
 #: ../../narr/logging.rst:63
 msgid ""
 "a logger named ``root`` is created that logs messages at a level above or"
 " equal to the ``INFO`` level to stderr, with the following format:"
-msgstr ""
+msgstr "`` root``という名前のロガーが作成されます。このロガーは、 `` INFO``レベル以上のレベルのメッセージをstderrに次の形式で記録します："
 
 #: ../../narr/logging.rst:70
 msgid ""
 "a logger named ``myproject`` is configured that logs messages sent at a "
 "level above or equal to ``DEBUG`` to stderr in the same format as the "
 "root logger."
-msgstr ""
+msgstr "`` myproject``という名前のロガーは、ルートロガーと同じフォーマットでstderrに `` DEBUG` &quot;以上のレベルで送られたメッセージを記録します。"
 
 #: ../../narr/logging.rst:73
 msgid ""
@@ -115,14 +105,14 @@ msgid ""
 "reserved for your own usage in your :app:`Pyramid` application.  Its "
 "existence means that you can log to a known logging location from any "
 ":app:`Pyramid` application generated via a cookiecutter."
-msgstr ""
+msgstr "`` root``ロガーはPyramidプロセスのすべてのアプリケーションで使用され、プロジェクトのパッケージ名以外のもので始まる名前を持つロガーを（ `` logging.getLogger``を介して）尋ねます（例えば、 `` myproject``）。あなたのパッケージ名と同じ名前のロガーは、あなたの：app： `Pyramid`アプリケーションであなた自身の用法のために予約されています。その存在は、cookiecutterを介して生成された：app： `Pyramid`アプリケーションから既知のロギング場所にログインできることを意味します。"
 
 #: ../../narr/logging.rst:80
 msgid ""
 ":app:`Pyramid` and many other libraries (such as Beaker, SQLAlchemy, "
 "Paste) log a number of messages to the root logger for debugging "
 "purposes. Switching the root logger level to ``DEBUG`` reveals them:"
-msgstr ""
+msgstr "：app： `Pyramid`と他の多くのライブラリ（Beaker、SQLAlchemy、Pasteなど）はデバッグの目的でいくつかのメッセージをルートロガーに記録します。ルートロガーレベルを `` DEBUG``に切り替えると、それらが明らかになります："
 
 #: ../../narr/logging.rst:91
 msgid ""
@@ -130,11 +120,11 @@ msgid ""
 " they use (such as SQLALchemy).  Take a look at the ``production.ini`` "
 "and ``development.ini`` files rendered when you create a project from a "
 "cookiecutter."
-msgstr ""
+msgstr "一部のcookiecuttersは、使用する追加のサブシステム（SQLALchemyなど）用に追加のロガーを構成します。 cookiecutterからプロジェクトを作成するときに表示される `` production.ini``と `` development.ini``ファイルを見てください。"
 
 #: ../../narr/logging.rst:96
 msgid "Sending Logging Messages"
-msgstr ""
+msgstr "ロギングメッセージの送信"
 
 #: ../../narr/logging.rst:98
 msgid ""
@@ -145,28 +135,28 @@ msgid ""
 "``myproject.package.subpackage`` if your project is named ``myproject``."
 "  Sending a message to this logger will send it to the ``myproject`` "
 "logger."
-msgstr ""
+msgstr "Pythonの特別な `` __name__``変数は、現在のモジュールの完全修飾名を参照します。 `` myproject``という名前のパッケージ内のどのモジュールからでも、 `` __name__``組み込み変数は常に `` myproject`や `` myproject.subpackage``や `` myproject.package.subpackage``のようなものですあなたのプロジェクトの名前が `` myproject``の場合。このロガーにメッセージを送ると、 `` myproject``ロガーに送られます。"
 
 #: ../../narr/logging.rst:105
 msgid ""
 "To log messages to the package-specific logger configured in your "
 "``.ini`` file, simply create a logger object using the ``__name__`` "
 "builtin and call methods on it."
-msgstr ""
+msgstr "あなたの `` .ini``ファイルで設定されたパッケージ固有のロガーにメッセージを記録するには、組み込み関数 `` __name__``を使ってロガーオブジェクトを作成し、メソッドを呼び出します。"
 
 #: ../../narr/logging.rst:122
 msgid "This will result in the following printed to the console, on ``stderr``:"
-msgstr ""
+msgstr "これによりコンソールに `` stderr``が出力されます："
 
 #: ../../narr/logging.rst:130
 msgid "Filtering log messages"
-msgstr ""
+msgstr "ログメッセージのフィルタリング"
 
 #: ../../narr/logging.rst:132
 msgid ""
 "Often there's too much log output to sift through, such as when switching"
 " the root logger's level to ``DEBUG``."
-msgstr ""
+msgstr "ルートロガーのレベルを `` DEBUG``に切り替えるときなど、あまりにも多くのログ出力が表示されることがあります。"
 
 #: ../../narr/logging.rst:135
 msgid ""
@@ -175,25 +165,25 @@ msgid ""
 "relation to database connection pooling. You can leave the root logger's "
 "level at the less verbose ``INFO`` level and set that particular "
 "SQLAlchemy logger to ``DEBUG`` on its own, apart from the root logger:"
-msgstr ""
+msgstr "たとえば、アプリケーションのデータベース接続の問題を診断し、データベース接続プーリングに関連してSQLAlchemyの `` DEBUG``メッセージだけを見たいとします。ルートロガーのレベルをあまり控えめな `` INFO``レベルにしておき、ルートロガーとは別に、特定のSQLAlchemyロガーをそれ自身で `` DEBUG``に設定することができます："
 
 #: ../../narr/logging.rst:148
 msgid "then add it to the list of loggers:"
-msgstr ""
+msgstr "ロガーのリストに追加します。"
 
 #: ../../narr/logging.rst:155
 msgid ""
 "No handlers need to be configured for this logger as by default non-root "
 "loggers will propagate their log records up to their parent logger's "
 "handlers. The root logger is the top level parent of all loggers."
-msgstr ""
+msgstr "このロガーにはハンドラーを設定する必要はありません。デフォルトでは、ルート以外のロガーはログ記録を親ロガーのハンドラーまで伝播します。ルートロガーは、すべてのロガーのトップレベルの親です。"
 
 #: ../../narr/logging.rst:159
 msgid ""
 "This technique is used in the default ``development.ini``. The root "
 "logger's level is set to ``INFO``, whereas the application's log level is"
 " set to ``DEBUG``:"
-msgstr ""
+msgstr "この手法はデフォルトの `` development.ini``で使われます。ルートロガーのレベルは `` INFO``に設定され、アプリケーションのログレベルは `` DEBUG``に設定されます："
 
 #: ../../narr/logging.rst:175
 msgid ""
@@ -201,43 +191,43 @@ msgid ""
 "``DEBUG`` level unless they're explicitly set differently. Meaning the "
 "``myproject.views``, ``myproject.models``, and all your app's modules' "
 "loggers by default have an effective level of ``DEBUG`` too."
-msgstr ""
+msgstr "`` myproject`ロガーのすべての子ロガーは明示的に異なって設定されない限り、 `` DEBUG``レベルを継承します。つまり、 `` myproject.views``、 `` myproject.models``、そしてあなたのアプリケーションのすべてのモジュールのロガーは、デフォルトで有効レベルが `` DEBUG``です。"
 
 #: ../../narr/logging.rst:180
 msgid ""
 "For more advanced filtering, the logging module provides a "
 ":class:`logging.Filter` object; however it cannot be used directly from "
 "the configuration file."
-msgstr ""
+msgstr "より高度なフィルタリングのために、ロギングモジュールは：class： `logging.Filter`オブジェクトを提供します。ただし、設定ファイルから直接使用することはできません。"
 
 #: ../../narr/logging.rst:185
 msgid "Advanced Configuration"
-msgstr ""
+msgstr "高度な設定"
 
 #: ../../narr/logging.rst:187
 msgid ""
 "To capture log output to a separate file, use "
 ":class:`logging.FileHandler` (or "
 ":class:`logging.handlers.RotatingFileHandler`):"
-msgstr ""
+msgstr "ログ出力を別のファイルに取り込むには、class： `logging.FileHandler`（または：class：` logging.handlers.RotatingFileHandler`）を使用します。"
 
 #: ../../narr/logging.rst:198
 msgid "Before it's recognized, it needs to be added to the list of handlers:"
-msgstr ""
+msgstr "認識される前に、ハンドラのリストに追加する必要があります。"
 
 #: ../../narr/logging.rst:205
 msgid "and finally utilized by a logger."
-msgstr ""
+msgstr "最後にロガーによって利用される。"
 
 #: ../../narr/logging.rst:213
 msgid ""
 "These final three lines of configuration direct all of the root logger's "
 "output to the ``myproject.log`` as well as the console."
-msgstr ""
+msgstr "これらの最後の3行の設定は、ルートロガーのすべての出力を `` myproject.log``とコンソールに向けます。"
 
 #: ../../narr/logging.rst:217
 msgid "Logging Exceptions"
-msgstr ""
+msgstr "例外のロギング"
 
 #: ../../narr/logging.rst:219
 msgid ""
@@ -245,11 +235,11 @@ msgid ""
 "use the :term:`pyramid_exclog` package.  Details about its configuration "
 "are in its `documentation "
 "<https://docs.pylonsproject.org/projects/pyramid_exclog/en/latest/>`_."
-msgstr ""
+msgstr "：app： `Pyramid`アプリケーションによって生成された例外をログに記録するか電子メールを送るには、：term：` pyramid_exclog`パッケージを使用します。その設定の詳細は、 `ドキュメント<https://docs.pylonsproject.org/projects/pyramid_exclog/en/latest/> `_。"
 
 #: ../../narr/logging.rst:234
 msgid "Request Logging with Paste's TransLogger"
-msgstr ""
+msgstr "ペーストのTransLoggerを使用したロギングのリクエスト"
 
 #: ../../narr/logging.rst:236
 msgid ""
@@ -263,7 +253,7 @@ msgid ""
 " do this.  The Python :class:`logging.FileHandler` logging handler can be"
 " used alongside TransLogger to create an ``access.log`` file similar to "
 "Apache's."
-msgstr ""
+msgstr "：term： `WSGI`デザインはモジュール化されています。ウェイトレスは、エラー状態、デバッグ出力などを記録しますが、Webトラフィックは記録しません。ウェブトラフィックのロギングの場合、Pasteは `TransLogger <http://pythonpaste.org/modules/translogger.html> `_：用語：`ミドルウェア &#39;。 TransLoggerは、 `Apache Combined Log Format <http://httpd.apache.org/docs/2.2/logs.html#combined> `_。しかし、TransLoggerはファイルに書き込みません。これを行うようにPythonロギングシステムを設定する必要があります。 Python：class： `logging.FileHandler`ロギングハンドラは、TransLoggerとともにApacheのような` `access.log``ファイルを作成するために使うことができます。"
 
 #: ../../narr/logging.rst:246
 msgid ""
@@ -274,18 +264,18 @@ msgid ""
 "section, then use a ``[pipeline:main]`` section file to form a WSGI "
 "pipeline with both the translogger and your application in it.  For "
 "instance, change from this:"
-msgstr ""
+msgstr "他の標準：term： `ミドルウェア`と同様に、Pasteエントリーポイントで、TransLoggerは `.ini`ファイル構文を使ってアプリケーションをラップするように設定できます。まずPyramidの `` .ini``ファイルの `` [app：main] ``セクションの名前を `` [app：mypyramidapp] ``に変更し、 `` [filter：translogger] ``セクションを追加し、 `[pipeline：main]` `セクションファイルを使用して、transloggerとアプリケーションの両方にWSGIパイプラインを形成します。たとえば、次のように変更します。"
 
 #: ../../narr/logging.rst:258
 msgid "To this:"
-msgstr ""
+msgstr "これに："
 
 #: ../../narr/logging.rst:273
 msgid ""
 "Using PasteDeploy this way to form and serve a pipeline is equivalent to "
 "wrapping your app in a TransLogger instance via the bottom of the "
 "``main`` function of your project's ``__init__`` file:"
-msgstr ""
+msgstr "このようにPasteDeployを使ってパイプラインを作成して提供することは、プロジェクトの `` __init__``ファイルの `` main``関数の一番下でTransLoggerインスタンスにアプリケーションをラップすることと同じです："
 
 #: ../../narr/logging.rst:286
 msgid ""
@@ -293,14 +283,14 @@ msgid ""
 "when called with no arguments, so it \"just works\" in environments that "
 "don't configure logging. Since our logging handlers are configured, we "
 "disable the automation via ``setup_console_handler = False``."
-msgstr ""
+msgstr "引数なしで呼び出されると、TransLoggerは自動的にロギングハンドラをコンソールに設定します。したがって、ロギングを設定していない環境では、動作します。ロギングハンドラが設定されているので、 `` setup_console_handler = False``でオートメーションを無効にします。"
 
 #: ../../narr/logging.rst:291
 msgid ""
 "With the filter in place, TransLogger's logger (named the ``wsgi`` "
 "logger) will propagate its log messages to the parent logger (the root "
 "logger), sending its output to the console when we request a page:"
-msgstr ""
+msgstr "フィルタを適切に配置すると、TransLoggerのロガー（ `` wsgi``ロガー）はログメッセージを親ロガー（ルートロガー）に伝え、ページを要求するときにその出力をコンソールに送ります："
 
 #: ../../narr/logging.rst:304
 msgid ""
@@ -308,7 +298,7 @@ msgid ""
 "following to add a FileHandler (named ``accesslog``) to the list of "
 "handlers, and ensure that the ``wsgi`` logger is configured and uses this"
 " handler accordingly:"
-msgstr ""
+msgstr "TransLoggerを `` access.log``のFileHandlerに向けるには、ハンドラのリストにFileHandler（ `` accesslog``という名前）を追加し、 `` wsgi``ロガーが設定され、使用されていることを確認する必要がありますそれに応じてこのハンドラ："
 
 #: ../../narr/logging.rst:330
 msgid ""
@@ -316,7 +306,7 @@ msgid ""
 "records to the root logger's handlers (currently the console handler). "
 "Setting ``propagate`` to ``0`` (``False``) here disables this; so the "
 "``wsgi`` logger directs its records only to the ``accesslog`` handler."
-msgstr ""
+msgstr "前述したように、非ルートロガーは、デフォルトでログ記録をルートロガーのハンドラー（現在はコンソールハンドラー）に伝播します。ここで `` propagate``を `` 0``（ `` False``）に設定すると、これは無効になります。 `` wsgi``ロガーは `` accesslog``ハンドラにのみレコードを送ります。"
 
 #: ../../narr/logging.rst:335
 msgid ""
@@ -325,11 +315,11 @@ msgid ""
 "We'll use a formatter that passes through the log messages as is. Add a "
 "new formatter called ``accesslog`` by including the following in your "
 "configuration file:"
-msgstr ""
+msgstr "最後に、TransLogger自体に必要なすべての情報を提供するため、TransLoggerで `` generic``フォーマッタを使用する必要はありません。ログメッセージをそのまま通過させるフォーマッタを使用します。 `` accesslog``と呼ばれる新しいフォーマッタを設定ファイルに追加して追加してください："
 
 #: ../../narr/logging.rst:348
 msgid ""
 "Finally alter the existing configuration to wire this new ``accesslog`` "
 "formatter into the FileHandler:"
-msgstr ""
+msgstr "最後に、既存の設定を変更して、この新しい `` accesslog``フォーマッタをFileHandlerに接続します："
 

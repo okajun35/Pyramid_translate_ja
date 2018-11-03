@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Much Ado About Traversal &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) トラバーサルについて &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Traversal" href="traversal.html" />
-    <link rel="prev" title="Hello Traversal World" href="hellotraversal.html" />
+    <link rel="next" title="(機械翻訳) トラバーサル" href="traversal.html" />
+    <link rel="prev" title="(機械翻訳) こんにちはトラバーサルワールド" href="hellotraversal.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="traversal.html" title="Traversal"
+          <a href="traversal.html" title="(機械翻訳) トラバーサル"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="hellotraversal.html" title="Hello Traversal World"
+          <a href="hellotraversal.html" title="(機械翻訳) こんにちはトラバーサルワールド"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,142 +69,45 @@
           <div class="body" role="main">
             
   <div class="section" id="much-ado-about-traversal">
-<span id="much-ado-about-traversal-chapter"></span><h1>Much Ado About Traversal<a class="headerlink" href="#much-ado-about-traversal" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>(Or, why you should care about it.)</p>
+<span id="much-ado-about-traversal-chapter"></span><h1>(機械翻訳) トラバーサルについて<a class="headerlink" href="#much-ado-about-traversal" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>（または、あなたがそれを気にしなければならない理由）。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">This chapter was adapted, with permission, from a blog post by Rob Miller.</p>
+<p class="last">この章は、許可を得て、Rob Millerのブログ記事から適応されました。</p>
 </div>
-<p>Traversal is an alternative to <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> which allows <span>Pyramid</span>
-applications to map URLs to code.</p>
+<p>トラバーサルは：app： <cite>Pyramid`アプリケーションがURLをコードにマップすることを可能にするterm：</cite> URL dispatch`の代替手段です。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Ex-Zope users who are already familiar with traversal and view lookup
-conceptually may want to skip directly to the <a class="reference internal" href="traversal.html#traversal-chapter"><span class="std std-ref">Traversal</span></a>
-chapter, which discusses technical details.  This chapter is mostly aimed at
-people who have previous <a class="reference internal" href="../glossary.html#term-pylons"><span class="xref std std-term">Pylons</span></a> experience or experience in another
-framework which does not provide traversal, and need an introduction to the
-&quot;why&quot; of traversal.</p>
+<p class="last">traversalとview lookupに精通しているex-Zopeのユーザは、技術的な詳細について議論している：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>traversal_chapter`の章に直接スキップしたいかもしれません。この章は主に、前：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pylons`の経験や経験を持つ人を対象としています。これは、トラバーサルを提供しない、別のフレームワークで経験したことです。</p>
 </div>
-<p>Some folks who have been using Pylons and its Routes-based URL matching for a
-long time are being exposed for the first time, via <span>Pyramid</span>, to new
-ideas such as &quot;<a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>&quot; and &quot;<a class="reference internal" href="../glossary.html#term-view-lookup"><span class="xref std std-term">view lookup</span></a>&quot; as a way to route
-incoming HTTP requests to callable code.  Some of the same folks believe that
-traversal is hard to understand.  Others question its usefulness; URL matching
-has worked for them so far, so why should they even consider dealing with
-another approach, one which doesn't fit their brain and which doesn't provide
-any immediately obvious value?</p>
-<p>You can be assured that if you don't want to understand traversal, you don't
-have to.  You can happily build <span>Pyramid</span> applications with only
-<a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>.  However, there are some straightforward, real-world use
-cases that are much more easily served by a traversal-based approach than by a
-pattern-matching mechanism.  Even if you haven't yet hit one of these use cases
-yourself, understanding these new ideas is worth the effort for any web
-developer so you know when you might want to use them.  <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">Traversal</span></a> is
-actually a straightforward metaphor easily comprehended by anyone who's ever
-used a run-of-the-mill file system with folders and files.</p>
+<p>PylonsとRouteベースのURLマッチングを長年使ってきた人達は、app： <cite>Pyramid`を使って&amp;quot;：term： `traversal</cite> &amp;quot;という新しいアイデアに初めて公開されています。 &amp;quot;：term：` view lookup` &amp;quot;は着信HTTPリクエストを呼び出し可能なコードにルーティングする方法です。同じ人の中には、トラバーサルが理解しにくいと信じている人がいます。その有用性に疑問を抱く人もいる。これまでのところ、URLマッチングが機能していたので、なぜ脳に適合せずすぐに明らかな価値を提供しない別のアプローチを検討する必要がありますか？</p>
+<p>トラバーサルを理解したくなければ、あなたはする必要はありません。あなたは喜んで：app： <cite>Pyramid`アプリケーションを：term：</cite> URL dispatch`だけで作ることができます。しかし、パターンマッチングメカニズムよりもトラバーサルベースのアプローチではるかに簡単に処理される、単純で実用的なユースケースがいくつかあります。これらのユースケースの1つに自分自身でまだヒットしていない場合でも、これらの新しいアイデアを理解することは、いつどのWeb開発者の努力に値するのでしょうか。 ：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Traversal`は実際には、フォルダやファイルを持つ普通のファイルシステムを使った人が簡単に理解できる単純なメタファーです。</p>
 <div class="section" id="url-dispatch">
-<span id="index-0"></span><h2>URL Dispatch<a class="headerlink" href="#url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Let's step back and consider the problem we're trying to solve.  An HTTP
-request for a particular path has been routed to our web application.  The
-requested path will possibly invoke a specific <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> function
-defined somewhere in our app.  We're trying to determine <em>which</em> callable
-function, if any, should be invoked for a given requested URL.</p>
-<p>Many systems, including Pyramid, offer a simple solution.  They offer the
-concept of &quot;URL matching&quot;.  URL matching approaches this problem by parsing the
-URL path and comparing the results to a set of registered &quot;patterns&quot;, defined
-by a set of regular expressions or some other URL path templating syntax.  Each
-pattern is mapped to a callable function somewhere; if the request path matches
-a specific pattern, the associated function is called. If the request path
-matches more than one pattern, some conflict resolution scheme is used, usually
-a simple order precedence so that the first match will take priority over any
-subsequent matches.  If a request path doesn't match any of the defined
-patterns, a &quot;404 Not Found&quot; response is returned.</p>
-<p>In Pyramid, we offer an implementation of URL matching which we call <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL
-dispatch</span></a>.  Using <span>Pyramid</span> syntax, we might have a match pattern such as
-<code class="docutils literal notranslate"><span class="pre">/{userid}/photos/{photoid}</span></code>, mapped to a <code class="docutils literal notranslate"><span class="pre">photo_view()</span></code> function defined
-somewhere in our code.  Then a request for a path such as
-<code class="docutils literal notranslate"><span class="pre">/joeschmoe/photos/photo1</span></code> would be a match, and the <code class="docutils literal notranslate"><span class="pre">photo_view()</span></code>
-function would be invoked to handle the request.  Similarly,
-<code class="docutils literal notranslate"><span class="pre">/{userid}/blog/{year}/{month}/{postid}</span></code> might map to a <code class="docutils literal notranslate"><span class="pre">blog_post_view()</span></code>
-function, so <code class="docutils literal notranslate"><span class="pre">/joeschmoe/blog/2010/12/urlmatching</span></code> would trigger the
-function, which presumably would know how to find and render the
-<code class="docutils literal notranslate"><span class="pre">urlmatching</span></code> blog post.</p>
+<span id="index-0"></span><h2>URL派遣<a class="headerlink" href="#url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>私たちが解決しようとしている問題を取り上げて考えてみましょう。特定のパスに対するHTTPリクエストがWebアプリケーションにルーティングされました。要求されたパスは、アプリケーションのどこかで定義された特定の：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>call callable`関数を呼び出す可能性があります。与えられた要求されたURLに対して、どの呼び出し可能な関数が呼び出されるべきかを決定しようとしています。</p>
+<p>Pyramidを含む多くのシステムは、シンプルなソリューションを提供します。彼らは&amp;quot;URLマッチング&amp;quot;という概念を提供しています。 URLマッチングでは、URLパスを解析し、その結果を正規表現のセットまたは他のURLパステンプレート構文で定義された登録済みの &amp;quot;パターン&amp;quot;のセットと比較することで、この問題に近づきます。各パターンはどこかで呼び出し可能な関数にマップされます。要求パスが特定のパターンと一致する場合、関連する関数が呼び出されます。要求パスが複数のパターンと一致する場合は、競合解消スキームが使用されます。通常、最初の一致が後続の一致よりも優先されるように単純な優先順位が使用されます。要求パスが定義されたパターンのいずれとも一致しない場合、&amp;quot;404 Not Found &amp;quot;応答が返されます。</p>
+<p>Pyramidでは、term： <cite>URL dispatch`というURLマッチングの実装を提供しています。 ：app： `Pyramid`構文を使用すると、私たちのコードのどこかで定義された</cite> <cite>photo_view（）</cite> <cite>関数にマップされた</cite> <cite>/ {userid} / photos / {photoid}</cite> <cite>のようなパターンがあります。 `</cite> / joeschmoe / photos / photo1`のようなパスに対するリクエストは一致し、 `` photo_view（） <a href="#id1"><span class="problematic" id="id2">``</span></a>関数がリクエストを処理するために呼び出されます。同様に `` / {userid} / blog / {year} / {month} / {postid} <a href="#id3"><span class="problematic" id="id4">``</span></a>は `` blog_post_view（） <a href="#id5"><span class="problematic" id="id6">``</span></a>関数にマップするかもしれないので、 `` / joeschmoe / blog / 2010/12 / urlmatching <a href="#id7"><span class="problematic" id="id8">``</span></a>は `` urlmatching``のブログ記事をどのように見つけてレンダリングするかを知っていると思われる機能を引き起こします。</p>
 </div>
 <div class="section" id="historical-refresher">
-<h2>Historical Refresher<a class="headerlink" href="#historical-refresher" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Now that we've refreshed our understanding of <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>, we'll dig
-in to the idea of traversal.  Before we do, though, let's take a trip down
-memory lane.  If you've been doing web work for a while, you may remember a
-time when we didn't have fancy web frameworks like <a class="reference internal" href="../glossary.html#term-pylons"><span class="xref std std-term">Pylons</span></a> and
-<span>Pyramid</span>.  Instead, we had general purpose HTTP servers that primarily
-served files off of a file system.  The &quot;root&quot; of a given site mapped to a
-particular folder somewhere on the file system.  Each segment of the request
-URL path represented a subdirectory.  The final path segment would be either a
-directory or a file, and once the server found the right file it would package
-it up in an HTTP response and send it back to the client.  So serving up a
-request for <code class="docutils literal notranslate"><span class="pre">/joeschmoe/photos/photo1</span></code> literally meant that there was a
-<code class="docutils literal notranslate"><span class="pre">joeschmoe</span></code> folder somewhere, which contained a <code class="docutils literal notranslate"><span class="pre">photos</span></code> folder, which in
-turn contained a <code class="docutils literal notranslate"><span class="pre">photo1</span></code> file.  If at any point along the way we find that
-there is not a folder or file matching the requested path, we return a 404
-response.</p>
-<p>As the web grew more dynamic, however, a little bit of extra complexity was
-added.  Technologies such as CGI and HTTP server modules were developed. Files
-were still looked up on the file system, but if the file ended with (for
-example) <code class="docutils literal notranslate"><span class="pre">.cgi</span></code> or <code class="docutils literal notranslate"><span class="pre">.php</span></code>, or if it lived in a special folder, instead of
-simply sending the file to the client the server would read the file, execute
-it using an interpreter of some sort, and then send the output from this
-process to the client as the final result.  The server configuration specified
-which files would trigger some dynamic code, with the default case being to
-just serve the static file.</p>
+<h2>歴史的なリフレッシャー<a class="headerlink" href="#historical-refresher" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここでは、用語：URLのディスパッチについて理解を深めたので、トラバーサルという考え方を掘り下げます。しかし、私たちがする前に、記憶の車線を崩してみましょう。しばらくの間ウェブ作業をしてきたのであれば、term： <cite>Pylons`と：app：</cite> Pyramid`のような派手なWebフレームワークを持っていなかった時を思い出すかもしれません。代わりに、主にファイルシステムのファイルを処理する汎用HTTPサーバーがありました。特定のサイトの&amp;quot;root &amp;quot;がファイルシステム上の特定のフォルダにマップされています。リクエストURLパスの各セグメントは、サブディレクトリを表していました。最後のパスセグメントはディレクトリかファイルのいずれかであり、サーバーが適切なファイルを見つけたら、HTTP応答でそれをパッケージ化してクライアントに返します。だから、 `` / joeschmoe / photos / photo1` &amp;#39;のリクエストは文字通り `` joeschmoe``フォルダのどこかに `` photos``フォルダを含み、 `` photo1``ファイル。要求されたパスに一致するフォルダやファイルが見つからない場合は、404応答を返します。</p>
+<p>しかし、Webがよりダイナミックに成長するにつれ、少し複雑さが追加されました。 CGIやHTTPサーバモジュールなどの技術が開発されました。ファイルはまだファイルシステム上で検索されていましたが、ファイルが（例えば） `` .cgi``や `` .php``で終わった場合や、特別なフォルダにあった場合は、サーバーがファイルを読み込み、ある種のインタープリターを使用して実行し、このプロセスからの出力を最終結果としてクライアントに送信します。サーバー構成では、どのファイルが動的コードをトリガーするかを指定しました。デフォルトの場合は静的ファイルを提供するだけです。</p>
 </div>
 <div class="section" id="traversal-a-k-a-resource-location">
-<span id="index-1"></span><h2>Traversal (a.k.a., Resource Location)<a class="headerlink" href="#traversal-a-k-a-resource-location" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Believe it or not, if you understand how serving files from a file system
-works, you understand traversal.  And if you understand that a server might do
-something different based on what type of file a given request specifies, then
-you understand view lookup.</p>
-<p>The major difference between file system lookup and traversal is that a file
-system lookup steps through nested directories and files in a file system tree,
-while traversal steps through nested dictionary-type objects in a
-<a class="reference internal" href="../glossary.html#term-resource-tree"><span class="xref std std-term">resource tree</span></a>.  Let's take a detailed look at one of our example paths,
-so we can see what I mean.</p>
-<p>The path <code class="docutils literal notranslate"><span class="pre">/joeschmoe/photos/photo1</span></code>, has four segments: <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">joeschmoe</span></code>,
-<code class="docutils literal notranslate"><span class="pre">photos</span></code> and <code class="docutils literal notranslate"><span class="pre">photo1</span></code>.  With file system lookup we might have a root folder
-(<code class="docutils literal notranslate"><span class="pre">/</span></code>) containing a nested folder (<code class="docutils literal notranslate"><span class="pre">joeschmoe</span></code>), which contains another
-nested folder (<code class="docutils literal notranslate"><span class="pre">photos</span></code>), which finally contains a JPG file (<code class="docutils literal notranslate"><span class="pre">photo1</span></code>).
-With traversal, we instead have a dictionary-like root object.  Asking for the
-<code class="docutils literal notranslate"><span class="pre">joeschmoe</span></code> key gives us another dictionary-like object.  Asking in turn for
-the <code class="docutils literal notranslate"><span class="pre">photos</span></code> key gives us yet another mapping object, which finally
-(hopefully) contains the resource that we're looking for within its values,
-referenced by the <code class="docutils literal notranslate"><span class="pre">photo1</span></code> key.</p>
-<p>In pure Python terms, then, the traversal or &quot;resource location&quot; portion of
-satisfying the <code class="docutils literal notranslate"><span class="pre">/joeschmoe/photos/photo1</span></code> request will look something like
-this pseudocode:</p>
+<span id="index-1"></span><h2>トラバーサル（別名、リソースの場所）<a class="headerlink" href="#traversal-a-k-a-resource-location" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>信じられないかもしれませんが、ファイルシステムからのファイルの提供がどのように機能するのかを理解すれば、トラバーサルを理解することができます。そして、ある要求が指定するファイルのタイプに基づいて、サーバーが異なる何かをするかもしれないことを理解すれば、ビューの参照を理解します。</p>
+<p>ファイルシステムのルックアップとトラバーサルの主な違いは、ファイルシステムのルックアップがファイルシステムツリーのネストされたディレクトリとファイルを辿るのに対し、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>リソースツリー &amp;#39;のネストされたディクショナリタイプのオブジェクトをたどることです。私たちの例のパスの1つを詳細に見てみましょう。つまり、私が意味するものを見ることができます。</p>
+<p>パス `` / joeschmoe / photos / photo1``には、 `` / <code class="docutils literal notranslate"><span class="pre">、</span> <span class="pre">``</span> <span class="pre">joeschmoe</span></code>、 `` photos``、 `` photo1``という4つのセグメントがあります。ファイルシステムのルックアップでは、入れ子になったフォルダ（ `` joeschmoe``）を含むルートフォルダ（ `` / <code class="docutils literal notranslate"><span class="pre">）があり、JPGファイル（</span> <span class="pre">``</span> <span class="pre">photos</span> <span class="pre">&amp;#39;</span> <span class="pre">``写真1</span></code>）。トラバーサルでは、代わりに辞書のようなルートオブジェクトがあります。 `` joeschmoe``キーを要求すると、別の辞書のようなオブジェクトが得られます。 `` photos``キーを尋ねると、 `` photo1``キーで参照される値の中で探しているリソースが最終的に（うまくいけば）含まれている、別のマッピングオブジェクトが得られます。</p>
+<p>純粋なPythonの言葉では、 `` / joeschmoe / photos / photo1``要求を満たすトラバーサルまたは&amp;quot;resource location &amp;quot;部分は、この疑似コード:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">get_root</span><span class="p">()[</span><span class="s1">&#39;joeschmoe&#39;</span><span class="p">][</span><span class="s1">&#39;photos&#39;</span><span class="p">][</span><span class="s1">&#39;photo1&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">get_root()</span></code> is some function that returns a root traversal <a class="reference internal" href="../glossary.html#term-resource"><span class="xref std std-term">resource</span></a>.
-If all of the specified keys exist, then the returned object will be the
-resource that is being requested, analogous to the JPG file that was retrieved
-in the file system example.  If a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a> is generated anywhere along
-the way, <span>Pyramid</span> will return 404.  (This isn't precisely true, as you'll
-see when we learn about view lookup below, but the basic idea holds.)</p>
+<p>`` get_root（） <a href="#id1"><span class="problematic" id="id2">``</span></a>はルートトラバーサル：term： <cite>resource`を返す関数です。指定されたすべてのキーが存在する場合、返されるオブジェクトは、ファイルシステムの例で取得されたJPGファイルに類似して、要求されているリソースになります。 ：exc： `KeyError`が途中で生成された場合、：app：</cite> Pyramid`は404を返します（これは正確ではありませんが、以下のビュールックアップについてはわかりますが、基本的な考え方保持します。）</p>
 </div>
 <div class="section" id="what-is-a-resource">
-<span id="index-2"></span><h2>What Is a &quot;Resource&quot;?<a class="headerlink" href="#what-is-a-resource" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>&quot;Files on a file system I understand&quot;, you might say.  &quot;But what are these
-nested dictionary things?  Where do these objects, these 'resources', live?
-What <em>are</em> they?&quot;</p>
-<p>Since <span>Pyramid</span> is not a highly opinionated framework, it makes no
-restriction on how a <a class="reference internal" href="../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> is implemented; a developer can implement
-them as they wish.  One common pattern used is to persist all of the resources,
-including the root, in a database as a graph.  The root object is a
-dictionary-like object.  Dictionary-like objects in Python supply a
-<code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> method which is called when key lookup is done.  Under the
-hood, when <code class="docutils literal notranslate"><span class="pre">adict</span></code> is a dictionary-like object, Python translates
-<code class="docutils literal notranslate"><span class="pre">adict['a']</span></code> to <code class="docutils literal notranslate"><span class="pre">adict.__getitem__('a')</span></code>.  Try doing this in a Python
-interpreter prompt if you don't believe us:</p>
+<span id="index-2"></span><h2>&amp;quot;リソース&amp;quot;とは何ですか？<a class="headerlink" href="#what-is-a-resource" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>&amp;quot;理解しているファイルシステム上のファイル&amp;quot;と言うかもしれません。 &amp;quot;しかし、これらのネストされた辞書のものは何ですか？これらのオブジェクト、これらの &amp;#39;リソース&amp;#39;はどこに住んでいますか？</p>
+<p>以来、：app： <cite>Pyramid`は非常に有益なフレームワークではないので、term：</cite> resource`がどのように実装されているかに制限はありません。開発者は希望どおりに実装することができます。使用される一般的なパターンの1つは、ルートを含むすべてのリソースをデータベースにグラフとして保持することです。ルートオブジェクトは辞書のようなオブジェクトです。 Pythonの辞書のようなオブジェクトは、キーの参照が行われたときに呼び出される `` __getitem__``メソッドを提供します。フードの中で、 `` adict``が辞書のようなオブジェクトであるとき、Pythonは `` adict [&amp;#39;a&amp;#39;] <a href="#id1"><span class="problematic" id="id2">``</span></a>を `` adict .__ getitem __（ &amp;#39;a&amp;#39;） <a href="#id3"><span class="problematic" id="id4">``</span></a>に翻訳します。あなたが私たちを信じていない場合は、Pythonインタプリタのプロンプトでこれを試してみてください：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adict</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">adict</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">adict</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
@@ -213,130 +116,43 @@ interpreter prompt if you don't believe us:</p>
 <span class="go">1</span>
 </pre></div>
 </div>
-<p>The dictionary-like root object stores the ids of all of its subresources as
-keys, and provides a <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> implementation that fetches them.  So
-<code class="docutils literal notranslate"><span class="pre">get_root()</span></code> fetches the unique root object, while
-<code class="docutils literal notranslate"><span class="pre">get_root()['joeschmoe']</span></code> returns a different object, also stored in the
-database, which in turn has its own subresources and <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>
-implementation, and so on.  These resources might be persisted in a relational
-database, one of the many &quot;NoSQL&quot; solutions that are becoming popular these
-days, or anywhere else; it doesn't matter.  As long as the returned objects
-provide the dictionary-like API (i.e., as long as they have an appropriately
-implemented <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> method), then traversal will work.</p>
-<p>In fact, you don't need a &quot;database&quot; at all.  You could use plain dictionaries,
-with your site's URL structure hard-coded directly in the Python source.  Or
-you could trivially implement a set of objects with <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> methods
-that search for files in specific directories, and thus precisely recreate the
-traditional mechanism of having the URL path mapped directly to a folder
-structure on the file system.  Traversal is in fact a superset of file system
-lookup.</p>
+<p>辞書のようなルートオブジェクトは、すべてのサブリソースのIDをキーとして格納し、それらを取得する `` __getitem__``実装を提供します。 `` get_root（）[&amp;#39;joeschmoe&amp;#39;] <a href="#id1"><span class="problematic" id="id2">``</span></a>はデータベースにも格納されている別のオブジェクトを返します。データベースには独自のサブリソースと `` __getitem__``があります。 `` get_root（） <cite>実装、など。これらのリソースは、最近人気を集めている多くの&amp;quot;NoSQL &amp;quot;ソリューションの1つであるリレーショナルデータベースに永続化される可能性があります。それは問題ではない。返されたオブジェクトがディクショナリのようなAPIを提供する限り（すなわち、適切に実装された `</cite> __getitem__``メソッドを持つ限り）、トラバーサルが機能します。</p>
+<p>実際、&amp;quot;データベース&amp;quot;は必要ありません。普通の辞書を使うことができます。サイトのURL構造はPythonソースで直接ハードコードされています。あるいは、特定のディレクトリ内のファイルを検索する `` __getitem__``メソッドでオブジェクトのセットを簡単に実装することができ、URLパスをファイルシステム上のフォルダ構造に直接マッピングする従来のメカニズムを正確に再現することができます。実際、トラバーサルはファイルシステム検索のスーパーセットです。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">See the chapter entitled <a class="reference internal" href="resources.html#resources-chapter"><span class="std std-ref">Resources</span></a> for a more
-technical overview of resources.</p>
+<p class="last">リソースの技術的概要については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>resources_chapter`という章を参照してください。</p>
 </div>
 </div>
 <div class="section" id="view-lookup">
-<span id="index-3"></span><h2>View Lookup<a class="headerlink" href="#view-lookup" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>At this point we're nearly there.  We've covered traversal, which is the
-process by which a specific resource is retrieved according to a specific URL
-path.  But what is &quot;view lookup&quot;?</p>
-<p>The need for view lookup is simple: there is more than one possible action that
-you might want to take after finding a <a class="reference internal" href="../glossary.html#term-resource"><span class="xref std std-term">resource</span></a>.  With our photo
-example, for instance, you might want to view the photo in a page, but you
-might also want to provide a way for the user to edit the photo and any
-associated metadata.  We'll call the former the <code class="docutils literal notranslate"><span class="pre">view</span></code> view, and the latter
-will be the <code class="docutils literal notranslate"><span class="pre">edit</span></code> view.  (Original, I know.)  <span>Pyramid</span> has a
-centralized view <a class="reference internal" href="../glossary.html#term-application-registry"><span class="xref std std-term">application registry</span></a> where named views can be
-associated with specific resource types.  So in our example, we'll assume that
-we've registered <code class="docutils literal notranslate"><span class="pre">view</span></code> and <code class="docutils literal notranslate"><span class="pre">edit</span></code> views for photo objects, and that we've
-specified the <code class="docutils literal notranslate"><span class="pre">view</span></code> view as the default, so that
-<code class="docutils literal notranslate"><span class="pre">/joeschmoe/photos/photo1/view</span></code> and <code class="docutils literal notranslate"><span class="pre">/joeschmoe/photos/photo1</span></code> are
-equivalent.  The edit view would sensibly be provided by a request for
-<code class="docutils literal notranslate"><span class="pre">/joeschmoe/photos/photo1/edit</span></code>.</p>
-<p>Hopefully it's clear that the first portion of the edit view's URL path is
-going to resolve to the same resource as the non-edit version, specifically the
-resource returned by <code class="docutils literal notranslate"><span class="pre">get_root()['joeschmoe']['photos']['photo1']</span></code>. But
-traversal ends there; the <code class="docutils literal notranslate"><span class="pre">photo1</span></code> resource doesn't have an <code class="docutils literal notranslate"><span class="pre">edit</span></code> key.  In
-fact, it might not even be a dictionary-like object, in which case
-<code class="docutils literal notranslate"><span class="pre">photo1['edit']</span></code> would be meaningless.  When the <span>Pyramid</span> resource
-location has been resolved to a <em>leaf</em> resource, but the entire request path
-has not yet been expended, the <em>very next</em> path segment is treated as a
-<a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a>.  The registry is then checked to see if a view of the given
-name has been specified for a resource of the given type.  If so, the view
-callable is invoked, with the resource passed in as the related <code class="docutils literal notranslate"><span class="pre">context</span></code>
-object (also available as <code class="docutils literal notranslate"><span class="pre">request.context</span></code>).  If a view callable could not
-be found, <span>Pyramid</span> will return a &quot;404 Not Found&quot; response.</p>
-<p>You might conceptualize a request for <code class="docutils literal notranslate"><span class="pre">/joeschmoe/photos/photo1/edit</span></code> as
-ultimately converted into the following piece of Pythonic pseudocode:</p>
+<span id="index-3"></span><h2>ルックアップの表示<a class="headerlink" href="#view-lookup" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この時点で、我々はほぼそこにいる。ここでは、特定のURLパスに従って特定のリソースを取得するプロセスであるトラバーサルについて説明しました。しかし、&amp;quot;ビュールックアップ&amp;quot;とは何ですか？</p>
+<p>ビューのルックアップの必要性は簡単です。：term： <cite>resource`を見つけた後に取るべきアクションは複数あります。たとえば、写真の例では、ページ内の写真を表示することができますが、ユーザーが写真や関連するメタデータを編集する方法を提供することもできます。前者を `</cite> view``ビューと呼び、後者を `` edit``ビューと呼びます。 （オリジナル、私は知っている）：app： <cite>Pyramid`は集中ビューを持っています：term：</cite> application registry`名前付きビューは特定のリソースタイプに関連付けることができます。この例では、写真オブジェクトのビューを表示していると仮定し、 `` view``ビューをデフォルトとして指定しているので、 `` <cite>/ joeschmoe / photos / photo1 / view``と</cite> <cite>/ joeschmoe / photos / photo1``は同等です。エディットビューは `</cite> / joeschmoe / photos / photo1 / edit` &amp;#39;のリクエストによって提供されます。</p>
+<p>うまくいけば、編集ビューのURLパスの最初の部分が非編集バージョンと同じリソース、特に `` get_root（）[&amp;#39;joeschmoe&amp;#39;] [&amp;#39;photos&amp;#39;] [&amp;#39;写真1 &amp;#39;] <a href="#id1"><span class="problematic" id="id2">``</span></a>。しかし、そこを横切って終わります。 `` photo1``リソースには `` edit``キーがありません。実際、辞書的なオブジェクトではないかもしれません。その場合、 `` photo1 [&amp;#39;edit&amp;#39;] <a href="#id3"><span class="problematic" id="id4">``</span></a>は意味がありません。 ：app： <cite>Pyramid`リソースの場所が* leaf *リソースに解決されたが、要求パス全体がまだ消費されていない場合、*非常に次の*パスセグメントは：term：</cite> view name`として扱われます。次に、指定された名前のビューが指定されたタイプのリソースに対して指定されているかどうかを調べるために、レジストリがチェックされます。もしそうなら、呼び出し可能なビューが呼び出され、リソースは関連する `` context``オブジェクトとして渡されます（ `` request.context``としても利用可能です）。ビュー呼び出し可能なものが見つからなかった場合、：app： <a href="#id5"><span class="problematic" id="id6">`</span></a>Pyramid`は&amp;quot; 404 Not Found &amp;quot;という応答を返します。</p>
+<p>`` / joeschmoe / photos / photo1 / edit``のリクエストを、最終的に次のPythonの擬似コードに変換するように概念化することもできます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="n">get_root</span><span class="p">()[</span><span class="s1">&#39;joeschmoe&#39;</span><span class="p">][</span><span class="s1">&#39;photos&#39;</span><span class="p">][</span><span class="s1">&#39;photo1&#39;</span><span class="p">]</span>
 <span class="n">view_callable</span> <span class="o">=</span> <span class="n">get_view</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s1">&#39;edit&#39;</span><span class="p">)</span>
 <span class="n">request</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">context</span>
 <span class="n">view_callable</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">get_root</span></code> and <code class="docutils literal notranslate"><span class="pre">get_view</span></code> functions don't really exist.  Internally,
-<span>Pyramid</span> does something more complicated.  But the example above is a
-reasonable approximation of the view lookup algorithm in pseudocode.</p>
+<p>`` get_root``と `` get_view``関数は実際には存在しません。内部的には、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はもっと複雑なことをします。しかし、上記の例は、擬似コードにおけるビュールックアップアルゴリズムの合理的な近似である。</p>
 </div>
 <div class="section" id="use-cases">
-<h2>Use Cases<a class="headerlink" href="#use-cases" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Why should we care about traversal?  URL matching is easier to explain, and
-it's good enough, right?</p>
-<p>In some cases, yes, but certainly not in all cases.  So far we've had very
-structured URLs, where our paths have had a specific, small number of pieces,
-like this:</p>
+<h2>ユースケース<a class="headerlink" href="#use-cases" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>なぜトラバーサルが気になるのですか？ URLマッチングは説明しやすく、十分です。</p>
+<p>いくつかのケースでは、そうですが、必ずしもすべてではありません。これまでのところ、非常に構造化されたURLがありました。ここでは、パスには特定の少数のピースがあります:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="p">{</span><span class="n">userid</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">typename</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">objectid</span><span class="p">}[</span><span class="o">/</span><span class="p">{</span><span class="n">view_name</span><span class="p">}]</span>
 </pre></div>
 </div>
-<p>In all of the examples thus far, we've hard coded the typename value, assuming
-that we'd know at development time what names were going to be used (&quot;photos&quot;,
-&quot;blog&quot;, etc.).  But what if we don't know what these names will be?  Or, worse
-yet, what if we don't know <em>anything</em> about the structure of the URLs inside a
-user's folder?  We could be writing a CMS where we want the end user to be able
-to arbitrarily add content and other folders inside his folder.  He might
-decide to nest folders dozens of layers deep.  How will you construct matching
-patterns that could account for every possible combination of paths that might
-develop?</p>
-<p>It might be possible, but it certainly won't be easy.  The matching patterns
-are going to become complex quickly as you try to handle all of the edge cases.</p>
-<p>With traversal, however, it's straightforward.  Twenty layers of nesting would
-be no problem.  <span>Pyramid</span> will happily call <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> as many times
-as it needs to, until it runs out of path segments or until a resource raises a
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a>.  Each resource only needs to know how to fetch its immediate
-children, and the traversal algorithm takes care of the rest. Also, since the
-structure of the resource tree can live in the database and not in the code,
-it's simple to let users modify the tree at runtime to set up their own
-personalized &quot;directory&quot; structures.</p>
-<p>Another use case in which traversal shines is when there is a need to support a
-context-dependent security policy.  One example might be a document management
-infrastructure for a large corporation, where members of different departments
-have varying access levels to the various other departments' files.
-Reasonably, even specific files might need to be made available to specific
-individuals.  Traversal does well here if your resources actually represent the
-data objects related to your documents, because the idea of a resource
-authorization is baked right into the code resolution and calling process.
-Resource objects can store ACLs, which can be inherited and/or overridden by
-the subresources.</p>
-<p>If each resource can thus generate a context-based ACL, then whenever view code
-is attempting to perform a sensitive action, it can check against that ACL to
-see whether the current user should be allowed to perform the action. In this
-way you achieve so called &quot;instance based&quot; or &quot;row level&quot; security which is
-considerably harder to model using a traditional tabular approach.
-<span>Pyramid</span> actively supports such a scheme, and in fact if you register
-your views with guarded permissions and use an authorization policy,
-<span>Pyramid</span> can check against a resource's ACL when deciding whether or not
-the view itself is available to the current user.</p>
-<p>In summary, there are entire classes of problems that are more easily served by
-traversal and view lookup than by <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>.  If your problems don't
-require it, great, stick with <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a>.  But if you're using
-<span>Pyramid</span> and you ever find that you <em>do</em> need to support one of these use
-cases, you'll be glad you have traversal in your toolkit.</p>
+<p>これまでのすべての例では、開発時にどの名前が使用されるかを知っていると仮定して、typenameの値をハードコーディングしました（&amp;quot;写真&amp;quot;、&amp;quot;ブログ&amp;quot;など）。しかし、もしこれらの名前がどんなものか分からなければどうでしょうか？あるいは、さらに悪いことに、ユーザーのフォルダ内のURLの構造について何か知りません。エンドユーザーが自分のフォルダ内にコンテンツや他のフォルダを任意に追加できるようにするCMSを作成することができます。彼は数十層のフォルダを深く入れ子にすることに決めたかもしれない。どのように発展するかもしれないパスの可能な組み合わせを考慮に入れることができるマッチングパターンをどのように構築しますか？</p>
+<p>それは可能かもしれませんが、確かに簡単ではありません。マッチするパターンは、すべてのエッジケースを処理しようとすると、すぐに複雑になります。</p>
+<p>しかし、トラバースでは簡単です。ネスティングの20のレイヤーは問題ありません。 ：app： <cite>Pyramid`は、パスセグメントがなくなるまで、またはリソースが：exc：</cite> KeyError`を呼び出すまで、必要なだけ `` __getitem__``を何度も呼び出します。各リソースは、直接の子をフェッチする方法を知る必要があり、トラバーサルアルゴリズムは残りの部分を処理します。また、リソースツリーの構造はコードではなくデータベースに存在するため、ユーザーが実行時に独自のパーソナライズされたディレクトリ構造を設定できるようにするのは簡単です。</p>
+<p>コンテキスト依存のセキュリティポリシーをサポートする必要がある場合、トラバーサルが輝く別のユースケースです。たとえば、異なる部門のメンバーがさまざまな部門のファイルへのアクセスレベルを変える大企業のための文書管理インフラストラクチャの例があります。合理的に、特定のファイルであっても、特定の個人が利用できるようにする必要があるかもしれません。リソース認可の考え方がコード解決と呼び出しプロセスの直後に焼き付けられているため、リソースが実際に文書に関連するデータオブジェクトを表す場合、Traversalはうまくいきます。リソースオブジェクトは、サブリソースによって継承および/またはオーバーライドできるACLを格納することができます。</p>
+<p>したがって、各リソースがコンテキストベースのACLを生成できる場合、ビューコードが機密アクションを実行しようとするたびに、そのACLに対して現在のユーザーがアクションを実行できるかどうかを確認できます。このようにして、従来の表形式の手法を使用してモデル化するのがかなり難しい、いわゆる「インスタンスベース」または「行レベル」のセキュリティを実現します。 ：app： <cite>Pyramid`はこのようなスキームを積極的にサポートしています。実際にあなたのビューに保護された権限を登録し、権限ポリシーを使用すると、app：</cite> Pyramid`はビュー自体が現在のユーザーが利用できる。</p>
+<p>要約すると、トラバーサルとビュールックアップによってより簡単に提供される問題のクラス全体が、term： <cite>URL dispatch`よりもあります。あなたの問題がそれを必要としないなら、偉大な、言葉：用語： `URLディスパッチ</cite>。しかし、あなたが：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`を使っていて、これらのユースケースの1つをサポートする必要があることが判明した場合、あなたはあなたのツールキットでのトラバースをうれしく思います。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">It is even possible to mix and match <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> with <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL
-dispatch</span></a> in the same <span>Pyramid</span> application. See the
-<a class="reference internal" href="hybrid.html#hybrid-chapter"><span class="std std-ref">Combining Traversal and URL Dispatch</span></a> chapter for details.</p>
+<p class="last">同じ：app： <cite>Pyramid`アプリケーションで、term：</cite> traversal`を：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>URL dispatch`と組み合わせてマッチさせることも可能です。詳細については、：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>hybrid_chapter`の章を参照してください。</p>
 </div>
 </div>
 </div>
@@ -349,23 +165,23 @@ dispatch</span></a> in the same <span>Pyramid</span> application. See the
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Much Ado About Traversal</a><ul>
-<li><a class="reference internal" href="#url-dispatch">URL Dispatch</a></li>
-<li><a class="reference internal" href="#historical-refresher">Historical Refresher</a></li>
-<li><a class="reference internal" href="#traversal-a-k-a-resource-location">Traversal (a.k.a., Resource Location)</a></li>
-<li><a class="reference internal" href="#what-is-a-resource">What Is a &quot;Resource&quot;?</a></li>
-<li><a class="reference internal" href="#view-lookup">View Lookup</a></li>
-<li><a class="reference internal" href="#use-cases">Use Cases</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) トラバーサルについて</a><ul>
+<li><a class="reference internal" href="#url-dispatch">URL派遣</a></li>
+<li><a class="reference internal" href="#historical-refresher">歴史的なリフレッシャー</a></li>
+<li><a class="reference internal" href="#traversal-a-k-a-resource-location">トラバーサル（別名、リソースの場所）</a></li>
+<li><a class="reference internal" href="#what-is-a-resource">&amp;quot;リソース&amp;quot;とは何ですか？</a></li>
+<li><a class="reference internal" href="#view-lookup">ルックアップの表示</a></li>
+<li><a class="reference internal" href="#use-cases">ユースケース</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="hellotraversal.html"
-                        title="前の章へ">Hello Traversal World</a></p>
+                        title="前の章へ">(機械翻訳) こんにちはトラバーサルワールド</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="traversal.html"
-                        title="次の章へ">Traversal</a></p>
+                        title="次の章へ">(機械翻訳) トラバーサル</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -399,17 +215,17 @@ dispatch</span></a> in the same <span>Pyramid</span> application. See the
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="traversal.html" title="Traversal"
+          <a href="traversal.html" title="(機械翻訳) トラバーサル"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="hellotraversal.html" title="Hello Traversal World"
+          <a href="hellotraversal.html" title="(機械翻訳) こんにちはトラバーサルワールド"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

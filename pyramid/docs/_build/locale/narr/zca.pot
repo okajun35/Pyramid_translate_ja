@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../narr/zca.rst:12
+msgid "Using the Zope Component Architecture in :app:`Pyramid`"
+msgstr ""
+
+#: ../../narr/zca.rst:14
+msgid "Under the hood, :app:`Pyramid` uses a :term:`Zope Component Architecture` component registry as its :term:`application registry`. The Zope Component Architecture is referred to colloquially as the \"ZCA.\""
+msgstr ""
+
+#: ../../narr/zca.rst:18
+msgid "The ``zope.component`` API used to access data in a traditional Zope application can be opaque.  For example, here is a typical \"unnamed utility\" lookup using the :func:`zope.component.getUtility` global API as it might appear in a traditional Zope application:"
+msgstr ""
+
+#: ../../narr/zca.rst:30
+msgid "After this code runs, ``settings`` will be a Python dictionary.  But it's unlikely that any \"civilian\" will be able to figure this out just by reading the code casually.  When the ``zope.component.getUtility`` API is used by a developer, the conceptual load on a casual reader of code is high."
+msgstr ""
+
+#: ../../narr/zca.rst:35
+msgid "While the ZCA is an excellent tool with which to build a *framework* such as :app:`Pyramid`, it is not always the best tool with which to build an *application* due to the opacity of the ``zope.component`` APIs.  Accordingly, :app:`Pyramid` tends to hide the presence of the ZCA from application developers.  You needn't understand the ZCA to create a :app:`Pyramid` application; its use is effectively only a framework implementation detail."
+msgstr ""
+
+#: ../../narr/zca.rst:42
+msgid "However, developers who are already used to writing :term:`Zope` applications often still wish to use the ZCA while building a :app:`Pyramid` application. :app:`Pyramid` makes this possible."
+msgstr ""
+
+#: ../../narr/zca.rst:53
+msgid "Using the ZCA global API in a :app:`Pyramid` application"
+msgstr ""
+
+#: ../../narr/zca.rst:55
+msgid ":term:`Zope` uses a single ZCA registry—the \"global\" ZCA registry—for all Zope applications that run in the same Python process, effectively making it impossible to run more than one Zope application in a single process."
+msgstr ""
+
+#: ../../narr/zca.rst:59
+msgid "However, for ease of deployment, it's often useful to be able to run more than a single application per process.  For example, use of a :term:`PasteDeploy` \"composite\" allows you to run separate individual WSGI applications in the same process, each answering requests for some URL prefix.  This makes it possible to run, for example, a TurboGears application at ``/turbogears`` and a :app:`Pyramid` application at ``/pyramid``, both served up using the same :term:`WSGI` server within a single Python process."
+msgstr ""
+
+#: ../../narr/zca.rst:67
+msgid "Most production Zope applications are relatively large, making it impractical due to memory constraints to run more than one Zope application per Python process.  However, a :app:`Pyramid` application may be very small and consume very little memory, so it's a reasonable goal to be able to run more than one :app:`Pyramid` application per process."
+msgstr ""
+
+#: ../../narr/zca.rst:73
+msgid "In order to make it possible to run more than one :app:`Pyramid` application in a single process, :app:`Pyramid` defaults to using a separate ZCA registry *per application*."
+msgstr ""
+
+#: ../../narr/zca.rst:77
+msgid "While this services a reasonable goal, it causes some issues when trying to use patterns which you might use to build a typical :term:`Zope` application to build a :app:`Pyramid` application.  Without special help, ZCA \"global\" APIs such as :func:`zope.component.getUtility` and :func:`zope.component.getSiteManager` will use the ZCA \"global\" registry. Therefore, these APIs will appear to fail when used in a :app:`Pyramid` application, because they'll be consulting the ZCA global registry rather than the component registry associated with your :app:`Pyramid` application."
+msgstr ""
+
+#: ../../narr/zca.rst:86
+msgid "There are three ways to fix this: by disusing the ZCA global API entirely, by using :meth:`pyramid.config.Configurator.hook_zca` or by passing the ZCA global registry to the :term:`Configurator` constructor at startup time.  We'll describe all three methods in this section."
+msgstr ""
+
+#: ../../narr/zca.rst:97
+msgid "Disusing the global ZCA API"
+msgstr ""
+
+#: ../../narr/zca.rst:99
+msgid "ZCA \"global\" API functions such as ``zope.component.getSiteManager``, ``zope.component.getUtility``, :func:`zope.component.getAdapter`, and :func:`zope.component.getMultiAdapter` aren't strictly necessary.  Every component registry has a method API that offers the same functionality; it can be used instead.  For example, presuming the ``registry`` value below is a Zope Component Architecture component registry, the following bit of code is equivalent to ``zope.component.getUtility(IFoo)``:"
+msgstr ""
+
+#: ../../narr/zca.rst:111
+msgid "The full method API is documented in the ``zope.component`` package, but it largely mirrors the \"global\" API almost exactly."
+msgstr ""
+
+#: ../../narr/zca.rst:114
+msgid "If you are willing to disuse the \"global\" ZCA APIs and use the method interface of a registry instead, you need only know how to obtain the :app:`Pyramid` component registry."
+msgstr ""
+
+#: ../../narr/zca.rst:118
+msgid "There are two ways of doing so:"
+msgstr ""
+
+#: ../../narr/zca.rst:120
+msgid "use the :func:`pyramid.threadlocal.get_current_registry` function within :app:`Pyramid` view or resource code.  This will always return the \"current\" :app:`Pyramid` application registry."
+msgstr ""
+
+#: ../../narr/zca.rst:124
+msgid "use the attribute of the :term:`request` object named ``registry`` in your :app:`Pyramid` view code, e.g., ``request.registry``.  This is the ZCA component registry related to the running :app:`Pyramid` application."
+msgstr ""
+
+#: ../../narr/zca.rst:128
+msgid "See :ref:`threadlocals_chapter` for more information about :func:`pyramid.threadlocal.get_current_registry`."
+msgstr ""
+
+#: ../../narr/zca.rst:137
+msgid "Enabling the ZCA global API by using ``hook_zca``"
+msgstr ""
+
+#: ../../narr/zca.rst:139
+msgid "Consider the following bit of idiomatic :app:`Pyramid` startup code:"
+msgstr ""
+
+#: ../../narr/zca.rst:151
+msgid "When the ``app`` function above is run, a :term:`Configurator` is constructed. When the configurator is created, it creates a *new* :term:`application registry` (a ZCA component registry).  A new registry is constructed whenever the ``registry`` argument is omitted, when a :term:`Configurator` constructor is called, or when a ``registry`` argument with a value of ``None`` is passed to a :term:`Configurator` constructor."
+msgstr ""
+
+#: ../../narr/zca.rst:158
+msgid "During a request, the application registry created by the Configurator is \"made current\".  This means calls to :func:`~pyramid.threadlocal.get_current_registry` in the thread handling the request will return the component registry associated with the application."
+msgstr ""
+
+#: ../../narr/zca.rst:163
+msgid "As a result, application developers can use ``get_current_registry`` to get the registry and thus get access to utilities and such, as per :ref:`disusing_the_global_zca_api`.  But they still cannot use the global ZCA API.  Without special treatment, the ZCA global APIs will always return the global ZCA registry (the one in ``zope.component.globalregistry.base``)."
+msgstr ""
+
+#: ../../narr/zca.rst:169
+msgid "To \"fix\" this and make the ZCA global APIs use the \"current\" :app:`Pyramid` registry, you need to call :meth:`~pyramid.config.Configurator.hook_zca` within your setup code. For example:"
+msgstr ""
+
+#: ../../narr/zca.rst:185
+msgid "We've added a line to our original startup code, line number 5, which calls ``config.hook_zca()``.  The effect of this line under the hood is that an analogue of the following code is executed:"
+msgstr ""
+
+#: ../../narr/zca.rst:196
+msgid "This causes the ZCA global API to start using the :app:`Pyramid` application registry in threads which are running a :app:`Pyramid` request."
+msgstr ""
+
+#: ../../narr/zca.rst:199
+msgid "Calling ``hook_zca`` is usually sufficient to \"fix\" the problem of being able to use the global ZCA API within a :app:`Pyramid` application.  However, it also means that a Zope application that is running in the same process may start using the :app:`Pyramid` global registry instead of the Zope global registry, effectively inverting the original problem.  In such a case, follow the steps in the next section, :ref:`using_the_zca_global_registry`."
+msgstr ""
+
+#: ../../narr/zca.rst:214
+msgid "Enabling the ZCA global API by using the ZCA global registry"
+msgstr ""
+
+#: ../../narr/zca.rst:216
+msgid "You can tell your :app:`Pyramid` application to use the ZCA global registry at startup time instead of constructing a new one:"
+msgstr ""
+
+#: ../../narr/zca.rst:233
+msgid "Lines 5, 6, and 7 above are the interesting ones.  Line 5 retrieves the global ZCA component registry.  Line 6 creates a :term:`Configurator`, passing the global ZCA registry into its constructor as the ``registry`` argument.  Line 7 \"sets up\" the global registry with Pyramid-specific registrations; this is code that is normally executed when a registry is constructed rather than created, but we must call it \"by hand\" when we pass an explicit registry."
+msgstr ""
+
+#: ../../narr/zca.rst:240
+msgid "At this point, :app:`Pyramid` will use the ZCA global registry rather than creating a new application-specific registry.  Since by default the ZCA global API will use this registry, things will work as you might expect in a Zope app when you use the global ZCA API."
+msgstr ""
+

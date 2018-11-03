@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Pyramid Introduction &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) Pyramid はじめに &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,7 +18,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Advanced Pyramid Design Features" href="advanced-features.html" />
+    <link rel="next" title="(機械翻訳) アドバンス：app： `Pyramid`デザインの特徴" href="advanced-features.html" />
     <link rel="prev" title="Running a Pyramid Application under mod_wsgi" href="../tutorials/modwsgi/index.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
@@ -54,7 +54,7 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="advanced-features.html" title="Advanced Pyramid Design Features"
+          <a href="advanced-features.html" title="(機械翻訳) アドバンス：app： `Pyramid`デザインの特徴"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="../tutorials/modwsgi/index.html" title="Running a Pyramid Application under mod_wsgi"
@@ -69,63 +69,63 @@
           <div class="body" role="main">
             
   <div class="section" id="pyramid-introduction">
-<span id="index-0"></span><h1><span>Pyramid</span> Introduction<a class="headerlink" href="#pyramid-introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><span>Pyramid</span> is a Python web application <em>framework</em>. It is designed to make creating web applications easier. It is open source.</p>
+<span id="index-0"></span><h1>(機械翻訳) <span>Pyramid</span> はじめに<a class="headerlink" href="#pyramid-introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はPython Webアプリケーション*フレームワークです。 Webアプリケーションを簡単に作成できるように設計されています。オープンソースです。</p>
 <div class="sidebar">
-<p class="first sidebar-title">What Is a Framework?</p>
-<p>A <em>framework</em> provides capabilities that developers can enhance or extend. A web application framework provides many of the common needs of building web applications allowing developers to concentrate only on the parts that are specific to their application.</p>
-<p class="last">Every framework makes choices about how a particular problem should be solved. When developers choose to use a framework, they cede control over the portions of their application that are provided by the framework. It is possible to write a complete web application without any framework, by using Python libraries. In practice, however, it is often more practical to use a framework, so long as your chosen framework fits the requirements of your application.</p>
+<p class="first sidebar-title">フレームワークとは何ですか？</p>
+<p>A <a href="#id1"><span class="problematic" id="id2">*</span></a>フレームワーク*は、開発者が拡張または拡張できる機能を提供します。 Webアプリケーションフレームワークは、Webアプリケーションを構築する一般的なニーズの多くを提供します。開発者は、アプリケーション固有の部分にのみ集中することができます。</p>
+<p class="last">すべてのフレームワークは、特定の問題をどのように解決すべきかを選択します。開発者がフレームワークの使用を選択すると、フレームワークによって提供されるアプリケーションの部分に対する制御が譲り渡されます。 Pythonライブラリを使用することで、フレームワークなしで完全なWebアプリケーションを作成することができます。しかし、実際には、選択したフレームワークがアプリケーションの要件に合っている限り、フレームワークを使用する方が現実的です。</p>
 </div>
-<p><span>Pyramid</span> follows these design and engineering principles:</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はこれらの設計原理と技術原則に従います：</p>
 <dl class="docutils">
-<dt>Simplicity</dt>
-<dd><span>Pyramid</span> is designed to be easy to use. You can get started even if you don't understand it all. And when you're ready to do more, <span>Pyramid</span> will be there for you.</dd>
-<dt>Minimalism</dt>
-<dd>Out of the box, <span>Pyramid</span> provides only the core tools needed for nearly all web applications: mapping URLs to code, security, and serving static assets (files like JavaScript and CSS). Additional tools provide templating, database integration and more. But with <span>Pyramid</span> you can <em>&quot;pay only for what you eat&quot;</em>.</dd>
-<dt>Documentation</dt>
-<dd><span>Pyramid</span> is committed to comprehensive and up-to-date documentation.</dd>
-<dt>Speed</dt>
-<dd><span>Pyramid</span> is designed to be noticeably fast.</dd>
-<dt>Reliability</dt>
-<dd><span>Pyramid</span> is developed conservatively and tested exhaustively. Our motto is: &quot;If it ain't tested, it's broke&quot;.</dd>
-<dt>Openness</dt>
-<dd>As with Python, the <span>Pyramid</span> software is distributed under a <a class="reference external" href="http://repoze.org/license.html">permissive open source license</a>.</dd>
+<dt>シンプリシティ</dt>
+<dd>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は使いやすいように設計されています。あなたがすべてを理解していなくても、始めることができます。あなたがもっとやる準備ができたら、：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`があなたのためにあります。</dd>
+<dt>ミニマリズム</dt>
+<dd>すぐに使える：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、URLをコード、セキュリティ、および静的なアセット（JavaScriptやCSSなどのファイル）にマッピングするという、ほぼすべてのWebアプリケーションに必要な主要ツールのみを提供します。その他のツールは、テンプレート作成、データベース統合などを提供します。しかし、：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`では、あなたが食べるものだけを支払うことができます。</dd>
+<dt>ドキュメンテーション</dt>
+<dd>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、包括的かつ最新の文書化に取り組んでいます。</dd>
+<dt>速度</dt>
+<dd>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は著しく高速になるように設計されています。</dd>
+<dt>信頼性</dt>
+<dd>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は控えめに開発され、徹底的にテストされています。私たちのモットーは： &amp;quot;テストされていなければ、それは壊れています&amp;quot;。</dd>
+<dt>開放性</dt>
+<dd>Pythonと同様に、：app： <cite>Pyramid`ソフトウェアは、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>許容オープンソースライセンス&lt;<a class="reference external" href="http://repoze.org/license.html">http://repoze.org/license.html</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_。</dd>
 </dl>
 <div class="section" id="why-pyramid">
-<span id="id1"></span><h2>Why Pyramid?<a class="headerlink" href="#why-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In a world filled with web frameworks, why should you choose <span>Pyramid</span>?</p>
+<span id="id1"></span><h2>なぜピラミッド？<a class="headerlink" href="#why-pyramid" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Webフレームワークでいっぱいの世界では、なぜあなたが選ぶべきですか？app： <cite>Pyramid</cite> ？</p>
 <div class="section" id="modern">
-<h3>Modern<a class="headerlink" href="#modern" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span>Pyramid</span> is fully compatible with Python 3. If you develop a <span>Pyramid</span> application today, you can rest assured that you'll be able to use the most modern features of your favorite language. And in the years to come, you'll continue to bed working on a framework that is up-to-date and forward-looking.</p>
+<h3>現代<a class="headerlink" href="#modern" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <cite>Pyramid`はPython 3と完全に互換性があります：今日：app：</cite> Pyramid`アプリケーションを開発すると、あなたが好きな言語の最新の機能を使用できるようになります。今後も、最新の将来展望のフレームワークに取り組んでいきます。</p>
 </div>
 <div class="section" id="tested">
-<h3>Tested<a class="headerlink" href="#tested" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Untested code is broken by design. The <span>Pyramid</span> community has a strong testing culture and our framework reflects that. Every release of <span>Pyramid</span> has 100% statement coverage (as measured by <a class="reference external" href="http://coverage.readthedocs.io/en/latest/">coverage</a>) and 95% decision/condition coverage. (as measured by <a class="reference external" href="http://instrumental.readthedocs.io/en/latest/intro.html">instrumental</a>) It is automatically tested using <a class="reference external" href="https://travis-ci.org/Pylons/pyramid">Travis</a> and <a class="reference external" href="http://jenkins.pylonsproject.org/job/pyramid/">Jenkins</a> on supported versions of Python after each commit to its GitHub repository. <a class="reference external" href="https://trypyramid.com/resources-extending-pyramid.html">Official Pyramid add-ons</a> are held to a similar testing standard.</p>
-<p>We still find bugs in <span>Pyramid</span>, but we've noticed we find a lot fewer of them while working on projects with a solid testing regime.</p>
+<h3>テスト済み<a class="headerlink" href="#tested" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>テストされていないコードは設計によって壊れています。 ：app： <cite>Pyramid`コミュニティは強力なテストカルチャーを持っており、私たちの枠組みはそれを反映しています。 app： `Pyramid`のすべてのリリースでは、100％のステートメントカバレッジ（`カバレッジ&lt;http://coverage.readthedocs.io/en/latest/&gt; `_ &amp;#39;）と95％の決定/条件カバレッジ。 （計器によって測定される&lt;http://instrumental.readthedocs.io/en/latest/intro.html&gt; `_）これは</cite> Travis &amp;#39;を使って自動的にテストされます&lt;<a class="reference external" href="https://travis-ci.org/Pylons/pyramid">https://travis-ci.org/Pylons/pyramid</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>_と`ジェンキンス&lt;<a class="reference external" href="http://jenkins.pylonsproject.org/job/pyramid/">http://jenkins.pylonsproject.org/job/pyramid/</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>GitHubリポジトリへのコミットのたびにサポートされているバージョンのPython上で動作します。 <a href="#id5"><span class="problematic" id="id6">`</span></a>公式ピラミッドアドオン&lt;<a class="reference external" href="https://trypyramid.com/resources-extending-pyramid.html">https://trypyramid.com/resources-extending-pyramid.html</a>&gt; <a href="#id7"><span class="problematic" id="id8">`</span></a>_同様の試験基準に守られている。</p>
+<p>app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`ではまだバグが見つかっていますが、確かなテスト体制のプロジェクトに取り組んでいるうちに、それらの数が少なくなっています。</p>
 </div>
 <div class="section" id="documented">
-<h3>Documented<a class="headerlink" href="#documented" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <span>Pyramid</span> documentation is comprehensive. We strive to keep our narrative documentation both complete and friendly to newcomers. We also maintain the <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-cookbook/en/latest/index.html#pyramid-cookbook" title="(in Pyramid Community Cookbook v0.2)"><span class="xref std std-ref">Pyramid Community Cookbook</span></a> of  recipes demonstrating common scenarios you might face. Contributions in the form of improvements to our documentation are always appreciated. And we always welcome improvements to our <a class="reference external" href="html_tutorials">official tutorials</a> as well as new contributions to our <a class="reference external" href="tutorials:pyramid-tutorials">community maintained tutorials</a>.</p>
+<h3>文書化された<a class="headerlink" href="#documented" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`のドキュメントは包括的です。私たちは、私たちの物語のドキュメンテーションを新人に完全かつ親しみやすいものにするよう努力しています。我々はまた：ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid Community Cookbook &lt;cookbook:pyramid-cookbook&gt;あなたが直面するかもしれない共通のシナリオを示すレシピの私たちの文書の改善の形での貢献は常に高く評価されています。そして、私たちは常に、公式のチュートリアル&lt;html_tutorials&gt; <a href="#id5"><span class="problematic" id="id6">`</span></a>_コミュニティ保守チュートリアルへの新しい貢献&lt;tutorials:pyramid-tutorials&gt; <a href="#id7"><span class="problematic" id="id8">`</span></a>_。</p>
 </div>
 <div class="section" id="supported">
-<h3>Supported<a class="headerlink" href="#supported" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You can get help quickly with <span>Pyramid</span>. It's our goal that no <span>Pyramid</span> question go unanswered. Whether you ask a question on IRC, on the Pylons-discuss mailing list, or on StackOverflow, you're likely to get a reasonably prompt response.</p>
-<p><span>Pyramid</span> is also a welcoming, friendly space for newcomers. We don't tolerate &quot;support trolls&quot; or those who enjoy berating fellow users in our support channels. We try to keep it well-lit and new-user-friendly.</p>
+<h3>サポートされる<a class="headerlink" href="#supported" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`を使うとすぐに助けを受けることができます。 app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`の質問には答えられないという私たちの目標です。 IRC、Pylonsディスカッションメーリングリスト、StackOverflowで質問するかどうかは、合理的に迅速な対応が取れる可能性があります。</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は新入生のための歓迎され、友好的な空間です。 &amp;quot;サポートトロール&amp;quot;またはサポートチャネルで仲間のユーザーを嫌う人を容認するものではありません。私たちはそれを明るく、新しいユーザーフレンドリーに保ちます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also our <a class="reference external" href="https://webchat.freenode.net/?channels=pyramid">#pyramid IRC channel</a>, our <a class="reference external" href="https://groups.google.com/forum/#!forum/pylons-discuss">pylons-discuss mailing list</a>, and <a class="reference internal" href="../index.html#support-and-development"><span class="std std-ref">サポートと開発</span></a>.</p>
+<p class="last"><cite>#pyramid IRCチャンネル&lt;https://webchat.freenode.net/?channels=pyramid&gt; `_、私たちの</cite> pylons-discussメーリングリスト&lt;<a class="reference external" href="https://groups.google.com/forum/#!forum/pylons-discuss">https://groups.google.com/forum/#!forum/pylons-discuss</a>&gt; <cite>_、</cite>： <a href="#id1"><span class="problematic" id="id2">`</span></a>ref：<a href="#id3"><span class="problematic" id="id4">`</span></a>のサポートと開発 `</p>
 </div>
 </div>
 </div>
 <div class="section" id="what-makes-pyramid-unique">
-<span id="id2"></span><h2>What makes Pyramid unique<a class="headerlink" href="#what-makes-pyramid-unique" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>There are many tools available for web development. What would make someone want to use <span>Pyramid</span> instead?  What makes <span>Pyramid</span> unique?</p>
-<p>With <span>Pyramid</span> you can write very small applications without needing to know a lot. And by learning a bit more, you can write very large applications too. <span>Pyramid</span> will allow you to become productive quickly, and will grow with you. It won't hold you back when your application is small, and it won't get in your way when your application becomes large. Other application frameworks seem to fall into two non-overlapping categories: those that support &quot;small apps&quot; and those designed for &quot;big apps&quot;.</p>
-<p>We don't believe you should have to make this choice. You can't really know how large your application will become.  You certainly shouldn't have to rewrite a small application in another framework when it gets &quot;too big&quot;. A well-designed framework should be able to be good at both. <span>Pyramid</span> is that kind of framework.</p>
-<p><span>Pyramid</span> provides a set of features that are unique among Python web frameworks. Others may provide some, but only <span>Pyramid</span> provides them all, in one place, fully documented, and <em>à la carte</em> without needing to pay for the whole banquet.</p>
+<span id="id2"></span><h2>ピラミッドをユニークなものにする理由<a class="headerlink" href="#what-makes-pyramid-unique" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Web開発には多くのツールがあります。誰かが使いたいと思うもの：app： <cite>Pyramid</cite>？何を作る：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は一意？</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`を使うと、たくさんのことを知らなくても非常に小さなアプリケーションを書くことができます。もう少し学ぶことで、非常に大きなアプリケーションも作成できます。 ：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`は、あなたがすぐに生産的になることを可能にし、あなたと共に成長します。あなたのアプリケーションが小さいときにあなたを後押しすることはなく、あなたのアプリケーションが大きくなったときにあなたの道には入りません。他のアプリケーションフレームワークは、「小さなアプリケーション」をサポートするカテゴリと「大きなアプリケーション」を設計するカテゴリの2つの重複しないカテゴリに分類されます。</p>
+<p>私たちはあなたがこの選択をしなければならないと信じていません。あなたのアプリケーションがどれくらい大きくなるかは分かりません。小さなアプリケーションを別のフレームワークで書き直す必要はありません。うまく設計されたフレームワークは、両方でうまくいくはずです。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はそのようなフレームワークです。</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、PythonのWebフレームワーク内でユニークな一連の機能を提供します。 app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`は、宴会全体の費用を支払う必要なしに、完全に文書化された、1つの場所に、そして*アラカルト*を提供します。</p>
 <div class="section" id="build-single-file-applications">
-<h3>Build single-file applications<a class="headerlink" href="#build-single-file-applications" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>You can write a <span>Pyramid</span> application that lives entirely in one Python file. Such an application is easy to understand since everything is in one place. It is easy to deploy because you don't need to know much about Python packaging. <span>Pyramid</span> allows you to do almost everything that so-called <em>microframeworks</em> can in very similar ways.</p>
+<h3>単一ファイルアプリケーションを構築する<a class="headerlink" href="#build-single-file-applications" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>完全に1つのPythonファイルに存在する：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションを書くことができます。そのようなアプリケーションは、すべてが1つの場所にあるので、理解しやすいです。 Pythonのパッケージについて多くのことを知る必要がないので、簡単にデプロイできます。 ：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`は、いわゆる* microframeworks <a href="#id5"><span class="problematic" id="id6">*</span></a>ができることはほとんど同じようにできます。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wsgiref.simple_server</span> <span class="k">import</span> <span class="n">make_server</span>
 <span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="k">import</span> <span class="n">Configurator</span>
 <span class="kn">from</span> <span class="nn">pyramid.response</span> <span class="k">import</span> <span class="n">Response</span>
@@ -145,12 +145,12 @@
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="firstapp.html#firstapp-chapter"><span class="std std-ref">Creating Your First Pyramid Application</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>firstapp_chapter`も参照してください。</p>
 </div>
 </div>
 <div class="section" id="configure-applications-with-decorators">
-<h3>Configure applications with decorators<a class="headerlink" href="#configure-applications-with-decorators" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span>Pyramid</span> allows you to keep your configuration right next to your code. That way you don't have to switch files to see your configuration. For example:</p>
+<h3>デコレータでアプリケーションを設定する<a class="headerlink" href="#configure-applications-with-decorators" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はあなたのコードのすぐ隣にあなたの設定を保つことを可能にします。そうすれば、設定を見るためにファイルを切り替える必要はありません。例えば：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.view</span> <span class="kn">import</span> <span class="n">view_config</span>
 <span class="kn">from</span> <span class="nn">pyramid.response</span> <span class="kn">import</span> <span class="n">Response</span>
 
@@ -159,63 +159,62 @@
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;fred&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>However, using <span>Pyramid</span> configuration decorators does not change your code. It remains easy to extend, test, or reuse. You can test your code as if the decorators were not there. You can instruct the framework to ignore some decorators. You can even use an imperative style to write your configuration, skipping decorators entirely.</p>
+<p>ただし、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`設定デコレータを使用してもコードは変更されません。拡張、テスト、または再利用は容易なままです。あたかもデコレータが存在しないかのようにコードをテストすることができます。いくつかのデコレータを無視するようにフレームワークに指示することができます。あなたは完全にデコレータをスキップして、あなたの設定を書くために命令的なスタイルを使うことさえできます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="viewconfig.html#mapping-views-using-a-decorator-section"><span class="std std-ref">Adding View Configuration Using the &#64;view_config Decorator</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>mapping_views_using_a_decorator_section`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="generate-application-urls">
-<h3>Generate application URLs<a class="headerlink" href="#generate-application-urls" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Dynamic web applications produce URLs that can change depending on what you are viewing. <span>Pyramid</span> provides flexible, consistent, easy to use tools for generating URLs. When you use these tools to write your application, you can change your configuration without fear of breaking links in your web pages.</p>
+<h3>アプリケーションのURLを生成する<a class="headerlink" href="#generate-application-urls" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>動的Webアプリケーションでは、表示している内容に応じて変更できるURLが生成されます。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は柔軟で、一貫性があり、使いやすいツールを提供します。これらのツールを使用してアプリケーションを作成すると、Webページのリンクを壊すことなく、設定を変更できます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="urldispatch.html#generating-route-urls"><span class="std std-ref">Generating Route URLs</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>generate_route_urls`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="serve-static-assets">
-<h3>Serve static assets<a class="headerlink" href="#serve-static-assets" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Web applications often require JavaScript, CSS, images and other so-called <em>static assets</em>. <span>Pyramid</span> provides flexible tools for serving these kinds of files. You can serve them directly from <span>Pyramid</span>, or host them on an external server or CDN (content delivery network). Either way, <span>Pyramid</span> can help you to generate URLs so you can change where your files come from without changing any code.</p>
+<h3>静的資産を提供する<a class="headerlink" href="#serve-static-assets" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Webアプリケーションでは、JavaScript、CSS、画像などのいわゆる静的資産が必要になることがあります。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、この種のファイルを扱うための柔軟なツールを提供します。 app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`から直接配信することも、外部のサーバやCDN（コンテンツ配信ネットワーク）でホストすることもできます。どちらの方法でも、：app： <a href="#id5"><span class="problematic" id="id6">`</span></a>Pyramid`はURLを生成するのに役立ちますので、コードを変更せずにファイルの場所を変更できます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="assets.html#static-assets-section"><span class="std std-ref">Serving Static Assets</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>static_assets_section`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="develop-interactively">
-<h3>Develop interactively<a class="headerlink" href="#develop-interactively" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span>Pyramid</span> can automatically detect changes you make to template files and code, so your changes are immediately available in your browser. You can debug using plain old <code class="docutils literal notranslate"><span class="pre">print()</span></code> calls, which will display to your console.</p>
-<p><span>Pyramid</span> has a debug toolbar that allows you to see information about how your application is working right in your browser. See configuration, installed packages, SQL queries, logging statements and more.</p>
-<p>When your application has an error, an interactive debugger allows you to poke around from your browser to find out what happened.</p>
-<p>To use the <span>Pyramid</span> debug toolbar, build your project with a <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-cookiecutter"><span class="xref std std-term">cookiecutter</span></a>.</p>
+<h3>インタラクティブに開発する<a class="headerlink" href="#develop-interactively" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <cite>Pyramid`は、テンプレートファイルやコードに加えた変更を自動的に検出することができるので、あなたの変更はすぐにブラウザで利用できます。普通の `</cite> print（） <a href="#id1"><span class="problematic" id="id2">``</span></a>呼び出しを使ってデバッグできます。これはコンソールに表示されます。</p>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`にはデバッグツールバーがあり、ブラウザでアプリケーションがどのように動作しているかについての情報を見ることができます。構成、インストールされたパッケージ、SQLクエリ、ロギングステートメントなどを参照してください。</p>
+<p>アプリケーションにエラーが発生した場合、インタラクティブなデバッガを使用すると、ブラウザから何か起きたことを知ることができます。</p>
+<p>：app： <cite>Pyramid`デバッグツールバーを使うには、：app：</cite> Pyramid`：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>cookiecutter`を使ってプロジェクトをビルドします。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="project.html#debug-toolbar"><span class="std std-ref">The Debug Toolbar</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>debug_toolbar`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="debug-with-power">
-<h3>Debug with power<a class="headerlink" href="#debug-with-power" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>When things go wrong, <span>Pyramid</span> gives you powerful ways to fix the problem.</p>
-<p>You can configure <span>Pyramid</span> to print helpful information to the console. The <code class="docutils literal notranslate"><span class="pre">debug_notfound</span></code> setting shows information about URLs that aren't matched. The <code class="docutils literal notranslate"><span class="pre">debug_authorization</span></code> setting provides helpful messages about why you aren't allowed to do what you just tried.</p>
-<p><span>Pyramid</span> also has command line tools to help you verify your configuration. You can use <code class="docutils literal notranslate"><span class="pre">proutes</span></code> and <code class="docutils literal notranslate"><span class="pre">pviews</span></code> to inspect how URLs are connected to your application code.</p>
+<h3>電源でデバッグする<a class="headerlink" href="#debug-with-power" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>事態がうまくいかないときは、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、問題を解決する強力な方法を提供します。</p>
+<p>役に立つ情報をコンソールに表示するには：app： <cite>Pyramid`を設定することができます。 `</cite> debug_notfound``の設定は、一致していないURLに関する情報を表示します。 `` debug_authorization``の設定は、あなたが今試みたことをなぜ許可されていないのかについての有用なメッセージを提供します。</p>
+<p>：app： <cite>Pyramid`には、あなたの設定を確認するためのコマンドラインツールもあります。 `</cite> proutes``と `` pviews``を使ってURLがアプリケーションコードにどのように接続されているかを調べることができます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="security.html#debug-authorization-section"><span class="std std-ref">Debugging View Authorization Failures</span></a>, <a class="reference internal" href="commandline.html#command-line-chapter"><span class="std std-ref">Command-Line Pyramid</span></a>,
-and <a class="reference internal" href="../pscripts/index.html"><span class="doc">p* Scripts Documentation</span></a></p>
+<p class="last">参照：ref： <cite>debug_authorization_section</cite>、：ref：` command_line_chapter`、：doc： <a href="#id1"><span class="problematic" id="id2">`</span></a>../ pscripts / index`も参照してください。</p>
 </div>
 </div>
 <div class="section" id="extend-your-application">
-<h3>Extend your application<a class="headerlink" href="#extend-your-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span>Pyramid</span> add-ons extend the core of the framework with useful abilities. There are add-ons available for your favorite template language, SQL and NoSQL databases, authentication services and more.</p>
-<p>Supported <span>Pyramid</span> add-ons are held to the same demanding standards as the framework itself. You will find them to be fully tested and well documented.</p>
+<h3>アプリケーションを拡張する<a class="headerlink" href="#extend-your-application" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アドオンは、フレームワークの核心を有用な能力で拡張します。あなたのお気に入りのテンプレート言語、SQLとNoSQLのデータベース、認証サービスなどに利用できるアドオンがあります。</p>
+<p>サポートされている：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アドオンは、フレームワーク自体と同じ厳しい基準で保持されています。完全にテストされ、十分に文書化されていることがわかります。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference external" href="https://trypyramid.com/resources-extending-pyramid.html">https://trypyramid.com/resources-extending-pyramid.html</a></p>
+<p class="last"><a class="reference external" href="https://trypyramid.com/resources-extending-pyramid">https://trypyramid.com/resources-extending-pyramid</a>.htmlも参照してください。</p>
 </div>
 </div>
 <div class="section" id="write-your-views-your-way">
-<h3>Write your views, <em>your</em> way<a class="headerlink" href="#write-your-views-your-way" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>A fundamental task for any framework is to map URLs to code. In <span>Pyramid</span>, that code is called a <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a>. View callables can be functions, class methods or even callable class instances. You are free to choose the approach that best fits your use case. Regardless of your choice, <span>Pyramid</span> treats them the same. You can change your mind at any time without any penalty. There are no artificial distinctions between the various approaches.</p>
-<p>Here's a view callable defined as a function:</p>
+<h3>あなたの意見を書いてください。<a class="headerlink" href="#write-your-views-your-way" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>任意のフレームワークの基本的なタスクは、URLをコードにマップすることです。 In：app： <cite>Pyramid</cite>、そのコードは：term：` view callable`と呼ばれます。表示可能な呼び出しは、関数、クラスメソッド、または呼び出し可能なクラスインスタンスでもあります。ユースケースに最も適した方法を自由に選択できます。あなたの選択にかかわらず、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はそれらを同じように扱います。ペナルティなしでいつでもあなたの心を変えることができます。さまざまなアプローチの間に人為的な違いはありません。</p>
+<p>ここでは関数として定義されたビュー呼び出し可能関数を示します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -229,7 +228,7 @@ and <a class="reference internal" href="../pscripts/index.html"><span class="doc
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Here's a few views defined as methods of a class instead:</p>
+<p>代わりにクラスのメソッドとして定義されたいくつかのビューを次に示します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -261,26 +260,26 @@ and <a class="reference internal" href="../pscripts/index.html"><span class="doc
 </td></tr></table></div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="viewconfig.html#view-config-placement"><span class="std std-ref">&#64;view_config Placement</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>view_config_placement`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="find-your-static-assets">
-<span id="intro-asset-specs"></span><h3>Find <em>your</em> static assets<a class="headerlink" href="#find-your-static-assets" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>In many web frameworks, the static assets required by an application are kept in a globally shared location, &quot;the <em>static</em> directory&quot;. Others use a lookup scheme, like an ordered set of template directories. Both of these approaches have problems when it comes to customization.</p>
-<p><span>Pyramid</span> takes a different approach. Static assets are located using <em>asset specifications</em>, strings that contain reference both to a Python package name and a file or directory name, e.g. <code class="docutils literal notranslate"><span class="pre">MyPackage:static/index.html</span></code>. These specifications are used for templates, JavaScript and CSS, translation files, and any other package-bound static resource. By using asset specifications, <span>Pyramid</span> makes it easy to extend your application with other packages without worrying about conflicts.</p>
-<p>What happens if another <span>Pyramid</span> package you are using provides an asset you need to customize? Maybe that page template needs better HTML, or you want to update some CSS. With asset specifications you can override the assets from other packages using simple wrappers.</p>
-<p>Examples: <a class="reference internal" href="assets.html#asset-specifications"><span class="std std-ref">Understanding Asset Specifications</span></a> and <a class="reference internal" href="assets.html#overriding-assets-section"><span class="std std-ref">Overriding Assets</span></a>.</p>
+<span id="intro-asset-specs"></span><h3><a href="#id1"><span class="problematic" id="id2">*</span></a>あなたの*静的資産を見つける<a class="headerlink" href="#find-your-static-assets" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>多くのWebフレームワークでは、アプリケーションが必要とする静的資産は、グローバルに共有される場所の静的ディレクトリ*に保持されます。他のものは、テンプレートディレクトリの順序付けされたセットのようなルックアップスキームを使用します。これらのアプローチのどちらも、カスタマイズには問題があります。</p>
+<p>：app： <cite>Pyramid`は別のアプローチをとっています。静的資産は、* asset specification *を使用して検索されます。文字列には、Pythonパッケージ名とファイルまたはディレクトリ名の両方に参照が含まれます。たとえば、 `</cite> MyPackage：static / index.html``などです。これらの仕様は、テンプレート、JavaScript、CSS、翻訳ファイル、およびその他のパッケージにバインドされた静的リソースに使用されます。アセット仕様を使うことで、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は競合を心配することなく他のパッケージでアプリケーションを簡単に拡張できます。</p>
+<p>あなたが使用している別の：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`パッケージがあなたがカスタマイズする必要のある資産を提供するとどうなりますか？たぶん、そのページテンプレートがより良いHTMLを必要とするか、あるいはいくつかのCSSを更新したいと思うかもしれません。アセット仕様を使用すると、単純なラッパーを使用して他のパッケージからアセットをオーバーライドできます。</p>
+<p>例：：ref： <cite>asset_specifications`と：ref：</cite> overriding_assets_section`です。</p>
 </div>
 <div class="section" id="use-your-templates">
-<h3>Use <em>your</em> templates<a class="headerlink" href="#use-your-templates" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>In <span>Pyramid</span>, the job of creating a <code class="docutils literal notranslate"><span class="pre">Response</span></code> belongs to a <a class="reference internal" href="../glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a>. Any templating system—Mako, Chameleon, Jinja2—can be a renderer. In fact, packages exist for all of these systems. But if you'd rather use another, a structured API exists allowing you to create a renderer using your favorite templating system. You can use the templating system <em>you</em> understand, not one required by the framework.</p>
-<p>What's more, <span>Pyramid</span> does not make you use a single templating system exclusively.  You can use multiple templating systems, even in the same project.</p>
-<p>Example: <a class="reference internal" href="templates.html#templates-used-directly"><span class="std std-ref">Using Templates Directly</span></a>.</p>
+<h3><a href="#id1"><span class="problematic" id="id2">*</span></a>あなたの*テンプレートを使用する<a class="headerlink" href="#use-your-templates" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>In：app： <cite>Pyramid</cite>、` <cite>Response``を作成する仕事は：term：</cite> renderer`に属します。どのテンプレートシステム（Mako、Chameleon、Jinja2）もレンダラになります。実際、これらのシステムのすべてにパッケージが存在します。しかし、別のものを使用する場合は、構造化されたAPIが存在し、お気に入りのテンプレートシステムを使用してレンダラーを作成することができます。フレームワークが必要とするものではなく、あなたが理解しているテンプレートシステム*を使うことができます。</p>
+<p>さらに：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`では、単一のテンプレートシステムだけを使用するわけではありません。同じプロジェクトでも、複数のテンプレートシステムを使用できます。</p>
+<p>例：：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>templates_used_directly`です。</p>
 </div>
 <div class="section" id="write-testable-views">
-<h3>Write testable views<a class="headerlink" href="#write-testable-views" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>When you use a <a class="reference internal" href="../glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> with your view callable, you are freed from needing to return a &quot;webby&quot; <code class="docutils literal notranslate"><span class="pre">Response</span></code> object. Instead your views can return a simple Python dictionary. <span>Pyramid</span> will take care of rendering the information in that dictionary to a <code class="docutils literal notranslate"><span class="pre">Response</span></code> on your behalf. As a result, your views are more easily tested, since you don't need to parse HTML to evaluate the results. <span>Pyramid</span> makes it a snap to write unit tests for your views, instead of requiring you to use functional tests.</p>
-<p id="example-render-to-response-call"><span id="index-1"></span>For example, a typical web framework might return a <code class="docutils literal notranslate"><span class="pre">Response</span></code> object from a <code class="docutils literal notranslate"><span class="pre">render_to_response</span></code> call:</p>
+<h3>テスト可能なビューを作成する<a class="headerlink" href="#write-testable-views" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ビューを呼び出し可能にして：term： <cite>renderer`を使うと、&amp;quot; webby &amp;quot;</cite> <cite>Response``オブジェクトを返す必要がなくなります。代わりに、あなたのビューは単純なPython辞書を返すことができます。 ：app： `Pyramid`は、あなたのために、その辞書の情報を</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>Response``にレンダリングします。その結果、結果を評価するためにHTMLを解析する必要がないため、ビューはより簡単にテストされます。 ：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`は、機能テストを使用するのではなく、ビューの単体テストを書くことを簡単にします。</p>
+<p id="example-render-to-response-call"><span id="index-1"></span>例えば、典型的なWebフレームワークは `` render_to_response``呼び出しから `` Response``オブジェクトを返すかもしれません：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -292,7 +291,7 @@ and <a class="reference internal" href="../pscripts/index.html"><span class="doc
                               <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>While you <em>can</em> do this in <span>Pyramid</span>, you can also return a Python dictionary:</p>
+<p>あなたはapp： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`でこれを行うことができますが、Python辞書を返すこともできます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -304,14 +303,14 @@ and <a class="reference internal" href="../pscripts/index.html"><span class="doc
     <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>By configuring your view to use a renderer, you tell <span>Pyramid</span> to use the <code class="docutils literal notranslate"><span class="pre">{'a':1}</span></code> dictionary and the specified template to render a response on your behalf.</p>
-<p>The string passed as <code class="docutils literal notranslate"><span class="pre">renderer=</span></code> above is an <a class="reference internal" href="../glossary.html#term-asset-specification"><span class="xref std std-term">asset specification</span></a>. Asset specifications are widely used in <span>Pyramid</span>. They allow for more reliable customization. See <a class="reference internal" href="#intro-asset-specs"><span class="std std-ref">Find your static assets</span></a> for more information.</p>
-<p>Example: <a class="reference internal" href="renderers.html#renderers-chapter"><span class="std std-ref">Renderers</span></a>.</p>
+<p>レンダラーを使用するようにビューを設定することで、app： <cite>Pyramid`に</cite> <cite>{&amp;#39;a&amp;#39;：1}</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>辞書と指定されたテンプレートを使用してあなたの代わりに応答を表示します。</p>
+<p>上記の `` renderer = <a href="#id1"><span class="problematic" id="id2">``</span></a>として渡される文字列は：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>asset specification`です。アセットの仕様は、app： <a href="#id5"><span class="problematic" id="id6">`</span></a>Pyramid`で広く使用されています。彼らはより信頼性の高いカスタマイズを可能にします。詳細は、：ref： <a href="#id7"><span class="problematic" id="id8">`</span></a>intro_asset_specs`を参照してください。</p>
+<p>例：：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>renderers_chapter`です。</p>
 </div>
 <div class="section" id="use-events-to-coordinate-actions">
-<h3>Use events to coordinate actions<a class="headerlink" href="#use-events-to-coordinate-actions" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>When writing web applications, it is often important to have your code run at a specific point in the lifecycle of a request. In <span>Pyramid</span>, you can accomplish this using <em>subscribers</em> and <em>events</em>.</p>
-<p>For example, you might have a job that needs to be done each time your application handles a new request. <span>Pyramid</span> emits a <code class="docutils literal notranslate"><span class="pre">NewRequest</span></code> event at this point in the request handling lifecycle. You can register your code as a subscriber to this event using a clear, declarative style:</p>
+<h3>イベントを使用してアクションを調整する<a class="headerlink" href="#use-events-to-coordinate-actions" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Webアプリケーションを記述する際には、要求のライフサイクルの特定の時点でコードを実行することが重要な場合があります。 In：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`では、* subscribers <em>と</em> events <a href="#id3"><span class="problematic" id="id4">*</span></a>を使ってこれを実現できます。</p>
+<p>たとえば、アプリケーションが新しい要求を処理するたびに実行する必要があるジョブがあるとします。 ：app： <cite>Pyramid`はリクエスト処理ライフサイクルのこの時点で</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>NewRequest``イベントを送出します。明確な宣言スタイルを使用して、コードをサブスクライバとしてこのイベントに登録することができます。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">NewRequest</span>
 <span class="kn">from</span> <span class="nn">pyramid.events</span> <span class="kn">import</span> <span class="n">subscriber</span>
 
@@ -320,60 +319,60 @@ and <a class="reference internal" href="../pscripts/index.html"><span class="doc
     <span class="n">do_something</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><span>Pyramid</span>'s event system can be extended as well. If you need, you can create events of your own and send them using <span>Pyramid</span>'s event system. Then anyone working with your application can subscribe to your events and coordinate their code with yours.</p>
-<p>Example: <a class="reference internal" href="events.html#events-chapter"><span class="std std-ref">Using Events</span></a> and <a class="reference internal" href="../api/events.html#event-types"><span class="std std-ref">Event Types</span></a>.</p>
+<p>：app： <cite>Pyramid</cite> のイベントシステムも拡張できます。必要な場合は、あなた自身のイベントを作成し、app： <cite>Pyramid</cite> のイベントシステムを使用して送信することができます。それで、あなたのアプリケーションを使って作業している人なら誰でもあなたのイベントを購読して、あなたのコードとあなたのコードを調整することができます。</p>
+<p>例：：ref： <cite>events_chapter`と：ref：</cite> event_types`です。</p>
 </div>
 <div class="section" id="build-international-applications">
-<h3>Build international applications<a class="headerlink" href="#build-international-applications" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span>Pyramid</span> ships with internationalization-related features in its core: localization, pluralization, and creating message catalogs from source files and templates.  <span>Pyramid</span> allows for a plurality of message catalogs via the use of translation domains.  You can create a system that has its own translations without conflict with other translations in other domains.</p>
-<p>Example: <a class="reference internal" href="i18n.html#i18n-chapter"><span class="std std-ref">Internationalization and Localization</span></a>.</p>
+<h3>国際的なアプリケーションを構築する<a class="headerlink" href="#build-international-applications" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、ローカリゼーション、多元化、ソースファイルやテンプレートからのメッセージカタログの作成という、国際化関連の機能を核にしています。 ：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`は、翻訳ドメインを使用して複数のメッセージカタログを可能にします。他のドメインの他の翻訳と矛盾することなく、独自の翻訳を持つシステムを作成することができます。</p>
+<p>例：：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>i18n_chapter`です。</p>
 </div>
 <div class="section" id="build-efficient-applications">
-<h3>Build efficient applications<a class="headerlink" href="#build-efficient-applications" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span>Pyramid</span> provides an easy way to <em>cache</em> the results of slow or expensive views. You can indicate in view configuration that you want a view to be cached:</p>
+<h3>効率的なアプリケーションを構築する<a class="headerlink" href="#build-efficient-applications" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は、遅いまたは高価なビューの結果を簡単にキャッシュする*方法を提供します。ビューの設定で、ビューをキャッシュするように指定することができます。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@view_config</span><span class="p">(</span><span class="n">http_cache</span><span class="o">=</span><span class="mi">3600</span><span class="p">)</span> <span class="c1"># 60 minutes</span>
 <span class="k">def</span> <span class="nf">myview</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="c1"># ...</span>
 </pre></div>
 </div>
-<p><span>Pyramid</span> will automatically add the appropriate <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> and <code class="docutils literal notranslate"><span class="pre">Expires</span></code> headers to the response it creates.</p>
-<p>See the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a> method's <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> documentation for more information.</p>
+<p>：app： <cite>Pyramid`は自動的に適切な</cite> <cite>Cache-Control``と</cite> Expires``ヘッダを作成したレスポンスに追加します。</p>
+<p>詳細は、：meth： <cite>〜pyramid.config.Configurator.add_view`メソッドの</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>http_cache``ドキュメントを参照してください。</p>
 </div>
 <div class="section" id="build-fast-applications">
-<h3>Build fast applications<a class="headerlink" href="#build-fast-applications" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>The <span>Pyramid</span> core is fast. It has been engineered from the ground up for speed. It only does as much work as absolutely necessary when you ask it to get a job done. If you need speed from your application, <span>Pyramid</span> is the right choice for you.</p>
-<p>Example: <a class="reference external" href="https://blog.curiasolutions.com/pages/the-great-web-framework-shootout.html">https://blog.curiasolutions.com/pages/the-great-web-framework-shootout.html</a></p>
+<h3>高速アプリケーションの構築<a class="headerlink" href="#build-fast-applications" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`コアは高速です。スピードを追求して設計されています。あなたが仕事を遂行するためにそれを求めるとき、それは絶対に必要なだけの仕事をします。アプリケーションからスピードが必要な場合は、：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`が最適です。</p>
+<p>例：<a class="reference external" href="https://blog.curiasolutions.com/pages/the-great-web-framework-shootout.html">https://blog.curiasolutions.com/pages/the-great-web-framework-shootout.html</a></p>
 </div>
 <div class="section" id="store-session-data">
-<h3>Store session data<a class="headerlink" href="#store-session-data" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span>Pyramid</span> has built-in support for HTTP sessions, so you can associate data with specific users between requests. Lots of other frameworks also support sessions. But <span>Pyramid</span> allows you to plug in your own custom sessioning system. So long as your system conforms to a documented interface, you can drop it in in place of the provided system.</p>
-<p>Currently there is a binding package for the third-party Redis sessioning system that does exactly this. But if you have a specialized need (perhaps you want to store your session data in MongoDB), you can.  You can even switch between implementations without changing your application code.</p>
-<p>Example: <a class="reference internal" href="sessions.html#sessions-chapter"><span class="std std-ref">Sessions</span></a>.</p>
+<h3>セッションデータを保存する<a class="headerlink" href="#store-session-data" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`には、HTTPセッションの組み込みサポートがあるので、リクエスト間で特定のユーザーとデータを関連付けることができます。他の多くのフレームワークもセッションをサポートしています。しかし、：app： <a href="#id3"><span class="problematic" id="id4">`</span></a>Pyramid`では、独自のカスタムセッションシステムをプラグインすることができます。システムが文書化されたインターフェイスに準拠している限り、提供されたシステムの代わりにドロップすることができます。</p>
+<p>現在、正確にこれを行うサードパーティのRedisセッションシステム用のバインディングパッケージがあります。しかし、特殊なニーズがある場合（多分、セッションデータをMongoDBに保存したい場合）、そうすることができます。アプリケーションコードを変更することなく、実装を切り替えることさえできます。</p>
+<p>例：：ref： <cite>sessions_chapter</cite></p>
 </div>
 <div class="section" id="handle-problems-with-grace">
-<h3>Handle problems with grace<a class="headerlink" href="#handle-problems-with-grace" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Mistakes happen. Problems crop up. No one writes bug-free code. <span>Pyramid`provides a way to handle the exceptions your code encounters. An :term:`exception view</span> is a special kind of view which is automatically called when a particular exception type arises without being handled by your application.</p>
-<p>For example, you might register an exception view for the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.7)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a> exception type, which will catch <em>all</em> exceptions, and present a pretty &quot;well, this is embarrassing&quot; page.  Or you might choose to register an exception view for only certain application-specific exceptions. You can make one for when a file is not found, or when the user doesn't have permission to do something. In the former case, you can show a pretty &quot;Not Found&quot; page; in the latter case you might show a login form.</p>
-<p>Example: <a class="reference internal" href="views.html#exception-views"><span class="std std-ref">カスタム例外ビュー(Custom Exception Views)</span></a>.</p>
+<h3>恵みの問題を扱う<a class="headerlink" href="#handle-problems-with-grace" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>間違いが起こります。問題が発生する。誰もバグのないコードを書く人はいません。 ：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はあなたのコードが遭遇する例外を処理する方法を提供します。 An：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>例外ビュー &amp;#39;は、アプリケーションによって処理されずに特定の例外タイプが発生したときに自動的に呼び出される特殊なビューです。</p>
+<p>たとえば、：exc： <a href="#id1"><span class="problematic" id="id2">`</span></a>Exception`例外タイプの例外ビューを登録すると、* all <a href="#id3"><span class="problematic" id="id4">*</span></a>例外を捕捉して、かなり&amp;quot;うーん、これは恥ずかしい &amp;quot;というページが表示されます。または、特定のアプリケーション固有の例外のみの例外ビューを登録することもできます。ファイルが見つからない場合や、ユーザーが何かを実行する権限を持っていない場合に使用できます。前者の場合は、 &amp;quot;Not Found&amp;quot;ページを表示することができます。後者の場合、ログインフォームを表示することがあります。</p>
+<p>例：：ref： <cite>exception_views</cite>。</p>
 </div>
 <div class="section" id="and-much-much-more">
-<h3>And much, much more...<a class="headerlink" href="#and-much-much-more" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><span>Pyramid</span> has been built with a number of other sophisticated design features that make it adaptable. Read more about them below.</p>
+<h3>そして、はるかに多く...<a class="headerlink" href="#and-much-much-more" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は他にも洗練されたデザインがいくつか用意されています。それらについて詳しくは以下をご覧ください。</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="advanced-features.html">Advanced <span>Pyramid</span> Design Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#you-don-t-need-singletons">You Don't Need Singletons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#simplify-your-view-code-with-predicates">Simplify your View Code with Predicates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#stop-worrying-about-transactions">Stop Worrying About Transactions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#stop-worrying-about-configuration">Stop Worrying About Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#compose-powerful-apps-from-simple-parts">Compose Powerful Apps From Simple Parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#authenticate-users-your-way">Authenticate Users Your Way</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#build-trees-of-resources">Build Trees of Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#take-action-on-each-request-with-tweens">Take Action on Each Request with Tweens</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#return-what-you-want-from-your-views">Return What You Want From Your Views</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#use-global-response-objects">Use Global Response Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#extend-configuration">Extend Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#introspect-your-application">Introspect Your Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced-features.html">(機械翻訳) アドバンス：app： `Pyramid`デザインの特徴</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#you-don-t-need-singletons">あなたはシングルトンを必要としません</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#simplify-your-view-code-with-predicates">述語でビューコードを簡略化する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#stop-worrying-about-transactions">トランザクションについて心配しないでください</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#stop-worrying-about-configuration">設定について心配しないでください</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#compose-powerful-apps-from-simple-parts">シンプルな部品から強力なアプリケーションを作成する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#authenticate-users-your-way">あなたの方法を認証する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#build-trees-of-resources">リソースのツリーを構築する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#take-action-on-each-request-with-tweens">トゥイーンで各リクエストを処理する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#return-what-you-want-from-your-views">あなたの意見からあなたが望むものを返す</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#use-global-response-objects">グローバルレスポンスオブジェクトを使用する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#extend-configuration">拡張構成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-features.html#introspect-your-application">アプリケーションのイントロスペクション</a></li>
 </ul>
 </li>
 </ul>
@@ -381,17 +380,17 @@ and <a class="reference internal" href="../pscripts/index.html"><span class="doc
 </div>
 </div>
 <div class="section" id="what-is-the-pylons-project">
-<span id="index-2"></span><h2>What Is The Pylons Project?<a class="headerlink" href="#what-is-the-pylons-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><span>Pyramid</span> is a member of the collection of software published under the Pylons Project.  Pylons software is written by a loose-knit community of contributors.  The <a class="reference external" href="https://pylonsproject.org">Pylons Project website</a> includes details about how <span>Pyramid</span> relates to the Pylons Project.</p>
+<span id="index-2"></span><h2>Pylonsプロジェクトとは何ですか？<a class="headerlink" href="#what-is-the-pylons-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <cite>Pyramid`は、Pylonsプロジェクトで公開されているソフトウェアのコレクションのメンバーです。 Pylonsソフトウェアは、寄稿者のルーズニットコミュニティによって書かれています。 `Pylons Projectウェブサイト&lt;https://pylonsproject.org&gt; `app：</cite> Pyramid`はPylonsプロジェクトに関連しています。</p>
 </div>
 <div class="section" id="pyramid-and-other-web-frameworks">
-<span id="index-3"></span><h2><span>Pyramid</span> and Other Web Frameworks<a class="headerlink" href="#pyramid-and-other-web-frameworks" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The first release of <span>Pyramid</span>'s predecessor (named <code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.bfg</span></code>) was made in July of 2008.  At the end of 2010, we changed the name of <code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.bfg</span></code> to <span>Pyramid</span>.  It was merged into the Pylons project as <span>Pyramid</span> in November of that year.</p>
-<p><span>Pyramid</span> was inspired by <a class="reference internal" href="../glossary.html#term-zope"><span class="xref std std-term">Zope</span></a>, <a class="reference internal" href="../glossary.html#term-pylons"><span class="xref std std-term">Pylons</span></a> (version 1.0), and <a class="reference internal" href="../glossary.html#term-django"><span class="xref std std-term">Django</span></a>.  As a result, <span>Pyramid</span> borrows several concepts and features from each, combining them into a unique web framework.</p>
-<p>Similar to <a class="reference internal" href="../glossary.html#term-zope"><span class="xref std std-term">Zope</span></a>, <span>Pyramid</span> applications may easily be extended. If you work within the constraints of the framework, you can produce applications that can be reused, modified, or extended without needing to modify the original application code. <span>Pyramid</span> also inherits the concepts of <a class="reference internal" href="../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> and declarative security from Zope.</p>
-<p>Similar to <a class="reference internal" href="../glossary.html#term-pylons"><span class="xref std std-term">Pylons</span></a> version 1.0, <span>Pyramid</span> is largely free of policy. It makes no assertions about which database or template system you should use. You are free to use whatever third-party components fit the needs of your specific application. <span>Pyramid</span> also inherits its approach to <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> from Pylons.</p>
-<p>Similar to <a class="reference internal" href="../glossary.html#term-django"><span class="xref std std-term">Django</span></a>, <span>Pyramid</span> values extensive documentation. In addition, the concept of a <a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> is used by <span>Pyramid</span> much as it would be by Django.</p>
-<p>Other Python web frameworks advertise themselves as members of a class of web frameworks named <a class="reference external" href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">model-view-controller</a> frameworks. The authors of <span>Pyramid</span> do not believe that the MVC pattern fits the web particularly well. However, if this abstraction works for you, <span>Pyramid</span> also generally fits into this class.</p>
+<span id="index-3"></span><h2>：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`とその他のWebフレームワーク<a class="headerlink" href="#pyramid-and-other-web-frameworks" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：app： <cite>Pyramid`の前身（名前：mod：</cite> repoze.bfg`）の最初のリリースは2008年の7月に行われました。2010年の終わりに、mod： <cite>repoze &amp;#39;という名前を変更しました。 bfg</cite>：app： <cite>ピラミッド</cite>。その年の11月にapp： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`としてPylonsプロジェクトに統合されました。</p>
+<p>：app：Pyramidは、term： <cite>Zope</cite>、：term：` Pylons`（バージョン1.0）、 <cite>term：</cite> Django`からインスピレーションを受けています。結果として、：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`はそれぞれからいくつかの概念と特徴を借用し、それらをユニークなWebフレームワークに結合します。</p>
+<p>term： <cite>Zope</cite>、：app：` Pyramid`アプリケーションは簡単に拡張できます。フレームワークの制約内で作業する場合は、元のアプリケーションコードを変更することなく、再利用、変更、拡張が可能なアプリケーションを作成できます。 ：app： <cite>Pyramid`は、term：</cite> traversal`とZopeの宣言型セキュリティという概念も継承しています。</p>
+<p>term： <cite>Pylons`バージョン1.0と同様：：app：</cite> Pyramid`はほとんどポリシーから解放されています。どのデータベースやテンプレートシステムを使用すべきかについては何の主張もしていません。特定のアプリケーションのニーズに合ったサードパーティのコンポーネントを自由に使用できます。 ：app： <cite>Pyramid`はPylonsからterm：</cite> URL dispatch`へのアプローチも継承しています。</p>
+<p>term： <cite>Django`と同様：：app：</cite> Pyramid`は広範なドキュメントを評価します。さらに、：term： <cite>view`のコンセプトは、app：</cite> Pyramid`によってDjangoのように使われます。</p>
+<p>他のPython Webフレームワークは、 <a href="#id1"><span class="problematic" id="id2">`</span></a>model-view-controllerという名前のWebフレームワークのクラスのメンバーとして自分自身を宣伝します&lt;<a class="reference external" href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_フレームワーク。 app： <a href="#id5"><span class="problematic" id="id6">`</span></a>Pyramid`の作者は、MVCパターンがウェブによく合うとは考えていません。しかし、この抽象化がうまくいくとすれば、：app： <a href="#id7"><span class="problematic" id="id8">`</span></a>Pyramid`も一般にこのクラスに適合します。</p>
 </div>
 </div>
 
@@ -403,37 +402,37 @@ and <a class="reference internal" href="../pscripts/index.html"><span class="doc
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><span>Pyramid</span> Introduction</a><ul>
-<li><a class="reference internal" href="#why-pyramid">Why Pyramid?</a><ul>
-<li><a class="reference internal" href="#modern">Modern</a></li>
-<li><a class="reference internal" href="#tested">Tested</a></li>
-<li><a class="reference internal" href="#documented">Documented</a></li>
-<li><a class="reference internal" href="#supported">Supported</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) <span>Pyramid</span> はじめに</a><ul>
+<li><a class="reference internal" href="#why-pyramid">なぜピラミッド？</a><ul>
+<li><a class="reference internal" href="#modern">現代</a></li>
+<li><a class="reference internal" href="#tested">テスト済み</a></li>
+<li><a class="reference internal" href="#documented">文書化された</a></li>
+<li><a class="reference internal" href="#supported">サポートされる</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#what-makes-pyramid-unique">What makes Pyramid unique</a><ul>
-<li><a class="reference internal" href="#build-single-file-applications">Build single-file applications</a></li>
-<li><a class="reference internal" href="#configure-applications-with-decorators">Configure applications with decorators</a></li>
-<li><a class="reference internal" href="#generate-application-urls">Generate application URLs</a></li>
-<li><a class="reference internal" href="#serve-static-assets">Serve static assets</a></li>
-<li><a class="reference internal" href="#develop-interactively">Develop interactively</a></li>
-<li><a class="reference internal" href="#debug-with-power">Debug with power</a></li>
-<li><a class="reference internal" href="#extend-your-application">Extend your application</a></li>
-<li><a class="reference internal" href="#write-your-views-your-way">Write your views, <em>your</em> way</a></li>
-<li><a class="reference internal" href="#find-your-static-assets">Find <em>your</em> static assets</a></li>
-<li><a class="reference internal" href="#use-your-templates">Use <em>your</em> templates</a></li>
-<li><a class="reference internal" href="#write-testable-views">Write testable views</a></li>
-<li><a class="reference internal" href="#use-events-to-coordinate-actions">Use events to coordinate actions</a></li>
-<li><a class="reference internal" href="#build-international-applications">Build international applications</a></li>
-<li><a class="reference internal" href="#build-efficient-applications">Build efficient applications</a></li>
-<li><a class="reference internal" href="#build-fast-applications">Build fast applications</a></li>
-<li><a class="reference internal" href="#store-session-data">Store session data</a></li>
-<li><a class="reference internal" href="#handle-problems-with-grace">Handle problems with grace</a></li>
-<li><a class="reference internal" href="#and-much-much-more">And much, much more...</a></li>
+<li><a class="reference internal" href="#what-makes-pyramid-unique">ピラミッドをユニークなものにする理由</a><ul>
+<li><a class="reference internal" href="#build-single-file-applications">単一ファイルアプリケーションを構築する</a></li>
+<li><a class="reference internal" href="#configure-applications-with-decorators">デコレータでアプリケーションを設定する</a></li>
+<li><a class="reference internal" href="#generate-application-urls">アプリケーションのURLを生成する</a></li>
+<li><a class="reference internal" href="#serve-static-assets">静的資産を提供する</a></li>
+<li><a class="reference internal" href="#develop-interactively">インタラクティブに開発する</a></li>
+<li><a class="reference internal" href="#debug-with-power">電源でデバッグする</a></li>
+<li><a class="reference internal" href="#extend-your-application">アプリケーションを拡張する</a></li>
+<li><a class="reference internal" href="#write-your-views-your-way">あなたの意見を書いてください。</a></li>
+<li><a class="reference internal" href="#find-your-static-assets">*あなたの*静的資産を見つける</a></li>
+<li><a class="reference internal" href="#use-your-templates">*あなたの*テンプレートを使用する</a></li>
+<li><a class="reference internal" href="#write-testable-views">テスト可能なビューを作成する</a></li>
+<li><a class="reference internal" href="#use-events-to-coordinate-actions">イベントを使用してアクションを調整する</a></li>
+<li><a class="reference internal" href="#build-international-applications">国際的なアプリケーションを構築する</a></li>
+<li><a class="reference internal" href="#build-efficient-applications">効率的なアプリケーションを構築する</a></li>
+<li><a class="reference internal" href="#build-fast-applications">高速アプリケーションの構築</a></li>
+<li><a class="reference internal" href="#store-session-data">セッションデータを保存する</a></li>
+<li><a class="reference internal" href="#handle-problems-with-grace">恵みの問題を扱う</a></li>
+<li><a class="reference internal" href="#and-much-much-more">そして、はるかに多く...</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#what-is-the-pylons-project">What Is The Pylons Project?</a></li>
-<li><a class="reference internal" href="#pyramid-and-other-web-frameworks"><span>Pyramid</span> and Other Web Frameworks</a></li>
+<li><a class="reference internal" href="#what-is-the-pylons-project">Pylonsプロジェクトとは何ですか？</a></li>
+<li><a class="reference internal" href="#pyramid-and-other-web-frameworks">：app： `Pyramid`とその他のWebフレームワーク</a></li>
 </ul>
 </li>
 </ul>
@@ -443,7 +442,7 @@ and <a class="reference internal" href="../pscripts/index.html"><span class="doc
                         title="前の章へ">Running a <span>Pyramid</span> Application under <code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code></a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="advanced-features.html"
-                        title="次の章へ">Advanced <span>Pyramid</span> Design Features</a></p>
+                        title="次の章へ">(機械翻訳) アドバンス：app： `Pyramid`デザインの特徴</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -477,7 +476,7 @@ and <a class="reference internal" href="../pscripts/index.html"><span class="doc
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="advanced-features.html" title="Advanced Pyramid Design Features"
+          <a href="advanced-features.html" title="(機械翻訳) アドバンス：app： `Pyramid`デザインの特徴"
              >次へ</a> |</li>
         <li class="right" >
           <a href="../tutorials/modwsgi/index.html" title="Running a Pyramid Application under mod_wsgi"
@@ -487,7 +486,7 @@ and <a class="reference internal" href="../pscripts/index.html"><span class="doc
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

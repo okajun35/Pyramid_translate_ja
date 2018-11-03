@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Environment Variables and .ini File Settings &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) 環境変数と `` .ini``ファイル設定 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Logging" href="logging.html" />
-    <link rel="prev" title="Using Events" href="events.html" />
+    <link rel="next" title="(機械翻訳) ロギング" href="logging.html" />
+    <link rel="prev" title="(機械翻訳) イベントの使用" href="events.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="logging.html" title="Logging"
+          <a href="logging.html" title="(機械翻訳) ロギング"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="events.html" title="Using Events"
+          <a href="events.html" title="(機械翻訳) イベントの使用"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,43 +69,31 @@
           <div class="body" role="main">
             
   <div class="section" id="environment-variables-and-ini-file-settings">
-<span id="environment-chapter"></span><span id="index-0"></span><h1>Environment Variables and <code class="docutils literal notranslate"><span class="pre">.ini</span></code> File Settings<a class="headerlink" href="#environment-variables-and-ini-file-settings" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><span>Pyramid</span> behavior can be configured through a combination of operating
-system environment variables and <code class="docutils literal notranslate"><span class="pre">.ini</span></code> configuration file application
-section settings.  The meaning of the environment variables and the
-configuration file settings overlap.</p>
+<span id="environment-chapter"></span><span id="index-0"></span><h1>(機械翻訳) 環境変数と `` .ini``ファイル設定<a class="headerlink" href="#environment-variables-and-ini-file-settings" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>：app： <cite>Pyramid`の動作は、オペレーティングシステムの環境変数と</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>.ini``設定ファイルのアプリケーションセクションの設定を組み合わせて設定できます。環境変数の意味と設定ファイルの設定は重複しています。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Where a configuration file setting exists with the same meaning as an
-environment variable, and both are present at application startup time, the
-environment variable setting takes precedence.</p>
+<p class="last">環境変数と同じ意味の設定ファイル設定が存在し、アプリケーション起動時にその両方が存在する場合は、環境変数の設定が優先されます。</p>
 </div>
-<p>The term &quot;configuration file setting name&quot; refers to a key in the <code class="docutils literal notranslate"><span class="pre">.ini</span></code>
-configuration for your application.  The configuration file setting names
-documented in this chapter are reserved for <span>Pyramid</span> use.  You should not
-use them to indicate application-specific configuration settings.</p>
+<p>&amp;quot;構成ファイル設定名&amp;quot;という用語は、アプリケーションの &amp;quot;.ini&amp;quot;構成のキーを指します。この章で説明する設定ファイルの設定名は、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`用に予約されています。アプリケーション固有の構成設定を示すためにそれらを使用しないでください。</p>
 <div class="section" id="reloading-templates">
-<h2>Reloading Templates<a class="headerlink" href="#reloading-templates" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>When this value is true, templates are automatically reloaded whenever they are
-modified without restarting the application, so you can see changes to
-templates take effect immediately during development.  This flag is meaningful
-to Chameleon and Mako templates, as well as most third-party template rendering
-extensions.</p>
+<h2>テンプレートのリロード<a class="headerlink" href="#reloading-templates" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この値がtrueの場合、アプリケーションを再起動せずにテンプレートを変更するとテンプレートが自動的に再ロードされるため、テンプレートの変更は開発中にすぐに反映されます。このフラグは、ChameleonとMakoのテンプレートだけでなく、ほとんどのサードパーティのテンプレートレンダリング拡張にも意味があります。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="49%" />
 <col width="51%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable Name</th>
-<th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">環境変数名</th>
+<th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYRAMID_RELOAD_TEMPLATES</span></code></td>
+<tr class="row-even"><td>`` PYRAMID_RELOAD_TEMPLATES``</td>
 <td><dl class="first last docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code></dt>
-<dd>or <code class="docutils literal notranslate"><span class="pre">reload_templates</span></code></dd>
+<dt>`` pyramid.reload_templates``</dt>
+<dd>または `` reload_templates``</dd>
 </dl>
 </td>
 </tr>
@@ -113,11 +101,11 @@ extensions.</p>
 </table>
 </div>
 <div class="section" id="reloading-assets">
-<h2>Reloading Assets<a class="headerlink" href="#reloading-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Don't cache any asset file data when this value is true.</p>
+<h2>アセットのリロード<a class="headerlink" href="#reloading-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この値がtrueの場合は、アセットファイルのデータをキャッシュしないでください。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="assets.html#overriding-assets-section"><span class="std std-ref">Overriding Assets</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>overriding_assets_section`を参照してください。</p>
 </div>
 <table border="1" class="docutils">
 <colgroup>
@@ -125,31 +113,27 @@ extensions.</p>
 <col width="51%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable Name</th>
-<th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">環境変数名</th>
+<th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYRAMID_RELOAD_ASSETS</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">pyramid.reload_assets</span></code>
-or <code class="docutils literal notranslate"><span class="pre">reload_assets</span></code></td>
+<tr class="row-even"><td>`` PYRAMID_RELOAD_ASSETS``</td>
+<td>`` pyramid.reload_assets``または `` reload_assets``</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">For backwards compatibility purposes, aliases can be used for
-configuring asset reloading: <code class="docutils literal notranslate"><span class="pre">PYRAMID_RELOAD_RESOURCES</span></code> (envvar) and
-<code class="docutils literal notranslate"><span class="pre">pyramid.reload_resources</span></code> (config file).</p>
+<p class="last">下位互換性のために、アセットリロードの設定にはエイリアスを使用できます： `` PYRAMID_RELOAD_RESOURCES``（envvar）と `` pyramid.reload_resources``（設定ファイル）。</p>
 </div>
 </div>
 <div class="section" id="debugging-authorization">
-<h2>Debugging Authorization<a class="headerlink" href="#debugging-authorization" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Print view authorization failure and success information to stderr when this
-value is true.</p>
+<h2>デバッグ権限<a class="headerlink" href="#debugging-authorization" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この値がtrueの場合、ビュー認可の失敗と成功の情報をstderrに出力します。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="security.html#debug-authorization-section"><span class="std std-ref">Debugging View Authorization Failures</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>debug_authorization_section`を参照してください。</p>
 </div>
 <table border="1" class="docutils">
 <colgroup>
@@ -157,25 +141,23 @@ value is true.</p>
 <col width="51%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable Name</th>
-<th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">環境変数名</th>
+<th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYRAMID_DEBUG_AUTHORIZATION</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">pyramid.debug_authorization</span></code>
-or <code class="docutils literal notranslate"><span class="pre">debug_authorization</span></code></td>
+<tr class="row-even"><td>`` PYRAMID_DEBUG_AUTHORIZATION``</td>
+<td>`` pyramid.debug_authorization`または `` debug_authorization``</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="debugging-not-found-errors">
-<h2>Debugging Not Found Errors<a class="headerlink" href="#debugging-not-found-errors" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Print view-related <code class="docutils literal notranslate"><span class="pre">NotFound</span></code> debug messages to stderr when this value is
-true.</p>
+<h2>デバッグエラーが見つかりません<a class="headerlink" href="#debugging-not-found-errors" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この値がtrueの場合、ビュー関連の `` NotFound``デバッグメッセージをstderrに出力します。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="viewconfig.html#debug-notfound-section"><span class="std std-ref">NotFound Errors</span></a>.</p>
+<p class="last">参照：ref： <cite>debug_notfound_section</cite>。</p>
 </div>
 <table border="1" class="docutils">
 <colgroup>
@@ -183,25 +165,23 @@ true.</p>
 <col width="52%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable Name</th>
-<th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">環境変数名</th>
+<th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYRAMID_DEBUG_NOTFOUND</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">pyramid.debug_notfound</span></code>
-or <code class="docutils literal notranslate"><span class="pre">debug_notfound</span></code></td>
+<tr class="row-even"><td>`` PYRAMID_DEBUG_NOTFOUND``</td>
+<td>`` pyramid.debug_notfound`または `` debug_notfound``</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="debugging-route-matching">
-<h2>Debugging Route Matching<a class="headerlink" href="#debugging-route-matching" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Print debugging messages related to <a class="reference internal" href="../glossary.html#term-url-dispatch"><span class="xref std std-term">url dispatch</span></a> route matching when
-this value is true.</p>
+<h2>ルートマッチングのデバッグ<a class="headerlink" href="#debugging-route-matching" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この値がtrueの場合、term： <a href="#id1"><span class="problematic" id="id2">`</span></a>url dispatch`ルートマッチングに関するデバッグメッセージを出力します。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="urldispatch.html#debug-routematch-section"><span class="std std-ref">Debugging Route Matching</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>debug_routematch_section`を参照してください。</p>
 </div>
 <table border="1" class="docutils">
 <colgroup>
@@ -209,27 +189,23 @@ this value is true.</p>
 <col width="52%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable Name</th>
-<th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">環境変数名</th>
+<th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYRAMID_DEBUG_ROUTEMATCH</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">pyramid.debug_routematch</span></code>
-or <code class="docutils literal notranslate"><span class="pre">debug_routematch</span></code></td>
+<tr class="row-even"><td>`` PYRAMID_DEBUG_ROUTEMATCH``</td>
+<td>`` pyramid.debug_routematch``または `` debug_routematch``</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="preventing-http-caching">
-<span id="id1"></span><h2>Preventing HTTP Caching<a class="headerlink" href="#preventing-http-caching" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Prevent the <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> view configuration argument from having any effect
-globally in this process when this value is true.  No HTTP caching-related
-response headers will be set by the <span>Pyramid</span> <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> view
-configuration feature when this is true.</p>
+<span id="id1"></span><h2>HTTPキャッシュの防止<a class="headerlink" href="#preventing-http-caching" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この値がtrueの場合、 `` http_cache``ビュー設定引数がこのプロセスでグローバルに影響を与えないようにします。 HTTPキャッシングに関連するレスポンスヘッダーは、：app： <cite>Pyramid`</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>http_cache``ビュー設定機能によって設定されます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="viewconfig.html#influencing-http-caching"><span class="std std-ref">Influencing HTTP Caching</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>influencing_http_caching`を参照してください。</p>
 </div>
 <table border="1" class="docutils">
 <colgroup>
@@ -237,29 +213,26 @@ configuration feature when this is true.</p>
 <col width="51%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable Name</th>
-<th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">環境変数名</th>
+<th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYRAMID_PREVENT_HTTP_CACHE</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">pyramid.prevent_http_cache</span></code>
-or <code class="docutils literal notranslate"><span class="pre">prevent_http_cache</span></code></td>
+<tr class="row-even"><td>`` PYRAMID_PREVENT_HTTP_CACHE``</td>
+<td>`` pyramid.prevent_http_cache``または `` prevent_http_cache``</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="preventing-cache-busting">
-<h2>Preventing Cache Busting<a class="headerlink" href="#preventing-cache-busting" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Prevent the <code class="docutils literal notranslate"><span class="pre">cachebust</span></code> static view configuration argument from having any
-effect globally in this process when this value is true.  No cache buster will
-be configured or used when this is true.</p>
+<h2>キャッシュ破棄の防止<a class="headerlink" href="#preventing-cache-busting" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この値がtrueのときに、 `` cachebust``静的ビュー設定引数がこのプロセスでグローバルに影響を及ぼさないようにします。この場合、キャッシュバスターは構成されず、使用されません。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 1.6 で追加.</span></p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="assets.html#cache-busting"><span class="std std-ref">Cache Busting</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>cache_busting`を参照してください。</p>
 </div>
 <table border="1" class="docutils">
 <colgroup>
@@ -267,67 +240,63 @@ be configured or used when this is true.</p>
 <col width="51%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable Name</th>
-<th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">環境変数名</th>
+<th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYRAMID_PREVENT_CACHEBUST</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">pyramid.prevent_cachebust</span></code>
-or <code class="docutils literal notranslate"><span class="pre">prevent_cachebust</span></code></td>
+<tr class="row-even"><td>`` PYRAMID_PREVENT_CACHEBUST``</td>
+<td>`` pyramid.prevent_cachebust``または `` prevent_cachebust``</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="debugging-all">
-<h2>Debugging All<a class="headerlink" href="#debugging-all" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Turns on all <code class="docutils literal notranslate"><span class="pre">debug*</span></code> settings.</p>
+<h2>すべてのデバッグ<a class="headerlink" href="#debugging-all" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>すべての `` debug * <a href="#id1"><span class="problematic" id="id2">``</span></a>設定を有効にします。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="51%" />
 <col width="49%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable Name</th>
-<th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">環境変数名</th>
+<th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYRAMID_DEBUG_ALL</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">pyramid.debug_all</span></code>
-or <code class="docutils literal notranslate"><span class="pre">debug_all</span></code></td>
+<tr class="row-even"><td>`` PYRAMID_DEBUG_ALL``</td>
+<td>`` pyramid.debug_all``または `` debug_all``</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="reloading-all">
-<h2>Reloading All<a class="headerlink" href="#reloading-all" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Turns on all <code class="docutils literal notranslate"><span class="pre">reload*</span></code> settings.</p>
+<h2>すべてをリロードする<a class="headerlink" href="#reloading-all" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>すべての `` reload * <a href="#id1"><span class="problematic" id="id2">``</span></a>設定を有効にします。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="49%" />
 <col width="51%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable Name</th>
-<th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">環境変数名</th>
+<th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYRAMID_RELOAD_ALL</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">pyramid.reload_all</span></code> or
-<code class="docutils literal notranslate"><span class="pre">reload_all</span></code></td>
+<tr class="row-even"><td>`` PYRAMID_RELOAD_ALL``</td>
+<td>`` pyramid.reload_all``または `` reload_all``</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="default-locale-name">
-<span id="default-locale-name-setting"></span><h2>Default Locale Name<a class="headerlink" href="#default-locale-name" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The value supplied here is used as the default locale name when a <a class="reference internal" href="../glossary.html#term-locale-negotiator"><span class="xref std std-term">locale
-negotiator</span></a> is not registered.</p>
+<span id="default-locale-name-setting"></span><h2>デフォルトロケール名<a class="headerlink" href="#default-locale-name" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>locale negotiator`が登録されていないとき、ここで与えられた値はデフォルトのロケール名として使われます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="i18n.html#localization-deployment-settings"><span class="std std-ref">Localization-Related Deployment Settings</span></a>.</p>
+<p class="last">参照：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>localization_deployment_settings`を参照してください。</p>
 </div>
 <table border="1" class="docutils">
 <colgroup>
@@ -335,73 +304,66 @@ negotiator</span></a> is not registered.</p>
 <col width="51%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Environment Variable Name</th>
-<th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">環境変数名</th>
+<th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYRAMID_DEFAULT_LOCALE_NAME</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">pyramid.default_locale_name</span></code>
-or <code class="docutils literal notranslate"><span class="pre">default_locale_name</span></code></td>
+<tr class="row-even"><td>`` PYRAMID_DEFAULT_LOCALE_NAME``</td>
+<td>`` pyramid.default_locale_name``または `` default_locale_name``</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="including-packages">
-<span id="id2"></span><h2>Including Packages<a class="headerlink" href="#including-packages" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> instructs your application to include other packages.
-Using the setting is equivalent to using the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> method.</p>
+<span id="id2"></span><h2>パッケージを含む<a class="headerlink" href="#including-packages" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` pyramid.includes``は、他のパッケージをインクルードするようアプリケーションに指示します。この設定を使用することは：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.include`メソッドの使用と同じです。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="100%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code></td>
+<tr class="row-even"><td>`` pyramid.includes``</td>
 </tr>
 </tbody>
 </table>
-<p>The value assigned to <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> should be a sequence.  The sequence
-can take several different forms.</p>
+<p>`` pyramid.includes``に割り当てられた値はシーケンスでなければなりません。シーケンスにはいくつかの異なる形式があります。</p>
 <ol class="arabic">
-<li><p class="first">It can be a string.</p>
-<p>If it is a string, the package names can be separated by spaces:</p>
+<li><p class="first">それは文字列にすることができます。</p>
+<p>文字列の場合、パッケージ名はスペースで区切ることができます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package1</span> <span class="n">package2</span> <span class="n">package3</span>
 </pre></div>
 </div>
-<p>The package names can also be separated by carriage returns:</p>
+<p>パッケージ名は改行で区切ることもできます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package1</span>
 <span class="n">package2</span>
 <span class="n">package3</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">It can be a Python list, where the values are strings:</p>
+<li><p class="first">値は文字列であるPythonリストにすることができます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;package1&#39;</span><span class="p">,</span> <span class="s1">&#39;package2&#39;</span><span class="p">,</span> <span class="s1">&#39;package3&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </li>
 </ol>
-<p>Each value in the sequence should be a <a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted Python name</span></a>.</p>
+<p>シーケンスの各値は：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>ドット付きPython名`でなければなりません。</p>
 <div class="section" id="pyramid-includes-vs-pyramid-config-configurator-include">
-<h3><code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> vs. <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a><a class="headerlink" href="#pyramid-includes-vs-pyramid-config-configurator-include" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Two methods exist for including packages: <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> and
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a>.  This section explains their
-equivalence.</p>
+<h3>`` pyramid.includes``と：meth： <cite>pyramid.config.Configurator.include</cite><a class="headerlink" href="#pyramid-includes-vs-pyramid-config-configurator-include" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>パッケージを含めるには、 `` pyramid.includes``と：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.include`の2つの方法があります。この節では、その等価性について説明します。</p>
 <div class="section" id="using-pastedeploy">
-<h4>Using PasteDeploy<a class="headerlink" href="#using-pastedeploy" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>Using the following <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> setting in the PasteDeploy <code class="docutils literal notranslate"><span class="pre">.ini</span></code>
-file in your application:</p>
+<h4>PasteDeployの使用<a class="headerlink" href="#using-pastedeploy" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>アプリケーションのPasteDeploy `` .ini``ファイルに以下の `` pyramid.includes``設定を使用します：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[app:main]</span>
 <span class="na">pyramid.includes</span> <span class="o">=</span> <span class="s">pyramid_debugtoolbar</span>
 <span class="s">                   pyramid_tm</span>
 </pre></div>
 </div>
-<p>Is equivalent to using the following statements in your configuration code:</p>
+<p>構成コードで次の文を使用するのと同じです。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -419,12 +381,11 @@ file in your application:</p>
     <span class="c1"># ...</span>
 </pre></div>
 </td></tr></table></div>
-<p>It is fine to use both or either form.</p>
+<p>どちらかまたはどちらかの形式を使用するのは問題ありません。</p>
 </div>
 <div class="section" id="plain-python">
-<h4>Plain Python<a class="headerlink" href="#plain-python" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>Using the following <code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> setting in your plain-Python Pyramid
-application:</p>
+<h4>プレーンPython<a class="headerlink" href="#plain-python" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>プレーンPythonのPyramidアプリケーションで以下の `` pyramid.includes``設定を使用します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -436,7 +397,7 @@ application:</p>
     <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Is equivalent to using the following statements in your configuration code:</p>
+<p>構成コードで次の文を使用するのと同じです。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -452,74 +413,59 @@ application:</p>
     <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;pyramid_tm&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>It is fine to use both or either form.</p>
+<p>どちらかまたはどちらかの形式を使用するのは問題ありません。</p>
 </div>
 </div>
 </div>
 <div class="section" id="explicit-tween-configuration">
-<span id="explicit-tween-config"></span><h2>Explicit Tween Configuration<a class="headerlink" href="#explicit-tween-configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>This value allows you to perform explicit <a class="reference internal" href="../glossary.html#term-tween"><span class="xref std std-term">tween</span></a> ordering in your
-configuration.  Tweens are bits of code used by add-on authors to extend
-Pyramid.  They form a chain, and require ordering.</p>
-<p>Ideally you won't need to use the <code class="docutils literal notranslate"><span class="pre">pyramid.tweens</span></code> setting at all.  Tweens
-are generally ordered and included &quot;implicitly&quot; when an add-on package which
-registers a tween is &quot;included&quot;.  Packages are included when you name a
-<code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> setting in your configuration or when you call
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a>.</p>
-<p>Authors of included add-ons provide &quot;implicit&quot; tween configuration ordering
-hints to Pyramid when their packages are included.  However, the implicit tween
-ordering is only best-effort.  Pyramid will attempt to provide an implicit
-order of tweens as best it can using hints provided by add-on authors, but
-because it's only best-effort, if very precise tween ordering is required, the
-only surefire way to get it is to use an explicit tween order. You may be
-required to inspect your tween ordering (see <a class="reference internal" href="commandline.html#displaying-tweens"><span class="std std-ref">Displaying &quot;Tweens&quot;</span></a>) and add
-a <code class="docutils literal notranslate"><span class="pre">pyramid.tweens</span></code> configuration value at the behest of an add-on author.</p>
+<span id="explicit-tween-config"></span><h2>明示的なTween構成<a class="headerlink" href="#explicit-tween-configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この値はあなたの設定でexplicit：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>tween`の順序​​を実行することを可能にします。 Tweensは、アドオンの著者がPyramidを拡張するために使用するコードの一部です。それらは鎖を形成し、順序づけを必要とする。</p>
+<p>理想的には、 `` pyramid.tweens``の設定を使う必要はありません。トゥイーンを登録するアドオンパッケージが&amp;quot;included &amp;quot;の場合、トゥイーンは一般に順序付けられ、&amp;quot;暗黙的に&amp;quot;含まれます。パッケージは、設定で `` pyramid.includes``という名前をつけたとき、または：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.include`を呼び出すときに含まれます。</p>
+<p>付属のアドオンの作成者は、パッケージが含まれているときにピラミッドに「暗黙的な」トゥイーン設定のヒントを提供します。ただし、暗黙的なトゥイーンの順序付けはベストエフォート型のみです。ピラミッドは、アドオンの作成者が提供するヒントを使用して最高のトゥイーンの暗黙の順序を提供しようとしますが、それはベストエフォートなので、非常に正確なトゥイーンの順序が必要な場合は、取得する唯一の確実な方法は、明示的なトゥイーンオーダー。あなたは、あなたのトゥイーンの注文（ref： <cite>displaying_tweens`を参照）を調べて、アドオン作成者の命令で</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.tweens``設定値を追加する必要があります。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="100%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Config File Setting Name</th>
+<tr class="row-odd"><th class="head">設定ファイルの設定名</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">pyramid.tweens</span></code></td>
+<tr class="row-even"><td>`` pyramid.tweens``</td>
 </tr>
 </tbody>
 </table>
-<p>The value assigned to <code class="docutils literal notranslate"><span class="pre">pyramid.tweens</span></code> should be a sequence.  The sequence
-can take several different forms.</p>
+<p>`` pyramid.tweens``に割り当てられた値はシーケンスでなければなりません。シーケンスにはいくつかの異なる形式があります。</p>
 <ol class="arabic">
-<li><p class="first">It can be a string.</p>
-<p>If it is a string, the tween names can be separated by spaces:</p>
+<li><p class="first">それは文字列にすることができます。</p>
+<p>文字列の場合、トゥイーンの名前はスペースで区切ることができます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pkg</span><span class="o">.</span><span class="n">tween_factory1</span> <span class="n">pkg</span><span class="o">.</span><span class="n">tween_factory2</span> <span class="n">pkg</span><span class="o">.</span><span class="n">tween_factory3</span>
 </pre></div>
 </div>
-<p>The tween names can also be separated by carriage returns:</p>
+<p>トゥイーン名は、キャリッジリターンで区切ることもできます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pkg</span><span class="o">.</span><span class="n">tween_factory1</span>
 <span class="n">pkg</span><span class="o">.</span><span class="n">tween_factory2</span>
 <span class="n">pkg</span><span class="o">.</span><span class="n">tween_factory3</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">It can be a Python list, where the values are strings:</p>
+<li><p class="first">値は文字列であるPythonリストにすることができます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;pkg.tween_factory1&#39;</span><span class="p">,</span> <span class="s1">&#39;pkg.tween_factory2&#39;</span><span class="p">,</span> <span class="s1">&#39;pkg.tween_factory3&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </li>
 </ol>
-<p>Each value in the sequence should be a <a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted Python name</span></a>.</p>
+<p>シーケンスの各値は：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>ドット付きPython名`でなければなりません。</p>
 <div class="section" id="pastedeploy-configuration-vs-plain-python-configuration">
-<h3>PasteDeploy Configuration vs. Plain-Python Configuration<a class="headerlink" href="#pastedeploy-configuration-vs-plain-python-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Using the following <code class="docutils literal notranslate"><span class="pre">pyramid.tweens</span></code> setting in the PasteDeploy <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file
-in your application:</p>
+<h3>PasteDeployの設定とプレーンPythonの設定<a class="headerlink" href="#pastedeploy-configuration-vs-plain-python-configuration" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>あなたのアプリケーションのPasteDeploy `` .ini``ファイルで以下の `` pyramid.tweens``設定を使用してください：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[app:main]</span>
 <span class="na">pyramid.tweens</span> <span class="o">=</span> <span class="s">pyramid_debugtoolbar.toolbar.tween_factory</span>
 <span class="s">                 pyramid.tweens.excview_tween_factory</span>
 <span class="s">                 pyramid_tm.tm_tween_factory</span>
 </pre></div>
 </div>
-<p>Is equivalent to using the following statements in your configuration code:</p>
+<p>構成コードで次の文を使用するのと同じです。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -539,16 +485,12 @@ in your application:</p>
     <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>It is fine to use both or either form.</p>
+<p>どちらかまたはどちらかの形式を使用するのは問題ありません。</p>
 </div>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Let's presume your configuration file is named <code class="docutils literal notranslate"><span class="pre">MyProject.ini</span></code>, and there is
-a section representing your application named <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> within the file
-that represents your <span>Pyramid</span> application. The configuration file
-settings documented in the above &quot;Config File Setting Name&quot; column would go in
-the <code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section.  Here's an example of such a section:</p>
+<h2>例<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>あなたの設定ファイルの名前が `` MyProject.ini``であると仮定して、あなたの：app： <cite>Pyramid`アプリケーションを表すファイル内に</cite> <cite>[app：main]</cite> <cite>という名前のアプリケーションを表すセクションがあります。上記の &amp;quot;Config File Setting Name&amp;quot;カラムに記述されている設定ファイルの設定は `</cite> [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションにあります。このようなセクションの例を次に示します。</p>
 <div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -558,87 +500,38 @@ the <code class="docutils literal notranslate"><span class="pre">[app:main]</spa
 <span class="na">pyramid.debug_authorization</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </td></tr></table></div>
-<p>You can also use environment variables to accomplish the same purpose for
-settings documented as such.  For example, you might start your <span>Pyramid</span>
-application using the following command line:</p>
+<p>環境変数を使用して、そのように文書化された設定と同じ目的を達成することもできます。たとえば、次のコマンドラインを使用して：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションを起動することができます：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ PYRAMID_DEBUG_AUTHORIZATION=1 PYRAMID_RELOAD_TEMPLATES=1 \
        $VENV/bin/pserve MyProject.ini
 </pre></div>
 </div>
-<p>If you started your application this way, your <span>Pyramid</span> application would
-behave in the same manner as if you had placed the respective settings in the
-<code class="docutils literal notranslate"><span class="pre">[app:main]</span></code> section of your application's <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file.</p>
-<p>If you want to turn all <code class="docutils literal notranslate"><span class="pre">debug</span></code> settings (every setting that starts with
-<code class="docutils literal notranslate"><span class="pre">pyramid.debug_</span></code>) on in one fell swoop, you can use <code class="docutils literal notranslate"><span class="pre">PYRAMID_DEBUG_ALL=1</span></code>
-as an environment variable setting or you may use <code class="docutils literal notranslate"><span class="pre">pyramid.debug_all=true</span></code> in
-the config file.  Note that this does not affect settings that do not start
-with <code class="docutils literal notranslate"><span class="pre">pyramid.debug_*</span></code> such as <code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code>.</p>
-<p>If you want to turn all <code class="docutils literal notranslate"><span class="pre">pyramid.reload</span></code> settings (every setting that starts
-with <code class="docutils literal notranslate"><span class="pre">pyramid.reload_</span></code>) on in one fell swoop, you can use
-<code class="docutils literal notranslate"><span class="pre">PYRAMID_RELOAD_ALL=1</span></code> as an environment variable setting or you may use
-<code class="docutils literal notranslate"><span class="pre">pyramid.reload_all=true</span></code> in the config file.  Note that this does not affect
-settings that do not start with <code class="docutils literal notranslate"><span class="pre">pyramid.reload_*</span></code> such as
-<code class="docutils literal notranslate"><span class="pre">pyramid.debug_notfound</span></code>.</p>
+<p>このようにアプリケーションを起動した場合、あなたの：app： <cite>Pyramid`アプリケーションは、アプリケーションの</cite> <cite>.ini`ファイルの</cite> <cite>[app：main]</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>セクションにそれぞれの設定を置いたのと同じように動作します`ファイル。</p>
+<p>すべての `` debug``設定（ `` pyramid.debug_``で始まるすべての設定）を一つにするには、 `` PYRAMID_DEBUG_ALL = 1``を環境変数の設定として使うか、 configファイルで `` pyramid.debug_all = true``を実行してください。これは、 `` pyramid.reload_templates``のような `` <a href="#id4"><span class="problematic" id="id5">pyramid.debug_</span></a> * <a href="#id1"><span class="problematic" id="id2">``</span></a>で始まらない設定には影響しないことに注意してください。</p>
+<p>すべての `` pyramid.reload``の設定（ `` pyramid.reload_``で始まるすべての設定）を一つにするには、 `` PYRAMID_RELOAD_ALL = 1``を環境変数の設定として使うか、設定ファイルで `` pyramid.reload_all = true``を使うことができます。これは `` pyramid.debug_notfound``のような `` <a href="#id6"><span class="problematic" id="id7">pyramid.reload_</span></a> * <a href="#id1"><span class="problematic" id="id2">``</span></a>で始まらない設定には影響しないことに注意してください。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Specifying configuration settings via environment variables is generally
-most useful during development, where you may wish to augment or override
-the more permanent settings in the configuration file. This is useful
-because many of the reload and debug settings may have performance or
-security (i.e., disclosure) implications that make them undesirable in a
-production environment.</p>
+<p class="last">環境変数を使用して構成設定を指定するのは、開発中に最も有効です。構成ファイルの永続的な設定を増やしたり変更したりすることができます。これは、リロードとデバッグの設定の多くに、実稼働環境で望ましくないパフォーマンスやセキュリティ（つまり開示）があることが多いために便利です。</p>
 </div>
 </div>
 <div class="section" id="understanding-the-distinction-between-reload-templates-and-reload-assets">
-<span id="index-1"></span><h2>Understanding the Distinction Between <code class="docutils literal notranslate"><span class="pre">reload_templates</span></code> and <code class="docutils literal notranslate"><span class="pre">reload_assets</span></code><a class="headerlink" href="#understanding-the-distinction-between-reload-templates-and-reload-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The difference between <code class="docutils literal notranslate"><span class="pre">pyramid.reload_assets</span></code> and
-<code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code> is a bit subtle. Templates are themselves also
-treated by <span>Pyramid</span> as asset files (along with other static files), so
-the distinction can be confusing.  It's helpful to read
-<a class="reference internal" href="assets.html#overriding-assets-section"><span class="std std-ref">Overriding Assets</span></a> for some context about assets in general.</p>
-<p>When <code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code> is true, <span>Pyramid</span> takes advantage of
-the underlying templating system's ability to check for file modifications to
-an individual template file.  When <code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code> is true, but
-<code class="docutils literal notranslate"><span class="pre">pyramid.reload_assets</span></code> is <em>not</em> true, the template filename returned by the
-<code class="docutils literal notranslate"><span class="pre">pkg_resources</span></code> package (used under the hood by asset resolution) is cached
-by <span>Pyramid</span> on the first request.  Subsequent requests for the same
-template file will return a cached template filename.  The underlying
-templating system checks for modifications to this particular file for every
-request.  Setting <code class="docutils literal notranslate"><span class="pre">pyramid.reload_templates</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> doesn't affect
-performance dramatically (although it should still not be used in production
-because it has some effect).</p>
-<p>However, when <code class="docutils literal notranslate"><span class="pre">pyramid.reload_assets</span></code> is true, <span>Pyramid</span> will not cache
-the template filename, meaning you can see the effect of changing the content
-of an overridden asset directory for templates without restarting the server
-after every change.  Subsequent requests for the same template file may return
-different filenames based on the current state of overridden asset directories.
-Setting <code class="docutils literal notranslate"><span class="pre">pyramid.reload_assets</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> affects performance
-<em>dramatically</em>, slowing things down by an order of magnitude for each template
-rendering.  However, it's convenient to enable when moving files around in
-overridden asset directories. <code class="docutils literal notranslate"><span class="pre">pyramid.reload_assets</span></code> makes the system <em>very
-slow</em> when templates are in use.  Never set <code class="docutils literal notranslate"><span class="pre">pyramid.reload_assets</span></code> to
-<code class="docutils literal notranslate"><span class="pre">True</span></code> on a production system.</p>
+<span id="index-1"></span><h2>`` reload_templates``と `` reload_assets``の区別を理解する<a class="headerlink" href="#understanding-the-distinction-between-reload-templates-and-reload-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` pyramid.reload_assets``と `` pyramid.reload_templates``の違いは微妙です。テンプレート自体も：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`をアセットファイル（他の静的ファイルと一緒に扱う）として扱われているので、区別が混乱する可能性があります。一般的な資産についてのいくつかのコンテキストについては、ref： <a href="#id3"><span class="problematic" id="id4">`</span></a>overriding_assets_section`を読むことが役に立ちます。</p>
+<p>`` pyramid.reload_templates``が真の場合、：app： <cite>Pyramid`は、基礎となるテンプレートシステムの、個々のテンプレートファイルに対するファイルの変更をチェックする機能を利用します。 `</cite> pyramid.reload_templates``が真で、 `` pyramid.reload_assets``が* not * trueの場合、 `` pkg_resources``パッケージによって返されたテンプレートファイル名（資産解像度でフードの下で使用されます）は次のようにキャッシュされます： app：Pyramidを最初のリクエストに追加します。後続の同じテンプレートファイルに対する要求は、キャッシュされたテンプレートファイル名を返します。基礎となるテンプレートシステムは、すべての要求に対してこの特定のファイルに対する変更をチェックします。 `` pyramid.reload_templates``を `` True``に設定しても、パフォーマンスに劇的な影響はありません（ただし、何らかの効果があるため、実稼働環境で使用する必要はありません）。</p>
+<p>しかし、 `` pyramid.reload_assets``が真の場合、：app： <cite>Pyramid`はテンプレートファイル名をキャッシュしません。つまり、変更のたびにサーバを再起動することなく、テンプレートのオーバーライドされたアセットディレクトリの内容を変更する効果を見ることができます。 。同じテンプレートファイルに対する後続の要求は、オーバーライドされたアセットディレクトリの現在の状態に基づいて異なるファイル名を返すことがあります。 `</cite> pyramid.reload_assets``を `` True``に設定すると、パフォーマンスが劇的に*影響を受け、各テンプレートレンダリングの処理が一桁遅くなります。ただし、オーバーライドされたアセットディレクトリでファイルを移動するときに有効にすると便利です。 `` pyramid.reload_assets``は、テンプレートを使用しているときにシステムを非常に遅くします。プロダクションシステムで `` pyramid.reload_assets``を `` True``に設定しないでください。</p>
 </div>
 <div class="section" id="adding-a-custom-setting">
-<span id="index-2"></span><span id="id3"></span><h2>Adding a Custom Setting<a class="headerlink" href="#adding-a-custom-setting" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>From time to time, you may need to add a custom setting to your application.
-Here's how:</p>
+<span id="index-2"></span><span id="id3"></span><h2>カスタム設定の追加<a class="headerlink" href="#adding-a-custom-setting" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>時々、アプリケーションにカスタム設定を追加する必要があるかもしれません。方法は次のとおりです。</p>
 <ul>
-<li><p class="first">If you're using an <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file, change the <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file, adding the
-setting to the <code class="docutils literal notranslate"><span class="pre">[app:foo]</span></code> section representing your Pyramid application.
-For example:</p>
+<li><p class="first"><cite>.ini`ファイルを使用している場合は、</cite> .ini`ファイルを変更して、Pyramidアプリケーションを表す `` [app：foo] <a href="#id1"><span class="problematic" id="id2">``</span></a>セクションに設定を追加してください。例えば：</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[app:main]</span>
 <span class="c1"># .. other settings</span>
 <span class="na">debug_frobnosticator</span> <span class="o">=</span> <span class="s">True</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function that represents the place that your Pyramid WSGI
-application is created, anticipate that you'll be getting this key/value pair
-as a setting and do any type conversion necessary.</p>
-<p>If you've done any type conversion of your custom value, reset the converted
-values into the <code class="docutils literal notranslate"><span class="pre">settings</span></code> dictionary <em>before</em> you pass the dictionary as
-<code class="docutils literal notranslate"><span class="pre">settings</span></code> to the <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a>.  For example:</p>
+<li><p class="first">Pyramid WSGIアプリケーションが作成される場所を表す `` main（） <a href="#id1"><span class="problematic" id="id2">``</span></a>関数では、このキーと値のペアを設定として取得し、必要な型変換を行うことを期待してください。</p>
+<p>あなたがカスタム値の型変換を行ったなら、変換された値を `` settings``ディクショナリ*にリセットしてから、：term： <cite>Configurator`にディクショナリを</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>settings``として渡します。例えば：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">global_config</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">):</span>
     <span class="c1"># ...</span>
     <span class="kn">from</span> <span class="nn">pyramid.settings</span> <span class="kn">import</span> <span class="n">asbool</span>
@@ -650,16 +543,10 @@ values into the <code class="docutils literal notranslate"><span class="pre">set
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">It's especially important that you mutate the <code class="docutils literal notranslate"><span class="pre">settings</span></code> dictionary with
-the converted version of the variable <em>before</em> passing it to the
-Configurator: the configurator makes a <em>copy</em> of <code class="docutils literal notranslate"><span class="pre">settings</span></code>, it doesn't
-use the one you pass directly.</p>
+<p class="last">あなたが `` settings``辞書を変換したバージョンの変数で変更することは特に重要です。<em>これをコンフィギュレータに渡す前に：コンフィギュレータは `` settings``の</em> copy <a href="#id1"><span class="problematic" id="id2">*</span></a>を行います、それを使用しませんあなたは直接渡します。</p>
 </div>
 </li>
-<li><p class="first">When creating an <code class="docutils literal notranslate"><span class="pre">includeme</span></code> function that will be later added to your
-application's configuration you may access the <code class="docutils literal notranslate"><span class="pre">settings</span></code> dictionary
-through the instance of the <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> that is passed into the
-function as its only argument.  For Example:</p>
+<li><p class="first">アプリケーションの設定に後で追加される `` includeme``関数を作成するときは、関数の唯一の引数として渡される：term： <cite>Configurator`のインスタンスを介して</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>settings``辞書にアクセスすることができます。例えば：</p>
 </li>
 </ul>
 <blockquote>
@@ -670,18 +557,12 @@ function as its only argument.  For Example:</p>
 </div>
 </div></blockquote>
 <ul>
-<li><p class="first">In the runtime code from where you need to access the new settings value,
-find the value in the <code class="docutils literal notranslate"><span class="pre">registry.settings</span></code> dictionary and use it.  In
-<a class="reference internal" href="../glossary.html#term-view"><span class="xref std std-term">view</span></a> code (or any other code that has access to the request), the
-easiest way to do this is via <code class="docutils literal notranslate"><span class="pre">request.registry.settings</span></code>.  For example:</p>
+<li><p class="first">新しい設定値にアクセスする必要があるランタイムコードでは、 `` registry.settings``ディクショナリ内の値を見つけてそれを使用します。 in：term： <cite>view`コード（またはリクエストにアクセスできる他のコード）では、これを行う最も簡単な方法は</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>request.registry.settings``です。例えば：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">settings</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">settings</span>
 <span class="n">debug_frobnosticator</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;debug_frobnosticator&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>If you wish to use the value in code that does not have access to the request
-and you wish to use the value, you'll need to use the
-<a class="reference internal" href="../api/threadlocal.html#pyramid.threadlocal.get_current_registry" title="pyramid.threadlocal.get_current_registry"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.threadlocal.get_current_registry()</span></code></a> API to obtain the current
-registry, then ask for its <code class="docutils literal notranslate"><span class="pre">settings</span></code> attribute.  For example:</p>
+<p>リクエストにアクセスできないコードの値を使用したい場合は、その値を使用するには、：func： <cite>pyramid.threadlocal.get_current_registry</cite> APIを使用して現在のレジストリを取得する必要があります。 `` settings``属性を求めてください。例えば：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">registry</span> <span class="o">=</span> <span class="n">pyramid</span><span class="o">.</span><span class="n">threadlocal</span><span class="o">.</span><span class="n">get_current_registry</span><span class="p">()</span>
 <span class="n">settings</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">settings</span>
 <span class="n">debug_frobnosticator</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;debug_frobnosticator&#39;</span><span class="p">]</span>
@@ -700,42 +581,42 @@ registry, then ask for its <code class="docutils literal notranslate"><span clas
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Environment Variables and <code class="docutils literal notranslate"><span class="pre">.ini</span></code> File Settings</a><ul>
-<li><a class="reference internal" href="#reloading-templates">Reloading Templates</a></li>
-<li><a class="reference internal" href="#reloading-assets">Reloading Assets</a></li>
-<li><a class="reference internal" href="#debugging-authorization">Debugging Authorization</a></li>
-<li><a class="reference internal" href="#debugging-not-found-errors">Debugging Not Found Errors</a></li>
-<li><a class="reference internal" href="#debugging-route-matching">Debugging Route Matching</a></li>
-<li><a class="reference internal" href="#preventing-http-caching">Preventing HTTP Caching</a></li>
-<li><a class="reference internal" href="#preventing-cache-busting">Preventing Cache Busting</a></li>
-<li><a class="reference internal" href="#debugging-all">Debugging All</a></li>
-<li><a class="reference internal" href="#reloading-all">Reloading All</a></li>
-<li><a class="reference internal" href="#default-locale-name">Default Locale Name</a></li>
-<li><a class="reference internal" href="#including-packages">Including Packages</a><ul>
-<li><a class="reference internal" href="#pyramid-includes-vs-pyramid-config-configurator-include"><code class="docutils literal notranslate"><span class="pre">pyramid.includes</span></code> vs. <code class="docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a><ul>
-<li><a class="reference internal" href="#using-pastedeploy">Using PasteDeploy</a></li>
-<li><a class="reference internal" href="#plain-python">Plain Python</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) 環境変数と `` .ini``ファイル設定</a><ul>
+<li><a class="reference internal" href="#reloading-templates">テンプレートのリロード</a></li>
+<li><a class="reference internal" href="#reloading-assets">アセットのリロード</a></li>
+<li><a class="reference internal" href="#debugging-authorization">デバッグ権限</a></li>
+<li><a class="reference internal" href="#debugging-not-found-errors">デバッグエラーが見つかりません</a></li>
+<li><a class="reference internal" href="#debugging-route-matching">ルートマッチングのデバッグ</a></li>
+<li><a class="reference internal" href="#preventing-http-caching">HTTPキャッシュの防止</a></li>
+<li><a class="reference internal" href="#preventing-cache-busting">キャッシュ破棄の防止</a></li>
+<li><a class="reference internal" href="#debugging-all">すべてのデバッグ</a></li>
+<li><a class="reference internal" href="#reloading-all">すべてをリロードする</a></li>
+<li><a class="reference internal" href="#default-locale-name">デフォルトロケール名</a></li>
+<li><a class="reference internal" href="#including-packages">パッケージを含む</a><ul>
+<li><a class="reference internal" href="#pyramid-includes-vs-pyramid-config-configurator-include">`` pyramid.includes``と：meth： <cite>pyramid.config.Configurator.include</cite></a><ul>
+<li><a class="reference internal" href="#using-pastedeploy">PasteDeployの使用</a></li>
+<li><a class="reference internal" href="#plain-python">プレーンPython</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#explicit-tween-configuration">Explicit Tween Configuration</a><ul>
-<li><a class="reference internal" href="#pastedeploy-configuration-vs-plain-python-configuration">PasteDeploy Configuration vs. Plain-Python Configuration</a></li>
+<li><a class="reference internal" href="#explicit-tween-configuration">明示的なTween構成</a><ul>
+<li><a class="reference internal" href="#pastedeploy-configuration-vs-plain-python-configuration">PasteDeployの設定とプレーンPythonの設定</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#examples">Examples</a></li>
-<li><a class="reference internal" href="#understanding-the-distinction-between-reload-templates-and-reload-assets">Understanding the Distinction Between <code class="docutils literal notranslate"><span class="pre">reload_templates</span></code> and <code class="docutils literal notranslate"><span class="pre">reload_assets</span></code></a></li>
-<li><a class="reference internal" href="#adding-a-custom-setting">Adding a Custom Setting</a></li>
+<li><a class="reference internal" href="#examples">例</a></li>
+<li><a class="reference internal" href="#understanding-the-distinction-between-reload-templates-and-reload-assets">`` reload_templates``と `` reload_assets``の区別を理解する</a></li>
+<li><a class="reference internal" href="#adding-a-custom-setting">カスタム設定の追加</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="events.html"
-                        title="前の章へ">Using Events</a></p>
+                        title="前の章へ">(機械翻訳) イベントの使用</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="logging.html"
-                        title="次の章へ">Logging</a></p>
+                        title="次の章へ">(機械翻訳) ロギング</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -769,17 +650,17 @@ registry, then ask for its <code class="docutils literal notranslate"><span clas
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="logging.html" title="Logging"
+          <a href="logging.html" title="(機械翻訳) ロギング"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="events.html" title="Using Events"
+          <a href="events.html" title="(機械翻訳) イベントの使用"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

@@ -1,0 +1,872 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../narr/hooks.rst:4
+msgid "Using Hooks"
+msgstr ""
+
+#: ../../narr/hooks.rst:6
+msgid "\"Hooks\" can be used to influence the behavior of the :app:`Pyramid` framework in various ways."
+msgstr ""
+
+#: ../../narr/hooks.rst:15
+msgid "Changing the Not Found View"
+msgstr ""
+
+#: ../../narr/hooks.rst:17
+msgid "When :app:`Pyramid` can't map a URL to view code, it invokes a :term:`Not Found View`, which is a :term:`view callable`. The default Not Found View can be overridden through application configuration."
+msgstr ""
+
+#: ../../narr/hooks.rst:21
+msgid "If your application uses :term:`imperative configuration`, you can replace the Not Found View by using the :meth:`pyramid.config.Configurator.add_notfound_view` method:"
+msgstr ""
+
+#: ../../narr/hooks.rst:35
+msgid "The :term:`Not Found View` callable is a view callable like any other."
+msgstr ""
+
+#: ../../narr/hooks.rst:37
+msgid "If your application instead uses :class:`pyramid.view.view_config` decorators and a :term:`scan`, you can replace the Not Found View by using the :class:`pyramid.view.notfound_view_config` decorator:"
+msgstr ""
+
+#: ../../narr/hooks.rst:54
+msgid "This does exactly what the imperative example above showed."
+msgstr ""
+
+#: ../../narr/hooks.rst:56
+msgid "Your application can define *multiple* Not Found Views if necessary.  Both :meth:`pyramid.config.Configurator.add_notfound_view` and :class:`pyramid.view.notfound_view_config` take most of the same arguments as :class:`pyramid.config.Configurator.add_view` and :class:`pyramid.view.view_config`, respectively.  This means that Not Found Views can carry predicates limiting their applicability.  For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:80
+msgid "The ``notfound_get`` view will be called when a view could not be found and the request method was ``GET``.  The ``notfound_post`` view will be called when a view could not be found and the request method was ``POST``."
+msgstr ""
+
+#: ../../narr/hooks.rst:84
+msgid "Like any other view, the Not Found View must accept at least a ``request`` parameter, or both ``context`` and ``request``.  The ``request`` is the current :term:`request` representing the denied action.  The ``context`` (if used in the call signature) will be the instance of the :exc:`~pyramid.httpexceptions.HTTPNotFound` exception that caused the view to be called."
+msgstr ""
+
+#: ../../narr/hooks.rst:91
+msgid "Both :meth:`pyramid.config.Configurator.add_notfound_view` and :class:`pyramid.view.notfound_view_config` can be used to automatically redirect requests to slash-appended routes. See :ref:`redirecting_to_slash_appended_routes` for examples."
+msgstr ""
+
+#: ../../narr/hooks.rst:96
+msgid "Here's some sample code that implements a minimal :term:`Not Found View` callable:"
+msgstr ""
+
+#: ../../narr/hooks.rst:109
+msgid "When a Not Found View callable is invoked, it is passed a :term:`request`. The ``exception`` attribute of the request will be an instance of the :exc:`~pyramid.httpexceptions.HTTPNotFound` exception that caused the Not Found View to be called.  The value of ``request.exception.message`` will be a value explaining why the Not Found exception was raised.  This message has different values depending on whether the ``pyramid.debug_notfound`` environment setting is true or false."
+msgstr ""
+
+#: ../../narr/hooks.rst:119
+msgid "When a Not Found View callable accepts an argument list as described in :ref:`request_and_context_view_definitions`, the ``context`` passed as the first argument to the view callable will be the :exc:`~pyramid.httpexceptions.HTTPNotFound` exception instance.  If available, the resource context will still be available as ``request.context``."
+msgstr ""
+
+#: ../../narr/hooks.rst:128
+msgid "The :term:`Not Found View` callables are only invoked when a :exc:`~pyramid.httpexceptions.HTTPNotFound` exception is raised. If the exception is returned from a view then it will be treated as a regular response object and it will not trigger the custom view."
+msgstr ""
+
+#: ../../narr/hooks.rst:139
+msgid "Changing the Forbidden View"
+msgstr ""
+
+#: ../../narr/hooks.rst:141
+msgid "When :app:`Pyramid` can't authorize execution of a view based on the :term:`authorization policy` in use, it invokes a :term:`forbidden view`. The default forbidden response has a 403 status code and is very plain, but the view which generates it can be overridden as necessary."
+msgstr ""
+
+#: ../../narr/hooks.rst:146
+msgid "The :term:`forbidden view` callable is a view callable like any other.  The :term:`view configuration` which causes it to be a \"forbidden\" view consists of using the :meth:`pyramid.config.Configurator.add_forbidden_view` API or the :class:`pyramid.view.forbidden_view_config` decorator."
+msgstr ""
+
+#: ../../narr/hooks.rst:151
+msgid "For example, you can add a forbidden view by using the :meth:`pyramid.config.Configurator.add_forbidden_view` method to register a forbidden view:"
+msgstr ""
+
+#: ../../narr/hooks.rst:165
+msgid "If instead you prefer to use decorators and a :term:`scan`, you can use the :class:`pyramid.view.forbidden_view_config` decorator to mark a view callable as a forbidden view:"
+msgstr ""
+
+#: ../../narr/hooks.rst:182
+msgid "Like any other view, the forbidden view must accept at least a ``request`` parameter, or both ``context`` and ``request``.  If a forbidden view callable accepts both ``context`` and ``request``, the HTTP Exception is passed as context. The ``context`` as found by the router when the view was denied (which you normally would expect) is available as ``request.context``.  The ``request`` is the  current :term:`request` representing the denied action."
+msgstr ""
+
+#: ../../narr/hooks.rst:189
+msgid "Here's some sample code that implements a minimal forbidden view:"
+msgstr ""
+
+#: ../../narr/hooks.rst:202
+msgid "When a forbidden view callable is invoked, it is passed a :term:`request`. The ``exception`` attribute of the request will be an instance of the :exc:`~pyramid.httpexceptions.HTTPForbidden` exception that caused the forbidden view to be called.  The value of ``request.exception.message`` will be a value explaining why the forbidden exception was raised, and ``request.exception.result`` will be extended information about the forbidden exception.  These messages have different values depending on whether the ``pyramid.debug_authorization`` environment setting is true or false."
+msgstr ""
+
+#: ../../narr/hooks.rst:214
+msgid "The :term:`forbidden view` callables are only invoked when a :exc:`~pyramid.httpexceptions.HTTPForbidden` exception is raised. If the exception is returned from a view then it will be treated as a regular response object and it will not trigger the custom view."
+msgstr ""
+
+#: ../../narr/hooks.rst:225
+msgid "Changing the Request Factory"
+msgstr ""
+
+#: ../../narr/hooks.rst:227
+msgid "Whenever :app:`Pyramid` handles a request from a :term:`WSGI` server, it creates a :term:`request` object based on the WSGI environment it has been passed.  By default, an instance of the :class:`pyramid.request.Request` class is created to represent the request object."
+msgstr ""
+
+#: ../../narr/hooks.rst:232
+msgid "The class (a.k.a., \"factory\") that :app:`Pyramid` uses to create a request object instance can be changed by passing a ``request_factory`` argument to the constructor of the :term:`configurator`.  This argument can be either a callable or a :term:`dotted Python name` representing a callable."
+msgstr ""
+
+#: ../../narr/hooks.rst:247
+msgid "If you're doing imperative configuration, and you'd rather do it after you've already constructed a :term:`configurator`, it can also be registered via the :meth:`pyramid.config.Configurator.set_request_factory` method:"
+msgstr ""
+
+#: ../../narr/hooks.rst:269
+msgid "Adding Methods or Properties to a Request Object"
+msgstr ""
+
+#: ../../narr/hooks.rst:273
+msgid "Since each Pyramid application can only have one :term:`request` factory, :ref:`changing the request factory <changing_the_request_factory>` is not that extensible, especially if you want to build composable features (e.g., Pyramid add-ons and plugins)."
+msgstr ""
+
+#: ../../narr/hooks.rst:278
+msgid "A lazy property can be registered to the request object via the :meth:`pyramid.config.Configurator.add_request_method` API. This allows you to specify a callable that will be available on the request object, but will not actually execute the function until accessed."
+msgstr ""
+
+#: ../../narr/hooks.rst:285
+msgid "This will silently override methods and properties from :term:`request factory` that have the same name."
+msgstr ""
+
+#: ../../narr/hooks.rst:304
+msgid "In the above example, ``total`` is added as a method. However, ``prop`` is added as a property and its result is cached per-request by setting ``reify=True``. This way, we eliminate the overhead of running the function multiple times."
+msgstr ""
+
+#: ../../narr/hooks.rst:342
+msgid "To not cache the result of ``request.prop``, set ``property=True`` instead of ``reify=True``."
+msgstr ""
+
+#: ../../narr/hooks.rst:345
+msgid "Here is an example of passing a class to ``Configurator.add_request_method``:"
+msgstr ""
+
+#: ../../narr/hooks.rst:370
+msgid "We attach and cache an object named ``extra`` to the ``request`` object."
+msgstr ""
+
+#: ../../narr/hooks.rst:415
+msgid "Changing the Response Factory"
+msgstr ""
+
+#: ../../narr/hooks.rst:419
+msgid "Whenever :app:`Pyramid` returns a response from a view, it creates a :term:`response` object.  By default, an instance of the :class:`pyramid.response.Response` class is created to represent the response object."
+msgstr ""
+
+#: ../../narr/hooks.rst:424
+msgid "The factory that :app:`Pyramid` uses to create a response object instance can be changed by passing a :class:`pyramid.interfaces.IResponseFactory` argument to the constructor of the :term:`configurator`.  This argument can be either a callable or a :term:`dotted Python name` representing a callable."
+msgstr ""
+
+#: ../../narr/hooks.rst:429
+msgid "The factory takes a single positional argument, which is a :term:`Request` object. The argument may be ``None``."
+msgstr ""
+
+#: ../../narr/hooks.rst:442
+msgid "If you're doing imperative configuration and you'd rather do it after you've already constructed a :term:`configurator`, it can also be registered via the :meth:`pyramid.config.Configurator.set_response_factory` method:"
+msgstr ""
+
+#: ../../narr/hooks.rst:465
+msgid "Using the Before Render Event"
+msgstr ""
+
+#: ../../narr/hooks.rst:467
+msgid "Subscribers to the :class:`pyramid.events.BeforeRender` event may introspect and modify the set of :term:`renderer globals` before they are passed to a :term:`renderer`.  This event object iself has a dictionary-like interface that can be used for this purpose.  For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:482
+msgid "An object of this type is sent as an event just before a :term:`renderer` is invoked."
+msgstr ""
+
+#: ../../narr/hooks.rst:485
+msgid "If a subscriber attempts to add a key that already exists in the renderer globals dictionary, a :exc:`KeyError` is raised.  This limitation is enforced because event subscribers do not possess any relative ordering.  The set of keys added to the renderer globals dictionary by all :class:`pyramid.events.BeforeRender` subscribers and renderer globals factories must be unique."
+msgstr ""
+
+#: ../../narr/hooks.rst:492
+msgid "The dictionary returned from the view is accessible through the :attr:`rendering_val` attribute of a :class:`~pyramid.events.BeforeRender` event."
+msgstr ""
+
+#: ../../narr/hooks.rst:496
+msgid "Suppose you return ``{'mykey': 'somevalue', 'mykey2': 'somevalue2'}`` from your view callable, like so:"
+msgstr ""
+
+#: ../../narr/hooks.rst:508
+msgid ":attr:`rendering_val` can be used to access these values from the :class:`~pyramid.events.BeforeRender` object:"
+msgstr ""
+
+#: ../../narr/hooks.rst:522
+msgid "See the API documentation for the :class:`~pyramid.events.BeforeRender` event interface at :class:`pyramid.interfaces.IBeforeRender`."
+msgstr ""
+
+#: ../../narr/hooks.rst:531
+msgid "Using Response Callbacks"
+msgstr ""
+
+#: ../../narr/hooks.rst:533
+msgid "Unlike many other web frameworks, :app:`Pyramid` does not eagerly create a global response object.  Adding a :term:`response callback` allows an application to register an action to be performed against whatever response object is returned by a view, usually in order to mutate the response."
+msgstr ""
+
+#: ../../narr/hooks.rst:538
+msgid "The :meth:`pyramid.request.Request.add_response_callback` method is used to register a response callback."
+msgstr ""
+
+#: ../../narr/hooks.rst:541
+msgid "A response callback is a callable which accepts two positional parameters: ``request`` and ``response``.  For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:553
+msgid "No response callback is called if an unhandled exception happens in application code, or if the response object returned by a :term:`view callable` is invalid. Response callbacks *are*, however, invoked when a :term:`exception view` is rendered successfully.  In such a case, the :attr:`request.exception` attribute of the request when it enters a response callback will be an exception object instead of its default value of ``None``."
+msgstr ""
+
+#: ../../narr/hooks.rst:560
+msgid "Response callbacks are called in the order they're added (first-to-most-recently-added).  All response callbacks are called *before* the :class:`~pyramid.events.NewResponse` event is sent.  Errors raised by response callbacks are not handled specially.  They will be propagated to the caller of the :app:`Pyramid` router application."
+msgstr ""
+
+#: ../../narr/hooks.rst:566
+msgid "A response callback has a lifetime of a *single* request.  If you want a response callback to happen as the result of *every* request, you must re-register the callback into every new request (perhaps within a subscriber of a :class:`~pyramid.events.NewRequest` event)."
+msgstr ""
+
+#: ../../narr/hooks.rst:577
+msgid "Using Finished Callbacks"
+msgstr ""
+
+#: ../../narr/hooks.rst:579
+msgid "A :term:`finished callback` is a function that will be called unconditionally by the :app:`Pyramid` :term:`router` at the very end of request processing. A finished callback can be used to perform an action at the end of a request unconditionally."
+msgstr ""
+
+#: ../../narr/hooks.rst:584
+msgid "The :meth:`pyramid.request.Request.add_finished_callback` method is used to register a finished callback."
+msgstr ""
+
+#: ../../narr/hooks.rst:587
+msgid "A finished callback is a callable which accepts a single positional parameter: ``request``.  For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:602
+msgid "Finished callbacks are called in the order they're added (first-to-most-recently-added).  Finished callbacks (unlike a :term:`response callback`) are *always* called, even if an exception happens in application code that prevents a response from being generated."
+msgstr ""
+
+#: ../../narr/hooks.rst:607
+msgid "The set of finished callbacks associated with a request are called *very late* in the processing of that request; they are essentially the very last thing called by the :term:`router` before a request \"ends\". They are called after response processing has already occurred in a top-level ``finally:`` block within the router request processing code.  As a result, mutations performed to the ``request`` provided to a finished callback will have no meaningful effect, because response processing will have already occurred, and the request's scope will expire almost immediately after all finished callbacks have been processed."
+msgstr ""
+
+#: ../../narr/hooks.rst:617
+msgid "Errors raised by finished callbacks are not handled specially.  They will be propagated to the caller of the :app:`Pyramid` router application."
+msgstr ""
+
+#: ../../narr/hooks.rst:620
+msgid "A finished callback has a lifetime of a *single* request.  If you want a finished callback to happen as the result of *every* request, you must re-register the callback into every new request (perhaps within a subscriber of a :class:`~pyramid.events.NewRequest` event)."
+msgstr ""
+
+#: ../../narr/hooks.rst:631
+msgid "Changing the Traverser"
+msgstr ""
+
+#: ../../narr/hooks.rst:633
+msgid "The default :term:`traversal` algorithm that :app:`Pyramid` uses is explained in :ref:`traversal_algorithm`.  Though it is rarely necessary, this default algorithm can be swapped out selectively for a different traversal pattern via configuration."
+msgstr ""
+
+#: ../../narr/hooks.rst:646
+msgid "In the example above, ``myapp.traversal.Traverser`` is assumed to be a class that implements the following interface:"
+msgstr ""
+
+#: ../../narr/hooks.rst:680
+msgid "More than one traversal algorithm can be active at the same time.  For instance, if your :term:`root factory` returns more than one type of object conditionally, you could claim that an alternative traverser adapter is \"for\" only one particular class or interface.  When the root factory returned an object that implemented that class or interface, a custom traverser would be used.  Otherwise the default traverser would be used.  For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:696
+msgid "If the above stanza was added to a Pyramid ``__init__.py`` file's ``main`` function, :app:`Pyramid` would use the ``myapp.traversal.Traverser`` only when the application :term:`root factory` returned an instance of the ``myapp.resources.MyRoot`` object.  Otherwise it would use the default :app:`Pyramid` traverser to do traversal."
+msgstr ""
+
+#: ../../narr/hooks.rst:708
+msgid "Changing How :meth:`pyramid.request.Request.resource_url` Generates a URL"
+msgstr ""
+
+#: ../../narr/hooks.rst:710
+msgid "When you add a traverser as described in :ref:`changing_the_traverser`, it's often convenient to continue to use the :meth:`pyramid.request.Request.resource_url` API.  However, since the way traversal is done will have been modified, the URLs it generates by default may be incorrect when used against resources derived from your custom traverser."
+msgstr ""
+
+#: ../../narr/hooks.rst:716
+msgid "If you've added a traverser, you can change how :meth:`~pyramid.request.Request.resource_url` generates a URL for a specific type of resource by adding a call to :meth:`pyramid.config.Configurator.add_resource_url_adapter`."
+msgstr ""
+
+#: ../../narr/hooks.rst:721
+msgid "For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:731
+msgid "In the above example, the ``myapp.traversal.ResourceURLAdapter`` class will be used to provide services to :meth:`~pyramid.request.Request.resource_url` any time the :term:`resource` passed to ``resource_url`` is of the class ``myapp.resources.MyRoot``.  The ``resource_iface`` argument ``MyRoot`` represents the type of interface that must be possessed by the resource for this resource url factory to be found.  If the ``resource_iface`` argument is omitted, this resource URL adapter will be used for *all* resources."
+msgstr ""
+
+#: ../../narr/hooks.rst:739
+msgid "The API that must be implemented by a class that provides :class:`~pyramid.interfaces.IResourceURL` is as follows:"
+msgstr ""
+
+#: ../../narr/hooks.rst:757
+msgid "The default context URL generator is available for perusal as the class :class:`pyramid.traversal.ResourceURL` in the `traversal module <https://github.com/Pylons/pyramid/blob/master/pyramid/traversal.py>`_ of the :term:`Pylons` GitHub Pyramid repository."
+msgstr ""
+
+#: ../../narr/hooks.rst:762
+msgid "See :meth:`pyramid.config.Configurator.add_resource_url_adapter` for more information."
+msgstr ""
+
+#: ../../narr/hooks.rst:772
+msgid "Changing How Pyramid Treats View Responses"
+msgstr ""
+
+#: ../../narr/hooks.rst:776
+msgid "It is possible to control how Pyramid treats the result of calling a view callable on a per-type basis by using a hook involving :meth:`pyramid.config.Configurator.add_response_adapter` or the :class:`~pyramid.response.response_adapter` decorator."
+msgstr ""
+
+#: ../../narr/hooks.rst:781
+msgid "Pyramid, in various places, adapts the result of calling a view callable to the :class:`~pyramid.interfaces.IResponse` interface to ensure that the object returned by the view callable is a \"true\" response object.  The vast majority of time, the result of this adaptation is the result object itself, as view callables written by \"civilians\" who read the narrative documentation contained in this manual will always return something that implements the :class:`~pyramid.interfaces.IResponse` interface.  Most typically, this will be an instance of the :class:`pyramid.response.Response` class or a subclass. If a civilian returns a non-Response object from a view callable that isn't configured to use a :term:`renderer`, they will typically expect the router to raise an error.  However, you can hook Pyramid in such a way that users can return arbitrary values from a view callable by providing an adapter which converts the arbitrary return value into something that implements :class:`~pyramid.interfaces.IResponse`."
+msgstr ""
+
+#: ../../narr/hooks.rst:796
+msgid "For example, if you'd like to allow view callables to return bare string objects (without requiring a :term:`renderer` to convert a string to a response object), you can register an adapter which converts the string to a Response:"
+msgstr ""
+
+#: ../../narr/hooks.rst:813
+msgid "Likewise, if you want to be able to return a simplified kind of response object from view callables, you can use the IResponse hook to register an adapter to the more complex IResponse interface:"
+msgstr ""
+
+#: ../../narr/hooks.rst:834
+msgid "If you want to implement your own Response object instead of using the :class:`pyramid.response.Response` object in any capacity at all, you'll have to make sure that the object implements every attribute and method outlined in :class:`pyramid.interfaces.IResponse` and you'll have to ensure that it uses ``zope.interface.implementer(IResponse)`` as a class decorator."
+msgstr ""
+
+#: ../../narr/hooks.rst:851
+msgid "When an alternate response object implementation is returned by a view callable, if that object asserts that it implements :class:`~pyramid.interfaces.IResponse` (via ``zope.interface.implementer(IResponse)``) , an adapter needn't be registered for the object; Pyramid will use it directly."
+msgstr ""
+
+#: ../../narr/hooks.rst:857
+msgid "An IResponse adapter for ``webob.Response`` (as opposed to :class:`pyramid.response.Response`) is registered by Pyramid by default at startup time, as by their nature, instances of this class (and instances of subclasses of the class) will natively provide IResponse.  The adapter registered for ``webob.Response`` simply returns the response object."
+msgstr ""
+
+#: ../../narr/hooks.rst:863
+msgid "Instead of using :meth:`pyramid.config.Configurator.add_response_adapter`, you can use the :class:`pyramid.response.response_adapter` decorator:"
+msgstr ""
+
+#: ../../narr/hooks.rst:877
+msgid "The above example, when scanned, has the same effect as:"
+msgstr ""
+
+#: ../../narr/hooks.rst:883
+msgid "The :class:`~pyramid.response.response_adapter` decorator will have no effect until activated by a :term:`scan`."
+msgstr ""
+
+#: ../../narr/hooks.rst:892
+msgid "Using a View Mapper"
+msgstr ""
+
+#: ../../narr/hooks.rst:894
+msgid "The default calling conventions for view callables are documented in the :ref:`views_chapter` chapter.  You can change the way users define view callables by employing a :term:`view mapper`."
+msgstr ""
+
+#: ../../narr/hooks.rst:898
+msgid "A view mapper is an object that accepts a set of keyword arguments and which returns a callable.  The returned callable is called with the :term:`view callable` object.  The returned callable should itself return another callable which can be called with the \"internal calling protocol\" ``(context, request)``."
+msgstr ""
+
+#: ../../narr/hooks.rst:904
+msgid "You can use a view mapper in a number of ways:"
+msgstr ""
+
+#: ../../narr/hooks.rst:906
+msgid "by setting a ``__view_mapper__`` attribute (which is the view mapper object) on the view callable itself"
+msgstr ""
+
+#: ../../narr/hooks.rst:909
+msgid "by passing the mapper object to :meth:`pyramid.config.Configurator.add_view` (or its declarative and decorator equivalents) as the ``mapper`` argument"
+msgstr ""
+
+#: ../../narr/hooks.rst:912
+msgid "by registering a *default* view mapper"
+msgstr ""
+
+#: ../../narr/hooks.rst:914
+msgid "Here's an example of a view mapper that emulates (somewhat) a Pylons \"controller\".  The mapper is initialized with some keyword arguments.  Its ``__call__`` method accepts the view object (which will be a class).  It uses the ``attr`` keyword argument it is passed to determine which attribute should be used as an action method.  The wrapper method it returns accepts ``(context, request)`` and returns the result of calling the action method with keyword arguments implied by the :term:`matchdict` after popping the ``action`` out of it.  This somewhat emulates the Pylons style of calling action methods with routing parameters pulled out of the route matching dict as keyword arguments."
+msgstr ""
+
+#: ../../narr/hooks.rst:946
+msgid "A user might make use of these framework components like so:"
+msgstr ""
+
+#: ../../narr/hooks.rst:970
+msgid "The :meth:`pyramid.config.Configurator.set_view_mapper` method can be used to set a *default* view mapper (overriding the superdefault view mapper used by Pyramid itself)."
+msgstr ""
+
+#: ../../narr/hooks.rst:974
+msgid "A *single* view registration can use a view mapper by passing the mapper as the ``mapper`` argument to :meth:`~pyramid.config.Configurator.add_view`."
+msgstr ""
+
+#: ../../narr/hooks.rst:983
+msgid "Registering Configuration Decorators"
+msgstr ""
+
+#: ../../narr/hooks.rst:985
+msgid "Decorators such as :class:`~pyramid.view.view_config` don't change the behavior of the functions or classes they're decorating.  Instead when a :term:`scan` is performed, a modified version of the function or class is registered with :app:`Pyramid`."
+msgstr ""
+
+#: ../../narr/hooks.rst:990
+msgid "You may wish to have your own decorators that offer such behaviour. This is possible by using the :term:`Venusian` package in the same way that it is used by :app:`Pyramid`."
+msgstr ""
+
+#: ../../narr/hooks.rst:994
+msgid "By way of example, let's suppose you want to write a decorator that registers the function it wraps with a :term:`Zope Component Architecture` \"utility\" within the :term:`application registry` provided by :app:`Pyramid`. The application registry and the utility inside the registry is likely only to be available once your application's configuration is at least partially completed. A normal decorator would fail as it would be executed before the configuration had even begun."
+msgstr ""
+
+#: ../../narr/hooks.rst:1002
+msgid "However, using :term:`Venusian`, the decorator could be written as follows:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1024
+msgid "This decorator could then be used to register functions throughout your code:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1033
+msgid "However, the utility would only be looked up when a :term:`scan` was performed, enabling you to set up the utility in advance:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1062
+msgid "For full details, please read the :ref:`Venusian documentation <venusian:venusian>`."
+msgstr ""
+
+#: ../../narr/hooks.rst:1068
+msgid "Registering Tweens"
+msgstr ""
+
+#: ../../narr/hooks.rst:1070
+msgid "Tweens"
+msgstr ""
+
+#: ../../narr/hooks.rst:1073
+msgid "A :term:`tween` (a contraction of the word \"between\") is a bit of code that sits between the Pyramid router's main request handling function and the upstream WSGI component that uses :app:`Pyramid` as its \"app\".  This is a feature that may be used by Pyramid framework extensions to provide, for example, Pyramid-specific view timing support bookkeeping code that examines exceptions before they are returned to the upstream WSGI application.  Tweens behave a bit like :term:`WSGI` :term:`middleware`, but they have the benefit of running in a context in which they have access to the Pyramid :term:`request`, :term:`response`, and :term:`application registry`, as well as the Pyramid rendering machinery."
+msgstr ""
+
+#: ../../narr/hooks.rst:1085
+msgid "Creating a Tween"
+msgstr ""
+
+#: ../../narr/hooks.rst:1087
+msgid "To create a tween, you must write a \"tween factory\".  A tween factory must be a globally importable callable which accepts two arguments: ``handler`` and ``registry``.  ``handler`` will be either the main Pyramid request handling function or another tween.  ``registry`` will be the Pyramid :term:`application registry` represented by this Configurator.  A tween factory must return the tween (a callable object) when it is called."
+msgstr ""
+
+#: ../../narr/hooks.rst:1094
+msgid "A tween is called with a single argument, ``request``, which is the :term:`request` created by Pyramid's router when it receives a WSGI request. A tween should return a :term:`response`, usually the one generated by the downstream Pyramid application."
+msgstr ""
+
+#: ../../narr/hooks.rst:1099
+msgid "You can write the tween factory as a simple closure-returning function:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1120
+msgid "Alternatively, the tween factory can be a class with the ``__call__`` magic method:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1144
+msgid "You should avoid mutating any state on the tween instance. The tween is invoked once per request and any shared mutable state needs to be carefully handled to avoid any race conditions."
+msgstr ""
+
+#: ../../narr/hooks.rst:1148
+msgid "The closure style performs slightly better and enables you to conditionally omit the tween from the request processing pipeline (see the following timing tween example), whereas the class style makes it easier to have shared mutable state and allows subclassing."
+msgstr ""
+
+#: ../../narr/hooks.rst:1153
+msgid "Here's a complete example of a tween that logs the time spent processing each request:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1184
+msgid "In the above example, the tween factory defines a ``timing_tween`` tween and returns it if ``asbool(registry.settings.get('do_timing'))`` is true.  It otherwise simply returns the handler which it was given.  The ``registry.settings`` attribute is a handle to the deployment settings provided by the user (usually in an ``.ini`` file).  In this case, if the user has defined a ``do_timing`` setting and that setting is ``True``, the user has said they want to do timing, so the tween factory returns the timing tween; it otherwise just returns the handler it has been provided, preventing any timing."
+msgstr ""
+
+#: ../../narr/hooks.rst:1193
+msgid "The example timing tween simply records the start time, calls the downstream handler, logs the number of seconds consumed by the downstream handler, and returns the response."
+msgstr ""
+
+#: ../../narr/hooks.rst:1198
+msgid "Registering an Implicit Tween Factory"
+msgstr ""
+
+#: ../../narr/hooks.rst:1200
+msgid "Once you've created a tween factory, you can register it into the implicit tween chain using the :meth:`pyramid.config.Configurator.add_tween` method using its :term:`dotted Python name`."
+msgstr ""
+
+#: ../../narr/hooks.rst:1204
+msgid "Here's an example of registering a tween factory as an \"implicit\" tween in a Pyramid application:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1214
+msgid "Note that you must use a :term:`dotted Python name` as the first argument to :meth:`pyramid.config.Configurator.add_tween`; this must point at a tween factory.  You cannot pass the tween factory object itself to the method: it must be :term:`dotted Python name` that points to a globally importable object. In the above example, we assume that a ``timing_tween_factory`` tween factory was defined in a module named ``myapp.tweens``, so the tween factory is importable as ``myapp.tweens.timing_tween_factory``."
+msgstr ""
+
+#: ../../narr/hooks.rst:1222
+msgid "When you use :meth:`pyramid.config.Configurator.add_tween`, you're instructing the system to use your tween factory at startup time unless the user has provided an explicit tween list in their configuration.  This is what's meant by an \"implicit\" tween.  A user can always elect to supply an explicit tween list, reordering or disincluding implicitly added tweens.  See :ref:`explicit_tween_ordering` for more information about explicit tween ordering."
+msgstr ""
+
+#: ../../narr/hooks.rst:1230
+msgid "If more than one call to :meth:`pyramid.config.Configurator.add_tween` is made within a single application configuration, the tweens will be chained together at application startup time.  The *first* tween factory added via ``add_tween`` will be called with the Pyramid exception view tween factory as its ``handler`` argument, then the tween factory added directly after that one will be called with the result of the first tween factory as its ``handler`` argument, and so on, ad infinitum until all tween factories have been called. The Pyramid router will use the outermost tween produced by this chain (the tween generated by the very last tween factory added) as its request handler function.  For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1249
+#: ../../narr/hooks.rst:1301
+#: ../../narr/hooks.rst:1323
+msgid "The above example will generate an implicit tween chain that looks like this::"
+msgstr ""
+
+#: ../../narr/hooks.rst:1258
+msgid "Suggesting Implicit Tween Ordering"
+msgstr ""
+
+#: ../../narr/hooks.rst:1260
+msgid "By default, as described above, the ordering of the chain is controlled entirely by the relative ordering of calls to :meth:`pyramid.config.Configurator.add_tween`.  However, the caller of ``add_tween`` can provide an optional hint that can influence the implicit tween chain ordering by supplying ``under`` or ``over`` (or both) arguments to :meth:`~pyramid.config.Configurator.add_tween`.  These hints are only used when an explicit tween ordering is not used. See :ref:`explicit_tween_ordering` for a description of how to set an explicit tween ordering."
+msgstr ""
+
+#: ../../narr/hooks.rst:1269
+msgid "Allowable values for ``under`` or ``over`` (or both) are:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1271
+msgid "``None`` (the default),"
+msgstr ""
+
+#: ../../narr/hooks.rst:1273
+msgid "a :term:`dotted Python name` to a tween factory: a string representing the predicted dotted name of a tween factory added in a call to ``add_tween`` in the same configuration session,"
+msgstr ""
+
+#: ../../narr/hooks.rst:1277
+msgid "one of the constants :attr:`pyramid.tweens.MAIN`, :attr:`pyramid.tweens.INGRESS`, or :attr:`pyramid.tweens.EXCVIEW`, or"
+msgstr ""
+
+#: ../../narr/hooks.rst:1280
+msgid "an iterable of any combination of the above. This allows the user to specify fallbacks if the desired tween is not included, as well as compatibility with multiple other tweens."
+msgstr ""
+
+#: ../../narr/hooks.rst:1284
+msgid "Effectively, ``over`` means \"closer to the request ingress than\" and ``under`` means \"closer to the main Pyramid application than\". You can think of an onion with outer layers over the inner layers, the application being under all the layers at the center."
+msgstr ""
+
+#: ../../narr/hooks.rst:1289
+msgid "For example, the following call to :meth:`~pyramid.config.Configurator.add_tween` will attempt to place the tween factory represented by ``myapp.tween_factory`` directly \"above\" (in ``ptweens`` order) the main Pyramid request handler."
+msgstr ""
+
+#: ../../narr/hooks.rst:1308
+msgid "Likewise, calling the following call to :meth:`~pyramid.config.Configurator.add_tween` will attempt to place this tween factory \"above\" the main handler but \"below\" a separately added tween factory:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1331
+msgid "Specifying neither ``over`` nor ``under`` is equivalent to specifying ``under=INGRESS``."
+msgstr ""
+
+#: ../../narr/hooks.rst:1334
+msgid "If all options for ``under`` (or ``over``) cannot be found in the current configuration, it is an error. If some options are specified purely for compatibilty with other tweens, just add a fallback of ``MAIN`` or ``INGRESS``. For example, ``under=('someothertween', 'someothertween2', INGRESS)``. This constraint will require the tween to be located under the ``someothertween`` tween, the ``someothertween2`` tween, and ``INGRESS``. If any of these is not in the current configuration, this constraint will only organize itself based on the tweens that are present."
+msgstr ""
+
+#: ../../narr/hooks.rst:1346
+msgid "Explicit Tween Ordering"
+msgstr ""
+
+#: ../../narr/hooks.rst:1348
+msgid "Implicit tween ordering is obviously only best-effort.  Pyramid will attempt to provide an implicit order of tweens as best it can using hints provided by calls to :meth:`~pyramid.config.Configurator.add_tween`.  But because it's only best-effort, if very precise tween ordering is required, the only surefire way to get it is to use an explicit tween order.  The deploying user can override the implicit tween inclusion and ordering implied by calls to :meth:`~pyramid.config.Configurator.add_tween` entirely by using the ``pyramid.tweens`` settings value.  When used, this settings value must be a list of Python dotted names which will override the ordering (and inclusion) of tween factories in the implicit tween chain.  For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1372
+msgid "In the above configuration, calls made during configuration to :meth:`pyramid.config.Configurator.add_tween` are ignored, and the user is telling the system to use the tween factories he has listed in the ``pyramid.tweens`` configuration setting (each is a :term:`dotted Python name` which points to a tween factory) instead of any tween factories added via :meth:`pyramid.config.Configurator.add_tween`.  The *first* tween factory in the ``pyramid.tweens`` list will be used as the producer of the effective :app:`Pyramid` request handling function; it will wrap the tween factory declared directly \"below\" it, ad infinitum.  The \"main\" Pyramid request handler is implicit, and always \"at the bottom\"."
+msgstr ""
+
+#: ../../narr/hooks.rst:1385
+msgid "Pyramid's own :term:`exception view` handling logic is implemented as a tween factory function: :func:`pyramid.tweens.excview_tween_factory`.  If Pyramid exception view handling is desired, and tween factories are specified via the ``pyramid.tweens`` configuration setting, the :func:`pyramid.tweens.excview_tween_factory` function must be added to the ``pyramid.tweens`` configuration setting list explicitly.  If it is not present, Pyramid will not perform exception view handling."
+msgstr ""
+
+#: ../../narr/hooks.rst:1394
+msgid "Tween Conflicts and Ordering Cycles"
+msgstr ""
+
+#: ../../narr/hooks.rst:1396
+msgid "Pyramid will prevent the same tween factory from being added to the tween chain more than once using configuration conflict detection.  If you wish to add the same tween factory more than once in a configuration, you should either: (a) use a tween factory that is a separate globally importable instance object from the factory that it conflicts with; (b) use a function or class as a tween factory with the same logic as the other tween factory it conflicts with, but with a different ``__name__`` attribute; or (c) call :meth:`pyramid.config.Configurator.commit` between calls to :meth:`pyramid.config.Configurator.add_tween`."
+msgstr ""
+
+#: ../../narr/hooks.rst:1406
+msgid "If a cycle is detected in implicit tween ordering when ``over`` and ``under`` are used in any call to ``add_tween``, an exception will be raised at startup time."
+msgstr ""
+
+#: ../../narr/hooks.rst:1411
+msgid "Displaying Tween Ordering"
+msgstr ""
+
+#: ../../narr/hooks.rst:1413
+msgid "The ``ptweens`` command-line utility can be used to report the current implict and explicit tween chains used by an application.  See :ref:`displaying_tweens`."
+msgstr ""
+
+#: ../../narr/hooks.rst:1420
+msgid "Adding a Third Party View, Route, or Subscriber Predicate"
+msgstr ""
+
+#: ../../narr/hooks.rst:1427
+msgid "View and Route Predicates"
+msgstr ""
+
+#: ../../narr/hooks.rst:1429
+msgid "View and route predicates used during configuration allow you to narrow the set of circumstances under which a view or route will match.  For example, the ``request_method`` view predicate can be used to ensure a view callable is only invoked when the request's method is ``POST``:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1440
+msgid "Likewise, a similar predicate can be used as a *route* predicate:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1446
+msgid "Many other built-in predicates exists (``request_param``, and others).  You can add third-party predicates to the list of available predicates by using one of :meth:`pyramid.config.Configurator.add_view_predicate` or :meth:`pyramid.config.Configurator.add_route_predicate`.  The former adds a view predicate, the latter a route predicate."
+msgstr ""
+
+#: ../../narr/hooks.rst:1452
+msgid "When using one of those APIs, you pass a *name* and a *factory* to add a predicate during Pyramid's configuration stage.  For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1459
+msgid "The above example adds a new predicate named ``content_type`` to the list of available predicates for views.  This will allow the following view configuration statement to work:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1469
+msgid "The first argument to :meth:`pyramid.config.Configurator.add_view_predicate`, the name, is a string representing the name that is expected to be passed to ``view_config`` (or its imperative analogue ``add_view``)."
+msgstr ""
+
+#: ../../narr/hooks.rst:1473
+msgid "The second argument is a view or route predicate factory, or a :term:`dotted Python name` which refers to a view or route predicate factory.  A view or route predicate factory is most often a class with a constructor (``__init__``), a ``text`` method, a ``phash`` method, and a ``__call__`` method. For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1494
+msgid "The constructor of a predicate factory takes two arguments: ``val`` and ``config``.  The ``val`` argument will be the argument passed to ``view_config`` (or ``add_view``).  In the example above, it will be the string ``File``.  The second argument, ``config``, will be the Configurator instance at the time of configuration."
+msgstr ""
+
+#: ../../narr/hooks.rst:1500
+msgid "The ``text`` method must return a string.  It should be useful to describe the behavior of the predicate in error messages."
+msgstr ""
+
+#: ../../narr/hooks.rst:1503
+msgid "The ``phash`` method must return a string or a sequence of strings.  It's most often the same as ``text``, as long as ``text`` uniquely describes the predicate's name and the value passed to the constructor.  If ``text`` is more general, or doesn't describe things that way, ``phash`` should return a string with the name and the value serialized.  The result of ``phash`` is not seen in output anywhere, it just informs the uniqueness constraints for view configuration."
+msgstr ""
+
+#: ../../narr/hooks.rst:1511
+msgid "The ``__call__`` method differs depending on whether the predicate is used as a :term:`view predicate` or a :term:`route predicate`:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1514
+msgid "When used as a route predicate, the ``__call__`` signature is ``(info, request)``. The ``info`` object is a dictionary containing two keys: ``match`` and ``route``. ``info['match']`` is the matchdict containing the patterns matched in the route pattern. ``info['route']`` is the :class:`pyramid.interfaces.IRoute` object for the current route."
+msgstr ""
+
+#: ../../narr/hooks.rst:1520
+msgid "When used as a view predicate, the ``__call__`` signature is ``(context, request)``. The ``context`` is the result of :term:`traversal` performed using either the route's :term:`root factory` or the app's :term:`default root factory`."
+msgstr ""
+
+#: ../../narr/hooks.rst:1525
+msgid "In both cases the ``__call__`` method is expected to return ``True`` or ``False``."
+msgstr ""
+
+#: ../../narr/hooks.rst:1528
+msgid "It is possible to use the same predicate factory as both a view predicate and as a route predicate, but they'll need to handle the ``info`` or ``context`` argument specially (many predicates do not need this argument) and you'll need to call ``add_view_predicate`` and ``add_route_predicate`` separately with the same factory."
+msgstr ""
+
+#: ../../narr/hooks.rst:1537
+msgid "Subscriber Predicates"
+msgstr ""
+
+#: ../../narr/hooks.rst:1539
+msgid "Subscriber predicates work almost exactly like view and route predicates. They narrow the set of circumstances in which a subscriber will be called. There are several minor differences between a subscriber predicate and a view or route predicate:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1544
+msgid "There are no default subscriber predicates.  You must register one to use one."
+msgstr ""
+
+#: ../../narr/hooks.rst:1547
+msgid "The ``__call__`` method of a subscriber predicate accepts a single ``event`` object instead of a ``context`` and a ``request``."
+msgstr ""
+
+#: ../../narr/hooks.rst:1550
+msgid "Not every subscriber predicate can be used with every event type.  Some subscriber predicates will assume a certain event type."
+msgstr ""
+
+#: ../../narr/hooks.rst:1553
+msgid "Here's an example of a subscriber predicate that can be used in conjunction with a subscriber that subscribes to the :class:`pyramid.events.NewRequest` event type."
+msgstr ""
+
+#: ../../narr/hooks.rst:1572
+msgid "Once you've created a subscriber predicate, it may be registered via :meth:`pyramid.config.Configurator.add_subscriber_predicate`.  For example:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1580
+msgid "Once a subscriber predicate is registered, you can use it in a call to :meth:`pyramid.config.Configurator.add_subscriber` or to :class:`pyramid.events.subscriber`.  Here's an example of using the previously registered ``request_path_startswith`` predicate in a call to :meth:`~pyramid.config.Configurator.add_subscriber`:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1599
+msgid "Here's the same subscriber/predicate/event-type combination used via :class:`~pyramid.events.subscriber`."
+msgstr ""
+
+#: ../../narr/hooks.rst:1611
+msgid "In either of the above configurations, the ``yosubscriber`` callable will only be called if the request path starts with ``/add_yo``.  Otherwise the event subscriber will not be called."
+msgstr ""
+
+#: ../../narr/hooks.rst:1615
+msgid "Note that the ``request_path_startswith`` subscriber you defined can be used with events that have a ``request`` attribute, but not ones that do not.  So, for example, the predicate can be used with subscribers registered for :class:`pyramid.events.NewRequest` and :class:`pyramid.events.ContextFound` events, but it cannot be used with subscribers registered for :class:`pyramid.events.ApplicationCreated` because the latter type of event has no ``request`` attribute.  The point being, unlike route and view predicates, not every type of subscriber predicate will necessarily be applicable for use in every subscriber registration.  It is not the responsibility of the predicate author to make every predicate make sense for every event type; it is the responsibility of the predicate consumer to use predicates that make sense for a particular event type registration."
+msgstr ""
+
+#: ../../narr/hooks.rst:1635
+msgid "View Derivers"
+msgstr ""
+
+#: ../../narr/hooks.rst:1639
+msgid "Every URL processed by :app:`Pyramid` is matched against a custom view pipeline. See :ref:`router_chapter` for how this works. The view pipeline itself is built from the user-supplied :term:`view callable`, which is then composed with :term:`view derivers <view deriver>`. A view deriver is a composable element of the view pipeline which is used to wrap a view with added functionality. View derivers are very similar to the ``decorator`` argument to :meth:`pyramid.config.Configurator.add_view`, except that they have the option to execute for every view in the application."
+msgstr ""
+
+#: ../../narr/hooks.rst:1648
+msgid "It is helpful to think of a :term:`view deriver` as middleware for views. Unlike tweens or WSGI middleware which are scoped to the application itself, a view deriver is invoked once per view in the application, and can use configuration options from the view to customize its behavior."
+msgstr ""
+
+#: ../../narr/hooks.rst:1654
+msgid "Built-in View Derivers"
+msgstr ""
+
+#: ../../narr/hooks.rst:1656
+msgid "There are several built-in view derivers that :app:`Pyramid` will automatically apply to any view. Below they are defined in order from furthest to closest to the user-defined :term:`view callable`:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1660
+msgid "``secured_view``"
+msgstr ""
+
+#: ../../narr/hooks.rst:1662
+msgid "Enforce the ``permission`` defined on the view. This element is a no-op if no permission is defined. Note there will always be a permission defined if a default permission was assigned via :meth:`pyramid.config.Configurator.set_default_permission` unless the view is an :term:`exception view`."
+msgstr ""
+
+#: ../../narr/hooks.rst:1668
+msgid "This element will also output useful debugging information when ``pyramid.debug_authorization`` is enabled."
+msgstr ""
+
+#: ../../narr/hooks.rst:1671
+msgid "``csrf_view``"
+msgstr ""
+
+#: ../../narr/hooks.rst:1673
+msgid "Used to check the CSRF token provided in the request. This element is a no-op if ``require_csrf`` view option is not ``True``. Note there will always be a ``require_csrf`` option if a default value was assigned via :meth:`pyramid.config.Configurator.set_default_csrf_options` unless the view is an :term:`exception view`."
+msgstr ""
+
+#: ../../narr/hooks.rst:1679
+msgid "``owrapped_view``"
+msgstr ""
+
+#: ../../narr/hooks.rst:1681
+msgid "Invokes the wrapped view defined by the ``wrapper`` option."
+msgstr ""
+
+#: ../../narr/hooks.rst:1683
+msgid "``http_cached_view``"
+msgstr ""
+
+#: ../../narr/hooks.rst:1685
+msgid "Applies cache control headers to the response defined by the ``http_cache`` option. This element is a no-op if the ``pyramid.prevent_http_cache`` setting is enabled or the ``http_cache`` option is ``None``."
+msgstr ""
+
+#: ../../narr/hooks.rst:1689
+msgid "``decorated_view``"
+msgstr ""
+
+#: ../../narr/hooks.rst:1691
+msgid "Wraps the view with the decorators from the ``decorator`` option."
+msgstr ""
+
+#: ../../narr/hooks.rst:1693
+msgid "``rendered_view``"
+msgstr ""
+
+#: ../../narr/hooks.rst:1695
+msgid "Adapts the result of the :term:`view callable` into a :term:`response` object. Below this point the result may be any Python object."
+msgstr ""
+
+#: ../../narr/hooks.rst:1698
+msgid "``mapped_view``"
+msgstr ""
+
+#: ../../narr/hooks.rst:1700
+msgid "Applies the :term:`view mapper` defined by the ``mapper`` option or the application's default view mapper to the :term:`view callable`. This is always the closest deriver to the user-defined view and standardizes the view pipeline interface to accept ``(context, request)`` from all previous view derivers."
+msgstr ""
+
+#: ../../narr/hooks.rst:1708
+msgid "Any view derivers defined ``under`` the ``rendered_view`` are not guaranteed to receive a valid response object. Rather they will receive the result from the :term:`view mapper` which is likely the original response returned from the view. This is possibly a dictionary for a renderer but it may be any Python object that may be adapted into a response."
+msgstr ""
+
+#: ../../narr/hooks.rst:1715
+msgid "Custom View Derivers"
+msgstr ""
+
+#: ../../narr/hooks.rst:1717
+msgid "It is possible to define custom view derivers which will affect all views in an application. There are many uses for this, but most will likely be centered around monitoring and security. In order to register a custom :term:`view deriver`, you should create a callable that conforms to the :class:`pyramid.interfaces.IViewDeriver` interface, and then register it with your application using :meth:`pyramid.config.Configurator.add_view_deriver`. The callable should accept the ``view`` to be wrapped and the ``info`` object which is an instance of :class:`pyramid.interfaces.IViewDeriverInfo`. For example, below is a callable that can provide timing information for the view pipeline:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1748
+msgid "The setting of ``timed`` on the timing_view signifies to Pyramid that ``timed`` is a valid ``view_config`` keyword argument now.  The ``timing_view`` custom view deriver as registered above will only be active for any view defined with a ``timed=True`` value passed as one of its ``view_config`` keywords."
+msgstr ""
+
+#: ../../narr/hooks.rst:1753
+msgid "For example, this view configuration will *not* be a timed view:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1762
+msgid "But this view *will* have timing information added to the response headers:"
+msgstr ""
+
+#: ../../narr/hooks.rst:1771
+msgid "View derivers are unique in that they have access to most of the options passed to :meth:`pyramid.config.Configurator.add_view` in order to decide what to do, and they have a chance to affect every view in the application."
+msgstr ""
+
+#: ../../narr/hooks.rst:1778
+msgid "Exception Views and View Derivers"
+msgstr ""
+
+#: ../../narr/hooks.rst:1780
+msgid "A :term:`view deriver` has the opportunity to wrap any view, including an :term:`exception view`. In general this is fine, but certain view derivers may wish to avoid doing certain things when handling exceptions. For example, the ``csrf_view`` and ``secured_view`` built-in view derivers will not perform security checks on exception views unless explicitly told to do so."
+msgstr ""
+
+#: ../../narr/hooks.rst:1786
+msgid "You can check for ``info.exception_only`` on the :class:`pyramid.interfaces.IViewDeriverInfo` object when wrapping the view to determine whether you are wrapping an exception view or a normal view."
+msgstr ""
+
+#: ../../narr/hooks.rst:1791
+msgid "Ordering View Derivers"
+msgstr ""
+
+#: ../../narr/hooks.rst:1793
+msgid "By default, every new view deriver is added between the ``decorated_view`` and ``rendered_view`` built-in derivers. It is possible to customize this ordering using the ``over`` and ``under`` options. Each option can use the names of other view derivers in order to specify an ordering. There should rarely be a reason to worry about the ordering of the derivers except when the deriver depends on other operations in the view pipeline."
+msgstr ""
+
+#: ../../narr/hooks.rst:1800
+msgid "Both ``over`` and ``under`` may also be iterables of constraints. For either option, if one or more constraints was defined, at least one must be satisfied, else a :class:`pyramid.exceptions.ConfigurationError` will be raised. This may be used to define fallback constraints if another deriver is missing."
+msgstr ""
+
+#: ../../narr/hooks.rst:1805
+msgid "Two sentinel values exist, :attr:`pyramid.viewderivers.INGRESS` and :attr:`pyramid.viewderivers.VIEW`, which may be used when specifying constraints at the edges of the view pipeline. For example, to add a deriver at the start of the pipeline you may use ``under=INGRESS``."
+msgstr ""
+
+#: ../../narr/hooks.rst:1810
+msgid "It is not possible to add a view deriver under the ``mapped_view`` as the :term:`view mapper` is intimately tied to the signature of the user-defined :term:`view callable`. If you simply need to know what the original view callable was, it can be found as ``info.original_view`` on the provided :class:`pyramid.interfaces.IViewDeriverInfo` object passed to every view deriver."
+msgstr ""
+
+#: ../../narr/hooks.rst:1819
+msgid "The default constraints for any view deriver are ``over='rendered_view'`` and ``under='decorated_view'``. When escaping these constraints you must take care to avoid cyclic dependencies between derivers. For example, if you want to add a new view deriver before ``secured_view`` then simply specifying ``over='secured_view'`` is not enough, because the default is also under ``decorated view`` there will be an unsatisfiable cycle. You must specify a valid ``under`` constraint as well, such as ``under=INGRESS`` to fall between INGRESS and ``secured_view`` at the beginning of the view pipeline."
+msgstr ""
+

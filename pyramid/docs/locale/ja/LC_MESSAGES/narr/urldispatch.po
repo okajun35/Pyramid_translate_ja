@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/urldispatch.rst:7
 msgid "URL Dispatch"
-msgstr ""
+msgstr "(機械翻訳) URLディスパッチ"
 
 #: ../../narr/urldispatch.rst:9
 msgid ""
@@ -31,25 +21,25 @@ msgid ""
 " is invoked.  A view callable is a specific bit of code, defined in your "
 "application, that receives the :term:`request` and returns a "
 ":term:`response` object."
-msgstr ""
+msgstr "：term： `URL dispatch`は、簡単なパターンマッチング言語を使ってURLを：term：` view`コードにマップする簡単な方法を提供します。パターンの順序付けられたセットが1つずつチェックされます。パターンの1つが要求に関連するパス情報と一致する場合、特定の：term： `view callable`が呼び出されます。ビュー呼び出し可能とは、アプリケーションで定義された：term： `request`を受け取り、：term：` response`オブジェクトを返すコードの特定のビットです。"
 
 #: ../../narr/urldispatch.rst:17
 msgid "High-Level Operational Overview"
-msgstr ""
+msgstr "高度な運用概要"
 
 #: ../../narr/urldispatch.rst:19
 msgid ""
 "If any route configuration is present in an application, the "
 ":app:`Pyramid` :term:`Router` checks every incoming request against an "
 "ordered set of URL matching patterns present in a *route map*."
-msgstr ""
+msgstr "アプリケーションにルートコンフィグレーションがある場合、：app： `Pyramid`：term：` Router`は、*ルートマップ*に存在するURLマッチングパターンの順序付けられたセットに対してすべての着信要求をチェックします。"
 
 #: ../../narr/urldispatch.rst:23
 msgid ""
 "If any route pattern matches the information in the :term:`request`, "
 ":app:`Pyramid` will invoke the :term:`view lookup` process to find a "
 "matching view."
-msgstr ""
+msgstr "ルートパターンが：term： `request`の情報と一致する場合、：app：` Pyramid`は：term： `view lookup`プロセスを呼び出して、一致するビューを探します。"
 
 #: ../../narr/urldispatch.rst:27
 msgid ""
@@ -57,11 +47,11 @@ msgid ""
 ":term:`request` provided in your application, :app:`Pyramid` will fail "
 "over to using :term:`traversal` to perform resource location and view "
 "lookup."
-msgstr ""
+msgstr "ルートマップのルートパターンが、アプリケーション内で提供された：term： `request`の情報と一致しない場合、：app：` Pyramid`は：term： `traversal`を使用してフェイルオーバし、リソースの場所とビューの参照を実行します。"
 
 #: ../../narr/urldispatch.rst:35
 msgid "Route Configuration"
-msgstr ""
+msgstr "ルート設定"
 
 #: ../../narr/urldispatch.rst:37
 msgid ""
@@ -73,18 +63,18 @@ msgid ""
 "following the scheme and port, e.g., ``/foo/bar`` in the URL "
 "``http://localhost:8080/foo/bar``). It also optionally has a ``factory`` "
 "and a set of :term:`route predicate` attributes."
-msgstr ""
+msgstr "：term： `ルート設定`は、新しい：term： `ルート`をアプリケーションに追加する行為です。ルートには* name *があり、URL生成に使用される識別子として機能します。開発者はこの名前を使用して、ビュー設定をルートに関連付けることもできます。ルートには、URLの `` PATH_INFO`部分（スキームとポートに続く部分、例えば `` / foo / bar``のURL http：//にある部分と一致する*パターン* / localhost：8080 / foo / bar``）。オプションで、 `` factory``と `` term： `` `` `` `` `` `述語` `の属性を持っています。"
 
 #: ../../narr/urldispatch.rst:52
 msgid "Configuring a Route to Match a View"
-msgstr ""
+msgstr "ビューと一致するようにルートを設定する"
 
 #: ../../narr/urldispatch.rst:54
 msgid ""
 "The :meth:`pyramid.config.Configurator.add_route` method adds a single "
 ":term:`route configuration` to the :term:`application registry`.  Here's "
 "an example:"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_route`メソッドは：term：`アプリケーションレジストリ `に単一の：term：`ルート設定 &#39;を追加します。ここに例があります："
 
 #: ../../narr/urldispatch.rst:67
 msgid ""
@@ -93,7 +83,7 @@ msgid ""
 "route via its ``route_name`` predicate, that view callable will always be"
 " found and invoked when the associated route pattern matches during a "
 "request."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_view`を経由して設定に追加されたa：term：` view callable`は、 `` route_name``述部を介してルートに関連付けられ、そのビューは常に見つかるでしょうリクエスト中に関連するルートパターンが一致したときに呼び出されます。"
 
 #: ../../narr/urldispatch.rst:72
 msgid ""
@@ -101,7 +91,7 @@ msgid ""
 "project's \"setup\" code. You will instead use ``add_route`` statements, "
 "and use a :term:`scan` to associate view callables with routes.  For "
 "example, if this is a portion of your project's ``__init__.py``:"
-msgstr ""
+msgstr "より一般的には、プロジェクトの\ &quot;setup \&quot;コードで `` add_view``文を使用しません。あなたは代わりに `` add_route``ステートメントを使い、：term： `scan`を使ってview呼び出し可能なものをルートに関連づけます。たとえば、これがプロジェクトの `` __init __。py``の一部である場合："
 
 #: ../../narr/urldispatch.rst:82
 msgid ""
@@ -113,25 +103,25 @@ msgid ""
 "package.  For example, if you have a ``views.py`` in your package, a scan"
 " will pick up any of its configuration decorators, so we can add one "
 "there that references ``myroute`` as a ``route_name`` parameter:"
-msgstr ""
+msgstr "この設定コードでは、meth： `〜pyramid.config.Configurator.add_view`を呼び出さないことに注意してください。しかし、上の：term： `scan`を実行する` `config.scan（ &#39;mypackage&#39;）` `は：class：` pyramid.view.view_config `` mypackage`` Pythonパッケージの ``デコレータ ``たとえば、あなたのパッケージに `` views.py``がある場合、スキャンはその設定デコレータのどれかを拾うので、 `` myroute``を `` route_name``パラメータとして参照するものを追加できます："
 
 #: ../../narr/urldispatch.rst:100
 msgid ""
 "The above combination of ``add_route`` and ``scan`` is completely "
 "equivalent to using the previous combination of ``add_route`` and "
 "``add_view``."
-msgstr ""
+msgstr "上記の `` add_route``と `` scan``の組み合わせは、 `` add_route``と `` add_view``の前の組み合わせを使うのと全く同じです。"
 
 #: ../../narr/urldispatch.rst:110
 msgid "Route Pattern Syntax"
-msgstr ""
+msgstr "ルートパターンの構文"
 
 #: ../../narr/urldispatch.rst:112
 msgid ""
 "The syntax of the pattern matching language used by :app:`Pyramid` URL "
 "dispatch in the *pattern* argument is straightforward.  It is close to "
 "that of the :term:`Routes` system used by :term:`Pylons`."
-msgstr ""
+msgstr "* pattern *引数に：app： `Pyramid` URLディスパッチで使用されるパターンマッチング言語の構文は簡単です。これは：term： `Pylons`によって使用される：term：` Routes`システムに近いです。"
 
 #: ../../narr/urldispatch.rst:116
 msgid ""
@@ -139,18 +129,18 @@ msgid ""
 "character.  If the pattern does not start with a slash character, an "
 "implicit slash will be prepended to it at matching time.  For example, "
 "the following patterns are equivalent:"
-msgstr ""
+msgstr "ルート設定で使用される*パターン*は、スラッシュ文字で始まることがあります。パターンがスラッシュ文字で始まらない場合は、暗黙のスラッシュが一致する時刻にその前に追加されます。たとえば、次のパターンは同等です。"
 
 #: ../../narr/urldispatch.rst:125
 msgid "and:"
-msgstr ""
+msgstr "そして："
 
 #: ../../narr/urldispatch.rst:131
 msgid ""
 "If a pattern is a valid URL it won't be matched against an incoming "
 "request. Instead it can be useful for generating external URLs. See "
 ":ref:`External routes <external_route_narr>` for details."
-msgstr ""
+msgstr "パターンが有効なURLである場合、それは着信要求と照合されません。代わりに、外部URLを生成するのに便利です。参照：ref： `外部ルート<external_route_narr> `を参照してください。"
 
 #: ../../narr/urldispatch.rst:135
 msgid ""
@@ -158,14 +148,14 @@ msgid ""
 "pattern) may either be a literal string (e.g., ``foo``) *or* it may be a "
 "replacement marker (e.g., ``{foo}``), or a certain combination of both. A"
 " replacement marker does not need to be preceded by a ``/`` character."
-msgstr ""
+msgstr "パターンセグメント（パターン内の `` / ``文字間の個々の項目）はリテラル文字列（例えば `` foo``）*か代替マーカ（例えば `` {foo} ``）、または両方の特定の組み合わせです。置換マーカーの前に `` / ``文字を付ける必要はありません。"
 
 #: ../../narr/urldispatch.rst:140
 msgid ""
 "A replacement marker is in the format ``{name}``, where this means "
 "\"accept any characters up to the next slash character and use this as "
 "the ``name`` :term:`matchdict` value.\""
-msgstr ""
+msgstr "置換マーカーは、 `` {name} ``の形式になっています。これは、次のスラッシュ文字までの任意の文字を受け入れ、これを `` name``：term： `matchdict`の値として使用することを意味します。"
 
 #: ../../narr/urldispatch.rst:144
 msgid ""
@@ -174,14 +164,14 @@ msgid ""
 "uppercase or lowercase ASCII letters, underscores, and numbers.  For "
 "example: ``a``, ``a_b``, ``_b``, and ``b9`` are all valid replacement "
 "marker names, but ``0a`` is not."
-msgstr ""
+msgstr "パターン内の置換マーカーは、大文字または小文字のASCII文字またはアンダースコアで始まり、大文字または小文字のASCII文字、アンダースコア、および数字のみで構成する必要があります。たとえば、 `` a``、 `` a_b``、 `_b``、` `b9``はすべて有効な置換マーカー名ですが、` `0a``はそうではありません。"
 
 #: ../../narr/urldispatch.rst:150
 msgid ""
 "A replacement marker could not start with an underscore until Pyramid "
 "1.2. Previous versions required that the replacement marker start with an"
 " uppercase or lowercase letter."
-msgstr ""
+msgstr "ピラミッド1.2までは、置換マーカーはアンダースコアで開始できませんでした。以前のバージョンでは、置換マーカーが大文字または小文字で始まる必要がありました。"
 
 #: ../../narr/urldispatch.rst:155
 msgid ""
@@ -190,25 +180,25 @@ msgid ""
 "``request.matchdict``. For example, the following pattern defines one "
 "literal segment (``foo``) and two replacement markers (``baz``, and "
 "``bar``):"
-msgstr ""
+msgstr "matchdictは、ルーティングパターンに基づいてURLから抽出された動的部分を表す辞書です。これは `` request.matchdict``として利用できます。たとえば、次のパターンは、リテラルセグメント（ `` foo``）と置換マーカー（ `` baz``、 `` bar``）を定義します。"
 
 #: ../../narr/urldispatch.rst:164 ../../narr/urldispatch.rst:301
 #: ../../narr/urldispatch.rst:340
 msgid ""
 "The above pattern will match these URLs, generating the following "
 "matchdicts:"
-msgstr ""
+msgstr "上記のパターンはこれらのURLと一致し、次のmatchdictsを生成します："
 
 #: ../../narr/urldispatch.rst:171
 msgid "It will not match the following patterns however:"
-msgstr ""
+msgstr "ただし、以下のパターンとは一致しません。"
 
 #: ../../narr/urldispatch.rst:178
 msgid ""
 "The match for a segment replacement marker in a segment will be done only"
 " up to the first non-alphanumeric character in the segment in the "
 "pattern.  So, for instance, if this route pattern was used:"
-msgstr ""
+msgstr "セグメント内のセグメント置換マーカーの一致は、パターン内のセグメント内の最初の非英数字文字までにのみ行われます。たとえば、このルートパターンが使用された場合は、次のようになります。"
 
 #: ../../narr/urldispatch.rst:186
 msgid ""
@@ -217,11 +207,11 @@ msgid ""
 "path ``/foo/biz`` will not match, because it does not contain a literal "
 "``.html`` at the end of the segment represented by ``{name}.html`` (it "
 "only contains ``biz``, not ``biz.html``)."
-msgstr ""
+msgstr "リテラルパス `` / foo / biz.html``は上記のルートパターンと一致し、一致結果は `` {&#39;name&#39;：u&#39;biz &#39;} ``になります。しかし、リテラルパス `` / foo / biz``は `` {name} .html``で表されるセグメントの最後にリテラル `` .html``を含んでいないので一致しません`` biz.html`ではなく `` biz``を含みます）。"
 
 #: ../../narr/urldispatch.rst:192
 msgid "To capture both segments, two replacement markers can be used:"
-msgstr ""
+msgstr "両方のセグメントをキャプチャするには、2つの置換マーカーを使用できます。"
 
 #: ../../narr/urldispatch.rst:198
 msgid ""
@@ -229,7 +219,7 @@ msgid ""
 "and the match result will be ``{'name': 'biz', 'ext': 'html'}``. This "
 "occurs because there is a literal part of ``.`` (period) between the two "
 "replacement markers ``{name}`` and ``{ext}``."
-msgstr ""
+msgstr "リテラルパス `` / foo / biz.html``は上記のルートパターンと一致し、 `` {&#39;name&#39;： &#39;biz&#39;、 &#39;ext&#39;： &#39;html&#39;} ``となります。これは、2つの置換マーカー `` {name} ``と `` {ext} ``の間に `` .``（ピリオド）のリテラル部分があるために発生します。"
 
 #: ../../narr/urldispatch.rst:203
 msgid ""
@@ -246,7 +236,7 @@ msgid ""
 "``{foo:[^/]+}``. You can change this to be an arbitrary regular "
 "expression to match an arbitrary sequence of characters, such as "
 "``{foo:\\d+}`` to match only digits."
-msgstr ""
+msgstr "置換マーカは、パスセグメントがマーカと一致するかどうかを判断するために使用される正規表現をオプションで指定できます。置換マーカーが正規表現で定義されている特定の文字セットのみと一致するように指定するには、若干拡張された置換マーカー構文を使用する必要があります。中カッコ内では、置換マーカー名の後にコロンを続け、その後すぐに正規表現を続けなければなりません。置換マーカー `` [^ /] + ``に関連付けられた*デフォルトの正規表現は、スラッシュではない1つ以上の文字と一致します。例えば、フードの下では、置換マーカー `` {foo} ``は `` {foo：[^ /] +} ``と綴ることができます。これを任意の正規表現に変更して、 `` {foo：\\ d +} ``のような任意の文字列を数字だけにマッチさせることができます。"
 
 #: ../../narr/urldispatch.rst:215
 msgid ""
@@ -254,38 +244,38 @@ msgid ""
 "characters between them, for instance ``/{foo}{bar}``. However, this "
 "would be a nonsensical pattern without specifying a custom regular "
 "expression to restrict what each marker captures."
-msgstr ""
+msgstr "2つの置換マーカー、例えば `` / {foo} {bar} ``のようなリテラル文字を使用することはできません。しかし、これは、カスタム正規表現を指定せずに無意味なパターンになり、各マーカーがキャプチャするものを制限します。"
 
 #: ../../narr/urldispatch.rst:220
 msgid ""
 "Segments must contain at least one character in order to match a segment "
 "replacement marker.  For example, for the URL ``/abc/``:"
-msgstr ""
+msgstr "セグメントには、セグメント置換マーカーを一致させるための文字が少なくとも1つ含まれている必要があります。たとえば、URL &quot;/ abc /` `の場合、次のようになります。"
 
 #: ../../narr/urldispatch.rst:223
 msgid "``/abc/{foo}`` will not match."
-msgstr ""
+msgstr "`` / abc / {foo} ``は一致しません。"
 
 #: ../../narr/urldispatch.rst:225
 msgid "``/{foo}/`` will match."
-msgstr ""
+msgstr "`` / {foo} / ``が一致します。"
 
 #: ../../narr/urldispatch.rst:227
 msgid ""
 "Note that values representing matched path segments will be URL-unquoted "
 "and decoded from UTF-8 into Unicode within the matchdict.  So for "
 "instance, the following pattern:"
-msgstr ""
+msgstr "マッチしたパスセグメントを表す値は、URLで引用されず、マッチディック内でUTF-8からUnicodeにデコードされることに注意してください。例えば、次のようなパターンです："
 
 #: ../../narr/urldispatch.rst:235
 msgid "When matching the following URL:"
-msgstr ""
+msgstr "次のURLと一致する場合："
 
 #: ../../narr/urldispatch.rst:241
 msgid ""
 "The matchdict will look like so (the value is URL-decoded / UTF-8 "
 "decoded):"
-msgstr ""
+msgstr "matchdictは以下のようになります（値はURLデコード/ UTF-8デコードされます）。"
 
 #: ../../narr/urldispatch.rst:247
 msgid ""
@@ -293,11 +283,11 @@ msgid ""
 "of the ``PATH_INFO`` provided to Pyramid.  You don't want to use a URL-"
 "encoded value or a bytestring representing the literal encoded as UTF-8 "
 "in the pattern. For example, rather than this:"
-msgstr ""
+msgstr "パスセグメントのリテラル文字列は、Pyramidに提供される `` PATH_INFO``の*デコードされた*値を表す必要があります。パターンでUTF-8としてエンコードされたリテラルを表すURLエンコードされた値またはバイトを使用したくない。例えば、これよりもむしろ："
 
 #: ../../narr/urldispatch.rst:256
 msgid "You'll want to use something like this:"
-msgstr ""
+msgstr "次のようなものを使いたいでしょう："
 
 #: ../../narr/urldispatch.rst:262
 msgid ""
@@ -305,7 +295,7 @@ msgid ""
 "you'll want to use a Unicode value as the pattern as opposed to any URL-"
 "encoded or UTF-8-encoded value.  For example, you might be tempted to use"
 " a bytestring pattern like this:"
-msgstr ""
+msgstr "リテラルに\ &quot;高位\&quot;文字を含むパターンの場合、URLエンコードまたはUTF-8エンコードの値とは対照的に、Unicode値をパターンとして使用することをお勧めします。たとえば、次のようなバイトテストパターンを使用したくなるかもしれません："
 
 #: ../../narr/urldispatch.rst:271
 msgid ""
@@ -315,19 +305,19 @@ msgid ""
 "value as the pattern by using `Python source file encoding "
 "<https://www.python.org/dev/peps/pep-0263/>`_ plus the \"real\" character"
 " in the Unicode pattern in the source, like so:"
-msgstr ""
+msgstr "しかし、起動時にエラーが発生するか、正しく一致しません。バイナリのエスケープ文字ではなく、パターンとしてUnicode値を使用したいと思うでしょう。 `Pythonのソースファイルのエンコーディングを使って、高次のUnicode値をパターンとして使うことができます<https://www.python.org/dev/peps/pep-0263/> `_ソースにUnicodeパターンの\&quot;実\ &quot;文字を追加します。"
 
 #: ../../narr/urldispatch.rst:282
 msgid ""
 "Or you can ignore source file encoding and use equivalent Unicode escape "
 "characters in the pattern."
-msgstr ""
+msgstr "または、ソースファイルのエンコードを無視して、パターン内の同等のUnicodeエスケープ文字を使用することもできます。"
 
 #: ../../narr/urldispatch.rst:289
 msgid ""
 "Dynamic segment names cannot contain high-order characters, so this "
 "applies only to literals in the pattern."
-msgstr ""
+msgstr "ダイナミックセグメント名には高次の文字を含めることはできないため、パターンのリテラルにのみ適用されます。"
 
 #: ../../narr/urldispatch.rst:292
 msgid ""
@@ -335,7 +325,7 @@ msgid ""
 " a \"remainder match\".  A remainder match *must* come at the end of the "
 "pattern. Unlike segment replacement markers, it does not need to be "
 "preceded by a slash. For example:"
-msgstr ""
+msgstr "パターンの中に `` * ``がある場合、それに続く名前は\ &quot;剰余一致\&quot;とみなされます。残りのマッチ*はパターンの最後に来なければなりません。セグメント置換マーカーとは異なり、前にスラッシュを付ける必要はありません。例えば："
 
 #: ../../narr/urldispatch.rst:311
 msgid ""
@@ -343,22 +333,22 @@ msgid ""
 "into the matchdict is turned into a tuple of path segments representing "
 "the remainder of the path.  These path segments are URL-unquoted and "
 "decoded from UTF-8 into Unicode.  For example, for the following pattern:"
-msgstr ""
+msgstr "`` * stararg``の剰余一致がマッチすると、matchdictに入れられた値はパスの残りを表すパスセグメントのタプルに変換されます。これらのパスセグメントは、URLを引用符で囲まずにUTF-8からUnicodeにデコードされます。たとえば、次のパターンの場合："
 
 #: ../../narr/urldispatch.rst:320
 msgid "When matching the following path:"
-msgstr ""
+msgstr "次のパスに一致する場合："
 
 #: ../../narr/urldispatch.rst:326
 msgid "Will generate the following matchdict:"
-msgstr ""
+msgstr "次の対戦を生成します："
 
 #: ../../narr/urldispatch.rst:332
 msgid ""
 "By default, the ``*stararg`` will parse the remainder sections into a "
 "tuple split by segment. Changing the regular expression used to match a "
 "marker can also capture the remainder of the URL, for example:"
-msgstr ""
+msgstr "デフォルトでは、 `` * stararg``は残りのセクションをセグメントごとに分割したタプルに解析します。マーカーの一致に使用する正規表現を変更すると、URLの残りの部分を取得することもできます。たとえば、次のようになります。"
 
 #: ../../narr/urldispatch.rst:347
 msgid ""
@@ -366,11 +356,11 @@ msgid ""
 "``[^/]+`` which will match everything up to the first ``/``, while "
 "``{fizzle:.*}`` will result in a regular expression match of ``.*`` "
 "capturing the remainder into a single value."
-msgstr ""
+msgstr "これは、マーカのデフォルトの正規表現は `` [^ /] + ``であり、 `` {`fizzle：。*}` &#39;が最初の `` / ``まですべてにマッチし、 `。*` `の残りの部分を単一の値にキャプチャします。"
 
 #: ../../narr/urldispatch.rst:356
 msgid "Route Declaration Ordering"
-msgstr ""
+msgstr "ルート宣言の発注"
 
 #: ../../narr/urldispatch.rst:358
 msgid ""
@@ -381,20 +371,20 @@ msgid ""
 "startup time.  (This is unlike a different way of mapping URLs to code "
 "that :app:`Pyramid` provides, named :term:`traversal`, which does not "
 "depend on pattern ordering)."
-msgstr ""
+msgstr "ルート構成宣言は、要求がシステムに入力されたときに特定の順序で評価されます。その結果、ルート設定宣言の順序は非常に重要です。ルート宣言が評価される順序は、起動時にアプリケーションに追加される順序です。 （これは、app： `Pyramid`が提供する、term：` traversal`という、パターンの順序付けに依存しないコードにURLをマッピングする別の方法とは異なります）。"
 
 #: ../../narr/urldispatch.rst:366
 msgid ""
 "For routes added via the :mod:`~pyramid.config.Configurator.add_route` "
 "method, the order that routes are evaluated is the order in which they "
 "are added to the configuration imperatively."
-msgstr ""
+msgstr "：mod： `〜pyramid.config.Configurator.add_route`メソッドで追加されたルートの場合、ルートが評価される順序は、それらがコンフィグレーションに必須で追加される順序です。"
 
 #: ../../narr/urldispatch.rst:370
 msgid ""
 "For example, route configuration statements with the following patterns "
 "might be added in the following order:"
-msgstr ""
+msgstr "たとえば、次のパターンのルート設定文を次の順序で追加することができます。"
 
 #: ../../narr/urldispatch.rst:378
 msgid ""
@@ -402,18 +392,18 @@ msgid ""
 "matched. This is because the match ordering will always match "
 "``members/{def}`` first; the route configuration with ``members/abc`` "
 "will never be evaluated."
-msgstr ""
+msgstr "このような構成では、 `` members / abc``パターンは決して*マッチしません。これは、一致順序が常に `` members / {def} ``と最初に一致するためです。 `` members / abc``によるルート設定は決して評価されません。"
 
 #: ../../narr/urldispatch.rst:386
 msgid "Route Configuration Arguments"
-msgstr ""
+msgstr "ルート設定引数"
 
 #: ../../narr/urldispatch.rst:388
 msgid ""
 "Route configuration ``add_route`` statements may specify a large number "
 "of arguments.  They are documented as part of the API documentation at "
 ":meth:`pyramid.config.Configurator.add_route`."
-msgstr ""
+msgstr "ルート設定 `` add_route``文は、多数の引数を指定するかもしれません。それらはAPIドキュメントの一部として：meth： `pyramid.config.Configurator.add_route`で文書化されています。"
 
 #: ../../narr/urldispatch.rst:392
 msgid ""
@@ -422,17 +412,17 @@ msgid ""
 " for the associated route to be considered a match during the route "
 "matching process.  Examples of route predicate arguments are ``pattern``,"
 " ``xhr``, and ``request_method``."
-msgstr ""
+msgstr "これらの引数の多くは、term： `ルート述語`の引数です。ルート述部の引数は、ルートマッチングプロセス中に関連するルートが一致とみなされるためには、要求の一部の側面が真でなければならないことを指定します。ルート述語引数の例は、 `` pattern``、 `` xhr``、 `` request_method``です。"
 
 #: ../../narr/urldispatch.rst:398
 msgid ""
 "Other arguments are ``name`` and ``factory``.  These arguments represent "
 "neither predicates nor view configuration information."
-msgstr ""
+msgstr "他の引数は `` name``と `` factory``です。これらの引数は、述部も構成情報も表示しません。"
 
 #: ../../narr/urldispatch.rst:405
 msgid "Route Matching"
-msgstr ""
+msgstr "ルートマッチング"
 
 #: ../../narr/urldispatch.rst:407
 msgid ""
@@ -440,7 +430,7 @@ msgid ""
 "``PATH_INFO`` present in the WSGI environment provided during a request "
 "against a URL path pattern.  ``PATH_INFO`` represents the path portion of"
 " the URL that was requested."
-msgstr ""
+msgstr "ルート設定の主な目的は、要求中に提供されたWSGI環境に存在する `` PATH_INFO``をURLパスパターンと照合する（または一致させない）ことです。 `` PATH_INFO``は要求されたURLのパス部分を表します。"
 
 #: ../../narr/urldispatch.rst:412
 msgid ""
@@ -449,7 +439,7 @@ msgid ""
 "the system, :app:`Pyramid` checks the request's ``PATH_INFO`` against the"
 " pattern declared.  This checking happens in the order that the routes "
 "were declared via :meth:`pyramid.config.Configurator.add_route`."
-msgstr ""
+msgstr "方法：アプリ： `ピラミッド`これは非常に簡単です。リクエストがシステムに入ると、システムに存在する各ルート設定宣言に対して、：app： `Pyramid`はリクエストの` `PATH_INFO``を宣言されたパターンと照合します。このチェックはルートが：meth： `pyramid.config.Configurator.add_route`で宣言された順序で行われます。"
 
 #: ../../narr/urldispatch.rst:418
 msgid ""
@@ -460,7 +450,7 @@ msgid ""
 ":term:`route predicate` arguments provided to a route configuration "
 "returns ``False`` during a check, that route is skipped and route "
 "matching continues through the ordered set of routes."
-msgstr ""
+msgstr "ルート設定が宣言されると、それは：term： `ルート述語`引数を含むかもしれません。ルート宣言に関連付けられたすべてのルート述語は、チェック中に特定の要求に使用されるルート構成に対して &quot;True&quot;でなければなりません。ルートコンフィグレーションに与えられた：term： `ルート述語`引数の中の述語が、チェックの間に `` False``を返した場合、そのルートはスキップされ、順序付けられたルートセットを通ってルートマッチングが続けられます。"
 
 #: ../../narr/urldispatch.rst:425
 msgid ""
@@ -471,18 +461,18 @@ msgid ""
 " matched route).  To gain a better understanding of how routes and views "
 "are associated in a real application, you can use the ``pviews`` command,"
 " as documented in :ref:`displaying_matching_views`."
-msgstr ""
+msgstr "いずれかのルートが一致すると、ルートマッチングプロセスが停止し、：term： `view lookup`サブシステムが引き継ぎ、一致したルートで呼び出し可能な最も合理的なビューを見つけます。ほとんどの場合、一致するビューは1つだけです（一致したルートと一致する `` route_name``引数で設定されたビュー）。実際のアプリケーションで経路とビューがどのように関連付けられているかをよりよく理解するためには、：ref： `displaying_matching_views`で説明されているように` `pviews``コマンドを使用できます。"
 
 #: ../../narr/urldispatch.rst:433
 msgid ""
 "If no route matches after all route patterns are exhausted, "
 ":app:`Pyramid` falls back to :term:`traversal` to do :term:`resource "
 "location` and :term:`view lookup`."
-msgstr ""
+msgstr "すべてのルートパターンが使い果たされた後にルートが一致しない場合、：app： `Pyramid`は：term：` traversal`に戻ります：term： `resource location`と：term：` view lookup`。"
 
 #: ../../narr/urldispatch.rst:443
 msgid "The Matchdict"
-msgstr ""
+msgstr "マッチディック"
 
 #: ../../narr/urldispatch.rst:445
 msgid ""
@@ -492,17 +482,17 @@ msgid ""
 "will contain the values that match replacement patterns in the "
 "``pattern`` element.  The keys in a matchdict will be strings.  The "
 "values will be Unicode objects."
-msgstr ""
+msgstr "特定の経路構成に関連するURLパターンが要求によって照合されると、：term： `request`オブジェクトの属性として` `matchdict``という辞書が追加されます。したがって、 `` request.matchdict``は、 `` pattern``要素の置換パターンと一致する値を含みます。 matchdictのキーは文字列です。値はUnicodeオブジェクトになります。"
 
 #: ../../narr/urldispatch.rst:453
 msgid ""
 "If no route URL pattern matches, the ``matchdict`` object attached to the"
 " request will be ``None``."
-msgstr ""
+msgstr "ルートURLパターンが一致しない場合、要求に添付された `` matchdict``オブジェクトは `` None``になります。"
 
 #: ../../narr/urldispatch.rst:462
 msgid "The Matched Route"
-msgstr ""
+msgstr "マッチしたルート"
 
 #: ../../narr/urldispatch.rst:464
 msgid ""
@@ -512,34 +502,34 @@ msgid ""
 " will be an object implementing the :class:`~pyramid.interfaces.IRoute` "
 "interface which matched the request.  The most useful attribute of the "
 "route object is ``name``, which is the name of the route that matched."
-msgstr ""
+msgstr "特定のルート構成に関連付けられたURLパターンがリクエストによって照合されると、 `` matched_route``という名前のオブジェクトが：term： `request`オブジェクトの属性として追加されます。したがって、 `` request.matched_route``はリクエストにマッチした：class： `〜pyramid.interfaces.IRoute`インターフェースを実装するオブジェクトになります。ルートオブジェクトの最も有用な属性は `` name``です。これはマッチしたルートの名前です。"
 
 #: ../../narr/urldispatch.rst:473
 msgid ""
 "If no route URL pattern matches, the ``matched_route`` object attached to"
 " the request will be ``None``."
-msgstr ""
+msgstr "ルートURLパターンが一致しない場合、要求に添付された `` matched_route``オブジェクトは `` None``になります。"
 
 #: ../../narr/urldispatch.rst:477
 msgid "Routing Examples"
-msgstr ""
+msgstr "ルーティングの例"
 
 #: ../../narr/urldispatch.rst:479
 msgid ""
 "Let's check out some examples of how route configuration statements might"
 " be commonly declared, and what will happen if they are matched by the "
 "information present in a request."
-msgstr ""
+msgstr "ルート設定ステートメントが一般的にどのように宣言されるのか、リクエスト内に存在する情報と一致する場合どうなるかの例を見てみましょう。"
 
 #: ../../narr/urldispatch.rst:486
 msgid "Example 1"
-msgstr ""
+msgstr "例1"
 
 #: ../../narr/urldispatch.rst:488
 msgid ""
 "The simplest route declaration which configures a route match to "
 "*directly* result in a particular view callable being invoked:"
-msgstr ""
+msgstr "*直接*へのルートマッチを設定する最も簡単なルート宣言は、呼び出し可能な特定のビューを呼び出します："
 
 #: ../../narr/urldispatch.rst:497
 msgid ""
@@ -547,7 +537,7 @@ msgid ""
 "system, and an incoming request matches the *pattern* of the route "
 "configuration, the :term:`view callable` named as the ``view`` attribute "
 "of the route configuration will be invoked."
-msgstr ""
+msgstr "`` view``属性を持つルート設定がシステムに追加され、入ってくるリクエストがルート設定の*パターン*と一致すると、：term： `view callable`の` `view``属性としてルート設定が呼び出されます。"
 
 #: ../../narr/urldispatch.rst:502
 msgid ""
@@ -559,7 +549,7 @@ msgid ""
 "matches ``/site/{id}``, the view callable at the Python dotted path name "
 "``mypackage.views.site_view`` will be called with the request.  In other "
 "words, we've associated a view callable directly with a route pattern."
-msgstr ""
+msgstr "`` @ view_config``は `` config.add_view``を呼び出すのと同じことを思い出してください。 `` config.scan（） ``の呼び出しは以下に示す `` mypackage.views``をインポートし、 `` config.add_view``を実行します。各ビューは、ルート名を呼び出し可能なビューにマップします。上記の例の場合、リクエストのURLが `` / site / {id} ``にマッチすると、Pythonの点線のパス名 `` mypackage.views.site_view``で呼び出せるビューがリクエストと共に呼び出されます。つまり、呼び出し可能なビューをルートパターンに直接関連付けました。"
 
 #: ../../narr/urldispatch.rst:511
 msgid ""
@@ -570,44 +560,44 @@ msgid ""
 "matched is ``/site/1``, the ``matchdict`` will be a dictionary with a "
 "single key, ``id``; the value will be the string ``'1'``, ex.: "
 "``{'id':'1'}``."
-msgstr ""
+msgstr "リクエスト中に `` / site / {id} ``のルートパターンが一致すると、callableの `` site_view``ビューがそのリクエストを唯一の引数として呼び出されます。このルートが一致すると、 `` matchdict``が生成され、 `` request.matchdict``としてリクエストに添付されます。一致する特定のURLが `` / site / 1``の場合、 `` matchdict``は単一のキー、 `` id``を持つ辞書になります。値は文字列 `` &#39;1&#39; ``、例： `` {&#39;id&#39;： &#39;1&#39;} ``になります。"
 
 #: ../../narr/urldispatch.rst:518
 msgid "The ``mypackage.views`` module referred to above might look like so:"
-msgstr ""
+msgstr "上記の `` mypackage.views``モジュールは以下のようになります："
 
 #: ../../narr/urldispatch.rst:530
 msgid ""
 "The view has access to the matchdict directly via the request, and can "
 "access variables within it that match keys present as a result of the "
 "route pattern."
-msgstr ""
+msgstr "ビューはリクエストを介して直接matchdictにアクセスし、ルートパターンの結果として存在するキーに一致する変数にアクセスできます。"
 
 #: ../../narr/urldispatch.rst:533
 msgid ""
 "See :ref:`views_chapter`, and :ref:`view_config_chapter` for more "
 "information about views."
-msgstr ""
+msgstr "view：ref： `views_chapter`、および：ref：` view_config_chapter`を参照してください。"
 
 #: ../../narr/urldispatch.rst:537
 msgid "Example 2"
-msgstr ""
+msgstr "例2"
 
 #: ../../narr/urldispatch.rst:539
 msgid ""
 "Below is an example of a more complicated set of route statements you "
 "might add to your application:"
-msgstr ""
+msgstr "以下は、アプリケーションに追加する複雑なルートステートメントの例です。"
 
 #: ../../narr/urldispatch.rst:550
 msgid "Here is an example of a corresponding ``mypackage.views`` module:"
-msgstr ""
+msgstr "対応する `` mypackage.views``モジュールの例を以下に示します："
 
 #: ../../narr/urldispatch.rst:572
 msgid ""
 "The above configuration will allow :app:`Pyramid` to service URLs in "
 "these forms:"
-msgstr ""
+msgstr "上記の設定では、app： `Pyramid`が次の形式のURLを扱うことができます："
 
 #: ../../narr/urldispatch.rst:581
 msgid ""
@@ -616,7 +606,7 @@ msgid ""
 "will be called.  For the specific URL ``/ideas/1``, the ``matchdict`` "
 "generated and attached to the :term:`request` will consist of "
 "``{'idea':'1'}``."
-msgstr ""
+msgstr "URLがパターン `` / ideas / {idea} ``にマッチすると、ドット付きのPythonパス名 `` mypackage.views.idea_view`で呼び出し可能なビューが呼び出されます。特定のURL `` / ideas / 1``に対して、：term： `request`に生成され添付される` `matchdict``は` `{&#39;idea&#39;： &#39;1&#39;}` `で構成されます。"
 
 #: ../../narr/urldispatch.rst:586
 msgid ""
@@ -625,7 +615,7 @@ msgid ""
 "will be called.  For the specific URL ``/users/1``, the ``matchdict`` "
 "generated and attached to the :term:`request` will consist of "
 "``{'user':'1'}``."
-msgstr ""
+msgstr "URLがパターン `` / users / {user} ``と一致すると、点線のPythonパス名 `` mypackage.views.user_view``で呼び出されるビューが呼び出されます。特定のURL `` / users / 1``に対して生成され、：term： `request`に添付された` `matchdict``は` `{&#39;user&#39;： &#39;1&#39;}` `で構成されます。"
 
 #: ../../narr/urldispatch.rst:591
 msgid ""
@@ -633,7 +623,7 @@ msgid ""
 "available at the dotted Python pathname ``mypackage.views.tag_view`` will"
 " be called. For the specific URL ``/tags/1``, the ``matchdict`` generated"
 " and attached to the :term:`request` will consist of ``{'tag':'1'}``."
-msgstr ""
+msgstr "URLがパターン `` / tags / {tag} ``にマッチすると、点線のPythonパス名 `` mypackage.views.tag_view`で呼び出されるビューが呼び出されます。特定のURL &quot;/ tags / 1&quot;の場合、：term： `request`に生成され添付される` `matchdict``は` `{&#39;tag&#39;： &#39;1&#39;}` `で構成されます。"
 
 #: ../../narr/urldispatch.rst:596
 msgid ""
@@ -641,11 +631,11 @@ msgid ""
 ":term:`view callable` directly.  In all cases, the request, which will "
 "have a ``matchdict`` attribute detailing the information found in the URL"
 " by the process will be passed to the view callable."
-msgstr ""
+msgstr "この例では、それぞれのルートを：term： `view callable`に直接関連づけました。すべての場合、プロセスによってURLにある情報を詳述する `` matchdict``属性を持つリクエストは、呼び出し可能なビューに渡されます。"
 
 #: ../../narr/urldispatch.rst:602
 msgid "Example 3"
-msgstr ""
+msgstr "例3"
 
 #: ../../narr/urldispatch.rst:604
 msgid ""
@@ -654,7 +644,7 @@ msgid ""
 "returned by the :term:`root factory` configured at startup time (the "
 "``root_factory`` argument to the :term:`Configurator` used to configure "
 "the application)."
-msgstr ""
+msgstr "URLディスパッチの結果として見つかるビューに渡される：term： `context`リソースオブジェクトは、デフォルトで起動時に設定された：term：`ルートファクトリ &#39;によって返されるオブジェクトのインスタンスになります（ ` root_factory`引数をアプリケーションの設定に使用する：term： `Configurator &#39;に置き換えます）。"
 
 #: ../../narr/urldispatch.rst:609
 msgid ""
@@ -663,25 +653,25 @@ msgid ""
 "particular route. The ``factory`` should be a callable that accepts a "
 ":term:`request` and returns an instance of a class that will be the "
 "context resource used by the view."
-msgstr ""
+msgstr "特定のルートの：meth： `〜pyramid.config.Configurator.add_route`メソッドに` `factory``引数を渡すことで、この動作を無効にすることができます。 `` factory``は：term： `request`を受け取り、ビューが使うコンテキストリソースとなるクラスのインスタンスを返します。"
 
 #: ../../narr/urldispatch.rst:614
 msgid "An example of using a route with a factory:"
-msgstr ""
+msgstr "ファクトリでルートを使用する例："
 
 #: ../../narr/urldispatch.rst:622
 msgid ""
 "The above route will manufacture an ``Idea`` resource as a "
 ":term:`context`, assuming that ``mypackage.resources.Idea`` resolves to a"
 " class that accepts a request in its ``__init__``.  For example:"
-msgstr ""
+msgstr "上記のルートは `` Idea``リソースを：term： `context`として作ります。` `mypackage.resources.Idea``は、` `__init__``でリクエストを受け付けるクラスに解決されると仮定します。例えば："
 
 #: ../../narr/urldispatch.rst:633
 msgid ""
 "In a more complicated application, this root factory might be a class "
 "representing a :term:`SQLAlchemy` model. The view "
 "``mypackage.views.idea_view`` might look like this:"
-msgstr ""
+msgstr "もっと複雑なアプリケーションでは、このルートファクトリは：term： `SQLAlchemy`モデルを表すクラスであるかもしれません。 `` mypackage.views.idea_view``というビューは次のようになります："
 
 #: ../../narr/urldispatch.rst:645
 msgid ""
@@ -689,32 +679,32 @@ msgid ""
 "resource object is a SQLAlchemy model, you do not even have to perform a "
 "query in the view callable, since you have access to the resource via "
 "``request.context``."
-msgstr ""
+msgstr "ここで、 `` request.context``は `` Idea``のインスタンスです。実際にリソースオブジェクトがSQLAlchemyモデルである場合、あなたは `` request.context``を介してリソースにアクセスできるので、呼び出し可能なビューでクエリを実行する必要はありません。"
 
 #: ../../narr/urldispatch.rst:649
 msgid ""
 "See :ref:`route_factories` for more details about how to use route "
 "factories."
-msgstr ""
+msgstr "ルートファクトリの使用方法の詳細については、ref： `route_factories`を参照してください。"
 
 #: ../../narr/urldispatch.rst:657
 msgid "Matching the Root URL"
-msgstr ""
+msgstr "ルートURLの照合"
 
 #: ../../narr/urldispatch.rst:659
 msgid ""
 "It's not entirely obvious how to use a route pattern to match the root "
 "URL (\"/\").  To do so, give the empty string as a pattern in a call to "
 ":meth:`~pyramid.config.Configurator.add_route`:"
-msgstr ""
+msgstr "ルートパターン（\ &quot;/ \&quot;）にマッチさせるためにルートパターンを使用する方法は完全にはっきりしていません。これを行うには、空の文字列をパターンとして、：meth： `〜pyramid.config.Configurator.add_route`："
 
 #: ../../narr/urldispatch.rst:668
 msgid "Or provide the literal string ``/`` as the pattern:"
-msgstr ""
+msgstr "あるいは、リテラル文字列 `` / ``をパターンとして提供してください："
 
 #: ../../narr/urldispatch.rst:682
 msgid "Generating Route URLs"
-msgstr ""
+msgstr "ルートURLの生成"
 
 #: ../../narr/urldispatch.rst:684
 msgid ""
@@ -722,25 +712,25 @@ msgid ""
 " based on route patterns.  For example, if you've configured a route with"
 " the ``name`` \"foo\" and the ``pattern`` \"{a}/{b}/{c}\", you might do "
 "this."
-msgstr ""
+msgstr "ルートパターンに基づいてURLを生成するには、：meth： `pyramid.request.Request.route_url`メソッドを使用します。たとえば、 ``名前 `` \ &quot;foo \&quot;と ``パターン `` \ &quot;{a} / {b} / {c} \&quot;の経路を設定した場合、これを行うかもしれません。"
 
 #: ../../narr/urldispatch.rst:693
 msgid ""
 "This would return something like the string ``http://example.com/1/2/3`` "
 "(at least if the current protocol and hostname implied "
 "``http://example.com``)."
-msgstr ""
+msgstr "これは、少なくとも現在のプロトコルとホスト名が `` http：// example.com``を暗示している場合は、文字列 `` http：// example.com / 1/2 / 3``のようなものを返します。"
 
 #: ../../narr/urldispatch.rst:696
 msgid ""
 "To generate only the *path* portion of a URL from a route, use the "
 ":meth:`pyramid.request.Request.route_path` API instead of "
 ":meth:`~pyramid.request.Request.route_url`."
-msgstr ""
+msgstr "ルートからURLの* path *部分だけを生成するには、：meth： `〜pyramid.request.Request.route_url`の代わりに：meth：` pyramid.request.Request.route_path` APIを使用します。"
 
 #: ../../narr/urldispatch.rst:704
 msgid "This will return the string ``/1/2/3`` rather than a full URL."
-msgstr ""
+msgstr "これは完全なURLではなく、 `` / 1/2 / 3``という文字列を返します。"
 
 #: ../../narr/urldispatch.rst:706
 msgid ""
@@ -749,58 +739,58 @@ msgid ""
 "exists: if you're trying to replace a \"remainder\" match value (a "
 "``*stararg`` replacement value), the value may be a tuple containing "
 "Unicode strings or UTF-8 strings."
-msgstr ""
+msgstr "`` route_url``または `` route_path``に渡される置換値は、Unicodeか、UTF-8でエンコードされたバイト列でなければなりません。このルールの例外の1つは存在します。\ &quot;剰余\&quot;の一致値（ `` * stararg``の置換値）を置き換える場合、値はUnicode文字列またはUTF-8文字列を含むタプルです。"
 
 #: ../../narr/urldispatch.rst:711
 msgid ""
 "Note that URLs and paths generated by ``route_url`` and ``route_path`` "
 "are always URL-quoted string types (they contain no non-ASCII "
 "characters). Therefore, if you've added a route like so:"
-msgstr ""
+msgstr "`` route_url``と `` route_path``で生成されるURLとパスは、常にURL引用文字列型です（非ASCII文字は含まれません）。したがって、次のようなルートを追加した場合は、"
 
 #: ../../narr/urldispatch.rst:719
 msgid ""
 "And you later generate a URL using ``route_path`` or ``route_url`` like "
 "so:"
-msgstr ""
+msgstr "そして、後であなたは `` route_path``や `` route_url``を使ってURLを生成します："
 
 #: ../../narr/urldispatch.rst:725
 msgid "You will wind up with the path encoded to UTF-8 and URL-quoted like so:"
-msgstr ""
+msgstr "あなたはUTF-8にコード化されたパスとURL引用符で囲まれたようになります："
 
 #: ../../narr/urldispatch.rst:731
 msgid "If you have a ``*stararg`` remainder dynamic part of your route pattern:"
-msgstr ""
+msgstr "あなたのルートパターンの `` * stararg``の残りの動的部分がある場合："
 
 #: ../../narr/urldispatch.rst:737
 msgid ""
 "And you later generate a URL using ``route_path`` or ``route_url`` using "
 "a *string* as the replacement value:"
-msgstr ""
+msgstr "そして、後であなたは、* string *を置換値として使って、 `` route_path``または `` route_url``を使ってURLを生成します："
 
 #: ../../narr/urldispatch.rst:744
 msgid ""
 "The value you pass will be URL-quoted except for embedded slashes in the "
 "result:"
-msgstr ""
+msgstr "渡す値は、結果に埋め込まれたスラッシュを除いて、URLで引用されます。"
 
 #: ../../narr/urldispatch.rst:751
 msgid "You can get a similar result by passing a tuple composed of path elements:"
-msgstr ""
+msgstr "パス要素で構成されるタプルを渡すことで、同様の結果が得られます。"
 
 #: ../../narr/urldispatch.rst:757
 msgid ""
 "Each value in the tuple will be URL-quoted and joined by slashes in this "
 "case:"
-msgstr ""
+msgstr "タプルの各値はURLで引用され、この場合はスラッシュで結合されます。"
 
 #: ../../narr/urldispatch.rst:769
 msgid "Static Routes"
-msgstr ""
+msgstr "静的ルート"
 
 #: ../../narr/urldispatch.rst:771
 msgid "Routes may be added with a ``static`` keyword argument.  For example:"
-msgstr ""
+msgstr "ルートは `` static``キーワード引数で追加することができます。例えば："
 
 #: ../../narr/urldispatch.rst:779
 msgid ""
@@ -812,19 +802,19 @@ msgid ""
 "as ``True``, as none of the other arguments will ever be employed.  A "
 "single exception to this rule is use of the ``pregenerator`` argument, "
 "which is not ignored when ``static`` is ``True``."
-msgstr ""
+msgstr "`` True`` `` static``キーワード引数で追加された経路は、リクエスト時にはマッチングのために決して考慮されません。静的ルートは、URL生成目的にのみ役立ちます。結果として、 `` static``が次のように渡されるとき、meth： `〜pyramid.config.Configurator.add_route`に他の非` `name``引数と非 ``pattern``引数を与えるのは無意味です他の議論のどれも採用されることはないので、「真」となる。このルールの例外は、 `` pregenerator``引数の使用です。これは `` static``が `` True``のとき無視されません。"
 
 #: ../../narr/urldispatch.rst:788
 msgid ":ref:`External routes <external_route_narr>` are implicitly static."
-msgstr ""
+msgstr "：ref： `外部ルート<external_route_narr> `は暗黙的に静的です。"
 
 #: ../../narr/urldispatch.rst:790
 msgid "the ``static`` argument to :meth:`~pyramid.config.Configurator.add_route`."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_route`の` `static``引数です。"
 
 #: ../../narr/urldispatch.rst:797
 msgid "External Routes"
-msgstr ""
+msgstr "外部ルート"
 
 #: ../../narr/urldispatch.rst:801
 msgid ""
@@ -832,7 +822,7 @@ msgid ""
 ":ref:`static routes <static_route_narr>` they are useful for URL "
 "generation purposes only and are never considered for matching at request"
 " time."
-msgstr ""
+msgstr "有効なURLであるルートパターンは外部ルートとして扱われます。同様に：ref： `静的ルート<static_route_narr>それらはURL生成の目的のみに有用であり、要求時に照合することは決して考えられません。"
 
 #: ../../narr/urldispatch.rst:814
 msgid ""
@@ -842,11 +832,11 @@ msgid ""
 "patterns will raise an exception, and passing ``_app_url`` to "
 ":meth:`~pyramid.request.Request.route_url` to generate a URL against a "
 "route that has an external pattern will also raise an exception."
-msgstr ""
+msgstr "ほとんどのパターンの置き換えと：meth： `pyramid.request.Request.route_url`への呼び出しは期待通りに動作します。しかし、外部パターンに対して：meth： `pyramid.request.Request.route_path`を呼び出すと例外が発生し、` _app_url``を：meth： `〜pyramid.request.Request.route_url`に渡してURLを生成します外部パターンを持つルートも例外を発生させます。"
 
 #: ../../narr/urldispatch.rst:827
 msgid "Redirecting to Slash-Appended Routes"
-msgstr ""
+msgstr "スラッシュが追加されたルートにリダイレクトする"
 
 #: ../../narr/urldispatch.rst:829
 msgid ""
@@ -855,7 +845,7 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_notfound_view` or the equivalent "
 "``append_slash`` argument to the "
 ":class:`pyramid.view.notfound_view_config` decorator."
-msgstr ""
+msgstr "Djangoの `` APPEND_SLASH = True``のような振る舞いについては、：meth： `pyramid.config.Configurator.add_notfound_view`または：class：` pyramidに相当する `` append_slash``引数に `` append_slash``引数を使用してください。 view.notfound_view_config`デコレータ。"
 
 #: ../../narr/urldispatch.rst:834
 msgid ""
@@ -869,13 +859,13 @@ msgid ""
 "anything that implements :class:`pyramid.interfaces.IResponse` which will"
 " then be used in place of the default class "
 "(:class:`pyramid.httpexceptions.HTTPFound`)."
-msgstr ""
+msgstr "`` append_slash = True``を追加すると、URLに末尾のスラッシュがない場合に自動的にリクエストをリダイレクトすることができますが、適切なルートに一致するリクエストが必要です。設定時に、アプリケーション内の他の少なくとも1つのルートとともに、このビューは `` PATH_INFO``の値がスラッシュで終わっていない場合に呼び出され、 `` PATH_INFO`` * plus * aスラッシュは任意のルートのパターンに一致します。この場合、スラッシュが付加された `` PATH_INFO``にHTTPリダイレクトを行います。さらに、class： `pyramid.interfaces.IResponse`を実装しているものを渡すこともできます。これはデフォルトのクラス（：class：` pyramid.httpexceptions.HTTPFound`）の代わりに使用されます。"
 
 #: ../../narr/urldispatch.rst:844
 msgid ""
 "Let's use an example.  If the following routes are configured in your "
 "application:"
-msgstr ""
+msgstr "例を使ってみましょう。アプリケーションに次のルートが設定されている場合："
 
 #: ../../narr/urldispatch.rst:869
 msgid ""
@@ -886,7 +876,7 @@ msgid ""
 "slash-appending not found view will not find a matching route with an "
 "appended slash.  As a result, the ``notfound`` view will be called and it"
 " will return a \"Not found\" body."
-msgstr ""
+msgstr "要求が `` / no_slash``の `` PATH_INFO``値を持つアプリケーションに入ると、最初の経路が一致し、ブラウザに\ &quot;スラッシュなし\&quot;と表示されます。しかし、要求が `` / no_slash / ``の値を持つアプリケーションを入力すると、* no *のルートが一致し、スラッシュを追加していないビューはスラッシュが付加された一致するルートを見つけられません。その結果、 `` notfound``ビューが呼び出され、\ &quot;Not found \&quot;ボディが返されます。"
 
 #: ../../narr/urldispatch.rst:876
 msgid ""
@@ -896,7 +886,7 @@ msgid ""
 "*will* be found by the slash-appending :term:`Not Found View`.  An HTTP "
 "redirect to ``/has_slash/`` will be returned to the user's browser.  As a"
 " result, the ``notfound`` view will never actually be called."
-msgstr ""
+msgstr "リクエストが `` / has_slash / ``の `` PATH_INFO``値を持つアプリケーションに入ると、2番目のルートが一致します。要求が `` / has_slash``の `` PATH_INFO``値を持つアプリケーションに入ると、ルート*はスラッシュ - 追加：term： `Not Found View`によって見つけられます。 `` / has_slash / ``へのHTTPリダイレクトがユーザのブラウザに返されます。その結果、 `` notfound``ビューは実際には決して呼び出されません。"
 
 #: ../../narr/urldispatch.rst:883
 msgid ""
@@ -904,7 +894,7 @@ msgid ""
 ":class:`pyramid.view.notfound_view_config` and "
 ":class:`pyramid.view.view_config` decorators and a :term:`scan` to do "
 "exactly the same job:"
-msgstr ""
+msgstr "次のアプリケーションは、：class： `pyramid.view.notfound_view_config`と：class：` pyramid.view.view_config`デコレータと、：term： `scan`を使って、まったく同じ仕事をします："
 
 #: ../../narr/urldispatch.rst:913
 msgid ""
@@ -912,18 +902,18 @@ msgid ""
 "The redirect  of the slash-appending :term:`Not Found View` will turn a "
 "``POST`` request into a ``GET``, losing any ``POST`` data in the original"
 " request."
-msgstr ""
+msgstr "あなたは `` POST``要求をリダイレクトするためにこのメカニズムに依存してはいけません。 slash-appending：term： `Not Found View`のリダイレクトは、` `POST``要求を` `GET``に変換し、元の要求の` `POST``データを失います。"
 
 #: ../../narr/urldispatch.rst:918
 msgid ""
 "See :ref:`view_module` and :ref:`changing_the_notfound_view` for a more "
 "general description of how to configure a view and/or a :term:`Not Found "
 "View`."
-msgstr ""
+msgstr "ビューや：term： `Not Found View`の設定方法のより一般的な説明については：ref：` view_module`と：ref： `changing_the_notfound_view`を参照してください。"
 
 #: ../../narr/urldispatch.rst:927
 msgid "Debugging Route Matching"
-msgstr ""
+msgstr "ルートマッチングのデバッグ"
 
 #: ../../narr/urldispatch.rst:929
 msgid ""
@@ -935,24 +925,24 @@ msgid ""
 "decision for a particular request to the :app:`Pyramid` application will "
 "be printed to the ``stderr`` of the console which you started the "
 "application from.  For example:"
-msgstr ""
+msgstr "あなたのアプリケーションに入ってくるリクエストが期待どおりにあなたのルートに合っていないときに、ボンネットの下で覗くことができると便利です。ルートマッチングをデバッグするには、 `` PYRAMID_DEBUG_ROUTEMATCH``環境変数か `` pyramid.debug_routematch``設定ファイルの設定（ `` true``にセット）を使います。 ：app： `Pyramid`アプリケーションへの特定の要求に対するルートマッチングの決定の詳細は、あなたがアプリケーションを起動したコンソールの` `stderr``に出力されます。例えば："
 
 #: ../../narr/urldispatch.rst:951
 msgid ""
 "See :ref:`environment_chapter` for more information about how and where "
 "to set these values."
-msgstr ""
+msgstr "これらの値の設定方法と場所の詳細については、ref： `environment_chapter`を参照してください。"
 
 #: ../../narr/urldispatch.rst:954
 msgid ""
 "You can also use the ``proutes`` command to see a display of all the "
 "routes configured in your application. For more information, see "
 ":ref:`displaying_application_routes`."
-msgstr ""
+msgstr "`` proutes``コマンドを使って、アプリケーションで設定されたすべてのルートの表示を見ることもできます。詳細は、：ref： `displaying_application_routes`を参照してください。"
 
 #: ../../narr/urldispatch.rst:961
 msgid "Using a Route Prefix to Compose Applications"
-msgstr ""
+msgstr "ルートプレフィックスを使用したアプリケーションの作成"
 
 #: ../../narr/urldispatch.rst:965
 msgid ""
@@ -961,7 +951,7 @@ msgid ""
 ":ref:`building_an_extensible_app` for information about this method.  "
 "Using :meth:`pyramid.config.Configurator.include` allows you to build "
 "your application from small and potentially reusable components."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.include`メソッドを使うと、設定文を別々のファイルからインクルードすることができます。このメソッドについては、ref： `building_an_extensible_app`を参照してください。 ：meth： `pyramid.config.Configurator.include`を使うと、小さくて潜在的に再利用可能なコンポーネントからアプリケーションを構築することができます。"
 
 #: ../../narr/urldispatch.rst:971
 msgid ""
@@ -976,7 +966,7 @@ msgid ""
 "``route_prefix``. This can be used to help mount a set of routes at a "
 "different location than the included callable's author intended while "
 "still maintaining the same route names.  For example:"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.include`メソッドは、` `route_prefix``という名前の引数を受け取ります。これは、URLディスパッチベースのアプリケーションの作成者にとって有用なものです。 `` route_prefix``がインクルードメソッドに与えられている場合は、文字列でなければなりません。この文字列は、* included *設定で追加されたすべてのルートパターンの先頭に付加されるルートプレフィックスを表します。インクルードされた呼び出し可能ファイル内の：meth： `pyramid.config.Configurator.add_route`への呼び出しには、` `route_prefix``の値の接頭辞が付きます。これは、同じルート名を維持しながら、インクルードされた呼び出し可能な作成者とは異なる場所に一連のルートをマウントするのに役立ちます。例えば："
 
 #: ../../narr/urldispatch.rst:994
 msgid ""
@@ -986,21 +976,21 @@ msgid ""
 "route will then only match if the URL path is ``/users/show``, and when "
 "the :meth:`pyramid.request.Request.route_url` function is called with the"
 " route name ``show_users``, it will generate a URL with that same path."
-msgstr ""
+msgstr "上記の設定では、 `` show_users``ルートは `` / show``の代わりに `` / users / show``の効果的なルートパターンを持ちます。これは `` route_prefix``引数がパターンの前に付加されるからです。 URLパスが `` / users / show``である場合にのみルートが一致し、 `` show_users``：meth： `pyramid.request.Request.route_url`関数がルート名` `show_users``で呼び出されると、ルートは一致しますその同じパスを持つURLを生成します。"
 
 #: ../../narr/urldispatch.rst:1001
 msgid ""
 "Route prefixes are recursive, so if a callable executed via an include "
 "itself turns around and includes another callable, the second-level route"
 " prefix will be prepended with the first:"
-msgstr ""
+msgstr "ルートプレフィックスは再帰的なものなので、インクルード自体を介して実行された呼び出し可能なものがターンアラウンドし、別の呼び出し可能コードを含む場合、第2レベルのルートプレフィックスには最初のものが付加されます："
 
 #: ../../narr/urldispatch.rst:1021
 msgid ""
 "In the above configuration, the ``show_users`` route will still have an "
 "effective route pattern of ``/users/show``.  The ``show_times`` route, "
 "however, will have an effective pattern of ``/users/timing/times``."
-msgstr ""
+msgstr "上記の設定では、 `` show_users``ルートは `` / users / show``という有効なルートパターンを持っています。しかし、 `` show_times``ルートは `` / users / timing / times``の有効なパターンを持ちます。"
 
 #: ../../narr/urldispatch.rst:1025
 msgid ""
@@ -1011,11 +1001,11 @@ msgid ""
 "wise to use a dotted name for your route names so they'll be unlikely to "
 "conflict with other packages that may be added in the future.  For "
 "example:"
-msgstr ""
+msgstr "ルート接頭辞は、与えられたピラミッド構成における経路*名前*のセットが完全に一意でなければならないという要件に影響を与えません。 ：meth： `pyramid.config.Configurator.include`を使用して、多くの小さなサブアプリケーションからURLディスパッチアプリケーションを作成する場合は、ルート名にドット付きの名前を使用することをお勧めします。そうすれば、他のパッケージと競合する可能性は低くなります将来追加される予定です。例えば："
 
 #: ../../narr/urldispatch.rst:1054
 msgid "Custom Route Predicates"
-msgstr ""
+msgstr "カスタムルート条件"
 
 #: ../../narr/urldispatch.rst:1056
 msgid ""
@@ -1024,7 +1014,7 @@ msgid ""
 "accepting two arguments.  The first argument passed to a custom predicate"
 " is a dictionary conventionally named ``info``.  The second argument is "
 "the current :term:`request` object."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_route`の` `custom_predicates``引数に与えられた述語呼び出し可能ファイルのそれぞれは、2つの引数を受け入れる呼び出し可能でなければなりません。カスタム述語に渡される最初の引数は、通常は `` info``という名前の辞書です。 2番目の引数は、現在の：term： `request`オブジェクトです。"
 
 #: ../../narr/urldispatch.rst:1062
 msgid ""
@@ -1033,13 +1023,13 @@ msgid ""
 "arguments matched in the URL by the route. ``route`` is an object "
 "representing the route which was matched (see "
 ":class:`pyramid.interfaces.IRoute` for the API of such a route object)."
-msgstr ""
+msgstr "`` info``辞書には、 `` match``と `` route``を含むいくつかの値が含まれています。 `` match``は、ルートでURLにマッチした引数を表す辞書です。 `` route``は、一致したルートを表すオブジェクトです（このようなルートオブジェクトのAPIについては、class： `pyramid.interfaces.IRoute`を参照してください）。"
 
 #: ../../narr/urldispatch.rst:1068
 msgid ""
 "``info['match']`` is useful when predicates need access to the route "
 "match. For example:"
-msgstr ""
+msgstr "`` info [&#39;match&#39;] ``は述語が経路マッチにアクセスする必要があるときに便利です。例えば："
 
 #: ../../narr/urldispatch.rst:1085
 msgid ""
@@ -1051,34 +1041,34 @@ msgid ""
 " and use the result as a custom predicate by feeding it inside a tuple to"
 " the ``custom_predicates`` argument to "
 ":meth:`~pyramid.config.Configurator.add_route`."
-msgstr ""
+msgstr "上記の `` any_of``関数は、 `` segment_name``という名前の一致値が `` allowed``で表される許容値の集合にあることを保証する述語を生成します。この `` any_of``関数を使って `` num_one_two_or_three``という名前の述語関数を生成します。これは `` num``セグメントが `` one``、 `` two``、 `` `three_``を呼び出し、それをタプルの中で` `custom_predicates``の引数：meth：`〜pyramid.config.Configurator.add_route`に渡すことで、結果をカスタム述語として使用します。"
 
 #: ../../narr/urldispatch.rst:1094
 msgid ""
 "A custom route predicate may also *modify* the ``match`` dictionary.  For"
 " instance, a predicate might do some type conversion of values:"
-msgstr ""
+msgstr "カスタム経路述語は `` match``辞書を変更することもできます*。たとえば、述部は値の型変換を行うことがあります。"
 
 #: ../../narr/urldispatch.rst:1116
 msgid ""
 "Note that a conversion predicate is still a predicate, so it must return "
 "``True`` or ``False``. A predicate that does *only* conversion, such as "
 "the one we demonstrate above, should unconditionally return ``True``."
-msgstr ""
+msgstr "変換述語は依然として述語なので、 `` True``または `` False``を返す必要があることに注意してください。上記のような*変換のみを行う述語は、無条件に `` True``を返すべきです。"
 
 #: ../../narr/urldispatch.rst:1120
 msgid ""
 "To avoid the try/except uncertainty, the route pattern can contain "
 "regular expressions specifying requirements for that marker. For "
 "instance:"
-msgstr ""
+msgstr "トライ/不確実性を避けるために、ルートパターンにはそのマーカーの要件を指定する正規表現を含めることができます。例えば："
 
 #: ../../narr/urldispatch.rst:1139
 msgid ""
 "Now the try/except is no longer needed because the route will not match "
 "at all unless these markers match ``\\d+`` which requires them to be "
 "valid digits for an ``int`` type conversion."
-msgstr ""
+msgstr "これらのマーカーが `` \\ d + ``にマッチしない限り、ルートがまったくマッチしないため、try / exceptはもう必要ありません。 `` int``型変換の有効数字にする必要があります。"
 
 #: ../../narr/urldispatch.rst:1143
 msgid ""
@@ -1090,7 +1080,7 @@ msgid ""
 "Otherwise, custom predicates which fire subsequent to the predicate which"
 " performs the ``match`` modification will receive the *modified* match "
 "dictionary."
-msgstr ""
+msgstr "ルートに付けられた各述語に `` info``の中で渡される `` match``辞書は、同じ辞書になります。したがって、 `` match``を変更するカスタム述部を登録するとき、述部を登録するコードは通常、*。*カスタム述部である述部をカスタム述部リストに配置する必要があります。さもなければ、 `` match``を実行する述語に続いて発生するカスタム述語は、* modified *一致辞書を受け取ります。"
 
 #: ../../narr/urldispatch.rst:1153
 msgid ""
@@ -1100,7 +1090,7 @@ msgid ""
 "predicates, one which handles conversion of a value to an int, the next "
 "which handles conversion of that integer to some custom object.  Just do "
 "all that in a single custom predicate."
-msgstr ""
+msgstr "1つの述部が別の述部の副作用に依存する変換パイプラインを構築するために、カスタム述部の順序付けに依存することは賢明ではありません。たとえば、値のintへの変換を処理する2つのカスタム述部を登録することはお勧めできません。次に、その整数の一部のカスタム・オブジェクトへの変換を処理する次の述部を登録します。単一のカスタム述語ですべてを行うだけです。"
 
 #: ../../narr/urldispatch.rst:1160
 msgid ""
@@ -1108,55 +1098,55 @@ msgid ""
 "useful attributes: ``name`` and ``pattern``.  The ``name`` attribute is "
 "the route name. The ``pattern`` attribute is the route pattern.  Here's "
 "an example of using the route in a set of route predicates:"
-msgstr ""
+msgstr "`` info`` dictの `` route``オブジェクトは、 `` name``と `` pattern``の2つの有用な属性を持つオブジェクトです。 `` name``属性はルート名です。 `` pattern``属性はルートパターンです。一連のルート述語でルートを使用する例を次に示します。"
 
 #: ../../narr/urldispatch.rst:1177
 msgid ""
 "The above predicate, when added to a number of route configurations "
 "ensures that the year match argument is '2010' if and only if the route "
 "name is 'ymd', 'ym', or 'y'."
-msgstr ""
+msgstr "上記の述語をいくつかのルート構成に追加すると、ルート名が &#39;ymd&#39;、 &#39;ym&#39;、または &#39;y&#39;の場合にのみ、年一致引数が &#39;2010&#39;になります。"
 
 #: ../../narr/urldispatch.rst:1181
 msgid ""
 "You can also caption the predicates by setting the ``__text__`` "
 "attribute. This will help you with the ``pviews`` command (see "
 ":ref:`displaying_application_routes`) and the ``pyramid_debugtoolbar``."
-msgstr ""
+msgstr "`` __text__``属性を設定することで、述語に字幕を付けることもできます。これは `` pviews``コマンド（：ref： `displaying_application_routes`を参照）と` `pyramid_debugtoolbar``を手伝ってくれます。"
 
 #: ../../narr/urldispatch.rst:1185
 msgid ""
 "If a predicate is a class, just add ``__text__`` property in a standard "
 "manner."
-msgstr ""
+msgstr "述語がクラスの場合、標準的な方法で `` __text__``プロパティを追加するだけです。"
 
 #: ../../narr/urldispatch.rst:1197
 msgid ""
 "If a predicate is a method, you'll need to assign it after method "
 "declaration (see `PEP 232 <https://www.python.org/dev/peps/pep-0232/>`_)."
-msgstr ""
+msgstr "述語がメソッドの場合、メソッド宣言の後にそれを割り当てる必要があります（ `PEP 232 <https://www.python.org/dev/peps/pep-0232/> `_）。"
 
 #: ../../narr/urldispatch.rst:1207
 msgid ""
 "If a predicate is a classmethod, using ``@classmethod`` will not work, "
 "but you can still easily do it by wrapping it in a classmethod call."
-msgstr ""
+msgstr "述語がクラスメソッドである場合、 `` @ classmethod``を使っても動作しませんが、classmethodコールでそれをラップすることで簡単に行うことができます。"
 
 #: ../../narr/urldispatch.rst:1218
 msgid ""
 "The same will work with ``staticmethod``, using ``staticmethod`` instead "
 "of ``classmethod``."
-msgstr ""
+msgstr "同じことが `` staticmethod``では `` classmethod``の代わりに `` staticmethod``を使って動作します。"
 
 #: ../../narr/urldispatch.rst:1223
 msgid ""
 "See also :class:`pyramid.interfaces.IRoute` for more API documentation "
 "about route objects."
-msgstr ""
+msgstr "ルートオブジェクトに関するAPIドキュメントの詳細は、class： `pyramid.interfaces.IRoute`を参照してください。"
 
 #: ../../narr/urldispatch.rst:1232
 msgid "Route Factories"
-msgstr ""
+msgstr "ルートファクトリー"
 
 #: ../../narr/urldispatch.rst:1234
 msgid ""
@@ -1168,33 +1158,33 @@ msgid ""
 "generate a :term:`root` object. This object will usually be used as the "
 ":term:`context` resource of the view callable ultimately found via "
 ":term:`view lookup`."
-msgstr ""
+msgstr "基本的なアプリケーションでは特に一般的なニーズではありませんが、\ &quot;route \&quot;構成宣言では\ &quot;factory \&quot;と言います。ルートが要求と一致し、そのルートにファクトリが添付されている場合、起動時に：term： `Configurator`に渡される：term：`ルートファクトリ &#39;は無視されます。代わりにルートに関連付けられたファクトリを使用して：term： `ルート`オブジェクトを生成します。このオブジェクトは通常：term： `view lookup`を介して最終的に見つけられるcallableのview：term：` context`リソースとして使用されます。"
 
 #: ../../narr/urldispatch.rst:1249
 msgid ""
 "The factory can either be a Python object or a :term:`dotted Python name`"
 " (a string) which points to such a Python object, as it is above."
-msgstr ""
+msgstr "ファクトリは、上記のように、Pythonオブジェクトまたは：term： `点線のPython名`（文字列）のいずれかで、そのようなPythonオブジェクトを指します。"
 
 #: ../../narr/urldispatch.rst:1252
 msgid ""
 "In this way, each route can use a different factory, making it possible "
 "to supply a different :term:`context` resource object to the view related"
 " to each particular route."
-msgstr ""
+msgstr "このように、各ルートは異なるファクトリを使用することができ、異なる：term： `context`リソースオブジェクトをそれぞれの特定のルートに関連するビューに供給することができます。"
 
 #: ../../narr/urldispatch.rst:1256
 msgid ""
 "A factory must be a callable which accepts a request and returns an "
 "arbitrary Python object.  For example, the below class can be used as a "
 "factory:"
-msgstr ""
+msgstr "ファクトリは、要求を受け取り、任意のPythonオブジェクトを返す呼び出し可能なものでなければなりません。たとえば、以下のクラスはファクトリとして使用できます。"
 
 #: ../../narr/urldispatch.rst:1266
 msgid ""
 "A route factory is actually conceptually identical to the :term:`root "
 "factory` described at :ref:`the_resource_tree`."
-msgstr ""
+msgstr "ルートファクトリは、実際には：ref： `the_resource_tree`に記述されている：term：`ルートファクトリ &#39;と概念的には同じです。"
 
 #: ../../narr/urldispatch.rst:1269
 msgid ""
@@ -1205,11 +1195,11 @@ msgid ""
 ":ref:`using_security_with_urldispatch`. It is also useful when you wish "
 "to combine URL dispatch with :term:`traversal` as documented within "
 ":ref:`hybrid_chapter`."
-msgstr ""
+msgstr "宣言的な\ context sensitive \ security checkを提供するために、：app： `Pyramid`：term：`認可ポリシー `を使用しようとしているとき、それぞれのルートに対して異なるリソースファクトリを提供することは便利です。各リソースは、：ref： `using_security_with_urldispatch`に記載されているように、別名：term：` ACL`を保持することができます。これは：ref： `hybrid_chapter`の中で文書化されているようにURLディスパッチを：term：` traversal`と組み合わせたい場合にも便利です。"
 
 #: ../../narr/urldispatch.rst:1282
 msgid "Using :app:`Pyramid` Security with URL Dispatch"
-msgstr ""
+msgstr "使用：app： `Pyramid`セキュリティとURLディスパッチ"
 
 #: ../../narr/urldispatch.rst:1284
 msgid ""
@@ -1221,11 +1211,11 @@ msgid ""
 "dynamically for declarative security purposes.  You can use the "
 "``factory`` argument that points at a factory which attaches a custom "
 "``__acl__`` to an object at its creation time."
-msgstr ""
+msgstr "：app： `Pyramid`はアプリケーションコードの呼び出しを許可する前に：term：`認可ポリシー `を調べる独自のセキュリティフレームワークを提供します。このフレームワークは、リソースオブジェクトの `` __acl__``属性として格納されているアクセス制御リストの観点から動作します。一般的なことは、宣言的なセキュリティ目的のためにリソースオブジェクトに `` __acl__``を動的に付加することです。ファクトリを指す `` factory``引数は、作成時にカスタム `` __acl__``をオブジェクトに付加して使うことができます。"
 
 #: ../../narr/urldispatch.rst:1292
 msgid "Such a ``factory`` might look like so:"
-msgstr ""
+msgstr "そのような「工場」は次のように見えるかもしれません："
 
 #: ../../narr/urldispatch.rst:1304
 msgid ""
@@ -1236,24 +1226,24 @@ msgid ""
 "inspect the route's match dict to see if the ``article`` argument matches"
 " a particular string. Our sample ``Article`` factory class is not very "
 "ambitious."
-msgstr ""
+msgstr "： `archives / {article}` `が一致し、アーティクル番号が` `1``の場合、：app：` Pyramid`はACLを持つ `` Article``：term： `context`リソースを生成します``編集 ``プリンシパルの `` view``パーミッションを許可します。明らかに、 `` article``引数が特定の文字列にマッチするかどうかを調べるために、ルートの一致を調べるよりも一般的なことができます。サンプルの `` Article``工場クラスはあまり野心的ではありません。"
 
 #: ../../narr/urldispatch.rst:1313
 msgid ""
 "See :ref:`security_chapter` for more information about :app:`Pyramid` "
 "security and ACLs."
-msgstr ""
+msgstr "詳細は：ref： `security_chapter`を参照してください：app：` Pyramid`セキュリティとACL。"
 
 #: ../../narr/urldispatch.rst:1320
 msgid "Route View Callable Registration and Lookup Details"
-msgstr ""
+msgstr "ルートビュー呼び出し可能な登録と参照の詳細"
 
 #: ../../narr/urldispatch.rst:1322
 msgid ""
 "When a request enters the system which matches the pattern of the route, "
 "the usual result is simple: the view callable associated with the route "
 "is invoked with the request that caused the invocation."
-msgstr ""
+msgstr "リクエストがルートのパターンに一致するシステムに入ると、通常の結果は簡単です。ルートに関連付けられたコール可能なビューが、呼び出しの原因となったリクエストとともに呼び出されます。"
 
 #: ../../narr/urldispatch.rst:1326
 msgid ""
@@ -1261,33 +1251,33 @@ msgid ""
 " implementation detail.  In the interest of completeness, however, we'll "
 "explain how it *does* work in this section.  You can skip it if you're "
 "uninterested."
-msgstr ""
+msgstr "ほとんどの場合、これ以上理解する必要はありません。どのように動作するかは実装の詳細です。しかし、完全性のために、このセクションでどのように*動作するかを説明します。あなたが無関心なら、あなたはそれをスキップすることができます。"
 
 #: ../../narr/urldispatch.rst:1330
 msgid ""
 "When a view is associated with a route configuration, :app:`Pyramid` "
 "ensures that a :term:`view configuration` is registered that will always "
 "be found when the route pattern is matched during a request.  To do so:"
-msgstr ""
+msgstr "ビューがルート設定に関連付けられている場合、：app： `Pyramid`はa：term：` view configuration`が登録されていることを確認します。これはリクエスト中にルートパターンが一致したときに常に見つけられます。そうするには："
 
 #: ../../narr/urldispatch.rst:1334
 msgid ""
 "A special route-specific :term:`interface` is created at startup time for"
 " each route configuration declaration."
-msgstr ""
+msgstr "特別なルート特有の：term： `interface`は各ルート設定宣言のために起動時に作成されます。"
 
 #: ../../narr/urldispatch.rst:1337
 msgid ""
 "When an ``add_view`` statement mentions a ``route name`` attribute, a "
 ":term:`view configuration` is registered at startup time.  This view "
 "configuration uses a route-specific interface as a :term:`request` type."
-msgstr ""
+msgstr "`` add_view``文が `` route name``属性を記述すると、起動時に：term： `view configuration`が登録されます。このビュー構成では、経路指定インタフェースを：term： `request`型として使用します。"
 
 #: ../../narr/urldispatch.rst:1341
 msgid ""
 "At runtime, when a request causes any route to match, the :term:`request`"
 " object is decorated with the route-specific interface."
-msgstr ""
+msgstr "実行時に、要求によって任意のルートが一致すると、：term： `request`オブジェクトがルート固有のインタフェースで修飾されます。"
 
 #: ../../narr/urldispatch.rst:1344
 msgid ""
@@ -1295,7 +1285,7 @@ msgid ""
 "causes the :term:`view lookup` machinery to always use the view callable "
 "registered using that interface by the route configuration to service "
 "requests that match the route pattern."
-msgstr ""
+msgstr "要求が経路特有のインタフェースで装飾されているという事実は、：term： `view lookup`機構が、経路構成に一致する要求を処理するために経路構成によってそのインタフェースを使用して呼び出された呼び出し可能なビューを常に使用するようにします。"
 
 #: ../../narr/urldispatch.rst:1349
 msgid ""
@@ -1311,21 +1301,21 @@ msgid ""
 "is used, the resource location and view lookup subsystems provided by "
 ":app:`Pyramid` are still being utilized, but in a way which does not "
 "require a developer to understand either of them in detail."
-msgstr ""
+msgstr "上の説明からわかるように、技術的には、URLディスパッチはURLパターンを直接ビュー呼び出し可能にマップしません。代わりに、URLディスパッチは：term： `resource location`メカニズムです。 A：app： `Pyramid`：term：` resource location`サブシステム（：term： `URL dispatch`または：term：` traversal`）は：term： `context`であるa：term：` resource`オブジェクトを検索します。 `の：term：`要求 &#39; ：term： `context`が決定されると、term：` view lookup`という独立したサブシステムは、コンテキストと要求で利用可能な情報に基づいて：term： `view callable`を見つけて呼び出します。 URLディスパッチが使用されると、：app： `Pyramid &#39;によって提供されるリソースロケーションとビュールックアップサブシステムはまだ使用されていますが、開発者がどちらかを詳細に理解する必要はありません。"
 
 #: ../../narr/urldispatch.rst:1361
 msgid ""
 "If no route is matched using :term:`URL dispatch`, :app:`Pyramid` falls "
 "back to :term:`traversal` to handle the :term:`request`."
-msgstr ""
+msgstr "：term： `URL dispatch`を使用してルートが一致しない場合、：app：` Pyramid`はterm： `traversal`に落ちて：term：` request`を処理します。"
 
 #: ../../narr/urldispatch.rst:1365
 msgid "References"
-msgstr ""
+msgstr "参考文献"
 
 #: ../../narr/urldispatch.rst:1367
 msgid ""
 "A tutorial showing how :term:`URL dispatch` can be used to create a "
 ":app:`Pyramid` application exists in :ref:`bfg_sql_wiki_tutorial`."
-msgstr ""
+msgstr "ref： `bfg_sql_wiki_tutorial`に：app：` Pyramid`アプリケーションを作成するためのterm： `URL dispatch`の使い方を示すチュートリアルです。"
 

@@ -7,26 +7,16 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/startup.rst:4
 msgid "Startup"
-msgstr ""
+msgstr "(機械翻訳) 起動"
 
 #: ../../narr/startup.rst:6
 msgid ""
 "When you cause a :app:`Pyramid` application to start up in a console "
 "window, you'll see something much like this show up on the console:"
-msgstr ""
+msgstr "：app： `Pyramid`アプリケーションをコンソールウィンドウで起動させると、コンソールに次のように表示されます："
 
 #: ../../narr/startup.rst:16
 msgid ""
@@ -34,11 +24,11 @@ msgid ""
 "\"Return\" key on your keyboard after typing ``pserve development.ini`` "
 "and the time the lines ``Serving on http://localhost:6543`` are output to"
 " your console."
-msgstr ""
+msgstr "この章では、 `` pserve development.ini``とタイプした後にキーボードの\ &quot;Return \&quot;キーを押してから `` Serving on http：// localhost：6543``という行が出力されるまであなたのコンソールに。"
 
 #: ../../narr/startup.rst:25
 msgid "The Startup Process"
-msgstr ""
+msgstr "スタートアッププロセス"
 
 #: ../../narr/startup.rst:27
 msgid ""
@@ -48,13 +38,13 @@ msgid ""
 "settings and starts a server listening on a port.  For the purposes of "
 "this discussion, we'll assume that you are using this command to run your"
 " :app:`Pyramid` application."
-msgstr ""
+msgstr "a：app： `Pyramid`アプリケーションを起動して提供する最も簡単で最良の方法は：term：` PasteDeploy` `` .ini``ファイルに対して `` pserve``コマンドを使うことです。これは、 `` .ini``ファイルを使用して設定を推測し、ポートでリッスンするサーバを起動します。ここでは、このコマンドを使って：app： `Pyramid`アプリケーションを実行していると仮定します。"
 
 #: ../../narr/startup.rst:33
 msgid ""
 "Here's a high-level time-ordered overview of what happens when you press "
 "``return`` after running ``pserve development.ini``."
-msgstr ""
+msgstr "ここでは、 `` pserve development.ini``を実行した後に `` return``を押すと何が起きるのかを、時間順にまとめた高レベルの概要を示します。"
 
 #: ../../narr/startup.rst:36
 msgid ""
@@ -62,21 +52,21 @@ msgid ""
 "``development.ini``.  As a result, Pyramid recognizes that it is meant to"
 " begin to run and serve an application using the information contained "
 "within the ``development.ini`` file."
-msgstr ""
+msgstr "`` pserve``コマンドはあなたのシェルの下で引数 `` development.ini``で呼び出されます。その結果、Pyramidは `` development.ini``ファイルに含まれる情報を使ってアプリケーションを実行して提供することを意味することを認識しています。"
 
 #: ../../narr/startup.rst:41
 msgid ""
 "``pserve`` passes the ``development.ini`` path to :term:`plaster` which "
 "finds an available configuration loader that recognizes the ``ini`` "
 "format."
-msgstr ""
+msgstr "`` pserve``は `` development.ini``パスを：term： `plaster`に渡します。これは` `ini``フォーマットを認識する利用可能な設定ローダを見つけます。"
 
 #: ../../narr/startup.rst:44
 msgid ""
 ":term:`plaster` finds the ``plaster_pastedeploy`` library which binds the"
 " :term:`PasteDeploy` library and returns a parser that can understand the"
 " format."
-msgstr ""
+msgstr "：term： `plaster`は：term：` PasteDeploy`ライブラリをバインドし、フォーマットを理解できるパーサを返してくれる `` plaster_pastedeploy``ライブラリを見つけます。"
 
 #: ../../narr/startup.rst:48
 msgid ""
@@ -95,7 +85,7 @@ msgid ""
 "refer to your :app:`Pyramid` application.  In most cases, a Pyramid "
 "application built from a cookiecutter will have a single ``[app:main]`` "
 "section in it, and this will be the application served."
-msgstr ""
+msgstr "：term： `PasteDeploy`は、` `.ini``に` `[app：main]` `、` `[pipeline：main]` `、` `[composite：main]ファイル。このセクションは、提供される：term： `WSGI`アプリケーションの構成を表します。単純なアプリケーション（ `` [app：main] ``など）を使用している場合、アプリケーションの `` paste.app_factory``：term： `entry point`は` `use =` `セクションの構成内にあります。単純なアプリケーションではなく、WSGI：term： `pipeline`（例えば` `[pipeline：main]` `セクション）を使用している場合、\&quot; last \ &quot;要素に指定されたアプリケーションはあなたの：app： `Pyramid`アプリケーション。単純なアプリケーションやパイプラインの代わりに、\ &quot;composite \&quot;（例えば、 `` [composite：main] ``）を使用している場合は、その特定の複合体のドキュメントを参照して、あなたの：app： `Pyramid`アプリケーション。ほとんどの場合、cookiecutterから作成されたPyramidアプリケーションには、単一の `[app：main]` `セクションがあり、これは提供されるアプリケーションになります。"
 
 #: ../../narr/startup.rst:64
 msgid ""
@@ -103,7 +93,7 @@ msgid ""
 "``.ini`` file and uses it to configure the Python standard library "
 "logging system for this application.  See :ref:`logging_config` for more "
 "information."
-msgstr ""
+msgstr "このフレームワークは、 `` .ini``ファイル内のall：mod： `logging`関連の設定を見つけ、それを使ってこのアプリケーションのPython標準ライブラリロギングシステムを設定します。詳細は、：ref： `logging_config`を参照してください。"
 
 #: ../../narr/startup.rst:68
 msgid ""
@@ -112,7 +102,7 @@ msgid ""
 "application is passed the key/value parameters mentioned within the "
 "section in which it's defined.  The constructor is meant to return a "
 ":term:`router` instance, which is a :term:`WSGI` application."
-msgstr ""
+msgstr "：app： `Pyramid`アプリケーションを表すセクションの` `use =` `行で参照されるエントリポイントによって指定されたアプリケーションの*コンストラクタ*は、定義されているセクション内で言及されているkey / valueパラメータに渡されます。コンストラクタは：term： `router`インスタンスを返します。これは、：term：` WSGI`アプリケーションです。"
 
 #: ../../narr/startup.rst:74
 msgid ""
@@ -121,7 +111,7 @@ msgid ""
 " your application lives.  If this function succeeds, it will return a "
 ":app:`Pyramid` :term:`router` instance.  Here's the contents of an "
 "example ``__init__.py`` module:"
-msgstr ""
+msgstr "：app： `Pyramid`アプリケーションの場合、コンストラクタはあなたのアプリケーションが存在する：term：` package`内の `` __init __。py``ファイルの `` main``という名前の関数になります。この関数が成功すると、：app： `Pyramid`：term：` router`インスタンスを返します。以下は `` __init __。py``モジュールの例です："
 
 #: ../../narr/startup.rst:84
 msgid ""
@@ -134,11 +124,11 @@ msgid ""
 " in ``**settings`` will be composed of all the key/value pairs that are "
 "present in the ``[app:main]`` section (except for the ``use=`` setting) "
 "when this function is called when you run ``pserve``."
-msgstr ""
+msgstr "コンストラクタ関数は、 `` .ini``ファイルの `` [DEFAULT] ``セクションで述べられているキーと値のペアの辞書である `` global_config``引数を受け入れます（if：ref： `[デフォルト] <defaults_section_of_pastedeploy_file> `存在している）。また、 `` ** settings``引数を受け取ります。この引数は、別のキー/値の組を集めます。この関数が `` ** settings``で受け取った任意のキーと値のペアは、 `` [app：main] ``セクションにあるすべてのキーと値のペアで構成されます（ `` use = ``設定） `` pserve``を実行したときにこの関数が呼び出されたときに発生します。"
 
 #: ../../narr/startup.rst:94
 msgid "Our generated ``development.ini`` file looks like so:"
-msgstr ""
+msgstr "生成された `` development.ini``ファイルは次のようになります："
 
 #: ../../narr/startup.rst:100
 msgid ""
@@ -150,7 +140,7 @@ msgid ""
 "pyramid.debug_routematch = false, pyramid.default_locale_name = en, and "
 "pyramid.includes = pyramid_debugtoolbar}``.  See "
 ":ref:`environment_chapter` for the meanings of these keys."
-msgstr ""
+msgstr "この場合、エントリーポイントURIの詳細については、エントリーポイントのURI「egg：myproject」（ref： `myproject_ini`を参照してください）とそれらがどのように関連しているかを参照する` `myproject .__ init __：main``関数pyramid.debug_authorization = false、pyramid.debug_notfound = false、pyramid.debug_routematch = false、pyramid.default_locale_name = en、pyramid.includes = pyramid_debugtoolbar}のキーと値のペアを受け取ります。 `。これらのキーの意味については：ref： `environment_chapter`を参照してください。"
 
 #: ../../narr/startup.rst:109
 msgid ""
@@ -158,7 +148,7 @@ msgid ""
 ":class:`~pyramid.config.Configurator` instance, passing the ``settings`` "
 "dictionary captured via the ``**settings`` kwarg as its ``settings`` "
 "argument."
-msgstr ""
+msgstr "`` main``関数は最初にclass： `〜pyramid.config.Configurator`インスタンスを構築し、` `settings`` kwargを使って` `settings``引数として取り込んだ` `settings``辞書を渡します。"
 
 #: ../../narr/startup.rst:114
 msgid ""
@@ -166,7 +156,7 @@ msgid ""
 "``[app:main]`` section of our .ini file except the ``use`` option (which "
 "is internal to PasteDeploy) such as ``pyramid.reload_templates``, "
 "``pyramid.debug_authorization``, etc."
-msgstr ""
+msgstr "`` settings``辞書には、.iniファイルの `` [app：main] ``セクションのすべてのオプションが含まれています（ `` pyramid.reload_templates ``、 `` pyramid.debug_authorization``など"
 
 #: ../../narr/startup.rst:119
 msgid ""
@@ -175,7 +165,7 @@ msgid ""
 " The intent of calling these methods is to populate an :term:`application"
 " registry`, which represents the :app:`Pyramid` configuration related to "
 "the application."
-msgstr ""
+msgstr "`` main``関数は、前のステップで作成したclass： `〜pyramid.config.Configurator`というクラスのインスタンスに対してさまざまなメソッドを呼び出します。これらのメソッドを呼び出す意図は、アプリケーションに関連する：app： `Pyramid`設定を表す：term：` application registry`です。"
 
 #: ../../narr/startup.rst:125
 msgid ""
@@ -184,13 +174,13 @@ msgid ""
 "the :term:`application registry` implied by the configurator previously "
 "populated by other methods run against the Configurator.  The router is a"
 " WSGI application."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.make_wsgi_app`メソッドが呼び出されます。結果は：term： `router`インスタンスです。ルータはコンフィグレータに対して実行される他のメソッドによって以前に設定されたコンフィグレータによって暗示される：term： `アプリケーションレジストリ &#39;に関連付けられます。ルータはWSGIアプリケーションです。"
 
 #: ../../narr/startup.rst:131
 msgid ""
 "An :class:`~pyramid.events.ApplicationCreated` event is emitted (see "
 ":ref:`events_chapter` for more information about events)."
-msgstr ""
+msgstr "An：class： `〜pyramid.events.ApplicationCreated`イベントが送出されます（イベントの詳細については：ref：` events_chapter`を参照してください）。"
 
 #: ../../narr/startup.rst:134
 msgid ""
@@ -198,7 +188,7 @@ msgid ""
 "returns the router instance created by "
 ":meth:`pyramid.config.Configurator.make_wsgi_app` back to ``pserve``.  As"
 " far as ``pserve`` is concerned, it is \"just another WSGI application\"."
-msgstr ""
+msgstr "エラーがないと仮定すると、 `` myproject``の `` main``関数は：meth： `pyramid.config.Configurator.make_wsgi_app`で作成されたルータインスタンスを` `pserve``に戻します。 `` pserve``に関する限り、それは\ &quot;ただ一つのWSGIアプリケーション\&quot;です。"
 
 #: ../../narr/startup.rst:139
 msgid ""
@@ -209,7 +199,7 @@ msgid ""
 "itself is what prints ``Serving on http://localhost:6543``. The server "
 "serves the application, and the application is running, waiting to "
 "receive requests."
-msgstr ""
+msgstr "`` pserve``は `` [server：main] ``セクションで定義されたWSGI *サーバ*を起動します。私たちの場合、これはウェイトレスサーバー（ `` use = egg：waitress＃main``）で、ポート6543のすべてのインターフェイスでIPv4とIPv6（ `` listen = localhost：6543``）を待ち受けます。サーバコード自体は、 `` http：// localhost：6543でサーブする &#39;&#39;というものを表示します。サーバーがアプリケーションにサービスを提供し、アプリケーションが実行され、要求の受信を待機しています。"
 
 #: ../../narr/startup.rst:147
 msgid ""
@@ -217,11 +207,11 @@ msgid ""
 " There, in :ref:`request_logging_with_pastes_translogger`, you will also "
 "find an example of how to configure :term:`middleware` to add pre-"
 "packaged functionality to your application."
-msgstr ""
+msgstr "ロギング設定については、：ref： `logging_chapter`の章を参照してください。そこに、：ref： `request_logging_with_pastes_translogger`には、アプリケーションにあらかじめパッケージ化された機能を追加するための：term：`ミドルウェア &#39;を設定する方法の例があります。"
 
 #: ../../narr/startup.rst:159
 msgid "Deployment Settings"
-msgstr ""
+msgstr "展開設定"
 
 #: ../../narr/startup.rst:161
 msgid ""
@@ -232,5 +222,5 @@ msgid ""
 "later from view code, and put them into the dictionary you pass to the "
 "configurator as ``settings``.  They will then be present in the "
 "``request.registry.settings`` dictionary at application runtime."
-msgstr ""
+msgstr "：class： `〜pyramid.config.Configurator`コンストラクタに` `** settings``として渡された値の拡張バージョンは、app：` Pyramid`：term： `view callable`というコードで利用できることに注意してください。 `` request.registry.settings``です。後でビューコードからアクセスしたいオブジェクトを作成し、それをコンフィグレータに渡す辞書に `` settings``として入れることができます。それらはアプリケーション実行時に `` request.registry.settings``ディクショナリに存在します。"
 

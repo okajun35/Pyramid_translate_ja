@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/introspector.rst:8
 msgid "Pyramid Configuration Introspection"
-msgstr ""
+msgstr "(機械翻訳)  ピラミッド構成のイントロスペクション"
 
 #: ../../narr/introspector.rst:12
 msgid ""
@@ -31,17 +21,17 @@ msgid ""
 "application.  This feature is useful for debug toolbars, command-line "
 "scripts which show some aspect of configuration, and for runtime "
 "reporting of startup-time configuration settings."
-msgstr ""
+msgstr "Pyramidが起動すると、a：term： `設定ディレクティブ &#39;を呼び出すと、term：` introspectable`オブジェクトが：term： `introspector`で登録されます。 Introspectorは、実行中のアプリケーションの構成に関する情報を取得するためにアプリケーションコードによって照会できます。この機能は、デバッグツールバー、構成の一部を示すコマンドラインスクリプト、および起動時の構成設定のランタイムレポートに役立ちます。"
 
 #: ../../narr/introspector.rst:21
 msgid "Using the Introspector"
-msgstr ""
+msgstr "イントロスペクサーの使用"
 
 #: ../../narr/introspector.rst:23
 msgid ""
 "Here's an example of using Pyramid's introspector from within a view "
 "callable:"
-msgstr ""
+msgstr "ビュー呼び出し可能な内部からピラミッドのイントロスペクサーを使用する例を次に示します。"
 
 #: ../../narr/introspector.rst:38
 msgid ""
@@ -52,7 +42,7 @@ msgid ""
 "introspectable in the category ``routes`` with a :term:`discriminator` "
 "equal to the matched route name.  It then uses the returned "
 "introspectable to obtain a \"pattern\" value."
-msgstr ""
+msgstr "このビューは、ビューの呼び出し時にマッチしたルートの `` add_route``メソッドに与えられた\ &quot;pattern \&quot;引数を含むレスポンスを返します。 ：meth： `pyramid.interfaces.IIntrospector.get`メソッドを使用して、`：routes： `discriminator`をカテゴリ` `routes``で一致させたルート名で返すようにします。次に、返されたイントロスペクタブルを使用して\ &quot;パターン\&quot;値を取得します。"
 
 #: ../../narr/introspector.rst:45
 msgid ""
@@ -65,63 +55,63 @@ msgid ""
 ":meth:`~pyramid.interfaces.IIntrospector.categorized`, and "
 ":meth:`~pyramid.interfaces.IIntrospector.related` methods of an "
 "introspector can be used to query for introspectables."
-msgstr ""
+msgstr "introspectorのクエリメソッドによって返されるイントロスペクタには、class： `pyramid.interfaces.IIntrospectable`で記述されたメソッドと属性があります。特に、：meth： `〜pyramid.interfaces.IIntrospector.get`、：meth：`〜pyramid.interfaces.IIntrospector.get_category`、：meth： `〜pyramid.interfaces.IIntrospector.categories`、：meth：`〜 〜pyramid.interfaces.IIntrospector.categorized`、イントロスペクタの：meth： `〜pyramid.interfaces.IIntrospector.related`メソッドは、イントロスペクタブルを問い合わせるために使用できます。"
 
 #: ../../narr/introspector.rst:56
 msgid "Introspectable Objects"
-msgstr ""
+msgstr "イントロスペクティブオブジェクト"
 
 #: ../../narr/introspector.rst:58
 msgid ""
 "Introspectable objects are returned from query methods of an "
 "introspector. Each introspectable object implements the attributes and "
 "methods documented at :class:`pyramid.interfaces.IIntrospectable`."
-msgstr ""
+msgstr "イントロスペクターオブジェクトは、イントロスペクサーの照会メソッドから戻されます。各イントロスペクターブルオブジェクトは、class： `pyramid.interfaces.IIntrospectable`に記述されている属性とメソッドを実装しています。"
 
 #: ../../narr/introspector.rst:62
 msgid "The important attributes shared by all introspectables are the following:"
-msgstr ""
+msgstr "すべてのイントロスペクタブルで共有される重要な属性は次のとおりです。"
 
 #: ../../narr/introspector.rst:64
 msgid "``title``"
-msgstr ""
+msgstr "``タイトル ``"
 
 #: ../../narr/introspector.rst:66
 msgid "A human-readable text title describing the introspectable"
-msgstr ""
+msgstr "イントロスペクターブルを記述する人間が判読可能なテキストタイトル"
 
 #: ../../narr/introspector.rst:68
 msgid "``category_name``"
-msgstr ""
+msgstr "`` category_name``"
 
 #: ../../narr/introspector.rst:70
 msgid ""
 "A text category name describing the introspection category to which this "
 "introspectable belongs.  It is often a plural if there are expected to be"
 " more than one introspectable registered within the category."
-msgstr ""
+msgstr "このイントロスペクタブルが属するイントロスペクションカテゴリを示すテキストカテゴリ名。カテゴリに複数のイントロスペクタブルが登録されていると予想される場合は、複数の場合があります。"
 
 #: ../../narr/introspector.rst:74
 msgid "``discriminator``"
-msgstr ""
+msgstr "「弁別者」"
 
 #: ../../narr/introspector.rst:76
 msgid ""
 "A hashable object representing the unique value of this introspectable "
 "within its category."
-msgstr ""
+msgstr "そのカテゴリ内のこのイントロスペクタブルの一意の値を表すハッシュ可能なオブジェクトです。"
 
 #: ../../narr/introspector.rst:79
 msgid "``discriminator_hash``"
-msgstr ""
+msgstr "`` discriminator_hash``"
 
 #: ../../narr/introspector.rst:81
 msgid "The integer hash of the discriminator (useful in HTML links)."
-msgstr ""
+msgstr "ディスクリミネータの整数ハッシュ（HTMLリンクで便利）。"
 
 #: ../../narr/introspector.rst:83
 msgid "``type_name``"
-msgstr ""
+msgstr "`` type_name``"
 
 #: ../../narr/introspector.rst:85
 msgid ""
@@ -129,18 +119,18 @@ msgid ""
 "there is only one type name in this introspectable's category, this value"
 " will often be a singular version of the category name but it can be an "
 "arbitrary value."
-msgstr ""
+msgstr "このイントロスペクブルのカテゴリ内のサブタイプのテキスト名。このイントロスペクブルのカテゴリーに1つのタイプ名しかない場合、この値はカテゴリー名の単数バージョンですが、任意の値にすることができます。"
 
 #: ../../narr/introspector.rst:90
 msgid "``action_info``"
-msgstr ""
+msgstr "`` action_info``"
 
 #: ../../narr/introspector.rst:92
 msgid ""
 "An object describing the directive call site which caused this "
 "introspectable to be registered.  It contains attributes described in "
 ":class:`pyramid.interfaces.IActionInfo`."
-msgstr ""
+msgstr "このイントロスペクティブを登録させるディレクティブ呼び出しサイトを記述するオブジェクト。これは、class： `pyramid.interfaces.IActionInfo`に記述されている属性を含んでいます。"
 
 #: ../../narr/introspector.rst:96
 msgid ""
@@ -148,118 +138,118 @@ msgid ""
 "dictionary-like object.  An introspectable can be queried for data values"
 " via its ``__getitem__``, ``get``, ``keys``, ``values``, or ``items`` "
 "methods. For example:"
-msgstr ""
+msgstr "上で説明した属性を持つことに加えて、イントロスペクタブルは辞書のようなオブジェクトです。 introspectableは、 `` __getitem__``、 `` get``、 `` keys``、 `` values``、または `` items``メソッドを通してデータ値を問い合わせることができます。例えば："
 
 #: ../../narr/introspector.rst:108
 msgid "Pyramid Introspection Categories"
-msgstr ""
+msgstr "ピラミッドのイントロスペクションカテゴリ"
 
 #: ../../narr/introspector.rst:110
 msgid ""
 "The list of concrete introspection categories provided by built-in "
 "Pyramid configuration directives follows.  Add-on packages may supply "
 "other introspectables in categories not described here."
-msgstr ""
+msgstr "組み込みピラミッド設定ディレクティブによって提供される具体的なイントロスペクションカテゴリのリストが続きます。アドオンパッケージは、ここに記載されていないカテゴリで他のイントロスペクタブルを提供することがあります。"
 
 #: ../../narr/introspector.rst:114
 msgid "``subscribers``"
-msgstr ""
+msgstr "``加入者 ``"
 
 #: ../../narr/introspector.rst:116
 msgid ""
 "Each introspectable in the ``subscribers`` category represents a call to "
 ":meth:`pyramid.config.Configurator.add_subscriber` (or the decorator "
 "equivalent).  Each will have the following data."
-msgstr ""
+msgstr "`` subscribers``カテゴリの各イントロスペクタブルは、：meth： `pyramid.config.Configurator.add_subscriber`（またはそれに相当するデコレータ）の呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:120
 msgid "``subscriber``"
-msgstr ""
+msgstr "``加入者 ``"
 
 #: ../../narr/introspector.rst:122
 msgid ""
 "The subscriber callable object (the resolution of the ``subscriber`` "
 "argument passed to ``add_subscriber``)."
-msgstr ""
+msgstr "加入者呼び出し可能オブジェクト（ `` add_subscriber``に渡された `` subscriber``引数の解像度）。"
 
 #: ../../narr/introspector.rst:125
 msgid "``interfaces``"
-msgstr ""
+msgstr "``インターフェース ``"
 
 #: ../../narr/introspector.rst:127
 msgid ""
 "A sequence of interfaces (or classes) that are subscribed to (the "
 "resolution of the ``ifaces`` argument passed to ``add_subscriber``)."
-msgstr ""
+msgstr "サブスクライブされている一連のインタフェース（またはクラス）（ `` add_subscriber``に渡される `` ifaces``引数の解像度）です。"
 
 #: ../../narr/introspector.rst:130
 msgid "``derived_subscriber``"
-msgstr ""
+msgstr "`` derived_subscriber``"
 
 #: ../../narr/introspector.rst:132
 msgid ""
 "A wrapper around the subscriber used internally by the system so it can "
 "call it with more than one argument if your original subscriber accepts "
 "only one."
-msgstr ""
+msgstr "元のサブスクライバが1つだけを受け入れる場合、複数の引数で呼び出すことができるように、システムによって内部的に使用されるサブスクライバのラッパー。"
 
 #: ../../narr/introspector.rst:136
 msgid "``predicates``"
-msgstr ""
+msgstr "``述語 ``"
 
 #: ../../narr/introspector.rst:138
 msgid ""
 "The predicate objects created as the result of passing predicate "
 "arguments to ``add_subscriber``."
-msgstr ""
+msgstr "述語引数を `` add_subscriber``に渡した結果生成された述語オブジェクト。"
 
 #: ../../narr/introspector.rst:141
 msgid "``derived_predicates``"
-msgstr ""
+msgstr "`` derived_predicates``"
 
 #: ../../narr/introspector.rst:143
 msgid ""
 "Wrappers around the predicate objects created as the result of passing "
 "predicate arguments to ``add_subscriber`` (to be used when predicates "
 "take only one value but must be passed more than one)."
-msgstr ""
+msgstr "述語引数を `` add_subscriber``に渡した結果として作成された述語オブジェクトの周りのラッパー（述語が1つの値しか取らずに複数渡されなければならないときに使われる）。"
 
 #: ../../narr/introspector.rst:147
 msgid "``response adapters``"
-msgstr ""
+msgstr "``レスポンスアダプタ ``"
 
 #: ../../narr/introspector.rst:149
 msgid ""
 "Each introspectable in the ``response adapters`` category represents a "
 "call to :meth:`pyramid.config.Configurator.add_response_adapter` (or a "
 "decorator equivalent).  Each will have the following data."
-msgstr ""
+msgstr "``レスポンスアダプタ &#39;&#39;カテゴリの各イントロスペクブルは、：meth： `pyramid.config.Configurator.add_response_adapter`（またはデコレータ相当）の呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:153 ../../narr/introspector.rst:571
 #: ../../narr/introspector.rst:581
 msgid "``adapter``"
-msgstr ""
+msgstr "``アダプター ``"
 
 #: ../../narr/introspector.rst:155
 msgid ""
 "The adapter object (the resolved ``adapter`` argument to "
 "``add_response_adapter``)."
-msgstr ""
+msgstr "アダプタオブジェクト（ `` add_response_adapter``への解決された `` adapter``引数）。"
 
 #: ../../narr/introspector.rst:158 ../../narr/introspector.rst:466
 #: ../../narr/introspector.rst:533
 msgid "``type``"
-msgstr ""
+msgstr "``タイプ ``"
 
 #: ../../narr/introspector.rst:160
 msgid ""
 "The resolved ``type_or_iface`` argument passed to "
 "``add_response_adapter``."
-msgstr ""
+msgstr "解決された `` type_or_iface``引数が `` add_response_adapter``に渡されました。"
 
 #: ../../narr/introspector.rst:162
 msgid "``root factories``"
-msgstr ""
+msgstr "``根の工場 ``"
 
 #: ../../narr/introspector.rst:164
 msgid ""
@@ -268,34 +258,34 @@ msgid ""
 "Configurator constructor equivalent) *or* a ``factory`` argument passed "
 "to :meth:`pyramid.config.Configurator.add_route`.  Each will have the "
 "following data."
-msgstr ""
+msgstr "`` root factories``カテゴリの各イントロスペクブルは：meth： `pyramid.config.Configurator.set_root_factory`（またはConfiguratorのコンストラクタと同等）*または*` factory``引数に渡されたコールを表します：meth： `` pyramid.config.Configurator.add_route`。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:170 ../../narr/introspector.rst:188
 #: ../../narr/introspector.rst:200 ../../narr/introspector.rst:228
 #: ../../narr/introspector.rst:246 ../../narr/introspector.rst:529
 msgid "``factory``"
-msgstr ""
+msgstr "``工場 ``"
 
 #: ../../narr/introspector.rst:172
 msgid ""
 "The factory object (the resolved ``factory`` argument to "
 "``set_root_factory``)."
-msgstr ""
+msgstr "ファクトリオブジェクト（ `` set_root_factory``への `` factory``引数を解決しました）。"
 
 #: ../../narr/introspector.rst:175 ../../narr/introspector.rst:393
 msgid "``route_name``"
-msgstr ""
+msgstr "`` route_name``"
 
 #: ../../narr/introspector.rst:177
 msgid ""
 "The name of the route which will use this factory.  If this is the "
 "*default* root factory (if it's registered during a call to "
 "``set_root_factory``), this value will be ``None``."
-msgstr ""
+msgstr "この工場を使用するルートの名前。これが* default *ルートファクトリ（ `` set_root_factory``の呼び出し中に登録されている場合）の場合、この値は `` None``になります。"
 
 #: ../../narr/introspector.rst:181
 msgid "``session factory``"
-msgstr ""
+msgstr "``セッションファクトリー ``"
 
 #: ../../narr/introspector.rst:183
 msgid ""
@@ -303,17 +293,17 @@ msgid ""
 "It represents a call to "
 ":meth:`pyramid.config.Configurator.set_session_factory` (or the "
 "Configurator constructor equivalent).  It will have the following data."
-msgstr ""
+msgstr "`` session factory``カテゴリには1つのイントロスペクタブルだけが存在します。それは：meth： `pyramid.config.Configurator.set_session_factory`（またはそれに相当するConfiguratorコンストラクタ）の呼び出しを表します。それは次のデータを持っています。"
 
 #: ../../narr/introspector.rst:190
 msgid ""
 "The factory object (the resolved ``factory`` argument to "
 "``set_session_factory``)."
-msgstr ""
+msgstr "ファクトリオブジェクト（ `` set_session_factory``の `` factory``引数を解決しました）。"
 
 #: ../../narr/introspector.rst:193
 msgid "``request factory``"
-msgstr ""
+msgstr "``要求工場 ``"
 
 #: ../../narr/introspector.rst:195
 msgid ""
@@ -321,17 +311,17 @@ msgid ""
 "It represents a call to "
 ":meth:`pyramid.config.Configurator.set_request_factory` (or the "
 "Configurator constructor equivalent).  It will have the following data."
-msgstr ""
+msgstr "`` request factory``カテゴリには1つのイントロスペクタブルだけが存在します。それは：meth： `pyramid.config.Configurator.set_request_factory`（またはそれに相当するConfiguratorコンストラクタ）の呼び出しを表します。それは次のデータを持っています。"
 
 #: ../../narr/introspector.rst:202
 msgid ""
 "The factory object (the resolved ``factory`` argument to "
 "``set_request_factory``)."
-msgstr ""
+msgstr "ファクトリオブジェクト（ `` set_request_factory``への `` factory``引数を解決しました）。"
 
 #: ../../narr/introspector.rst:205
 msgid "``locale negotiator``"
-msgstr ""
+msgstr "「ロケール交渉者」"
 
 #: ../../narr/introspector.rst:207
 msgid ""
@@ -339,187 +329,187 @@ msgid ""
 "  It represents a call to "
 ":meth:`pyramid.config.Configurator.set_locale_negotiator` (or the "
 "Configurator constructor equivalent).  It will have the following data."
-msgstr ""
+msgstr "「ロケール交渉者」カテゴリには、1つのイントロスペクタブルだけが存在する。それは：meth： `pyramid.config.Configurator.set_locale_negotiator`（あるいはそれに相当するConfiguratorコンストラクタ）の呼び出しを表します。それは次のデータを持っています。"
 
 #: ../../narr/introspector.rst:212
 msgid "``negotiator``"
-msgstr ""
+msgstr "&quot;交渉者&quot;"
 
 #: ../../narr/introspector.rst:214
 msgid ""
 "The factory object (the resolved ``negotiator`` argument to "
 "``set_locale_negotiator``)."
-msgstr ""
+msgstr "ファクトリオブジェクト（ `` set_locale_negotiator``の `` negotiator``引数を解決しました）。"
 
 #: ../../narr/introspector.rst:217
 msgid "``renderer factories``"
-msgstr ""
+msgstr "`レンダラー工場` `"
 
 #: ../../narr/introspector.rst:219
 msgid ""
 "Each introspectable in the ``renderer factories`` category represents a "
 "call to :meth:`pyramid.config.Configurator.add_renderer` (or the "
 "Configurator constructor equivalent).  Each will have the following data."
-msgstr ""
+msgstr "`` renderer factories``カテゴリの各イントロスペクトは、：meth： `pyramid.config.Configurator.add_renderer`（またはそれに相当するコンストラクタのコンストラクタ）への呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:223 ../../narr/introspector.rst:238
 #: ../../narr/introspector.rst:371 ../../narr/introspector.rst:462
 #: ../../narr/introspector.rst:524 ../../narr/introspector.rst:551
 msgid "``name``"
-msgstr ""
+msgstr "「名前」"
 
 #: ../../narr/introspector.rst:225
 msgid ""
 "The name of the renderer (the value of the ``name`` argument to "
 "``add_renderer``)."
-msgstr ""
+msgstr "レンダラーの名前（ `` add_renderer``への `` name``引数の値）。"
 
 #: ../../narr/introspector.rst:230
 msgid ""
 "The factory object (the resolved ``factory`` argument to "
 "``add_renderer``)."
-msgstr ""
+msgstr "ファクトリオブジェクト（ `` add_renderer``への `` factory``引数を解決しました）。"
 
 #: ../../narr/introspector.rst:232
 msgid "``routes``"
-msgstr ""
+msgstr "``路線 ``"
 
 #: ../../narr/introspector.rst:234
 msgid ""
 "Each introspectable in the ``routes`` category represents a call to "
 ":meth:`pyramid.config.Configurator.add_route`.  Each will have the "
 "following data."
-msgstr ""
+msgstr "`` routes``カテゴリの各イントロスペクトは、：meth： `pyramid.config.Configurator.add_route`の呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:240
 msgid "The ``name`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` name``引数は `` add_route``に渡されます。"
 
 #: ../../narr/introspector.rst:242
 msgid "``pattern``"
-msgstr ""
+msgstr "``パターン ``"
 
 #: ../../narr/introspector.rst:244
 msgid "The ``pattern`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` add_route``に渡される `` pattern``引数です。"
 
 #: ../../narr/introspector.rst:248
 msgid "The (resolved) ``factory`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` add_route``に渡された（解決された） `` factory``引数です。"
 
 #: ../../narr/introspector.rst:250 ../../narr/introspector.rst:401
 msgid "``xhr``"
-msgstr ""
+msgstr "`` xhr``"
 
 #: ../../narr/introspector.rst:252
 msgid "The ``xhr`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` xhr``引数は `` add_route``に渡されます。"
 
 #: ../../narr/introspector.rst:254
 msgid "``request_method``"
-msgstr ""
+msgstr "`` request_method``"
 
 #: ../../narr/introspector.rst:256
 msgid "The ``request_method`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` add_route``に渡された `` request_method``引数です。"
 
 #: ../../narr/introspector.rst:258 ../../narr/introspector.rst:387
 msgid "``request_methods``"
-msgstr ""
+msgstr "`` request_methods``"
 
 #: ../../narr/introspector.rst:260
 msgid ""
 "A sequence of request method names implied by the ``request_method`` "
 "argument passed to ``add_route`` or the value ``None`` if a "
 "``request_method`` argument was not supplied."
-msgstr ""
+msgstr "`` request_method``引数が暗黙指定されたリクエストメソッド名のシーケンスは、 `` add_route``または `` request_method``引数が与えられていない場合は `` None``に渡されます。"
 
 #: ../../narr/introspector.rst:264 ../../narr/introspector.rst:413
 msgid "``path_info``"
-msgstr ""
+msgstr "`` path_info``"
 
 #: ../../narr/introspector.rst:266
 msgid "The ``path_info`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` add_route``に渡された `` path_info``引数です。"
 
 #: ../../narr/introspector.rst:268 ../../narr/introspector.rst:383
 msgid "``request_param``"
-msgstr ""
+msgstr "`` request_param``"
 
 #: ../../narr/introspector.rst:270
 msgid "The ``request_param`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` add_route``に渡された `` request_param``引数です。"
 
 #: ../../narr/introspector.rst:272 ../../narr/introspector.rst:357
 #: ../../narr/introspector.rst:409
 msgid "``header``"
-msgstr ""
+msgstr "``ヘッダー ``"
 
 #: ../../narr/introspector.rst:274
 msgid "The ``header`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` header``引数は `` add_route``に渡されます。"
 
 #: ../../narr/introspector.rst:276 ../../narr/introspector.rst:405
 msgid "``accept``"
-msgstr ""
+msgstr "「受け入れる」"
 
 #: ../../narr/introspector.rst:278
 msgid "The ``accept`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` accept``引数は `` add_route``に渡されます。"
 
 #: ../../narr/introspector.rst:280
 msgid "``traverse``"
-msgstr ""
+msgstr "「トラバース」"
 
 #: ../../narr/introspector.rst:282
 msgid "The ``traverse`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` traverse``引数が `` add_route``に渡されました。"
 
 #: ../../narr/introspector.rst:284
 msgid "``custom_predicates``"
-msgstr ""
+msgstr "`` custom_predicates``"
 
 #: ../../narr/introspector.rst:286
 msgid "The ``custom_predicates`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` add_route``に渡される `` custom_predicates``引数です。"
 
 #: ../../narr/introspector.rst:288
 msgid "``pregenerator``"
-msgstr ""
+msgstr "`` pregenerator``"
 
 #: ../../narr/introspector.rst:290
 msgid "The ``pregenerator`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` pregenerator``引数が `` add_route``に渡されました。"
 
 #: ../../narr/introspector.rst:292
 msgid "``static``"
-msgstr ""
+msgstr "「静的」"
 
 #: ../../narr/introspector.rst:294
 msgid "The ``static`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` static``引数は `` add_route``に渡されます。"
 
 #: ../../narr/introspector.rst:296
 msgid "``use_global_views``"
-msgstr ""
+msgstr "`` use_global_views``"
 
 #: ../../narr/introspector.rst:298
 msgid "The ``use_global_views`` argument passed to ``add_route``."
-msgstr ""
+msgstr "`` add_route``に渡される `` use_global_views``引数です。"
 
 #: ../../narr/introspector.rst:300
 msgid "``object``"
-msgstr ""
+msgstr "``オブジェクト ``"
 
 #: ../../narr/introspector.rst:302
 msgid ""
 "The :class:`pyramid.interfaces.IRoute` object that is used to perform "
 "matching and generation for this route."
-msgstr ""
+msgstr "：class： `pyramid.interfaces.IRoute`オブジェクト。このルートのマッチングと生成を実行するために使用されます。"
 
 #: ../../narr/introspector.rst:305
 msgid "``authentication policy``"
-msgstr ""
+msgstr "``認証ポリシー ``"
 
 #: ../../narr/introspector.rst:307
 msgid ""
@@ -528,21 +518,21 @@ msgid ""
 ":meth:`pyramid.config.Configurator.set_authentication_policy` method (or "
 "its Configurator constructor equivalent).  It will have the following "
 "data."
-msgstr ""
+msgstr "「認証ポリシー」カテゴリには、1つだけがイントロスペクト可能です。これは、：meth： `pyramid.config.Configurator.set_authentication_policy`メソッド（またはそれに相当するConfiguratorコンストラクタ）の呼び出しを表します。それは次のデータを持っています。"
 
 #: ../../narr/introspector.rst:312 ../../narr/introspector.rst:324
 msgid "``policy``"
-msgstr ""
+msgstr "``政策 ``"
 
 #: ../../narr/introspector.rst:314
 msgid ""
 "The policy object (the resolved ``policy`` argument to "
 "``set_authentication_policy``)."
-msgstr ""
+msgstr "ポリシーオブジェクト（ `` set_authentication_policy``への `` policy``引数を解決しました）。"
 
 #: ../../narr/introspector.rst:317
 msgid "``authorization policy``"
-msgstr ""
+msgstr "``認可政策 ``"
 
 #: ../../narr/introspector.rst:319
 msgid ""
@@ -551,17 +541,17 @@ msgid ""
 ":meth:`pyramid.config.Configurator.set_authorization_policy` method (or "
 "its Configurator constructor equivalent).  It will have the following "
 "data."
-msgstr ""
+msgstr "「認可ポリシー」カテゴリには、1つだけがイントロスペクト可能である。これは：meth： `pyramid.config.Configurator.set_authorization_policy`メソッド（またはそれに相当するConfiguratorコンストラクタ）の呼び出しを表します。それは次のデータを持っています。"
 
 #: ../../narr/introspector.rst:326
 msgid ""
 "The policy object (the resolved ``policy`` argument to "
 "``set_authorization_policy``)."
-msgstr ""
+msgstr "ポリシーオブジェクト（ `` set_authorization_policy``への `` policy``引数を解決しました）。"
 
 #: ../../narr/introspector.rst:329
 msgid "``default permission``"
-msgstr ""
+msgstr "``デフォルト許可 ``"
 
 #: ../../narr/introspector.rst:331
 msgid ""
@@ -569,19 +559,19 @@ msgid ""
 "permission`` category.  It represents a call to the "
 ":meth:`pyramid.config.Configurator.set_default_permission` method (or its"
 " Configurator constructor equivalent).  It will have the following data."
-msgstr ""
+msgstr "`` default permission``カテゴリには、1つだけがイントロスペクト可能です。これは、：meth： `pyramid.config.Configurator.set_default_permission`メソッド（またはそれに相当するConfiguratorコンストラクタ）の呼び出しを表します。それは次のデータを持っています。"
 
 #: ../../narr/introspector.rst:336 ../../narr/introspector.rst:452
 msgid "``value``"
-msgstr ""
+msgstr "「価値」"
 
 #: ../../narr/introspector.rst:338
 msgid "The permission name passed to ``set_default_permission``."
-msgstr ""
+msgstr "許可名は `` set_default_permission``に渡されます。"
 
 #: ../../narr/introspector.rst:340
 msgid "``default csrf options``"
-msgstr ""
+msgstr "``デフォルトcsrfオプション ``"
 
 #: ../../narr/introspector.rst:342
 msgid ""
@@ -589,166 +579,166 @@ msgid ""
 "options`` category. It represents a call to the "
 ":meth:`pyramid.config.Configurator.set_default_csrf_options` method. It "
 "will have the following data."
-msgstr ""
+msgstr "`` default csrf options``カテゴリには、1つだけがイントロスペクト可能です。これは：meth： `pyramid.config.Configurator.set_default_csrf_options`メソッドの呼び出しを表します。それは次のデータを持っています。"
 
 #: ../../narr/introspector.rst:347
 msgid "``require_csrf``"
-msgstr ""
+msgstr "`` require_csrf``"
 
 #: ../../narr/introspector.rst:349
 msgid ""
 "The default value for ``require_csrf`` if left unspecified on calls to "
 ":meth:`pyramid.config.Configurator.add_view`."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_view`の呼び出しで未指定のまま残っている場合は、` `require_csrf``のデフォルト値です。"
 
 #: ../../narr/introspector.rst:352
 msgid "``token``"
-msgstr ""
+msgstr "`` token``"
 
 #: ../../narr/introspector.rst:354
 msgid ""
 "The name of the token searched in ``request.POST`` to find a valid CSRF "
 "token."
-msgstr ""
+msgstr "有効なCSRFトークンを見つけるために `` request.POST``で検索されたトークンの名前。"
 
 #: ../../narr/introspector.rst:359
 msgid "The name of the request header searched to find a valid CSRF token."
-msgstr ""
+msgstr "有効なCSRFトークンを検索するために検索されたリクエストヘッダーの名前。"
 
 #: ../../narr/introspector.rst:361
 msgid "``safe_methods``"
-msgstr ""
+msgstr "`` safe_methods``"
 
 #: ../../narr/introspector.rst:363
 msgid "The list of HTTP methods considered safe and exempt from CSRF checks."
-msgstr ""
+msgstr "安全であり、CSRFのチェックが免除されていると考えられるHTTPメソッドのリスト。"
 
 #: ../../narr/introspector.rst:365
 msgid "``views``"
-msgstr ""
+msgstr "`` views``"
 
 #: ../../narr/introspector.rst:367
 msgid ""
 "Each introspectable in the ``views`` category represents a call to "
 ":meth:`pyramid.config.Configurator.add_view`.  Each will have the "
 "following data."
-msgstr ""
+msgstr "`` views``カテゴリの各イントロスペクタブルは：meth： `pyramid.config.Configurator.add_view`の呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:373
 msgid "The ``name`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` name``引数は `` add_view``に渡されます。"
 
 #: ../../narr/introspector.rst:375
 msgid "``context``"
-msgstr ""
+msgstr "「文脈」"
 
 #: ../../narr/introspector.rst:377
 msgid "The (resolved) ``context`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` add_view``に渡された（解決された） `` context``引数です。"
 
 #: ../../narr/introspector.rst:379
 msgid "``containment``"
-msgstr ""
+msgstr "「封じ込め」"
 
 #: ../../narr/introspector.rst:381
 msgid "The (resolved) ``containment`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` add_view``に（解決された） `containment``引数が渡されました。"
 
 #: ../../narr/introspector.rst:385
 msgid "The ``request_param`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` add_view``に渡された `` request_param``引数です。"
 
 #: ../../narr/introspector.rst:389
 msgid ""
 "A sequence of request method names implied by the ``request_method`` "
 "argument passed to ``add_view`` or the value ``None`` if a "
 "``request_method`` argument was not supplied."
-msgstr ""
+msgstr "`` request_method``引数が暗黙指定された要求メソッド名のシーケンスは、 `` add_view``または `` request_method``引数が与えられていない場合は `` None``に渡されます。"
 
 #: ../../narr/introspector.rst:395
 msgid "The ``route_name`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` add_view``に渡された `` route_name``引数。"
 
 #: ../../narr/introspector.rst:397
 msgid "``attr``"
-msgstr ""
+msgstr "`` attr``"
 
 #: ../../narr/introspector.rst:399
 msgid "The ``attr`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` attr``引数は `` add_view``に渡されます。"
 
 #: ../../narr/introspector.rst:403
 msgid "The ``xhr`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` xhr``引数は `` add_view``に渡されます。"
 
 #: ../../narr/introspector.rst:407
 msgid "The ``accept`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` accept``引数は `` add_view``に渡されます。"
 
 #: ../../narr/introspector.rst:411
 msgid "The ``header`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` header``引数は `` add_view``に渡されます。"
 
 #: ../../narr/introspector.rst:415
 msgid "The ``path_info`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` add_view``に渡された `` path_info``引数です。"
 
 #: ../../narr/introspector.rst:417
 msgid "``match_param``"
-msgstr ""
+msgstr "`` match_param``"
 
 #: ../../narr/introspector.rst:419
 msgid "The ``match_param`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` add_view``に渡された `` match_param``引数です。"
 
 #: ../../narr/introspector.rst:421
 msgid "``csrf_token``"
-msgstr ""
+msgstr "`` csrf_token``"
 
 #: ../../narr/introspector.rst:423
 msgid "The ``csrf_token`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` add_view``に渡された `` csrf_token``引数です。"
 
 #: ../../narr/introspector.rst:425
 msgid "``callable``"
-msgstr ""
+msgstr "`` callable``"
 
 #: ../../narr/introspector.rst:427
 msgid ""
 "The (resolved) ``view`` argument passed to ``add_view``.  Represents the "
 "\"raw\" view callable."
-msgstr ""
+msgstr "`` add_view``に渡された（解決された） `` view``引数。 \ &quot;生の\&quot;ビュー呼び出し可能を表します。"
 
 #: ../../narr/introspector.rst:430
 msgid "``derived_callable``"
-msgstr ""
+msgstr "`` derived_callable``"
 
 #: ../../narr/introspector.rst:432
 msgid ""
 "The view callable derived from the ``view`` argument passed to "
 "``add_view``.  Represents the view callable which Pyramid itself calls "
 "(wrapped in security and other wrappers)."
-msgstr ""
+msgstr "`` add_view``に渡された `` view``引数から派生した呼び出し可能なビューです。 Pyramid自身が呼び出す呼び出し可能なビュー（セキュリティおよびその他のラッパーでラップされたビュー）を表します。"
 
 #: ../../narr/introspector.rst:436 ../../narr/introspector.rst:483
 msgid "``mapper``"
-msgstr ""
+msgstr "``マッパ ``"
 
 #: ../../narr/introspector.rst:438
 msgid "The (resolved) ``mapper`` argument passed to ``add_view``."
-msgstr ""
+msgstr "（解決された） `` mapper``引数が `` add_view``に渡されました。"
 
 #: ../../narr/introspector.rst:440
 msgid "``decorator``"
-msgstr ""
+msgstr "``デコレータ ``"
 
 #: ../../narr/introspector.rst:442
 msgid "The (resolved) ``decorator`` argument passed to ``add_view``."
-msgstr ""
+msgstr "`` add_view``に（解決された） `` decorator``引数が渡されました。"
 
 #: ../../narr/introspector.rst:444
 msgid "``permissions``"
-msgstr ""
+msgstr "``許可 ``"
 
 #: ../../narr/introspector.rst:446
 msgid ""
@@ -757,44 +747,44 @@ msgid ""
 "``permission`` argument *or* a call to "
 ":meth:`pyramid.config.Configurator.set_default_permission`.  Each will "
 "have the following data."
-msgstr ""
+msgstr "`` permissions``カテゴリの各イントロスペクタブルは：meth： `pyramid.config.Configurator.add_view`の呼び出しを表します。これは明示的な` `permission``引数*または*：meth：` pyramid.configの呼び出しを持ちます。 Configurator.set_default_permission`を実行します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:454
 msgid "The permission name passed to ``add_view`` or ``set_default_permission``."
-msgstr ""
+msgstr "許可名は `` add_view``または `` set_default_permission``に渡されます。"
 
 #: ../../narr/introspector.rst:456
 msgid "``templates``"
-msgstr ""
+msgstr "``テンプレート ``"
 
 #: ../../narr/introspector.rst:458
 msgid ""
 "Each introspectable in the ``templates`` category represents a call to "
 ":meth:`pyramid.config.Configurator.add_view` that has a ``renderer`` "
 "argument which points to a template.  Each will have the following data."
-msgstr ""
+msgstr "`` templates``カテゴリの各イントロスペクブルは、テンプレートを指す `` renderer``引数を持つ：meth： `pyramid.config.Configurator.add_view`の呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:464
 msgid "The renderer's name (a string)."
-msgstr ""
+msgstr "レンダラーの名前（文字列）。"
 
 #: ../../narr/introspector.rst:468
 msgid "The renderer's type (a string)."
-msgstr ""
+msgstr "レンダラーの型（文字列）。"
 
 #: ../../narr/introspector.rst:470
 msgid "``renderer``"
-msgstr ""
+msgstr "レンダラー"
 
 #: ../../narr/introspector.rst:472
 msgid ""
 "The :class:`pyramid.interfaces.IRendererInfo` object which represents "
 "this template's renderer."
-msgstr ""
+msgstr "このテンプレートのレンダラを表す：class： `pyramid.interfaces.IRendererInfo`オブジェクトです。"
 
 #: ../../narr/introspector.rst:475
 msgid "``view mappers``"
-msgstr ""
+msgstr "``視界マッパー ``"
 
 #: ../../narr/introspector.rst:477
 msgid ""
@@ -803,46 +793,46 @@ msgid ""
 "``mapper`` argument *or* a call to "
 ":meth:`pyramid.config.Configurator.set_view_mapper`.  Each will have the "
 "following data."
-msgstr ""
+msgstr "`` view mappers``カテゴリの各イントロスペクブルは：meth： `pyramid.config.Configurator.add_view`の呼び出しを表します。これは明示的な` `mapper``引数*または*：meth：` pyramid.config .Configurator.set_view_mapper`。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:485
 msgid ""
 "The (resolved) ``mapper`` argument passed to ``add_view`` or "
 "``set_view_mapper``."
-msgstr ""
+msgstr "（解決された） `` mapper``引数が `` add_view``または `` set_view_mapper``に渡されました。"
 
 #: ../../narr/introspector.rst:488
 msgid "``asset overrides``"
-msgstr ""
+msgstr "「資産オーバーライド」"
 
 #: ../../narr/introspector.rst:490
 msgid ""
 "Each introspectable in the ``asset overrides`` category represents a call"
 " to :meth:`pyramid.config.Configurator.override_asset`.  Each will have "
 "the following data."
-msgstr ""
+msgstr "`` asset overrides``カテゴリの各イントロスペクターは：meth： `pyramid.config.Configurator.override_asset`の呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:494
 msgid "``to_override``"
-msgstr ""
+msgstr "`` to_override``"
 
 #: ../../narr/introspector.rst:496
 msgid "The ``to_override`` argument (an asset spec) passed to ``override_asset``."
-msgstr ""
+msgstr "`` override_asset``に渡される `` to_override``引数（アセット仕様）。"
 
 #: ../../narr/introspector.rst:498
 msgid "``override_with``"
-msgstr ""
+msgstr "`` override_with``"
 
 #: ../../narr/introspector.rst:500
 msgid ""
 "The ``override_with`` argument (an asset spec) passed to "
 "``override_asset``."
-msgstr ""
+msgstr "`` override_asset``に渡される `` override_with``引数（アセット仕様）。"
 
 #: ../../narr/introspector.rst:503
 msgid "``translation directories``"
-msgstr ""
+msgstr "``翻訳ディレクトリ ``"
 
 #: ../../narr/introspector.rst:505
 msgid ""
@@ -850,149 +840,149 @@ msgid ""
 "represents an individual element in a ``specs`` argument passed to "
 ":meth:`pyramid.config.Configurator.add_translation_dirs`.  Each will have"
 " the following data."
-msgstr ""
+msgstr "`` translation directories``カテゴリの各イントロスペクタブルは、 `` specs``引数の個々の要素を：meth： `pyramid.config.Configurator.add_translation_dirs`に渡します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:510
 msgid "``directory``"
-msgstr ""
+msgstr "``ディレクトリ ``"
 
 #: ../../narr/introspector.rst:512
 msgid "The absolute path of the translation directory."
-msgstr ""
+msgstr "変換ディレクトリの絶対パス。"
 
 #: ../../narr/introspector.rst:514 ../../narr/introspector.rst:555
 msgid "``spec``"
-msgstr ""
+msgstr "「仕様」"
 
 #: ../../narr/introspector.rst:516
 msgid "The asset specification passed to ``add_translation_dirs``."
-msgstr ""
+msgstr "資産仕様は `` add_translation_dirs``に渡されます。"
 
 #: ../../narr/introspector.rst:518
 msgid "``tweens``"
-msgstr ""
+msgstr "`` tweens``"
 
 #: ../../narr/introspector.rst:520
 msgid ""
 "Each introspectable in the ``tweens`` category represents a call to "
 ":meth:`pyramid.config.Configurator.add_tween`.  Each will have the "
 "following data."
-msgstr ""
+msgstr "`` tweens``カテゴリの各イントロスペクトは、：meth： `pyramid.config.Configurator.add_tween`の呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:526
 msgid ""
 "The dotted name to the tween factory as a string (passed as the "
 "``tween_factory`` argument to ``add_tween``)."
-msgstr ""
+msgstr "トゥイーンファクトリのドット付きの名前（ `` add_tween``への `` tween_factory``引数として渡される）文字列です。"
 
 #: ../../narr/introspector.rst:531
 msgid "The (resolved) tween factory object."
-msgstr ""
+msgstr "トゥイーンファクトリオブジェクト（解決済み）。"
 
 #: ../../narr/introspector.rst:535
 msgid "``implicit`` or ``explicit`` as a string."
-msgstr ""
+msgstr "``暗黙的 ``または ``明示的 ``を文字列として返します。"
 
 #: ../../narr/introspector.rst:537
 msgid "``under``"
-msgstr ""
+msgstr "``下 ``"
 
 #: ../../narr/introspector.rst:539
 msgid "The ``under`` argument passed to ``add_tween`` (a string)."
-msgstr ""
+msgstr "`` under``引数は `` add_tween``（文字列）に渡されます。"
 
 #: ../../narr/introspector.rst:541
 msgid "``over``"
-msgstr ""
+msgstr "``オーバー ``"
 
 #: ../../narr/introspector.rst:543
 msgid "The ``over`` argument passed to ``add_tween`` (a string)."
-msgstr ""
+msgstr "引数 `` over``は `` add_tween``（文字列）に渡されます。"
 
 #: ../../narr/introspector.rst:545
 msgid "``static views``"
-msgstr ""
+msgstr "``静的ビュー ``"
 
 #: ../../narr/introspector.rst:547
 msgid ""
 "Each introspectable in the ``static views`` category represents a call to"
 " :meth:`pyramid.config.Configurator.add_static_view`.  Each will have the"
 " following data."
-msgstr ""
+msgstr "`` static views``カテゴリの各イントロスペクタブルは：meth： `pyramid.config.Configurator.add_static_view`の呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:553
 msgid "The ``name`` argument provided to ``add_static_view``."
-msgstr ""
+msgstr "`` name_``引数は `` add_static_view``に与えられます。"
 
 #: ../../narr/introspector.rst:557
 msgid ""
 "A normalized version of the ``spec`` argument provided to "
 "``add_static_view``."
-msgstr ""
+msgstr "`` add_static_view``に提供される `` spec``引数の正規化されたバージョンです。"
 
 #: ../../narr/introspector.rst:560
 msgid "``traversers``"
-msgstr ""
+msgstr "`` traversers``"
 
 #: ../../narr/introspector.rst:562
 msgid ""
 "Each introspectable in the ``traversers`` category represents a call to "
 ":meth:`pyramid.config.Configurator.add_traverser`.  Each will have the "
 "following data."
-msgstr ""
+msgstr "`` traversers``カテゴリの各イントロスペクトは、：meth： `pyramid.config.Configurator.add_traverser`への呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:566
 msgid "``iface``"
-msgstr ""
+msgstr "`` iface``"
 
 #: ../../narr/introspector.rst:568
 msgid ""
 "The (resolved) interface or class object that represents the return value"
 " of a root factory for which this traverser will be used."
-msgstr ""
+msgstr "このトラバーサが使用されるルートファクトリの戻り値を表す（解決された）インタフェースまたはクラスオブジェクト。"
 
 #: ../../narr/introspector.rst:573
 msgid "The (resolved) traverser class."
-msgstr ""
+msgstr "トラバーサルクラス（解決済み）。"
 
 #: ../../narr/introspector.rst:575
 msgid "``resource url adapters``"
-msgstr ""
+msgstr "``リソースURLアダプター ``"
 
 #: ../../narr/introspector.rst:577
 msgid ""
 "Each introspectable in the ``resource url adapters`` category represents "
 "a call to :meth:`pyramid.config.Configurator.add_resource_url_adapter`.  "
 "Each will have the following data."
-msgstr ""
+msgstr "`` resource url adapters``カテゴリの各イントロスペクトは、：meth： `pyramid.config.Configurator.add_resource_url_adapter`の呼び出しを表します。それぞれには次のデータがあります。"
 
 #: ../../narr/introspector.rst:583
 msgid "The (resolved) resource URL adapter class."
-msgstr ""
+msgstr "（解決された）リソースURLアダプタクラス。"
 
 #: ../../narr/introspector.rst:585
 msgid "``resource_iface``"
-msgstr ""
+msgstr "`` resource_iface``"
 
 #: ../../narr/introspector.rst:587
 msgid ""
 "The (resolved) interface or class object that represents the resource "
 "interface for which this URL adapter is registered."
-msgstr ""
+msgstr "このURLアダプタが登録されているリソースインタフェースを表す（解決された）インタフェースまたはクラスオブジェクト。"
 
 #: ../../narr/introspector.rst:590
 msgid "``request_iface``"
-msgstr ""
+msgstr "`` request_iface``"
 
 #: ../../narr/introspector.rst:592
 msgid ""
 "The (resolved) interface or class object that represents the request "
 "interface for which this URL adapter is registered."
-msgstr ""
+msgstr "このURLアダプタが登録されている要求インターフェイスを表す（解決された）インターフェイスまたはクラスオブジェクト。"
 
 #: ../../narr/introspector.rst:596
 msgid "Introspection in the Toolbar"
-msgstr ""
+msgstr "ツールバーのイントロスペクション"
 
 #: ../../narr/introspector.rst:598
 msgid ""
@@ -1000,22 +990,22 @@ msgid ""
 "provides a canned view of all registered introspectables and their "
 "relationships.  It is currently under the \"Global\" tab in the main "
 "navigation, and it looks something like this:"
-msgstr ""
+msgstr "Pyramidのデバッグツールバー（ `` pyramid_debugtoolbar``パッケージの一部）は、登録されたすべてのイントロスペクタブルとそれらの関係を表示します。これは現在、メインナビゲーションの\ &quot;グローバル\&quot;タブの下にあり、次のようになります。"
 
 #: ../../narr/introspector.rst:606
 msgid "Disabling Introspection"
-msgstr ""
+msgstr "イントロスペクションを無効にする"
 
 #: ../../narr/introspector.rst:608
 msgid ""
 "You can disable Pyramid introspection by passing the flag "
 "``introspection=False`` to the :term:`Configurator` constructor in your "
 "application setup:"
-msgstr ""
+msgstr "ピラミッドのイントロスペクションを無効にするには、アプリケーション設定の：term： `Configurator`コンストラクタにフラグ` `introspection = False``を渡します："
 
 #: ../../narr/introspector.rst:617
 msgid ""
 "When ``introspection`` is ``False``, all introspectables generated by "
 "configuration directives are thrown away."
-msgstr ""
+msgstr "``イントロスペクション ``が `` False``のとき、設定ディレクティブによって生成されたイントロスペクショナブルはすべて破棄されます。"
 

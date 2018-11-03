@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2018, Agendaless Consulting
+# This file is distributed under the same license as the The Pyramid Web Framework package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-28 18:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../quick_tutorial/static_assets.rst:5
+msgid "13: CSS/JS/Images Files With Static Assets"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:7
+msgid "Of course the Web is more than just markup. You need static assets: CSS, JS, and images. Let's point our web app at a directory where Pyramid will serve some static assets."
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:12
+msgid "Objectives"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:14
+msgid "Publish a directory of static assets at a URL."
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:16
+msgid "Use Pyramid to help generate URLs to files in that directory."
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:20
+msgid "Steps"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:22
+msgid "First we copy the results of the ``view_classes`` step:"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:29
+msgid "We add a call ``config.add_static_view`` in ``static_assets/tutorial/__init__.py``:"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:35
+msgid "We can add a CSS link in the ``<head>`` of our template at ``static_assets/tutorial/home.pt``:"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:41
+msgid "Add a CSS file at ``static_assets/tutorial/static/app.css``:"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:46
+msgid "We add a functional test that asserts that the newly added static file is delivered:"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:53
+msgid "Now run the tests:"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:61
+msgid "Run your Pyramid application with:"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:67
+msgid "Open http://localhost:6543/ in your browser and note the new font."
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:71
+msgid "Analysis"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:73
+msgid "We changed our WSGI application to map requests under http://localhost:6543/static/ to files and directories inside a ``static`` directory inside our ``tutorial`` package. This directory contained ``app.css``."
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:78
+msgid "We linked to the CSS in our template. We could have hard-coded this link to ``/static/app.css``. But what if the site is later moved under ``/somesite/static/``? Or perhaps the web developer changes the arrangement on disk? Pyramid gives a helper that provides flexibility on URL generation:"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:87
+msgid "This matches the ``path='tutorial:static'`` in our ``config.add_static_view`` registration. By using ``request.static_url`` to generate the full URL to the static assets, you both ensure you stay in sync with the configuration and gain refactoring flexibility later."
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:94
+msgid "Extra credit"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:96
+msgid "There is also a ``request.static_path`` API.  How does this differ from ``request.static_url``?"
+msgstr ""
+
+#: ../../quick_tutorial/static_assets.rst:99
+msgid ":ref:`assets_chapter`, :ref:`preventing_http_caching`, and :ref:`influencing_http_caching`"
+msgstr ""
+

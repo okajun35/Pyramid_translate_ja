@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../api/authorization.rst:4
 msgid ":mod:`pyramid.authorization`"
-msgstr ""
+msgstr "(機械翻訳) :mod:`pyramid.authorization`"
 
 #: of pyramid.authorization.ACLAuthorizationPolicy:1
 msgid ""
@@ -29,7 +19,7 @@ msgid ""
 "about a :term:`principal` or multiple principals. If the context is part "
 "of a :term:`lineage`, the context's parents are consulted for ACL "
 "information too.  The following is true about this security policy."
-msgstr ""
+msgstr "a：term： `認証ポリシー`：a term： `principal`または複数のプリンシパルに関する認可情報を決定するためにa：term：` context`にアタッチされた：term： `ACL`オブジェクトを参照します。コンテキストが：term： `lineage`の一部である場合、ACL情報についてもコンテキストの親が参照されます。このセキュリティポリシーについて次のことが当てはまります。"
 
 #: of pyramid.authorization.ACLAuthorizationPolicy:8
 msgid ""
@@ -39,7 +29,7 @@ msgid ""
 "ACL does not explicitly allow or deny access for any of the effective "
 "principals, consult the context's parent ACL, and so on, until the "
 "lineage is exhausted or we determine that the policy permits or denies."
-msgstr ""
+msgstr "&#39;現在の&#39;ユーザが（ `` permits``メソッドで）許可されているかどうかをチェックするとき、セキュリティポリシーは最初にACLの `` context``を調べます。コンテキストにACLが存在しない場合、またはACLが存在していても、ACLが有効なプリンシパルに対して明示的に許可または拒否していない場合は、コンテキストの親ACLを参照して、系統が使い果たされるか、許可または拒否。"
 
 #: of pyramid.authorization.ACLAuthorizationPolicy:16
 msgid ""
@@ -52,7 +42,7 @@ msgid ""
 "immediately.  If we exhaust the context's :term:`lineage`, and no ACE has"
 " explicitly permitted or denied access, return an instance of "
 ":class:`pyramid.security.ACLDenied` (equals ``False``)."
-msgstr ""
+msgstr "この処理中に、data： `pyramid.security.Deny` ACEが` principals`内のプリンシパルと一致する場合、：class： `pyramid.security.ACLDenied`インスタンスを返して処理を停止します（` `False ``）すぐに。 any：data： `pyramid.security.Allow` ACEがプリンシパルと一致する場合、直ちに：class：` pyramid.security.ACLAllowed`インスタンス（ `` True``に等しい）を返して処理を停止します。コンテキストのterm： `lineage`を使い果たし、ACEが明示的にアクセスを許可または拒否していない場合は、class：` pyramid.security.ACLDenied`（ `` False``に等しい）のインスタンスを返します。"
 
 #: of pyramid.authorization.ACLAuthorizationPolicy:29
 msgid ""
@@ -72,11 +62,11 @@ msgid ""
 "all principals encountered in previous ACLs.  The walking process ends "
 "after we've processed the any ACL directly attached to ``context``; a set"
 " of principals is returned."
-msgstr ""
+msgstr "：func： `pyramid.security.principals_allowed_by_permission`メソッドで許可されたプリンシパルを計算するとき、与えられた` `context``に` `permission``が明示的に与えられたプリンシパルの集合を計算します。これを行うには、オブジェクトグラフ*をルート*からコンテキストに移動します。このウォーキングプロセス中に、「permission」に一致するプリンシパルに対して明示的な：data： `pyramid.security.Allow` ACEが見つかると、プリンシパルは許可リストに含まれます。ただし、後でウォーキングプロセスでプリンシパルがアクセス許可のany：data： `pyramid.security.Deny` ACEに記述されている場合、プリンシパルは許可リストから削除されます。 `permission`と一致するウォーキングプロセス中にプリンシパル：data：` pyramid.security.Everyone`への：data： `pyramid.security.Deny`が発生した場合、遭遇したすべてのプリンシパルに対して許可リストがクリアされます以前のACLウォーニングプロセスは、 `` context``に直接付加されたACLを処理した後で終了します。一連のプリンシパルが返されます。"
 
 #: of pyramid.authorization.ACLAuthorizationPolicy:47
 msgid ""
 "Objects of this class implement the "
 ":class:`pyramid.interfaces.IAuthorizationPolicy` interface."
-msgstr ""
+msgstr "このクラスのオブジェクトは：class： `pyramid.interfaces.IAuthorizationPolicy`インタフェースを実装しています。"
 

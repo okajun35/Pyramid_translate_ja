@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Advanced Configuration &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) 高度な設定 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Extending Pyramid Configuration" href="extconfig.html" />
-    <link rel="prev" title="Extending an Existing Pyramid Application" href="extending.html" />
+    <link rel="next" title="(機械翻訳) ピラミッド構成の拡張" href="extconfig.html" />
+    <link rel="prev" title="(機械翻訳) 既存の Pyramid アプリケーションの拡張" href="extending.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="extconfig.html" title="Extending Pyramid Configuration"
+          <a href="extconfig.html" title="(機械翻訳) ピラミッド構成の拡張"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="extending.html" title="Extending an Existing Pyramid Application"
+          <a href="extending.html" title="(機械翻訳) 既存の Pyramid アプリケーションの拡張"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,16 +69,11 @@
           <div class="body" role="main">
             
   <div class="section" id="advanced-configuration">
-<span id="advconfig-narr"></span><span id="index-0"></span><h1>Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>To support application extensibility, the <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a>
-by default detects configuration conflicts and allows you to include
-configuration imperatively from other packages or modules.  It also by default
-performs configuration in two separate phases.  This allows you to ignore
-relative configuration statement ordering in some circumstances.</p>
+<span id="advconfig-narr"></span><span id="index-0"></span><h1>(機械翻訳) 高度な設定<a class="headerlink" href="#advanced-configuration" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>アプリケーションの拡張性をサポートするため、：app： <cite>Pyramid</cite>：term：` Configurator`はデフォルトで設定の競合を検出し、他のパッケージやモジュールからの設定を必須に含めることができます。また、デフォルトでは、2つの別々のフェーズで構成を実行します。これにより、状況によっては相対的な構成ステートメントの順序を無視することができます。</p>
 <div class="section" id="conflict-detection">
-<span id="index-1"></span><span id="id1"></span><h2>Conflict Detection<a class="headerlink" href="#conflict-detection" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Here's a familiar example of one of the simplest <span>Pyramid</span> applications,
-configured imperatively:</p>
+<span id="index-1"></span><span id="id1"></span><h2>競合検出<a class="headerlink" href="#conflict-detection" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここでは、最も単純なapp： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`アプリケーションのおなじみの例を挙げます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -106,9 +101,7 @@ configured imperatively:</p>
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>When you start this application, all will be OK.  However, what happens if we
-try to add another view to the configuration with the same set of
-<a class="reference internal" href="../glossary.html#term-predicate"><span class="xref std std-term">predicate</span></a> arguments as one we've already added?</p>
+<p>このアプリケーションを起動すると、すべてがOKになります。しかし、同じ：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>predicate`引数を既に設定したものと同じ設定で別のビューを設定に追加しようとするとどうなりますか？</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -152,9 +145,7 @@ try to add another view to the configuration with the same set of
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>The application now has two conflicting view configuration statements.  When we
-try to start it again, it won't start.  Instead we'll receive a traceback that
-ends something like this:</p>
+<p>アプリケーションに2つの競合するビュー構成ステートメントがあります。もう一度やり直すと、それは始まりません。代わりに、次のような終わりのトレースバックを受け取ります：</p>
 <div class="highlight-text notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -184,70 +175,39 @@ pyramid.exceptions.ConfigurationConflictError:
   Line 17 of file app.py in &lt;module&gt;: &#39;config.add_view(goodbye_world)&#39;
 </pre></div>
 </td></tr></table></div>
-<p>This traceback is trying to tell us:</p>
+<p>このトレースバックは私たちに伝えようとしています：</p>
 <ul class="simple">
-<li>We've got conflicting information for a set of view configuration statements
-(The <code class="docutils literal notranslate"><span class="pre">For:</span></code> line).</li>
-<li>There are two statements which conflict, shown beneath the <code class="docutils literal notranslate"><span class="pre">For:</span></code> line:
-<code class="docutils literal notranslate"><span class="pre">config.add_view(hello_world.</span> <span class="pre">'hello')</span></code> on line 14 of <code class="docutils literal notranslate"><span class="pre">app.py</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">config.add_view(goodbye_world,</span> <span class="pre">'hello')</span></code> on line 17 of <code class="docutils literal notranslate"><span class="pre">app.py</span></code>.</li>
+<li>一連のビュー設定ステートメント（ `` For： <a href="#id1"><span class="problematic" id="id2">``</span></a>行）の情報が矛盾しています。</li>
+<li>`` for： `` app.py`の14行目の `` For： <a href="#id1"><span class="problematic" id="id2">``</span></a>の行の下に表示される `` config.add_view（hello_world。 &amp;#39;hello&amp;#39;） <a href="#id3"><span class="problematic" id="id4">``</span></a>と `` config.add_view （goodbye_world、 &amp;#39;hello&amp;#39;） `` app.py`の17行目にあります。</li>
 </ul>
-<p>These two configuration statements are in conflict because we've tried to tell
-the system that the set of <a class="reference internal" href="../glossary.html#term-predicate"><span class="xref std std-term">predicate</span></a> values for both view
-configurations are exactly the same.  Both the <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> and
-<code class="docutils literal notranslate"><span class="pre">goodbye_world</span></code> views are configured to respond under the same set of
-circumstances.  This circumstance, the <a class="reference internal" href="../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> represented by the
-<code class="docutils literal notranslate"><span class="pre">name=</span></code> predicate, is <code class="docutils literal notranslate"><span class="pre">hello</span></code>.</p>
-<p>This presents an ambiguity that <span>Pyramid</span> cannot resolve. Rather than
-allowing the circumstance to go unreported, by default Pyramid raises a
-<code class="xref py py-exc docutils literal notranslate"><span class="pre">ConfigurationConflictError</span></code> error and prevents the application from
-running.</p>
-<p>Conflict detection happens for any kind of configuration: imperative
-configuration or configuration that results from the execution of a
-<a class="reference internal" href="../glossary.html#term-scan"><span class="xref std std-term">scan</span></a>.</p>
+<p>これらの2つの構成ステートメントは、両方のビュー構成のset：term： <cite>predicate`値がまったく同じであることをシステムに伝えようとしたため、矛盾しています。 `</cite> hello_world``と `` goodbye_world``の両方のビューは、同じ状況下で応答するように設定されています。この状況は、 `` name = <a href="#id1"><span class="problematic" id="id2">``</span></a>述語で表される：term： <cite>view name`は</cite> <a href="#id3"><span class="problematic" id="id4">`</span></a>hello``です。</p>
+<p>これはあいまいさをもたらす：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`は解決できません。状況が報告されないようにするのではなく、Pyramidはデフォルトで：exc： <a href="#id3"><span class="problematic" id="id4">`</span></a>ConfigurationConflictError`エラーを発生させ、アプリケーションの実行を防ぎます。</p>
+<p>競合の検出は、どのような種類の設定でも起こります：a：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>scan`の実行の結果生じる必須の設定または設定です。</p>
 <div class="section" id="manually-resolving-conflicts">
-<span id="id2"></span><h3>Manually Resolving Conflicts<a class="headerlink" href="#manually-resolving-conflicts" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>There are a number of ways to manually resolve conflicts: by changing
-registrations to not conflict, by strategically using
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.commit()</span></code></a>, or by using an &quot;autocommitting&quot;
-configurator.</p>
+<span id="id2"></span><h3>競合の手動解決<a class="headerlink" href="#manually-resolving-conflicts" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>競合を手動で解決するには、：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.commit`を戦略的に使用するか、または「自動コミット」コンフィギュレータを使用して、競合しないように登録を変更する方法があります。</p>
 <div class="section" id="the-right-thing">
-<h4>The Right Thing<a class="headerlink" href="#the-right-thing" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>The most correct way to resolve conflicts is to &quot;do the needful&quot;: change your
-configuration code to not have conflicting configuration statements.  The
-details of how this is done depends entirely on the configuration statements
-made by your application.  Use the detail provided in the
-<code class="xref py py-exc docutils literal notranslate"><span class="pre">ConfigurationConflictError</span></code> to track down the offending conflicts and
-modify your configuration code accordingly.</p>
-<p>If you're getting a conflict while trying to extend an existing application,
-and that application has a function which performs configuration like this one:</p>
+<h4>良い行い<a class="headerlink" href="#the-right-thing" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>競合を解決する最も正しい方法は、必要な作業を行うことです：競合する構成ステートメントを持たないように構成コードを変更します。これがどのように行われるかの詳細は、アプリケーションによって行われた構成ステートメントに完全に依存します。 ：exc： <a href="#id1"><span class="problematic" id="id2">`</span></a>ConfigurationConflictError`で提供されている詳細を使用して問題の衝突を追跡し、それに応じて設定コードを変更します。</p>
+<p>既存のアプリケーションを拡張しようとする際に競合が発生し、そのアプリケーションが次のような構成を実行する機能を持っている場合は、</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_routes</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
     <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Don't call this function directly with <code class="docutils literal notranslate"><span class="pre">config</span></code> as an argument.  Instead, use
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a>:</p>
+<p>この関数を `` config``を引数として直接呼び出さないでください。代わりに、：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.include`を使用してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="n">add_routes</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Using <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">include()</span></code></a> instead of calling the
-function directly provides a modicum of automated conflict resolution, with the
-configuration statements you define in the calling code overriding those of the
-included function.</p>
+<p>関数を直接呼び出す代わりに：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.include`を使うと、呼び出したコードで定義した設定ステートメントが、インクルードされた関数のものよりも優先され、自動的に競合解消が行われます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">See also <a class="reference internal" href="#automatic-conflict-resolution"><span class="std std-ref">Automatic Conflict Resolution</span></a> and
-<a class="reference internal" href="#including-configuration"><span class="std std-ref">Including Configuration from External Sources</span></a>.</p>
+<p class="last">ref： <cite>automatic_conflict_resolution`と：ref：</cite> including_configuration`も参照してください。</p>
 </div>
 </div>
 <div class="section" id="using-config-commit">
-<h4>Using <code class="docutils literal notranslate"><span class="pre">config.commit()</span></code><a class="headerlink" href="#using-config-commit" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>You can manually commit a configuration by using the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commit()</span></code></a> method between configuration calls.
-For example, we prevent conflicts from occurring in the application we examined
-previously as the result of adding a <code class="docutils literal notranslate"><span class="pre">commit</span></code>.  Here's the application that
-generates conflicts:</p>
+<h4>`` config.commit（） <a href="#id1"><span class="problematic" id="id2">``</span></a>を使う<a class="headerlink" href="#using-config-commit" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>コンフィグレーションコール間で：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.commit`メソッドを使って手動でコンフィグレーションをコミットすることができます。たとえば、以前に &amp;quot;commit&amp;quot;を追加した結果、アプリケーションで競合が発生しないようにします。競合を生成するアプリケーションは次のとおりです。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -291,8 +251,7 @@ generates conflicts:</p>
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>We can prevent the two <code class="docutils literal notranslate"><span class="pre">add_view</span></code> calls from conflicting by issuing a call to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commit()</span></code></a> between them:</p>
+<p>2つの `` add_view``呼び出しが衝突するのを防ぐには：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.commit`を呼び出します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -340,20 +299,14 @@ generates conflicts:</p>
     <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>In the above example we've issued a call to
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commit()</span></code></a> between the two <code class="docutils literal notranslate"><span class="pre">add_view</span></code> calls.
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commit()</span></code></a> will execute any pending
-configuration statements.</p>
-<p>Calling <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commit()</span></code></a> is safe at any time.  It
-executes all pending configuration actions and leaves the configuration action
-list &quot;clean&quot;.</p>
+<p>上記の例では、2つの `` add_view``呼び出しの間に：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.commit`を呼び出しました。 ：meth： <a href="#id3"><span class="problematic" id="id4">`</span></a>〜pyramid.config.Configurator.commit`は保留中の設定文を実行します。</p>
+<p>呼び出し：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.commit`はいつでも安全です。すべての保留中の設定アクションを実行し、設定アクションリスト&amp;quot;クリーン&amp;quot;を残します。</p>
 <p>Note that <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commit()</span></code></a> has no effect when you're
-using an <em>autocommitting</em> configurator (see <a class="reference internal" href="#autocommitting-configurator"><span class="std std-ref">Using an Autocommitting Configurator</span></a>).</p>
+using an <em>autocommitting</em> configurator (see <a class="reference internal" href="#autocommitting-configurator"><span class="std std-ref">自動コミット・コンフィグレータの使用</span></a>).</p>
 </div>
 <div class="section" id="using-an-autocommitting-configurator">
-<span id="autocommitting-configurator"></span><h4>Using an Autocommitting Configurator<a class="headerlink" href="#using-an-autocommitting-configurator" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>You can also use a heavy hammer to circumvent conflict detection by using a
-configurator constructor parameter: <code class="docutils literal notranslate"><span class="pre">autocommit=True</span></code>.  For example:</p>
+<span id="autocommitting-configurator"></span><h4>自動コミット・コンフィグレータの使用<a class="headerlink" href="#using-an-autocommitting-configurator" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>重いハンマーを使用して、コンフリクト検出を回避することもできます。コンストラクタコンストラクタのパラメータは `` autocommit = True``です。例えば：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -363,77 +316,37 @@ configurator constructor parameter: <code class="docutils literal notranslate"><
     <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">autocommit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>When the <code class="docutils literal notranslate"><span class="pre">autocommit</span></code> parameter passed to the Configurator is <code class="docutils literal notranslate"><span class="pre">True</span></code>,
-conflict detection (and <a class="reference internal" href="#twophase-config"><span class="std std-ref">Two-Phase Configuration</span></a>) is disabled.  Configuration
-statements will be executed immediately, and succeeding statements will
-override preceding ones.</p>
-<p><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.commit" title="pyramid.config.Configurator.commit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commit()</span></code></a> has no effect when <code class="docutils literal notranslate"><span class="pre">autocommit</span></code>
-is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<p>If you use a Configurator in code that performs unit testing, it's usually a
-good idea to use an autocommitting Configurator, because you are usually
-unconcerned about conflict detection or two-phase configuration in test code.</p>
+<p>Configuratorに渡される `` autocommit``パラメータが `` True``の場合、競合検出（：：：twophase_config）が無効になります。構成文は直ちに実行され、後続の文は先行する文を上書きします。</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.commit`は</cite> <cite>autocommit``が</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>True``のときは効果がありません。</p>
+<p>単体テストを実行するコードでコンフィグレータを使用する場合は、通常、コンフリクトの検出やテストコードの2段階コンフィグレーションに関心がないため、自動コミットコンフィグレータを使用することをお勧めします。</p>
 </div>
 </div>
 <div class="section" id="automatic-conflict-resolution">
-<span id="id3"></span><h3>Automatic Conflict Resolution<a class="headerlink" href="#automatic-conflict-resolution" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>If your code uses the <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">include()</span></code></a> method to
-include external configuration, some conflicts are automatically resolved.
-Configuration statements that are made as the result of an &quot;include&quot; will be
-overridden by configuration statements that happen within the caller of the
-&quot;include&quot; method.</p>
-<p>Automatic conflict resolution supports this goal.  If a user wants to reuse a
-Pyramid application, and they want to customize the configuration of this
-application without hacking its code &quot;from outside&quot;, they can &quot;include&quot; a
-configuration function from the package and override only some of its
-configuration statements within the code that does the include.  No conflicts
-will be generated by configuration statements within the code that does the
-including, even if configuration statements in the included code would conflict
-if it was moved &quot;up&quot; to the calling code.</p>
+<span id="id3"></span><h3>自動競合解決<a class="headerlink" href="#automatic-conflict-resolution" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>あなたのコードが：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.include`メソッドを使用して外部設定を組み込む場合、いくつかの競合が自動的に解決されます。 &amp;quot;include &amp;quot;の結果として構成された構成ステートメントは、&amp;quot;include &amp;quot;メソッドの呼び出し元で発生する構成ステートメントによってオーバーライドされます。</p>
+<p>自動競合解決は、この目標をサポートします。 Pyramidアプリケーションを再利用したいときに、コードを外部からハッキングせずにこのアプリケーションの設定をカスタマイズしたい場合は、パッケージの設定関数を &amp;quot;インクルード&amp;quot;して、その一部だけを上書きすることができますインクルードを行うコード内の構成ステートメント含まれているコード内の構成ステートメントが呼び出しコードに移動した場合に競合する場合でも、インクルードするコード内の構成ステートメントによって競合は発生しません。</p>
 </div>
 <div class="section" id="methods-which-provide-conflict-detection">
-<h3>Methods Which Provide Conflict Detection<a class="headerlink" href="#methods-which-provide-conflict-detection" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>These are the methods of the configurator which provide conflict detection:</p>
-<p><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_renderer" title="pyramid.config.Configurator.add_renderer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_renderer()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_request_method" title="pyramid.config.Configurator.add_request_method"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_request_method()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_request_factory" title="pyramid.config.Configurator.set_request_factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_request_factory()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_session_factory" title="pyramid.config.Configurator.set_session_factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_session_factory()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_request_property" title="pyramid.config.Configurator.set_request_property"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_request_property()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_root_factory" title="pyramid.config.Configurator.set_root_factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_root_factory()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_view_mapper" title="pyramid.config.Configurator.set_view_mapper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_view_mapper()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_authentication_policy" title="pyramid.config.Configurator.set_authentication_policy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_authentication_policy()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_authorization_policy" title="pyramid.config.Configurator.set_authorization_policy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_authorization_policy()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_locale_negotiator" title="pyramid.config.Configurator.set_locale_negotiator"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_locale_negotiator()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.set_default_permission" title="pyramid.config.Configurator.set_default_permission"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_default_permission()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_traverser" title="pyramid.config.Configurator.add_traverser"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_traverser()</span></code></a>,
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_resource_url_adapter" title="pyramid.config.Configurator.add_resource_url_adapter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_resource_url_adapter()</span></code></a>,
-and <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_response_adapter" title="pyramid.config.Configurator.add_response_adapter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_response_adapter()</span></code></a>.</p>
-<p><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_static_view()</span></code></a> also indirectly provides
-conflict detection, because it's implemented in terms of the conflict-aware
-<code class="docutils literal notranslate"><span class="pre">add_route</span></code> and <code class="docutils literal notranslate"><span class="pre">add_view</span></code> methods.</p>
+<h3>競合検出を提供する方法<a class="headerlink" href="#methods-which-provide-conflict-detection" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>競合検出を提供するコンフィギュレータのメソッドは次のとおりです。</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.add_view</cite>、：meth：<cite>〜pyramid.config.Configurator.add_route</cite>、：meth： <cite>〜pyramid.config.Configurator.add_renderer</cite>、：meth：<cite>〜pyramid.config .Met： `〜pyramid.config.Configurator.set_request_property</cite>：：meth：<cite>〜pyramid.config.Configurator.set_session_factory</cite>、：meth： <cite>〜pyramid.config.Configurator.set_request_property</cite>、：meth ：〜pyramid.config.Configurator.set_root_factory`、：meth： <cite>〜pyramid.config.Configurator.set_view_mapper</cite>、：meth：<cite>〜pyramid.config.Configurator.set_authentication_policy</cite>、：meth： <cite>〜pyramid.config.Configurator .set_authorization_policy</cite>、：meth： <cite>〜pyramid.config.Configurator.add_traverser</cite>、：meth：<cite>〜pyramid.config.Configurator.add_policy</cite>、：meth： <cite>〜pyramid.config.Configurator.add_traverser</cite>、：meth：<cite>〜pyramid.config.Configurator.set_default_permission</cite>、 〜pyramid.config.Configurator.add_resource_url_adapter`、および：meth： <cite>〜pyramid.config.Configurator.add_response_adapter</cite>。</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.add_static_view`は、コンフリクトを認識した</cite> <cite>add_route``と</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>add_view``メソッドの観点から実装されているので、間接的にコンフリクト検出を提供します。</p>
 </div>
 </div>
 <div class="section" id="including-configuration-from-external-sources">
-<span id="including-configuration"></span><span id="index-2"></span><h2>Including Configuration from External Sources<a class="headerlink" href="#including-configuration-from-external-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Some application programmers will factor their configuration code in such a way
-that it is easy to reuse and override configuration statements.  For example,
-such a developer might factor out a function used to add routes to their
-application:</p>
+<span id="including-configuration"></span><span id="index-2"></span><h2>外部ソースからの設定を含む<a class="headerlink" href="#including-configuration-from-external-sources" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アプリケーションプログラマの中には、構成ステートメントを再利用して上書きする方法で構成コードを考慮するものもあります。たとえば、そのような開発者は、アプリケーションにルートを追加するために使用される関数を除外することができます。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_routes</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
     <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Rather than calling this function directly with <code class="docutils literal notranslate"><span class="pre">config</span></code> as an argument,
-instead use <a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a>:</p>
+<p>この関数を `` config``を引数として直接呼び出すのではなく、代わりに：meth： <cite>pyramid.config.Configurator.include</cite>：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="n">add_routes</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Using <code class="docutils literal notranslate"><span class="pre">include</span></code> rather than calling the function directly will allow
-<a class="reference internal" href="#automatic-conflict-resolution"><span class="std std-ref">Automatic Conflict Resolution</span></a> to work.</p>
-<p><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">include()</span></code></a> can also accept a <a class="reference internal" href="../glossary.html#term-module"><span class="xref std std-term">module</span></a>
-as an argument:</p>
+<p>関数を直接呼び出すのではなく、 `` include``を使うと：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>automatic_conflict_resolution`が動作するようになります。</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.include`は：term：</cite> module`を引数として受け入れることもできます：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">myapp</span>
@@ -441,62 +354,38 @@ as an argument:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="n">myapp</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>For this to work properly, the <code class="docutils literal notranslate"><span class="pre">myapp</span></code> module must contain a callable with
-the special name <code class="docutils literal notranslate"><span class="pre">includeme</span></code>, which should perform configuration (like the
-<code class="docutils literal notranslate"><span class="pre">add_routes</span></code> callable we showed above as an example).</p>
-<p><a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">include()</span></code></a> can also accept a <a class="reference internal" href="../glossary.html#term-dotted-python-name"><span class="xref std std-term">dotted
-Python name</span></a> to a function or a module.</p>
+<p>これが正しく動作するためには、 `` myapp``モジュールは特別な名前 `` includeme`を持つ呼び出し可能なものを含んでいなければなりません（上記の `` add_routes``呼び出しのように）</p>
+<p>：meth： <cite>〜pyramid.config.Configurator.include`は、：term：</cite> dotted Python name`を関数またはモジュールに受け入れることもできます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">See <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-zcml/en/latest/narr.html#the-include-tag" title="(in pyramid_zcml v1.1.0)"><span>The &lt;include&gt; Tag</span></a> for a declarative alternative to the
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">include()</span></code></a> method.</p>
+<p class="last">：meth： <cite>〜pyramid.config.Configurator.include`メソッドの宣言的な代替方法については：ref：</cite> the_include_tag`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="two-phase-configuration">
-<span id="twophase-config"></span><h2>Two-Phase Configuration<a class="headerlink" href="#two-phase-configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>When a non-autocommitting <a class="reference internal" href="../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> is used to do configuration (the
-default), configuration execution happens in two phases.  In the first phase,
-&quot;eager&quot; configuration actions (actions that must happen before all others, such
-as registering a renderer) are executed, and <em>discriminators</em> are computed for
-each of the actions that depend on the result of the eager actions.  In the
-second phase, the discriminators of all actions are compared to do conflict
-detection.</p>
-<p>Due to this, for configuration methods that have no internal ordering
-constraints, execution order of configuration method calls is not important.
-For example, the relative ordering of
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_view" title="pyramid.config.Configurator.add_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_view()</span></code></a> and
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_renderer" title="pyramid.config.Configurator.add_renderer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_renderer()</span></code></a> is unimportant when a
-non-autocommitting configurator is used.  This code snippet:</p>
+<span id="twophase-config"></span><h2>二相構成<a class="headerlink" href="#two-phase-configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>非自動コミッティング：用語：Configuratorを使用して構成（デフォルト）を行うと、構成の実行は2つのフェーズで行われます。最初のフェーズでは、 &amp;quot;eager&amp;quot;構成アクション（レンダラーの登録など、他のすべてのアクションの前に行わなければならないアクション）が実行され、熱心なアクションの結果に依存する各アクションについて* discriminators <a href="#id1"><span class="problematic" id="id2">*</span></a>が計算されます。第2フェーズでは、すべてのアクションのディスクリミネータが競合検出を行うために比較されます。</p>
+<p>このため、内部順序制約がない構成メソッドの場合、構成メソッド呼び出しの実行順序は重要ではありません。たとえば、非オートコミッティングコンフィギュレータが使用されている場合、：meth： <cite>〜pyramid.config.Configurator.add_view`と：meth：</cite>〜pyramid.config.Configurator.add_renderer`の相対的な順序は重要ではありません。このコードスニペット：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;some.view&#39;</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;path_to_custom/renderer.rn&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_renderer</span><span class="p">(</span><span class="s1">&#39;.rn&#39;</span><span class="p">,</span> <span class="n">SomeCustomRendererFactory</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Has the same result as:</p>
+<p>同じ結果があります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">add_renderer</span><span class="p">(</span><span class="s1">&#39;.rn&#39;</span><span class="p">,</span> <span class="n">SomeCustomRendererFactory</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="s1">&#39;some.view&#39;</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;path_to_custom/renderer.rn&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Even though the view statement depends on the registration of a custom
-renderer, due to two-phase configuration, the order in which the configuration
-statements are issued is not important.  <code class="docutils literal notranslate"><span class="pre">add_view</span></code> will be able to find the
-<code class="docutils literal notranslate"><span class="pre">.rn</span></code> renderer even if <code class="docutils literal notranslate"><span class="pre">add_renderer</span></code> is called after <code class="docutils literal notranslate"><span class="pre">add_view</span></code>.</p>
+<p>ビューステートメントは、カスタムレンダラーの登録に依存しますが、2フェーズ構成のため、構成ステートメントの発行順序は重要ではありません。 `` add_view``の後に `` add_renderer``が呼び出されても、 `` add_view``は `` .rn``レンダラーを見つけることができます。</p>
 <p>The same is untrue when you use an <em>autocommitting</em> configurator (see
-<a class="reference internal" href="#autocommitting-configurator"><span class="std std-ref">Using an Autocommitting Configurator</span></a>).  When an autocommitting configurator is
+<a class="reference internal" href="#autocommitting-configurator"><span class="std std-ref">自動コミット・コンフィグレータの使用</span></a>).  When an autocommitting configurator is
 used, two-phase configuration is disabled, and configuration statements must be
 ordered in dependency order.</p>
-<p>Some configuration methods, such as
-<a class="reference internal" href="../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a> have internal ordering
-constraints: the routes they imply require relative ordering.  Such ordering
-constraints are not absolved by two-phase configuration.  Routes are still
-added in configuration execution order.</p>
+<p>：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>〜pyramid.config.Configurator.add_route`のような設定メソッドには、内部的な順序制約があります。このような順序制約は、2フェーズ構成では解決されません。経路は構成実行順序で追加されます。</p>
 </div>
 <div class="section" id="more-information">
-<h2>More Information<a class="headerlink" href="#more-information" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>For more information, see the article <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-cookbook/en/latest/configuration/whirlwind_tour.html#whirlwind-adv-conf" title="(in Pyramid Community Cookbook v0.2)"><span class="xref std std-ref">A Whirlwind Tour of Advanced
-Configuration Tactics</span></a> in the Pyramid Community
-Cookbook.</p>
+<h2>詳しくは<a class="headerlink" href="#more-information" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>詳細は、次の記事を参照してください：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>高度な構成の戦術の旋風のツアー&lt;cookbook:whirlwind-adv-conf&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>ピラミッドコミュニティクックブックで。</p>
 </div>
 </div>
 
@@ -508,31 +397,31 @@ Cookbook.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Advanced Configuration</a><ul>
-<li><a class="reference internal" href="#conflict-detection">Conflict Detection</a><ul>
-<li><a class="reference internal" href="#manually-resolving-conflicts">Manually Resolving Conflicts</a><ul>
-<li><a class="reference internal" href="#the-right-thing">The Right Thing</a></li>
-<li><a class="reference internal" href="#using-config-commit">Using <code class="docutils literal notranslate"><span class="pre">config.commit()</span></code></a></li>
-<li><a class="reference internal" href="#using-an-autocommitting-configurator">Using an Autocommitting Configurator</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) 高度な設定</a><ul>
+<li><a class="reference internal" href="#conflict-detection">競合検出</a><ul>
+<li><a class="reference internal" href="#manually-resolving-conflicts">競合の手動解決</a><ul>
+<li><a class="reference internal" href="#the-right-thing">良い行い</a></li>
+<li><a class="reference internal" href="#using-config-commit">`` config.commit（） ``を使う</a></li>
+<li><a class="reference internal" href="#using-an-autocommitting-configurator">自動コミット・コンフィグレータの使用</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#automatic-conflict-resolution">Automatic Conflict Resolution</a></li>
-<li><a class="reference internal" href="#methods-which-provide-conflict-detection">Methods Which Provide Conflict Detection</a></li>
+<li><a class="reference internal" href="#automatic-conflict-resolution">自動競合解決</a></li>
+<li><a class="reference internal" href="#methods-which-provide-conflict-detection">競合検出を提供する方法</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#including-configuration-from-external-sources">Including Configuration from External Sources</a></li>
-<li><a class="reference internal" href="#two-phase-configuration">Two-Phase Configuration</a></li>
-<li><a class="reference internal" href="#more-information">More Information</a></li>
+<li><a class="reference internal" href="#including-configuration-from-external-sources">外部ソースからの設定を含む</a></li>
+<li><a class="reference internal" href="#two-phase-configuration">二相構成</a></li>
+<li><a class="reference internal" href="#more-information">詳しくは</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="extending.html"
-                        title="前の章へ">Extending an Existing <span>Pyramid</span> Application</a></p>
+                        title="前の章へ">(機械翻訳) 既存の <span>Pyramid</span> アプリケーションの拡張</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="extconfig.html"
-                        title="次の章へ">Extending Pyramid Configuration</a></p>
+                        title="次の章へ">(機械翻訳) ピラミッド構成の拡張</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -566,17 +455,17 @@ Cookbook.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="extconfig.html" title="Extending Pyramid Configuration"
+          <a href="extconfig.html" title="(機械翻訳) ピラミッド構成の拡張"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="extending.html" title="Extending an Existing Pyramid Application"
+          <a href="extending.html" title="(機械翻訳) 既存の Pyramid アプリケーションの拡張"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

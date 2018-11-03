@@ -240,7 +240,7 @@ templates on these platforms.</p>
 <div class="section" id="sessions">
 <h3>Sessions<a class="headerlink" href="#sessions" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Pyramid now has built-in sessioning support, documented in
-<a class="reference internal" href="narr/sessions.html#sessions-chapter"><span class="std std-ref">Sessions</span></a>.  The sessioning implementation is pluggable.  It
+<a class="reference internal" href="narr/sessions.html#sessions-chapter"><span class="std std-ref">(機械翻訳) セッション</span></a>.  The sessioning implementation is pluggable.  It
 also provides flash messaging and cross-site-scripting prevention features.</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">request.session</span></code> now returns a (dictionary-like) session object if
 a <a class="reference internal" href="glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a> has been configured.</p>
@@ -252,7 +252,7 @@ and a new method on the configurator exists:
 <h3>Mako<a class="headerlink" href="#mako" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>In addition to Chameleon templating, Pyramid now also provides built-in
 support for <a class="reference internal" href="glossary.html#term-mako"><span class="xref std std-term">Mako</span></a> templating.  See
-<a class="reference internal" href="narr/templates.html#available-template-system-bindings"><span class="std std-ref">Available Add-On Template System Bindings</span></a> for more information.</p>
+<a class="reference internal" href="narr/templates.html#available-template-system-bindings"><span class="std std-ref">利用可能なアドオンテンプレートシステムバインディング</span></a> for more information.</p>
 </div>
 <div class="section" id="url-dispatch">
 <h3>URL Dispatch<a class="headerlink" href="#url-dispatch" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -269,7 +269,7 @@ marker to be digits.</li>
 URL based on the &quot;current&quot; route (if any) and its matchdict values.</li>
 <li>Added a <code class="docutils literal notranslate"><span class="pre">paster</span> <span class="pre">proute</span></code> command which displays a summary of the routing
 table.  See the narrative documentation section entitled
-<a class="reference internal" href="narr/commandline.html#displaying-application-routes"><span class="std std-ref">Displaying All Application Routes</span></a>.</li>
+<a class="reference internal" href="narr/commandline.html#displaying-application-routes"><span class="std std-ref">すべてのアプリケーションルートの表示</span></a>.</li>
 <li>Added <code class="docutils literal notranslate"><span class="pre">debug_routematch</span></code> configuration setting (settable in your <code class="docutils literal notranslate"><span class="pre">.ini</span></code>
 file) that logs matched routes including the matchdict and predicates.</li>
 <li>Add a <a class="reference internal" href="api/url.html#pyramid.url.route_path" title="pyramid.url.route_path"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.url.route_path()</span></code></a> API, allowing folks to generate
@@ -310,10 +310,10 @@ package.</li>
 allows you to include configuration imperatively from other packages or
 modules.  It also, by default, performs configuration in two separate phases.
 This allows you to ignore relative configuration statement ordering in some
-circumstances.  See <a class="reference internal" href="narr/advconfig.html#advconfig-narr"><span class="std std-ref">Advanced Configuration</span></a> for more information.</p>
+circumstances.  See <a class="reference internal" href="narr/advconfig.html#advconfig-narr"><span class="std std-ref">(機械翻訳) 高度な設定</span></a> for more information.</p>
 <p>The <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_directive" title="pyramid.config.Configurator.add_directive"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_directive()</span></code></a> allows framework
 extenders to add methods to the configurator, which allows extenders to avoid
-subclassing a Configurator just to add methods.  See <a class="reference internal" href="narr/extconfig.html#add-directive"><span class="std std-ref">Adding Methods to the Configurator via add_directive</span></a> for
+subclassing a Configurator just to add methods.  See <a class="reference internal" href="narr/extconfig.html#add-directive"><span class="std std-ref">`` add_directive``を使ってコンフィグレータにメソッドを追加する</span></a> for
 more info.</p>
 <p>Surrounding application configuration with <code class="docutils literal notranslate"><span class="pre">config.begin()</span></code> and
 <code class="docutils literal notranslate"><span class="pre">config.end()</span></code> is no longer necessary.  All scaffolds have been
@@ -341,7 +341,7 @@ purpose.  For example:</p>
 <p>A &quot;view mapper&quot; subsystem has been extracted, which allows framework
 extenders to control how view callables are constructed and called.  This
 feature is not useful for &quot;civilians&quot;, only for extension writers.  See
-<a class="reference internal" href="narr/hooks.html#using-a-view-mapper"><span class="std std-ref">Using a View Mapper</span></a> for more information.</p>
+<a class="reference internal" href="narr/hooks.html#using-a-view-mapper"><span class="std std-ref">ビューマッパーの使用</span></a> for more information.</p>
 </div>
 <div class="section" id="testing-support-improvements">
 <h3>Testing Support Improvements<a class="headerlink" href="#testing-support-improvements" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -409,7 +409,7 @@ should be the name of a previously registered renderer.  Useful to provide
 <li>If a resource implements a <code class="docutils literal notranslate"><span class="pre">__resource_url__</span></code> method, it will be called
 as the result of invoking the <a class="reference internal" href="api/url.html#pyramid.url.resource_url" title="pyramid.url.resource_url"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.url.resource_url()</span></code></a> function to
 generate a URL, overriding the default logic.  See
-<a class="reference internal" href="narr/resources.html#generating-the-url-of-a-resource"><span class="std std-ref">Generating the URL of a Resource</span></a> for more information.</li>
+<a class="reference internal" href="narr/resources.html#generating-the-url-of-a-resource"><span class="std std-ref">リソースのURLの生成</span></a> for more information.</li>
 <li>The name <code class="docutils literal notranslate"><span class="pre">registry</span></code> is now available in a <code class="docutils literal notranslate"><span class="pre">pshell</span></code> environment by
 default.  It is the application registry object.</li>
 <li>Added support for json on Google App Engine by catching
@@ -558,7 +558,7 @@ registry now (obtain the registry via
 <li>Added a <a class="reference internal" href="api/httpexceptions.html#module-pyramid.httpexceptions" title="pyramid.httpexceptions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.httpexceptions</span></code></a> API documentation chapter.</li>
 <li>Added a <a class="reference internal" href="api/session.html#module-pyramid.session" title="pyramid.session"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.session</span></code></a> API documentation chapter.</li>
 <li>Added an API chapter for the <a class="reference internal" href="api/response.html#module-pyramid.response" title="pyramid.response"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.response</span></code></a> module.</li>
-<li>Added a <a class="reference internal" href="narr/sessions.html#sessions-chapter"><span class="std std-ref">Sessions</span></a> narrative documentation chapter.</li>
+<li>Added a <a class="reference internal" href="narr/sessions.html#sessions-chapter"><span class="std std-ref">(機械翻訳) セッション</span></a> narrative documentation chapter.</li>
 <li>All documentation which previously referred to <code class="docutils literal notranslate"><span class="pre">webob.Response</span></code> now uses
 <a class="reference internal" href="api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> instead.</li>
 <li>The documentation has been overhauled to use imperative configuration,
@@ -568,7 +568,7 @@ package, <a class="reference internal" href="glossary.html#term-pyramid-zcml"><s
 have a SessionFactory abstraction which competes with it, and maintaining
 documentation on both ways to do it is a distraction.</li>
 <li>Added an example of <code class="docutils literal notranslate"><span class="pre">WebTest</span></code> functional testing to the testing narrative
-chapter at <a class="reference internal" href="narr/testing.html#functional-tests"><span class="std std-ref">Creating Functional Tests</span></a>.</li>
+chapter at <a class="reference internal" href="narr/testing.html#functional-tests"><span class="std std-ref">機能テストの作成</span></a>.</li>
 <li>Extended the Resources chapter with examples of calls to resource-related
 APIs.</li>
 <li>Add &quot;Pyramid Provides More Than One Way to Do It&quot; to Design Defense
@@ -675,7 +675,7 @@ tutorials out of core documentation and into the Pyramid Tutorials site
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

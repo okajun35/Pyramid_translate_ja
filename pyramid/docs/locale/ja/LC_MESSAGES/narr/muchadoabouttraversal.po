@@ -7,34 +7,24 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/muchadoabouttraversal.rst:5
 msgid "Much Ado About Traversal"
-msgstr ""
+msgstr "(機械翻訳) トラバーサルについて"
 
 #: ../../narr/muchadoabouttraversal.rst:7
 msgid "(Or, why you should care about it.)"
-msgstr ""
+msgstr "（または、あなたがそれを気にしなければならない理由）。"
 
 #: ../../narr/muchadoabouttraversal.rst:11
 msgid "This chapter was adapted, with permission, from a blog post by Rob Miller."
-msgstr ""
+msgstr "この章は、許可を得て、Rob Millerのブログ記事から適応されました。"
 
 #: ../../narr/muchadoabouttraversal.rst:13
 msgid ""
 "Traversal is an alternative to :term:`URL dispatch` which allows "
 ":app:`Pyramid` applications to map URLs to code."
-msgstr ""
+msgstr "トラバーサルは：app： `Pyramid`アプリケーションがURLをコードにマップすることを可能にするterm：` URL dispatch`の代替手段です。"
 
 #: ../../narr/muchadoabouttraversal.rst:18
 msgid ""
@@ -44,7 +34,7 @@ msgid ""
 " at people who have previous :term:`Pylons` experience or experience in "
 "another framework which does not provide traversal, and need an "
 "introduction to the \"why\" of traversal."
-msgstr ""
+msgstr "traversalとview lookupに精通しているex-Zopeのユーザは、技術的な詳細について議論している：ref： `traversal_chapter`の章に直接スキップしたいかもしれません。この章は主に、前：term： `Pylons`の経験や経験を持つ人を対象としています。これは、トラバーサルを提供しない、別のフレームワークで経験したことです。"
 
 #: ../../narr/muchadoabouttraversal.rst:25
 msgid ""
@@ -56,7 +46,7 @@ msgid ""
 " its usefulness; URL matching has worked for them so far, so why should "
 "they even consider dealing with another approach, one which doesn't fit "
 "their brain and which doesn't provide any immediately obvious value?"
-msgstr ""
+msgstr "PylonsとRouteベースのURLマッチングを長年使ってきた人達は、app： `Pyramid`を使って\&quot;：term： `traversal` \&quot;という新しいアイデアに初めて公開されています。 \ &quot;：term：` view lookup` \ &quot;は着信HTTPリクエストを呼び出し可能なコードにルーティングする方法です。同じ人の中には、トラバーサルが理解しにくいと信じている人がいます。その有用性に疑問を抱く人もいる。これまでのところ、URLマッチングが機能していたので、なぜ脳に適合せずすぐに明らかな価値を提供しない別のアプローチを検討する必要がありますか？"
 
 #: ../../narr/muchadoabouttraversal.rst:34
 msgid ""
@@ -70,11 +60,11 @@ msgid ""
 " to use them.  :term:`Traversal` is actually a straightforward metaphor "
 "easily comprehended by anyone who's ever used a run-of-the-mill file "
 "system with folders and files."
-msgstr ""
+msgstr "トラバーサルを理解したくなければ、あなたはする必要はありません。あなたは喜んで：app： `Pyramid`アプリケーションを：term：` URL dispatch`だけで作ることができます。しかし、パターンマッチングメカニズムよりもトラバーサルベースのアプローチではるかに簡単に処理される、単純で実用的なユースケースがいくつかあります。これらのユースケースの1つに自分自身でまだヒットしていない場合でも、これらの新しいアイデアを理解することは、いつどのWeb開発者の努力に値するのでしょうか。 ：term： `Traversal`は実際には、フォルダやファイルを持つ普通のファイルシステムを使った人が簡単に理解できる単純なメタファーです。"
 
 #: ../../narr/muchadoabouttraversal.rst:48
 msgid "URL Dispatch"
-msgstr ""
+msgstr "URL派遣"
 
 #: ../../narr/muchadoabouttraversal.rst:50
 msgid ""
@@ -83,7 +73,7 @@ msgid ""
 "The requested path will possibly invoke a specific :term:`view callable` "
 "function defined somewhere in our app.  We're trying to determine *which*"
 " callable function, if any, should be invoked for a given requested URL."
-msgstr ""
+msgstr "私たちが解決しようとしている問題を取り上げて考えてみましょう。特定のパスに対するHTTPリクエストがWebアプリケーションにルーティングされました。要求されたパスは、アプリケーションのどこかで定義された特定の：term： `call callable`関数を呼び出す可能性があります。与えられた要求されたURLに対して、どの呼び出し可能な関数が呼び出されるべきかを決定しようとしています。"
 
 #: ../../narr/muchadoabouttraversal.rst:56
 msgid ""
@@ -98,7 +88,7 @@ msgid ""
 "precedence so that the first match will take priority over any subsequent"
 " matches.  If a request path doesn't match any of the defined patterns, a"
 " \"404 Not Found\" response is returned."
-msgstr ""
+msgstr "Pyramidを含む多くのシステムは、シンプルなソリューションを提供します。彼らは\ &quot;URLマッチング\&quot;という概念を提供しています。 URLマッチングでは、URLパスを解析し、その結果を正規表現のセットまたは他のURLパステンプレート構文で定義された登録済みの &quot;パターン&quot;のセットと比較することで、この問題に近づきます。各パターンはどこかで呼び出し可能な関数にマップされます。要求パスが特定のパターンと一致する場合、関連する関数が呼び出されます。要求パスが複数のパターンと一致する場合は、競合解消スキームが使用されます。通常、最初の一致が後続の一致よりも優先されるように単純な優先順位が使用されます。要求パスが定義されたパターンのいずれとも一致しない場合、\ &quot;404 Not Found \&quot;応答が返されます。"
 
 #: ../../narr/muchadoabouttraversal.rst:67
 msgid ""
@@ -112,11 +102,11 @@ msgid ""
 "``blog_post_view()`` function, so ``/joeschmoe/blog/2010/12/urlmatching``"
 " would trigger the function, which presumably would know how to find and "
 "render the ``urlmatching`` blog post."
-msgstr ""
+msgstr "Pyramidでは、term： `URL dispatch`というURLマッチングの実装を提供しています。 ：app： `Pyramid`構文を使用すると、私たちのコードのどこかで定義された` `photo_view（）` `関数にマップされた` `/ {userid} / photos / {photoid}` `のようなパターンがあります。 `` / joeschmoe / photos / photo1`のようなパスに対するリクエストは一致し、 `` photo_view（） ``関数がリクエストを処理するために呼び出されます。同様に `` / {userid} / blog / {year} / {month} / {postid} ``は `` blog_post_view（） ``関数にマップするかもしれないので、 `` / joeschmoe / blog / 2010/12 / urlmatching ``は `` urlmatching``のブログ記事をどのように見つけてレンダリングするかを知っていると思われる機能を引き起こします。"
 
 #: ../../narr/muchadoabouttraversal.rst:79
 msgid "Historical Refresher"
-msgstr ""
+msgstr "歴史的なリフレッシャー"
 
 #: ../../narr/muchadoabouttraversal.rst:81
 msgid ""
@@ -136,7 +126,7 @@ msgid ""
 "which in turn contained a ``photo1`` file.  If at any point along the way"
 " we find that there is not a folder or file matching the requested path, "
 "we return a 404 response."
-msgstr ""
+msgstr "ここでは、用語：URLのディスパッチについて理解を深めたので、トラバーサルという考え方を掘り下げます。しかし、私たちがする前に、記憶の車線を崩してみましょう。しばらくの間ウェブ作業をしてきたのであれば、term： `Pylons`と：app：` Pyramid`のような派手なWebフレームワークを持っていなかった時を思い出すかもしれません。代わりに、主にファイルシステムのファイルを処理する汎用HTTPサーバーがありました。特定のサイトの\ &quot;root \&quot;がファイルシステム上の特定のフォルダにマップされています。リクエストURLパスの各セグメントは、サブディレクトリを表していました。最後のパスセグメントはディレクトリかファイルのいずれかであり、サーバーが適切なファイルを見つけたら、HTTP応答でそれをパッケージ化してクライアントに返します。だから、 `` / joeschmoe / photos / photo1` &#39;のリクエストは文字通り `` joeschmoe``フォルダのどこかに `` photos``フォルダを含み、 `` photo1``ファイル。要求されたパスに一致するフォルダやファイルが見つからない場合は、404応答を返します。"
 
 #: ../../narr/muchadoabouttraversal.rst:97
 msgid ""
@@ -150,11 +140,11 @@ msgid ""
 "result.  The server configuration specified which files would trigger "
 "some dynamic code, with the default case being to just serve the static "
 "file."
-msgstr ""
+msgstr "しかし、Webがよりダイナミックに成長するにつれ、少し複雑さが追加されました。 CGIやHTTPサーバモジュールなどの技術が開発されました。ファイルはまだファイルシステム上で検索されていましたが、ファイルが（例えば） `` .cgi``や `` .php``で終わった場合や、特別なフォルダにあった場合は、サーバーがファイルを読み込み、ある種のインタープリターを使用して実行し、このプロセスからの出力を最終結果としてクライアントに送信します。サーバー構成では、どのファイルが動的コードをトリガーするかを指定しました。デフォルトの場合は静的ファイルを提供するだけです。"
 
 #: ../../narr/muchadoabouttraversal.rst:111
 msgid "Traversal (a.k.a., Resource Location)"
-msgstr ""
+msgstr "トラバーサル（別名、リソースの場所）"
 
 #: ../../narr/muchadoabouttraversal.rst:113
 msgid ""
@@ -162,7 +152,7 @@ msgid ""
 " works, you understand traversal.  And if you understand that a server "
 "might do something different based on what type of file a given request "
 "specifies, then you understand view lookup."
-msgstr ""
+msgstr "信じられないかもしれませんが、ファイルシステムからのファイルの提供がどのように機能するのかを理解すれば、トラバーサルを理解することができます。そして、ある要求が指定するファイルのタイプに基づいて、サーバーが異なる何かをするかもしれないことを理解すれば、ビューの参照を理解します。"
 
 #: ../../narr/muchadoabouttraversal.rst:118
 msgid ""
@@ -171,7 +161,7 @@ msgid ""
 "system tree, while traversal steps through nested dictionary-type objects"
 " in a :term:`resource tree`.  Let's take a detailed look at one of our "
 "example paths, so we can see what I mean."
-msgstr ""
+msgstr "ファイルシステムのルックアップとトラバーサルの主な違いは、ファイルシステムのルックアップがファイルシステムツリーのネストされたディレクトリとファイルを辿るのに対し、：term： `リソースツリー &#39;のネストされたディクショナリタイプのオブジェクトをたどることです。私たちの例のパスの1つを詳細に見てみましょう。つまり、私が意味するものを見ることができます。"
 
 #: ../../narr/muchadoabouttraversal.rst:124
 msgid ""
@@ -185,14 +175,14 @@ msgid ""
 "``photos`` key gives us yet another mapping object, which finally "
 "(hopefully) contains the resource that we're looking for within its "
 "values, referenced by the ``photo1`` key."
-msgstr ""
+msgstr "パス `` / joeschmoe / photos / photo1``には、 `` / ``、 `` joeschmoe``、 `` photos``、 `` photo1``という4つのセグメントがあります。ファイルシステムのルックアップでは、入れ子になったフォルダ（ `` joeschmoe``）を含むルートフォルダ（ `` / ``）があり、JPGファイル（ `` photos &#39; ``写真1``）。トラバーサルでは、代わりに辞書のようなルートオブジェクトがあります。 `` joeschmoe``キーを要求すると、別の辞書のようなオブジェクトが得られます。 `` photos``キーを尋ねると、 `` photo1``キーで参照される値の中で探しているリソースが最終的に（うまくいけば）含まれている、別のマッピングオブジェクトが得られます。"
 
 #: ../../narr/muchadoabouttraversal.rst:134
 msgid ""
 "In pure Python terms, then, the traversal or \"resource location\" "
 "portion of satisfying the ``/joeschmoe/photos/photo1`` request will look "
 "something like this pseudocode::"
-msgstr ""
+msgstr "純粋なPythonの言葉では、 `` / joeschmoe / photos / photo1``要求を満たすトラバーサルまたは\ &quot;resource location \&quot;部分は、この疑似コード::"
 
 #: ../../narr/muchadoabouttraversal.rst:140
 msgid ""
@@ -203,18 +193,18 @@ msgid ""
 ":exc:`KeyError` is generated anywhere along the way, :app:`Pyramid` will "
 "return 404.  (This isn't precisely true, as you'll see when we learn "
 "about view lookup below, but the basic idea holds.)"
-msgstr ""
+msgstr "`` get_root（） ``はルートトラバーサル：term： `resource`を返す関数です。指定されたすべてのキーが存在する場合、返されるオブジェクトは、ファイルシステムの例で取得されたJPGファイルに類似して、要求されているリソースになります。 ：exc： `KeyError`が途中で生成された場合、：app：` Pyramid`は404を返します（これは正確ではありませんが、以下のビュールックアップについてはわかりますが、基本的な考え方保持します。）"
 
 #: ../../narr/muchadoabouttraversal.rst:151
 msgid "What Is a \"Resource\"?"
-msgstr ""
+msgstr "\ &quot;リソース\&quot;とは何ですか？"
 
 #: ../../narr/muchadoabouttraversal.rst:153
 msgid ""
 "\"Files on a file system I understand\", you might say.  \"But what are "
 "these nested dictionary things?  Where do these objects, these "
 "'resources', live? What *are* they?\""
-msgstr ""
+msgstr "\ &quot;理解しているファイルシステム上のファイル\&quot;と言うかもしれません。 \ &quot;しかし、これらのネストされた辞書のものは何ですか？これらのオブジェクト、これらの &#39;リソース&#39;はどこに住んでいますか？"
 
 #: ../../narr/muchadoabouttraversal.rst:157
 msgid ""
@@ -227,7 +217,7 @@ msgid ""
 "  Under the hood, when ``adict`` is a dictionary-like object, Python "
 "translates ``adict['a']`` to ``adict.__getitem__('a')``.  Try doing this "
 "in a Python interpreter prompt if you don't believe us:"
-msgstr ""
+msgstr "以来、：app： `Pyramid`は非常に有益なフレームワークではないので、term：` resource`がどのように実装されているかに制限はありません。開発者は希望どおりに実装することができます。使用される一般的なパターンの1つは、ルートを含むすべてのリソースをデータベースにグラフとして保持することです。ルートオブジェクトは辞書のようなオブジェクトです。 Pythonの辞書のようなオブジェクトは、キーの参照が行われたときに呼び出される `` __getitem__``メソッドを提供します。フードの中で、 `` adict``が辞書のようなオブジェクトであるとき、Pythonは `` adict [&#39;a&#39;] ``を `` adict .__ getitem __（ &#39;a&#39;） ``に翻訳します。あなたが私たちを信じていない場合は、Pythonインタプリタのプロンプトでこれを試してみてください："
 
 #: ../../narr/muchadoabouttraversal.rst:174
 msgid ""
@@ -242,7 +232,7 @@ msgid ""
 "long as the returned objects provide the dictionary-like API (i.e., as "
 "long as they have an appropriately implemented ``__getitem__`` method), "
 "then traversal will work."
-msgstr ""
+msgstr "辞書のようなルートオブジェクトは、すべてのサブリソースのIDをキーとして格納し、それらを取得する `` __getitem__``実装を提供します。 `` get_root（）[&#39;joeschmoe&#39;] ``はデータベースにも格納されている別のオブジェクトを返します。データベースには独自のサブリソースと `` __getitem__``があります。 `` get_root（） `実装、など。これらのリソースは、最近人気を集めている多くの\ &quot;NoSQL \&quot;ソリューションの1つであるリレーショナルデータベースに永続化される可能性があります。それは問題ではない。返されたオブジェクトがディクショナリのようなAPIを提供する限り（すなわち、適切に実装された `` __getitem__``メソッドを持つ限り）、トラバーサルが機能します。"
 
 #: ../../narr/muchadoabouttraversal.rst:185
 msgid ""
@@ -253,24 +243,24 @@ msgid ""
 "and thus precisely recreate the traditional mechanism of having the URL "
 "path mapped directly to a folder structure on the file system.  Traversal"
 " is in fact a superset of file system lookup."
-msgstr ""
+msgstr "実際、\ &quot;データベース\&quot;は必要ありません。普通の辞書を使うことができます。サイトのURL構造はPythonソースで直接ハードコードされています。あるいは、特定のディレクトリ内のファイルを検索する `` __getitem__``メソッドでオブジェクトのセットを簡単に実装することができ、URLパスをファイルシステム上のフォルダ構造に直接マッピングする従来のメカニズムを正確に再現することができます。実際、トラバーサルはファイルシステム検索のスーパーセットです。"
 
 #: ../../narr/muchadoabouttraversal.rst:193
 msgid ""
 "See the chapter entitled :ref:`resources_chapter` for a more technical "
 "overview of resources."
-msgstr ""
+msgstr "リソースの技術的概要については、ref： `resources_chapter`という章を参照してください。"
 
 #: ../../narr/muchadoabouttraversal.rst:200
 msgid "View Lookup"
-msgstr ""
+msgstr "ルックアップの表示"
 
 #: ../../narr/muchadoabouttraversal.rst:202
 msgid ""
 "At this point we're nearly there.  We've covered traversal, which is the "
 "process by which a specific resource is retrieved according to a specific"
 " URL path.  But what is \"view lookup\"?"
-msgstr ""
+msgstr "この時点で、我々はほぼそこにいる。ここでは、特定のURLパスに従って特定のリソースを取得するプロセスであるトラバーサルについて説明しました。しかし、\ &quot;ビュールックアップ\&quot;とは何ですか？"
 
 #: ../../narr/muchadoabouttraversal.rst:206
 msgid ""
@@ -287,7 +277,7 @@ msgid ""
 "``view`` view as the default, so that ``/joeschmoe/photos/photo1/view`` "
 "and ``/joeschmoe/photos/photo1`` are equivalent.  The edit view would "
 "sensibly be provided by a request for ``/joeschmoe/photos/photo1/edit``."
-msgstr ""
+msgstr "ビューのルックアップの必要性は簡単です。：term： `resource`を見つけた後に取るべきアクションは複数あります。たとえば、写真の例では、ページ内の写真を表示することができますが、ユーザーが写真や関連するメタデータを編集する方法を提供することもできます。前者を `` view``ビューと呼び、後者を `` edit``ビューと呼びます。 （オリジナル、私は知っている）：app： `Pyramid`は集中ビューを持っています：term：` application registry`名前付きビューは特定のリソースタイプに関連付けることができます。この例では、写真オブジェクトのビューを表示していると仮定し、 `` view``ビューをデフォルトとして指定しているので、 `` `/ joeschmoe / photos / photo1 / view``と` `/ joeschmoe / photos / photo1``は同等です。エディットビューは `` / joeschmoe / photos / photo1 / edit` &#39;のリクエストによって提供されます。"
 
 #: ../../narr/muchadoabouttraversal.rst:220
 msgid ""
@@ -306,13 +296,13 @@ msgid ""
 "as the related ``context`` object (also available as "
 "``request.context``).  If a view callable could not be found, "
 ":app:`Pyramid` will return a \"404 Not Found\" response."
-msgstr ""
+msgstr "うまくいけば、編集ビューのURLパスの最初の部分が非編集バージョンと同じリソース、特に `` get_root（）[&#39;joeschmoe&#39;] [&#39;photos&#39;] [&#39;写真1 &#39;] ``。しかし、そこを横切って終わります。 `` photo1``リソースには `` edit``キーがありません。実際、辞書的なオブジェクトではないかもしれません。その場合、 `` photo1 [&#39;edit&#39;] ``は意味がありません。 ：app： `Pyramid`リソースの場所が* leaf *リソースに解決されたが、要求パス全体がまだ消費されていない場合、*非常に次の*パスセグメントは：term：` view name`として扱われます。次に、指定された名前のビューが指定されたタイプのリソースに対して指定されているかどうかを調べるために、レジストリがチェックされます。もしそうなら、呼び出し可能なビューが呼び出され、リソースは関連する `` context``オブジェクトとして渡されます（ `` request.context``としても利用可能です）。ビュー呼び出し可能なものが見つからなかった場合、：app： `Pyramid`は\&quot; 404 Not Found \ &quot;という応答を返します。"
 
 #: ../../narr/muchadoabouttraversal.rst:234
 msgid ""
 "You might conceptualize a request for ``/joeschmoe/photos/photo1/edit`` "
 "as ultimately converted into the following piece of Pythonic pseudocode::"
-msgstr ""
+msgstr "`` / joeschmoe / photos / photo1 / edit``のリクエストを、最終的に次のPythonの擬似コードに変換するように概念化することもできます::"
 
 #: ../../narr/muchadoabouttraversal.rst:242
 msgid ""
@@ -320,24 +310,24 @@ msgid ""
 "Internally, :app:`Pyramid` does something more complicated.  But the "
 "example above is a reasonable approximation of the view lookup algorithm "
 "in pseudocode."
-msgstr ""
+msgstr "`` get_root``と `` get_view``関数は実際には存在しません。内部的には、：app： `Pyramid`はもっと複雑なことをします。しかし、上記の例は、擬似コードにおけるビュールックアップアルゴリズムの合理的な近似である。"
 
 #: ../../narr/muchadoabouttraversal.rst:247
 msgid "Use Cases"
-msgstr ""
+msgstr "ユースケース"
 
 #: ../../narr/muchadoabouttraversal.rst:249
 msgid ""
 "Why should we care about traversal?  URL matching is easier to explain, "
 "and it's good enough, right?"
-msgstr ""
+msgstr "なぜトラバーサルが気になるのですか？ URLマッチングは説明しやすく、十分です。"
 
 #: ../../narr/muchadoabouttraversal.rst:252
 msgid ""
 "In some cases, yes, but certainly not in all cases.  So far we've had "
 "very structured URLs, where our paths have had a specific, small number "
 "of pieces, like this::"
-msgstr ""
+msgstr "いくつかのケースでは、そうですが、必ずしもすべてではありません。これまでのところ、非常に構造化されたURLがありました。ここでは、パスには特定の少数のピースがあります::"
 
 #: ../../narr/muchadoabouttraversal.rst:258
 msgid ""
@@ -350,14 +340,14 @@ msgid ""
 "other folders inside his folder.  He might decide to nest folders dozens "
 "of layers deep.  How will you construct matching patterns that could "
 "account for every possible combination of paths that might develop?"
-msgstr ""
+msgstr "これまでのすべての例では、開発時にどの名前が使用されるかを知っていると仮定して、typenameの値をハードコーディングしました（\ &quot;写真\&quot;、\ &quot;ブログ\&quot;など）。しかし、もしこれらの名前がどんなものか分からなければどうでしょうか？あるいは、さらに悪いことに、ユーザーのフォルダ内のURLの構造について何か知りません。エンドユーザーが自分のフォルダ内にコンテンツや他のフォルダを任意に追加できるようにするCMSを作成することができます。彼は数十層のフォルダを深く入れ子にすることに決めたかもしれない。どのように発展するかもしれないパスの可能な組み合わせを考慮に入れることができるマッチングパターンをどのように構築しますか？"
 
 #: ../../narr/muchadoabouttraversal.rst:268
 msgid ""
 "It might be possible, but it certainly won't be easy.  The matching "
 "patterns are going to become complex quickly as you try to handle all of "
 "the edge cases."
-msgstr ""
+msgstr "それは可能かもしれませんが、確かに簡単ではありません。マッチするパターンは、すべてのエッジケースを処理しようとすると、すぐに複雑になります。"
 
 #: ../../narr/muchadoabouttraversal.rst:271
 msgid ""
@@ -370,7 +360,7 @@ msgid ""
 "the database and not in the code, it's simple to let users modify the "
 "tree at runtime to set up their own personalized \"directory\" "
 "structures."
-msgstr ""
+msgstr "しかし、トラバースでは簡単です。ネスティングの20のレイヤーは問題ありません。 ：app： `Pyramid`は、パスセグメントがなくなるまで、またはリソースが：exc：` KeyError`を呼び出すまで、必要なだけ `` __getitem__``を何度も呼び出します。各リソースは、直接の子をフェッチする方法を知る必要があり、トラバーサルアルゴリズムは残りの部分を処理します。また、リソースツリーの構造はコードではなくデータベースに存在するため、ユーザーが実行時に独自のパーソナライズされたディレクトリ構造を設定できるようにするのは簡単です。"
 
 #: ../../narr/muchadoabouttraversal.rst:280
 msgid ""
@@ -384,7 +374,7 @@ msgid ""
 " because the idea of a resource authorization is baked right into the "
 "code resolution and calling process. Resource objects can store ACLs, "
 "which can be inherited and/or overridden by the subresources."
-msgstr ""
+msgstr "コンテキスト依存のセキュリティポリシーをサポートする必要がある場合、トラバーサルが輝く別のユースケースです。たとえば、異なる部門のメンバーがさまざまな部門のファイルへのアクセスレベルを変える大企業のための文書管理インフラストラクチャの例があります。合理的に、特定のファイルであっても、特定の個人が利用できるようにする必要があるかもしれません。リソース認可の考え方がコード解決と呼び出しプロセスの直後に焼き付けられているため、リソースが実際に文書に関連するデータオブジェクトを表す場合、Traversalはうまくいきます。リソースオブジェクトは、サブリソースによって継承および/またはオーバーライドできるACLを格納することができます。"
 
 #: ../../narr/muchadoabouttraversal.rst:291
 msgid ""
@@ -398,7 +388,7 @@ msgid ""
 "and use an authorization policy, :app:`Pyramid` can check against a "
 "resource's ACL when deciding whether or not the view itself is available "
 "to the current user."
-msgstr ""
+msgstr "したがって、各リソースがコンテキストベースのACLを生成できる場合、ビューコードが機密アクションを実行しようとするたびに、そのACLに対して現在のユーザーがアクションを実行できるかどうかを確認できます。このようにして、従来の表形式の手法を使用してモデル化するのがかなり難しい、いわゆる「インスタンスベース」または「行レベル」のセキュリティを実現します。 ：app： `Pyramid`はこのようなスキームを積極的にサポートしています。実際にあなたのビューに保護された権限を登録し、権限ポリシーを使用すると、app：` Pyramid`はビュー自体が現在のユーザーが利用できる。"
 
 #: ../../narr/muchadoabouttraversal.rst:301
 msgid ""
@@ -408,12 +398,12 @@ msgid ""
 "But if you're using :app:`Pyramid` and you ever find that you *do* need "
 "to support one of these use cases, you'll be glad you have traversal in "
 "your toolkit."
-msgstr ""
+msgstr "要約すると、トラバーサルとビュールックアップによってより簡単に提供される問題のクラス全体が、term： `URL dispatch`よりもあります。あなたの問題がそれを必要としないなら、偉大な、言葉：用語： `URLディスパッチ`。しかし、あなたが：app： `Pyramid`を使っていて、これらのユースケースの1つをサポートする必要があることが判明した場合、あなたはあなたのツールキットでのトラバースをうれしく思います。"
 
 #: ../../narr/muchadoabouttraversal.rst:309
 msgid ""
 "It is even possible to mix and match :term:`traversal` with :term:`URL "
 "dispatch` in the same :app:`Pyramid` application. See the "
 ":ref:`hybrid_chapter` chapter for details."
-msgstr ""
+msgstr "同じ：app： `Pyramid`アプリケーションで、term：` traversal`を：term： `URL dispatch`と組み合わせてマッチさせることも可能です。詳細については、：ref： `hybrid_chapter`の章を参照してください。"
 

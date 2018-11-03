@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/events.rst:12
 msgid "Using Events"
-msgstr ""
+msgstr "(機械翻訳) イベントの使用"
 
 #: ../../narr/events.rst:14
 msgid ""
@@ -30,20 +20,20 @@ msgid ""
 "they can be useful when you want to perform slightly advanced operations."
 "  For example, subscribing to an event can allow you to run some code as "
 "the result of every new request."
-msgstr ""
+msgstr "*イベント*は、アプリケーションの存続期間中の興味深い点で、：app： `Pyramid`フレームワークによってブロードキャストされるオブジェクトです。ほとんどの：app： `Pyramid`アプリケーションを作成するためにイベントを使う必要はありませんが、やや高度な操作をしたいときに便利です。たとえば、イベントを購読すると、新しいリクエストごとにコードを実行できます。"
 
 #: ../../narr/events.rst:21
 msgid ""
 "Events in :app:`Pyramid` are always broadcast by the framework. However, "
 "they only become useful when you register a *subscriber*.  A subscriber "
 "is a function that accepts a single argument named `event`:"
-msgstr ""
+msgstr "のイベント：app： `Pyramid`は常にフレームワークによってブロードキャストされます。ただし、* subscriber *を登録するときにのみ有効になります。サブスクライバは、 `event`という単一の引数を受け付ける関数です。"
 
 #: ../../narr/events.rst:31
 msgid ""
 "The above is a subscriber that simply prints the event to the console "
 "when it's called."
-msgstr ""
+msgstr "上記は、呼び出されたときにイベントをコンソールに単に出力するサブスクライバです。"
 
 #: ../../narr/events.rst:34
 msgid ""
@@ -53,46 +43,46 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_subscriber` method or you'll need "
 "to use the :func:`pyramid.events.subscriber` decorator to decorate a "
 "function found via a :term:`scan`."
-msgstr ""
+msgstr "しかし、単なる加入者機能の存在は、それが呼び出されるよう手配するだけでは不十分である。サブスクライバを呼び出すには、：meth： `pyramid.config.Configurator.add_subscriber`メソッドを使用するか、：func：` pyramid.events.subscriber`デコレータを使用してデコレートする必要がありますa：term： `scan`で見つかった関数です。"
 
 #: ../../narr/events.rst:41
 msgid "Configuring an Event Listener Imperatively"
-msgstr ""
+msgstr "イベントリスナーの必須設定"
 
 #: ../../narr/events.rst:43
 msgid ""
 "You can imperatively configure a subscriber function to be called for "
 "some event type via the "
 ":meth:`~pyramid.config.Configurator.add_subscriber` method:"
-msgstr ""
+msgstr "あなたは、：meth： `〜pyramid.config.Configurator.add_subscriber`メソッドを介して、いくつかのイベントタイプに対して呼び出されるように加入者関数を設定することができます："
 
 #: ../../narr/events.rst:58
 msgid ""
 "The first argument to :meth:`~pyramid.config.Configurator.add_subscriber`"
 " is the subscriber function (or a :term:`dotted Python name` which refers"
 " to a subscriber callable); the second argument is the event type."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_subscriber`の最初の引数はサブスクライバ関数です（またはa：term：サブスクライバ呼び出し可能を参照する` `点在するPython名 &#39;）。 2番目の引数はイベントタイプです。"
 
 #: ../../narr/events.rst:64
 msgid "See also :term:`Configurator`."
-msgstr ""
+msgstr "term： `Configurator`も参照してください。"
 
 #: ../../narr/events.rst:67
 msgid "Configuring an Event Listener Using a Decorator"
-msgstr ""
+msgstr "デコレータを使用したイベントリスナのコンフィグレーション"
 
 #: ../../narr/events.rst:69
 msgid ""
 "You can configure a subscriber function to be called for some event type "
 "via the :func:`pyramid.events.subscriber` function."
-msgstr ""
+msgstr "：func： `pyramid.events.subscriber`関数を使って、あるイベントタイプに対して呼び出されるようにサブスクライバ関数を設定することができます。"
 
 #: ../../narr/events.rst:82
 msgid ""
 "When the :func:`~pyramid.events.subscriber` decorator is used, a "
 ":term:`scan` must be performed against the package containing the "
 "decorated function for the decorator to have any effect."
-msgstr ""
+msgstr "：func： `〜pyramid.events.subscriber`デコレータが使用されている場合、デコレータが何らかの効果を持つために、装飾された関数を含むパッケージに対して：term：` scan`を実行する必要があります。"
 
 #: ../../narr/events.rst:86
 msgid ""
@@ -100,7 +90,7 @@ msgid ""
 ":app:`Pyramid` framework emits an event object that supplies an "
 ":class:`pyramid.events.NewRequest` interface, the ``mysubscriber`` "
 "function will be called with an *event* object."
-msgstr ""
+msgstr "上記の登録例は、：app： `Pyramid`フレームワークが：class：` pyramid.events.NewRequest`インターフェースを提供するイベントオブジェクトを発行するたびに、 `` mysubscriber``関数が*イベント*オブジェクト。"
 
 #: ../../narr/events.rst:91
 msgid ""
@@ -111,36 +101,36 @@ msgid ""
 ":class:`pyramid.interfaces.INewResponse`. The interface documentation "
 "provides information about available attributes and methods of the event "
 "objects."
-msgstr ""
+msgstr "ご覧のとおり、サブスクリプションは* class *（class： `pyramid.events.NewResponse`など）の観点から行われます。サブスクライバに送信されるイベントオブジェクトは、常に：term： `interface`を持つオブジェクトです。 ：class： `pyramid.events.NewResponse`の場合、そのインターフェースは：class：` pyramid.interfaces.INewResponse`です。インタフェースのドキュメントは、イベントオブジェクトの利用可能な属性とメソッドに関する情報を提供します。"
 
 #: ../../narr/events.rst:98
 msgid ""
 "The return value of a subscriber function is ignored.  Subscribers to the"
 " same event type are not guaranteed to be called in any particular order "
 "relative to each other."
-msgstr ""
+msgstr "サブスクライバ関数の戻り値は無視されます。同じイベントタイプのサブスクライバは、互いに特定の順序で呼び出されることは保証されていません。"
 
 #: ../../narr/events.rst:102
 msgid ""
 "All the concrete :app:`Pyramid` event types are documented in the "
 ":ref:`events_module` API documentation."
-msgstr ""
+msgstr "すべてのconcrete：app： `Pyramid`イベントタイプは、：ref：` events_module` APIドキュメントに記述されています。"
 
 #: ../../narr/events.rst:106
 msgid "An Example"
-msgstr ""
+msgstr "例"
 
 #: ../../narr/events.rst:108
 msgid ""
 "If you create event listener functions in a ``subscribers.py`` file in "
 "your application like so:"
-msgstr ""
+msgstr "アプリケーションの `` subscribers.py``ファイルにイベントリスナー関数を作成する場合は、次のようにします。"
 
 #: ../../narr/events.rst:120
 msgid ""
 "You may configure these functions to be called at the appropriate times "
 "by adding the following code to your application's configuration startup:"
-msgstr ""
+msgstr "適切なタイミングで呼び出されるようにこれらの関数を構成するには、アプリケーションの構成スタートアップに次のコードを追加します。"
 
 #: ../../narr/events.rst:133
 msgid ""
@@ -148,14 +138,14 @@ msgid ""
 "registered as event subscribers.  Under this configuration, when the "
 "application is run, each time a new request or response is detected, a "
 "message will be printed to the console."
-msgstr ""
+msgstr "いずれのメカニズムによっても、 `` subscribers.py``の関数がイベントサブスクライバとして登録されます。この構成では、アプリケーションが実行されると、新しい要求または応答が検出されるたびに、メッセージがコンソールに出力されます。"
 
 #: ../../narr/events.rst:138
 msgid ""
 "Each of our subscriber functions accepts an ``event`` object and prints "
 "an attribute of the event object.  This begs the question: how can we "
 "know which attributes a particular event has?"
-msgstr ""
+msgstr "各サブスクライバ関数は `` event``オブジェクトを受け取り、イベントオブジェクトの属性を出力します。これは、特定のイベントにどのような属性があるのか​​、どのようにして知ることができるのかという質問をします。"
 
 #: ../../narr/events.rst:142
 msgid ""
@@ -167,18 +157,18 @@ msgid ""
 "constructed by your application, because the interface defined at "
 ":class:`pyramid.interfaces.INewResponse` says it must "
 "(:class:`pyramid.events.NewResponse` objects also have a ``request``)."
-msgstr ""
+msgstr "class： `pyramid.events.NewRequest`イベントオブジェクトは：term：` request`オブジェクトである `` request``属性を持っています。これはclass： `pyramid.interfaces.INewRequest`で定義されているインタフェースです。それは必要であると言います。同様に、class： `pyramid.interfaces.NewResponse`イベントには、アプリケーションで構築されたレスポンスオブジェクトである` `response``属性があります：class：` pyramid.interfaces.INewResponse`で定義されているインタフェースです。 （：class： `pyramid.events.NewResponse`オブジェクトにも` `要求&#39;`がある）必要があります。"
 
 #: ../../narr/events.rst:153
 msgid "Creating Your Own Events"
-msgstr ""
+msgstr "独自のイベントを作成する"
 
 #: ../../narr/events.rst:155
 msgid ""
 "In addition to using the events that the Pyramid framework creates, you "
 "can create your own events for use in your application. This can be "
 "useful to decouple parts of your application."
-msgstr ""
+msgstr "Pyramidフレームワークが作成するイベントを使用することに加えて、アプリケーションで使用する独自のイベントを作成することもできます。これは、アプリケーションの一部を切り離すのに便利です。"
 
 #: ../../narr/events.rst:159
 msgid ""
@@ -188,7 +178,7 @@ msgid ""
 "fire a custom event. Subscribers to the custom event can take other "
 "actions, such as indexing the document, sending email, or sending a "
 "message to a remote system."
-msgstr ""
+msgstr "たとえば、新しい文書が作成されたときにアプリケーションが多くのことを行う必要があるとします。ドキュメントを作成するビューにこのすべてのロジックを入れるのではなく、ビューでドキュメントを作成してカスタムイベントを発生させることができます。カスタムイベントの購読者は、ドキュメントの索引付け、電子メールの送信、リモートシステムへのメッセージの送信など、他のアクションを実行できます。"
 
 #: ../../narr/events.rst:165
 msgid ""
@@ -196,13 +186,13 @@ msgid ""
 "for your custom events. In general, your events should keep track of the "
 "information that subscribers will need. Here are some example custom "
 "event classes:"
-msgstr ""
+msgstr "イベントは単なるオブジェクトです。カスタムイベントに必要な属性やメソッドはありません。一般的に、イベントは、加入者が必要とする情報を把握する必要があります。カスタムイベントクラスの例をいくつか示します："
 
 #: ../../narr/events.rst:185
 msgid ""
 "Some Pyramid applications choose to define custom events classes in an "
 "``events`` module."
-msgstr ""
+msgstr "いくつかのPyramidアプリケーションは、 `` events``モジュールでカスタムイベントクラスを定義することを選択します。"
 
 #: ../../narr/events.rst:188
 msgid ""
@@ -210,26 +200,26 @@ msgid ""
 "Pyramid events—either imperatively or with a decorator. You can also use "
 "custom events with :ref:`subscriber predicates <subscriber_predicates>`. "
 "Here's an example of subscribing to a custom event with a decorator:"
-msgstr ""
+msgstr "あなたは、必然的にまたはデコレータを使って、ピラミッドイベントを購読するのと同じ方法で、カスタムイベントを購読することができます。カスタムイベントは、：ref： `subscriber predicates <subscriber_predicates> `。デコレータを使用してカスタムイベントを購読する例を次に示します。"
 
 #: ../../narr/events.rst:205
 msgid ""
 "The above example assumes that the application defines a ``DocCreated`` "
 "event class and an ``index_doc`` function."
-msgstr ""
+msgstr "上記の例では、アプリケーションが `` DocCreated``イベントクラスと `` index_doc``関数を定義していることを前提としています。"
 
 #: ../../narr/events.rst:208
 msgid ""
 "To fire your custom events use the "
 ":meth:`pyramid.registry.Registry.notify` method, which is most often "
 "accessed as ``request.registry.notify``. For example:"
-msgstr ""
+msgstr "カスタムイベントを発生させるには、：meth： `pyramid.registry.Registry.notify`メソッドを使用します。このメソッドは、` `request.registry.notify``として最も頻繁にアクセスされます。例えば："
 
 #: ../../narr/events.rst:223
 msgid ""
 "This example view will notify all subscribers to the custom "
 "``DocCreated`` event."
-msgstr ""
+msgstr "この例のビューは、すべてのサブスクライバにカスタムの `` DocCreated``イベントを通知します。"
 
 #: ../../narr/events.rst:226
 msgid ""
@@ -237,5 +227,5 @@ msgid ""
 "so it's generally not a good idea to create event handlers that may take "
 "a long time to run. Although event handlers could be used as a central "
 "place to spawn tasks on your own message queues."
-msgstr ""
+msgstr "イベントを発生させると、すべてのサブスクライバが同期して実行されるので、実行に時間がかかるイベントハンドラを作成することは一般的にはお勧めできません。イベントハンドラは、独自のメッセージキューにタスクを生成する中心的な場所として使用できます。"
 

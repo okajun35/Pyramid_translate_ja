@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Hello Traversal World &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳) こんにちはトラバーサルワールド &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="Much Ado About Traversal" href="muchadoabouttraversal.html" />
-    <link rel="prev" title="Resources" href="resources.html" />
+    <link rel="next" title="(機械翻訳) トラバーサルについて" href="muchadoabouttraversal.html" />
+    <link rel="prev" title="(機械翻訳) リソース" href="resources.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,10 +54,10 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="muchadoabouttraversal.html" title="Much Ado About Traversal"
+          <a href="muchadoabouttraversal.html" title="(機械翻訳) トラバーサルについて"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="resources.html" title="Resources"
+          <a href="resources.html" title="(機械翻訳) リソース"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
@@ -69,11 +69,9 @@
           <div class="body" role="main">
             
   <div class="section" id="hello-traversal-world">
-<span id="hello-traversal-chapter"></span><h1>Hello Traversal World<a class="headerlink" href="#hello-traversal-world" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p id="index-0">Traversal is an alternative to URL dispatch which allows Pyramid applications
-to map URLs to code.</p>
-<p>If code speaks louder than words, maybe this will help. Here is a single-file
-Pyramid application that uses traversal:</p>
+<span id="hello-traversal-chapter"></span><h1>(機械翻訳) こんにちはトラバーサルワールド<a class="headerlink" href="#hello-traversal-world" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p id="index-0">トラバーサルは、URLディスパッチの代わりに、PyramidアプリケーションがURLをコードにマッピングできるようにします。</p>
+<p>コードが言葉よりも大声で話すなら、多分これが助けになるでしょう。ここでは、トラバーサルを使用する単一ファイルのPyramidアプリケーションを示します。</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -119,41 +117,22 @@ Pyramid application that uses traversal:</p>
 
 </pre></div>
 </td></tr></table></div>
-<p>You may notice that this application is intentionally very similar to the
-&quot;hello world&quot; application from <a class="reference internal" href="firstapp.html"><span class="doc">Creating Your First Pyramid Application</span></a>.</p>
-<p>On lines 5-6, we create a trivial <a class="reference internal" href="../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> class that's just a
-dictionary subclass.</p>
-<p>On lines 8-9, we hard-code a <a class="reference internal" href="../glossary.html#term-resource-tree"><span class="xref std std-term">resource tree</span></a> in our <a class="reference internal" href="../glossary.html#term-root-factory"><span class="xref std std-term">root factory</span></a>
-function.</p>
-<p>On lines 11-13, we define a single <a class="reference internal" href="../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> that can display a
-single instance of our <code class="docutils literal notranslate"><span class="pre">Resource</span></code> class, passed as the <code class="docutils literal notranslate"><span class="pre">context</span></code> argument.</p>
-<p>The rest of the file sets up and serves our <span>Pyramid</span> WSGI app.  Line 18
-is where our view gets configured for use whenever the traversal ends with an
-instance of our <code class="docutils literal notranslate"><span class="pre">Resource</span></code> class.</p>
-<p>Interestingly, there are no URLs explicitly configured in this application.
-Instead, the URL space is defined entirely by the keys in the resource tree.</p>
+<p>このアプリケーションは意図的に&amp;quot;hello world &amp;quot;アプリケーションと非常によく似ていることがわかります：doc： <cite>firstapp</cite>。</p>
+<p>5-6行目で、辞書サブクラスであるtrivial：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>resource`クラスを作成します。</p>
+<p>8-9行目では、：term： <cite>root factory`関数で：term：</cite> resource tree`をハードコードしています。</p>
+<p>11行目から13行目では、 <cite>context``引数として渡される</cite> <cite>Resource``クラスの単一のインスタンスを表示できる単一の：term：</cite> view callable`を定義します。</p>
+<p>残りのファイルは、私たちの：app： <cite>Pyramid</cite> WSGIアプリケーションを設定し、提供します。 18行目は、 `` Resource``クラスのインスタンスで走査が終了するたびにビューが使用されるように設定されています。</p>
+<p>興味深いことに、このアプリケーションでは明示的に構成されたURLはありません。代わりに、URLスペースはリソースツリー内のキーによって完全に定義されます。</p>
 <div class="section" id="example-requests">
-<h2>Example requests<a class="headerlink" href="#example-requests" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>If this example is running on <a class="reference external" href="http://localhost:8080">http://localhost:8080</a>, and the user browses to
-<a class="reference external" href="http://localhost:8080/a/b">http://localhost:8080/a/b</a>, Pyramid will call <code class="docutils literal notranslate"><span class="pre">get_root(request)</span></code> to get the
-root resource, then traverse the tree from there by key; starting from the
-root, it will find the child with key <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>, then its child with key <code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code>;
-then use that as the <code class="docutils literal notranslate"><span class="pre">context</span></code> argument for calling
-<code class="docutils literal notranslate"><span class="pre">hello_world_of_resources</span></code>.</p>
-<p>Or, if the user browses to <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a>, Pyramid will stop at the
-root—the outermost <code class="docutils literal notranslate"><span class="pre">Resource</span></code> instance, in this case—and use that as the
-<code class="docutils literal notranslate"><span class="pre">context</span></code> argument to the same view.</p>
-<p>Or, if the user browses to a key that doesn't exist in this resource tree, like
-<a class="reference external" href="http://localhost:8080/xyz">http://localhost:8080/xyz</a> or <a class="reference external" href="http://localhost:8080/a/b/c/d">http://localhost:8080/a/b/c/d</a>, the traversal will
-end by raising a KeyError, and Pyramid will turn that into a 404 HTTP response.</p>
-<p>A more complicated application could have many types of resources, with
-different view callables defined for each type, and even multiple views for
-each type.</p>
+<h2>リクエスト例<a class="headerlink" href="#example-requests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この例がhttp：// localhost：8080上で実行されていて、ユーザがhttp：// localhost：8080 / a / bを参照すると、Pyramidは `` get_root（request） <a href="#id1"><span class="problematic" id="id2">``</span></a>を呼び出してルートリソースを取得し、そこからの木の鍵。ルートから始めて、キー `` &amp;quot;a &amp;quot; <a href="#id3"><span class="problematic" id="id4">``</span></a>を持つ子、次にキー `` &amp;quot;b &amp;quot; <a href="#id5"><span class="problematic" id="id6">``</span></a>を持つその子を見つけます。それを `` hello_world_of_resources``を呼び出すための `` context``引数として使用してください。</p>
+<p>あるいは、ユーザがhttp：// localhost：8080 /を参照すると、ピラミッドはルート（この場合は最も外側の `` Resource``インスタンス）で停止し、それを同じ `` context``引数として使用しますビュー。</p>
+<p>または、http：// localhost：8080 / xyzまたはhttp：// localhost：8080 / a / b / c / dのように、このリソースツリーに存在しないキーをユーザーが参照すると、トラバーサルは終了しますKeyErrorを上げると、Pyramidはそれを404 HTTP応答に変換します。</p>
+<p>より複雑なアプリケーションには、さまざまなタイプのリソースがあり、それぞれのタイプに対して異なるビュー呼び出し可能性が定義されており、各タイプごとに複数のビューさえあります。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p>Full technical details may be found in <a class="reference internal" href="traversal.html"><span class="doc">Traversal</span></a>.</p>
-<p class="last">For more about <em>why</em> you might use traversal, see
-<a class="reference internal" href="muchadoabouttraversal.html"><span class="doc">Much Ado About Traversal</span></a>.</p>
+<p>技術的な詳細については、doc： <a href="#id1"><span class="problematic" id="id2">`</span></a>traversal`を参照してください。</p>
+<p class="last"><a href="#id1"><span class="problematic" id="id2">*</span></a>なぜ*あなたがトラバーサルを使うかもしれないかについては、：doc： <a href="#id3"><span class="problematic" id="id4">`</span></a>muchadoabouttraversal`を参照してください。</p>
 </div>
 </div>
 </div>
@@ -166,18 +145,18 @@ each type.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Hello Traversal World</a><ul>
-<li><a class="reference internal" href="#example-requests">Example requests</a></li>
+<li><a class="reference internal" href="#">(機械翻訳) こんにちはトラバーサルワールド</a><ul>
+<li><a class="reference internal" href="#example-requests">リクエスト例</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="resources.html"
-                        title="前の章へ">Resources</a></p>
+                        title="前の章へ">(機械翻訳) リソース</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="muchadoabouttraversal.html"
-                        title="次の章へ">Much Ado About Traversal</a></p>
+                        title="次の章へ">(機械翻訳) トラバーサルについて</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -211,17 +190,17 @@ each type.</p>
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="muchadoabouttraversal.html" title="Much Ado About Traversal"
+          <a href="muchadoabouttraversal.html" title="(機械翻訳) トラバーサルについて"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="resources.html" title="Resources"
+          <a href="resources.html" title="(機械翻訳) リソース"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

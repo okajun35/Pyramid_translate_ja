@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pyramid.authentication &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>：mod： pyramid.authentication &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="pyramid.authorization" href="authorization.html" />
-    <link rel="prev" title="API Documentation" href="index.html" />
+    <link rel="next" title="(機械翻訳) pyramid.authorization" href="authorization.html" />
+    <link rel="prev" title="（機械翻訳）APIドキュメント" href="index.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,13 +54,13 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="authorization.html" title="pyramid.authorization"
+          <a href="authorization.html" title="(機械翻訳) pyramid.authorization"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="API Documentation"
+          <a href="index.html" title="（機械翻訳）APIドキュメント"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,163 +70,91 @@
           <div class="body" role="main">
             
   <div class="section" id="pyramid-authentication">
-<span id="authentication-module"></span><h1><a class="reference internal" href="#module-pyramid.authentication" title="pyramid.authentication"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.authentication</span></code></a><a class="headerlink" href="#pyramid-authentication" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="authentication-module"></span><h1>：mod： <cite>pyramid.authentication</cite><a class="headerlink" href="#pyramid-authentication" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="module-pyramid.authentication">
-<span id="authentication-policies"></span><h2>Authentication Policies<a class="headerlink" href="#module-pyramid.authentication" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="authentication-policies"></span><h2>(機械翻訳)認証ポリシー<a class="headerlink" href="#module-pyramid.authentication" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <dl class="class">
 <dt id="pyramid.authentication.AuthTktAuthenticationPolicy">
 <em class="property">class </em><code class="descname">AuthTktAuthenticationPolicy</code><span class="sig-paren">(</span><em>secret</em>, <em>callback=None</em>, <em>cookie_name='auth_tkt'</em>, <em>secure=False</em>, <em>include_ip=False</em>, <em>timeout=None</em>, <em>reissue_time=None</em>, <em>max_age=None</em>, <em>path='/'</em>, <em>http_only=False</em>, <em>wild_domain=True</em>, <em>debug=False</em>, <em>hashalg='sha512'</em>, <em>parent_domain=False</em>, <em>domain=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#AuthTktAuthenticationPolicy"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.AuthTktAuthenticationPolicy" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-authentication-policy"><span class="xref std std-term">authentication policy</span></a> which
-obtains data from a Pyramid &quot;auth ticket&quot; cookie.</p>
-<p>Constructor Arguments</p>
-<p><code class="docutils literal notranslate"><span class="pre">secret</span></code></p>
+<dd><p>Aapp:<cite>Pyramid</cite>:用語:Pyramidauth ticketcookie&quot; からデータを取得する <a href="#id1"><span class="problematic" id="id2">`</span></a>認証ポリシー ` 。</p>
+<p>コンストラクタ引数</p>
+<p>「秘密」</p>
 <blockquote>
-<div>The secret (a string) used for auth_tkt cookie signing.  This value
-should be unique across all values provided to Pyramid for various
-subsystem secrets (see <a class="reference internal" href="../narr/security.html#admonishment-against-secret-sharing"><span class="std std-ref">Admonishment Against Secret-Sharing</span></a>).
-Required.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p>
+<div>auth_tktクッキーの署名に使用される秘密（文字列）。この値は、さまざまなサブシステムの秘密（「ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>admonishment_against_secret_sharing`参照）のためにPyramidに提供されるすべての値にわたって一意でなければなりません。必須。</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>コールバック ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.  A callback passed the userid and the
-request, expected to return <code class="docutils literal notranslate"><span class="pre">None</span></code> if the userid doesn't
-exist or a sequence of principal identifiers (possibly empty) if
-the user does exist.  If <code class="docutils literal notranslate"><span class="pre">callback</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the userid
-will be assumed to exist with no principals.  Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">cookie_name</span></code></p>
+<div>デフォルト： `` None``。コールバックはuseridと要求を渡しました。ユーザーIDが存在しない場合は `` None``、ユーザーが存在する場合はプリンシパル識別子のシーケンス（空の場合もあり）を返すことが期待されます。 `` callback``が `` None``の場合、ユーザIDはプリンシパルなしで存在するものとみなされます。オプション。</div></blockquote>
+<p>`` cookie_name``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">auth_tkt</span></code>.  The cookie name used
-(string).  Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">secure</span></code></p>
+<div>デフォルト： `` auth_tkt``。使用されたCookie名（文字列）。オプション。</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>安全 ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.  Only send the cookie back over a secure
-conn.  Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">include_ip</span></code></p>
+<div>デフォルト： `` False``。安全な接続でクッキーを送り返してください。オプション。</div></blockquote>
+<p>`` include_ip``</p>
 <blockquote>
-<div><p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.  Make the requesting IP address part of
-the authentication data in the cookie.  Optional.</p>
-<p>For IPv6 this option is not recommended. The <code class="docutils literal notranslate"><span class="pre">mod_auth_tkt</span></code>
-specification does not specify how to handle IPv6 addresses, so using
-this option in combination with IPv6 addresses may cause an
-incompatible cookie. It ties the authentication ticket to that
-individual's IPv6 address.</p>
+<div><p>デフォルト： `` False``。リクエストしているIPアドレスをクッキー内の認証データの一部にします。オプション。</p>
+<p>IPv6の場合、このオプションはお勧めしません。 `` mod_auth_tkt``仕様はIPv6アドレスの扱い方を指定していないので、このオプションをIPv6アドレスと組み合わせて使用​​すると、互換性のないCookieが生成される可能性があります。認証チケットをその個人のIPv6アドレスに結び付けます。</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">timeout</span></code></p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>タイムアウト ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.  Maximum number of seconds which a newly
-issued ticket will be considered valid.  After this amount of
-time, the ticket will expire (effectively logging the user
-out).  If this value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the ticket never expires.
-Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">reissue_time</span></code></p>
+<div>デフォルト： `` None``。新しく発行されたチケットが有効と見なされる最大秒数。この時間が経過すると、チケットは有効期限切れになり（実際にユーザーをログアウトさせる）。この値が `` None``の場合、チケットは期限切れになりません。オプション。</div></blockquote>
+<p>`` reissue_time``</p>
 <blockquote>
-<div><p>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.  If this parameter is set, it represents the number
-of seconds that must pass before an authentication token cookie is
-automatically reissued as the result of a request which requires
-authentication.  The duration is measured as the number of seconds
-since the last auth_tkt cookie was issued and 'now'.  If this value is
-<code class="docutils literal notranslate"><span class="pre">0</span></code>, a new ticket cookie will be reissued on every request which
-requires authentication.</p>
-<p>A good rule of thumb: if you want auto-expired cookies based on
-inactivity: set the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> value to 1200 (20 mins) and set the
-<code class="docutils literal notranslate"><span class="pre">reissue_time</span></code> value to perhaps a tenth of the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> value
-(120 or 2 mins).  It's nonsensical to set the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> value lower
-than the <code class="docutils literal notranslate"><span class="pre">reissue_time</span></code> value, as the ticket will never be reissued
-if so.  However, such a configuration is not explicitly prevented.</p>
-<p>Optional.</p>
+<div><p>デフォルト： `` None``。このパラメータを設定すると、認証が必要な要求の結果として認証トークンCookieが自動的に再発行されるまでに経過する必要がある秒数を表します。持続時間は、最後のauth_tktクッキーが発行されてからの秒数で測定され、 &amp;#39;今&amp;#39;です。この値が `` 0``の場合、認証が必要なリクエストごとに新しいチケットクッキーが再発行されます。</p>
+<p>経験則の中で、非アクティブに基づいて自動期限切れのクッキーが必要な場合： `` timeout``値を1200（20分）に設定し、 `` reissue_time``値をおそらく `` timeout`の10分の1に設定してください`値（120分または2分）。 `` reissue_time``値よりも `` timeout``の値を低く設定するのは無意味です。チケットが再発行されることはありません。しかしながら、そのような構成は明白に防止されていない。</p>
+<p>オプション。</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">max_age</span></code></p>
+<p>`` max_age``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.  The max age of the auth_tkt cookie, in
-seconds.  This differs from <code class="docutils literal notranslate"><span class="pre">timeout</span></code> inasmuch as <code class="docutils literal notranslate"><span class="pre">timeout</span></code>
-represents the lifetime of the ticket contained in the cookie,
-while this value represents the lifetime of the cookie itself.
-When this value is set, the cookie's <code class="docutils literal notranslate"><span class="pre">Max-Age</span></code> and
-<code class="docutils literal notranslate"><span class="pre">Expires</span></code> settings will be set, allowing the auth_tkt cookie
-to last between browser sessions.  It is typically nonsensical
-to set this to a value that is lower than <code class="docutils literal notranslate"><span class="pre">timeout</span></code> or
-<code class="docutils literal notranslate"><span class="pre">reissue_time</span></code>, although it is not explicitly prevented.
-Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">path</span></code></p>
+<div>デフォルト： `` None``。 auth_tktクッキーの最大経過秒数。これは、 `` timeout``がクッキーに含まれるチケットの存続期間を表し、この値はクッキー自身の存続期間を表すので、 `` timeout``とは異なります。この値が設定されると、クッキーの `` Max-Age``と `` Expires``設定が設定され、ブラウザセッション間でauth_tktクッキーが存続するようになります。明示的には防止されていないが、これを `` timeout``や `` reissue_time``よりも低い値に設定するのは無意味です。オプション。</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>パス ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">/</span></code>. The path for which the auth_tkt cookie is valid.
-May be desirable if the application only serves part of a domain.
-Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">http_only</span></code></p>
+<div>デフォルト： `` / <a href="#id1"><span class="problematic" id="id2">``</span></a>。 auth_tktクッキーが有効なパス。アプリケーションがドメインの一部としてしか機能しない場合は望ましいかもしれません。オプション。</div></blockquote>
+<p>`` http_only``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>. Hide cookie from JavaScript by setting the
-HttpOnly flag. Not honored by all browsers.
-Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">wild_domain</span></code></p>
+<div>デフォルト： `` False``。 HttpOnlyフラグを設定して、JavaScriptからCookieを隠します。すべてのブラウザで尊敬されるわけではありません。オプション。</div></blockquote>
+<p>`` wild_domain``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>. An auth_tkt cookie will be generated for the
-wildcard domain. If your site is hosted as <code class="docutils literal notranslate"><span class="pre">example.com</span></code> this
-will make the cookie available for sites underneath <code class="docutils literal notranslate"><span class="pre">example.com</span></code>
-such as <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>.
-Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">parent_domain</span></code></p>
+<div>デフォルト： `` True``です。ワイルドカードドメインのauth_tkt Cookieが生成されます。あなたのサイトが `` example.com``としてホストされている場合、 `` www.example.com``のような `` example.com``の下のサイトで利用できるようになります。オプション。</div></blockquote>
+<p>`` parent_domain``</p>
 <blockquote>
-<div><p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>. An auth_tkt cookie will be generated for the
-parent domain of the current site. For example if your site is
-hosted under <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code> a cookie will be generated for
-<code class="docutils literal notranslate"><span class="pre">.example.com</span></code>. This can be useful if you have multiple sites
-sharing the same domain. This option supercedes the <code class="docutils literal notranslate"><span class="pre">wild_domain</span></code>
-option.
-Optional.</p>
-<p>This option is available as of <span>Pyramid</span> 1.5.</p>
+<div><p>デフォルト： `` False``。現在のサイトの親ドメインに対してauth_tkt Cookieが生成されます。例えば、あなたのサイトが `` www.example.com``の下でホストされている場合、 `` .example.com``に対してクッキーが生成されます。これは、同じドメインを複数のサイトが共有している場合に便利です。このオプションは `` wild_domain``オプションに代わるものです。オプション。</p>
+<p>このオプションは、app： <cite>Pyramid</cite> 1.5で利用可能です。</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">domain</span></code></p>
+<p>「ドメイン」</p>
 <blockquote>
-<div><p>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>. If provided the auth_tkt cookie will only be
-set for this domain. This option is not compatible with <code class="docutils literal notranslate"><span class="pre">wild_domain</span></code>
-and <code class="docutils literal notranslate"><span class="pre">parent_domain</span></code>.
-Optional.</p>
-<p>This option is available as of <span>Pyramid</span> 1.5.</p>
+<div><p>デフォルト： `` None``。 auth_tkt Cookieが提供されている場合、このドメインに対してのみ設定されます。このオプションは `` wild_domain``と `` parent_domain``と互換性がありません。オプション。</p>
+<p>このオプションは、app： <cite>Pyramid</cite> 1.5で利用可能です。</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">hashalg</span></code></p>
+<p>「ハハハル」</p>
 <blockquote>
-<div><p>Default: <code class="docutils literal notranslate"><span class="pre">sha512</span></code> (the literal string).</p>
-<p>Any hash algorithm supported by Python's <code class="docutils literal notranslate"><span class="pre">hashlib.new()</span></code> function
-can be used as the <code class="docutils literal notranslate"><span class="pre">hashalg</span></code>.</p>
-<p>Cookies generated by different instances of AuthTktAuthenticationPolicy
-using different <code class="docutils literal notranslate"><span class="pre">hashalg</span></code> options are not compatible. Switching the
-<code class="docutils literal notranslate"><span class="pre">hashalg</span></code> will imply that all existing users with a valid cookie will
-be required to re-login.</p>
-<p>This option is available as of <span>Pyramid</span> 1.4.</p>
-<p>Optional.</p>
+<div><p>デフォルト： `` sha512``（リテラル文字列）。</p>
+<p>Pythonの `` hashlib.new（） <a href="#id1"><span class="problematic" id="id2">``</span></a>関数でサポートされているハッシュアルゴリズムを `` hashalg``として使うことができます。</p>
+<p>異なった `` hashalg``オプションを使ってAuthTktAuthenticationPolicyの異なるインスタンスによって生成されたクッキーは互換性がありません。 `` hashalg``を切り替えることは、有効なクッキーを持つ既存のすべてのユーザーが再ログインする必要があることを意味します。</p>
+<p>このオプションは、app： <cite>Pyramid</cite> 1.4で利用可能です。</p>
+<p>オプション。</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">debug</span></code></p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>デバッグ ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.  If <code class="docutils literal notranslate"><span class="pre">debug</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, log messages to the
-Pyramid debug logger about the results of various authentication
-steps.  The output from debugging is useful for reporting to maillist
-or IRC channels when asking for support.</div></blockquote>
-<p>Objects of this class implement the interface described by
-<a class="reference internal" href="interfaces.html#pyramid.interfaces.IAuthenticationPolicy" title="pyramid.interfaces.IAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IAuthenticationPolicy</span></code></a>.</p>
+<div>デフォルト： `` False``。 `` debug``が `` True``ならば、Pyramidデバッグロガーに様々な認証ステップの結果についてのメッセージを記録します。デバッグからの出力は、サポートを求めるときにmaillistまたはIRCチャネルに報告するのに便利です。</div></blockquote>
+<p>このクラスのオブジェクトは：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.interfaces.IAuthenticationPolicy`で記述されたインタフェースを実装します。</p>
 <dl class="method">
 <dt id="pyramid.authentication.AuthTktAuthenticationPolicy.authenticated_userid">
 <code class="descname">authenticated_userid</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.AuthTktAuthenticationPolicy.authenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return the authenticated userid or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>If no callback is registered, this will be the same as
-<code class="docutils literal notranslate"><span class="pre">unauthenticated_userid</span></code>.</p>
-<p>If a <code class="docutils literal notranslate"><span class="pre">callback</span></code> is registered, this will return the userid if
-and only if the callback returns a value that is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dd><p>認証されたユーザIDまたは `` None``を返します。</p>
+<p>コールバックが登録されていない場合、これは `` unauthenticated_userid``と同じになります。</p>
+<p>`` callback``が登録されている場合、コールバックが `` None``以外の値を返す場合に限り、これはuseridを返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.AuthTktAuthenticationPolicy.effective_principals">
 <code class="descname">effective_principals</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.AuthTktAuthenticationPolicy.effective_principals" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A list of effective principals derived from request.</p>
-<p>This will return a list of principals including, at least,
-<a class="reference internal" href="security.html#pyramid.security.Everyone" title="pyramid.security.Everyone"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Everyone</span></code></a>. If there is no authenticated
-userid, or the <code class="docutils literal notranslate"><span class="pre">callback</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>, this will be the
-only principal:</p>
+<dd><p>要求から導出された有効なプリンシパルのリスト。</p>
+<p>これは、少なくとも：data： <cite>pyramid.security.Everyone`を含むプリンシパルのリストを返します。認証されたユーザIDがないか、 `</cite> callback``が `` None``を返した場合、これは唯一のプリンシパルになります：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="p">[</span><span class="n">Everyone</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>If the <code class="docutils literal notranslate"><span class="pre">callback</span></code> does not return <code class="docutils literal notranslate"><span class="pre">None</span></code> and an authenticated
-userid is found, then the principals will include
-<a class="reference internal" href="security.html#pyramid.security.Authenticated" title="pyramid.security.Authenticated"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Authenticated</span></code></a>, the <code class="docutils literal notranslate"><span class="pre">authenticated_userid</span></code>
-and the list of principals returned by the <code class="docutils literal notranslate"><span class="pre">callback</span></code>:</p>
+<p>`` callback``が `` None``を返さず、認証されたユーザIDが見つかった場合、プリンシパルには：data： <cite>pyramid.security.Authenticated</cite>、` <cite>authenticated_userid`</cite>、返されたプリンシパルのリスト``コールバック <a href="#id1"><span class="problematic" id="id2">``</span></a>によって：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_principals</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
 <span class="k">return</span> <span class="p">[</span><span class="n">Everyone</span><span class="p">,</span> <span class="n">Authenticated</span><span class="p">,</span> <span class="n">userid</span><span class="p">]</span> <span class="o">+</span> <span class="n">extra_principals</span>
 </pre></div>
@@ -236,22 +164,20 @@ and the list of principals returned by the <code class="docutils literal notrans
 <dl class="method">
 <dt id="pyramid.authentication.AuthTktAuthenticationPolicy.forget">
 <code class="descname">forget</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#AuthTktAuthenticationPolicy.forget"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.AuthTktAuthenticationPolicy.forget" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A list of headers which will delete appropriate cookies.</p>
+<dd><p>適切なCookieを削除するヘッダーのリスト。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.AuthTktAuthenticationPolicy.remember">
 <code class="descname">remember</code><span class="sig-paren">(</span><em>request</em>, <em>userid</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#AuthTktAuthenticationPolicy.remember"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.AuthTktAuthenticationPolicy.remember" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Accepts the following kw args: <code class="docutils literal notranslate"><span class="pre">max_age=&lt;int-seconds&gt;,</span>
-<span class="pre">``tokens=&lt;sequence-of-ascii-strings&gt;</span></code>.</p>
-<p>Return a list of headers which will set appropriate cookies on
-the response.</p>
+<dd><p>次のkw引数を受け入れます： `` max_age = &lt;int-seconds&gt; 、 `` tokens = &lt;sequence-of-ascii-strings&gt; <a href="#id1"><span class="problematic" id="id2">``</span></a>。</p>
+<p>レスポンスに適切なクッキーを設定するヘッダーのリストを返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.AuthTktAuthenticationPolicy.unauthenticated_userid">
 <code class="descname">unauthenticated_userid</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#AuthTktAuthenticationPolicy.unauthenticated_userid"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.AuthTktAuthenticationPolicy.unauthenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>The userid key within the auth_tkt cookie.</p>
+<dd><p>auth_tktクッキー内のuseridキー。</p>
 </dd></dl>
 
 </dd></dl>
@@ -259,53 +185,35 @@ the response.</p>
 <dl class="class">
 <dt id="pyramid.authentication.RemoteUserAuthenticationPolicy">
 <em class="property">class </em><code class="descname">RemoteUserAuthenticationPolicy</code><span class="sig-paren">(</span><em>environ_key='REMOTE_USER'</em>, <em>callback=None</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#RemoteUserAuthenticationPolicy"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.RemoteUserAuthenticationPolicy" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-authentication-policy"><span class="xref std std-term">authentication policy</span></a> which
-obtains data from the <code class="docutils literal notranslate"><span class="pre">REMOTE_USER</span></code> WSGI environment variable.</p>
-<p>Constructor Arguments</p>
-<p><code class="docutils literal notranslate"><span class="pre">environ_key</span></code></p>
+<dd><p>A：app： <cite>Pyramid</cite>：term：` REMOTE_USER`` WSGI環境変数からデータを取得する <cite>認証ポリシー</cite></p>
+<p>コンストラクタ引数</p>
+<p>`` Environ_key``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">REMOTE_USER</span></code>.  The key in the WSGI environ which
-provides the userid.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p>
+<div>デフォルト： `` REMOTE_USER``。ユーザーIDを提供するWSGI環境のキー。</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>コールバック ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.  A callback passed the userid and the request,
-expected to return None if the userid doesn't exist or a sequence of
-principal identifiers (possibly empty) representing groups if the
-user does exist.  If <code class="docutils literal notranslate"><span class="pre">callback</span></code> is None, the userid will be assumed
-to exist with no group principals.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">debug</span></code></p>
+<div>デフォルト： `` None``。コールバックはuseridと要求を渡しました。ユーザーIDが存在しない場合はNoneを返し、ユーザーが存在する場合はグループを表すプリンシパル識別子（空の場合もあります）のシーケンスを返します。 `` callback``がNoneの場合、ユーザIDはグループプリンシパルなしで存在するものとみなされます。</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>デバッグ ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.  If <code class="docutils literal notranslate"><span class="pre">debug</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, log messages to the
-Pyramid debug logger about the results of various authentication
-steps.  The output from debugging is useful for reporting to maillist
-or IRC channels when asking for support.</div></blockquote>
-<p>Objects of this class implement the interface described by
-<a class="reference internal" href="interfaces.html#pyramid.interfaces.IAuthenticationPolicy" title="pyramid.interfaces.IAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IAuthenticationPolicy</span></code></a>.</p>
+<div>デフォルト： `` False``。 `` debug``が `` True``ならば、Pyramidデバッグロガーに様々な認証ステップの結果についてのメッセージを記録します。デバッグからの出力は、サポートを求めるときにmaillistまたはIRCチャネルに報告するのに便利です。</div></blockquote>
+<p>このクラスのオブジェクトは：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.interfaces.IAuthenticationPolicy`で記述されたインタフェースを実装します。</p>
 <dl class="method">
 <dt id="pyramid.authentication.RemoteUserAuthenticationPolicy.authenticated_userid">
 <code class="descname">authenticated_userid</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.RemoteUserAuthenticationPolicy.authenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return the authenticated userid or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>If no callback is registered, this will be the same as
-<code class="docutils literal notranslate"><span class="pre">unauthenticated_userid</span></code>.</p>
-<p>If a <code class="docutils literal notranslate"><span class="pre">callback</span></code> is registered, this will return the userid if
-and only if the callback returns a value that is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dd><p>認証されたユーザIDまたは `` None``を返します。</p>
+<p>コールバックが登録されていない場合、これは `` unauthenticated_userid``と同じになります。</p>
+<p>`` callback``が登録されている場合、コールバックが `` None``以外の値を返す場合に限り、これはuseridを返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.RemoteUserAuthenticationPolicy.effective_principals">
 <code class="descname">effective_principals</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.RemoteUserAuthenticationPolicy.effective_principals" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A list of effective principals derived from request.</p>
-<p>This will return a list of principals including, at least,
-<a class="reference internal" href="security.html#pyramid.security.Everyone" title="pyramid.security.Everyone"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Everyone</span></code></a>. If there is no authenticated
-userid, or the <code class="docutils literal notranslate"><span class="pre">callback</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>, this will be the
-only principal:</p>
+<dd><p>要求から導出された有効なプリンシパルのリスト。</p>
+<p>これは、少なくとも：data： <cite>pyramid.security.Everyone`を含むプリンシパルのリストを返します。認証されたユーザIDがないか、 `</cite> callback``が `` None``を返した場合、これは唯一のプリンシパルになります：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="p">[</span><span class="n">Everyone</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>If the <code class="docutils literal notranslate"><span class="pre">callback</span></code> does not return <code class="docutils literal notranslate"><span class="pre">None</span></code> and an authenticated
-userid is found, then the principals will include
-<a class="reference internal" href="security.html#pyramid.security.Authenticated" title="pyramid.security.Authenticated"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Authenticated</span></code></a>, the <code class="docutils literal notranslate"><span class="pre">authenticated_userid</span></code>
-and the list of principals returned by the <code class="docutils literal notranslate"><span class="pre">callback</span></code>:</p>
+<p>`` callback``が `` None``を返さず、認証されたユーザIDが見つかった場合、プリンシパルには：data： <cite>pyramid.security.Authenticated</cite>、` <cite>authenticated_userid`</cite>、返されたプリンシパルのリスト``コールバック <a href="#id1"><span class="problematic" id="id2">``</span></a>によって：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_principals</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
 <span class="k">return</span> <span class="p">[</span><span class="n">Everyone</span><span class="p">,</span> <span class="n">Authenticated</span><span class="p">,</span> <span class="n">userid</span><span class="p">]</span> <span class="o">+</span> <span class="n">extra_principals</span>
 </pre></div>
@@ -315,23 +223,19 @@ and the list of principals returned by the <code class="docutils literal notrans
 <dl class="method">
 <dt id="pyramid.authentication.RemoteUserAuthenticationPolicy.forget">
 <code class="descname">forget</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#RemoteUserAuthenticationPolicy.forget"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.RemoteUserAuthenticationPolicy.forget" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A no-op. The <code class="docutils literal notranslate"><span class="pre">REMOTE_USER</span></code> does not provide a protocol for
-forgetting the user. This will be application-specific and can
-be done somewhere else or in a subclass.</p>
+<dd><p>無操作`` REMOTE_USER``はユーザを忘れるためのプロトコルを提供しません。これはアプリケーション固有のもので、他の場所やサブクラスでも実行できます。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.RemoteUserAuthenticationPolicy.remember">
 <code class="descname">remember</code><span class="sig-paren">(</span><em>request</em>, <em>userid</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#RemoteUserAuthenticationPolicy.remember"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.RemoteUserAuthenticationPolicy.remember" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A no-op. The <code class="docutils literal notranslate"><span class="pre">REMOTE_USER</span></code> does not provide a protocol for
-remembering the user. This will be application-specific and can
-be done somewhere else or in a subclass.</p>
+<dd><p>無操作`` REMOTE_USER``は、ユーザを覚えておくためのプロトコルを提供しません。これはアプリケーション固有のもので、他の場所やサブクラスでも実行できます。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.RemoteUserAuthenticationPolicy.unauthenticated_userid">
 <code class="descname">unauthenticated_userid</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#RemoteUserAuthenticationPolicy.unauthenticated_userid"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.RemoteUserAuthenticationPolicy.unauthenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>The <code class="docutils literal notranslate"><span class="pre">REMOTE_USER</span></code> value found within the <code class="docutils literal notranslate"><span class="pre">environ</span></code>.</p>
+<dd><p>`` environ``内にある `` REMOTE_USER``値です。</p>
 </dd></dl>
 
 </dd></dl>
@@ -339,53 +243,34 @@ be done somewhere else or in a subclass.</p>
 <dl class="class">
 <dt id="pyramid.authentication.SessionAuthenticationPolicy">
 <em class="property">class </em><code class="descname">SessionAuthenticationPolicy</code><span class="sig-paren">(</span><em>prefix='auth.'</em>, <em>callback=None</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#SessionAuthenticationPolicy"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.SessionAuthenticationPolicy" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A <span>Pyramid</span> authentication policy which gets its data from the
-configured <a class="reference internal" href="../glossary.html#term-session"><span class="xref std std-term">session</span></a>.  For this authentication policy to work, you
-will have to follow the instructions in the <a class="reference internal" href="../narr/sessions.html#sessions-chapter"><span class="std std-ref">Sessions</span></a> to
-configure a <a class="reference internal" href="../glossary.html#term-session-factory"><span class="xref std std-term">session factory</span></a>.</p>
-<p>Constructor Arguments</p>
-<p><code class="docutils literal notranslate"><span class="pre">prefix</span></code></p>
+<dd><p>A：app： <cite>Pyramid`認証ポリシーで、設定された：term：</cite> session`からデータを取得します。この認証ポリシーが機能するには、：ref： <cite>sessions_chapter`の指示に従って、：term：</cite> session factory`を設定する必要があります。</p>
+<p>コンストラクタ引数</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>接頭辞 ``</p>
 <blockquote>
-<div>A prefix used when storing the authentication parameters in the
-session. Defaults to 'auth.'. Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p>
+<div>セッションに認証パラメータを格納するときに使用される接頭辞。デフォルトは &amp;#39;auth&amp;#39;です。オプション。</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>コールバック ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.  A callback passed the userid and the
-request, expected to return <code class="docutils literal notranslate"><span class="pre">None</span></code> if the userid doesn't
-exist or a sequence of principal identifiers (possibly empty) if
-the user does exist.  If <code class="docutils literal notranslate"><span class="pre">callback</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the userid
-will be assumed to exist with no principals.  Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">debug</span></code></p>
+<div>デフォルト： `` None``。コールバックはuseridと要求を渡しました。ユーザーIDが存在しない場合は `` None``、ユーザーが存在する場合はプリンシパル識別子のシーケンス（空の場合もあり）を返すことが期待されます。 `` callback``が `` None``の場合、ユーザIDはプリンシパルなしで存在するものとみなされます。オプション。</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>デバッグ ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.  If <code class="docutils literal notranslate"><span class="pre">debug</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, log messages to the
-Pyramid debug logger about the results of various authentication
-steps.  The output from debugging is useful for reporting to maillist
-or IRC channels when asking for support.</div></blockquote>
+<div>デフォルト： `` False``。 `` debug``が `` True``ならば、Pyramidデバッグロガーに様々な認証ステップの結果についてのメッセージを記録します。デバッグからの出力は、サポートを求めるときにmaillistまたはIRCチャネルに報告するのに便利です。</div></blockquote>
 <dl class="method">
 <dt id="pyramid.authentication.SessionAuthenticationPolicy.authenticated_userid">
 <code class="descname">authenticated_userid</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.SessionAuthenticationPolicy.authenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return the authenticated userid or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>If no callback is registered, this will be the same as
-<code class="docutils literal notranslate"><span class="pre">unauthenticated_userid</span></code>.</p>
-<p>If a <code class="docutils literal notranslate"><span class="pre">callback</span></code> is registered, this will return the userid if
-and only if the callback returns a value that is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dd><p>認証されたユーザIDまたは `` None``を返します。</p>
+<p>コールバックが登録されていない場合、これは `` unauthenticated_userid``と同じになります。</p>
+<p>`` callback``が登録されている場合、コールバックが `` None``以外の値を返す場合に限り、これはuseridを返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.SessionAuthenticationPolicy.effective_principals">
 <code class="descname">effective_principals</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.SessionAuthenticationPolicy.effective_principals" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A list of effective principals derived from request.</p>
-<p>This will return a list of principals including, at least,
-<a class="reference internal" href="security.html#pyramid.security.Everyone" title="pyramid.security.Everyone"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Everyone</span></code></a>. If there is no authenticated
-userid, or the <code class="docutils literal notranslate"><span class="pre">callback</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>, this will be the
-only principal:</p>
+<dd><p>要求から導出された有効なプリンシパルのリスト。</p>
+<p>これは、少なくとも：data： <cite>pyramid.security.Everyone`を含むプリンシパルのリストを返します。認証されたユーザIDがないか、 `</cite> callback``が `` None``を返した場合、これは唯一のプリンシパルになります：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="p">[</span><span class="n">Everyone</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>If the <code class="docutils literal notranslate"><span class="pre">callback</span></code> does not return <code class="docutils literal notranslate"><span class="pre">None</span></code> and an authenticated
-userid is found, then the principals will include
-<a class="reference internal" href="security.html#pyramid.security.Authenticated" title="pyramid.security.Authenticated"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Authenticated</span></code></a>, the <code class="docutils literal notranslate"><span class="pre">authenticated_userid</span></code>
-and the list of principals returned by the <code class="docutils literal notranslate"><span class="pre">callback</span></code>:</p>
+<p>`` callback``が `` None``を返さず、認証されたユーザIDが見つかった場合、プリンシパルには：data： <cite>pyramid.security.Authenticated</cite>、` <cite>authenticated_userid`</cite>、返されたプリンシパルのリスト``コールバック <a href="#id1"><span class="problematic" id="id2">``</span></a>によって：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_principals</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
 <span class="k">return</span> <span class="p">[</span><span class="n">Everyone</span><span class="p">,</span> <span class="n">Authenticated</span><span class="p">,</span> <span class="n">userid</span><span class="p">]</span> <span class="o">+</span> <span class="n">extra_principals</span>
 </pre></div>
@@ -395,13 +280,13 @@ and the list of principals returned by the <code class="docutils literal notrans
 <dl class="method">
 <dt id="pyramid.authentication.SessionAuthenticationPolicy.forget">
 <code class="descname">forget</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#SessionAuthenticationPolicy.forget"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.SessionAuthenticationPolicy.forget" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Remove the stored userid from the session.</p>
+<dd><p>保存されたユーザーIDをセッションから削除します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.SessionAuthenticationPolicy.remember">
 <code class="descname">remember</code><span class="sig-paren">(</span><em>request</em>, <em>userid</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#SessionAuthenticationPolicy.remember"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.SessionAuthenticationPolicy.remember" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Store a userid in the session.</p>
+<dd><p>セッションにユーザーIDを格納します。</p>
 </dd></dl>
 
 </dd></dl>
@@ -409,32 +294,19 @@ and the list of principals returned by the <code class="docutils literal notrans
 <dl class="class">
 <dt id="pyramid.authentication.BasicAuthAuthenticationPolicy">
 <em class="property">class </em><code class="descname">BasicAuthAuthenticationPolicy</code><span class="sig-paren">(</span><em>check</em>, <em>realm='Realm'</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#BasicAuthAuthenticationPolicy"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.BasicAuthAuthenticationPolicy" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A <span>Pyramid</span> authentication policy which uses HTTP standard basic
-authentication protocol to authenticate users.  To use this policy you will
-need to provide a callback which checks the supplied user credentials
-against your source of login data.</p>
-<p>Constructor Arguments</p>
-<p><code class="docutils literal notranslate"><span class="pre">check</span></code></p>
+<dd><p>A：app：Pyramid認証ポリシーで、HTTP標準の基本認証プロトコルを使用してユーザーを認証します。このポリシーを使用するには、提供されたユーザーの資格情報を自分のログインデータのソースに対してチェックするコールバックを提供する必要があります。</p>
+<p>コンストラクタ引数</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>チェック ``</p>
 <blockquote>
-<div>A callback function passed a username, password and request, in that
-order as positional arguments.  Expected to return <code class="docutils literal notranslate"><span class="pre">None</span></code> if the
-userid doesn't exist or a sequence of principal identifiers (possibly
-empty) if the user does exist.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">realm</span></code></p>
+<div>コールバック関数は、ユーザー名、パスワード、および要求を、この順序で位置引数として渡しました。ユーザーIDが存在しない場合は `` None``、ユーザーが存在する場合はプリンシパルIDのシーケンス（空の場合もあり）を返すと予想されます。</div></blockquote>
+<p>「レルム」</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">&quot;Realm&quot;</span></code>.  The Basic Auth Realm string.  Usually displayed to
-the user by the browser in the login dialog.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">debug</span></code></p>
+<div>デフォルト： `` &amp;quot;レルム&amp;quot; <a href="#id1"><span class="problematic" id="id2">``</span></a>。基本認証レルムの文字列。通常、ログインダイアログでブラウザによってユーザに表示されます。</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>デバッグ ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.  If <code class="docutils literal notranslate"><span class="pre">debug</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, log messages to the
-Pyramid debug logger about the results of various authentication
-steps.  The output from debugging is useful for reporting to maillist
-or IRC channels when asking for support.</div></blockquote>
-<p><strong>Issuing a challenge</strong></p>
-<p>Regular browsers will not send username/password credentials unless they
-first receive a challenge from the server.  The following recipe will
-register a view that will send a Basic Auth challenge to the user whenever
-there is an attempt to call a view which results in a Forbidden response:</p>
+<div>デフォルト： `` False``。 `` debug``が `` True``ならば、Pyramidデバッグロガーに様々な認証ステップの結果についてのメッセージを記録します。デバッグからの出力は、サポートを求めるときにmaillistまたはIRCチャネルに報告するのに便利です。</div></blockquote>
+<p><strong>挑戦をする</strong></p>
+<p>通常のブラウザは、最初にサーバーからチャレンジを受け取らない限り、ユーザー名/パスワードの資格情報を送信しません。次のレシピは、Forbiddenレスポンスをもたらすビューを呼び出そうとすると、Basic Authチャレンジをユーザに送信するビューを登録します:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyramid.httpexceptions</span> <span class="k">import</span> <span class="n">HTTPUnauthorized</span>
 <span class="kn">from</span> <span class="nn">pyramid.security</span> <span class="k">import</span> <span class="n">forget</span>
 <span class="kn">from</span> <span class="nn">pyramid.view</span> <span class="k">import</span> <span class="n">forbidden_view_config</span>
@@ -451,28 +323,20 @@ there is an attempt to call a view which results in a Forbidden response:</p>
 <dl class="method">
 <dt id="pyramid.authentication.BasicAuthAuthenticationPolicy.authenticated_userid">
 <code class="descname">authenticated_userid</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.BasicAuthAuthenticationPolicy.authenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return the authenticated userid or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>If no callback is registered, this will be the same as
-<code class="docutils literal notranslate"><span class="pre">unauthenticated_userid</span></code>.</p>
-<p>If a <code class="docutils literal notranslate"><span class="pre">callback</span></code> is registered, this will return the userid if
-and only if the callback returns a value that is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dd><p>認証されたユーザIDまたは `` None``を返します。</p>
+<p>コールバックが登録されていない場合、これは `` unauthenticated_userid``と同じになります。</p>
+<p>`` callback``が登録されている場合、コールバックが `` None``以外の値を返す場合に限り、これはuseridを返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.BasicAuthAuthenticationPolicy.effective_principals">
 <code class="descname">effective_principals</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.BasicAuthAuthenticationPolicy.effective_principals" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A list of effective principals derived from request.</p>
-<p>This will return a list of principals including, at least,
-<a class="reference internal" href="security.html#pyramid.security.Everyone" title="pyramid.security.Everyone"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Everyone</span></code></a>. If there is no authenticated
-userid, or the <code class="docutils literal notranslate"><span class="pre">callback</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>, this will be the
-only principal:</p>
+<dd><p>要求から導出された有効なプリンシパルのリスト。</p>
+<p>これは、少なくとも：data： <cite>pyramid.security.Everyone`を含むプリンシパルのリストを返します。認証されたユーザIDがないか、 `</cite> callback``が `` None``を返した場合、これは唯一のプリンシパルになります：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="p">[</span><span class="n">Everyone</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>If the <code class="docutils literal notranslate"><span class="pre">callback</span></code> does not return <code class="docutils literal notranslate"><span class="pre">None</span></code> and an authenticated
-userid is found, then the principals will include
-<a class="reference internal" href="security.html#pyramid.security.Authenticated" title="pyramid.security.Authenticated"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Authenticated</span></code></a>, the <code class="docutils literal notranslate"><span class="pre">authenticated_userid</span></code>
-and the list of principals returned by the <code class="docutils literal notranslate"><span class="pre">callback</span></code>:</p>
+<p>`` callback``が `` None``を返さず、認証されたユーザIDが見つかった場合、プリンシパルには：data： <cite>pyramid.security.Authenticated</cite>、` <cite>authenticated_userid`</cite>、返されたプリンシパルのリスト``コールバック <a href="#id1"><span class="problematic" id="id2">``</span></a>によって：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_principals</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
 <span class="k">return</span> <span class="p">[</span><span class="n">Everyone</span><span class="p">,</span> <span class="n">Authenticated</span><span class="p">,</span> <span class="n">userid</span><span class="p">]</span> <span class="o">+</span> <span class="n">extra_principals</span>
 </pre></div>
@@ -482,21 +346,19 @@ and the list of principals returned by the <code class="docutils literal notrans
 <dl class="method">
 <dt id="pyramid.authentication.BasicAuthAuthenticationPolicy.forget">
 <code class="descname">forget</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#BasicAuthAuthenticationPolicy.forget"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.BasicAuthAuthenticationPolicy.forget" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Returns challenge headers. This should be attached to a response
-to indicate that credentials are required.</p>
+<dd><p>チャレンジヘッダーを返します。これは、資格情報が必要であることを示す応答に添付する必要があります。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.BasicAuthAuthenticationPolicy.remember">
 <code class="descname">remember</code><span class="sig-paren">(</span><em>request</em>, <em>userid</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#BasicAuthAuthenticationPolicy.remember"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.BasicAuthAuthenticationPolicy.remember" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A no-op. Basic authentication does not provide a protocol for
-remembering the user. Credentials are sent on every request.</p>
+<dd><p>無操作基本認証は、ユーザーを覚えておくためのプロトコルを提供しません。資格情報はすべての要求に送信されます。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.BasicAuthAuthenticationPolicy.unauthenticated_userid">
 <code class="descname">unauthenticated_userid</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#BasicAuthAuthenticationPolicy.unauthenticated_userid"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.BasicAuthAuthenticationPolicy.unauthenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>The userid parsed from the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> request header.</p>
+<dd><p>`` Authorization``リクエストヘッダから解析されたユーザID。</p>
 </dd></dl>
 
 </dd></dl>
@@ -504,96 +366,67 @@ remembering the user. Credentials are sent on every request.</p>
 <dl class="class">
 <dt id="pyramid.authentication.RepozeWho1AuthenticationPolicy">
 <em class="property">class </em><code class="descname">RepozeWho1AuthenticationPolicy</code><span class="sig-paren">(</span><em>identifier_name='auth_tkt'</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#RepozeWho1AuthenticationPolicy"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.RepozeWho1AuthenticationPolicy" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A <span>Pyramid</span> <a class="reference internal" href="../glossary.html#term-authentication-policy"><span class="xref std std-term">authentication policy</span></a> which
-obtains data from the <a class="reference external" href="https://repozewho.readthedocs.io/en/latest/index.html#module-repoze.who" title="(in repoze.who v2.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.who</span></code></a> 1.X WSGI 'API' (the
-<code class="docutils literal notranslate"><span class="pre">repoze.who.identity</span></code> key in the WSGI environment).</p>
-<p>Constructor Arguments</p>
-<p><code class="docutils literal notranslate"><span class="pre">identifier_name</span></code></p>
+<dd><p>A：app： <cite>Pyramid</cite>：term：<cite>認証ポリシー `：mod：</cite> repoze.who`からデータを取得する1.X WSGI &amp;#39;API&amp;#39;（WSGI環境の `` repoze.who.identity``キー）。</p>
+<p>コンストラクタ引数</p>
+<p>`` identifier_name``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">auth_tkt</span></code>.  The <a class="reference external" href="https://repozewho.readthedocs.io/en/latest/index.html#module-repoze.who" title="(in repoze.who v2.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.who</span></code></a> plugin name that
-performs remember/forget.  Optional.</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">callback</span></code></p>
+<div>デフォルト： `` auth_tkt``。 ：mod： <a href="#id1"><span class="problematic" id="id2">`</span></a>repoze.who`プラグイン名は、覚えている/忘れていることを実行します。オプション。</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>コールバック ``</p>
 <blockquote>
-<div>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.  A callback passed the <a class="reference external" href="https://repozewho.readthedocs.io/en/latest/index.html#module-repoze.who" title="(in repoze.who v2.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.who</span></code></a> identity
-and the <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a>, expected to return <code class="docutils literal notranslate"><span class="pre">None</span></code> if the user
-represented by the identity doesn't exist or a sequence of principal
-identifiers (possibly empty) representing groups if the user does
-exist.  If <code class="docutils literal notranslate"><span class="pre">callback</span></code> is None, the userid will be assumed to exist
-with no group principals.</div></blockquote>
-<p>Objects of this class implement the interface described by
-<a class="reference internal" href="interfaces.html#pyramid.interfaces.IAuthenticationPolicy" title="pyramid.interfaces.IAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IAuthenticationPolicy</span></code></a>.</p>
+<div>デフォルト： `` None``。コールバックは、：mod： <cite>repoze.who`アイデンティティと：term：</cite> request`を渡しました。アイデンティティによって表されるユーザが存在しない場合は `` None``を返すか、プリンシパル識別子のシーケンス）は、ユーザーが存在する場合はグループを表します。 `` callback``がNoneの場合、ユーザIDはグループプリンシパルなしで存在するものとみなされます。</div></blockquote>
+<p>このクラスのオブジェクトは：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.interfaces.IAuthenticationPolicy`で記述されたインタフェースを実装します。</p>
 <dl class="method">
 <dt id="pyramid.authentication.RepozeWho1AuthenticationPolicy.authenticated_userid">
 <code class="descname">authenticated_userid</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#RepozeWho1AuthenticationPolicy.authenticated_userid"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.RepozeWho1AuthenticationPolicy.authenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return the authenticated userid or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>If no callback is registered, this will be the same as
-<code class="docutils literal notranslate"><span class="pre">unauthenticated_userid</span></code>.</p>
-<p>If a <code class="docutils literal notranslate"><span class="pre">callback</span></code> is registered, this will return the userid if
-and only if the callback returns a value that is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dd><p>認証されたユーザIDまたは `` None``を返します。</p>
+<p>コールバックが登録されていない場合、これは `` unauthenticated_userid``と同じになります。</p>
+<p>`` callback``が登録されている場合、コールバックが `` None``以外の値を返す場合に限り、これはuseridを返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.RepozeWho1AuthenticationPolicy.effective_principals">
 <code class="descname">effective_principals</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#RepozeWho1AuthenticationPolicy.effective_principals"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.RepozeWho1AuthenticationPolicy.effective_principals" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A list of effective principals derived from the identity.</p>
-<p>This will return a list of principals including, at least,
-<a class="reference internal" href="security.html#pyramid.security.Everyone" title="pyramid.security.Everyone"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Everyone</span></code></a>. If there is no identity, or
-the <code class="docutils literal notranslate"><span class="pre">callback</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>, this will be the only principal.</p>
-<p>If the <code class="docutils literal notranslate"><span class="pre">callback</span></code> does not return <code class="docutils literal notranslate"><span class="pre">None</span></code> and an identity is
-found, then the principals will include
-<a class="reference internal" href="security.html#pyramid.security.Authenticated" title="pyramid.security.Authenticated"><code class="xref py py-data docutils literal notranslate"><span class="pre">pyramid.security.Authenticated</span></code></a>, the <code class="docutils literal notranslate"><span class="pre">authenticated_userid</span></code>
-and the list of principals returned by the <code class="docutils literal notranslate"><span class="pre">callback</span></code>.</p>
+<dd><p>アイデンティティから導かれた有効なプリンシパルのリスト。</p>
+<p>これは、少なくとも：data： <cite>pyramid.security.Everyone`を含むプリンシパルのリストを返します。アイデンティティがないか、 `</cite> callback``が `` None``を返した場合、これは唯一のプリンシパルになります。</p>
+<p>`` callback``が `` None``を返さず、アイデンティティが見つかった場合、プリンシパルには：data： <cite>pyramid.security.Authenticated</cite>、` <cite>authenticated_userid`</cite>、および返されたプリンシパルのリストが含まれます。 <a href="#id1"><span class="problematic" id="id2">``</span></a>コールバック ``</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.RepozeWho1AuthenticationPolicy.forget">
 <code class="descname">forget</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#RepozeWho1AuthenticationPolicy.forget"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.RepozeWho1AuthenticationPolicy.forget" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Forget the current authenticated user.</p>
-<p>Return headers that, if included in a response, will delete the
-cookie responsible for tracking the current user.</p>
+<dd><p>現在認証されているユーザーは忘れてしまいます。</p>
+<p>レスポンスに含まれていれば、現在のユーザの追跡を担当するクッキーを削除するヘッダを返します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.RepozeWho1AuthenticationPolicy.remember">
 <code class="descname">remember</code><span class="sig-paren">(</span><em>request</em>, <em>userid</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#RepozeWho1AuthenticationPolicy.remember"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.RepozeWho1AuthenticationPolicy.remember" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Store the <code class="docutils literal notranslate"><span class="pre">userid</span></code> as <code class="docutils literal notranslate"><span class="pre">repoze.who.userid</span></code>.</p>
-<p>The identity to authenticated to <a class="reference external" href="https://repozewho.readthedocs.io/en/latest/index.html#module-repoze.who" title="(in repoze.who v2.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">repoze.who</span></code></a>
-will contain the given userid as <code class="docutils literal notranslate"><span class="pre">userid</span></code>, and
-provide all keyword arguments as additional identity
-keys. Useful keys could be <code class="docutils literal notranslate"><span class="pre">max_age</span></code> or <code class="docutils literal notranslate"><span class="pre">userdata</span></code>.</p>
+<dd><p>`` userid``を `` repoze.who.userid``として保存してください。</p>
+<p>：mod： <cite>repoze.who`に認証されるアイデンティティは与えられたユーザIDを</cite> <cite>userid``として含み、全てのキーワード引数を追加のアイデンティティキーとして提供します。便利なキーは `</cite> max_age``または `` userdata``です。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.RepozeWho1AuthenticationPolicy.unauthenticated_userid">
 <code class="descname">unauthenticated_userid</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#RepozeWho1AuthenticationPolicy.unauthenticated_userid"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.RepozeWho1AuthenticationPolicy.unauthenticated_userid" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return the <code class="docutils literal notranslate"><span class="pre">repoze.who.userid</span></code> key from the detected identity.</p>
+<dd><p>検出されたアイデンティティから `` repoze.who.userid``キーを返します。</p>
 </dd></dl>
 
 </dd></dl>
 
 </div>
 <div class="section" id="helper-classes">
-<h2>Helper Classes<a class="headerlink" href="#helper-classes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ヘルパークラス<a class="headerlink" href="#helper-classes" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><dl class="class">
 <dt id="pyramid.authentication.AuthTktCookieHelper">
 <em class="property">class </em><code class="descname">AuthTktCookieHelper</code><span class="sig-paren">(</span><em>secret</em>, <em>cookie_name='auth_tkt'</em>, <em>secure=False</em>, <em>include_ip=False</em>, <em>timeout=None</em>, <em>reissue_time=None</em>, <em>max_age=None</em>, <em>http_only=False</em>, <em>path='/'</em>, <em>wild_domain=True</em>, <em>hashalg='md5'</em>, <em>parent_domain=False</em>, <em>domain=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#AuthTktCookieHelper"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.AuthTktCookieHelper" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A helper class for use in third-party authentication policy
-implementations.  See
-<a class="reference internal" href="#pyramid.authentication.AuthTktAuthenticationPolicy" title="pyramid.authentication.AuthTktAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.authentication.AuthTktAuthenticationPolicy</span></code></a> for the
-meanings of the constructor arguments.</p>
+<dd><p>サードパーティ認証ポリシーの実装で使用するヘルパークラス。コンストラクタ引数の意味については、class： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.authentication.AuthTktAuthenticationPolicy`を参照してください。</p>
 <dl class="class">
 <dt id="pyramid.authentication.AuthTktCookieHelper.AuthTicket">
 <em class="property">class </em><code class="descname">AuthTicket</code><span class="sig-paren">(</span><em>secret</em>, <em>userid</em>, <em>ip</em>, <em>tokens=()</em>, <em>user_data=''</em>, <em>time=None</em>, <em>cookie_name='auth_tkt'</em>, <em>secure=False</em>, <em>hashalg='md5'</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.AuthTktCookieHelper.AuthTicket" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>This class represents an authentication token.  You must pass in
-the shared secret, the userid, and the IP address.  Optionally you
-can include tokens (a list of strings, representing role names),
-'user_data', which is arbitrary data available for your own use in
-later scripts.  Lastly, you can override the cookie name and
-timestamp.</p>
-<p>Once you provide all the arguments, use .cookie_value() to
-generate the appropriate authentication ticket.</p>
-<p>Usage:</p>
+<dd><p>このクラスは認証トークンを表します。共有秘密情報、ユーザーID、およびIPアドレスを渡す必要があります。必要に応じて、後のスクリプトで独自に使用できる任意のデータであるトークン（ロール名を表す文字列のリスト） &amp;#39;user_data&amp;#39;を含めることができます。最後に、Cookie名とタイムスタンプを上書きすることができます。</p>
+<p>すべての引数を指定したら、.cookie_value（）を使用して適切な認証チケットを生成します。</p>
+<p>使用法：：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">token</span> <span class="o">=</span> <span class="n">AuthTicket</span><span class="p">(</span><span class="s1">&#39;sharedsecret&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span>
     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">],</span> <span class="n">tokens</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;admin&#39;</span><span class="p">])</span>
 <span class="n">val</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">cookie_value</span><span class="p">()</span>
@@ -604,52 +437,37 @@ generate the appropriate authentication ticket.</p>
 <dl class="exception">
 <dt id="pyramid.authentication.AuthTktCookieHelper.BadTicket">
 <em class="property">exception </em><code class="descname">BadTicket</code><span class="sig-paren">(</span><em>msg</em>, <em>expected=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.AuthTktCookieHelper.BadTicket" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Exception raised when a ticket can't be parsed.  If we get far enough to
-determine what the expected digest should have been, expected is set.
-This should not be shown by default, but can be useful for debugging.</p>
+<dd><p>チケットを解析できないときに発生する例外。期待されるダイジェストがどうあるべきかを決定するのに十分遠くに到達すれば、期待が設定されます。これはデフォルトでは表示されませんが、デバッグには役立ちます。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.AuthTktCookieHelper.forget">
 <code class="descname">forget</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#AuthTktCookieHelper.forget"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.AuthTktCookieHelper.forget" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a set of expires Set-Cookie headers, which will destroy
-any existing auth_tkt cookie when attached to a response</p>
+<dd><p>Set-Cookieヘッダーが返され、レスポンスに添付されたときに既存のauth_tkt Cookieが破棄されます。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.AuthTktCookieHelper.identify">
 <code class="descname">identify</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#AuthTktCookieHelper.identify"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.AuthTktCookieHelper.identify" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a dictionary with authentication information, or <code class="docutils literal notranslate"><span class="pre">None</span></code>
-if no valid auth_tkt is attached to <code class="docutils literal notranslate"><span class="pre">request</span></code></p>
+<dd><p>認証情報を含む辞書を返すか、 <a href="#id1"><span class="problematic" id="id2">``</span></a>要求 &amp;#39;&amp;#39;に有効なauth_tktが付いていない場合は `` None``を返します。</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pyramid.authentication.AuthTktCookieHelper.parse_ticket">
 <em class="property">static </em><code class="descname">parse_ticket</code><span class="sig-paren">(</span><em>secret</em>, <em>ticket</em>, <em>ip</em>, <em>hashalg='md5'</em><span class="sig-paren">)</span><a class="headerlink" href="#pyramid.authentication.AuthTktCookieHelper.parse_ticket" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Parse the ticket, returning (timestamp, userid, tokens, user_data).</p>
-<p>If the ticket cannot be parsed, a <code class="docutils literal notranslate"><span class="pre">BadTicket</span></code> exception will be raised
-with an explanation.</p>
+<dd><p>チケットを解析し、（timestamp、userid、tokens、user_data）を返します。</p>
+<p>チケットを解析できない場合は、説明とともに「BadTicket」例外が発生します。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyramid.authentication.AuthTktCookieHelper.remember">
 <code class="descname">remember</code><span class="sig-paren">(</span><em>request</em>, <em>userid</em>, <em>max_age=None</em>, <em>tokens=()</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#AuthTktCookieHelper.remember"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.AuthTktCookieHelper.remember" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a set of Set-Cookie headers; when set into a response,
-these headers will represent a valid authentication ticket.</p>
+<dd><p>Set-Cookieヘッダーのセットを返します。応答に設定すると、これらのヘッダーは有効な認証チケットを表します。</p>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">max_age</span></code></dt>
-<dd>The max age of the auth_tkt cookie, in seconds.  When this value is
-set, the cookie's <code class="docutils literal notranslate"><span class="pre">Max-Age</span></code> and <code class="docutils literal notranslate"><span class="pre">Expires</span></code> settings will be set,
-allowing the auth_tkt cookie to last between browser sessions.  If
-this value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the <code class="docutils literal notranslate"><span class="pre">max_age</span></code> value provided to the
-helper itself will be used as the <code class="docutils literal notranslate"><span class="pre">max_age</span></code> value.  Default:
-<code class="docutils literal notranslate"><span class="pre">None</span></code>.</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">tokens</span></code></dt>
-<dd>A sequence of strings that will be placed into the auth_tkt tokens
-field.  Each string in the sequence must be of the Python <code class="docutils literal notranslate"><span class="pre">str</span></code>
-type and must match the regex <code class="docutils literal notranslate"><span class="pre">^[A-Za-z][A-Za-z0-9+_-]*$</span></code>.
-Tokens are available in the returned identity when an auth_tkt is
-found in the request and unpacked.  Default: <code class="docutils literal notranslate"><span class="pre">()</span></code>.</dd>
+<dt>`` max_age``</dt>
+<dd>auth_tktクッキーの最大経過秒数。この値が設定されると、クッキーの `` Max-Age``と `` Expires``設定が設定され、ブラウザセッション間でauth_tktクッキーが存続するようになります。この値が `` None``の場合、ヘルパー自体に与えられた `` max_age``値は `` max_age``値として使われます。デフォルト： `` None``。</dd>
+<dt>「トークン」</dt>
+<dd>auth_tktトークンフィールドに配置される一連の文字列。シーケンス中の各文字列は、Pythonの `` str``型でなければならず、正規表現 `` ^ [A-Za-z] [A-Za-z0-9 + _-] * $ <a href="#id1"><span class="problematic" id="id2">``</span></a>と一致しなければなりません。トークンは、要求にauth_tktが見つかって解凍されたときに返されたIDで使用できます。デフォルト： <a href="#id3"><span class="problematic" id="id4">``</span></a>（） <a href="#id5"><span class="problematic" id="id6">``</span></a>。</dd>
 </dl>
 </dd></dl>
 
@@ -661,13 +479,13 @@ found in the request and unpacked.  Default: <code class="docutils literal notra
 <dd><dl class="attribute">
 <dt id="pyramid.authentication.HTTPBasicCredentials.password">
 <code class="descname">password</code><a class="headerlink" href="#pyramid.authentication.HTTPBasicCredentials.password" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Alias for field number 1</p>
+<dd><p>フィールド番号1の別名</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyramid.authentication.HTTPBasicCredentials.username">
 <code class="descname">username</code><a class="headerlink" href="#pyramid.authentication.HTTPBasicCredentials.username" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Alias for field number 0</p>
+<dd><p>フィールド番号0の別名</p>
 </dd></dl>
 
 </dd></dl>
@@ -675,15 +493,13 @@ found in the request and unpacked.  Default: <code class="docutils literal notra
 </div></blockquote>
 </div>
 <div class="section" id="helper-functions">
-<h2>Helper Functions<a class="headerlink" href="#helper-functions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ヘルパー関数<a class="headerlink" href="#helper-functions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><dl class="function">
 <dt id="pyramid.authentication.extract_http_basic_credentials">
 <code class="descname">extract_http_basic_credentials</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyramid/authentication.html#extract_http_basic_credentials"><span class="viewcode-link">[ソース]</span></a><a class="headerlink" href="#pyramid.authentication.extract_http_basic_credentials" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>A helper function for extraction of HTTP Basic credentials
-from a given <a class="reference internal" href="../glossary.html#term-request"><span class="xref std std-term">request</span></a>.</p>
-<p>Returns a <a class="reference internal" href="#pyramid.authentication.HTTPBasicCredentials" title="pyramid.authentication.HTTPBasicCredentials"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTTPBasicCredentials</span></code></a> 2-tuple with <code class="docutils literal notranslate"><span class="pre">username</span></code> and
-<code class="docutils literal notranslate"><span class="pre">password</span></code> attributes or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no credentials could be found.</p>
+<dd><p>与えられた：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>request`からHTTP基本認証情報を抽出するためのヘルパー関数です。</p>
+<p>class： <cite>.HTTPBasicCredentials</cite> 2組を` <cite>username``属性と</cite> <cite>password``属性で返し、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>None``を返します。</p>
 </dd></dl>
 
 </div></blockquote>
@@ -698,20 +514,20 @@ from a given <a class="reference internal" href="../glossary.html#term-request">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">pyramid.authentication</span></code></a><ul>
-<li><a class="reference internal" href="#module-pyramid.authentication">Authentication Policies</a></li>
-<li><a class="reference internal" href="#helper-classes">Helper Classes</a></li>
-<li><a class="reference internal" href="#helper-functions">Helper Functions</a></li>
+<li><a class="reference internal" href="#">：mod： <cite>pyramid.authentication</cite></a><ul>
+<li><a class="reference internal" href="#module-pyramid.authentication">(機械翻訳)認証ポリシー</a></li>
+<li><a class="reference internal" href="#helper-classes">ヘルパークラス</a></li>
+<li><a class="reference internal" href="#helper-functions">ヘルパー関数</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="index.html"
-                        title="前の章へ">API Documentation</a></p>
+                        title="前の章へ">（機械翻訳）APIドキュメント</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="authorization.html"
-                        title="次の章へ"><code class="docutils literal notranslate"><span class="pre">pyramid.authorization</span></code></a></p>
+                        title="次の章へ">(機械翻訳) <code class="docutils literal notranslate"><span class="pre">pyramid.authorization</span></code></a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -745,18 +561,18 @@ from a given <a class="reference internal" href="../glossary.html#term-request">
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="authorization.html" title="pyramid.authorization"
+          <a href="authorization.html" title="(機械翻訳) pyramid.authorization"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="API Documentation"
+          <a href="index.html" title="（機械翻訳）APIドキュメント"
              >前へ</a> |</li>
     	<li><a href="../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >API Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >（機械翻訳）APIドキュメント</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

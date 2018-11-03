@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../narr/viewconfig.rst:8
 msgid "View Configuration"
-msgstr ""
+msgstr "(機械翻訳) 設定を表示"
 
 #: ../../narr/viewconfig.rst:13
 msgid ""
@@ -30,18 +20,18 @@ msgid ""
 "any given request, view configuration information is compared against "
 "request data by the view lookup subsystem in order to find the \"best\" "
 "view callable for that request."
-msgstr ""
+msgstr "：term： `View lookup`は：app：` Pyramid`サブシステムで、：term： `view callable`を見つけて呼び出します。 ：term： `View configuration`は、アプリケーションでどのようにterm：` view lookup`が動作するかを制御します。任意の所与の要求の間、ビュー構成情報は、ビュールックアップサブシステムによって要求データと比較され、その要求に対してコール可能な「最良の」ビューを見つける。"
 
 #: ../../narr/viewconfig.rst:19
 msgid ""
 "In earlier chapters, you have been exposed to a few simple view "
 "configuration declarations without much explanation. In this chapter we "
 "will explore the subject in detail."
-msgstr ""
+msgstr "これまでの章では、あまり説明のない簡単なビュー構成宣言に慣れてきました。この章では、主題について詳しく説明します。"
 
 #: ../../narr/viewconfig.rst:28
 msgid "Mapping a Resource or URL Pattern to a View Callable"
-msgstr ""
+msgstr "リソースまたはURLパターンをビュー呼び出し可能にマッピングする"
 
 #: ../../narr/viewconfig.rst:30
 msgid ""
@@ -50,40 +40,40 @@ msgid ""
 "configuration associates a view callable with a set of statements that "
 "determine the set of circumstances which must be true for the view "
 "callable to be invoked."
-msgstr ""
+msgstr "開発者は：term： `view callable`を：term：` view configuration`を介してa：app： `Pyramid`アプリケーション内で利用できるようにします。ビュー構成では、呼び出し可能なビューを呼び出すために真でなければならない状況のセットを決定する一連のステートメントと、呼び出し可能なビューを関連付けます。"
 
 #: ../../narr/viewconfig.rst:36
 msgid ""
 "A view configuration statement is made about information present in the "
 ":term:`context` resource (or exception) and the :term:`request`."
-msgstr ""
+msgstr "ビュー設定ステートメントは、：term： `context`リソース（または例外）と：term：` request`に存在する情報について行われます。"
 
 #: ../../narr/viewconfig.rst:39
 msgid "View configuration is performed in one of two ways:"
-msgstr ""
+msgstr "ビュー構成は、次の2つの方法のいずれかで実行されます。"
 
 #: ../../narr/viewconfig.rst:41
 msgid ""
 "By running a :term:`scan` against application source code which has a "
 ":class:`pyramid.view.view_config` decorator attached to a Python object "
 "as per :ref:`mapping_views_using_a_decorator_section`."
-msgstr ""
+msgstr "Pythonオブジェクトに：ref： `mapping_views_using_a_decorator_section`として添付された：class：` pyramid.view.view_config`デコレータを持つアプリケーションソースコードに対して：term： `scan`を実行します。"
 
 #: ../../narr/viewconfig.rst:45
 msgid ""
 "By using the :meth:`pyramid.config.Configurator.add_view` method as per "
 ":ref:`mapping_views_using_imperative_config_section`."
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_view`メソッドを：ref：` mapping_views_using_imperative_config_section`として使用します。"
 
 #: ../../narr/viewconfig.rst:54
 msgid "View Configuration Parameters"
-msgstr ""
+msgstr "設定パラメータの表示"
 
 #: ../../narr/viewconfig.rst:56
 msgid ""
 "All forms of view configuration accept the same general types of "
 "arguments."
-msgstr ""
+msgstr "すべての形式のビュー構成は、同じ一般的な型の引数を受け入れます。"
 
 #: ../../narr/viewconfig.rst:58
 msgid ""
@@ -91,7 +81,7 @@ msgid ""
 "predicate` arguments.  View predicate arguments used during view "
 "configuration are used to narrow the set of circumstances in which "
 ":term:`view lookup` will find a particular view callable."
-msgstr ""
+msgstr "ビュー設定中に提供される多くの引数は、term： `view述語`引数です。ビュー設定時に使用されるビュー述語引数は、term： `view lookup`が特定のビューを呼び出し可能にする状況のセットを絞り込むために使用されます。"
 
 #: ../../narr/viewconfig.rst:63
 msgid ""
@@ -104,7 +94,7 @@ msgid ""
 "particular view configuration, the more likely it is that the associated "
 "view callable will be invoked.  A view with five predicates will always "
 "be found and evaluated before a view with two, for example."
-msgstr ""
+msgstr "：term： `View predicate`属性は：term：` view lookup`サブシステムが適切なビューを見つけて呼び出すことを可能にするビュー設定の重要な部分です。ビューの構成が保持する述部属性の数が多いほど、登録ビューの呼び出し可能性が呼び出される前に状況がより具体的になる必要があります。特定のビュー構成に供給される述部の数が少ないほど、関連するビュー呼び出し可能関数が呼び出される可能性が高くなります。 5つの述部を持つビューは、たとえば2つのビューの前に常に見つけられ、評価されます。"
 
 #: ../../narr/viewconfig.rst:73
 msgid ""
@@ -114,7 +104,7 @@ msgid ""
 "any) is consulted for predicates, and so on, until a view is found, or no"
 " view can be matched up with the request.  The first view with a set of "
 "predicates all of which match the request environment will be invoked."
-msgstr ""
+msgstr "しかし、これは：app： `Pyramid`は、一致しない述語を持つビュー登録を見つけたときに\&quot;探していることを止める\ &quot;という意味ではありません。 1組のビュー述語が一致しない場合は、ビューが見つかるまで、またはビューと一致するビューが見つからなくなるまで、述語には\ &quot;次の最も特殊な\&quot;ビュー（存在する場合）が参照されます。要求環境にすべて一致する一連の述部を持つ最初のビューが呼び出されます。"
 
 #: ../../narr/viewconfig.rst:80
 msgid ""
@@ -123,7 +113,7 @@ msgid ""
 "browser, representing a \"not found\" (404) page.  See "
 ":ref:`changing_the_notfound_view` for more information about changing the"
 " default :term:`Not Found View`."
-msgstr ""
+msgstr "要求と一致させることができる述語を持つビューが見つからない場合、：app： `Pyramid`は、ユーザのブラウザに\&quot;見つからない\ &quot;（404）ページを表すエラーを返します。デフォルト：term： `Not Found View`の変更については、ref：` changing_the_notfound_view`を参照してください。"
 
 #: ../../narr/viewconfig.rst:85
 msgid ""
@@ -132,32 +122,32 @@ msgid ""
 "callable from being invoked due to an authorization policy.  The presence"
 " of non-predicate arguments in a view configuration does not narrow the "
 "circumstances in which the view callable will be invoked."
-msgstr ""
+msgstr "他のビュー設定引数は、述語でない引数です。これらは、呼び出し可能なビューの応答を変更するか、または呼び出しポリシーが許可ポリシーのために呼び出されないようにします。ビュー構成内に述語でない引数が存在しても、ビュー呼び出し可能関数が呼び出される状況は限定されません。"
 
 #: ../../narr/viewconfig.rst:94
 msgid "Non-Predicate Arguments"
-msgstr ""
+msgstr "非述語引数"
 
 #: ../../narr/viewconfig.rst:102
 msgid "``permission``"
-msgstr ""
+msgstr "``許可 ``"
 
 #: ../../narr/viewconfig.rst:97
 msgid ""
 "The name of a :term:`permission` that the user must possess in order to "
 "invoke the :term:`view callable`.  See :ref:`view_security_section` for "
 "more information about view security and permissions."
-msgstr ""
+msgstr "：term： `view callable`を呼び出すためにユーザが所有しなければならないa：term：` permission`の名前。ビューのセキュリティと権限の詳細については、：ref： `view_security_section`を参照してください。"
 
 #: ../../narr/viewconfig.rst:101
 msgid ""
 "If ``permission`` is not supplied, no permission is registered for this "
 "view (it's accessible by any caller)."
-msgstr ""
+msgstr "`` permission``が指定されていない場合、このビューにはアクセス権が登録されていません（呼び出し元からアクセス可能です）。"
 
 #: ../../narr/viewconfig.rst:116
 msgid "``attr``"
-msgstr ""
+msgstr "`` attr``"
 
 #: ../../narr/viewconfig.rst:105
 msgid ""
@@ -170,29 +160,29 @@ msgid ""
 "return the response, you'd say ``attr=\"index\"`` in the view "
 "configuration for the view. This is most useful when the view definition "
 "is a class."
-msgstr ""
+msgstr "ビュー機構は、デフォルトで：term： `view callable`（ビュー呼び出し可能関数が関数の場合は関数自体）の` `__call__``メソッドを使用して応答を取得します。 `` attr``値は、レスポンスを取得するために使用されるメソッド属性を変更することを可能にします。たとえば、ビューがクラスで、クラスに `` index``という名前のメソッドがあり、クラスの `` __call__``メソッドの代わりにこのメソッドを使用してレスポンスを返す場合は、 ``ビューのビュー構成では、attr = \ &quot;index \&quot; ``これは、ビュー定義がクラスである場合に最も便利です。"
 
 #: ../../narr/viewconfig.rst:114
 msgid ""
 "If ``attr`` is not supplied, ``None`` is used (implying the function "
 "itself if the view is a function, or the ``__call__`` callable attribute "
 "if the view is a class)."
-msgstr ""
+msgstr "`` attr``が与えられていなければ `` None``が使われます（ビューが関数の場合は関数そのものを意味し、ビューがクラスの場合は `` __call__``の呼び出し可能な属性を意味します）。"
 
 #: ../../narr/viewconfig.rst:146
 msgid "``renderer``"
-msgstr ""
+msgstr "レンダラー"
 
 #: ../../narr/viewconfig.rst:119
 msgid ""
 "Denotes the :term:`renderer` implementation which will be used to "
 "construct a :term:`response` from the associated view callable's return "
 "value."
-msgstr ""
+msgstr "関連するビュー呼び出し可能戻り値から：term： `response`を構築するために使用される：term：` renderer`実装を示します。"
 
 #: ../../narr/viewconfig.rst:122
 msgid "See also :ref:`renderers_chapter`."
-msgstr ""
+msgstr "参照：ref： `renderers_chapter`を参照してください。"
 
 #: ../../narr/viewconfig.rst:124
 msgid ""
@@ -206,7 +196,7 @@ msgid ""
 "path, and the filename extension of the last element in the path will be "
 "used to look up the renderer implementation, which will be passed the "
 "full path."
-msgstr ""
+msgstr "これは単一の文字列（例えば `` json``）かパスを意味する文字列、または：term： `資産指定`（例えば `` templates / views.pt``）a：term： `renderer実装。 `` renderer``の値にドット（ `` .``）が含まれていない場合、指定された文字列はレンダラー実装をルックアップするために使用され、レンダラー実装はビュー戻り値。 `` renderer``の値にドット（ `` .``）が含まれている場合、指定された用語はパスとして扱われ、パスの最後の要素のファイル名拡張子はレンダラー実装をルックアップするために使われます。それは完全なパスを通過します。"
 
 #: ../../narr/viewconfig.rst:134
 msgid ""
@@ -218,7 +208,7 @@ msgid ""
 "path can alternatively be a :term:`asset specification` in the form "
 "``some.dotted.package_name:relative/path``, making it possible to address"
 " template assets which live in a separate package."
-msgstr ""
+msgstr "レンダラーがパスである場合、パスは通常単純な相対パス名です（例えば `` templates / foo.pt``、\ &quot;foo.pt \&quot;という名前のテンプレートは\ &quot;templates \&quot;にあります）ディレクトリ：現在の：term： `package`のディレクトリからの相対パス） - パスは絶対パスでもよく、UNIXの場合はスラッシュ、Windowsの場合はドライブ文字の接頭辞で始まります。代わりに、パスは `` some.dotted.package_name：relative / path``の形式で：term： `asset specification`とすることができ、別のパッケージにあるテンプレートアセットを扱うことができます。"
 
 #: ../../narr/viewconfig.rst:142
 msgid ""
@@ -228,11 +218,11 @@ msgid ""
 "that if the view callable itself returns a :term:`response` (see "
 ":ref:`the_response`), the specified renderer implementation is never "
 "called."
-msgstr ""
+msgstr "`` renderer``属性はオプションです。定義されていない場合、レンダリングは行われません（レンダリングは行われず、値は変更されずにアップストリーム：app： `Pyramid`機械に戻されます）。ビュー呼び出し側が：term： `response`（：ref：` the_response`を参照）を返した場合、指定されたレンダラー実装は決して呼び出されません。"
 
 #: ../../narr/viewconfig.rst:194
 msgid "``http_cache``"
-msgstr ""
+msgstr "`` http_cache``"
 
 #: ../../narr/viewconfig.rst:149
 msgid ""
@@ -240,7 +230,7 @@ msgid ""
 "``Expires`` and ``Cache-Control`` headers of a response generated by the "
 "associated view callable are modified.  The value for ``http_cache`` may "
 "be one of the following:"
-msgstr ""
+msgstr "ビュー設定に `` http_cache``値を指定すると、関連するview呼び出し可能で生成されたレスポンスの `` Expires``と `` Cache-Control``ヘッダーが変更されます。 `` http_cache``の値は次のいずれかです："
 
 #: ../../narr/viewconfig.rst:154
 msgid ""
@@ -250,7 +240,7 @@ msgid ""
 "responses to requests which call this view.  For example: "
 "``http_cache=3600`` instructs the requesting browser to 'cache this "
 "response for an hour, please'."
-msgstr ""
+msgstr "非ゼロの整数。ゼロ以外の整数の場合、秒数として扱われます。この秒数は、このビューを呼び出すリクエストに対するレスポンスの `` Expires``ヘッダと `` Cache-Control：max-age``パラメータを計算するために使用されます。たとえば、 `` http_cache = 3600``は、リクエストしているブラウザに「この応答を1時間キャッシュしてください」と指示します。"
 
 #: ../../narr/viewconfig.rst:160
 msgid ""
@@ -261,7 +251,7 @@ msgid ""
 "this view.  For example: ``http_cache=datetime.timedelta(days=1)`` "
 "instructs the requesting browser to 'cache this response for a day, "
 "please'."
-msgstr ""
+msgstr "`` datetime.timedelta``インスタンスです。 `` datetime.timedelta``インスタンスの場合、秒数に変換され、その秒数が `` Expires``ヘッダーと `` Cache-Control：max-age &#39;&#39;を計算するために使われますこのビューを呼び出す要求への応答のパラメータ。例： `` http_cache = datetime.timedelta（days = 1） ``は、リクエストしているブラウザに「この応答を1日キャッシュしてください」と指示します。"
 
 #: ../../narr/viewconfig.rst:168
 msgid ""
@@ -269,7 +259,7 @@ msgid ""
 "``Expires`` headers present in all responses from this view will be "
 "composed such that client browser cache (and any intermediate caches) are"
 " instructed to never cache the response."
-msgstr ""
+msgstr "0（ `` 0``）。値がゼロの場合、このビューからのすべての応答に存在する `` Cache-Control``と `` Expires``ヘッダーは、クライアントブラウザのキャッシュ（および任意の中間キャッシュ）にレスポンスをキャッシュしないように構成されます。"
 
 #: ../../narr/viewconfig.rst:173
 msgid ""
@@ -285,19 +275,19 @@ msgid ""
 "``webob.cachecontrol.CacheControl`` interface may be added to the "
 "dictionary.  Supplying ``{'public':True}`` is equivalent to calling "
 "``response.cache_control.public = True``."
-msgstr ""
+msgstr "2タプル。 2タプル（ `` http_cache =（1、{&#39;public&#39;：True）） ``）の場合、タプルの最初の値は非ゼロの整数または `` datetime.timedelta``のインスタンスになります。いずれの場合も、この値はレスポンスをキャッシュする秒数として使用されます。タプルの2番目の値は辞書でなければなりません。辞書にある値は `` Cache-Control``レスポンスヘッダへの入力として使われます。例えば、 `` http_cache =（3600、{&#39;public&#39;：True}）は ``キャッシュを1時間意味し、 `` public``をレスポンスのCache-Controlヘッダに追加します。 `` webob.cachecontrol.CacheControl``インターフェースでサポートされているすべてのキーと値を辞書に追加することができます。 `` {&#39;public&#39;：True} ``を提供することは、 `` response.cache_control.public = True``を呼び出すことと等価です。"
 
 #: ../../narr/viewconfig.rst:185
 msgid ""
 "Providing a non-tuple value as ``http_cache`` is equivalent to calling "
 "``response.cache_expires(value)`` within your view's body."
-msgstr ""
+msgstr "`` http_cache``として非タプルの値を与えることは、あなたのビューのボディ内で `` response.cache_expires（value） ``を呼び出すことと同じです。"
 
 #: ../../narr/viewconfig.rst:188
 msgid ""
 "Providing a two-tuple value as ``http_cache`` is equivalent to calling "
 "``response.cache_expires(value[0], **value[1])`` within your view's body."
-msgstr ""
+msgstr "`` http_cache``として2タプルの値を与えることは、あなたのビューのボディ内で `` response.cache_expires（value [0]、** value [1]） ``を呼び出すのと同じです。"
 
 #: ../../narr/viewconfig.rst:191
 msgid ""
@@ -305,11 +295,11 @@ msgid ""
 " to only influence ``Cache-Control`` headers, pass a tuple as "
 "``http_cache`` with the first element of ``None``, i.e., ``(None, "
 "{'public':True})``."
-msgstr ""
+msgstr "`` Expires`ヘッダに影響を与えず、 `` Cache-Control``ヘッダーにのみ影響を与えたい場合は、 `` None``の最初の要素、 `` http_cache``としてタプルを渡します。 、 ``（None、{&#39;public&#39;：True}） ``となります。"
 
 #: ../../narr/viewconfig.rst:196
 msgid "``require_csrf``"
-msgstr ""
+msgstr "`` require_csrf``"
 
 #: ../../narr/viewconfig.rst:198
 msgid ""
@@ -319,11 +309,11 @@ msgid ""
 "will require CSRF. This option is used in combination with the "
 "``pyramid.require_default_csrf`` setting to control which request "
 "parameters are checked for CSRF tokens."
-msgstr ""
+msgstr "CSRFチェックは、RFC2616で\ &quot;安全\&quot;と定義されていないリクエストメソッドに影響します。これは、GET、HEAD、OPTIONS、TRACEメソッドがそのまま渡され、他のすべてのメソッドがCSRFを必要とすることを意味します。このオプションは `` pyramid.require_default_csrf``設定と組み合わせて使用​​され、CSRFトークンをチェックする要求パラメータを制御します。"
 
 #: ../../narr/viewconfig.rst:204
 msgid "This feature requires a configured :term:`session factory`."
-msgstr ""
+msgstr "この機能には、設定済み：term： `セッションファクトリ`が必要です。"
 
 #: ../../narr/viewconfig.rst:206
 msgid ""
@@ -331,34 +321,34 @@ msgid ""
 "POST requests to this view. The required token will be whatever was "
 "specified by the ``pyramid.require_default_csrf`` setting, or will "
 "fallback to ``csrf_token``."
-msgstr ""
+msgstr "このオプションが `` True``に設定されている場合、CSRFチェックはこのビューに対するPOSTリクエストに対して有効になります。必要なトークンは `` pyramid.require_default_csrf``の設定で指定されたもので、 `` csrf_token``にフォールバックします。"
 
 #: ../../narr/viewconfig.rst:211
 msgid ""
 "If this option is set to a string then CSRF checks will be enabled and it"
 " will be used as the required token regardless of the "
 "``pyramid.require_default_csrf`` setting."
-msgstr ""
+msgstr "このオプションが文字列に設定されている場合、CSRFチェックは有効になり、 `` pyramid.require_default_csrf``設定に関係なく、必要なトークンとして使用されます。"
 
 #: ../../narr/viewconfig.rst:215
 msgid ""
 "If this option is set to ``False`` then CSRF checks will be disabled "
 "regardless of the ``pyramid.require_default_csrf`` setting."
-msgstr ""
+msgstr "このオプションが `` False``に設定されている場合、 `` pyramid.require_default_csrf``設定に関係なく、CSRFチェックは無効になります。"
 
 #: ../../narr/viewconfig.rst:218
 msgid ""
 "In addition, if this option is set to ``True`` or a string then CSRF "
 "origin checking will be enabled."
-msgstr ""
+msgstr "さらに、このオプションが `` True``または文字列に設定されている場合、CSRF起点チェックが有効になります。"
 
 #: ../../narr/viewconfig.rst:221
 msgid "See :ref:`auto_csrf_checking` for more information."
-msgstr ""
+msgstr "詳細は：ref： `auto_csrf_checking`を参照してください。"
 
 #: ../../narr/viewconfig.rst:239
 msgid "``wrapper``"
-msgstr ""
+msgstr "ラッパー"
 
 #: ../../narr/viewconfig.rst:226
 msgid ""
@@ -375,15 +365,15 @@ msgid ""
 "``pyramid.view.render_view_to_response(context, request, "
 "'wrapper_viewname')``. The context and request of a wrapper view is the "
 "same context and request of the inner view."
-msgstr ""
+msgstr "このビューの応答本体をそれ自身の：request.wrapped_body`属性として受け取る：term： `request`と： term： `response`は、このビューによって自身の要求の` `request.wrapped_response``属性として返されます。ラッパーを使用すると、ビューをまとめて\ &quot;チェーン\&quot;して複合レスポンスを形成することができます。最も外側のラッパー・ビューの応答がユーザーに戻されます。ラッパービューは、任意のビューが見つかると見つかります。参照：ref： `view_lookup`を参照してください。 \ &quot;ベスト\&quot;ラッパービューはルックアップの順序に基づいて検索されます。 \ &quot;Under the Hood \&quot;このラッパービューは、 `` pyramid.view.render_view_to_response（context、request、 &#39;wrapper_viewname&#39;） ``で検索されます。ラッパー・ビューのコンテキストおよび要求は、同じコンテキストおよび内部ビューの要求です。"
 
 #: ../../narr/viewconfig.rst:239
 msgid "If ``wrapper`` is not supplied, no wrapper view is used."
-msgstr ""
+msgstr "`` wrapper``が与えられていなければ、ラッパービューは使用されません。"
 
 #: ../../narr/viewconfig.rst:278
 msgid "``decorator``"
-msgstr ""
+msgstr "``デコレータ ``"
 
 #: ../../narr/viewconfig.rst:242
 msgid ""
@@ -395,11 +385,11 @@ msgid ""
 "also accepts ``(context, request)``. The ``decorator`` may also be an "
 "iterable of decorators, in which case they will be applied one after the "
 "other to the view, in reverse order. For example::"
-msgstr ""
+msgstr "A：term： `dotted Python name`を、登録された：term：` view callable`を装飾するために使用される関数（または関数自体）に追加します。デコレータ関数は、呼び出し可能なビューを単一の引数として呼び出されます。呼び出し可能なビューは ``（context、request） `&#39;を受け入れます。デコレータは、 ``（context、request） `&#39;を受け付ける代わりのview callableを返さなければなりません。 `` decorator``は、デコレータの繰り返し可能性があります。その場合、逆順でビューに順番に適用されます。例えば：："
 
 #: ../../narr/viewconfig.rst:255
 msgid "Is similar to decorating the view callable directly::"
-msgstr ""
+msgstr "ビューを直接呼び出し可能にすることと似ています::"
 
 #: ../../narr/viewconfig.rst:263
 msgid ""
@@ -407,11 +397,11 @@ msgid ""
 "object implementing :class:`pyramid.interfaces.IResponse` instead of the "
 "raw value returned from the view callable. All decorators in the chain "
 "must return a response object or raise an exception:"
-msgstr ""
+msgstr "重要な違いは、各デコレータはビュー呼び出し可能から返された生の値の代わりに：class： `pyramid.interfaces.IResponse`を実装する応答オブジェクトを受け取ることです。チェーン内のすべてのデコレータは、レスポンスオブジェクトを返すか、例外を送出する必要があります。"
 
 #: ../../narr/viewconfig.rst:286
 msgid "``mapper``"
-msgstr ""
+msgstr "``マッパ ``"
 
 #: ../../narr/viewconfig.rst:281
 msgid ""
@@ -421,22 +411,22 @@ msgid ""
 "point is useful for Pyramid extension developers, but it's not very "
 "useful for \"civilians\" who are just developing stock Pyramid "
 "applications. Pay no attention to the man behind the curtain."
-msgstr ""
+msgstr "Pythonオブジェクトまたは：term： `dotted Python name`：：term：` view mapper`または `` None``を参照してください。デフォルトでは `` None``です。これは、ビューがデフォルトビューマッパーを使用する必要があることを示します。このプラグインポイントはPyramid拡張開発者には便利ですが、株式ピラミッドアプリケーションを開発している\ &quot;一般市民\&quot;にとってはあまり役に立ちません。カーテンの後ろの男には注意を払わないでください。"
 
 #: ../../narr/viewconfig.rst:289
 msgid "Predicate Arguments"
-msgstr ""
+msgstr "述語引数"
 
 #: ../../narr/viewconfig.rst:291
 msgid ""
 "These arguments modify view lookup behavior. In general the more "
 "predicate arguments that are supplied, the more specific and narrower the"
 " usage of the configured view."
-msgstr ""
+msgstr "これらの引数は、ビューの参照動作を変更します。一般に、より述語的な引数が提供されるほど、設定されたビューの使用がより具体的で狭くなります。"
 
 #: ../../narr/viewconfig.rst:301
 msgid "``name``"
-msgstr ""
+msgstr "「名前」"
 
 #: ../../narr/viewconfig.rst:296
 msgid ""
@@ -444,17 +434,17 @@ msgid ""
 "argument is typically only used when your application uses "
 ":term:`traversal`. Read :ref:`traversal_chapter` to understand the "
 "concept of a view name."
-msgstr ""
+msgstr "このビューを呼び出し可能にするには、：term： `view name`が必要です。 `` name``引数は通常、アプリケーションがterm： `traversal`を使用する場合にのみ使用されます。ビュー名の概念を理解するために：ref： `traversal_chapter`を読んでください。"
 
 #: ../../narr/viewconfig.rst:300
 msgid ""
 "If ``name`` is not supplied, the empty string is used (implying the "
 "default view)."
-msgstr ""
+msgstr "`` name``が与えられていなければ、空の文字列が使われます（デフォルトのビューを意味します）。"
 
 #: ../../narr/viewconfig.rst:318
 msgid "``context``"
-msgstr ""
+msgstr "「文脈」"
 
 #: ../../narr/viewconfig.rst:304
 msgid ""
@@ -464,7 +454,7 @@ msgid ""
 "and called.  This predicate is true when the :term:`context` resource is "
 "an instance of the represented class or if the :term:`context` resource "
 "provides the represented interface; it is otherwise false."
-msgstr ""
+msgstr "：term： `context`リソースは、：term：` context`リソースがこのビューを見つけるために提供しなければならないインスタンス*または* the：term： `interface`でなければならないPythonクラスを表すオブジェクトです。と呼ばれる。この述語は：term： `context`リソースが表現されたクラスのインスタンスである場合、または：term：` context`リソースが表現されたインタフェースを提供する場合に真です。それ以外の場合はfalseです。"
 
 #: ../../narr/viewconfig.rst:311
 msgid ""
@@ -473,17 +463,17 @@ msgid ""
 "One will match normal incoming requests, and the other will match as an "
 ":term:`exception view` which only occurs when an exception is raised "
 "during the normal request processing pipeline."
-msgstr ""
+msgstr "コンテキストが例外をサブクラス化する可能性がある場合、例外クラスをコンテキストとして渡すことは可能です。この場合、* 2つのビューが登録されます。 1つは通常の着信要求と一致し、もう1つは：term： `例外ビュー &#39;と一致します。これは、通常の要求処理パイプラインで例外が発生した場合にのみ発生します。"
 
 #: ../../narr/viewconfig.rst:317
 msgid ""
 "If ``context`` is not supplied, the value ``None``, which matches any "
 "resource, is used."
-msgstr ""
+msgstr "`` context``が与えられていない場合は、任意のリソースにマッチする `` None``という値が使われます。"
 
 #: ../../narr/viewconfig.rst:320
 msgid "``exception_only``"
-msgstr ""
+msgstr "`` exception_only``"
 
 #: ../../narr/viewconfig.rst:322
 msgid ""
@@ -494,17 +484,17 @@ msgid ""
 " subclass of ``Exception`` and this value is ``False`` (the default), "
 "then a view will be registered to match the traversal :term:`context` as "
 "well."
-msgstr ""
+msgstr "この値が `` True``の場合、 `` context``引数は `` Exception``のサブクラスでなければなりません。このフラグは、：term： `例外ビュー &#39;のみを作成し、traversal：term：` context`が `` context``引数と一致する場合、このビューは一致してはならないことを示します。 `` context``が `` Exception``のサブクラスで、この値が `` False``（デフォルト）の場合、トラバーサル：term： `context`にもマッチするビューが登録されます。"
 
 #: ../../narr/viewconfig.rst:345
 msgid "``route_name``"
-msgstr ""
+msgstr "`` route_name``"
 
 #: ../../narr/viewconfig.rst:332
 msgid ""
 "If ``route_name`` is supplied, the view callable will be invoked only "
 "when the named route has matched."
-msgstr ""
+msgstr "`` route_name``が指定された場合、呼び出されたビューは指定されたルートが一致したときにのみ呼び出されます。"
 
 #: ../../narr/viewconfig.rst:335
 msgid ""
@@ -514,7 +504,7 @@ msgid ""
 "by ``route_name`` will usually have a ``*traverse`` token in the value of"
 " its ``pattern``, representing a part of the path that will be used by "
 ":term:`traversal` against the result of the route's :term:`root factory`."
-msgstr ""
+msgstr "この値は、このビューが呼び出される前に一致しなければならない：term： `ルート設定`宣言（：ref： `urldispatch_chapter`参照）の` `name``と一致しなければなりません。 `` route_name``で参照される `` route``の設定は通常 `` traverse``トークンを `` pattern``の値に持つことに注意してください。これは、使用されるパスの一部を表します：term：ルートの結果に対する `traversal`：term：`ルートファクト `。"
 
 #: ../../narr/viewconfig.rst:342
 msgid ""
@@ -522,31 +512,31 @@ msgid ""
 "chance of being invoked if no other route was matched. This is when the "
 "request/context pair found via :term:`resource location` does not "
 "indicate it matched any configured route."
-msgstr ""
+msgstr "`` route_name``が与えられていなければ、呼び出し可能なビューは他のルートが一致していなければ起動されます。これは：term： `resource location`で見つかったリクエスト/コンテキストのペアが、設定されたルートと一致していることを示していないときです。"
 
 #: ../../narr/viewconfig.rst:354
 msgid "``request_type``"
-msgstr ""
+msgstr "`` request_type``"
 
 #: ../../narr/viewconfig.rst:348
 msgid ""
 "This value should be an :term:`interface` that the :term:`request` must "
 "provide in order for this view to be found and called."
-msgstr ""
+msgstr "この値は、：term： `request`がこのビューを見つけて呼び出すために提供しなければならない：term：` interface`でなければなりません。"
 
 #: ../../narr/viewconfig.rst:351
 msgid ""
 "If ``request_type`` is not supplied, the value ``None`` is used, implying"
 " any request type."
-msgstr ""
+msgstr "`` request_type``が指定されていない場合は、 `` None``という値が使われます。"
 
 #: ../../narr/viewconfig.rst:354
 msgid "*This is an advanced feature, not often used by \"civilians\"*."
-msgstr ""
+msgstr "*これは高度な機能で、一般に\ &quot;民間人\&quot; *で使用されることはありません。"
 
 #: ../../narr/viewconfig.rst:368
 msgid "``request_method``"
-msgstr ""
+msgstr "`` request_method``"
 
 #: ../../narr/viewconfig.rst:357
 msgid ""
@@ -557,23 +547,23 @@ msgid ""
 "the view will only be called when the ``method`` attribute of the request"
 " (i.e., the ``REQUEST_METHOD`` of the WSGI environment) matches a "
 "supplied value."
-msgstr ""
+msgstr "この値は、文字列（ `` \ &quot;GET \&quot; ``、 `` POST &quot;&quot;、 `` \ &quot;PUT \&quot; ``、 `` \ &quot;DELETE \&quot; ``、 `` \ &quot;HEAD \&quot; ``、 `` \ &quot;OPTIONS \&quot; ``）、またはこれらの文字列の1つ以上を含むタプルを返します。この引数を持つビュー宣言は、要求の `` method``属性（つまり、WSGI環境の `` REQUEST_METHOD``）が指定された値と一致した場合にのみビューが呼び出されることを保証します。"
 
 #: ../../narr/viewconfig.rst:364
 msgid ""
 "The use of ``\"GET\"`` also implies that the view will respond to "
 "``\"HEAD\"``."
-msgstr ""
+msgstr "`` \ &quot;GET \&quot; `&quot;の使用は、ビューが &quot;\&quot; HEAD \ &quot;` `に応答することを意味します。"
 
 #: ../../narr/viewconfig.rst:367
 msgid ""
 "If ``request_method`` is not supplied, the view will be invoked "
 "regardless of the ``REQUEST_METHOD`` of the :term:`WSGI` environment."
-msgstr ""
+msgstr "`` request_method``が与えられていなければ、：term： `WSGI`環境の` `REQUEST_METHOD``に関係なくビューが呼び出されます。"
 
 #: ../../narr/viewconfig.rst:383
 msgid "``request_param``"
-msgstr ""
+msgstr "`` request_param``"
 
 #: ../../narr/viewconfig.rst:371
 msgid ""
@@ -582,7 +572,7 @@ msgid ""
 "when the :term:`request` has a key in the ``request.params`` dictionary "
 "(an HTTP ``GET`` or ``POST`` variable) that has a name which matches the "
 "supplied value."
-msgstr ""
+msgstr "この値には、任意の文字列または一連の文字列を使用できます。この引数を指定したビュー宣言は、：term： `request`が` `request.params``ディクショナリ（HTTPの` `GET``または` `POST``変数）を指定します。"
 
 #: ../../narr/viewconfig.rst:377
 msgid ""
@@ -591,23 +581,23 @@ msgid ""
 "the ``request.params`` dictionary, *and* the value must match the right "
 "hand side of the expression (``123``) for the view to \"match\" the "
 "current request."
-msgstr ""
+msgstr "`` request_param = \ &quot;foo = 123 \&quot; ``のように `` = ``という記号が与えられた場合、キー（ `` foo``）は ``要求に存在しなければなりません。 params``ディクショナリ、*、*の値は、現在のリクエストに一致するように、式の右側（ `` 123``）に一致する必要があります。"
 
 #: ../../narr/viewconfig.rst:382
 msgid ""
 "If ``request_param`` is not supplied, the view will be invoked without "
 "consideration of keys and values in the ``request.params`` dictionary."
-msgstr ""
+msgstr "`` request_param``が与えられていない場合、ビューは `` request.params``ディクショナリのキーと値を考慮せずに呼び出されます。"
 
 #: ../../narr/viewconfig.rst:402
 msgid "``match_param``"
-msgstr ""
+msgstr "`` match_param``"
 
 #: ../../narr/viewconfig.rst:386
 msgid ""
 "This param may be either a single string of the format \"key=value\" or a"
 " tuple containing one or more of these strings."
-msgstr ""
+msgstr "このパラメータは、\ &quot;key = value \&quot;という形式の単一文字列か、これらの文字列の1つ以上を含むタプルのいずれかです。"
 
 #: ../../narr/viewconfig.rst:389
 msgid ""
@@ -617,23 +607,23 @@ msgid ""
 "``match_param=\"action=edit\"`` would require the ``action`` parameter in"
 " the :term:`matchdict` match the right hand side of the expression "
 "(``edit``) for the view to \"match\" the current request."
-msgstr ""
+msgstr "この引数は、：term： `request`が：term：` matchdict`の中に述語で与えられたものと等しいキーと値のペアを持つ場合にのみ、ビューが呼び出されることを保証します。例えば、 `` match_param = \ &quot;action = edit \&quot; ``は `：`の `` action``パラメータを必要とします：term： `matchdict`は式の右側（` `edit``）現在のリクエストに\ &quot;一致する\&quot;を表示します。"
 
 #: ../../narr/viewconfig.rst:396
 msgid ""
 "If the ``match_param`` is a tuple, every key/value pair must match for "
 "the predicate to pass."
-msgstr ""
+msgstr "`` match_param``がタプルの場合、すべてのキーと値のペアは述語が渡すために一致しなければなりません。"
 
 #: ../../narr/viewconfig.rst:399
 msgid ""
 "If ``match_param`` is not supplied, the view will be invoked without "
 "consideration of the keys and values in ``request.matchdict``."
-msgstr ""
+msgstr "`` match_param``が与えられていなければ、 `` request.matchdict``のキーと値を考慮せずにビューが呼び出されます。"
 
 #: ../../narr/viewconfig.rst:413
 msgid "``containment``"
-msgstr ""
+msgstr "「封じ込め」"
 
 #: ../../narr/viewconfig.rst:405
 msgid ""
@@ -641,22 +631,22 @@ msgid ""
 "that a parent object in the context resource's :term:`lineage` must "
 "provide in order for this view to be found and called.  The resources in "
 "your resource tree must be \"location-aware\" to use this feature."
-msgstr ""
+msgstr "この値は、コンテキストリソースの：term： `lineage`内の親オブジェクトがこのビューを見つけて呼び出すために提供しなければならないPythonクラスまたは：term：` interface`への参照でなければなりません。この機能を使用するには、リソースツリーのリソースが\ &quot;location-aware \&quot;である必要があります。"
 
 #: ../../narr/viewconfig.rst:410
 msgid ""
 "If ``containment`` is not supplied, the interfaces and classes in the "
 "lineage are not considered when deciding whether or not to invoke the "
 "view callable."
-msgstr ""
+msgstr "`` containment``が指定されていない場合、ビューの呼び出し可能呼び出しを呼び出すかどうかを決定する際には、系統のインターフェースとクラスは考慮されません。"
 
 #: ../../narr/viewconfig.rst:413
 msgid "See :ref:`location_aware` for more information about location-awareness."
-msgstr ""
+msgstr "位置認識の詳細については：ref： `location_aware`を参照してください。"
 
 #: ../../narr/viewconfig.rst:425
 msgid "``xhr``"
-msgstr ""
+msgstr "`` xhr``"
 
 #: ../../narr/viewconfig.rst:416
 msgid ""
@@ -666,18 +656,18 @@ msgid ""
 "the value ``XMLHttpRequest`` for the associated view callable to be found"
 " and called.  This is useful for detecting AJAX requests issued from "
 "jQuery, Prototype, and other Javascript libraries."
-msgstr ""
+msgstr "この値は `` True``または `` False``のいずれかでなければなりません。この値が指定されていて `` True``である場合、：term： `WSGI`環境は` `XMLHttpRequest &#39;&#39;という値を持つ` `HTTP-X-REQUESTED_WITH``ヘッダー（つまり` `X-Requested-With``） ``が呼び出されて呼び出され、呼び出されるようにします。これは、jQuery、Prototype、およびその他のJavascriptライブラリから発行されたAJAXリクエストを検出するのに便利です。"
 
 #: ../../narr/viewconfig.rst:423
 msgid ""
 "If ``xhr`` is not specified, the ``HTTP_X_REQUESTED_WITH`` HTTP header is"
 " not taken into consideration when deciding whether or not to invoke the "
 "associated view callable."
-msgstr ""
+msgstr "`` xhr``が指定されていない場合、HTTPヘッダーは考慮されません。"
 
 #: ../../narr/viewconfig.rst:438
 msgid "``accept``"
-msgstr ""
+msgstr "「受け入れる」"
 
 #: ../../narr/viewconfig.rst:428
 msgid ""
@@ -688,35 +678,35 @@ msgid ""
 "form ``text/*``, or a match-all wildcard mimetype match token in the form"
 " ``*/*``.  If any of the forms matches the ``Accept`` header of the "
 "request, this predicate will be true."
-msgstr ""
+msgstr "この引数の値は、 `` Accept`` HTTPリクエストヘッダ内の1つまたは複数のMIMEタイプの一致クエリを表します。この値が指定されている場合は、次の形式のいずれかでなければなりません： `` text / plain` &quot;の形式のmimetypeマッチトークン、` `text / *` `の形式のワイルドカードmimetypeマッチトークン、 -allワイルドカードmimetypeは `` * / * ``の形式でトークンにマッチします。いずれかのフォームがリクエストの `` Accept``ヘッダと一致する場合、この述語は真となります。"
 
 #: ../../narr/viewconfig.rst:436
 msgid ""
 "If ``accept`` is not specified, the ``HTTP_ACCEPT`` HTTP header is not "
 "taken into consideration when deciding whether or not to invoke the "
 "associated view callable."
-msgstr ""
+msgstr "`` accept``が指定されていない場合、HTTP_ACCEPT`` HTTPヘッダーは、関連するビューを呼び出し可能にするかどうかを決定する際には考慮されません。"
 
 #: ../../narr/viewconfig.rst:462
 msgid "``header``"
-msgstr ""
+msgstr "``ヘッダー ``"
 
 #: ../../narr/viewconfig.rst:441
 msgid "This value represents an HTTP header name or a header name/value pair."
-msgstr ""
+msgstr "この値は、HTTPヘッダー名またはヘッダー名/値のペアを表します。"
 
 #: ../../narr/viewconfig.rst:443
 msgid ""
 "If ``header`` is specified, it must be a header name or a "
 "``headername:headervalue`` pair."
-msgstr ""
+msgstr "`` header``が指定されている場合は、ヘッダ名または `` headername：headervalue``の組でなければなりません。"
 
 #: ../../narr/viewconfig.rst:446
 msgid ""
 "If ``header`` is specified without a value (a bare header name only, "
 "e.g., ``If-Modified-Since``), the view will only be invoked if the HTTP "
 "header exists with any value in the request."
-msgstr ""
+msgstr "もし `` header``が値なしで指定されていれば（例えば、 `` If-Modified-Since``のような裸のヘッダ名のみ）、要求にHTTPヘッダーが存在すればビューが呼び出されます。"
 
 #: ../../narr/viewconfig.rst:450
 msgid ""
@@ -726,24 +716,24 @@ msgid ""
 "the ``headervalue`` contains a ``:`` (colon), it will be considered a "
 "name/value pair (e.g., ``User-Agent:Mozilla/.*`` or ``Host:localhost``)."
 "  The value portion should be a regular expression."
-msgstr ""
+msgstr "`` Header``が指定されていて、名前と値のペア（ `` User-Agent：Mozilla /.*``など）を持っている場合、ビューはHTTPヘッダーが存在する場合にのみ呼び出されます*要求された値と一致します。 `` headervalue``に ``： ``（コロン）が含まれていると、それは名前と値のペアとみなされます（例えば `` User-Agent：Mozilla /.* ``や `` Host：localhost`` ）。値の部分は正規表現でなければなりません。"
 
 #: ../../narr/viewconfig.rst:457
 msgid ""
 "Whether or not the value represents a header name or a header name/value "
 "pair, the case of the header name is not significant."
-msgstr ""
+msgstr "値がヘッダー名またはヘッダー名/値のペアを表すかどうかに関係なく、ヘッダー名の大文字小文字は重要ではありません。"
 
 #: ../../narr/viewconfig.rst:460
 msgid ""
 "If ``header`` is not specified, the composition, presence, or absence of "
 "HTTP headers is not taken into consideration when deciding whether or not"
 " to invoke the associated view callable."
-msgstr ""
+msgstr "`` header``が指定されていない場合、関連するビューを呼び出し可能にするかどうかを決定する際に、HTTPヘッダーの構成、存在または不在は考慮されません。"
 
 #: ../../narr/viewconfig.rst:472
 msgid "``path_info``"
-msgstr ""
+msgstr "`` path_info``"
 
 #: ../../narr/viewconfig.rst:465
 msgid ""
@@ -751,18 +741,18 @@ msgid ""
 "against the ``PATH_INFO`` WSGI environment variable to decide whether or "
 "not to call the associated view callable.  If the regex matches, this "
 "predicate will be ``True``."
-msgstr ""
+msgstr "この値は、 `` PATH_INFO`` WSGI環境変数に対してテストされる正規表現パターンを表し、関連するビューを呼び出し可能にするかどうかを決定します。正規表現が一致する場合、この述語は `` True``になります。"
 
 #: ../../narr/viewconfig.rst:470
 msgid ""
 "If ``path_info`` is not specified, the WSGI ``PATH_INFO`` is not taken "
 "into consideration when deciding whether or not to invoke the associated "
 "view callable."
-msgstr ""
+msgstr "`` path_info``が指定されていない場合、WSGIの `` PATH_INFO``は、関連するビューを呼び出すかどうかを決定する際に考慮されません。"
 
 #: ../../narr/viewconfig.rst:494
 msgid "``check_csrf``"
-msgstr ""
+msgstr "`` check_csrf``"
 
 #: ../../narr/viewconfig.rst:475
 msgid ""
@@ -770,14 +760,14 @@ msgid ""
 "or a string representing the \"check name\".  If the value is ``True`` or"
 " a string, CSRF checking will be performed.  If the value is ``False`` or"
 " ``None``, CSRF checking will not be performed."
-msgstr ""
+msgstr "指定する場合、この値は `` None``、 `` True``、 `` False``、または\ &quot;check name \&quot;を表す文字列のいずれかでなければなりません。値が `` True``または文字列の場合、CSRFチェックが実行されます。値が `` False``または `` None``の場合、CSRFチェックは実行されません。"
 
 #: ../../narr/viewconfig.rst:480
 msgid ""
 "If the value provided is a string, that string will be used as the "
 "\"check name\".  If the value provided is ``True``, ``csrf_token`` will "
 "be used as the check name."
-msgstr ""
+msgstr "指定された値が文字列の場合、その文字列は\ &quot;チェック名\&quot;として使用されます。指定された値が `` True``の場合、 `` csrf_token``がチェック名として使用されます。"
 
 #: ../../narr/viewconfig.rst:484
 msgid ""
@@ -787,17 +777,17 @@ msgid ""
 " these two values are the same.  If the check passes, the associated view"
 " will be permitted to execute.  If the check fails, the associated view "
 "will not be permitted to execute."
-msgstr ""
+msgstr "CSRFチェックが実行されると、チェックされた値は `` request.POST [check_name] ``の値になります。この値は `` request.session.get_csrf_token（） ``の値と比較され、これらの2つの値が同じ場合にチェックが合格します。チェックが合格すると、関連するビューの実行が許可されます。検査が失敗した場合、関連するビューは実行できません。"
 
 #: ../../narr/viewconfig.rst:491
 msgid ""
 "Note that using this feature requires a :term:`session factory` to have "
 "been configured."
-msgstr ""
+msgstr "この機能を使用するには、：term： `session factory`が設定されている必要があります。"
 
 #: ../../narr/viewconfig.rst:508
 msgid "``physical_path``"
-msgstr ""
+msgstr "`` physical_path``"
 
 #: ../../narr/viewconfig.rst:497
 msgid ""
@@ -812,11 +802,11 @@ msgid ""
 "elements between slash characters or in tuple elements should be the "
 "Unicode representation of the name of the resource and should not be "
 "encoded in any way."
-msgstr ""
+msgstr "指定された場合、この値は、この述語が真と一致するために、トラバーサルによって見つかったコンテキストの：term： `物理パス &#39;を表す文字列またはタプルでなければなりません。たとえば、 `` physical_path = &#39;/&#39; ``、 `` physical_path = &#39;/ a / b / c```や `` physical_path =（&#39; &#39;、&#39; a &#39;、&#39; b &#39;、&#39; c &#39;） ` `。これは、パス接頭辞の一致または正規表現ではなく、全体パスの一致です。これは、あるオブジェクトがトラバースされているときに常にビューを表示したいときに便利ですが、どのようなオブジェクトであるかを確かめることができないので、 `` context``述語を使うことはできません。スラッシュ文字またはタプル要素の間の個々のパス要素は、リソース名のUnicode表現である必要があり、決してエンコードしないでください。"
 
 #: ../../narr/viewconfig.rst:519
 msgid "``effective_principals``"
-msgstr ""
+msgstr "`` effective_principals``"
 
 #: ../../narr/viewconfig.rst:511
 msgid ""
@@ -828,11 +818,11 @@ msgid ""
 "False.  For example: "
 "``effective_principals=pyramid.security.Authenticated`` or "
 "``effective_principals=('fred', 'group:admins')``."
-msgstr ""
+msgstr "指定する場合、この値は：term： `principal`識別子または一連のプリンシパル識別子でなければなりません。 ：meth： `pyramid.request.Request.effective_principals`メソッドが、引数リストに指定されたすべてのプリンシパルが現在のリクエストに存在することを示す場合、この述語はTrueを返します。それ以外の場合はFalseを返します。たとえば、 `` effective_principals = pyramid.security.Authenticated``や `` effective_principals =（ &#39;fred&#39;、 &#39;group：admins&#39;） ``などです。"
 
 #: ../../narr/viewconfig.rst:531
 msgid "``custom_predicates``"
-msgstr ""
+msgstr "`` custom_predicates``"
 
 #: ../../narr/viewconfig.rst:522
 msgid ""
@@ -845,15 +835,15 @@ msgid ""
 "evaluation of the context resource and/or the request.  If all callables "
 "return ``True``, the associated view callable will be considered viable "
 "for a given request."
-msgstr ""
+msgstr "`` custom_predicates``が指定されていれば、それはカスタム述語呼び出し可能関数への参照のシーケンスでなければなりません。事前定義された述部のセットが必要な場合には、カスタム述部を使用します。カスタム述部は、必要に応じて事前定義された述部と組み合わせることができます。呼び出し可能な各カスタム述語は、 `` context``と `` request``という2つの引数を受け取り、コンテキストリソースや要求の任意の評価を行った後、 `` True``または `` False``を返すべきです。すべての呼び出し可能ファイルが `` True``を返す場合、呼び出し可能な関連ビューは与えられた要求に対して実行可能であると見なされます。"
 
 #: ../../narr/viewconfig.rst:531
 msgid "If ``custom_predicates`` is not specified, no custom predicates are used."
-msgstr ""
+msgstr "`` custom_predicates``が指定されていない場合、カスタム述部は使用されません。"
 
 #: ../../narr/viewconfig.rst:540
 msgid "``predicates``"
-msgstr ""
+msgstr "``述語 ``"
 
 #: ../../narr/viewconfig.rst:534
 msgid ""
@@ -862,41 +852,41 @@ msgid ""
 "key/value pair can be used at the same time.  See "
 ":ref:`view_and_route_predicates` for more information about third-party "
 "predicates."
-msgstr ""
+msgstr "ここでキー/値のペアを渡すと：meth： `pyramid.config.Configurator.add_view_predicate`で登録されたサードパーティの述語を使用します。複数のキーと値のペアを同時に使用できます。第三者の述語の詳細については、ref： `view_and_route_predicates`を参照してください。"
 
 #: ../../narr/viewconfig.rst:543
 msgid "Inverting Predicate Values"
-msgstr ""
+msgstr "述語値の反転"
 
 #: ../../narr/viewconfig.rst:545
 msgid ""
 "You can invert the meaning of any predicate value by wrapping it in a "
 "call to :class:`pyramid.config.not_`."
-msgstr ""
+msgstr "任意の述語値の意味を、class： `pyramid.config.not_`への呼び出しでラップすることによって、その意味を逆転させることができます。"
 
 #: ../../narr/viewconfig.rst:559
 msgid ""
 "The above example will ensure that the view is called if the request "
 "method is *not* ``POST``, at least if no other view is more specific."
-msgstr ""
+msgstr "上記の例では、少なくとも他のビューがより具体的でない場合、リクエストメソッドが* `*` `POST`でない場合にビューが呼び出されることを保証します。"
 
 #: ../../narr/viewconfig.rst:562
 msgid ""
 "This technique of wrapping a predicate value in ``not_`` can be used "
 "anywhere predicate values are accepted:"
-msgstr ""
+msgstr "述部の値を `` not_``にラップするこの手法は、述部の値が受け入れられればどこでも使用できます："
 
 #: ../../narr/viewconfig.rst:565
 msgid ":meth:`pyramid.config.Configurator.add_view`"
-msgstr ""
+msgstr "：meth： `pyramid.config.Configurator.add_view`"
 
 #: ../../narr/viewconfig.rst:567
 msgid ":meth:`pyramid.view.view_config`"
-msgstr ""
+msgstr "：meth： `pyramid.view.view_config`"
 
 #: ../../narr/viewconfig.rst:578
 msgid "Adding View Configuration Using the ``@view_config`` Decorator"
-msgstr ""
+msgstr "`` @ view_config``デコレータを使ったビュー設定の追加"
 
 #: ../../narr/viewconfig.rst:582
 msgid ""
@@ -905,30 +895,30 @@ msgid ""
 "configuration declarations.  For maximum startup performance, use the "
 "view configuration method described in "
 ":ref:`mapping_views_using_imperative_config_section` instead."
-msgstr ""
+msgstr "この機能を使用すると、アプリケーションの起動時にビューの構成宣言をスキャンする作業が増えるため、アプリケーションの起動がわずかに遅くなりがちです。起動時のパフォーマンスを最大にするには、代わりに：ref： `mapping_views_using_imperative_config_section`で説明されているビュー設定方法を使用してください。"
 
 #: ../../narr/viewconfig.rst:588
 msgid ""
 "The :class:`~pyramid.view.view_config` decorator can be used to associate"
 " :term:`view configuration` information with a function, method, or class"
 " that acts as a :app:`Pyramid` view callable."
-msgstr ""
+msgstr "：class： `〜pyramid.view.view_config`デコレータは：term：` view configuration`情報を、：app： `Pyramid`ビュー呼び出しとして動作する関数、メソッド、またはクラスに関連付けるのに使用できます。"
 
 #: ../../narr/viewconfig.rst:592
 msgid ""
 "Here's an example of the :class:`~pyramid.view.view_config` decorator "
 "that lives within a :app:`Pyramid` application module ``views.py``:"
-msgstr ""
+msgstr "次に、a：app： `Pyramid`アプリケーションモジュール内にあるclass：`〜pyramid.view.view_config`デコレータの例を示します。 `` views.py``："
 
 #: ../../narr/viewconfig.rst:606
 msgid ""
 "Using this decorator as above replaces the need to add this imperative "
 "configuration stanza:"
-msgstr ""
+msgstr "上記のようにこのデコレータを使用すると、この必須構成スタンザを追加する必要性が置き換えられます。"
 
 #: ../../narr/viewconfig.rst:615
 msgid "All arguments to ``view_config`` may be omitted.  For example:"
-msgstr ""
+msgstr "`` view_config``の引数はすべて省略することができます。例えば："
 
 #: ../../narr/viewconfig.rst:628
 msgid ""
@@ -937,7 +927,7 @@ msgid ""
 "any resource type, using no permission, registered against requests with "
 "any request method, request type, request param, route name, or "
 "containment."
-msgstr ""
+msgstr "上のような登録は、ビュー名が `` my_view``であり、任意のリソースタイプと一致する `` context``引数で登録され、権限を使用せず、任意のリクエストメソッド、リクエストタイプ、要求パラメタ、ルート名、または包含。"
 
 #: ../../narr/viewconfig.rst:633
 msgid ""
@@ -947,14 +937,14 @@ msgid ""
 "them. To make :app:`Pyramid` process your "
 ":class:`pyramid.view.view_config` declarations, you *must* use the "
 "``scan`` method of a :class:`pyramid.config.Configurator`:"
-msgstr ""
+msgstr "`` @ view_config``デコレータの存在だけでは、ビューの設定を行うのに十分ではありません。デコレータが行うことは、あなたの設定宣言で関数にアノテーションを付けているだけで、それを処理しません。 ：app： `Pyramid`があなたの：class：` pyramid.view.view_config`宣言を処理するには、class :: `pyramid.config.Configurator`の` `scan``メソッドを使用する必要があります："
 
 #: ../../narr/viewconfig.rst:646
 msgid ""
 "Please see :ref:`decorations_and_code_scanning` for detailed information "
 "about what happens when code is scanned for configuration declarations "
 "resulting from use of decorators like :class:`~pyramid.view.view_config`."
-msgstr ""
+msgstr "class： `〜pyramid.view.view_config`のようなデコレータの使用に起因する設定宣言のために、コードがスキャンされたときの動作の詳細については、ref：` decorations_and_code_scanning`を参照してください。"
 
 #: ../../narr/viewconfig.rst:650
 msgid ""
@@ -962,7 +952,7 @@ msgid ""
 ":meth:`~pyramid.config.Configurator.scan` method.  For example, the "
 "method allows you to supply a ``package`` argument to better control "
 "exactly *which* code will be scanned."
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.scan`メソッドへの追加のAPI引数については：ref：` configuration_module`を参照してください。たとえば、このメソッドを使うと、コードを正確に制御するための `` package``引数を指定することができます。"
 
 #: ../../narr/viewconfig.rst:655
 msgid ""
@@ -973,23 +963,23 @@ msgid ""
 "decorator is a form of :term:`declarative configuration`, while "
 ":meth:`pyramid.config.Configurator.add_view` is a form of "
 ":term:`imperative configuration`.  However, they both do the same thing."
-msgstr ""
+msgstr "：class： `〜pyramid.view.view_config`デコレータへの引数はすべて、` meth： `pyramid.config.Configurator.add_view`メソッドに引数として渡された場合とまったく同じことを意味します。ビュー ``引数。 ：class： `〜pyramid.view.view_config`デコレータの使用法は：term：`宣言的な設定 `の形式です。：meth：` pyramid.config.Configurator.add_view`は次の形式です：term： `必須の設定`。しかし、どちらも同じことをしています。"
 
 #: ../../narr/viewconfig.rst:669
 msgid "``@view_config`` Placement"
-msgstr ""
+msgstr "`` @ view_config``の配置"
 
 #: ../../narr/viewconfig.rst:671
 msgid ""
 "A :class:`~pyramid.view.view_config` decorator can be placed in various "
 "points in your application."
-msgstr ""
+msgstr "A：class： `〜pyramid.view.view_config`デコレータは、アプリケーションのさまざまな場所に置くことができます。"
 
 #: ../../narr/viewconfig.rst:674
 msgid ""
 "If your view callable is a function, it may be used as a function "
 "decorator:"
-msgstr ""
+msgstr "ビュー呼び出し可能関数が関数である場合、それは関数デコレータとして使用できます。"
 
 #: ../../narr/viewconfig.rst:686
 msgid ""
@@ -997,22 +987,22 @@ msgid ""
 "class decorator. All the arguments to the decorator are the same when "
 "applied against a class as when they are applied against a function.  For"
 " example:"
-msgstr ""
+msgstr "ビュー呼び出し可能オブジェクトがクラスである場合、デコレータはクラスデコレータとしても使用できます。デコレータに対するすべての引数は、関数に対して適用されるときと同じように、クラスに対して適用されるときと同じです。例えば："
 
 #: ../../narr/viewconfig.rst:704
 msgid ""
 "More than one :class:`~pyramid.view.view_config` decorator can be stacked"
 " on top of any number of others.  Each decorator creates a separate view "
 "registration.  For example:"
-msgstr ""
+msgstr "2つ以上のクラス：class： `〜pyramid.view.view_config`デコレータは、いくつでも他のものの上に積み重ねられます。各デコレータは別々のビュー登録を作成します。例えば："
 
 #: ../../narr/viewconfig.rst:719
 msgid "This registers the same view under two different names."
-msgstr ""
+msgstr "これにより、同じビューが2つの異なる名前で登録されます。"
 
 #: ../../narr/viewconfig.rst:721
 msgid "The decorator can also be used against a method of a class:"
-msgstr ""
+msgstr "デコレータは、クラスのメソッドに対しても使用できます。"
 
 #: ../../narr/viewconfig.rst:737
 msgid ""
@@ -1020,11 +1010,11 @@ msgid ""
 "registered for the *class*, so the class constructor must accept an "
 "argument list in one of two forms: either a single argument, ``request``,"
 " or two arguments, ``context, request``."
-msgstr ""
+msgstr "デコレータがクラスのメソッドに対して使用されると、* class *のビューが登録されるので、クラスコンストラクタは引数のリストを2つの形式のうちの1つで受け入れる必要があります：一つの引数、 `` request``、引数、 ``コンテキスト、要求 ``"
 
 #: ../../narr/viewconfig.rst:742
 msgid "The method which is decorated must return a :term:`response`."
-msgstr ""
+msgstr "装飾されるメソッドは、：term： `response`を返さなければなりません。"
 
 #: ../../narr/viewconfig.rst:744
 msgid ""
@@ -1033,13 +1023,13 @@ msgid ""
 "itself. For example, the above registration implied by the decorator "
 "being used against the ``amethod`` method could be written equivalently "
 "as follows:"
-msgstr ""
+msgstr "デコレータをクラスの特定のメソッドに対して使用することは、クラス自体にアタッチされたデコレータで `` attr``パラメータを使うことと同じです。例えば、 &quot;メソッド&quot;メソッドに対してデコレータが使用している上記の登録は、以下のように等価的に書くことができます："
 
 #: ../../narr/viewconfig.rst:770
 msgid ""
 "Adding View Configuration Using "
 ":meth:`~pyramid.config.Configurator.add_view`"
-msgstr ""
+msgstr "：meth： `〜pyramid.config.Configurator.add_view`を使ったビュー設定の追加"
 
 #: ../../narr/viewconfig.rst:772
 msgid ""
@@ -1048,7 +1038,7 @@ msgid ""
 "(without a :class:`~pyramid.view.view_config` decorator).  The arguments "
 "to this method are very similar to the arguments that you provide to the "
 ":class:`~pyramid.view.view_config` decorator.  For example:"
-msgstr ""
+msgstr "：ref： `configuration_module`内の：meth：` pyramid.config.Configurator.add_view`メソッドは、（必須ではありません：class： `〜pyramid.view.view_config`デコレータなしで）ビューを&quot;必須 &quot;に設定するために使用されます。このメソッドの引数は、class： `〜pyramid.view.view_config`デコレータに提供する引数に非常に似ています。例えば："
 
 #: ../../narr/viewconfig.rst:790
 msgid ""
@@ -1056,18 +1046,18 @@ msgid ""
 "argument. It must either be a Python object which is the view itself or a"
 " :term:`dotted Python name` to such an object. In the above example, the "
 "``view callable`` is the ``hello_world`` function."
-msgstr ""
+msgstr "第1引数a：term： `view callable`は唯一の必須引数です。これは、ビュー自体であるPythonオブジェクトか、そのようなオブジェクトに対する：term： `点線のPython名 &#39;のいずれかでなければなりません。上の例では、 `` view callable``は `` hello_world``関数です。"
 
 #: ../../narr/viewconfig.rst:795
 msgid ""
 "When you use only :meth:`~pyramid.config.Configurator.add_view` to add "
 "view configurations, you don't need to issue a :term:`scan` in order for "
 "the view configuration to take effect."
-msgstr ""
+msgstr "ビュー設定を追加するために：meth： `〜pyramid.config.Configurator.add_view`だけを使うときは、ビュー設定を有効にするために：term：` scan`を発行する必要はありません。"
 
 #: ../../narr/viewconfig.rst:805
 msgid "``@view_defaults`` Class Decorator"
-msgstr ""
+msgstr "`` @ view_defaults``クラスデコレータ"
 
 #: ../../narr/viewconfig.rst:809
 msgid ""
@@ -1075,18 +1065,18 @@ msgid ""
 ":class:`pyramid.view.view_defaults` class decorator on the class to "
 "provide defaults to the view configuration information used by every "
 "``@view_config`` decorator that decorates a method of that class."
-msgstr ""
+msgstr "クラスをビューとして使用する場合は、クラスの：class： `pyramid.view.view_defaults`クラスデコレータを使用して、メソッドを装飾するすべての` `@ view_config``デコレータによって使用されるビュー設定情報にデフォルトを提供できますそのクラスの。"
 
 #: ../../narr/viewconfig.rst:814
 msgid ""
 "For instance, if you've got a class that has methods that represent "
 "\"REST actions\", all of which are mapped to the same route but different"
 " request methods, instead of this:"
-msgstr ""
+msgstr "たとえば、「RESTアクション」を表すメソッドを持つクラスがある場合、これらのクラスはすべて同じルートにマッピングされますが、リクエストメソッドは異なります。"
 
 #: ../../narr/viewconfig.rst:840
 msgid "You can do this:"
-msgstr ""
+msgstr "あなたはこれを行うことができます："
 
 #: ../../narr/viewconfig.rst:866
 msgid ""
@@ -1094,13 +1084,13 @@ msgid ""
 "argument out of the call to each individual ``@view_config`` statement "
 "because we used a ``@view_defaults`` class decorator to provide the "
 "argument as a default to each view method it possessed."
-msgstr ""
+msgstr "上記の例では、 `` @ view_defaults``クラスデコレータを使用していたので、個々の `` @ view_config``文の呼び出しから `` route_name = &#39;rest&#39;``引数を取ることができました。それが所有する各ビューメソッドのデフォルトとしての引数"
 
 #: ../../narr/viewconfig.rst:871
 msgid ""
 "Arguments passed to ``@view_config`` will override any default passed to "
 "``@view_defaults``."
-msgstr ""
+msgstr "`` @ view_config``に渡された引数は、 `` @ view_defaults``に渡されたデフォルトを上書きします。"
 
 #: ../../narr/viewconfig.rst:874
 msgid ""
@@ -1108,14 +1098,14 @@ msgid ""
 ":meth:`pyramid.config.Configurator.add_view` directive when a decorated "
 "class is passed to that directive as its ``view`` argument.  For example,"
 " instead of this:"
-msgstr ""
+msgstr "`` view_defaults``クラスのデコレータは、修飾されたクラスが `` view``引数としてそのディレクティブに渡されたとき、：meth： `pyramid.config.Configurator.add_view`ディレクティブにデフォルトを提供することもできます。たとえば、これの代わりに："
 
 #: ../../narr/viewconfig.rst:909
 msgid ""
 "To reduce the amount of repetition in the ``config.add_view`` statements,"
 " we can move the ``route_name='rest'`` argument to a ``@view_defaults`` "
 "class decorator on the ``RESTView`` class:"
-msgstr ""
+msgstr "`` config.add_view``ステートメントの繰り返し回数を減らすために、 `` route_name = &#39;rest&#39;``引数を `` RESTView``クラスの `` @ view_defaults``クラスデコレータに移動できます："
 
 #: ../../narr/viewconfig.rst:942
 msgid ""
@@ -1123,13 +1113,13 @@ msgid ""
 "that :class:`pyramid.view.view_config` does, and they have the same "
 "meaning.  Each argument passed to ``view_defaults`` provides a default "
 "for the view configurations of methods of the class it's decorating."
-msgstr ""
+msgstr "：class： `pyramid.view.view_defaults`は、class：` pyramid.view.view_config`と同じ引数の集合を受け入れ、それらは同じ意味を持ちます。 `` view_defaults``に渡される各引数は、装飾するクラスのメソッドのビュー設定のデフォルトを提供します。"
 
 #: ../../narr/viewconfig.rst:947
 msgid ""
 "Normal Python inheritance rules apply to defaults added via "
 "``view_defaults``. For example:"
-msgstr ""
+msgstr "通常のPython継承規則は、 `` view_defaults``によって追加されたデフォルトに適用されます。例えば："
 
 #: ../../narr/viewconfig.rst:960
 msgid ""
@@ -1137,17 +1127,17 @@ msgid ""
 " passed to the ``view_defaults`` decorator of the ``Foo`` class.  To "
 "prevent this from happening, use a ``view_defaults`` decorator without "
 "any arguments on the subclass:"
-msgstr ""
+msgstr "上記の `` Bar``クラスは、 `` Foo``クラスの `` view_defaults``デコレータに渡された引数からビューのデフォルトを継承します。これを避けるには、サブクラスで引数なしで `` view_defaults``デコレータを使用してください："
 
 #: ../../narr/viewconfig.rst:976
 msgid ""
 "The ``view_defaults`` decorator only works as a class decorator; using it"
 " against a function or a method will produce nonsensical results."
-msgstr ""
+msgstr "`` view_defaults``デコレータはクラスデコレータとしてのみ動作します。それを関数またはメソッドに対して使用すると、無意味な結果が生成されます。"
 
 #: ../../narr/viewconfig.rst:986
 msgid "Configuring View Security"
-msgstr ""
+msgstr "ビューセキュリティの設定"
 
 #: ../../narr/viewconfig.rst:988
 msgid ""
@@ -1158,7 +1148,7 @@ msgid ""
 " view function is actually called.  Here's an example of specifying a "
 "permission in a view configuration using "
 ":meth:`~pyramid.config.Configurator.add_view`:"
-msgstr ""
+msgstr "：term： `認証ポリシー`がアクティブな場合、ビュー検索中に見つかった：term： `view configuration`に付加された：term：` permission`が検証されます。これにより、現在認証されているユーザが、view関数が実際に呼び出される前に、：term： `context`リソースに対してそのパーミッションを持つことが保証されます。以下は、viewの設定でpermissionを指定する例です：meth： `〜pyramid.config.Configurator.add_view`："
 
 #: ../../narr/viewconfig.rst:1004
 msgid ""
@@ -1167,11 +1157,11 @@ msgid ""
 "the user does not possess the ``add`` permission relative to the current "
 ":term:`context`. Instead the :term:`forbidden view` result will be "
 "returned to the client as per :ref:`protecting_views`."
-msgstr ""
+msgstr "：term： `認証ポリシー`が有効な場合、このビューは `` add``パーミッションで保護されます。ユーザーは、現在の：term： `context`に対して` `add``パーミッションを持っていない場合、ビューは呼び出されません。代わりに、：term： `禁止されたビュー &#39;の結果は、：ref：` protection_views&#39;ごとにクライアントに返されます。"
 
 #: ../../narr/viewconfig.rst:1017
 msgid ":exc:`~pyramid.exceptions.NotFound` Errors"
-msgstr ""
+msgstr "：exc： `〜pyramid.exceptions.NotFound`エラー"
 
 #: ../../narr/viewconfig.rst:1019
 msgid ""
@@ -1184,11 +1174,11 @@ msgid ""
 "representation of the error will include the same information. See "
 ":ref:`environment_chapter` for more information about how, and where to "
 "set these values."
-msgstr ""
+msgstr "アプリケーションレジストリの設定ミスによって予期せずエラーが発生した場合、exc： `〜pyramid.exceptions.NotFound`エラーをデバッグできるようにすると便利です。これらのエラーをデバッグするには、環境変数PYRAMID_DEBUG_NOTFOUND`または `` pyramid.debug_notfound``設定ファイルの設定を使用します。ビューが見つからなかった理由の詳細は `` stderr``に出力され、エラーのブラウザ表現には同じ情報が含まれます。これらの値の設定方法と設定方法の詳細については、ref： `environment_chapter`を参照してください。"
 
 #: ../../narr/viewconfig.rst:1034
 msgid "Influencing HTTP Caching"
-msgstr ""
+msgstr "HTTPキャッシングへの影響"
 
 #: ../../narr/viewconfig.rst:1038
 msgid ""
@@ -1198,7 +1188,7 @@ msgid ""
 " response data for some time. See ``http_cache`` in "
 ":ref:`nonpredicate_view_args` for the allowable values and what they "
 "mean."
-msgstr ""
+msgstr "非 `` No`` `` http_cache``引数がビュー設定に渡されると、Pyramidは結果のレスポンスに `` Expires``と `` Cache-Control``レスポンスヘッダを設定し、ブラウザがいくつかの時間の応答データ。許容値とその意味については、：ref： `nonpredicate_view_args`の` `http_cache``を参照してください。"
 
 #: ../../narr/viewconfig.rst:1044
 msgid ""
@@ -1214,13 +1204,13 @@ msgid ""
 " from the view should be cached for 3600 seconds. However, the view "
 "itself prevents caching from taking place unless there's a "
 "``should_cache`` GET or POST variable:"
-msgstr ""
+msgstr "「http_cache」を持つビュー構成デコレータでビューを飾りたい場合でも、ビューからの応答を返す結果としてこれらのヘッダーを設定することは望ましくないことがあります。おそらく、キャッシュ可能ではない応答を返すビューコード内の別のブランチがありますが、通常のブランチは常にキャッシュ可能なものを返します。このような場合は、 `` response.cache_control``オブジェクトの `` prevent_auto``属性を `` False``以外の値に設定してください。たとえば、以下の呼び出し可能ビューは、ビューからの応答が3600秒間キャッシュされるべきであることを示す `` @ view_config``デコレータで構成されます。しかし、 `` should_cache`` GET変数またはPOST変数がない限り、ビュー自体はキャッシングが起こらないようにします："
 
 #: ../../narr/viewconfig.rst:1067
 msgid ""
 "Note that the ``http_cache`` machinery will overwrite or add to caching "
 "headers you set within the view itself, unless you use ``prevent_auto``."
-msgstr ""
+msgstr "`` http_cache``機構は、あなたが `` prevent_auto``を使わない限り、あなた自身が設定したキャッシングヘッダに上書きしたり追加したりすることに注意してください。"
 
 #: ../../narr/viewconfig.rst:1070
 msgid ""
@@ -1229,7 +1219,7 @@ msgid ""
 "``PYRAMID_PREVENT_HTTP_CACHE`` environment variable or the "
 "``pyramid.prevent_http_cache`` configuration value setting to a true "
 "value. For more information, see :ref:`preventing_http_caching`."
-msgstr ""
+msgstr "Pyramidアプリケーションの存続期間中、 `` http_cache``の効果を完全に無効にすることもできます。そのためには、 `` PYRAMID_PREVENT_HTTP_CACHE``環境変数または `` pyramid.prevent_http_cache``設定値を真の値に設定してください。詳細については、ref： `prevent_http_caching`を参照してください。"
 
 #: ../../narr/viewconfig.rst:1076
 msgid ""
@@ -1238,11 +1228,11 @@ msgid ""
 "prevent caching headers that would have been set by the Pyramid HTTP "
 "caching machinery invoked as the result of the ``http_cache`` argument to"
 " view configuration."
-msgstr ""
+msgstr "`` pyramid.prevent_http_cache``を設定しても、アプリケーションコード自身が設定するヘッダをキャッシュすることには影響しません。 `` http_cache``引数の結果として呼び出されるPyramid HTTPキャッシングマシンによって設定されていたキャッシュヘッダは、設定を表示することのみを妨げます。"
 
 #: ../../narr/viewconfig.rst:1087
 msgid "Debugging View Configuration"
-msgstr ""
+msgstr "ビュー構成のデバッグ"
 
 #: ../../narr/viewconfig.rst:1089
 msgid ""
@@ -1250,5 +1240,5 @@ msgid ""
 " each of the view callables that might match for a given URL.  This can "
 "be an effective way to figure out why a particular view callable is being"
 " called instead of the one you'd like to be called."
-msgstr ""
+msgstr "指定されたURLに一致する可能性のあるビュー呼び出し可能コードをそれぞれ表示する方法については、ref： `displaying_matching_views`を参照してください。これは、呼び出されるビューの代わりに特定のビューのコール可能オブジェクトが呼び出されている理由を理解するのに効果的な方法です。"
 

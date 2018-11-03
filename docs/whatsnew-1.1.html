@@ -126,7 +126,7 @@ not negatively impact performance.</p>
 <ul class="simple">
 <li>A new paster command named <code class="docutils literal notranslate"><span class="pre">paster</span> <span class="pre">pviews</span></code> was added.  This command
 prints a summary of potentially matching views for a given path.  See
-the section entitled <a class="reference internal" href="narr/commandline.html#displaying-matching-views"><span class="std std-ref">Displaying Matching Views for a Given URL</span></a> for more
+the section entitled <a class="reference internal" href="narr/commandline.html#displaying-matching-views"><span class="std std-ref">指定されたURLの一致するビューの表示</span></a> for more
 information.</li>
 </ul>
 </div>
@@ -137,7 +137,7 @@ information.</li>
 argument.  If this argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the added route will never be
 considered for matching when a request is handled.  Instead, it will only
 be useful for URL generation via <code class="docutils literal notranslate"><span class="pre">route_url</span></code> and <code class="docutils literal notranslate"><span class="pre">route_path</span></code>.  See the
-section entitled <a class="reference internal" href="narr/urldispatch.html#static-route-narr"><span class="std std-ref">Static Routes</span></a> for more information.</li>
+section entitled <a class="reference internal" href="narr/urldispatch.html#static-route-narr"><span class="std std-ref">静的ルート</span></a> for more information.</li>
 </ul>
 </div>
 <div class="section" id="default-http-exception-view">
@@ -209,8 +209,8 @@ with the first element of <code class="docutils literal notranslate"><span class
 <p>The environment setting <code class="docutils literal notranslate"><span class="pre">PYRAMID_PREVENT_HTTP_CACHE</span></code> and configuration
 file value <code class="docutils literal notranslate"><span class="pre">prevent_http_cache</span></code> are synonymous and allow you to prevent
 HTTP cache headers from being set by Pyramid's <code class="docutils literal notranslate"><span class="pre">http_cache</span></code> machinery
-globally in a process.  see <a class="reference internal" href="narr/viewconfig.html#influencing-http-caching"><span class="std std-ref">Influencing HTTP Caching</span></a> and
-<a class="reference internal" href="narr/environment.html#preventing-http-caching"><span class="std std-ref">Preventing HTTP Caching</span></a>.</p>
+globally in a process.  see <a class="reference internal" href="narr/viewconfig.html#influencing-http-caching"><span class="std std-ref">HTTPキャッシングへの影響</span></a> and
+<a class="reference internal" href="narr/environment.html#preventing-http-caching"><span class="std std-ref">HTTPキャッシュの防止</span></a>.</p>
 </div>
 <div class="section" id="easier-scripting-writing">
 <h3>Easier Scripting Writing<a class="headerlink" href="#easier-scripting-writing" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -222,7 +222,7 @@ writing scripts that need to work under Pyramid environment easier, e.g.:</p>
 <span class="k">print</span> <span class="n">request</span><span class="o">.</span><span class="n">route_url</span><span class="p">(</span><span class="s1">&#39;myroute&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="narr/commandline.html#writing-a-script"><span class="std std-ref">Writing a Script</span></a> for more details.</p>
+<p>See <a class="reference internal" href="narr/commandline.html#writing-a-script"><span class="std std-ref">スクリプトを書く</span></a> for more details.</p>
 </div>
 </div>
 <div class="section" id="minor-feature-additions">
@@ -243,7 +243,7 @@ and it will do mostly the right thing.</p>
 </li>
 <li><p class="first">It is now possible to add a <code class="docutils literal notranslate"><span class="pre">[pshell]</span></code> section to your application's .ini
 configuration file, which influences the global names available to a pshell
-session.  See <a class="reference internal" href="narr/commandline.html#extending-pshell"><span class="std std-ref">Extending the Shell</span></a>.</p>
+session.  See <a class="reference internal" href="narr/commandline.html#extending-pshell"><span class="std std-ref">シェルの拡張</span></a>.</p>
 </li>
 <li><p class="first">The <a class="reference internal" href="api/config.html#pyramid.config.Configurator.scan" title="pyramid.config.Configurator.scan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.scan()</span></code></a> method has grown a <code class="docutils literal notranslate"><span class="pre">**kw</span></code>
 argument.  <code class="docutils literal notranslate"><span class="pre">kw</span></code> argument represents a set of keyword arguments to pass to
@@ -255,7 +255,7 @@ JSON-decoded variant of the request body.  If the request body is not
 well-formed JSON, this property will raise an exception.</p>
 </li>
 <li><p class="first">A <a class="reference external" href="http://en.wikipedia.org/wiki/JSONP">JSONP</a> renderer.  See
-<a class="reference internal" href="narr/renderers.html#jsonp-renderer"><span class="std std-ref">JSONP Renderer</span></a> for more details.</p>
+<a class="reference internal" href="narr/renderers.html#jsonp-renderer"><span class="std std-ref">JSONPレンダラー</span></a> for more details.</p>
 </li>
 <li><p class="first">New authentication policy:
 <a class="reference internal" href="api/authentication.html#pyramid.authentication.SessionAuthenticationPolicy" title="pyramid.authentication.SessionAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.authentication.SessionAuthenticationPolicy</span></code></a>, which uses a
@@ -311,7 +311,7 @@ callable even if a renderer is not used, as long as a suitable adapter to
 returned object by using the new
 <a class="reference internal" href="api/config.html#pyramid.config.Configurator.add_response_adapter" title="pyramid.config.Configurator.add_response_adapter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_response_adapter()</span></code></a> API.  See the
 section in the Hooks chapter of the documentation entitled
-<a class="reference internal" href="narr/hooks.html#using-iresponse"><span class="std std-ref">Changing How Pyramid Treats View Responses</span></a>.</p>
+<a class="reference internal" href="narr/hooks.html#using-iresponse"><span class="std std-ref">ピラミッドが応答を見る方法を変える</span></a>.</p>
 </li>
 <li><p class="first">The Pyramid router will now, by default, call the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method of
 response objects when returning a WSGI response.  This means that, among
@@ -398,7 +398,7 @@ object which had the three WebOb <code class="docutils literal notranslate"><spa
 incompatibility.  It is possible to get backwards compatibility back by
 registering an adapter to IResponse from the type of object you're now
 returning from view callables.  See the section in the Hooks chapter of the
-documentation entitled <a class="reference internal" href="narr/hooks.html#using-iresponse"><span class="std std-ref">Changing How Pyramid Treats View Responses</span></a>.</p>
+documentation entitled <a class="reference internal" href="narr/hooks.html#using-iresponse"><span class="std std-ref">ピラミッドが応答を見る方法を変える</span></a>.</p>
 </li>
 <li><p class="first">The <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.IResponse" title="pyramid.interfaces.IResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IResponse</span></code></a> interface is now much more
 extensive.  Previously it defined only <code class="docutils literal notranslate"><span class="pre">app_iter</span></code>, <code class="docutils literal notranslate"><span class="pre">status</span></code> and
@@ -605,7 +605,7 @@ within a static view returns the index.html properly.</p>
 <li><p class="first">Deprecated the <code class="docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_renderer_globals_factory</span></code>
 method and the <code class="docutils literal notranslate"><span class="pre">renderer_globals</span></code> Configurator constructor parameter.
 Users should convert code using this feature to use a BeforeRender event. See
-the section <a class="reference internal" href="narr/hooks.html#beforerender-event"><span class="std std-ref">Using the Before Render Event</span></a> in the Hooks chapter.</p>
+the section <a class="reference internal" href="narr/hooks.html#beforerender-event"><span class="std std-ref">Before Renderイベントの使用</span></a> in the Hooks chapter.</p>
 </li>
 <li><p class="first">In Pyramid 1.0, the <a class="reference internal" href="api/events.html#pyramid.events.subscriber" title="pyramid.events.subscriber"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.events.subscriber</span></code></a> directive behaved
 contrary to the documentation when passed more than one interface object to
@@ -670,7 +670,7 @@ releases.)</li>
 <div class="section" id="documentation-enhancements">
 <h2>Documentation Enhancements<a class="headerlink" href="#documentation-enhancements" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>Added a section entitled <a class="reference internal" href="narr/commandline.html#writing-a-script"><span class="std std-ref">Writing a Script</span></a> to the &quot;Command-Line
+<li>Added a section entitled <a class="reference internal" href="narr/commandline.html#writing-a-script"><span class="std std-ref">スクリプトを書く</span></a> to the &quot;Command-Line
 Pyramid&quot; chapter.</li>
 <li>The <a class="reference internal" href="tutorials/wiki/index.html#bfg-wiki-tutorial"><span class="std std-ref">ZODB + Traversal Wiki Tutorial</span></a> was updated slightly.</li>
 <li>The <a class="reference internal" href="tutorials/wiki2/index.html#bfg-sql-wiki-tutorial"><span class="std std-ref">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</span></a> was updated slightly.</li>
@@ -682,14 +682,14 @@ they are now referred to within the <a class="reference internal" href="api/auth
 <a class="reference internal" href="api/interfaces.html#module-pyramid.interfaces" title="pyramid.interfaces"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyramid.interfaces</span></code></a>.</li>
 <li>Add missing docs reference to
 <a class="reference internal" href="api/config.html#pyramid.config.Configurator.set_view_mapper" title="pyramid.config.Configurator.set_view_mapper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.set_view_mapper()</span></code></a> and refer to it within
-the documentation section entitled <a class="reference internal" href="narr/hooks.html#using-a-view-mapper"><span class="std std-ref">Using a View Mapper</span></a>.</li>
+the documentation section entitled <a class="reference internal" href="narr/hooks.html#using-a-view-mapper"><span class="std std-ref">ビューマッパーの使用</span></a>.</li>
 <li>Added section to the &quot;Environment Variables and <code class="docutils literal notranslate"><span class="pre">.ini</span></code> File Settings&quot;
 chapter in the narrative documentation section entitled
-<a class="reference internal" href="narr/environment.html#adding-a-custom-setting"><span class="std std-ref">Adding a Custom Setting</span></a>.</li>
+<a class="reference internal" href="narr/environment.html#adding-a-custom-setting"><span class="std std-ref">カスタム設定の追加</span></a>.</li>
 <li>Added documentation for a <a class="reference internal" href="glossary.html#term-multidict"><span class="xref std std-term">multidict</span></a> as
 <a class="reference internal" href="api/interfaces.html#pyramid.interfaces.IMultiDict" title="pyramid.interfaces.IMultiDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IMultiDict</span></code></a>.</li>
 <li>Added a section to the &quot;URL Dispatch&quot; narrative chapter regarding the new
-&quot;static&quot; route feature entitled <a class="reference internal" href="narr/urldispatch.html#static-route-narr"><span class="std std-ref">Static Routes</span></a>.</li>
+&quot;static&quot; route feature entitled <a class="reference internal" href="narr/urldispatch.html#static-route-narr"><span class="std std-ref">静的ルート</span></a>.</li>
 <li>Added API docs for <a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.exception_response" title="pyramid.httpexceptions.exception_response"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.httpexceptions.exception_response()</span></code></a>.</li>
 <li>Added <a class="reference internal" href="narr/views.html#http-exceptions"><span class="std std-ref">HTTPの例外(HTTP Exceptions)</span></a> section to Views narrative chapter including a
 description of <a class="reference internal" href="api/httpexceptions.html#pyramid.httpexceptions.exception_response" title="pyramid.httpexceptions.exception_response"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyramid.httpexceptions.exception_response()</span></code></a>.</li>
@@ -776,7 +776,7 @@ description of <a class="reference internal" href="api/httpexceptions.html#pyram
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 02, 2018
+      最終更新: 11月 03, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
