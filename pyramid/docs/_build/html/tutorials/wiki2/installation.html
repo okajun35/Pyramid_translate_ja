@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>（機械翻訳）インストール &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>インストール(Installation) &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -70,7 +70,7 @@
           <div class="body" role="main">
             
   <div class="section" id="installation">
-<span id="wiki2-installation"></span><h1>（機械翻訳）インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="wiki2-installation"></span><h1>インストール(Installation)<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="before-you-begin">
 <h2>あなたが始める前に(Before you begin)<a class="headerlink" href="#before-you-begin" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>このチュートリアルでは、 <a class="reference internal" href="../../narr/install.html#installing-chapter"><span class="std std-ref">(機械翻訳) インストール Pyramid</span></a> の手順に従っていることを前提としていますが、<a href="#id1"><span class="problematic" id="id2">**</span></a>仮想環境を作成したり、Pyramid ** をインストールしたりすることはありません。以下の要件を満たします。</p>
@@ -404,18 +404,18 @@ Serving on http://localhost:6543
 <p>あなたが気づくことの1つは、ページの右側の「デバッグツールバー」アイコンです。アイコンの内容について詳しくは、<a class="reference internal" href="../../narr/project.html#debug-toolbar"><span class="std std-ref">デバッグツールバー</span></a> を参照してください。開発中にアプリケーションに関する情報を取得できます。</p>
 </div>
 <div class="section" id="decisions-the-alchemy-cookiecutter-has-made-for-you">
-<h2><a href="#id1"><span class="problematic" id="id2">``</span></a>錬金術師 `` cookcutterがあなたのために作った決定<a class="headerlink" href="#decisions-the-alchemy-cookiecutter-has-made-for-you" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>`` alchemy`` cookiecutterを使ってプロジェクトを作成すると、以下の前提が成り立ちます：</p>
+<h2>「Alchemy」 cookcutterがあなたのために作った決定(Decisions the <code class="docutils literal notranslate"><span class="pre">alchemy</span></code> cookiecutter has made for you)<a class="headerlink" href="#decisions-the-alchemy-cookiecutter-has-made-for-you" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>「alchemy」cookiecutterを使ってプロジェクトを作成すると、以下の前提が成り立ちます：</p>
 <ul class="simple">
-<li>ほぼすべてのSQLデータベースをSQLAlchemyで使用することができますが、永続ストレージとしてSQLiteを使用する意思があります。</li>
-<li>データベースアクセスツールの場合、term： <a href="#id1"><span class="problematic" id="id2">`</span></a>SQLAlchemy`を使用します。</li>
-<li>あなたはURLをコードにマップするためにterm： <a href="#id1"><span class="problematic" id="id2">`</span></a>URL dispatch`を使います。</li>
-<li><a class="reference external" href="https://pypi.org/project/zope.sqlalchemy/">zope.sqlalchemy</a>、<a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-tm/en/latest/">pyramid_tm</a>、およびtransaction_パッケージを使用して、要求に対するセッションをスコープします。</li>
-<li>あなたはテンプレートをレンダリングするためにpyramid_jinja2_を使いたいと思っています。異なるテンプレートエンジンを使用することもできますが、このチュートリアルを作成するには1つを選択する必要がありました。いくつかのオプションについては：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>available_template_system_bindings`を参照してください。</li>
+<li>ほぼすべてのSQLデータベースをSQLAlchemyで使用できますが、永続ストレージとしてSQLiteを使用します。</li>
+<li>データベースアクセスツールの場合、 <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> を使用します。</li>
+<li>あなたはURLをコードにマップするために <a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> を使います。</li>
+<li><a class="reference external" href="https://pypi.org/project/zope.sqlalchemy/">zope.sqlalchemy</a> 、 <a class="reference external" href="https://docs.pylonsproject.org/projects/pyramid-tm/en/latest/">pyramid_tm</a> 、および <a class="reference external" href="https://zodb.readthedocs.io/en/latest/transactions.html">transaction</a> パッケージを使用して、リクエストに対するセッションをスコープします。</li>
+<li>テンプレートをレンダリングするためにpyramid_jinja2_を使いたいと思っています。異なるテンプレートエンジンの使用もできますが、チュートリアルを作成するには1つを選択する必要がありました。いくつかのオプションについては <a class="reference internal" href="../../narr/templates.html#available-template-system-bindings"><span class="std std-ref">利用可能なアドオンテンプレートシステムバインディング</span></a> を参照してください。</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">：app： <cite>Pyramid`は永続ストレージ機構（オブジェクトデータベースやファイルシステムファイルなど）をサポートします。また、URLをコード（：term： `traversal</cite>）にマップする追加のメカニズムもサポートしています。ただし、このチュートリアルでは、term： <cite>URL dispatch`と：term：</cite> SQLAlchemy`のみを使用します。</p>
+<p class="last"><span>Pyramid</span> は永続ストレージ機構（オブジェクトデータベースやファイルシステムファイルなど）をサポートします。また、URLをコード（ <a class="reference internal" href="../../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> ）にマップする追加のメカニズムもサポートしています。ただし、このチュートリアルでは、<a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> と <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> のみを使用します。</p>
 </div>
 </div>
 </div>
@@ -428,7 +428,7 @@ Serving on http://localhost:6543
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">（機械翻訳）インストール</a><ul>
+<li><a class="reference internal" href="#">インストール(Installation)</a><ul>
 <li><a class="reference internal" href="#before-you-begin">あなたが始める前に(Before you begin)</a></li>
 <li><a class="reference internal" href="#install-sqlite3-and-its-development-packages">SQLite3とその開発パッケージをインストールする(Install SQLite3 and its development packages)</a></li>
 <li><a class="reference internal" href="#install-cookiecutter">cookiecutterをインストールする(Install cookiecutter)</a></li>
@@ -490,7 +490,7 @@ Serving on http://localhost:6543
 </ul>
 </li>
 <li><a class="reference internal" href="#visit-the-application-in-a-browser">ブラウザでアプリケーションにアクセスする(Visit the application in a browser)</a></li>
-<li><a class="reference internal" href="#decisions-the-alchemy-cookiecutter-has-made-for-you">``錬金術師 `` cookcutterがあなたのために作った決定</a></li>
+<li><a class="reference internal" href="#decisions-the-alchemy-cookiecutter-has-made-for-you">「Alchemy」 cookcutterがあなたのために作った決定(Decisions the <code class="docutils literal notranslate"><span class="pre">alchemy</span></code> cookiecutter has made for you)</a></li>
 </ul>
 </li>
 </ul>
