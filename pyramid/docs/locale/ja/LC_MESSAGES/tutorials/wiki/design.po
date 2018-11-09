@@ -7,31 +7,21 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../tutorials/wiki/design.rst:5
 msgid "Design"
-msgstr ""
+msgstr "(機械翻訳)設計"
 
 #: ../../tutorials/wiki/design.rst:7
 msgid ""
 "Following is a quick overview of the design of our wiki application, to "
 "help us understand the changes that we will be making as we work through "
 "the tutorial."
-msgstr ""
+msgstr "以下では、チュートリアルの作業中に行う変更を理解するのに役立つ、Wikiアプリケーションの設計の概要を簡単に説明します。"
 
 #: ../../tutorials/wiki/design.rst:12
 msgid "Overall"
-msgstr ""
+msgstr "全体"
 
 #: ../../tutorials/wiki/design.rst:14
 msgid ""
@@ -39,42 +29,42 @@ msgid ""
 "Translation from reStructuredText to HTML is provided by the widely used "
 "``docutils`` Python module.  We will add this module in the dependency "
 "list on the project ``setup.py`` file."
-msgstr ""
+msgstr "wikiテキストに：term： `reStructuredText`マークアップを使用することを選択します。 reStructuredTextからHTMLへの変換は広く使われている `` docutils`` Pythonモジュールによって提供されています。このモジュールをプロジェクト `` setup.py``ファイルの依存関係リストに追加します。"
 
 #: ../../tutorials/wiki/design.rst:20
 msgid "Models"
-msgstr ""
+msgstr "モデル"
 
 #: ../../tutorials/wiki/design.rst:22
 msgid ""
 "The root resource named ``Wiki`` will be a mapping of wiki page names to "
 "page resources.  The page resources will be instances of a *Page* class "
 "and they store the text content."
-msgstr ""
+msgstr "`` Wiki``という名前のルートリソースは、wikiページ名とページリソースとのマッピングになります。ページリソースは、* Page *クラスのインスタンスになり、テキストコンテンツを格納します。"
 
 #: ../../tutorials/wiki/design.rst:26
 msgid ""
 "URLs like ``/PageName`` will be traversed using  Wiki[ *PageName* ] => "
 "page, and the context that results is the page resource of an existing "
 "page."
-msgstr ""
+msgstr "`` / PageName``のようなURLはWiki [* PageName *] =&gt;ページを使用して移動され、結果として得られるコンテキストは既存のページのページリソースになります。"
 
 #: ../../tutorials/wiki/design.rst:30
 msgid ""
 "To add a page to the wiki, a new instance of the page resource is created"
 " and its name and reference are added to the Wiki mapping."
-msgstr ""
+msgstr "wikiにページを追加するには、ページリソースの新しいインスタンスが作成され、その名前と参照がWikiマッピングに追加されます。"
 
 #: ../../tutorials/wiki/design.rst:34
 msgid ""
 "A page named ``FrontPage`` containing the text *This is the front page*, "
 "will be created when the storage is initialized, and will be used as the "
 "wiki home page."
-msgstr ""
+msgstr "* FrontPage *というテキストを含む `` FrontPage``という名前のページは、ストレージが初期化されるときに作成され、wikiのホームページとして使用されます。"
 
 #: ../../tutorials/wiki/design.rst:39
 msgid "Views"
-msgstr ""
+msgstr "ビュー"
 
 #: ../../tutorials/wiki/design.rst:41
 msgid ""
@@ -82,247 +72,247 @@ msgid ""
 "editing, and viewing wiki pages, plus one view for the wiki front page. "
 "Two templates will be used, one for viewing, and one for both adding and "
 "editing wiki pages."
-msgstr ""
+msgstr "wikiページの追加、編集、および表示の通常の操作に加えて、wikiフロントページの1つのビューを処理する3つのビューがあります。表示用に1つ、wikiページの追加と編集の両方に2つのテンプレートが使用されます。"
 
 #: ../../tutorials/wiki/design.rst:46
 msgid ""
 "As of version 1.5 :app:`Pyramid` no longer ships with templating systems."
 "  In this tutorial, we will use :term:`Chameleon`.  Chameleon is a "
 "variant of :term:`ZPT`, which is an XML-based templating language."
-msgstr ""
+msgstr "バージョン1.5現在では、app： `Pyramid`はテンプレートシステムではなくなりました。このチュートリアルでは、term： `Chameleon`を使用します。 ChameleonはXMLベースのテンプレート言語であるterm： `ZPT`の変種です。"
 
 #: ../../tutorials/wiki/design.rst:50
 msgid "Security"
-msgstr ""
+msgstr "セキュリティ"
 
 #: ../../tutorials/wiki/design.rst:52
 msgid ""
 "We'll eventually be adding security to our application.  The components "
 "we'll use to do this are below."
-msgstr ""
+msgstr "最終的には、アプリケーションにセキュリティを追加する予定です。これを行うために使用するコンポーネントは次のとおりです。"
 
 #: ../../tutorials/wiki/design.rst:55
 msgid ""
 "USERS, a dictionary mapping :term:`userids <userid>` to their "
 "corresponding passwords."
-msgstr ""
+msgstr "USERS、辞書マッピング：term： `userids <userid> `を対応するパスワードに変換します。"
 
 #: ../../tutorials/wiki/design.rst:58
 msgid ""
 "GROUPS, a dictionary mapping :term:`userids <userid>` to a list of groups"
 " to which they belong."
-msgstr ""
+msgstr "GROUPS、辞書マッピング：term： `userids <userid>彼らが属しているグループのリストに。"
 
 #: ../../tutorials/wiki/design.rst:61
 msgid ""
 "``groupfinder``, an *authorization callback* that looks up USERS and "
 "GROUPS.  It will be provided in a new ``security.py`` file."
-msgstr ""
+msgstr "`` groupfinder``は、USERSとGROUPSを検索する*認証コールバック*です。これは新しい `` security.py``ファイルで提供されます。"
 
 #: ../../tutorials/wiki/design.rst:64
 msgid ""
 "An :term:`ACL` is attached to the root :term:`resource`.  Each row below "
 "details an :term:`ACE`:"
-msgstr ""
+msgstr "An：term： `ACL`はroot：term：` resource`に付加されています。下の各行は、用語： `ACE`："
 
 #: ../../tutorials/wiki/design.rst:68 ../../tutorials/wiki/design.rst:88
 msgid "Action"
-msgstr ""
+msgstr "アクション"
 
 #: ../../tutorials/wiki/design.rst:68
 msgid "Principal"
-msgstr ""
+msgstr "主要な"
 
 #: ../../tutorials/wiki/design.rst:68 ../../tutorials/wiki/design.rst:88
 msgid "Permission"
-msgstr ""
+msgstr "許可"
 
 #: ../../tutorials/wiki/design.rst:70 ../../tutorials/wiki/design.rst:72
 msgid "Allow"
-msgstr ""
+msgstr "許可する"
 
 #: ../../tutorials/wiki/design.rst:70
 msgid "Everyone"
-msgstr ""
+msgstr "みんな"
 
 #: ../../tutorials/wiki/design.rst:70 ../../tutorials/wiki/design.rst:88
 msgid "View"
-msgstr ""
+msgstr "ビュー"
 
 #: ../../tutorials/wiki/design.rst:72
 msgid "group:editors"
-msgstr ""
+msgstr "グループ：編集者"
 
 #: ../../tutorials/wiki/design.rst:72
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 #: ../../tutorials/wiki/design.rst:75
 msgid ""
 "Permission declarations are added to the views to assert the security "
 "policies as each request is handled."
-msgstr ""
+msgstr "アクセス許可の宣言がビューに追加され、各要求の処理時にセキュリティポリシーがアサートされます。"
 
 #: ../../tutorials/wiki/design.rst:78
 msgid ""
 "Two additional views and one template will handle the login and logout "
 "tasks."
-msgstr ""
+msgstr "2つの追加のビューと1つのテンプレートがログインとログアウトのタスクを処理します。"
 
 #: ../../tutorials/wiki/design.rst:82
 msgid "Summary"
-msgstr ""
+msgstr "概要"
 
 #: ../../tutorials/wiki/design.rst:84
 msgid ""
 "The URL, context, actions, template and permission associated to each "
 "view are listed in the following table:"
-msgstr ""
+msgstr "各ビューに関連付けられているURL、コンテキスト、アクション、テンプレート、および権限は、次の表にリストされています。"
 
 #: ../../tutorials/wiki/design.rst:88
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: ../../tutorials/wiki/design.rst:88
 msgid "Context"
-msgstr ""
+msgstr "コンテキスト"
 
 #: ../../tutorials/wiki/design.rst:88
 msgid "Template"
-msgstr ""
+msgstr "テンプレート"
 
 #: ../../tutorials/wiki/design.rst:91
 msgid "/"
-msgstr ""
+msgstr "/"
 
 #: ../../tutorials/wiki/design.rst:91
 msgid "view_wiki"
-msgstr ""
+msgstr "view_wiki"
 
 #: ../../tutorials/wiki/design.rst:91 ../../tutorials/wiki/design.rst:108
 #: ../../tutorials/wiki/design.rst:138
 msgid "Wiki"
-msgstr ""
+msgstr "ウィキ"
 
 #: ../../tutorials/wiki/design.rst:91 ../../tutorials/wiki/design.rst:138
 msgid "Redirect to /FrontPage"
-msgstr ""
+msgstr "/ FrontPageにリダイレクトする"
 
 #: ../../tutorials/wiki/design.rst:94
 msgid "/PageName"
-msgstr ""
+msgstr "/ PageName"
 
 #: ../../tutorials/wiki/design.rst:94
 msgid "view_page [1]_"
-msgstr ""
+msgstr "ビュー_ページ[1] _"
 
 #: ../../tutorials/wiki/design.rst:94 ../../tutorials/wiki/design.rst:100
 msgid "Page"
-msgstr ""
+msgstr "ページ"
 
 #: ../../tutorials/wiki/design.rst:94
 msgid "Display existing page [2]_"
-msgstr ""
+msgstr "既存のページを表示する[2] _"
 
 #: ../../tutorials/wiki/design.rst:94
 msgid "view.pt"
-msgstr ""
+msgstr "view.pt"
 
 #: ../../tutorials/wiki/design.rst:94
 msgid "view"
-msgstr ""
+msgstr "見る"
 
 #: ../../tutorials/wiki/design.rst:100
 msgid "/PageName/edit_page"
-msgstr ""
+msgstr "/ PageName / edit_page"
 
 #: ../../tutorials/wiki/design.rst:100
 msgid "edit_page"
-msgstr ""
+msgstr "edit_page"
 
 #: ../../tutorials/wiki/design.rst:100
 msgid "Display edit form with existing content."
-msgstr ""
+msgstr "既存のコンテンツを含む編集フォームを表示します。"
 
 #: ../../tutorials/wiki/design.rst:104 ../../tutorials/wiki/design.rst:114
 msgid "If the form was submitted, redirect to /PageName"
-msgstr ""
+msgstr "フォームが送信された場合は、/ PageNameにリダイレクトします"
 
 #: ../../tutorials/wiki/design.rst:100 ../../tutorials/wiki/design.rst:108
 msgid "edit.pt"
-msgstr ""
+msgstr "edit.pt"
 
 #: ../../tutorials/wiki/design.rst:100 ../../tutorials/wiki/design.rst:108
 msgid "edit"
-msgstr ""
+msgstr "編集"
 
 #: ../../tutorials/wiki/design.rst:108
 msgid "/add_page/PageName"
-msgstr ""
+msgstr "/ add_page / PageName"
 
 #: ../../tutorials/wiki/design.rst:108
 msgid "add_page"
-msgstr ""
+msgstr "add_page"
 
 #: ../../tutorials/wiki/design.rst:108
 msgid ""
 "Create the page *PageName* in storage,  display the edit form without "
 "content."
-msgstr ""
+msgstr "* PageName *のページをストレージに作成し、コンテンツなしで編集フォームを表示します。"
 
 #: ../../tutorials/wiki/design.rst:119
 msgid "/login"
-msgstr ""
+msgstr "/ログイン"
 
 #: ../../tutorials/wiki/design.rst:119
 msgid "login"
-msgstr ""
+msgstr "ログイン"
 
 #: ../../tutorials/wiki/design.rst:119
 msgid "Wiki, Forbidden [3]_"
-msgstr ""
+msgstr "ウィキ、禁じられた[3] _"
 
 #: ../../tutorials/wiki/design.rst:119
 msgid "Display login form."
-msgstr ""
+msgstr "ログインフォームを表示します。"
 
 #: ../../tutorials/wiki/design.rst:121
 msgid "If the form was submitted, authenticate."
-msgstr ""
+msgstr "フォームが提出された場合は、認証してください。"
 
 #: ../../tutorials/wiki/design.rst:125
 msgid "If authentication succeeds, redirect to the page that we came from."
-msgstr ""
+msgstr "認証が成功すると、私たちが来たページにリダイレクトします。"
 
 #: ../../tutorials/wiki/design.rst:131
 msgid "If authentication fails, display login form with \"login failed\" message."
-msgstr ""
+msgstr "認証に失敗した場合は、\ &quot;ログインに失敗しました\&quot;というメッセージでログインフォームを表示してください。"
 
 #: ../../tutorials/wiki/design.rst:119
 msgid "login.pt"
-msgstr ""
+msgstr "login.pt"
 
 #: ../../tutorials/wiki/design.rst:138
 msgid "/logout"
-msgstr ""
+msgstr "/ログアウト"
 
 #: ../../tutorials/wiki/design.rst:138
 msgid "logout"
-msgstr ""
+msgstr "ログアウト"
 
 #: ../../tutorials/wiki/design.rst:142
 msgid "This is the default view for a Page context when there is no view name."
-msgstr ""
+msgstr "これは、ビュー名がない場合のページコンテキストのデフォルトビューです。"
 
 #: ../../tutorials/wiki/design.rst:144
 msgid ""
 "Pyramid will return a default 404 Not Found page if the page *PageName* "
 "does not exist yet."
-msgstr ""
+msgstr "ページ* PageName *がまだ存在しない場合、Pyramidはデフォルトの404 Not Foundページを返します。"
 
 #: ../../tutorials/wiki/design.rst:146
 msgid ""
 "``pyramid.exceptions.Forbidden`` is reached when a user tries to invoke a"
 " view that is not authorized by the authorization policy."
-msgstr ""
+msgstr "`` pyramid.exceptions.Forbidden``は、ユーザが認証ポリシーによって許可されていないビューを呼び出そうとしたときに到達します。"
 

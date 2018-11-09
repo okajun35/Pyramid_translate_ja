@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Adding authorization &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳)承認を追加する &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
-    <link rel="next" title="Adding Tests" href="tests.html" />
-    <link rel="prev" title="Defining Views" href="definingviews.html" />
+    <link rel="next" title="(機械翻訳)テストの追加" href="tests.html" />
+    <link rel="prev" title="(機械翻訳)ビューの定義" href="definingviews.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,13 +54,13 @@
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="tests.html" title="Adding Tests"
+          <a href="tests.html" title="(機械翻訳)テストの追加"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="definingviews.html" title="Defining Views"
+          <a href="definingviews.html" title="(機械翻訳)ビューの定義"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ZODB + Traversal Wiki Tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">(機械翻訳)ZODB + Traversal Wikiチュートリアル</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,42 +70,30 @@
           <div class="body" role="main">
             
   <div class="section" id="adding-authorization">
-<span id="wiki-adding-authorization"></span><h1>Adding authorization<a class="headerlink" href="#adding-authorization" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><span>Pyramid</span> provides facilities for <a class="reference internal" href="../../glossary.html#term-authentication"><span class="xref std std-term">authentication</span></a> and
-<a class="reference internal" href="../../glossary.html#term-authorization"><span class="xref std std-term">authorization</span></a>. We'll make use of both features to provide security to
-our application. Our application currently allows anyone with access to the
-server to view, edit, and add pages to our wiki. We'll change that to allow
-only people who are members of a <em>group</em> named <code class="docutils literal notranslate"><span class="pre">group:editors</span></code> to add and
-edit wiki pages, but we'll continue allowing anyone with access to the server
-to view pages.</p>
-<p>We will also add a login page and a logout link on all the pages.  The login
-page will be shown when a user is denied access to any of the views that
-require permission, instead of a default &quot;403 Forbidden&quot; page.</p>
-<p>We will implement the access control with the following steps:</p>
+<span id="wiki-adding-authorization"></span><h1>(機械翻訳)承認を追加する<a class="headerlink" href="#adding-authorization" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>：app： <cite>Pyramid`は：term：</cite> authentication`と：term： <cite>authorization`のための機能を提供します。両方の機能を使用して、アプリケーションにセキュリティを提供します。私たちのアプリケーションは、現在、サーバーにアクセスして誰でもページを表示し、編集し、wikiに追加することができます。 * group *のメンバーである人だけが `</cite> group：editors``にwikiページの追加と編集を許可するように変更しますが、引き続きサーバーにアクセスできる人は誰でもページを見ることができます。</p>
+<p>また、すべてのページにログインページとログアウトリンクを追加します。ログインページは、デフォルトの&amp;quot;403 Forbidden &amp;quot;ページではなく、アクセス権が必要なビューへのアクセスをユーザが拒否されたときに表示されます。</p>
+<p>以下の手順でアクセス制御を実装します。</p>
 <ul class="simple">
-<li>Add password hashing dependencies.</li>
-<li>Add users and groups (<code class="docutils literal notranslate"><span class="pre">security.py</span></code>, a new module).</li>
-<li>Add an <a class="reference internal" href="../../glossary.html#term-acl"><span class="xref std std-term">ACL</span></a> (<code class="docutils literal notranslate"><span class="pre">models.py</span></code>).</li>
-<li>Add an <a class="reference internal" href="../../glossary.html#term-authentication-policy"><span class="xref std std-term">authentication policy</span></a> and an <a class="reference internal" href="../../glossary.html#term-authorization-policy"><span class="xref std std-term">authorization policy</span></a>
-(<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>).</li>
-<li>Add <a class="reference internal" href="../../glossary.html#term-permission"><span class="xref std std-term">permission</span></a> declarations to the <code class="docutils literal notranslate"><span class="pre">edit_page</span></code> and <code class="docutils literal notranslate"><span class="pre">add_page</span></code>
-views (<code class="docutils literal notranslate"><span class="pre">views.py</span></code>).</li>
+<li>パスワードハッシュの依存関係を追加する。</li>
+<li>ユーザーとグループを追加します（新しいモジュールである `` security.py``）。</li>
+<li>：term： <cite>ACL`（</cite> <cite>models.py`</cite>）を追加してください。</li>
+<li>：term： <cite>認証ポリシー`と：term： `認証ポリシー`（ `</cite> __init __。py``）を追加してください。</li>
+<li>`` edit_page``と `` add_page``ビュー（ `` views.py``）にterm： <a href="#id1"><span class="problematic" id="id2">`</span></a>permission`宣言を追加してください。</li>
 </ul>
-<p>Then we will add the login and logout features:</p>
+<p>次に、ログイン機能とログアウト機能を追加します。</p>
 <ul class="simple">
-<li>Add <code class="docutils literal notranslate"><span class="pre">login</span></code> and <code class="docutils literal notranslate"><span class="pre">logout</span></code> views (<code class="docutils literal notranslate"><span class="pre">views.py</span></code>).</li>
-<li>Add a login template (<code class="docutils literal notranslate"><span class="pre">login.pt</span></code>).</li>
-<li>Make the existing views return a <code class="docutils literal notranslate"><span class="pre">logged_in</span></code> flag to the renderer
-(<code class="docutils literal notranslate"><span class="pre">views.py</span></code>).</li>
-<li>Add a &quot;Logout&quot; link to be shown when logged in and viewing or editing a page
-(<code class="docutils literal notranslate"><span class="pre">view.pt</span></code>, <code class="docutils literal notranslate"><span class="pre">edit.pt</span></code>).</li>
+<li>`` login``と `` logout``ビュー（ `` views.py``）を追加してください。</li>
+<li>ログインテンプレート（ `` login.pt``）を追加してください。</li>
+<li>既存のビューが `` logged_in``フラグをレンダラーに返すようにします（ `` views.py``）。</li>
+<li>ログインしてページを表示または編集するときに表示される &amp;quot;ログアウト&amp;quot;リンクを追加します（ `` view.pt``、 `` edit.pt``）。</li>
 </ul>
 <div class="section" id="access-control">
-<h2>Access control<a class="headerlink" href="#access-control" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>アクセス制御<a class="headerlink" href="#access-control" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="add-dependencies">
-<h3>Add dependencies<a class="headerlink" href="#add-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Just like in <a class="reference internal" href="definingviews.html#wiki-defining-views"><span class="std std-ref">Defining Views</span></a>, we need a new dependency. We need to add the <a class="reference external" href="https://pypi.org/project/bcrypt/">bcrypt</a> package, to our tutorial package's <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file by assigning this dependency to the <code class="docutils literal notranslate"><span class="pre">requires</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function.</p>
-<p>Open <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and edit it to look like the following:</p>
+<h3>依存関係を追加する<a class="headerlink" href="#add-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>：ref： <cite>wiki_defining_views`のように、新しい依存関係が必要です。私たちは `bcrypt &lt;https://pypi.org/project/bcrypt/&gt; `_package &amp;#39;を、この依存関係を</cite> <cite>setup（）</cite> <cite>関数の</cite> <cite>requires``パラメータに割り当てることによって、チュートリアルパッケージの</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>setup.py``ファイルに追加します。</p>
+<p>`` setup.py``を開き、以下のように編集してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -225,16 +213,16 @@ views (<code class="docutils literal notranslate"><span class="pre">views.py</sp
 <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Only the highlighted line needs to be added.</p>
-<p>Do not forget to run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> just like in <a class="reference internal" href="definingviews.html#wiki-running-pip-install"><span class="std std-ref">Running pip install -e .</span></a>.</p>
+<p>強調表示された行だけを追加する必要があります。</p>
+<p>：ref： <cite>wiki-running-pip-install`のように</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>pip install -e .``を実行することを忘れないでください。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">We are using the <code class="docutils literal notranslate"><span class="pre">bcrypt</span></code> package from PyPI to hash our passwords securely. There are other one-way hash algorithms for passwords if bcrypt is an issue on your system. Just make sure that it's an algorithm approved for storing passwords versus a generic one-way hash.</p>
+<p class="last">PyPIの `` bcrypt``パッケージを使ってパスワードを安全にハッシュしています。 bcryptがシステム上の問題である場合、パスワード用の他の一方向ハッシュアルゴリズムがあります。これは、パスワードの保存に対して一般的な一方向ハッシュに対して承認されたアルゴリズムであることを確認するだけです。</p>
 </div>
 </div>
 <div class="section" id="add-users-and-groups">
-<h3>Add users and groups<a class="headerlink" href="#add-users-and-groups" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Create a new <code class="docutils literal notranslate"><span class="pre">tutorial/security.py</span></code> module with the following content:</p>
+<h3>ユーザーとグループを追加する<a class="headerlink" href="#add-users-and-groups" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>次の内容の新しい `` tutorial / security.py``モジュールを作成してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -276,36 +264,19 @@ views (<code class="docutils literal notranslate"><span class="pre">views.py</sp
         <span class="k">return</span> <span class="n">GROUPS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="p">[])</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">groupfinder</span></code> function accepts a userid and a request and
-returns one of these values:</p>
+<p>`` groupfinder``関数はユーザIDとリクエストを受け取り、次のいずれかの値を返します：</p>
 <ul class="simple">
-<li>If <code class="docutils literal notranslate"><span class="pre">userid</span></code> exists in the system, it will return a sequence of group
-identifiers (or an empty sequence if the user isn't a member of any groups).</li>
-<li>If the userid <em>does not</em> exist in the system, it will return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</li>
+<li>`` userid``がシステムに存在する場合、グループ識別子のシーケンスを返します（ユーザーがグループのメンバーでない場合は空のシーケンス）。</li>
+<li>userid <a href="#id1"><span class="problematic" id="id2">*</span></a>がシステムに存在しない場合、 `` None``が返されます。</li>
 </ul>
-<p>For example, <code class="docutils literal notranslate"><span class="pre">groupfinder('editor',</span> <span class="pre">request</span> <span class="pre">)</span></code> returns <code class="docutils literal notranslate"><span class="pre">['group:editor']</span></code>,
-<code class="docutils literal notranslate"><span class="pre">groupfinder('viewer',</span> <span class="pre">request)</span></code> returns <code class="docutils literal notranslate"><span class="pre">[]</span></code>, and <code class="docutils literal notranslate"><span class="pre">groupfinder('admin',</span>
-<span class="pre">request)</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.  We will use <code class="docutils literal notranslate"><span class="pre">groupfinder()</span></code> as an
-<a class="reference internal" href="../../glossary.html#term-authentication-policy"><span class="xref std std-term">authentication policy</span></a> &quot;callback&quot; that will provide the
-<a class="reference internal" href="../../glossary.html#term-principal"><span class="xref std std-term">principal</span></a> or principals for a user.</p>
-<p>There are two helper methods that will help us later to authenticate users.
-The first is <code class="docutils literal notranslate"><span class="pre">hash_password</span></code> which takes a raw password and transforms it using
-bcrypt into an irreversible representation, a process known as &quot;hashing&quot;. The
-second method, <code class="docutils literal notranslate"><span class="pre">check_password</span></code>, will allow us to compare the hashed value of the
-submitted password against the hashed value of the password stored in the user's
-record. If the two hashed values match, then the submitted
-password is valid, and we can authenticate the user.</p>
-<p>We hash passwords so that it is impossible to decrypt and use them to
-authenticate in the application. If we stored passwords foolishly in clear text,
-then anyone with access to the database could retrieve any password to authenticate
-as any user.</p>
-<p>In a production system, user and group data will most often be saved and come from a
-database, but here we use &quot;dummy&quot; data to represent user and groups sources.</p>
+<p>たとえば、 `` groupfinder（ &amp;#39;viewer&amp;#39;、request） <a href="#id1"><span class="problematic" id="id2">``</span></a>は、[[group：editor &amp;#39;] <a href="#id3"><span class="problematic" id="id4">``</span></a>、 `` groupfinder（&amp;#39; viewer &amp;#39;、request） <a href="#id5"><span class="problematic" id="id6">``</span></a>を返します。 <cite>groupfinder（ &amp;#39;admin&amp;#39;、request）</cite> <cite>は</cite> <cite>None``を返します。 `term：</cite> principal`またはユーザのプリンシパルを提供する：term： <cite>認証ポリシー</cite> &amp;quot;コールバック&amp;quot;として `` groupfinder（） <a href="#id7"><span class="problematic" id="id8">``</span></a>を使用します。</p>
+<p>後でユーザーを認証するのに役立つ2つのヘルパーメソッドがあります。最初は `` hash_password``です。これは生のパスワードを受け取り、bcryptを使ってそれを非可逆的な表現に変換します。プロセスは&amp;quot;ハッシング&amp;quot;と呼ばれます。 2番目のメソッド `` check_password``では、送信されたパスワードのハッシュ値と、ユーザのレコードに保存されているパスワードのハッシュ値を比較することができます。 2つのハッシュ値が一致すると、送信されたパスワードが有効であり、ユーザーを認証できます。</p>
+<p>私たちはパスワードをハッシュするので、アプリケーションで復号化してそれを使って認証することは不可能です。パスワードを平文で愚かに保存した場合、データベースにアクセスできる人は誰でもパスワードを取得して認証することができます。</p>
+<p>本番システムでは、ユーザーとグループのデータはほとんどの場合、保存されデータベースから取得されますが、ここでは「ダミー」データを使用してユーザーとグループのソースを表します。</p>
 </div>
 <div class="section" id="add-an-acl">
-<h3>Add an ACL<a class="headerlink" href="#add-an-acl" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Open <code class="docutils literal notranslate"><span class="pre">tutorial/models.py</span></code> and add the following import
-statement near the top:</p>
+<h3>ACLを追加する<a class="headerlink" href="#add-an-acl" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` tutorial / models.py``を開き、上に次のimport文を追加してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4
 5
 6
@@ -317,7 +288,7 @@ statement near the top:</p>
 
 </pre></div>
 </td></tr></table></div>
-<p>Add the following lines to the <code class="docutils literal notranslate"><span class="pre">Wiki</span></code> class:</p>
+<p>`` Wiki``クラスに次の行を追加してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
 10
 11
@@ -329,29 +300,14 @@ statement near the top:</p>
 </span><span class="hll">                <span class="p">(</span><span class="n">Allow</span><span class="p">,</span> <span class="s1">&#39;group:editors&#39;</span><span class="p">,</span> <span class="s1">&#39;edit&#39;</span><span class="p">)</span> <span class="p">]</span>
 </span></pre></div>
 </td></tr></table></div>
-<p>We import <a class="reference internal" href="../../api/security.html#pyramid.security.Allow" title="pyramid.security.Allow"><code class="xref py py-data docutils literal notranslate"><span class="pre">Allow</span></code></a>, an action that means that
-permission is allowed, and <a class="reference internal" href="../../api/security.html#pyramid.security.Everyone" title="pyramid.security.Everyone"><code class="xref py py-data docutils literal notranslate"><span class="pre">Everyone</span></code></a>, a special
-<a class="reference internal" href="../../glossary.html#term-principal"><span class="xref std std-term">principal</span></a> that is associated to all requests.  Both are used in the
-<a class="reference internal" href="../../glossary.html#term-ace"><span class="xref std std-term">ACE</span></a> entries that make up the ACL.</p>
-<p>The ACL is a list that needs to be named <code class="docutils literal notranslate"><span class="pre">__acl__</span></code> and be an attribute of a
-class.  We define an <a class="reference internal" href="../../glossary.html#term-acl"><span class="xref std std-term">ACL</span></a> with two <a class="reference internal" href="../../glossary.html#term-ace"><span class="xref std std-term">ACE</span></a> entries: the first entry
-allows any user the <code class="docutils literal notranslate"><span class="pre">view</span></code> permission.  The second entry allows the
-<code class="docutils literal notranslate"><span class="pre">group:editors</span></code> principal the <code class="docutils literal notranslate"><span class="pre">edit</span></code> permission.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">Wiki</span></code> class that contains the ACL is the <a class="reference internal" href="../../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> constructor
-for the <a class="reference internal" href="../../glossary.html#term-root"><span class="xref std std-term">root</span></a> resource, which is a <code class="docutils literal notranslate"><span class="pre">Wiki</span></code> instance.  The ACL is
-provided to each view in the <a class="reference internal" href="../../glossary.html#term-context"><span class="xref std std-term">context</span></a> of the request as the <code class="docutils literal notranslate"><span class="pre">context</span></code>
-attribute.</p>
-<p>It's only happenstance that we're assigning this ACL at class scope.  An ACL
-can be attached to an object <em>instance</em> too; this is how &quot;row level security&quot;
-can be achieved in <span>Pyramid</span> applications.  We actually need only <em>one</em>
-ACL for the entire system, however, because our security requirements are
-simple, so this feature is not demonstrated.  See <a class="reference internal" href="../../narr/security.html#assigning-acls"><span class="std std-ref">リソースオブジェクトへのACLの割り当て</span></a> for
-more information about what an <a class="reference internal" href="../../glossary.html#term-acl"><span class="xref std std-term">ACL</span></a> represents.</p>
+<p>データ： <cite>〜pyramid.security.Allow</cite>、パーミッションが許可されていることを意味するアクション、：data：<cite>〜pyramid.security.Everyone</cite>、すべてのリクエストに関連するspecial：term： <cite>principal</cite> 。どちらも、ACLを構成する：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>ACE`エントリで使用されます。</p>
+<p>ACLは `` __acl__``という名前でクラスの属性にする必要があるリストです。 term： <cite>ACL`は2つのterm：</cite> ACE`エントリで定義されます。最初のエントリはすべてのユーザに `` view``パーミッションを許可します。 2番目のエントリは、 `` group：editors``プリンシパルの `` edit``パーミッションを許可します。</p>
+<p>ACLを含む `` Wiki``クラスは：term： <cite>root`リソースのための：term：</cite> resource`コンストラクタです。これは `` Wiki``インスタンスです。 ACLは `` context``属性として要求の：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>context`の各ビューに提供されます。</p>
+<p>このACLをクラスのスコープに割り当てるのは偶然のことです。 ACLはオブジェクト*インスタンス*にもアタッチすることができます。これはapp： <cite>Pyramid`アプリケーションで&amp;quot;行レベルのセキュリティ&amp;quot;を実現する方法です。ただし、セキュリティ要件は単純なので、実際にはシステム全体で* 1つの* ACLしか必要としないため、この機能は示されていません。 ：term： `ACL`が表すものの詳細については：ref：</cite> assigning_acls`を参照してください。</p>
 </div>
 <div class="section" id="add-authentication-and-authorization-policies">
-<h3>Add authentication and authorization policies<a class="headerlink" href="#add-authentication-and-authorization-policies" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Open <code class="docutils literal notranslate"><span class="pre">tutorial/__init__.py</span></code> and add the highlighted import
-statements:</p>
+<h3>認証および認可ポリシーの追加<a class="headerlink" href="#add-authentication-and-authorization-policies" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` tutorial / __ init __。py``を開き、強調表示されたimport文を追加してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -369,7 +325,7 @@ statements:</p>
 <span class="hll"><span class="kn">from</span> <span class="nn">.security</span> <span class="kn">import</span> <span class="n">groupfinder</span>
 </span></pre></div>
 </td></tr></table></div>
-<p>Now add those policies to the configuration:</p>
+<p>これらのポリシーを設定に追加します。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>18
 19
 20
@@ -387,21 +343,13 @@ statements:</p>
 </span>        <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;pyramid_chameleon&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Only the highlighted lines need to be added.</p>
-<p>We are enabling an <code class="docutils literal notranslate"><span class="pre">AuthTktAuthenticationPolicy</span></code>, which is based in an auth
-ticket that may be included in the request. We are also enabling an
-<code class="docutils literal notranslate"><span class="pre">ACLAuthorizationPolicy</span></code>, which uses an ACL to determine the <em>allow</em> or
-<em>deny</em> outcome for a view.</p>
-<p>Note that the <a class="reference internal" href="../../api/authentication.html#pyramid.authentication.AuthTktAuthenticationPolicy" title="pyramid.authentication.AuthTktAuthenticationPolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.authentication.AuthTktAuthenticationPolicy</span></code></a>
-constructor accepts two arguments: <code class="docutils literal notranslate"><span class="pre">secret</span></code> and <code class="docutils literal notranslate"><span class="pre">callback</span></code>.  <code class="docutils literal notranslate"><span class="pre">secret</span></code> is
-a string representing an encryption key used by the &quot;authentication ticket&quot;
-machinery represented by this policy: it is required.  The <code class="docutils literal notranslate"><span class="pre">callback</span></code> is the
-<code class="docutils literal notranslate"><span class="pre">groupfinder()</span></code> function that we created before.</p>
+<p>強調表示された行だけを追加する必要があります。</p>
+<p>リクエストに含まれるauthチケットに基づいた `` AuthTktAuthenticationPolicy``を有効にしています。 ACLを使用してビューの* allow <em>または</em> deny <a href="#id1"><span class="problematic" id="id2">*</span></a>結果を判断するACLAuthorizationPolicyも有効にしています。</p>
+<p>：class： <cite>pyramid.authentication.AuthTktAuthenticationPolicy`コンストラクタは</cite> <cite>secret``と</cite> <cite>callback``の二つの引数を受け付けます。 `</cite> secret``は、このポリシーが表す&amp;quot;認証チケット&amp;quot;のマシンで使用される暗号鍵を表す文字列です。必須です。 `` callback``は以前作成した `` groupfinder（） <a href="#id1"><span class="problematic" id="id2">``</span></a>関数です。</p>
 </div>
 <div class="section" id="add-permission-declarations">
-<h3>Add permission declarations<a class="headerlink" href="#add-permission-declarations" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Open <code class="docutils literal notranslate"><span class="pre">tutorial/views.py</span></code> and add a <code class="docutils literal notranslate"><span class="pre">permission='edit'</span></code> parameter
-to the <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorators for <code class="docutils literal notranslate"><span class="pre">add_page()</span></code> and <code class="docutils literal notranslate"><span class="pre">edit_page()</span></code>:</p>
+<h3>権限宣言を追加する<a class="headerlink" href="#add-permission-declarations" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` add_page（） <a href="#id1"><span class="problematic" id="id2">``</span></a>と `` edit_page（） <a href="#id3"><span class="problematic" id="id4">``</span></a>の `` &#64; view_config``デコレータに `` tutorial / views.py``を開き、 `` permission = &amp;#39;edit&amp;#39;``パラメータを追加してください：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@view_config</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;add_page&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s1">&#39;.models.Wiki&#39;</span><span class="p">,</span>
 <span class="hll">             <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;templates/edit.pt&#39;</span><span class="p">,</span>
 </span><span class="hll">             <span class="n">permission</span><span class="o">=</span><span class="s1">&#39;edit&#39;</span><span class="p">)</span>
@@ -412,12 +360,9 @@ to the <code class="docutils literal notranslate"><span class="pre">&#64;view_co
 </span><span class="hll">             <span class="n">permission</span><span class="o">=</span><span class="s1">&#39;edit&#39;</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<p>Only the highlighted lines, along with their preceding commas, need to be
-edited and added.</p>
-<p>The result is that only users who possess the <code class="docutils literal notranslate"><span class="pre">edit</span></code> permission at the time
-of the request may invoke those two views.</p>
-<p>Add a <code class="docutils literal notranslate"><span class="pre">permission='view'</span></code> parameter to the <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator for
-<code class="docutils literal notranslate"><span class="pre">view_wiki()</span></code> and <code class="docutils literal notranslate"><span class="pre">view_page()</span></code> as follows:</p>
+<p>強調表示されている行とその前のコンマのみを編集して追加する必要があります。</p>
+<p>その結果、リクエスト時に `` edit``パーミッションを持っているユーザだけが、その2つのビューを呼び出すことができます。</p>
+<p>`` view_wiki（） <a href="#id1"><span class="problematic" id="id2">``</span></a>と `` view_page（） <a href="#id3"><span class="problematic" id="id4">``</span></a>の `` &#64; view_config``デコレータに次のように `` permission = &amp;#39;view&amp;#39;``パラメータを追加してください：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="nd">@view_config</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="s1">&#39;.models.Wiki&#39;</span><span class="p">,</span>
 </span><span class="hll">             <span class="n">permission</span><span class="o">=</span><span class="s1">&#39;view&#39;</span><span class="p">)</span>
 </span></pre></div>
@@ -426,24 +371,18 @@ of the request may invoke those two views.</p>
 </span><span class="hll">             <span class="n">permission</span><span class="o">=</span><span class="s1">&#39;view&#39;</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<p>Only the highlighted lines, along with their preceding commas, need to be
-edited and added.</p>
-<p>This allows anyone to invoke these two views.</p>
-<p>We are done with the changes needed to control access.  The changes that
-follow will add the login and logout feature.</p>
+<p>強調表示されている行とその前のコンマのみを編集して追加する必要があります。</p>
+<p>これにより、誰もがこの2つのビューを呼び出すことができます。</p>
+<p>私たちは、アクセスを制御するために必要な変更を完了しました。これに続く変更により、ログインとログアウト機能が追加されます。</p>
 </div>
 </div>
 <div class="section" id="login-logout">
-<h2>Login, logout<a class="headerlink" href="#login-logout" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ログイン、ログアウト<a class="headerlink" href="#login-logout" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="add-login-and-logout-views">
-<h3>Add login and logout views<a class="headerlink" href="#add-login-and-logout-views" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>We'll add a <code class="docutils literal notranslate"><span class="pre">login</span></code> view which renders a login form and processes the post
-from the login form, checking credentials.</p>
-<p>We'll also add a <code class="docutils literal notranslate"><span class="pre">logout</span></code> view callable to our application and provide a
-link to it.  This view will clear the credentials of the logged in user and
-redirect back to the front page.</p>
-<p>Add the following import statements to the head of
-<code class="docutils literal notranslate"><span class="pre">tutorial/views.py</span></code>:</p>
+<h3>ログインビューとログアウトビューを追加する<a class="headerlink" href="#add-login-and-logout-views" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ログインフォームをレンダリングし、ログインフォームからの投稿を処理してクレデンシャルをチェックする `` login``ビューを追加します。</p>
+<p>また、アプリケーションに呼び出し可能な `` logout``ビューを追加し、そこへのリンクを提供します。このビューでは、ログインしたユーザーの資格情報がクリアされ、フロントページにリダイレクトされます。</p>
+<p>`` tutorial / views.py`の先頭に以下のimport文を追加してください：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="kn">from</span> <span class="nn">pyramid.view</span> <span class="kn">import</span> <span class="p">(</span>
 </span><span class="hll">    <span class="n">view_config</span><span class="p">,</span>
 </span><span class="hll">    <span class="n">forbidden_view_config</span><span class="p">,</span>
@@ -458,12 +397,9 @@ redirect back to the front page.</p>
 </span><span class="hll"><span class="kn">from</span> <span class="nn">.security</span> <span class="kn">import</span> <span class="n">USERS</span><span class="p">,</span> <span class="n">check_password</span>
 </span></pre></div>
 </div>
-<p>All the highlighted lines need to be added or edited.</p>
-<p><a class="reference internal" href="../../api/view.html#pyramid.view.forbidden_view_config" title="pyramid.view.forbidden_view_config"><code class="xref py py-meth docutils literal notranslate"><span class="pre">forbidden_view_config()</span></code></a> will be used to customize the
-default 403 Forbidden page. <a class="reference internal" href="../../api/security.html#pyramid.security.remember" title="pyramid.security.remember"><code class="xref py py-meth docutils literal notranslate"><span class="pre">remember()</span></code></a> and
-<a class="reference internal" href="../../api/security.html#pyramid.security.forget" title="pyramid.security.forget"><code class="xref py py-meth docutils literal notranslate"><span class="pre">forget()</span></code></a> help to create and expire an auth ticket
-cookie.</p>
-<p>Now add the <code class="docutils literal notranslate"><span class="pre">login</span></code> and <code class="docutils literal notranslate"><span class="pre">logout</span></code> views at the end of the file:</p>
+<p>強調表示された行をすべて追加または編集する必要があります。</p>
+<p>：meth： <cite>〜pyramid.view.forbidden_​​view_config`はデフォルトの403 Forbiddenページをカスタマイズするために使用されます。 ：meth： `〜pyramid.security.remember`と：meth：</cite>〜pyramid.security.forget`は、認証チケットクッキーの作成と期限切れに役立ちます。</p>
+<p>次に、ファイルの最後に `` login``と `` logout``ビューを追加します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 80
  81
  82
@@ -535,23 +471,17 @@ cookie.</p>
                      <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p><code class="docutils literal notranslate"><span class="pre">login()</span></code> has two decorators:</p>
+<p>`` login（） <a href="#id1"><span class="problematic" id="id2">``</span></a>には2つのデコレータがあります：</p>
 <ul class="simple">
-<li>a <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator which associates it with the <code class="docutils literal notranslate"><span class="pre">login</span></code> route
-and makes it visible when we visit <code class="docutils literal notranslate"><span class="pre">/login</span></code>,</li>
-<li>a <code class="docutils literal notranslate"><span class="pre">&#64;forbidden_view_config</span></code> decorator which turns it into a
-<a class="reference internal" href="../../glossary.html#term-forbidden-view"><span class="xref std std-term">forbidden view</span></a>. <code class="docutils literal notranslate"><span class="pre">login()</span></code> will be invoked when a user tries to
-execute a view callable for which they lack authorization.  For example, if
-a user has not logged in and tries to add or edit a Wiki page, they will be
-shown the login form before being allowed to continue.</li>
+<li>`` &#64; view_config``デコレータはそれを `` login``ルートに関連付け、 `` / login``を訪れた時にそれを見えるようにします。</li>
+<li><cite>&#64; forbidden_​​view_config``デコレータは：term：</cite> forbidden view`に変換します。 `` login（） <a href="#id1"><span class="problematic" id="id2">``</span></a>は、ユーザが権限を持たないビュー呼び出し可能呼び出しを実行しようとしたときに呼び出されます。たとえば、ユーザーがログインせずにWikiページを追加または編集しようとすると、続行を許可される前にログインフォームが表示されます。</li>
 </ul>
-<p>The order of these two <a class="reference internal" href="../../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a> decorators is unimportant.</p>
-<p><code class="docutils literal notranslate"><span class="pre">logout()</span></code> is decorated with a <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator which associates
-it with the <code class="docutils literal notranslate"><span class="pre">logout</span></code> route.  It will be invoked when we visit <code class="docutils literal notranslate"><span class="pre">/logout</span></code>.</p>
+<p>これらの2つの用語：用語： <a href="#id1"><span class="problematic" id="id2">`</span></a>view configuration`デコレータの順序は重要ではありません。</p>
+<p>`` logout（） <a href="#id1"><span class="problematic" id="id2">``</span></a>は `` &#64; view_config``デコレータで装飾されています。これは `` logout``ルートに関連しています。 `` / logout``を訪れたときに呼び出されます。</p>
 </div>
 <div class="section" id="add-the-login-pt-template">
-<h3>Add the <code class="docutils literal notranslate"><span class="pre">login.pt</span></code> Template<a class="headerlink" href="#add-the-login-pt-template" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Create <code class="docutils literal notranslate"><span class="pre">tutorial/templates/login.pt</span></code> with the following content:</p>
+<h3>`` login.pt``テンプレートを追加してください<a class="headerlink" href="#add-the-login-pt-template" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>次の内容で `` tutorial / templates / login.pt``を作成してください：</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;${request.locale_name}&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -629,14 +559,11 @@ it with the <code class="docutils literal notranslate"><span class="pre">logout<
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>The above template is referenced in the login view that we just added in
-<code class="docutils literal notranslate"><span class="pre">views.py</span></code>.</p>
+<p>上記のテンプレートは、 `` views.py``で追加したログインビューで参照されます。</p>
 </div>
 <div class="section" id="return-a-logged-in-flag-to-the-renderer">
-<h3>Return a <code class="docutils literal notranslate"><span class="pre">logged_in</span></code> flag to the renderer<a class="headerlink" href="#return-a-logged-in-flag-to-the-renderer" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Open <code class="docutils literal notranslate"><span class="pre">tutorial/views.py</span></code> again. Add a <code class="docutils literal notranslate"><span class="pre">logged_in</span></code> parameter to
-the return value of <code class="docutils literal notranslate"><span class="pre">view_page()</span></code>, <code class="docutils literal notranslate"><span class="pre">add_page()</span></code>, and <code class="docutils literal notranslate"><span class="pre">edit_page()</span></code> as
-follows:</p>
+<h3>`` logged_in``フラグをレンダラーに返します。<a class="headerlink" href="#return-a-logged-in-flag-to-the-renderer" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>再び `` tutorial / views.py``を開きます。次のように `` logged_in``パラメータを `` view_page（） <a href="#id1"><span class="problematic" id="id2">``</span></a>、 `` add_page（） <a href="#id3"><span class="problematic" id="id4">``</span></a>、 `` edit_page（） <a href="#id5"><span class="problematic" id="id6">``</span></a>の戻り値に追加してください：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll">    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">page</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">,</span> <span class="n">edit_url</span><span class="o">=</span><span class="n">edit_url</span><span class="p">,</span>
 </span><span class="hll">                <span class="n">logged_in</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">authenticated_userid</span><span class="p">)</span>
 </span></pre></div>
@@ -650,15 +577,12 @@ follows:</p>
 </span><span class="hll">                <span class="n">logged_in</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">authenticated_userid</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<p>Only the highlighted lines need to be added or edited.</p>
-<p>The <a class="reference internal" href="../../api/request.html#pyramid.request.Request.authenticated_userid" title="pyramid.request.Request.authenticated_userid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.authenticated_userid()</span></code></a> will be <code class="docutils literal notranslate"><span class="pre">None</span></code> if
-the user is not authenticated, or a userid if the user is authenticated.</p>
+<p>強調表示された行だけを追加または編集する必要があります。</p>
+<p>：meth： <cite>pyramid.request.Request.authenticated_userid`は、ユーザが認証されていなければ</cite> <cite>None`</cite>、ユーザが認証されている場合はユーザIDになります。</p>
 </div>
 <div class="section" id="add-a-logout-link-when-logged-in">
-<h3>Add a &quot;Logout&quot; link when logged in<a class="headerlink" href="#add-a-logout-link-when-logged-in" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Open <code class="docutils literal notranslate"><span class="pre">tutorial/templates/edit.pt</span></code> and
-<code class="docutils literal notranslate"><span class="pre">tutorial/templates/view.pt</span></code> and add the following code as
-indicated by the highlighted lines.</p>
+<h3>ログイン時に&amp;quot;ログアウト&amp;quot;リンクを追加<a class="headerlink" href="#add-a-logout-link-when-logged-in" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` tutorial / templates / edit.pt``と `` tutorial / templates / view.pt``を開き、強調表示された行に示すように次のコードを追加してください。</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span>          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-10&quot;</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>
 <span class="hll">              <span class="p">&lt;</span><span class="nt">p</span> <span class="na">tal:condition</span><span class="o">=</span><span class="s">&quot;logged_in&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;pull-right&quot;</span><span class="p">&gt;</span>
@@ -666,15 +590,12 @@ indicated by the highlighted lines.</p>
 </span><span class="hll">              <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </span></pre></div>
 </div>
-<p>The attribute <code class="docutils literal notranslate"><span class="pre">tal:condition=&quot;logged_in&quot;</span></code> will make the element be included
-when <code class="docutils literal notranslate"><span class="pre">logged_in</span></code> is any user id. The link will invoke the logout view.  The
-above element will not be included if <code class="docutils literal notranslate"><span class="pre">logged_in</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, such as when
-a user is not authenticated.</p>
+<p>属性 `` tal：condition = &amp;quot;logged_in &amp;quot; <a href="#id1"><span class="problematic" id="id2">``</span></a>は、 `` logged_in``が任意のユーザIDであるときに要素を含めるようにします。リンクがログアウトビューを呼び出します。ユーザが認証されていないなど、 `` logged_in``が `` None``の場合、上記の要素はインクルードされません。</p>
 </div>
 </div>
 <div class="section" id="reviewing-our-changes">
-<h2>Reviewing our changes<a class="headerlink" href="#reviewing-our-changes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Our <code class="docutils literal notranslate"><span class="pre">tutorial/__init__.py</span></code> will look like this when we're done:</p>
+<h2>変更のレビュー<a class="headerlink" href="#reviewing-our-changes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>私たちの「チュートリアル/ __ init __。py」は完了したら次のようになります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -740,8 +661,8 @@ a user is not authenticated.</p>
         <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>Only the highlighted lines need to be added or edited.</p>
-<p>Our <code class="docutils literal notranslate"><span class="pre">tutorial/models.py</span></code> will look like this when we're done:</p>
+<p>強調表示された行だけを追加または編集する必要があります。</p>
+<p>私たちの &amp;quot;チュートリアル/ models.py&amp;quot;は完了したら次のようになります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -797,8 +718,8 @@ a user is not authenticated.</p>
     <span class="k">return</span> <span class="n">zodb_root</span><span class="p">[</span><span class="s1">&#39;app_root&#39;</span><span class="p">]</span>
 </pre></div>
 </td></tr></table></div>
-<p>Only the highlighted lines need to be added or edited.</p>
-<p>Our <code class="docutils literal notranslate"><span class="pre">tutorial/views.py</span></code> will look like this when we're done:</p>
+<p>強調表示された行だけを追加または編集する必要があります。</p>
+<p>私たちの「チュートリアル/ views.py」は完了したら次のようになります：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
@@ -1028,9 +949,8 @@ a user is not authenticated.</p>
 </span><span class="hll">                     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </span></pre></div>
 </td></tr></table></div>
-<p>Only the highlighted lines need to be added or edited.</p>
-<p>Our <code class="docutils literal notranslate"><span class="pre">tutorial/templates/edit.pt</span></code> template will look like this when
-we're done:</p>
+<p>強調表示された行だけを追加または編集する必要があります。</p>
+<p>終了したら、私たちの `` tutorial / templates / edit.pt``テンプレートは次のようになります：</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1178,9 +1098,8 @@ we're done:</p>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Only the highlighted lines need to be added or edited.</p>
-<p>Our <code class="docutils literal notranslate"><span class="pre">tutorial/templates/view.pt</span></code> template will look like this when
-we're done:</p>
+<p>強調表示された行だけを追加または編集する必要があります。</p>
+<p>終了したら、私たちの `` tutorial / templates / view.pt``テンプレートは次のようになります：</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1328,35 +1247,17 @@ we're done:</p>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Only the highlighted lines need to be added or edited.</p>
+<p>強調表示された行だけを追加または編集する必要があります。</p>
 </div>
 <div class="section" id="viewing-the-application-in-a-browser">
-<h2>Viewing the application in a browser<a class="headerlink" href="#viewing-the-application-in-a-browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We can finally examine our application in a browser (See
-<a class="reference internal" href="installation.html#wiki-start-the-application"><span class="std std-ref">Start the application</span></a>).  Launch a browser and visit each of the
-following URLs, checking that the result is as expected:</p>
+<h2>ブラウザでのアプリケーションの表示<a class="headerlink" href="#viewing-the-application-in-a-browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>最後に、ブラウザでアプリケーションを調べることができます（参照：ref： <cite>wiki-start-the-application</cite>）。ブラウザを起動し、次の各URLにアクセスして、結果が期待どおりであることを確認します。</p>
 <ul class="simple">
-<li><a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> invokes the <code class="docutils literal notranslate"><span class="pre">view_wiki</span></code> view.  This always
-redirects to the <code class="docutils literal notranslate"><span class="pre">view_page</span></code> view of the <code class="docutils literal notranslate"><span class="pre">FrontPage</span></code> Page resource.  It
-is executable by any user.</li>
-<li><a class="reference external" href="http://localhost:6543/FrontPage">http://localhost:6543/FrontPage</a> invokes the <code class="docutils literal notranslate"><span class="pre">view_page</span></code> view of the
-<code class="docutils literal notranslate"><span class="pre">FrontPage</span></code> Page resource. This is because it's the <a class="reference internal" href="../../glossary.html#term-default-view"><span class="xref std std-term">default view</span></a>
-(a view without a <code class="docutils literal notranslate"><span class="pre">name</span></code>) for <code class="docutils literal notranslate"><span class="pre">Page</span></code> resources.  It is executable by any
-user.</li>
-<li><a class="reference external" href="http://localhost:6543/FrontPage/edit_page">http://localhost:6543/FrontPage/edit_page</a> invokes the edit view for the
-FrontPage object.  It is executable by only the <code class="docutils literal notranslate"><span class="pre">editor</span></code> user.  If a
-different user (or the anonymous user) invokes it, a login form will be
-displayed.  Supplying the credentials with the username <code class="docutils literal notranslate"><span class="pre">editor</span></code>, password
-<code class="docutils literal notranslate"><span class="pre">editor</span></code> will display the edit page form.</li>
-<li><a class="reference external" href="http://localhost:6543/add_page/SomePageName">http://localhost:6543/add_page/SomePageName</a> invokes the add view for a page.
-It is executable by only the <code class="docutils literal notranslate"><span class="pre">editor</span></code> user.  If a different user (or the
-anonymous user) invokes it, a login form will be displayed. Supplying the
-credentials with the username <code class="docutils literal notranslate"><span class="pre">editor</span></code>, password <code class="docutils literal notranslate"><span class="pre">editor</span></code> will display
-the edit page form.</li>
-<li>After logging in (as a result of hitting an edit or add page and submitting
-the login form with the <code class="docutils literal notranslate"><span class="pre">editor</span></code> credentials), we'll see a Logout link in
-the upper right hand corner.  When we click it, we're logged out, and
-redirected back to the front page.</li>
+<li>http：// localhost：6543 / `` view_wiki``ビューを呼び出します。これは常に `` FrontPage``ページリソースの `` view_page``ビューにリダイレクトされます。任意のユーザーが実行可能です。</li>
+<li>http：// localhost：6543 / FrontPageは、 `` FrontPage``ページリソースの `` view_page``ビューを呼び出します。これは、 `` Page``リソースのための：term： <cite>default view`（</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>name`&amp;quot;のないビュー）です。任意のユーザーが実行可能です。</li>
+<li>http：// localhost：6543 / FrontPage / edit_pageは、FrontPageオブジェクトの編集ビューを呼び出します。 `` editor``ユーザだけが実行可能です。別のユーザー（または匿名ユーザー）がそれを呼び出すと、ログインフォームが表示されます。ユーザー名 `` editor``で資格情報を入力すると、パスワード `` editor``が編集ページのフォームを表示します。</li>
+<li>http：// localhost：6543 / add_page / SomePageNameはページの追加ビューを呼び出します。 `` editor``ユーザだけが実行可能です。別のユーザー（または匿名ユーザー）がそれを呼び出すと、ログインフォームが表示されます。ユーザー名 `` editor``で資格情報を入力すると、パスワード `` editor``が編集ページのフォームを表示します。</li>
+<li>ログイン後（編集やページの追加や `` editor``の資格情報を使ったログインフォームの送信の結果として）、右上にログアウトリンクが表示されます。これをクリックすると、ログアウトされ、フロントページにリダイレクトされます。</li>
 </ul>
 </div>
 </div>
@@ -1369,34 +1270,34 @@ redirected back to the front page.</li>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Adding authorization</a><ul>
-<li><a class="reference internal" href="#access-control">Access control</a><ul>
-<li><a class="reference internal" href="#add-dependencies">Add dependencies</a></li>
-<li><a class="reference internal" href="#add-users-and-groups">Add users and groups</a></li>
-<li><a class="reference internal" href="#add-an-acl">Add an ACL</a></li>
-<li><a class="reference internal" href="#add-authentication-and-authorization-policies">Add authentication and authorization policies</a></li>
-<li><a class="reference internal" href="#add-permission-declarations">Add permission declarations</a></li>
+<li><a class="reference internal" href="#">(機械翻訳)承認を追加する</a><ul>
+<li><a class="reference internal" href="#access-control">アクセス制御</a><ul>
+<li><a class="reference internal" href="#add-dependencies">依存関係を追加する</a></li>
+<li><a class="reference internal" href="#add-users-and-groups">ユーザーとグループを追加する</a></li>
+<li><a class="reference internal" href="#add-an-acl">ACLを追加する</a></li>
+<li><a class="reference internal" href="#add-authentication-and-authorization-policies">認証および認可ポリシーの追加</a></li>
+<li><a class="reference internal" href="#add-permission-declarations">権限宣言を追加する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#login-logout">Login, logout</a><ul>
-<li><a class="reference internal" href="#add-login-and-logout-views">Add login and logout views</a></li>
-<li><a class="reference internal" href="#add-the-login-pt-template">Add the <code class="docutils literal notranslate"><span class="pre">login.pt</span></code> Template</a></li>
-<li><a class="reference internal" href="#return-a-logged-in-flag-to-the-renderer">Return a <code class="docutils literal notranslate"><span class="pre">logged_in</span></code> flag to the renderer</a></li>
-<li><a class="reference internal" href="#add-a-logout-link-when-logged-in">Add a &quot;Logout&quot; link when logged in</a></li>
+<li><a class="reference internal" href="#login-logout">ログイン、ログアウト</a><ul>
+<li><a class="reference internal" href="#add-login-and-logout-views">ログインビューとログアウトビューを追加する</a></li>
+<li><a class="reference internal" href="#add-the-login-pt-template">`` login.pt``テンプレートを追加してください</a></li>
+<li><a class="reference internal" href="#return-a-logged-in-flag-to-the-renderer">`` logged_in``フラグをレンダラーに返します。</a></li>
+<li><a class="reference internal" href="#add-a-logout-link-when-logged-in">ログイン時に&amp;quot;ログアウト&amp;quot;リンクを追加</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#reviewing-our-changes">Reviewing our changes</a></li>
-<li><a class="reference internal" href="#viewing-the-application-in-a-browser">Viewing the application in a browser</a></li>
+<li><a class="reference internal" href="#reviewing-our-changes">変更のレビュー</a></li>
+<li><a class="reference internal" href="#viewing-the-application-in-a-browser">ブラウザでのアプリケーションの表示</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="definingviews.html"
-                        title="前の章へ">Defining Views</a></p>
+                        title="前の章へ">(機械翻訳)ビューの定義</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="tests.html"
-                        title="次の章へ">Adding Tests</a></p>
+                        title="次の章へ">(機械翻訳)テストの追加</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -1430,18 +1331,18 @@ redirected back to the front page.</li>
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="tests.html" title="Adding Tests"
+          <a href="tests.html" title="(機械翻訳)テストの追加"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="definingviews.html" title="Defining Views"
+          <a href="definingviews.html" title="(機械翻訳)ビューの定義"
              >前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >ZODB + Traversal Wiki Tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >(機械翻訳)ZODB + Traversal Wikiチュートリアル</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 03, 2018
+      最終更新: 11月 10, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

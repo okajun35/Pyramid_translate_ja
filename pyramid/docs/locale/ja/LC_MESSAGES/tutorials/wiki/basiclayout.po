@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../tutorials/wiki/basiclayout.rst:5
 msgid "Basic Layout"
-msgstr ""
+msgstr "(機械翻訳)基本レイアウト"
 
 #: ../../tutorials/wiki/basiclayout.rst:7
 msgid ""
@@ -28,11 +18,11 @@ msgid ""
 "but they provide a good orientation for the high-level patterns common to"
 " most :term:`traversal`-based (and :term:`ZODB`-based) :app:`Pyramid` "
 "projects."
-msgstr ""
+msgstr "`` zodb`` cookiecutterによって生成されるスターターファイルは非常に基本的ですが、最も一般的な用語である `` traversal``（and：term： `ZODB`ベース） ：app： `Pyramid`プロジェクト。"
 
 #: ../../tutorials/wiki/basiclayout.rst:13
 msgid "Application configuration with ``__init__.py``"
-msgstr ""
+msgstr "`` __init __。py``によるアプリケーション構成"
 
 #: ../../tutorials/wiki/basiclayout.rst:15
 msgid ""
@@ -41,7 +31,7 @@ msgid ""
 "directory as a Python package.  We use ``__init__.py`` both as a marker, "
 "indicating the directory in which it's contained is a package, and to "
 "contain application configuration code."
-msgstr ""
+msgstr "ディスク上のディレクトリは `` __init __。py``ファイルを含むことで、Python：term： `package`に変換することができます。たとえ空であっても、これはディレクトリをPythonパッケージとしてマークします。 `` __init __。py``はパッケージのディレクトリを示すマーカーとして、そしてアプリケーションの設定コードを格納するためのマーカーとして使われます。"
 
 #: ../../tutorials/wiki/basiclayout.rst:21
 msgid ""
@@ -51,65 +41,65 @@ msgid ""
 "``egg:tutorial``.  In our application, because the application's "
 "``setup.py`` file says so, this entry point happens to be the ``main`` "
 "function within the file named ``__init__.py``."
-msgstr ""
+msgstr "`` development.ini``生成された設定ファイルを使って `` pserve``コマンドを使ってアプリケーションを実行すると、アプリケーションの設定は `` egg：tutorial``と記述されたsetuptools *エントリポイントを指しています。私たちのアプリケーションでは、アプリケーションの `` setup.py``ファイルがこう言っているので、このエントリポイントは `` __init __。py``という名前のファイル内の `` main``関数です。"
 
 #: ../../tutorials/wiki/basiclayout.rst:28
 msgid "Open ``tutorial/__init__.py``.  It should already contain the following:"
-msgstr ""
+msgstr "``チュートリアル/ __ init __。py``を開きます。それはすでに以下を含んでいるはずです："
 
 #: ../../tutorials/wiki/basiclayout.rst:34
 msgid "*Lines 1-3*.  Perform some dependency imports."
-msgstr ""
+msgstr "* 1〜3行目。いくつかの依存関係のインポートを実行します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:36
 msgid "*Lines 6-8*.  Define a :term:`root factory` for our Pyramid application."
-msgstr ""
+msgstr "*ライン6-8 *。 Pyramidアプリケーションのための：term： `root factory`を定義してください。"
 
 #: ../../tutorials/wiki/basiclayout.rst:38
 msgid "*Line 11*.  ``__init__.py`` defines a function named ``main``."
-msgstr ""
+msgstr "* 11行目。 `` __init __。py``は `` main``という名前の関数を定義します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:40
 msgid ""
 "*Line 14*.  Use an explicit transaction manager for apps so that they do "
 "not implicitly create new transactions when touching the manager outside "
 "of the ``pyramid_tm`` lifecycle."
-msgstr ""
+msgstr "* 14行目。 `` pyramid_tm``ライフサイクルの外でマネージャに触れたときに暗黙的に新しいトランザクションを作成しないように、アプリケーションに明示的なトランザクションマネージャを使用します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:42
 msgid ""
 "*Line 15*.  Construct a :term:`Configurator` as a :term:`context manager`"
 " with the settings keyword parsed by :term:`PasteDeploy`."
-msgstr ""
+msgstr "* 15行目。 ：term： `PasteDeploy`によって解析されたsettingsキーワードで、：term：` Configurator`を：term： `context manager`として構築します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:44
 msgid ""
 "*Line 16*.  Include support for the :term:`Chameleon` template rendering "
 "bindings, allowing us to use the ``.pt`` templates."
-msgstr ""
+msgstr "* 16行目。 ：term： `Chameleon`テンプレートのレンダリングバインディングをサポートし、` `.pt``テンプレートを使用できます。"
 
 #: ../../tutorials/wiki/basiclayout.rst:47
 msgid ""
 "*Line 17*.  Include support for ``pyramid_tm``, allowing Pyramid requests"
 " to join the active transaction as provided by the `transaction "
 "<https://pypi.org/project/transaction/>`_ package."
-msgstr ""
+msgstr "* 17行目。 `` pyramid_tm``のサポートを含み、ピラミッドリクエストが ``トランザクションによって提供されたアクティブなトランザクションに参加できるようにします<https://pypi.org/project/transaction/> `_パッケージ。"
 
 #: ../../tutorials/wiki/basiclayout.rst:49
 msgid ""
 "*Line 18*.  Include support for ``pyramid_retry`` to retry a request when"
 " transient exceptions occur."
-msgstr ""
+msgstr "* 18行目。一時的な例外が発生したときにリクエストを再試行するための `` pyramid_retry``のサポートを含みます。"
 
 #: ../../tutorials/wiki/basiclayout.rst:51
 msgid ""
 "*Line 19*.  Include support for ``pyramid_zodbconn``, providing "
 "integration between :term:`ZODB` and a Pyramid application."
-msgstr ""
+msgstr "* 19行目。 `` pyramid_zodbconn``のサポートを含みます：term： `ZODB`とPyramidアプリケーションの統合を提供します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:53
 msgid "*Line 20*.  Set a root factory using our function named ``root_factory``."
-msgstr ""
+msgstr "* 20行目。 `` root_factory``という名前の関数を使ってルートファクトリを設定します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:55
 msgid ""
@@ -125,7 +115,7 @@ msgid ""
 "resources it should serve within the ``static`` directory inside the "
 "``tutorial`` package.  Alternatively the cookiecutter could have used an "
 "*absolute* asset specification as the path (``tutorial:static``)."
-msgstr ""
+msgstr "*ライン21 *。 ：meth： `pyramid.config.Configurator.add_static_view`メソッドを使ってURLパスが` `/ static``で始まるリクエストに答える\&quot;スタティックビュー\ &quot;を登録します。このステートメントは、CSSや画像ファイルなどの静的アセットを表示するビューを、この場合はhttp：// localhost：6543 / static / ``以下に登録します。最初の引数は\ &quot;name \&quot; `` static``であり、ビューのURLパス接頭辞は `` / static``であることを示します。このタグの2つ目の引数は、相対パス：term： `asset specification`である\&quot; path \ &quot;です。したがって、` `tutorial``パッケージ内の` `static``ディレクトリ内でサービスする必要があるリソースを見つけます。あるいは、cookiecutterはパスとして（* `tutorial：static``）*絶対*資産指定を使用することができました。"
 
 #: ../../tutorials/wiki/basiclayout.rst:68
 msgid ""
@@ -138,17 +128,17 @@ msgid ""
 "``tutorial``). The cookiecutter could have equivalently said "
 "``config.scan('tutorial')``, but it chose to omit the package name "
 "argument."
-msgstr ""
+msgstr "* 22行目。 a：term： `scan`を実行します。スキャンでは、 `` tutorial``パッケージのソースコード中のビュー構成デコレータ（ `` @ view_config``など）のようなterm： `configuration decoration`が検索され、これらのデコレータに基づいてアクションが実行されます。 meth： `〜pyramid.config.Configurator.scan`には引数を渡しません。これは、スキャンが現在のパッケージ（この場合は` `tutorial``）で行われることを意味します。 cookiecutterは等価的に `` config.scan（ &#39;tutorial&#39;） ``と言うこともできますが、パッケージ名の引数を省略することを選択しました。"
 
 #: ../../tutorials/wiki/basiclayout.rst:77
 msgid ""
 "*Line 23*.  Use the :meth:`pyramid.config.Configurator.make_wsgi_app` "
 "method to return a :term:`WSGI` application."
-msgstr ""
+msgstr "* 23行目。 ：term： `WSGI`アプリケーションを返すには：meth：` pyramid.config.Configurator.make_wsgi_app`メソッドを使います。"
 
 #: ../../tutorials/wiki/basiclayout.rst:82
 msgid "Resources and models with ``models.py``"
-msgstr ""
+msgstr "`` models.py``を使ったリソースとモデル"
 
 #: ../../tutorials/wiki/basiclayout.rst:84
 msgid ""
@@ -161,11 +151,11 @@ msgid ""
 "``models.py`` file is where the ``zodb`` cookiecutter put the classes "
 "that implement our resource objects, each of which also happens to be a "
 "domain model object."
-msgstr ""
+msgstr "：app： `Pyramid`は：term：` resource`という単語を使って階層的に配列されたオブジェクトを記述します。このツリーは：term： `traversal`によって参照され、URLをコードにマップします。このアプリケーションでは、リソースツリーはサイト構造を表しますが、各リソースは：term： `ZODB`データベースに永続的に格納されているため、アプリケーションの：term：` domain model`も表します。 `` models.py``ファイルは、 `` zodb`` cookiecutterが私たちのリソースオブジェクトを実装するクラスを置くところです。それぞれはドメインモデルオブジェクトです。"
 
 #: ../../tutorials/wiki/basiclayout.rst:93
 msgid "Here is the source for ``models.py``:"
-msgstr ""
+msgstr "`` models.py``のソースは次のとおりです："
 
 #: ../../tutorials/wiki/basiclayout.rst:99
 msgid ""
@@ -176,7 +166,7 @@ msgid ""
 "and ``__name__`` are important parts of the :term:`traversal` protocol. "
 "By default, set these to ``None`` to indicate that this is the "
 ":term:`root` object."
-msgstr ""
+msgstr "* 4-5行目。 `` MyModel``：term： `resource`クラスがここに実装されています。このクラスのインスタンスは：class： `persistent.mapping.PersistentMapping`クラスから継承するため、term：` ZODB`に永続化することができます。 `` __parent__``と `` __name__``は：term： `traversal`プロトコルの重要な部分です。デフォルトでは、これらが：term： `ルート`オブジェクトであることを示すために `` None``に設定してください。"
 
 #: ../../tutorials/wiki/basiclayout.rst:107
 msgid ""
@@ -185,37 +175,37 @@ msgid ""
 "application.  It also performs bootstrapping by *creating* an application"
 " root (inside the ZODB root object) if one does not already exist.  It is"
 " used by the ``root_factory`` we've defined in our ``__init__.py``."
-msgstr ""
+msgstr "* 8-12行目。 `` appmaker``は*アプリケーションルート*オブジェクトを返すために使われます。これは：app： `Pyramid`アプリケーションへのリクエスト*毎に呼び出されます。また、（ZODBルートオブジェクトの内部に）アプリケーションルートが存在しない場合は*作成*することによってブートストラップを実行します。これは `` __init __。py``で定義した `` root_factory``で使用されます。"
 
 #: ../../tutorials/wiki/basiclayout.rst:114
 msgid ""
 "Bootstrapping is done by first seeing if the database has the persistent "
 "application root.  If not, we make an instance, store it, and commit the "
 "transaction.  We then return the application root object."
-msgstr ""
+msgstr "ブートストラップは、データベースに永続的なアプリケーションルートがあるかどうか最初に確認することによって行われます。そうでない場合は、インスタンスを作成して格納し、トランザクションをコミットします。次に、アプリケーションルートオブジェクトを返します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:119
 msgid "Views With ``views.py``"
-msgstr ""
+msgstr "`` views.py``によるビュー"
 
 #: ../../tutorials/wiki/basiclayout.rst:121
 msgid ""
 "Our cookiecutter generated a default ``views.py`` on our behalf.  It "
 "contains a single view, which is used to render the page shown when you "
 "visit the URL ``http://localhost:6543/``."
-msgstr ""
+msgstr "私たちのcookiecutterはデフォルトで `` views.py``を生成しました。これは単一のビューを含み、 `` http：// localhost：6543 / ``というURLにアクセスしたときに表示されるページをレンダリングするために使用されます。"
 
 #: ../../tutorials/wiki/basiclayout.rst:125
 msgid "Here is the source for ``views.py``:"
-msgstr ""
+msgstr "`` views.py``のソースは次のとおりです："
 
 #: ../../tutorials/wiki/basiclayout.rst:131
 msgid "Let's try to understand the components in this module:"
-msgstr ""
+msgstr "このモジュールのコンポーネントを理解しようとしましょう："
 
 #: ../../tutorials/wiki/basiclayout.rst:133
 msgid "*Lines 1-2*. Perform some dependency imports."
-msgstr ""
+msgstr "* 1-2行目。いくつかの依存関係のインポートを実行します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:135
 msgid ""
@@ -224,13 +214,13 @@ msgid ""
 "view configuration registration will be activated when the application is"
 " started.  It will be activated by virtue of it being found as the result"
 " of a :term:`scan` (when Line 14 of ``__init__.py`` is run)."
-msgstr ""
+msgstr "* 5行目。 ：func： `pyramid.view.view_config`：term：` configuration decoration`を使って：term： `view configuration`登録を実行してください。このビュー構成の登録は、アプリケーションの起動時に有効になります。これは、：term： `scan`（` `__init __。py``の14行目が実行されているとき）の結果として見つけ出されます。"
 
 #: ../../tutorials/wiki/basiclayout.rst:141
 msgid ""
 "The ``@view_config`` decorator accepts a number of keyword arguments.  We"
 " use two keyword arguments here: ``context`` and ``renderer``."
-msgstr ""
+msgstr "`` @ view_config``デコレータはいくつかのキーワード引数を受け取ります。ここでは、 `` context``と `` renderer``の2つのキーワード引数を使用します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:144
 msgid ""
@@ -240,7 +230,7 @@ msgid ""
 " a request.  In English, this means that when the URL ``/`` is visited, "
 "because ``MyModel`` is the root model, this view callable will be "
 "invoked."
-msgstr ""
+msgstr "`` context``引数は、 `` traversal``が `` tutorial.models.MyModel``：term： `resource`を：term：` context`にするときにのみ呼び出し可能な装飾ビューcallableを実行する必要があることを意味します。要求の英語では、 `` MyModel``がルートモデルであるため、URL `` / ``が訪れたときに、このビューを呼び出すことができます。"
 
 #: ../../tutorials/wiki/basiclayout.rst:150
 msgid ""
@@ -254,14 +244,14 @@ msgid ""
 "(to the view.py's current package).  Alternatively we could have used the"
 " absolute asset specification ``tutorial:templates/mytemplate.pt``, but "
 "chose to use the relative version."
-msgstr ""
+msgstr "`` renderer``引数は、 `` templates / mytemplate.pt``の `` asset specification``という名前です。この資産指定は、 `` tutorial``パッケージの `` templates``ディレクトリ内の `` mytemplate.pt``ファイルに存在するa：term： `Chameleon`テンプレートを指しています。また、このパッケージの `` templates``ディレクトリを見ると、 `` mytemplate.pt``テンプレートファイルが表示され、生成されたプロジェクトのデフォルトのホームページをレンダリングします。この資産の仕様は* relative *（現在のview.pyのパッケージ）です。あるいは、絶対的な資産の仕様「tutorial：templates / mytemplate.pt」を使用することもできましたが、相対バージョンを使用することを選択しました。"
 
 #: ../../tutorials/wiki/basiclayout.rst:161
 msgid ""
 "Since this call to ``@view_config`` doesn't pass a ``name`` argument, the"
 " ``my_view`` function which it decorates represents the \"default\" view "
 "callable used when the context is of the type ``MyModel``."
-msgstr ""
+msgstr "`` @ view_config``へのこの呼び出しは `` name``引数を渡さないので、それが装飾する `` my_view``関数は、コンテキストが ` `MyModel``。"
 
 #: ../../tutorials/wiki/basiclayout.rst:165
 msgid ""
@@ -271,25 +261,25 @@ msgid ""
 "and which returns a dictionary.  The ``mytemplate.pt`` :term:`renderer` "
 "named by the asset specification in the step above will convert this "
 "dictionary to a :term:`response` on our behalf."
-msgstr ""
+msgstr "*ライン6-7 *。私たちは上記のステップで飾った：term： `view callable`を` `my_view``と定義します。この呼び出し可能なビューは `` zodb`` cookiecutterによって生成され、 `` request``が与えられ、辞書を返す*関数*です。上記のステップでアセット仕様で指定された `` mytemplate.pt`：term： `renderer`は、この辞書を私たちに代わって：term：` response`に変換します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:172
 msgid ""
 "The function returns the dictionary ``{'project':'tutorial'}``.  This "
 "dictionary is used by the template named by the ``mytemplate.pt`` asset "
 "specification to fill in certain values on the page."
-msgstr ""
+msgstr "この関数は辞書 `` {&#39;project&#39;： &#39;tutorial&#39;} ``を返します。この辞書は、 &quot;mytemplate.pt&quot;の資産指定で指定されたテンプレートによって使用され、ページ上の特定の値を入力します。"
 
 #: ../../tutorials/wiki/basiclayout.rst:177
 msgid "Configuration in ``development.ini``"
-msgstr ""
+msgstr "`` development.ini``の設定"
 
 #: ../../tutorials/wiki/basiclayout.rst:179
 msgid ""
 "The ``development.ini`` (in the ``tutorial`` :term:`project` directory, "
 "as opposed to the ``tutorial`` :term:`package` directory) looks like "
 "this:"
-msgstr ""
+msgstr "``チュートリアル `：チュートリアル` `：` `チュートリアル` `の` `チュートリアル` `ではなく` `チュートリアル` `の` `development.ini``は以下のようになります："
 
 #: ../../tutorials/wiki/basiclayout.rst:185
 msgid ""
@@ -299,5 +289,5 @@ msgid ""
 "values within this section, are passed as ``**settings`` to the ``main`` "
 "function we defined in ``__init__.py`` when the server is started via "
 "``pserve``."
-msgstr ""
+msgstr "私たちのWSGIアプリケーションを指定する `` [app：main] ``セクションが存在することに注意してください。 ZODBのデータベース設定は、このセクション内の `` zodbconn.uri``設定として指定されています。この値とこのセクション内の他の値は、サーバが `` pserve``で起動されたときに `` __init __。py``で定義した `` main``関数に `` **設定&#39;`として渡されます。 。"
 

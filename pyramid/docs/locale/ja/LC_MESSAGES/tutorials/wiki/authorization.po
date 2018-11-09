@@ -7,20 +7,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: The Pyramid Web Framework 1.9.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 18:07+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../tutorials/wiki/authorization.rst:5
 msgid "Adding authorization"
-msgstr ""
+msgstr "(機械翻訳)承認を追加する"
 
 #: ../../tutorials/wiki/authorization.rst:7
 msgid ""
@@ -31,74 +21,74 @@ msgid ""
 "change that to allow only people who are members of a *group* named "
 "``group:editors`` to add and edit wiki pages, but we'll continue allowing"
 " anyone with access to the server to view pages."
-msgstr ""
+msgstr "：app： `Pyramid`は：term：` authentication`と：term： `authorization`のための機能を提供します。両方の機能を使用して、アプリケーションにセキュリティを提供します。私たちのアプリケーションは、現在、サーバーにアクセスして誰でもページを表示し、編集し、wikiに追加することができます。 * group *のメンバーである人だけが `` group：editors``にwikiページの追加と編集を許可するように変更しますが、引き続きサーバーにアクセスできる人は誰でもページを見ることができます。"
 
 #: ../../tutorials/wiki/authorization.rst:15
 msgid ""
 "We will also add a login page and a logout link on all the pages.  The "
 "login page will be shown when a user is denied access to any of the views"
 " that require permission, instead of a default \"403 Forbidden\" page."
-msgstr ""
+msgstr "また、すべてのページにログインページとログアウトリンクを追加します。ログインページは、デフォルトの\ &quot;403 Forbidden \&quot;ページではなく、アクセス権が必要なビューへのアクセスをユーザが拒否されたときに表示されます。"
 
 #: ../../tutorials/wiki/authorization.rst:19
 msgid "We will implement the access control with the following steps:"
-msgstr ""
+msgstr "以下の手順でアクセス制御を実装します。"
 
 #: ../../tutorials/wiki/authorization.rst:21
 msgid "Add password hashing dependencies."
-msgstr ""
+msgstr "パスワードハッシュの依存関係を追加する。"
 
 #: ../../tutorials/wiki/authorization.rst:22
 msgid "Add users and groups (``security.py``, a new module)."
-msgstr ""
+msgstr "ユーザーとグループを追加します（新しいモジュールである `` security.py``）。"
 
 #: ../../tutorials/wiki/authorization.rst:23
 msgid "Add an :term:`ACL` (``models.py``)."
-msgstr ""
+msgstr "：term： `ACL`（` `models.py``）を追加してください。"
 
 #: ../../tutorials/wiki/authorization.rst:24
 msgid ""
 "Add an :term:`authentication policy` and an :term:`authorization policy` "
 "(``__init__.py``)."
-msgstr ""
+msgstr "：term： `認証ポリシー`と：term： `認証ポリシー`（ `` __init __。py``）を追加してください。"
 
 #: ../../tutorials/wiki/authorization.rst:26
 msgid ""
 "Add :term:`permission` declarations to the ``edit_page`` and ``add_page``"
 " views (``views.py``)."
-msgstr ""
+msgstr "`` edit_page``と `` add_page``ビュー（ `` views.py``）にterm： `permission`宣言を追加してください。"
 
 #: ../../tutorials/wiki/authorization.rst:29
 msgid "Then we will add the login and logout features:"
-msgstr ""
+msgstr "次に、ログイン機能とログアウト機能を追加します。"
 
 #: ../../tutorials/wiki/authorization.rst:31
 msgid "Add ``login`` and ``logout`` views (``views.py``)."
-msgstr ""
+msgstr "`` login``と `` logout``ビュー（ `` views.py``）を追加してください。"
 
 #: ../../tutorials/wiki/authorization.rst:32
 msgid "Add a login template (``login.pt``)."
-msgstr ""
+msgstr "ログインテンプレート（ `` login.pt``）を追加してください。"
 
 #: ../../tutorials/wiki/authorization.rst:33
 msgid ""
 "Make the existing views return a ``logged_in`` flag to the renderer "
 "(``views.py``)."
-msgstr ""
+msgstr "既存のビューが `` logged_in``フラグをレンダラーに返すようにします（ `` views.py``）。"
 
 #: ../../tutorials/wiki/authorization.rst:35
 msgid ""
 "Add a \"Logout\" link to be shown when logged in and viewing or editing a"
 " page (``view.pt``, ``edit.pt``)."
-msgstr ""
+msgstr "ログインしてページを表示または編集するときに表示される &quot;ログアウト&quot;リンクを追加します（ `` view.pt``、 `` edit.pt``）。"
 
 #: ../../tutorials/wiki/authorization.rst:40
 msgid "Access control"
-msgstr ""
+msgstr "アクセス制御"
 
 #: ../../tutorials/wiki/authorization.rst:44
 msgid "Add dependencies"
-msgstr ""
+msgstr "依存関係を追加する"
 
 #: ../../tutorials/wiki/authorization.rst:46
 msgid ""
@@ -106,21 +96,21 @@ msgid ""
 "need to add the `bcrypt <https://pypi.org/project/bcrypt/>`_ package, to "
 "our tutorial package's ``setup.py`` file by assigning this dependency to "
 "the ``requires`` parameter in the ``setup()`` function."
-msgstr ""
+msgstr "：ref： `wiki_defining_views`のように、新しい依存関係が必要です。私たちは `bcrypt <https://pypi.org/project/bcrypt/> `_package &#39;を、この依存関係を` `setup（）` `関数の` `requires``パラメータに割り当てることによって、チュートリアルパッケージの` `setup.py``ファイルに追加します。"
 
 #: ../../tutorials/wiki/authorization.rst:48
 msgid "Open ``setup.py`` and edit it to look like the following:"
-msgstr ""
+msgstr "`` setup.py``を開き、以下のように編集してください："
 
 #: ../../tutorials/wiki/authorization.rst:55
 msgid "Only the highlighted line needs to be added."
-msgstr ""
+msgstr "強調表示された行だけを追加する必要があります。"
 
 #: ../../tutorials/wiki/authorization.rst:57
 msgid ""
 "Do not forget to run ``pip install -e .`` just like in :ref:`wiki-"
 "running-pip-install`."
-msgstr ""
+msgstr "：ref： `wiki-running-pip-install`のように` `pip install -e .``を実行することを忘れないでください。"
 
 #: ../../tutorials/wiki/authorization.rst:61
 msgid ""
@@ -128,32 +118,32 @@ msgid ""
 "securely. There are other one-way hash algorithms for passwords if bcrypt"
 " is an issue on your system. Just make sure that it's an algorithm "
 "approved for storing passwords versus a generic one-way hash."
-msgstr ""
+msgstr "PyPIの `` bcrypt``パッケージを使ってパスワードを安全にハッシュしています。 bcryptがシステム上の問題である場合、パスワード用の他の一方向ハッシュアルゴリズムがあります。これは、パスワードの保存に対して一般的な一方向ハッシュに対して承認されたアルゴリズムであることを確認するだけです。"
 
 #: ../../tutorials/wiki/authorization.rst:65
 msgid "Add users and groups"
-msgstr ""
+msgstr "ユーザーとグループを追加する"
 
 #: ../../tutorials/wiki/authorization.rst:67
 msgid "Create a new ``tutorial/security.py`` module with the following content:"
-msgstr ""
+msgstr "次の内容の新しい `` tutorial / security.py``モジュールを作成してください："
 
 #: ../../tutorials/wiki/authorization.rst:73
 msgid ""
 "The ``groupfinder`` function accepts a userid and a request and returns "
 "one of these values:"
-msgstr ""
+msgstr "`` groupfinder``関数はユーザIDとリクエストを受け取り、次のいずれかの値を返します："
 
 #: ../../tutorials/wiki/authorization.rst:76
 msgid ""
 "If ``userid`` exists in the system, it will return a sequence of group "
 "identifiers (or an empty sequence if the user isn't a member of any "
 "groups)."
-msgstr ""
+msgstr "`` userid``がシステムに存在する場合、グループ識別子のシーケンスを返します（ユーザーがグループのメンバーでない場合は空のシーケンス）。"
 
 #: ../../tutorials/wiki/authorization.rst:78
 msgid "If the userid *does not* exist in the system, it will return ``None``."
-msgstr ""
+msgstr "userid *がシステムに存在しない場合、 `` None``が返されます。"
 
 #: ../../tutorials/wiki/authorization.rst:80
 msgid ""
@@ -162,7 +152,7 @@ msgid ""
 "and ``groupfinder('admin', request)`` returns ``None``.  We will use "
 "``groupfinder()`` as an :term:`authentication policy` \"callback\" that "
 "will provide the :term:`principal` or principals for a user."
-msgstr ""
+msgstr "たとえば、 `` groupfinder（ &#39;viewer&#39;、request） ``は、[[group：editor &#39;] ``、 `` groupfinder（&#39; viewer &#39;、request） ``を返します。 `groupfinder（ &#39;admin&#39;、request）` `は` `None``を返します。 `term：` principal`またはユーザのプリンシパルを提供する：term： `認証ポリシー` \ &quot;コールバック\&quot;として `` groupfinder（） ``を使用します。"
 
 #: ../../tutorials/wiki/authorization.rst:86
 msgid ""
@@ -174,7 +164,7 @@ msgid ""
 "hashed value of the password stored in the user's record. If the two "
 "hashed values match, then the submitted password is valid, and we can "
 "authenticate the user."
-msgstr ""
+msgstr "後でユーザーを認証するのに役立つ2つのヘルパーメソッドがあります。最初は `` hash_password``です。これは生のパスワードを受け取り、bcryptを使ってそれを非可逆的な表現に変換します。プロセスは\ &quot;ハッシング\&quot;と呼ばれます。 2番目のメソッド `` check_password``では、送信されたパスワードのハッシュ値と、ユーザのレコードに保存されているパスワードのハッシュ値を比較することができます。 2つのハッシュ値が一致すると、送信されたパスワードが有効であり、ユーザーを認証できます。"
 
 #: ../../tutorials/wiki/authorization.rst:94
 msgid ""
@@ -182,28 +172,28 @@ msgid ""
 "authenticate in the application. If we stored passwords foolishly in "
 "clear text, then anyone with access to the database could retrieve any "
 "password to authenticate as any user."
-msgstr ""
+msgstr "私たちはパスワードをハッシュするので、アプリケーションで復号化してそれを使って認証することは不可能です。パスワードを平文で愚かに保存した場合、データベースにアクセスできる人は誰でもパスワードを取得して認証することができます。"
 
 #: ../../tutorials/wiki/authorization.rst:99
 msgid ""
 "In a production system, user and group data will most often be saved and "
 "come from a database, but here we use \"dummy\" data to represent user "
 "and groups sources."
-msgstr ""
+msgstr "本番システムでは、ユーザーとグループのデータはほとんどの場合、保存されデータベースから取得されますが、ここでは「ダミー」データを使用してユーザーとグループのソースを表します。"
 
 #: ../../tutorials/wiki/authorization.rst:103
 msgid "Add an ACL"
-msgstr ""
+msgstr "ACLを追加する"
 
 #: ../../tutorials/wiki/authorization.rst:105
 msgid ""
 "Open ``tutorial/models.py`` and add the following import statement near "
 "the top:"
-msgstr ""
+msgstr "`` tutorial / models.py``を開き、上に次のimport文を追加してください："
 
 #: ../../tutorials/wiki/authorization.rst:113
 msgid "Add the following lines to the ``Wiki`` class:"
-msgstr ""
+msgstr "`` Wiki``クラスに次の行を追加してください："
 
 #: ../../tutorials/wiki/authorization.rst:121
 msgid ""
@@ -211,7 +201,7 @@ msgid ""
 "permission is allowed, and :data:`~pyramid.security.Everyone`, a special "
 ":term:`principal` that is associated to all requests.  Both are used in "
 "the :term:`ACE` entries that make up the ACL."
-msgstr ""
+msgstr "データ： `〜pyramid.security.Allow`、パーミッションが許可されていることを意味するアクション、：data：`〜pyramid.security.Everyone`、すべてのリクエストに関連するspecial：term： `principal` 。どちらも、ACLを構成する：term： `ACE`エントリで使用されます。"
 
 #: ../../tutorials/wiki/authorization.rst:126
 msgid ""
@@ -219,7 +209,7 @@ msgid ""
 "of a class.  We define an :term:`ACL` with two :term:`ACE` entries: the "
 "first entry allows any user the ``view`` permission.  The second entry "
 "allows the ``group:editors`` principal the ``edit`` permission."
-msgstr ""
+msgstr "ACLは `` __acl__``という名前でクラスの属性にする必要があるリストです。 term： `ACL`は2つのterm：` ACE`エントリで定義されます。最初のエントリはすべてのユーザに `` view``パーミッションを許可します。 2番目のエントリは、 `` group：editors``プリンシパルの `` edit``パーミッションを許可します。"
 
 #: ../../tutorials/wiki/authorization.rst:131
 msgid ""
@@ -227,7 +217,7 @@ msgid ""
 "constructor for the :term:`root` resource, which is a ``Wiki`` instance."
 "  The ACL is provided to each view in the :term:`context` of the request "
 "as the ``context`` attribute."
-msgstr ""
+msgstr "ACLを含む `` Wiki``クラスは：term： `root`リソースのための：term：` resource`コンストラクタです。これは `` Wiki``インスタンスです。 ACLは `` context``属性として要求の：term： `context`の各ビューに提供されます。"
 
 #: ../../tutorials/wiki/authorization.rst:136
 msgid ""
@@ -238,23 +228,23 @@ msgid ""
 "requirements are simple, so this feature is not demonstrated.  See "
 ":ref:`assigning_acls` for more information about what an :term:`ACL` "
 "represents."
-msgstr ""
+msgstr "このACLをクラスのスコープに割り当てるのは偶然のことです。 ACLはオブジェクト*インスタンス*にもアタッチすることができます。これはapp： `Pyramid`アプリケーションで\&quot;行レベルのセキュリティ\ &quot;を実現する方法です。ただし、セキュリティ要件は単純なので、実際にはシステム全体で* 1つの* ACLしか必要としないため、この機能は示されていません。 ：term： `ACL`が表すものの詳細については：ref：` assigning_acls`を参照してください。"
 
 #: ../../tutorials/wiki/authorization.rst:144
 msgid "Add authentication and authorization policies"
-msgstr ""
+msgstr "認証および認可ポリシーの追加"
 
 #: ../../tutorials/wiki/authorization.rst:146
 msgid "Open ``tutorial/__init__.py`` and add the highlighted import statements:"
-msgstr ""
+msgstr "`` tutorial / __ init __。py``を開き、強調表示されたimport文を追加してください："
 
 #: ../../tutorials/wiki/authorization.rst:155
 msgid "Now add those policies to the configuration:"
-msgstr ""
+msgstr "これらのポリシーを設定に追加します。"
 
 #: ../../tutorials/wiki/authorization.rst:163
 msgid "Only the highlighted lines need to be added."
-msgstr ""
+msgstr "強調表示された行だけを追加する必要があります。"
 
 #: ../../tutorials/wiki/authorization.rst:165
 msgid ""
@@ -262,7 +252,7 @@ msgid ""
 "auth ticket that may be included in the request. We are also enabling an "
 "``ACLAuthorizationPolicy``, which uses an ACL to determine the *allow* or"
 " *deny* outcome for a view."
-msgstr ""
+msgstr "リクエストに含まれるauthチケットに基づいた `` AuthTktAuthenticationPolicy``を有効にしています。 ACLを使用してビューの* allow *または* deny *結果を判断するACLAuthorizationPolicyも有効にしています。"
 
 #: ../../tutorials/wiki/authorization.rst:170
 msgid ""
@@ -272,75 +262,75 @@ msgid ""
 "\"authentication ticket\" machinery represented by this policy: it is "
 "required.  The ``callback`` is the ``groupfinder()`` function that we "
 "created before."
-msgstr ""
+msgstr "：class： `pyramid.authentication.AuthTktAuthenticationPolicy`コンストラクタは` `secret``と` `callback``の二つの引数を受け付けます。 `` secret``は、このポリシーが表す\ &quot;認証チケット\&quot;のマシンで使用される暗号鍵を表す文字列です。必須です。 `` callback``は以前作成した `` groupfinder（） ``関数です。"
 
 #: ../../tutorials/wiki/authorization.rst:177
 msgid "Add permission declarations"
-msgstr ""
+msgstr "権限宣言を追加する"
 
 #: ../../tutorials/wiki/authorization.rst:178
 msgid ""
 "Open ``tutorial/views.py`` and add a ``permission='edit'`` parameter to "
 "the ``@view_config`` decorators for ``add_page()`` and ``edit_page()``:"
-msgstr ""
+msgstr "`` add_page（） ``と `` edit_page（） ``の `` @ view_config``デコレータに `` tutorial / views.py``を開き、 `` permission = &#39;edit&#39;``パラメータを追加してください："
 
 #: ../../tutorials/wiki/authorization.rst:191
 #: ../../tutorials/wiki/authorization.rst:210
 msgid ""
 "Only the highlighted lines, along with their preceding commas, need to be"
 " edited and added."
-msgstr ""
+msgstr "強調表示されている行とその前のコンマのみを編集して追加する必要があります。"
 
 #: ../../tutorials/wiki/authorization.rst:194
 msgid ""
 "The result is that only users who possess the ``edit`` permission at the "
 "time of the request may invoke those two views."
-msgstr ""
+msgstr "その結果、リクエスト時に `` edit``パーミッションを持っているユーザだけが、その2つのビューを呼び出すことができます。"
 
 #: ../../tutorials/wiki/authorization.rst:197
 msgid ""
 "Add a ``permission='view'`` parameter to the ``@view_config`` decorator "
 "for ``view_wiki()`` and ``view_page()`` as follows:"
-msgstr ""
+msgstr "`` view_wiki（） ``と `` view_page（） ``の `` @ view_config``デコレータに次のように `` permission = &#39;view&#39;``パラメータを追加してください："
 
 #: ../../tutorials/wiki/authorization.rst:213
 msgid "This allows anyone to invoke these two views."
-msgstr ""
+msgstr "これにより、誰もがこの2つのビューを呼び出すことができます。"
 
 #: ../../tutorials/wiki/authorization.rst:215
 msgid ""
 "We are done with the changes needed to control access.  The changes that "
 "follow will add the login and logout feature."
-msgstr ""
+msgstr "私たちは、アクセスを制御するために必要な変更を完了しました。これに続く変更により、ログインとログアウト機能が追加されます。"
 
 #: ../../tutorials/wiki/authorization.rst:219
 msgid "Login, logout"
-msgstr ""
+msgstr "ログイン、ログアウト"
 
 #: ../../tutorials/wiki/authorization.rst:222
 msgid "Add login and logout views"
-msgstr ""
+msgstr "ログインビューとログアウトビューを追加する"
 
 #: ../../tutorials/wiki/authorization.rst:224
 msgid ""
 "We'll add a ``login`` view which renders a login form and processes the "
 "post from the login form, checking credentials."
-msgstr ""
+msgstr "ログインフォームをレンダリングし、ログインフォームからの投稿を処理してクレデンシャルをチェックする `` login``ビューを追加します。"
 
 #: ../../tutorials/wiki/authorization.rst:227
 msgid ""
 "We'll also add a ``logout`` view callable to our application and provide "
 "a link to it.  This view will clear the credentials of the logged in user"
 " and redirect back to the front page."
-msgstr ""
+msgstr "また、アプリケーションに呼び出し可能な `` logout``ビューを追加し、そこへのリンクを提供します。このビューでは、ログインしたユーザーの資格情報がクリアされ、フロントページにリダイレクトされます。"
 
 #: ../../tutorials/wiki/authorization.rst:231
 msgid "Add the following import statements to the head of ``tutorial/views.py``:"
-msgstr ""
+msgstr "`` tutorial / views.py`の先頭に以下のimport文を追加してください："
 
 #: ../../tutorials/wiki/authorization.rst:239
 msgid "All the highlighted lines need to be added or edited."
-msgstr ""
+msgstr "強調表示された行をすべて追加または編集する必要があります。"
 
 #: ../../tutorials/wiki/authorization.rst:241
 msgid ""
@@ -348,21 +338,21 @@ msgid ""
 " default 403 Forbidden page. :meth:`~pyramid.security.remember` and "
 ":meth:`~pyramid.security.forget` help to create and expire an auth ticket"
 " cookie."
-msgstr ""
+msgstr "：meth： `〜pyramid.view.forbidden_​​view_config`はデフォルトの403 Forbiddenページをカスタマイズするために使用されます。 ：meth： `〜pyramid.security.remember`と：meth：`〜pyramid.security.forget`は、認証チケットクッキーの作成と期限切れに役立ちます。"
 
 #: ../../tutorials/wiki/authorization.rst:246
 msgid "Now add the ``login`` and ``logout`` views at the end of the file:"
-msgstr ""
+msgstr "次に、ファイルの最後に `` login``と `` logout``ビューを追加します："
 
 #: ../../tutorials/wiki/authorization.rst:253
 msgid "``login()`` has two decorators:"
-msgstr ""
+msgstr "`` login（） ``には2つのデコレータがあります："
 
 #: ../../tutorials/wiki/authorization.rst:255
 msgid ""
 "a ``@view_config`` decorator which associates it with the ``login`` route"
 " and makes it visible when we visit ``/login``,"
-msgstr ""
+msgstr "`` @ view_config``デコレータはそれを `` login``ルートに関連付け、 `` / login``を訪れた時にそれを見えるようにします。"
 
 #: ../../tutorials/wiki/authorization.rst:257
 msgid ""
@@ -371,45 +361,45 @@ msgid ""
 "execute a view callable for which they lack authorization.  For example, "
 "if a user has not logged in and tries to add or edit a Wiki page, they "
 "will be shown the login form before being allowed to continue."
-msgstr ""
+msgstr "`@ forbidden_​​view_config``デコレータは：term：` forbidden view`に変換します。 `` login（） ``は、ユーザが権限を持たないビュー呼び出し可能呼び出しを実行しようとしたときに呼び出されます。たとえば、ユーザーがログインせずにWikiページを追加または編集しようとすると、続行を許可される前にログインフォームが表示されます。"
 
 #: ../../tutorials/wiki/authorization.rst:263
 msgid ""
 "The order of these two :term:`view configuration` decorators is "
 "unimportant."
-msgstr ""
+msgstr "これらの2つの用語：用語： `view configuration`デコレータの順序は重要ではありません。"
 
 #: ../../tutorials/wiki/authorization.rst:265
 msgid ""
 "``logout()`` is decorated with a ``@view_config`` decorator which "
 "associates it with the ``logout`` route.  It will be invoked when we "
 "visit ``/logout``."
-msgstr ""
+msgstr "`` logout（） ``は `` @ view_config``デコレータで装飾されています。これは `` logout``ルートに関連しています。 `` / logout``を訪れたときに呼び出されます。"
 
 #: ../../tutorials/wiki/authorization.rst:269
 msgid "Add the ``login.pt`` Template"
-msgstr ""
+msgstr "`` login.pt``テンプレートを追加してください"
 
 #: ../../tutorials/wiki/authorization.rst:271
 msgid "Create ``tutorial/templates/login.pt`` with the following content:"
-msgstr ""
+msgstr "次の内容で `` tutorial / templates / login.pt``を作成してください："
 
 #: ../../tutorials/wiki/authorization.rst:276
 msgid ""
 "The above template is referenced in the login view that we just added in "
 "``views.py``."
-msgstr ""
+msgstr "上記のテンプレートは、 `` views.py``で追加したログインビューで参照されます。"
 
 #: ../../tutorials/wiki/authorization.rst:280
 msgid "Return a ``logged_in`` flag to the renderer"
-msgstr ""
+msgstr "`` logged_in``フラグをレンダラーに返します。"
 
 #: ../../tutorials/wiki/authorization.rst:282
 msgid ""
 "Open ``tutorial/views.py`` again. Add a ``logged_in`` parameter to the "
 "return value of ``view_page()``, ``add_page()``, and ``edit_page()`` as "
 "follows:"
-msgstr ""
+msgstr "再び `` tutorial / views.py``を開きます。次のように `` logged_in``パラメータを `` view_page（） ``、 `` add_page（） ``、 `` edit_page（） ``の戻り値に追加してください："
 
 #: ../../tutorials/wiki/authorization.rst:301
 #: ../../tutorials/wiki/authorization.rst:333
@@ -418,24 +408,24 @@ msgstr ""
 #: ../../tutorials/wiki/authorization.rst:361
 #: ../../tutorials/wiki/authorization.rst:371
 msgid "Only the highlighted lines need to be added or edited."
-msgstr ""
+msgstr "強調表示された行だけを追加または編集する必要があります。"
 
 #: ../../tutorials/wiki/authorization.rst:303
 msgid ""
 "The :meth:`pyramid.request.Request.authenticated_userid` will be ``None``"
 " if the user is not authenticated, or a userid if the user is "
 "authenticated."
-msgstr ""
+msgstr "：meth： `pyramid.request.Request.authenticated_userid`は、ユーザが認証されていなければ` `None``、ユーザが認証されている場合はユーザIDになります。"
 
 #: ../../tutorials/wiki/authorization.rst:307
 msgid "Add a \"Logout\" link when logged in"
-msgstr ""
+msgstr "ログイン時に\ &quot;ログアウト\&quot;リンクを追加"
 
 #: ../../tutorials/wiki/authorization.rst:309
 msgid ""
 "Open ``tutorial/templates/edit.pt`` and ``tutorial/templates/view.pt`` "
 "and add the following code as indicated by the highlighted lines."
-msgstr ""
+msgstr "`` tutorial / templates / edit.pt``と `` tutorial / templates / view.pt``を開き、強調表示された行に示すように次のコードを追加してください。"
 
 #: ../../tutorials/wiki/authorization.rst:318
 msgid ""
@@ -443,53 +433,53 @@ msgid ""
 "included when ``logged_in`` is any user id. The link will invoke the "
 "logout view.  The above element will not be included if ``logged_in`` is "
 "``None``, such as when a user is not authenticated."
-msgstr ""
+msgstr "属性 `` tal：condition = \ &quot;logged_in \&quot; ``は、 `` logged_in``が任意のユーザIDであるときに要素を含めるようにします。リンクがログアウトビューを呼び出します。ユーザが認証されていないなど、 `` logged_in``が `` None``の場合、上記の要素はインクルードされません。"
 
 #: ../../tutorials/wiki/authorization.rst:324
 msgid "Reviewing our changes"
-msgstr ""
+msgstr "変更のレビュー"
 
 #: ../../tutorials/wiki/authorization.rst:326
 msgid "Our ``tutorial/__init__.py`` will look like this when we're done:"
-msgstr ""
+msgstr "私たちの「チュートリアル/ __ init __。py」は完了したら次のようになります："
 
 #: ../../tutorials/wiki/authorization.rst:335
 msgid "Our ``tutorial/models.py`` will look like this when we're done:"
-msgstr ""
+msgstr "私たちの &quot;チュートリアル/ models.py&quot;は完了したら次のようになります："
 
 #: ../../tutorials/wiki/authorization.rst:344
 msgid "Our ``tutorial/views.py`` will look like this when we're done:"
-msgstr ""
+msgstr "私たちの「チュートリアル/ views.py」は完了したら次のようになります："
 
 #: ../../tutorials/wiki/authorization.rst:353
 msgid ""
 "Our ``tutorial/templates/edit.pt`` template will look like this when "
 "we're done:"
-msgstr ""
+msgstr "終了したら、私たちの `` tutorial / templates / edit.pt``テンプレートは次のようになります："
 
 #: ../../tutorials/wiki/authorization.rst:363
 msgid ""
 "Our ``tutorial/templates/view.pt`` template will look like this when "
 "we're done:"
-msgstr ""
+msgstr "終了したら、私たちの `` tutorial / templates / view.pt``テンプレートは次のようになります："
 
 #: ../../tutorials/wiki/authorization.rst:374
 msgid "Viewing the application in a browser"
-msgstr ""
+msgstr "ブラウザでのアプリケーションの表示"
 
 #: ../../tutorials/wiki/authorization.rst:376
 msgid ""
 "We can finally examine our application in a browser (See :ref:`wiki-"
 "start-the-application`).  Launch a browser and visit each of the "
 "following URLs, checking that the result is as expected:"
-msgstr ""
+msgstr "最後に、ブラウザでアプリケーションを調べることができます（参照：ref： `wiki-start-the-application`）。ブラウザを起動し、次の各URLにアクセスして、結果が期待どおりであることを確認します。"
 
 #: ../../tutorials/wiki/authorization.rst:380
 msgid ""
 "http://localhost:6543/ invokes the ``view_wiki`` view.  This always "
 "redirects to the ``view_page`` view of the ``FrontPage`` Page resource.  "
 "It is executable by any user."
-msgstr ""
+msgstr "http：// localhost：6543 / `` view_wiki``ビューを呼び出します。これは常に `` FrontPage``ページリソースの `` view_page``ビューにリダイレクトされます。任意のユーザーが実行可能です。"
 
 #: ../../tutorials/wiki/authorization.rst:384
 msgid ""
@@ -497,7 +487,7 @@ msgid ""
 "``FrontPage`` Page resource. This is because it's the :term:`default "
 "view` (a view without a ``name``) for ``Page`` resources.  It is "
 "executable by any user."
-msgstr ""
+msgstr "http：// localhost：6543 / FrontPageは、 `` FrontPage``ページリソースの `` view_page``ビューを呼び出します。これは、 `` Page``リソースのための：term： `default view`（` `name`&quot;のないビュー）です。任意のユーザーが実行可能です。"
 
 #: ../../tutorials/wiki/authorization.rst:389
 msgid ""
@@ -506,7 +496,7 @@ msgid ""
 "different user (or the anonymous user) invokes it, a login form will be "
 "displayed.  Supplying the credentials with the username ``editor``, "
 "password ``editor`` will display the edit page form."
-msgstr ""
+msgstr "http：// localhost：6543 / FrontPage / edit_pageは、FrontPageオブジェクトの編集ビューを呼び出します。 `` editor``ユーザだけが実行可能です。別のユーザー（または匿名ユーザー）がそれを呼び出すと、ログインフォームが表示されます。ユーザー名 `` editor``で資格情報を入力すると、パスワード `` editor``が編集ページのフォームを表示します。"
 
 #: ../../tutorials/wiki/authorization.rst:395
 msgid ""
@@ -515,7 +505,7 @@ msgid ""
 "(or the anonymous user) invokes it, a login form will be displayed. "
 "Supplying the credentials with the username ``editor``, password "
 "``editor`` will display the edit page form."
-msgstr ""
+msgstr "http：// localhost：6543 / add_page / SomePageNameはページの追加ビューを呼び出します。 `` editor``ユーザだけが実行可能です。別のユーザー（または匿名ユーザー）がそれを呼び出すと、ログインフォームが表示されます。ユーザー名 `` editor``で資格情報を入力すると、パスワード `` editor``が編集ページのフォームを表示します。"
 
 #: ../../tutorials/wiki/authorization.rst:401
 msgid ""
@@ -523,5 +513,5 @@ msgid ""
 "submitting the login form with the ``editor`` credentials), we'll see a "
 "Logout link in the upper right hand corner.  When we click it, we're "
 "logged out, and redirected back to the front page."
-msgstr ""
+msgstr "ログイン後（編集やページの追加や `` editor``の資格情報を使ったログインフォームの送信の結果として）、右上にログアウトリンクが表示されます。これをクリックすると、ログアウトされ、フロントページにリダイレクトされます。"
 

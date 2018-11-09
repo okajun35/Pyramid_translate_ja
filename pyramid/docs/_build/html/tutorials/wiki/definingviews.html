@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Defining Views &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳)ビューの定義 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
-    <link rel="next" title="Adding authorization" href="authorization.html" />
-    <link rel="prev" title="Defining the Domain Model" href="definingmodels.html" />
+    <link rel="next" title="(機械翻訳)承認を追加する" href="authorization.html" />
+    <link rel="prev" title="(機械翻訳)ドメインモデルの定義" href="definingmodels.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,13 +54,13 @@
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="authorization.html" title="Adding authorization"
+          <a href="authorization.html" title="(機械翻訳)承認を追加する"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="definingmodels.html" title="Defining the Domain Model"
+          <a href="definingmodels.html" title="(機械翻訳)ドメインモデルの定義"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ZODB + Traversal Wiki Tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">(機械翻訳)ZODB + Traversal Wikiチュートリアル</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,41 +70,18 @@
           <div class="body" role="main">
             
   <div class="section" id="defining-views">
-<span id="wiki-defining-views"></span><h1>Defining Views<a class="headerlink" href="#defining-views" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>A <a class="reference internal" href="../../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> in a <a class="reference internal" href="../../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>-based <span>Pyramid</span>
-application is typically a simple Python function that accepts two
-parameters: <a class="reference internal" href="../../glossary.html#term-context"><span class="xref std std-term">context</span></a> and <a class="reference internal" href="../../glossary.html#term-request"><span class="xref std std-term">request</span></a>.  A view callable is
-assumed to return a <a class="reference internal" href="../../glossary.html#term-response"><span class="xref std std-term">response</span></a> object.</p>
+<span id="wiki-defining-views"></span><h1>(機械翻訳)ビューの定義<a class="headerlink" href="#defining-views" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>A：term： <cite>view callable</cite>：term：` traversal`-based：app： <cite>Pyramid`アプリケーションは通常、term：</cite> context`と：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>request`という2つのパラメータを受け入れる単純なPython関数です。ビューcallableは：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>response`オブジェクトを返すものとします。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">A <span>Pyramid</span> view can also be defined as callable
-which accepts <em>only</em> a <a class="reference internal" href="../../glossary.html#term-request"><span class="xref std std-term">request</span></a> argument.  You'll see
-this one-argument pattern used in other <span>Pyramid</span> tutorials
-and applications.  Either calling convention will work in any
-<span>Pyramid</span> application; the calling conventions can be used
-interchangeably as necessary. In <a class="reference internal" href="../../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>-based applications,
-URLs are mapped to a context <a class="reference internal" href="../../glossary.html#term-resource"><span class="xref std std-term">resource</span></a>, and since our
-<a class="reference internal" href="../../glossary.html#term-resource-tree"><span class="xref std std-term">resource tree</span></a> also represents our application's
-&quot;domain model&quot;, we're often interested in the context because
-it represents the persistent storage of our application.  For
-this reason, in this tutorial we define views as callables that
-accept <code class="docutils literal notranslate"><span class="pre">context</span></code> in the callable argument list.  If you do
-need the <code class="docutils literal notranslate"><span class="pre">context</span></code> within a view function that only takes
-the request as a single argument, you can obtain it via
-<code class="docutils literal notranslate"><span class="pre">request.context</span></code>.</p>
+<p class="last">A：app： <cite>Pyramid`ビューは* only * a：term：</cite> request`引数を受け入れる呼び出し可能関数として定義することもできます。他の：app： <cite>Pyramid`チュートリアルやアプリケーションで使用されているこの1つの引数のパターンが表示されます。いずれかの呼び出し規約は、app： `Pyramid`アプリケーションで動作します。呼び出し規約は必要に応じて互換的に使用できます。 in：term： `traversal`ベースのアプリケーションでは、URLはcontext：term：</cite> resource`にマップされ、term： <cite>resource tree`もアプリケーションの&amp;quot;ドメインモデル&amp;quot;を表します。これは、アプリケーションの永続的なストレージを表すためです。このため、このチュートリアルでは、ビューを呼び出し可能引数リストに `</cite> context``を受け入れる呼び出し可能関数として定義します。要求を単一の引数として取るビュー関数内で `` context``が必要な場合は、 `` request.context` &amp;quot;で取得できます。</p>
 </div>
-<p>We're going to define several <a class="reference internal" href="../../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> functions, then wire them
-into <span>Pyramid</span> using some <a class="reference internal" href="../../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a>.</p>
+<p>term： <cite>view callable`関数をいくつか定義し、次に：term：</cite> view configuration`を使って：app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`に配線します。</p>
 <div class="section" id="declaring-dependencies-in-our-setup-py-file">
-<h2>Declaring Dependencies in Our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> File<a class="headerlink" href="#declaring-dependencies-in-our-setup-py-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The view code in our application will depend on a package which is not a
-dependency of the original &quot;tutorial&quot; application.  The original &quot;tutorial&quot;
-application was generated by the cookiecutter; it doesn't know
-about our custom application requirements.</p>
-<p>We need to add a dependency on the <code class="docutils literal notranslate"><span class="pre">docutils</span></code> package to our <code class="docutils literal notranslate"><span class="pre">tutorial</span></code>
-package's <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file by assigning this dependency to the <code class="docutils literal notranslate"><span class="pre">requires</span></code>
-parameter in the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function.</p>
-<p>Open <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and edit it to look like the following:</p>
+<h2>`` setup.py``ファイルの依存関係の宣言<a class="headerlink" href="#declaring-dependencies-in-our-setup-py-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アプリケーションのビューコードは、オリジナルの &amp;quot;チュートリアル&amp;quot;アプリケーションの依存関係ではないパッケージに依存します。オリジナルの &amp;quot;チュートリアル&amp;quot;アプリケーションは、cookiecutterによって生成されました。カスタムアプリケーションの要件についてはわかりません。</p>
+<p>`` docutils``パッケージの依存関係を <a href="#id1"><span class="problematic" id="id2">``</span></a>チュートリアル <a href="#id3"><span class="problematic" id="id4">``</span></a>パッケージの `` setup.py``ファイルに追加する必要があります。この依存関係は `` setup（） <a href="#id5"><span class="problematic" id="id6">``</span></a>の `` requires``パラメータに割り当てます。 <a href="#id7"><span class="problematic" id="id8">`</span></a>関数。</p>
+<p>`` setup.py``を開き、以下のように編集してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -222,35 +199,30 @@ parameter in the <code class="docutils literal notranslate"><span class="pre">se
 <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Only the highlighted line needs to be added.</p>
+<p>強調表示された行だけを追加する必要があります。</p>
 </div>
 <div class="section" id="running-pip-install-e">
-<span id="wiki-running-pip-install"></span><h2>Running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code><a class="headerlink" href="#running-pip-install-e" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Since a new software dependency was added, you will need to run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span>
-<span class="pre">-e</span> <span class="pre">.</span></code> again inside the root of the <code class="docutils literal notranslate"><span class="pre">tutorial</span></code> package to obtain and register
-the newly added dependency distribution.</p>
-<p>Make sure your current working directory is the root of the project (the
-directory in which <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> lives) and execute the following command.</p>
-<p>On UNIX:</p>
+<span id="wiki-running-pip-install"></span><h2>`` pip install -e .``を実行しています。<a class="headerlink" href="#running-pip-install-e" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>新しいソフトウェア依存関係が追加されたので、 `` tutorial``パッケージのルートの中で `` pip install -e .``を再度実行して、新たに追加された依存関係を取得して登録する必要があります。</p>
+<p>現在の作業ディレクトリがプロジェクトのルート（ `` setup.py``が存在するディレクトリ）であることを確認し、次のコマンドを実行してください。</p>
+<p>UNIXの場合：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> tutorial
 $ <span class="nv">$VENV</span>/bin/pip install -e .
 </pre></div>
 </div>
-<p>On Windows:</p>
+<p>Windowsの場合：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\&gt;</span> <span class="k">cd</span> tutorial
 <span class="gp">c:\tutorial&gt;</span> <span class="nv">%VENV%</span>\Scripts\pip install -e .
 </pre></div>
 </div>
-<p>Success executing this command will end with a line to the console something
-like:</p>
+<p>このコマンドを実行すると、次のような行がコンソールに表示されます。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Successfully installed docutils-0.13.1 tutorial
 </pre></div>
 </div>
 </div>
 <div class="section" id="adding-view-functions-in-views-py">
-<h2>Adding view functions in <code class="docutils literal notranslate"><span class="pre">views.py</span></code><a class="headerlink" href="#adding-view-functions-in-views-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>It's time for a major change.  Open <code class="docutils literal notranslate"><span class="pre">tutorial/views.py</span></code> and edit it to look
-like the following:</p>
+<h2>`` views.py``にビュー関数を追加する<a class="headerlink" href="#adding-view-functions-in-views-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>大きな変化の時です。 `` tutorial / views.py``を開き、以下のように編集してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -372,30 +344,23 @@ like the following:</p>
                 <span class="n">save_url</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">resource_url</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s1">&#39;edit_page&#39;</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
-<p>We added some imports and created a regular expression to find &quot;WikiWords&quot;.</p>
-<p>We got rid of the <code class="docutils literal notranslate"><span class="pre">my_view</span></code> view function and its decorator that was added
-when we originally rendered the <code class="docutils literal notranslate"><span class="pre">zodb</span></code> cookiecutter.  It was only an example and
-isn't relevant to our application.</p>
-<p>Then we added four <a class="reference internal" href="../../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> functions to our <code class="docutils literal notranslate"><span class="pre">views.py</span></code>
-module:</p>
+<p>いくつかのインポートを追加し、&amp;quot;WikiWords &amp;quot;を見つける正規表現を作成しました。</p>
+<p>もともと `` zodb`` cookiecutterをレンダリングしたときに追加された `` my_view``ビュー関数とそのデコレータを取り除きました。これは単なる例であり、私たちのアプリケーションには関係ありません。</p>
+<p>次に、term： <cite>view callable`関数を</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>views.py``モジュールに追加しました：</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">view_wiki()</span></code> - Displays the wiki itself. It will answer on the root URL.</li>
-<li><code class="docutils literal notranslate"><span class="pre">view_page()</span></code> - Displays an individual page.</li>
-<li><code class="docutils literal notranslate"><span class="pre">add_page()</span></code> - Allows the user to add a page.</li>
-<li><code class="docutils literal notranslate"><span class="pre">edit_page()</span></code> - Allows the user to edit a page.</li>
+<li>`` view_wiki（） ``  -  wiki自体を表示します。それはルートURLで答えるでしょう。</li>
+<li>`` view_page（） ``  - 個々のページを表示します。</li>
+<li>`` add_page（） ``  - ユーザーがページを追加できるようにします。</li>
+<li>`` edit_page（） ``  - ユーザがページを編集できるようにします。</li>
 </ul>
-<p>We'll describe each one briefly in the following sections.</p>
+<p>以下のセクションでは、それぞれを簡単に説明します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">There is nothing special about the filename <code class="docutils literal notranslate"><span class="pre">views.py</span></code>.  A project may
-have many view callables throughout its codebase in arbitrarily named
-files.  Files implementing view callables often have <code class="docutils literal notranslate"><span class="pre">view</span></code> in their
-filenames (or may live in a Python subpackage of your application package
-named <code class="docutils literal notranslate"><span class="pre">views</span></code>), but this is only by convention.</p>
+<p class="last">ファイル名 `` views.py``には何も特別なものはありません。プロジェクトは、コードベース全体で、任意の名前のファイルで多くのビュー呼び出し可能ファイルを持つことができます。ビュー呼び出し可能ファイルを実装しているファイルは、ファイル名に `` view``を持つことが多い（または `` views``という名前のアプリケーションパッケージのPythonサブパッケージにあるかもしれませんが）、これは慣例によるものです。</p>
 </div>
 <div class="section" id="the-view-wiki-view-function">
-<h3>The <code class="docutils literal notranslate"><span class="pre">view_wiki</span></code> view function<a class="headerlink" href="#the-view-wiki-view-function" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Following is the code for the <code class="docutils literal notranslate"><span class="pre">view_wiki</span></code> view function and its decorator:</p>
+<h3>`` view_wiki``ビュー関数<a class="headerlink" href="#the-view-wiki-view-function" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下は `` view_wiki``ビュー関数とそのデコレータのコードです：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>12
 13
 14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@view_config</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="s1">&#39;.models.Wiki&#39;</span><span class="p">)</span>
@@ -405,35 +370,15 @@ named <code class="docutils literal notranslate"><span class="pre">views</span><
 </td></tr></table></div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">In our code, we use an <em>import</em> that is <em>relative</em> to our package
-named <code class="docutils literal notranslate"><span class="pre">tutorial</span></code>, meaning we can omit the name of the package in the
-<code class="docutils literal notranslate"><span class="pre">import</span></code> and <code class="docutils literal notranslate"><span class="pre">context</span></code> statements. In our narrative, however, we refer
-to a <em>class</em> and thus we use the <em>absolute</em> form, meaning that the name of
-the package is included.</p>
+<p class="last">私たちのコードでは、 `` tutorial``という名前のパッケージに* relative <em>という</em> import <a href="#id1"><span class="problematic" id="id2">*</span></a>を使用しています。つまり、 `` import``と `` context``の中でパッケージの名前を省略することができます。しかし、私たちの物語では、クラス*を参照するので、パッケージの名前が含まれていることを意味する*絶対*形式を使用します。</p>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">view_wiki()</span></code> is the <a class="reference internal" href="../../glossary.html#term-default-view"><span class="xref std std-term">default view</span></a> that gets called when a request is
-made to the root URL of our wiki.  It always redirects to an URL which
-represents the path to our &quot;FrontPage&quot;.</p>
-<p>We provide it with a <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator which names the class
-<code class="docutils literal notranslate"><span class="pre">tutorial.models.Wiki</span></code> as its context. This means that when a Wiki resource
-is the context and no <a class="reference internal" href="../../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> exists in the request, then this view
-will be used.  The view configuration associated with <code class="docutils literal notranslate"><span class="pre">view_wiki</span></code> does not
-use a <code class="docutils literal notranslate"><span class="pre">renderer</span></code> because the view callable always returns a <a class="reference internal" href="../../glossary.html#term-response"><span class="xref std std-term">response</span></a>
-object rather than a dictionary. No renderer is necessary when a view returns
-a response object.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">view_wiki</span></code> view callable always redirects to the URL of a Page resource
-named &quot;FrontPage&quot;.  To do so, it returns an instance of the
-<a class="reference internal" href="../../api/httpexceptions.html#pyramid.httpexceptions.HTTPFound" title="pyramid.httpexceptions.HTTPFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.httpexceptions.HTTPFound</span></code></a> class (instances of which implement
-the <a class="reference internal" href="../../api/interfaces.html#pyramid.interfaces.IResponse" title="pyramid.interfaces.IResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.interfaces.IResponse</span></code></a> interface, like
-<a class="reference internal" href="../../api/response.html#pyramid.response.Response" title="pyramid.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyramid.response.Response</span></code></a> does). It uses the
-<a class="reference internal" href="../../api/request.html#pyramid.request.Request.route_url" title="pyramid.request.Request.route_url"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.request.Request.route_url()</span></code></a> API to construct an URL to the
-<code class="docutils literal notranslate"><span class="pre">FrontPage</span></code> page resource (i.e., <code class="docutils literal notranslate"><span class="pre">http://localhost:6543/FrontPage</span></code>), and
-uses it as the &quot;location&quot; of the <code class="docutils literal notranslate"><span class="pre">HTTPFound</span></code> response, forming an HTTP
-redirect.</p>
+<p>`` view_wiki（） <a href="#id1"><span class="problematic" id="id2">``</span></a>は、wikiのルートURLへのリクエストがあったときに呼び出される：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>default view`です。常に&amp;quot;FrontPage &amp;quot;へのパスを表すURLにリダイレクトされます。</p>
+<p>私たちは `` &#64; view_config``デコレータを提供します。このデコレータは、そのコンテキストとして `` tutorial.models.Wiki``というクラスを命名します。つまり、Wikiリソースがコンテキストであり、要求にno：term： <cite>view name`が存在する場合、このビューが使用されます。 `</cite> view_wiki``に関連したビュー設定は、 `` renderer``を使用しません。なぜなら、callableビューは常に辞書ではなく：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>response`オブジェクトを返すからです。ビューが応答オブジェクトを返すとき、レンダラーは必要ありません。</p>
+<p>`` view_wiki``ビューcallableは、常に&amp;quot;FrontPage &amp;quot;という名前のページリソースのURLにリダイレクトします。これを行うには、：class： <cite>pyramid.httpexceptions.HTTPFound`クラスのインスタンスを返します（インスタンスは：class：</cite> pyramid.interfaces.IResponse`インターフェイスを実装しています：class： <cite>pyramid.response.Response`そうです）。 ：meth： `pyramid.request.Request.route_url</cite> APIを使用して` <cite>FrontPage``ページリソース（</cite> <cite>http：// localhost：6543 / FrontPage`</cite>）へのURLを構築し、それを使用します`` HTTPFound``レスポンスの&amp;quot;location &amp;quot;として、HTTPリダイレクトを形成します。</p>
 </div>
 <div class="section" id="the-view-page-view-function">
-<h3>The <code class="docutils literal notranslate"><span class="pre">view_page</span></code> view function<a class="headerlink" href="#the-view-page-view-function" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Here is the code for the <code class="docutils literal notranslate"><span class="pre">view_page</span></code> view function and its decorator:</p>
+<h3>`` view_page``ビュー関数<a class="headerlink" href="#the-view-page-view-function" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` view_page``ビュー関数とそのデコレータのコードを以下に示します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>16
 17
 18
@@ -471,46 +416,17 @@ redirect.</p>
     <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">page</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">,</span> <span class="n">edit_url</span><span class="o">=</span><span class="n">edit_url</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">view_page</span></code> function is configured to respond as the default view
-of a Page resource.  We provide it with a <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator which
-names the class <code class="docutils literal notranslate"><span class="pre">tutorial.models.Page</span></code> as its context.  This means that
-when a Page resource is the context, and no <a class="reference internal" href="../../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> exists in the
-request, this view will be used.  We inform <span>Pyramid</span> this view will use
-the <code class="docutils literal notranslate"><span class="pre">templates/view.pt</span></code> template file as a <code class="docutils literal notranslate"><span class="pre">renderer</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">view_page</span></code> function generates the <a class="reference internal" href="../../glossary.html#term-restructuredtext"><span class="xref std std-term">reStructuredText</span></a> body of a
-page (stored as the <code class="docutils literal notranslate"><span class="pre">data</span></code> attribute of the context passed to the view; the
-context will be a <code class="docutils literal notranslate"><span class="pre">Page</span></code> resource) as HTML.  Then it substitutes an HTML
-anchor for each <em>WikiWord</em> reference in the rendered HTML using a compiled
-regular expression.</p>
-<p>The curried function named <code class="docutils literal notranslate"><span class="pre">check</span></code> is used as the first argument to
-<code class="docutils literal notranslate"><span class="pre">wikiwords.sub</span></code>, indicating that it should be called to provide a value for
-each WikiWord match found in the content.  If the wiki (our page's
-<code class="docutils literal notranslate"><span class="pre">__parent__</span></code>) already contains a page with the matched WikiWord name, the
-<code class="docutils literal notranslate"><span class="pre">check</span></code> function generates a view link to be used as the substitution value
-and returns it.  If the wiki does not already contain a page with the
-matched WikiWord name, the function generates an &quot;add&quot; link as the
-substitution value and returns it.</p>
-<p>As a result, the <code class="docutils literal notranslate"><span class="pre">content</span></code> variable is now a fully formed bit of HTML
-containing various view and add links for WikiWords based on the content of
-our current page resource.</p>
-<p>We then generate an edit URL because it's easier to do here than in the
-template, and we wrap up a number of arguments in a dictionary and return
-it.</p>
-<p>The arguments we wrap into a dictionary include <code class="docutils literal notranslate"><span class="pre">page</span></code>, <code class="docutils literal notranslate"><span class="pre">content</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">edit_url</span></code>.  As a result, the <em>template</em> associated with this view callable
-(via <code class="docutils literal notranslate"><span class="pre">renderer=</span></code> in its configuration) will be able to use these names to
-perform various rendering tasks.  The template associated with this view
-callable will be a template which lives in <code class="docutils literal notranslate"><span class="pre">templates/view.pt</span></code>.</p>
-<p>Note the contrast between this view callable and the <code class="docutils literal notranslate"><span class="pre">view_wiki</span></code> view
-callable.  In the <code class="docutils literal notranslate"><span class="pre">view_wiki</span></code> view callable, we unconditionally return a
-<a class="reference internal" href="../../glossary.html#term-response"><span class="xref std std-term">response</span></a> object.  In the <code class="docutils literal notranslate"><span class="pre">view_page</span></code> view callable, we return a
-<em>dictionary</em>.  It is <em>always</em> fine to return a <a class="reference internal" href="../../glossary.html#term-response"><span class="xref std std-term">response</span></a> object from a
-<span>Pyramid</span> view.  Returning a dictionary is allowed only when there is a
-<a class="reference internal" href="../../glossary.html#term-renderer"><span class="xref std std-term">renderer</span></a> associated with the view callable in the view configuration.</p>
+<p>`` view_page``関数は、Pageリソースのデフォルトビューとして応答するように設定されています。私たちは `` &#64; view_config``デコレータを提供します。このデコレータは、そのコンテキストとして `` tutorial.models.Page``というクラスを名付けます。これは、Pageリソースがコンテキストで、リクエストに <cite>term：</cite> view name`が存在しない場合、このビューが使用されることを意味します。 app： <cite>Pyramid`このビューは</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>templates / view.pt``テンプレートファイルをレンダラーとして使用します。</p>
+<p>`` view_page``関数はページの：term： <cite>reStructuredText`ボディを生成します（ビューに渡されるコンテキストの</cite> <cite>data``属性として保存されます;コンテキストは</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>Page``リソースです）。 HTML。次に、コンパイルされた正規表現を使用して、レンダリングされたHTMLの* WikiWord <a href="#id3"><span class="problematic" id="id4">*</span></a>参照ごとにHTMLアンカーを置き換えます。</p>
+<p>`` check``と呼ばれるカリー化された関数は、 `` wikiwords.sub``の最初の引数として使われ、コンテンツ内で見つかる各WikiWordの一致の値を提供するために呼び出されるべきであることを示します。 wiki（私たちのページの `` __parent__``）にWikiWordの名前が一致するページがすでに含まれている場合、 `` check``関数は置換値として使用されるビューリンクを生成して返します。 wikiに一致するWikiWord名のページがまだ含まれていない場合、関数は置換値として&amp;quot;add &amp;quot;リンクを生成して返します。</p>
+<p>その結果、 `` content``変数は、現在のページリソースの内容に基づいて、さまざまなビューを含むHTMLの完全に形成されたビットであり、WikiWordsのリンクを追加します。</p>
+<p>テンプレートよりもここでやる方が簡単であるため、編集URLを生成し、辞書にいくつかの引数をまとめて返します。</p>
+<p>辞書にラップする引数には、 `` page``、 `` content``、 `` edit_url``などがあります。その結果、このビューを呼び出し可能にする*テンプレート*は、それらの名前を使ってさまざまなレンダリングタスクを実行することができます。このビュー呼び出し可能に関連付けられたテンプレートは `` templates / view.pt``にあるテンプレートになります。</p>
+<p>このビューの呼び出し可能と、 `` view_wiki``ビューの呼び出し可能との対比に注意してください。 `` view_wiki``ビューのcallableでは、無条件にa：term： <cite>response`オブジェクトを返します。 `</cite> view_page``ビューのcallableでは、* dictionary <a href="#id1"><span class="problematic" id="id2">*</span></a>を返します。 ：app： <cite>Pyramid`ビューから：term：</cite> response`オブジェクトを返すことは常に*素晴らしい*です。ビューの設定で呼び出し可能なビューに関連付けられた：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>renderer`がある場合にのみ、辞書を返すことができます。</p>
 </div>
 <div class="section" id="the-add-page-view-function">
-<h3>The <code class="docutils literal notranslate"><span class="pre">add_page</span></code> view function<a class="headerlink" href="#the-add-page-view-function" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Here is the code for the <code class="docutils literal notranslate"><span class="pre">add_page</span></code> view function and its decorator:</p>
+<h3>`` add_page``ビュー関数<a class="headerlink" href="#the-add-page-view-function" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` add_page``ビュー関数とそのデコレータのコードを以下に示します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>35
 36
 37
@@ -544,48 +460,16 @@ callable.  In the <code class="docutils literal notranslate"><span class="pre">v
     <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">page</span><span class="o">=</span><span class="n">page</span><span class="p">,</span> <span class="n">save_url</span><span class="o">=</span><span class="n">save_url</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">add_page</span></code> function is configured to respond when the context resource
-is a Wiki and the <a class="reference internal" href="../../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> is <code class="docutils literal notranslate"><span class="pre">add_page</span></code>.  We provide it with a
-<code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator which names the string <code class="docutils literal notranslate"><span class="pre">add_page</span></code> as its
-<a class="reference internal" href="../../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> (via <code class="docutils literal notranslate"><span class="pre">name=</span></code>), the class <code class="docutils literal notranslate"><span class="pre">tutorial.models.Wiki</span></code> as its
-context, and the renderer named <code class="docutils literal notranslate"><span class="pre">templates/edit.pt</span></code>.  This means that when a
-Wiki resource is the context, and a <a class="reference internal" href="../../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> named <code class="docutils literal notranslate"><span class="pre">add_page</span></code>
-exists as the result of traversal, this view will be used.  We inform
-<span>Pyramid</span> this view will use the <code class="docutils literal notranslate"><span class="pre">templates/edit.pt</span></code> template file as a
-<code class="docutils literal notranslate"><span class="pre">renderer</span></code>.  We share the same template between add and edit views, thus
-<code class="docutils literal notranslate"><span class="pre">edit.pt</span></code> instead of <code class="docutils literal notranslate"><span class="pre">add.pt</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">add_page</span></code> function will be invoked when a user clicks on a WikiWord
-which isn't yet represented as a page in the system.  The <code class="docutils literal notranslate"><span class="pre">check</span></code> function
-within the <code class="docutils literal notranslate"><span class="pre">view_page</span></code> view generates URLs to this view.  It also acts as a
-handler for the form that is generated when we want to add a page resource.
-The <code class="docutils literal notranslate"><span class="pre">context</span></code> of the <code class="docutils literal notranslate"><span class="pre">add_page</span></code> view is always a Wiki resource (<em>not</em> a
-Page resource).</p>
-<p>The request <a class="reference internal" href="../../glossary.html#term-subpath"><span class="xref std std-term">subpath</span></a> in <span>Pyramid</span> is the sequence of names that
-are found <em>after</em> the <a class="reference internal" href="../../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> in the URL segments given in the
-<code class="docutils literal notranslate"><span class="pre">PATH_INFO</span></code> of the WSGI request as the result of <a class="reference internal" href="../../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a>.  If our
-add view is invoked via, e.g., <code class="docutils literal notranslate"><span class="pre">http://localhost:6543/add_page/SomeName</span></code>,
-the <a class="reference internal" href="../../glossary.html#term-subpath"><span class="xref std std-term">subpath</span></a> will be a tuple: <code class="docutils literal notranslate"><span class="pre">('SomeName',)</span></code>.</p>
-<p>The add view takes the zero<sup>th</sup> element of the subpath (the wiki page name),
-and aliases it to the name attribute in order to know the name of the page
-we're trying to add.</p>
-<p>If the view rendering is <em>not</em> a result of a form submission (if the
-expression <code class="docutils literal notranslate"><span class="pre">'form.submitted'</span> <span class="pre">in</span> <span class="pre">request.params</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>), the view
-renders a template.  To do so, it generates a &quot;save url&quot; which the template
-uses as the form post URL during rendering.  We're lazy here, so we're trying
-to use the same template (<code class="docutils literal notranslate"><span class="pre">templates/edit.pt</span></code>) for the add view as well as
-the page edit view.  To do so, we create a dummy Page resource object in
-order to satisfy the edit form's desire to have <em>some</em> page object exposed as
-<code class="docutils literal notranslate"><span class="pre">page</span></code>, and we'll render the template to a response.</p>
-<p>If the view rendering <em>is</em> a result of a form submission (if the expression
-<code class="docutils literal notranslate"><span class="pre">'form.submitted'</span> <span class="pre">in</span> <span class="pre">request.params</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>), we grab the page body
-from the form data, create a Page object using the name in the subpath and
-the page body, and save it into &quot;our context&quot; (the Wiki) using the
-<code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> method of the context. We then redirect back to the
-<code class="docutils literal notranslate"><span class="pre">view_page</span></code> view (the default view for a page) for the newly created page.</p>
+<p>`` add_page``関数は、コンテキストリソースがWikiであり、：term： <cite>view name`が</cite> <cite>add_page``であるときに応答するように設定されています。私たちは `</cite> &#64; view_config``デコレータを提供します。このデコレータは、文字列 `` add_page``をterm： <cite>view name`（</cite> <cite>name =</cite> <cite>を介して）、クラス</cite> <cite>tutorial.models.Wiki</cite> <cite>をコンテキストとして使用し、レンダラを</cite> <cite>templates / edit.pt``と呼びます。つまり、Wikiリソースがコンテキストであり、トラバーサルの結果として `</cite> add_page``という名前のa：term： <cite>view name`が存在する場合、このビューが使用されます。 app： `Pyramid`このビューは、</cite> <cite>templates / edit.pt``テンプレートファイルを</cite> <cite>renderer``として使用します。私たちは、追加ビューと編集ビューの間で同じテンプレートを共有します。つまり、 `</cite> add.pt``ではなく `` edit.pt``です。</p>
+<p>`` add_page``関数は、ユーザがまだシステム内のページとして表現されていないWikiWordをクリックしたときに呼び出されます。 `` view_page``ビュー内の `` check``関数は、このビューへのURLを生成します。また、ページリソースを追加するときに生成されるフォームのハンドラとしても機能します。 `` add_page``ビューの `` context``は常にWikiリソースです（ページリソースではありません）。</p>
+<p>app： <cite>Pyramid`の中のrequest：term：</cite> subpath`は、WSGIリクエストの `` PATH_INFO``で与えられたURLセグメントの*：<em>：</em>： <cite>view name`の後に* term： `traversal`の結果です。 addビューが、例えば `</cite> http：// localhost：6543 / add_page / SomeName``を介して呼び出された場合、：term： <cite>subpath`は</cite> <cite>（ &amp;#39;SomeName&amp;#39;、）</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>のタプルになります。</p>
+<p>addビューは、サブパス（wikiページ名）のゼロ：sup： <a href="#id1"><span class="problematic" id="id2">`</span></a>th`要素をとり、追加しようとしているページの名前を知るためにname属性にエイリアスします。</p>
+<p>ビューのレンダリングがフォーム提出の結果でない*（ `` form.modified &amp;#39;が `` False``である場合）、ビューはテンプレートをレンダリングします。これを行うために、テンプレートはレンダリング時にフォームの投稿URLとして使用する&amp;quot;保存URL &amp;quot;を生成します。ここでは怠惰なので、追加ビューとページ編集ビューに同じテンプレート（ `` templates / edit.pt``）を使用しようとしています。これを行うために、* pageオブジェクトを* `` page``として公開する編集フォームの要求を満たすためにダミーのPage resourceオブジェクトを作成し、そのテンプレートをレスポンスにレンダリングします。</p>
+<p>ビューレンダリング*がフォーム提出の結果である場合（フォーム `` &amp;#39;request.params``の中のform.submittedが `` True``の場合）、フォームデータからページ本文を取得し、ページオブジェクトは、サブパスの名前とページ本文を使用し、コンテキストの `` __setitem__``メソッドを使用して&amp;quot;our context &amp;quot;（Wiki）に保存します。新しく作成したページの `` view_page``ビュー（ページのデフォルトビュー）にリダイレクトします。</p>
 </div>
 <div class="section" id="the-edit-page-view-function">
-<h3>The <code class="docutils literal notranslate"><span class="pre">edit_page</span></code> view function<a class="headerlink" href="#the-edit-page-view-function" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Here is the code for the <code class="docutils literal notranslate"><span class="pre">edit_page</span></code> view function and its decorator:</p>
+<h3>`` edit_page``ビュー関数<a class="headerlink" href="#the-edit-page-view-function" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` edit_page``ビュー関数とそのデコレータのコードは次のとおりです：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>52
 53
 54
@@ -605,40 +489,18 @@ the page body, and save it into &quot;our context&quot; (the Wiki) using the
                 <span class="n">save_url</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">resource_url</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s1">&#39;edit_page&#39;</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">edit_page</span></code> function is configured to respond when the context is
-a Page resource and the <a class="reference internal" href="../../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> is <code class="docutils literal notranslate"><span class="pre">edit_page</span></code>.  We provide it
-with a <code class="docutils literal notranslate"><span class="pre">&#64;view_config</span></code> decorator which names the string <code class="docutils literal notranslate"><span class="pre">edit_page</span></code> as its
-<a class="reference internal" href="../../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> (via <code class="docutils literal notranslate"><span class="pre">name=</span></code>), the class <code class="docutils literal notranslate"><span class="pre">tutorial.models.Page</span></code> as its
-context, and the renderer named <code class="docutils literal notranslate"><span class="pre">templates/edit.pt</span></code>.  This means that when
-a Page resource is the context, and a <a class="reference internal" href="../../glossary.html#term-view-name"><span class="xref std std-term">view name</span></a> exists as the result
-of traversal named <code class="docutils literal notranslate"><span class="pre">edit_page</span></code>, this view will be used.  We inform
-<span>Pyramid</span> this view will use the <code class="docutils literal notranslate"><span class="pre">templates/edit.pt</span></code> template file as
-a <code class="docutils literal notranslate"><span class="pre">renderer</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">edit_page</span></code> function will be invoked when a user clicks the &quot;Edit this
-Page&quot; button on the view form.  It renders an edit form but it also acts as
-the form post view callable for the form it renders.  The <code class="docutils literal notranslate"><span class="pre">context</span></code> of the
-<code class="docutils literal notranslate"><span class="pre">edit_page</span></code> view will <em>always</em> be a Page resource (never a Wiki resource).</p>
-<p>If the view execution is <em>not</em> a result of a form submission (if the
-expression <code class="docutils literal notranslate"><span class="pre">'form.submitted'</span> <span class="pre">in</span> <span class="pre">request.params</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>), the view
-simply renders the edit form, passing the page resource, and a <code class="docutils literal notranslate"><span class="pre">save_url</span></code>
-which will be used as the action of the generated form.</p>
-<p>If the view execution <em>is</em> a result of a form submission (if the expression
-<code class="docutils literal notranslate"><span class="pre">'form.submitted'</span> <span class="pre">in</span> <span class="pre">request.params</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>), the view grabs the
-<code class="docutils literal notranslate"><span class="pre">body</span></code> element of the request parameter and sets it as the <code class="docutils literal notranslate"><span class="pre">data</span></code>
-attribute of the page context.  It then redirects to the default view of the
-context (the page), which will always be the <code class="docutils literal notranslate"><span class="pre">view_page</span></code> view.</p>
+<p>`` edit_page``関数は、コンテキストがページリソースであり、：term： <cite>view name`が</cite> <cite>edit_page``であるときに応答するように設定されています。 term： `view name`（</cite> <cite>name =</cite> <cite>を介して）、</cite> <cite>tutorial.models.Page``クラスの文字列</cite> <cite>edit_page``を</cite> <cite>&#64; view_config``デコレータで提供します。 `をコンテキストとして使用し、レンダラを</cite> <cite>templates / edit.pt``と呼びます。つまり、Pageリソースがコンテキストで、 `</cite> edit_page``という名前のトラバーサルの結果として：term： <cite>view name`が存在する場合、このビューが使用されます。 app： `Pyramid`このビューは、</cite> <cite>templates / edit.pt``テンプレートファイルを</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>renderer``として使用します。</p>
+<p>`` edit_page``関数は、ユーザがビューフォームの&amp;quot;Edit this Page &amp;quot;ボタンをクリックすると呼び出されます。これは編集フォームをレンダリングしますが、レンダリングするフォームで呼び出すことのできるフォームポストビューとしても機能します。 `` edit_page``ビューの `` context``は常に*ページリソース（決してWikiリソースではありません）になります。</p>
+<p>ビューの実行がフォームのサブミットの結果でない場合（ビュー `` &amp;#39;form`mitted&amp;#39; in request.params``が `` False``の場合）、ビューは単純にフォームをレンダリングし、ページを渡しますリソースと、生成されたフォームのアクションとして使用される `` save_url``があります。</p>
+<p>ビューの実行*がフォーム提出の結果である場合（ビュー `` &amp;#39;request.params``の中のform.submittedが `` True``の場合）、ビューは `` body``要素を取得します。 requestパラメータを設定し、それをページコンテキストの `` data``属性として設定します。次に、コンテキストのデフォルトビュー（ページ）にリダイレクトします。このビューは常に `` view_page``ビューになります。</p>
 </div>
 </div>
 <div class="section" id="adding-templates">
-<h2>Adding templates<a class="headerlink" href="#adding-templates" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">view_page</span></code>, <code class="docutils literal notranslate"><span class="pre">add_page</span></code> and <code class="docutils literal notranslate"><span class="pre">edit_page</span></code> views that we've added
-reference a <a class="reference internal" href="../../glossary.html#term-template"><span class="xref std std-term">template</span></a>.  Each template is a <a class="reference internal" href="../../glossary.html#term-chameleon"><span class="xref std std-term">Chameleon</span></a>
-<a class="reference internal" href="../../glossary.html#term-zpt"><span class="xref std std-term">ZPT</span></a> template.  These templates will live in the <code class="docutils literal notranslate"><span class="pre">templates</span></code>
-directory of our tutorial package.  Chameleon templates must have a <code class="docutils literal notranslate"><span class="pre">.pt</span></code>
-extension to be recognized as such.</p>
+<h2>テンプレートの追加<a class="headerlink" href="#adding-templates" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` view_page``、 `` add_page``、 `` edit_page``ビューは、参照：a：term： <cite>template`を追加しました。各テンプレートは：term： `Chameleon</cite>：term：` ZPT`テンプレートです。これらのテンプレートはチュートリアルパッケージの `` templates``ディレクトリにあります。カメレオンのテンプレートは、そのように認識されるには `` .pt``拡張子を持たなければなりません。</p>
 <div class="section" id="the-view-pt-template">
-<h3>The <code class="docutils literal notranslate"><span class="pre">view.pt</span></code> template<a class="headerlink" href="#the-view-pt-template" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Rename <code class="docutils literal notranslate"><span class="pre">tutorial/templates/mytemplate.pt</span></code> to <code class="docutils literal notranslate"><span class="pre">tutorial/templates/view.pt</span></code> and edit the emphasized lines to look like the following:</p>
+<h3>`` view.pt``テンプレート<a class="headerlink" href="#the-view-pt-template" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><cite>tutorial / templates / mytemplate.pt``の名前を</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>tutorial / templates / view.pt``に変更し、強調された行を以下のように編集します：</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -780,19 +642,15 @@ extension to be recognized as such.</p>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>This template is used by <code class="docutils literal notranslate"><span class="pre">view_page()</span></code> for displaying a single
-wiki page. It includes:</p>
+<p>このテンプレートは、単一のwikiページを表示するために `` view_page（） <a href="#id1"><span class="problematic" id="id2">``</span></a>によって使用されます。それは以下を含む：</p>
 <ul class="simple">
-<li>A <code class="docutils literal notranslate"><span class="pre">div</span></code> element that is replaced with the <code class="docutils literal notranslate"><span class="pre">content</span></code> value provided by
-the view (lines 37-39).  <code class="docutils literal notranslate"><span class="pre">content</span></code> contains HTML, so the <code class="docutils literal notranslate"><span class="pre">structure</span></code>
-keyword is used to prevent escaping it (i.e., changing &quot;&gt;&quot; to &quot;&amp;gt;&quot;, etc.)</li>
-<li>A link that points at the &quot;edit&quot; URL which invokes the <code class="docutils literal notranslate"><span class="pre">edit_page</span></code> view
-for the page being viewed (lines 41-43).</li>
+<li>ビューによって提供される `` content``値で置き換えられる `` div``要素です（行37-39）。 `` content``はHTMLを含んでいるので、 `` structure``キーワードはそれをエスケープするのを防ぐために使われます（&amp;quot;&amp;gt; &amp;quot;を&amp;quot;&amp;gt; &amp;quot;などに変更する）</li>
+<li>表示されているページの `` edit_page``ビューを呼び出す&amp;quot;編集&amp;quot; URLを指すリンク（41-43行目）。</li>
 </ul>
 </div>
 <div class="section" id="the-edit-pt-template">
-<h3>The <code class="docutils literal notranslate"><span class="pre">edit.pt</span></code> template<a class="headerlink" href="#the-edit-pt-template" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Copy <code class="docutils literal notranslate"><span class="pre">tutorial/templates/view.pt</span></code> to <code class="docutils literal notranslate"><span class="pre">tutorial/templates/edit.pt</span></code> and edit the emphasized lines to look like the following:</p>
+<h3>`` edit.pt``テンプレート<a class="headerlink" href="#the-edit-pt-template" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>`` tutorial / templates / view.pt``を `` tutorial / templates / edit.pt``にコピーし、強調表示された行を以下のように編集します：</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -932,55 +790,32 @@ for the page being viewed (lines 41-43).</li>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>This template is used by <code class="docutils literal notranslate"><span class="pre">add_page()</span></code> and <code class="docutils literal notranslate"><span class="pre">edit_page()</span></code> for adding and
-editing a wiki page.  It displays a page containing a form that includes:</p>
+<p>このテンプレートは、 `` add_page（） <a href="#id1"><span class="problematic" id="id2">``</span></a>と `` edit_page（） <a href="#id3"><span class="problematic" id="id4">``</span></a>によってwikiページの追加と編集に使用されます。以下を含むフォームを含むページが表示されます。</p>
 <ul class="simple">
-<li>A 10-row by 60-column <code class="docutils literal notranslate"><span class="pre">textarea</span></code> field named <code class="docutils literal notranslate"><span class="pre">body</span></code> that is filled
-with any existing page data when it is rendered (line 46).</li>
-<li>A submit button that has the name <code class="docutils literal notranslate"><span class="pre">form.submitted</span></code> (line 49).</li>
+<li>既存のページデータがレンダリングされると（行46）、すべてのページデータで満たされる、 <cite>body &amp;#39;という名前の10行×60列の</cite> textarea`フィールド。</li>
+<li>「form.submitted」という名前の送信ボタン（49行目）。</li>
 </ul>
-<p>The form POSTs back to the <code class="docutils literal notranslate"><span class="pre">save_url</span></code> argument supplied by the view (line
-44).  The view will use the <code class="docutils literal notranslate"><span class="pre">body</span></code> and <code class="docutils literal notranslate"><span class="pre">form.submitted</span></code> values.</p>
+<p>フォームは、ビューが提供する `` save_url``引数に戻ります（行44）。ビューは `` body``と `` form.submitted``の値を使用します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Our templates use a <code class="docutils literal notranslate"><span class="pre">request</span></code> object that none of our tutorial
-views return in their dictionary. <code class="docutils literal notranslate"><span class="pre">request</span></code> is one of several names that
-are available &quot;by default&quot; in a template when a template renderer is used.
-See <a class="reference internal" href="../../narr/templates.html#renderer-system-values"><span class="std std-ref">レンダリング時に使用されるシステム値</span></a> for information about other names that
-are available by default when a template is used as a renderer.</p>
+<p class="last">私たちのテンプレートは、私たちのチュートリアルビューのどれもが辞書に返されない `` request``オブジェクトを使います。 `` request``は、テンプレートレンダラーが使用されているときに、テンプレート内でデフォルトで利用可能ないくつかの名前の1つです。テンプレートがレンダラーとして使われるときにデフォルトで利用可能な他の名前については、ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>renderer_system_values`を参照してください。</p>
 </div>
 </div>
 <div class="section" id="static-assets">
-<h3>Static assets<a class="headerlink" href="#static-assets" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Our templates name static assets, including CSS and images.  We don't need
-to create these files within our package's <code class="docutils literal notranslate"><span class="pre">static</span></code> directory because they
-were provided at the time we created the project.</p>
-<p>As an example, the CSS file will be accessed via
-<code class="docutils literal notranslate"><span class="pre">http://localhost:6543/static/theme.css</span></code> by virtue of the call to the
-<code class="docutils literal notranslate"><span class="pre">add_static_view</span></code> directive we've made in the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file.  Any
-number and type of static assets can be placed in this directory (or
-subdirectories) and are just referred to by URL or by using the convenience
-method <code class="docutils literal notranslate"><span class="pre">static_url</span></code>, e.g.,
-<code class="docutils literal notranslate"><span class="pre">request.static_url('&lt;package&gt;:static/foo.css')</span></code> within templates.</p>
+<h3>静的資産<a class="headerlink" href="#static-assets" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>テンプレートには、CSSや画像などの静的資産の名前が付けられます。これらのファイルは、プロジェクトの作成時に提供されたものであるため、パッケージの `` static``ディレクトリ内に作成する必要はありません。</p>
+<p>例として、CSSファイルは、 `` __init__で作った `` add_static_view``ディレクティブを呼び出すことによって、 `` http：// localhost：6543 / static / theme.css``を介してアクセスされます.py``ファイル。任意の数とタイプの静的アセットをこのディレクトリ（またはサブディレクトリ）に配置することができ、単にURLで、または `` static_url``という便利なメソッドを使用するだけです。たとえば、 `` request.static_url（ &amp;#39; &lt;package&gt; ：static / foo.css &amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>テンプレート内にあります。</p>
 </div>
 </div>
 <div class="section" id="viewing-the-application-in-a-browser">
-<h2>Viewing the application in a browser<a class="headerlink" href="#viewing-the-application-in-a-browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We can finally examine our application in a browser (See
-<a class="reference internal" href="installation.html#wiki-start-the-application"><span class="std std-ref">Start the application</span></a>).  Launch a browser and visit
-each of the following URLs, checking that the result is as expected:</p>
+<h2>ブラウザでのアプリケーションの表示<a class="headerlink" href="#viewing-the-application-in-a-browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>最後に、ブラウザでアプリケーションを調べることができます（参照：ref： <cite>wiki-start-the-application</cite>）。ブラウザを起動し、次の各URLにアクセスして、結果が期待どおりであることを確認します。</p>
 <ul class="simple">
-<li><a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> invokes the <code class="docutils literal notranslate"><span class="pre">view_wiki</span></code> view.  This always
-redirects to the <code class="docutils literal notranslate"><span class="pre">view_page</span></code> view of the <code class="docutils literal notranslate"><span class="pre">FrontPage</span></code> Page resource.</li>
-<li><a class="reference external" href="http://localhost:6543/FrontPage/">http://localhost:6543/FrontPage/</a> invokes the <code class="docutils literal notranslate"><span class="pre">view_page</span></code> view of the front
-page resource.  This is because it's the <a class="reference internal" href="../../glossary.html#term-default-view"><span class="xref std std-term">default view</span></a> (a view
-without a <code class="docutils literal notranslate"><span class="pre">name</span></code>) for Page resources.</li>
-<li><a class="reference external" href="http://localhost:6543/FrontPage/edit_page">http://localhost:6543/FrontPage/edit_page</a> invokes the edit view for the
-<code class="docutils literal notranslate"><span class="pre">FrontPage</span></code> Page resource.</li>
-<li><a class="reference external" href="http://localhost:6543/add_page/SomePageName">http://localhost:6543/add_page/SomePageName</a> invokes the add view for a Page.</li>
-<li>To generate an error, visit <a class="reference external" href="http://localhost:6543/add_page">http://localhost:6543/add_page</a> which will
-generate an <code class="docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">tuple</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code> error. You'll see an
-interactive traceback facility provided by <a class="reference internal" href="../../glossary.html#term-pyramid-debugtoolbar"><span class="xref std std-term">pyramid_debugtoolbar</span></a>.</li>
+<li>http：// localhost：6543 / `` view_wiki``ビューを呼び出します。これは常に `` FrontPage``ページリソースの `` view_page``ビューにリダイレクトされます。</li>
+<li>http：// localhost：6543 / FrontPage /は、フロントページリソースの `` view_page``ビューを呼び出します。これは、ページリソースの：term： <cite>default view`（</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>name``のないビュー）です。</li>
+<li>http：// localhost：6543 / FrontPage / edit_pageは、 `` FrontPage``ページリソースの編集ビューを呼び出します。</li>
+<li>http：// localhost：6543 / add_page / SomePageNameは、ページの追加ビューを呼び出します。</li>
+<li>エラーを生成するには、http：// localhost：6543 / add_pageを参照してください。これは、 `` IndexError：tuple index to range``エラーを生成します。対話的なトレースバック機能がterm： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid_debugtoolbar`によって提供されます。</li>
 </ul>
 </div>
 </div>
@@ -993,33 +828,33 @@ interactive traceback facility provided by <a class="reference internal" href=".
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Defining Views</a><ul>
-<li><a class="reference internal" href="#declaring-dependencies-in-our-setup-py-file">Declaring Dependencies in Our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> File</a></li>
-<li><a class="reference internal" href="#running-pip-install-e">Running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code></a></li>
-<li><a class="reference internal" href="#adding-view-functions-in-views-py">Adding view functions in <code class="docutils literal notranslate"><span class="pre">views.py</span></code></a><ul>
-<li><a class="reference internal" href="#the-view-wiki-view-function">The <code class="docutils literal notranslate"><span class="pre">view_wiki</span></code> view function</a></li>
-<li><a class="reference internal" href="#the-view-page-view-function">The <code class="docutils literal notranslate"><span class="pre">view_page</span></code> view function</a></li>
-<li><a class="reference internal" href="#the-add-page-view-function">The <code class="docutils literal notranslate"><span class="pre">add_page</span></code> view function</a></li>
-<li><a class="reference internal" href="#the-edit-page-view-function">The <code class="docutils literal notranslate"><span class="pre">edit_page</span></code> view function</a></li>
+<li><a class="reference internal" href="#">(機械翻訳)ビューの定義</a><ul>
+<li><a class="reference internal" href="#declaring-dependencies-in-our-setup-py-file">`` setup.py``ファイルの依存関係の宣言</a></li>
+<li><a class="reference internal" href="#running-pip-install-e">`` pip install -e .``を実行しています。</a></li>
+<li><a class="reference internal" href="#adding-view-functions-in-views-py">`` views.py``にビュー関数を追加する</a><ul>
+<li><a class="reference internal" href="#the-view-wiki-view-function">`` view_wiki``ビュー関数</a></li>
+<li><a class="reference internal" href="#the-view-page-view-function">`` view_page``ビュー関数</a></li>
+<li><a class="reference internal" href="#the-add-page-view-function">`` add_page``ビュー関数</a></li>
+<li><a class="reference internal" href="#the-edit-page-view-function">`` edit_page``ビュー関数</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#adding-templates">Adding templates</a><ul>
-<li><a class="reference internal" href="#the-view-pt-template">The <code class="docutils literal notranslate"><span class="pre">view.pt</span></code> template</a></li>
-<li><a class="reference internal" href="#the-edit-pt-template">The <code class="docutils literal notranslate"><span class="pre">edit.pt</span></code> template</a></li>
-<li><a class="reference internal" href="#static-assets">Static assets</a></li>
+<li><a class="reference internal" href="#adding-templates">テンプレートの追加</a><ul>
+<li><a class="reference internal" href="#the-view-pt-template">`` view.pt``テンプレート</a></li>
+<li><a class="reference internal" href="#the-edit-pt-template">`` edit.pt``テンプレート</a></li>
+<li><a class="reference internal" href="#static-assets">静的資産</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#viewing-the-application-in-a-browser">Viewing the application in a browser</a></li>
+<li><a class="reference internal" href="#viewing-the-application-in-a-browser">ブラウザでのアプリケーションの表示</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="definingmodels.html"
-                        title="前の章へ">Defining the Domain Model</a></p>
+                        title="前の章へ">(機械翻訳)ドメインモデルの定義</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="authorization.html"
-                        title="次の章へ">Adding authorization</a></p>
+                        title="次の章へ">(機械翻訳)承認を追加する</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -1053,18 +888,18 @@ interactive traceback facility provided by <a class="reference internal" href=".
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="authorization.html" title="Adding authorization"
+          <a href="authorization.html" title="(機械翻訳)承認を追加する"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="definingmodels.html" title="Defining the Domain Model"
+          <a href="definingmodels.html" title="(機械翻訳)ドメインモデルの定義"
              >前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >ZODB + Traversal Wiki Tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >(機械翻訳)ZODB + Traversal Wikiチュートリアル</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 03, 2018
+      最終更新: 11月 10, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

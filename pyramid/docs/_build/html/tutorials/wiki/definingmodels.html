@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Defining the Domain Model &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳)ドメインモデルの定義 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
-    <link rel="next" title="Defining Views" href="definingviews.html" />
-    <link rel="prev" title="Basic Layout" href="basiclayout.html" />
+    <link rel="next" title="(機械翻訳)ビューの定義" href="definingviews.html" />
+    <link rel="prev" title="(機械翻訳)基本レイアウト" href="basiclayout.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,13 +54,13 @@
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="definingviews.html" title="Defining Views"
+          <a href="definingviews.html" title="(機械翻訳)ビューの定義"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="basiclayout.html" title="Basic Layout"
+          <a href="basiclayout.html" title="(機械翻訳)基本レイアウト"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ZODB + Traversal Wiki Tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">(機械翻訳)ZODB + Traversal Wikiチュートリアル</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,39 +70,20 @@
           <div class="body" role="main">
             
   <div class="section" id="defining-the-domain-model">
-<span id="wiki-defining-the-domain-model"></span><h1>Defining the Domain Model<a class="headerlink" href="#defining-the-domain-model" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>The first change we'll make to our stock cookiecutter-generated application will
-be to define two <a class="reference internal" href="../../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> constructors, one representing a wiki page,
-and another representing the wiki as a mapping of wiki page names to page
-objects.  We'll do this inside our <code class="docutils literal notranslate"><span class="pre">models.py</span></code> file.</p>
-<p>Because we're using <a class="reference internal" href="../../glossary.html#term-zodb"><span class="xref std std-term">ZODB</span></a> to represent our
-<a class="reference internal" href="../../glossary.html#term-resource-tree"><span class="xref std std-term">resource tree</span></a>, each of these resource constructors represents a
-<a class="reference internal" href="../../glossary.html#term-domain-model"><span class="xref std std-term">domain model</span></a> object, so we'll call these constructors &quot;model
-constructors&quot;. Both our Page and Wiki constructors will be class objects.  A
-single instance of the &quot;Wiki&quot; class will serve as a container for &quot;Page&quot;
-objects, which will be instances of the &quot;Page&quot; class.</p>
+<span id="wiki-defining-the-domain-model"></span><h1>(機械翻訳)ドメインモデルの定義<a class="headerlink" href="#defining-the-domain-model" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>株式cookiecutterで生成されるアプリケーションの最初の変更は、term： <cite>resource`コンストラクタ、wikiページを表すコンストラクタ、およびwikiをページオブジェクトへのマッピングとして表す別の2つを定義することです。これを `</cite> models.py``ファイルの中で行います。</p>
+<p>：term： <cite>resource tree &amp;#39;を表すために：term：</cite> ZODB`を使用しているので、これらのリソースコンストラクタはそれぞれ、：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>domain model`オブジェクトを表していますので、これらのコンストラクタ&amp;quot; PageとWikiのコンストラクタはどちらもクラスオブジェクトです。 &amp;quot;Wiki &amp;quot;クラスの1つのインスタンスは&amp;quot;Page &amp;quot;オブジェクトのコンテナとして機能し、&amp;quot;Page &amp;quot;クラスのインスタンスになります。</p>
 <div class="section" id="delete-the-database">
-<h2>Delete the database<a class="headerlink" href="#delete-the-database" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>In the next step, we're going to remove the <code class="docutils literal notranslate"><span class="pre">MyModel</span></code> Python model
-class from our <code class="docutils literal notranslate"><span class="pre">models.py</span></code> file.  Since this class is referred to within
-our persistent storage (represented on disk as a file named <code class="docutils literal notranslate"><span class="pre">Data.fs</span></code>),
-we'll have strange things happen the next time we want to visit the
-application in a browser.  Remove the <code class="docutils literal notranslate"><span class="pre">Data.fs</span></code> from the <code class="docutils literal notranslate"><span class="pre">tutorial</span></code>
-directory before proceeding any further.  It's always fine to do this as long
-as you don't care about the content of the database; the database itself will
-be recreated as necessary.</p>
+<h2>データベースを削除する<a class="headerlink" href="#delete-the-database" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>次のステップでは、 `` MyModel`` Pythonモデルクラスを `` models.py``ファイルから削除します。このクラスは永続ストレージ（ディスク上に `` Data.fs``という名前のファイルとして表現されています）内で参照されるため、次にブラウザでアプリケーションを訪問するときに奇妙なことが起こります。続行する前に `` tutorial``ディレクトリから `` Data.fs``を削除してください。データベースの内容を気にしない限り、これはいつでもうまくいきます。データベース自体は必要に応じて再作成されます。</p>
 </div>
 <div class="section" id="edit-models-py">
-<h2>Edit <code class="docutils literal notranslate"><span class="pre">models.py</span></code><a class="headerlink" href="#edit-models-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>`` models.py``を編集する<a class="headerlink" href="#edit-models-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">There is nothing special about the filename <code class="docutils literal notranslate"><span class="pre">models.py</span></code>.  A
-project may have many models throughout its codebase in arbitrarily named
-files.  Files implementing models often have <code class="docutils literal notranslate"><span class="pre">model</span></code> in their filenames
-or they may live in a Python subpackage of your application package named
-<code class="docutils literal notranslate"><span class="pre">models</span></code>, but this is only by convention.</p>
+<p class="last">ファイル名 `` models.py``には何も特別なものはありません。プロジェクトのコードベースには、任意の名前のファイルで多くのモデルが存在します。モデルを実装しているファイルは、ファイル名に `` model``を持つことが多く、 `` models``という名前のアプリケーションパッケージのPythonサブパッケージに存在することもありますが、これは慣例によるものです。</p>
 </div>
-<p>Open <code class="docutils literal notranslate"><span class="pre">tutorial/models.py</span></code> file and edit it to look like the following:</p>
+<p>`` tutorial / models.py``ファイルを開き、以下のように編集してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -144,46 +125,20 @@ or they may live in a Python subpackage of your application package named
     <span class="k">return</span> <span class="n">zodb_root</span><span class="p">[</span><span class="s1">&#39;app_root&#39;</span><span class="p">]</span>
 </pre></div>
 </td></tr></table></div>
-<p>The first thing we want to do is remove the <code class="docutils literal notranslate"><span class="pre">MyModel</span></code> class from the
-generated <code class="docutils literal notranslate"><span class="pre">models.py</span></code> file.  The <code class="docutils literal notranslate"><span class="pre">MyModel</span></code> class is only a sample and
-we're not going to use it.</p>
-<p>Then we'll add an import at the top for the <code class="xref py py-class docutils literal notranslate"><span class="pre">persistent.Persistent</span></code> class.  We'll use this for a new <code class="docutils literal notranslate"><span class="pre">Page</span></code> class in a moment.</p>
-<p>Then we'll add a <code class="docutils literal notranslate"><span class="pre">Wiki</span></code> class.  We want it to inherit from the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">persistent.mapping.PersistentMapping</span></code> class because it provides
-mapping behavior, and it makes sure that our Wiki page is stored as a
-&quot;first-class&quot; persistent object in our ZODB database.</p>
-<p>Our <code class="docutils literal notranslate"><span class="pre">Wiki</span></code> class should have two attributes set to <code class="docutils literal notranslate"><span class="pre">None</span></code> at
-class scope: <code class="docutils literal notranslate"><span class="pre">__parent__</span></code> and <code class="docutils literal notranslate"><span class="pre">__name__</span></code>.  If a model has a
-<code class="docutils literal notranslate"><span class="pre">__parent__</span></code> attribute of <code class="docutils literal notranslate"><span class="pre">None</span></code> in a traversal-based <span>Pyramid</span>
-application, it means that it's the <a class="reference internal" href="../../glossary.html#term-root"><span class="xref std std-term">root</span></a> model.  The <code class="docutils literal notranslate"><span class="pre">__name__</span></code>
-of the root model is also always <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>Then we'll add a <code class="docutils literal notranslate"><span class="pre">Page</span></code> class.  This class should inherit from the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">persistent.Persistent</span></code> class.  We'll also give it an <code class="docutils literal notranslate"><span class="pre">__init__</span></code>
-method that accepts a single parameter named <code class="docutils literal notranslate"><span class="pre">data</span></code>.  This parameter will
-contain the <a class="reference internal" href="../../glossary.html#term-restructuredtext"><span class="xref std std-term">reStructuredText</span></a> body representing the wiki page content.
-Note that <code class="docutils literal notranslate"><span class="pre">Page</span></code> objects don't have an initial <code class="docutils literal notranslate"><span class="pre">__name__</span></code> or
-<code class="docutils literal notranslate"><span class="pre">__parent__</span></code> attribute.  All objects in a traversal graph must have a
-<code class="docutils literal notranslate"><span class="pre">__name__</span></code> and a <code class="docutils literal notranslate"><span class="pre">__parent__</span></code> attribute.  We don't specify these here
-because both <code class="docutils literal notranslate"><span class="pre">__name__</span></code> and <code class="docutils literal notranslate"><span class="pre">__parent__</span></code> will be set by a <a class="reference internal" href="../../glossary.html#term-view"><span class="xref std std-term">view</span></a>
-function when a Page is added to our Wiki mapping.</p>
-<p>As a last step, we want to change the <code class="docutils literal notranslate"><span class="pre">appmaker</span></code> function in our
-<code class="docutils literal notranslate"><span class="pre">models.py</span></code> file so that the <a class="reference internal" href="../../glossary.html#term-root"><span class="xref std std-term">root</span></a> <a class="reference internal" href="../../glossary.html#term-resource"><span class="xref std std-term">resource</span></a> of our
-application is a Wiki instance.  We'll also slot a single page object (the
-front page) into the Wiki within the <code class="docutils literal notranslate"><span class="pre">appmaker</span></code>.  This will provide
-<a class="reference internal" href="../../glossary.html#term-traversal"><span class="xref std std-term">traversal</span></a> a <a class="reference internal" href="../../glossary.html#term-resource-tree"><span class="xref std std-term">resource tree</span></a> to work against when it attempts to
-resolve URLs to resources.</p>
+<p>まず最初に、生成された `` models.py``ファイルから `` MyModel``クラスを削除します。 `` MyModel``クラスは単なるサンプルであり、私たちはそれを使用しません。</p>
+<p>次に、：class： <cite>persistent.Persistent`クラスの先頭にインポートを追加します。新しい `</cite> Page``クラスにこれを使用します。</p>
+<p>次に、 `` Wiki``クラスを追加します。 ：class： <a href="#id1"><span class="problematic" id="id2">`</span></a>persistent.mapping.PersistentMapping`クラスはマッピング動作を提供するので、継承することが望ましく、WikiページがZODBデータベースの&amp;quot;ファーストクラス&amp;quot;永続オブジェクトとして格納されるようにします。</p>
+<p>私たちの `` Wiki``クラスは、 `` __parent__``と `` __name__``という2つの属性をクラススコープで `` None``に設定しなければなりません。モデルがトラバーサルベースの：app： <cite>Pyramid`アプリケーションで</cite> <cite>None``の</cite> <cite>__parent__``属性を持っている場合、それは：term：`ルート `モデルであることを意味します。ルートモデルの `</cite> __name__``も常に `` None``です。</p>
+<p>次に、 `` Page``クラスを追加します。このクラスは：class： <cite>persistent.Persistent`クラスから継承する必要があります。また、 `</cite> data``という名前の単一のパラメータを受け入れる `` __init__``メソッドを提供します。このパラメータには、wikiページの内容を表す：term： <cite>reStructuredText`ボディが含まれます。 `</cite> Page``オブジェクトには初期の `` __name__``や `` __parent__``属性がありません。トラバーサルグラフ内のすべてのオブジェクトには、 `` __name__``と `` __parent__``属性が必要です。これは、WikiマッピングにPageが追加されたときに：term： <cite>view`関数によって</cite> <cite>__name__``と</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>__parent__``の両方が設定されるため、ここでは指定しません。</p>
+<p>最後のステップとして、アプリケーションの：term： <cite>root</cite>：term：` resource`がWikiのインスタンスになるように、 `` models.py``ファイルの `` appmaker``関数を変更します。また、「appmaker」内のWikiに単一のページオブジェクト（フロントページ）を挿入します。これは：term： <cite>traversal</cite> a：term：` resource tree`がURLをリソースに解決しようとするときに働くようにします。</p>
 </div>
 <div class="section" id="view-the-application-in-a-browser">
-<h2>View the application in a browser<a class="headerlink" href="#view-the-application-in-a-browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We can't.  At this point, our system is in a &quot;non-runnable&quot; state; we'll need
-to change view-related files in the next chapter to be able to start the
-application successfully.  If you try to start the application (See
-<a class="reference internal" href="installation.html#wiki-start-the-application"><span class="std std-ref">Start the application</span></a>), you'll wind
-up with a Python traceback on your console that ends with this exception:</p>
+<h2>ブラウザでアプリケーションを表示する<a class="headerlink" href="#view-the-application-in-a-browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>私たちはできません。この時点で、私たちのシステムは&amp;quot;実行不可能な&amp;quot;状態にあります。次の章のビュー関連のファイルを変更して、アプリケーションを正常に起動できるようにする必要があります。アプリケーションを起動しようとすると（参照：ref： <cite>wiki-start-the-application</cite>）、あなたはこの例外で終わるコンソールにPythonのトレースバックを書き留めます：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ImportError: cannot import name MyModel
 </pre></div>
 </div>
-<p>This will also happen if you attempt to run the tests.</p>
+<p>これは、テストを実行しようとした場合にも発生します。</p>
 </div>
 </div>
 
@@ -195,20 +150,20 @@ up with a Python traceback on your console that ends with this exception:</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Defining the Domain Model</a><ul>
-<li><a class="reference internal" href="#delete-the-database">Delete the database</a></li>
-<li><a class="reference internal" href="#edit-models-py">Edit <code class="docutils literal notranslate"><span class="pre">models.py</span></code></a></li>
-<li><a class="reference internal" href="#view-the-application-in-a-browser">View the application in a browser</a></li>
+<li><a class="reference internal" href="#">(機械翻訳)ドメインモデルの定義</a><ul>
+<li><a class="reference internal" href="#delete-the-database">データベースを削除する</a></li>
+<li><a class="reference internal" href="#edit-models-py">`` models.py``を編集する</a></li>
+<li><a class="reference internal" href="#view-the-application-in-a-browser">ブラウザでアプリケーションを表示する</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="basiclayout.html"
-                        title="前の章へ">Basic Layout</a></p>
+                        title="前の章へ">(機械翻訳)基本レイアウト</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="definingviews.html"
-                        title="次の章へ">Defining Views</a></p>
+                        title="次の章へ">(機械翻訳)ビューの定義</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -242,18 +197,18 @@ up with a Python traceback on your console that ends with this exception:</p>
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="definingviews.html" title="Defining Views"
+          <a href="definingviews.html" title="(機械翻訳)ビューの定義"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="basiclayout.html" title="Basic Layout"
+          <a href="basiclayout.html" title="(機械翻訳)基本レイアウト"
              >前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >ZODB + Traversal Wiki Tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >(機械翻訳)ZODB + Traversal Wikiチュートリアル</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 03, 2018
+      最終更新: 11月 10, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>(機械翻訳)基本レイアウト &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>基本レイアウト(Basic Layout) &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -19,7 +19,7 @@
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
     <link rel="next" title="(機械翻訳)ドメインモデルの定義" href="definingmodels.html" />
-    <link rel="prev" title="（機械翻訳）インストール" href="installation.html" />
+    <link rel="prev" title="インストール(Installation)" href="installation.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -57,7 +57,7 @@
           <a href="definingmodels.html" title="(機械翻訳)ドメインモデルの定義"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="installation.html" title="（機械翻訳）インストール"
+          <a href="installation.html" title="インストール(Installation)"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
@@ -70,12 +70,12 @@
           <div class="body" role="main">
             
   <div class="section" id="basic-layout">
-<span id="wiki2-basic-layout"></span><h1>(機械翻訳)基本レイアウト<a class="headerlink" href="#basic-layout" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>`` alchemy`` cookiecutterで生成されたスターターファイルは非常に基本的ですが、app： <a href="#id1"><span class="problematic" id="id2">`</span></a>Pyramid`プロジェクトに最もよく使われる高水準のパターンに適しています。</p>
+<span id="wiki2-basic-layout"></span><h1>基本レイアウト(Basic Layout)<a class="headerlink" href="#basic-layout" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>「alchemy」cookiecutterで生成されたスターターファイルは非常に基本的ですがほとんどの <a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> ベースの:app:<cite>Pyramid</cite> プロジェクトに共通する高水準のパターンに適しています。</p>
 <div class="section" id="application-configuration-with-init-py">
-<h2>`` __init __。py``によるアプリケーション構成<a class="headerlink" href="#application-configuration-with-init-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ディスク上のディレクトリは `` __init __。py``ファイルを含むことで、Python：term： <cite>package`に変換することができます。たとえ空であっても、これはディレクトリをPythonパッケージとしてマークします。 `</cite> __init __。py``はパッケージのディレクトリを示すマーカーとして、そしてアプリケーションの設定コードを格納するためのマーカーとして使われます。</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>チュートリアル/ __ init __。py``を開きます。それはすでに以下を含んでいるはずです：</p>
+<h2>「__init __.py」によるアプリケーション構成（ Application configuration with <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> ）<a class="headerlink" href="#application-configuration-with-init-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ディスク上のディレクトリは「__init__.py」ファイルを含むことで、Pythonの :term:<a href="#id1"><span class="problematic" id="id2">`</span></a>package`に変換できます。たとえ空であってもディレクトリをPythonパッケージとしてマークします。「__init__.py」はパッケージのディレクトリを示すマーカーとして、そしてアプリケーションの設定コードを格納するためのマーカーとして使われます。</p>
+<p>「tutorial/__init__.py」を開きます。それはすでに以下を含んでいるはずです：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -109,7 +109,7 @@
 
 </pre></div>
 </td></tr></table></div>
-<p>`` __init __。py``は `` main``という名前の関数を定義します。ここで `` __init __。py``で定義した `` main``関数の全体を示します：</p>
+<p>「__init__.py」は 「main」という名前の関数を定義します。ここでは「__init__.py」で定義した 「main」関数の全体を表示します：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 4
  5
  6
@@ -129,40 +129,40 @@
     <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>`` pserve development.ini``コマンドを実行すると、上記の `` main``関数が実行されます。これはいくつかの設定を受け入れ、：term： <cite>WSGI`アプリケーションを返します。 （ `</cite> pserve``の詳細については：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>startup_chapter`を参照してください。）</p>
-<p>次に `` main``の中にa：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Configurator`オブジェクトを作成します：</p>
+<p>「pserve development.ini」コマンドを実行すると、上記の 「main」関数が実行されます。これはいくつかの設定を受け入れて <a class="reference internal" href="../../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> アプリケーションを返却します。 （ 「pserve」の詳細については <a class="reference internal" href="../../narr/startup.html#startup-chapter"><span class="std std-ref">(機械翻訳) 起動</span></a> を参照してください。）</p>
+<p>次に「main」の中に <a class="reference internal" href="../../glossary.html#term-configurator"><span class="xref std std-term">Configurator</span></a> オブジェクトを作成します：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>`` settings``は `` Configurator``にキーワード引数として渡され、辞書値は `` ** settings``引数として渡されます。これは `` .ini``ファイルから解析された設定の辞書で、 `` pyramid.reload_templates``、 `` sqlalchemy.url``などのデプロイメント関連の値を含んでいます。</p>
-<p>次に、プロジェクト内で `` .jinja2``拡張子を持つレンダラーを使用できるように、term： <a href="#id1"><span class="problematic" id="id2">`</span></a>Jinja2`テンプレートバインディングをインクルードします。</p>
+<p>「settings」は 「Configurator」にキーワード引数として渡され、辞書の値は 「** settings」引数として渡されます。これは 「.ini」ファイルで設定した辞書型の値で、 「pyramid.reload_templates」、 「sqlalchemy.url」などのデプロイメント関連の値を含んでいます。</p>
+<p>次に、プロジェクト内で「.jinja2」拡張子を持つレンダラーを使用できるように、<a class="reference internal" href="../../glossary.html#term-jinja2"><span class="xref std std-term">Jinja2</span></a> テンプレートバインディングをインクルードします。</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;pyramid_jinja2&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>次に、点線のPythonパスを使って `` models``パッケージをインクルードします。モデルの正確な設定については後で説明します。</p>
+<p>次にドットのPythonパスを使って 「models」パッケージをインクルードします。モデルの正確な設定については後で説明します。</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;.models&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>次に点線のPythonパスを使って `` routes``モジュールをインクルードします。このモジュールについては、次のセクションで説明します。</p>
+<p>次にドットのPythonパスを使って「routes」モジュールをインクルードします。このモジュールについては、次のセクションで説明します。</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="n">config</span><span class="o">.</span><span class="n">include</span><span class="p">(</span><span class="s1">&#39;.routes&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Pyramidの：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.include`メソッドは、コンフィグレータを拡張し、コードを機能に焦点を当てたモジュールに分割するための主要な仕組みです。</p>
+<p class="last">Pyramidの <a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> メソッドは、コンフィグレータを拡張して、コードを機能に焦点を当てたモジュールに分割するための主なメカニズムです。</p>
 </div>
-<p>`` main``はコンフィギュレータ（：meth： <cite>pyramid.config.Configurator.scan</cite>）の` <cite>scan``メソッドを呼び出します。このメソッドは、</cite> <cite>tutorial``パッケージを再帰的にスキャンし、</cite> <cite>&#64;view_config ``と他の特別なデコレータ。 `</cite> &#64; view_config``デコレータが見つかると、ビュー設定が登録され、アプリケーションのURLの1つがいくつかのコードにマッピングされます。</p>
+<p>「main」はコンフィギュレータ（ <a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.scan" title="pyramid.config.Configurator.scan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.scan()</span></code></a> ）の「scan」メソッドを呼び出します。このメソッドは「tutorial」パッケージを再帰的にスキャンして、「&#64;view_config」と他の特別なデコレータを探します。 「&#64; view_config」デコレータが見つかると、ビューの設定が登録され、アプリケーションのURLの1つがいくつかのコードにマッピングされます。</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>最後に、 `` main``が物事を設定し終わったので、：meth： <cite>pyramid.config.Configurator.make_wsgi_app`メソッドを使って：term：</cite> WSGI`アプリケーションを返します：</p>
+<p>最後に「main」が物事を設定し終わったので、 <a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.make_wsgi_app" title="pyramid.config.Configurator.make_wsgi_app"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.make_wsgi_app()</span></code></a> メソッドを使って <a class="reference internal" href="../../glossary.html#term-wsgi"><span class="xref std std-term">WSGI</span></a> アプリケーションを返します：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>12</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="section" id="route-declarations">
-<h2>ルート宣言<a class="headerlink" href="#route-declarations" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>`` tutorial / routes.py``ファイルを開きます。それはすでに以下を含んでいるはずです：</p>
+<h2>ルート宣言(Route declarations)<a class="headerlink" href="#route-declarations" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>「tutorial/routes.py」ファイルを開いてみてると、以下がすでに記載されているはずです：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">includeme</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
@@ -170,12 +170,12 @@
     <span class="n">config</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>2行目では、 `` static``（名前）、 `` static``（パス）、 `` cache_max_age``（a）の3つの引数を持つmeth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.config.Configurator.add_static_view`を呼び出します。キーワード引数）。</p>
-<p>これは静的リソースビューを登録します。これは `` / static``という接頭辞で始まるURLにマッチします（ `` add_static_view``の最初の引数によって）。これは `` tutorial``パッケージの `` static``ディレクトリから静的リソースを提供します。この場合、 `` http：// localhost：6543 / static / <code class="docutils literal notranslate"><span class="pre">以下で</span></code> add_static_view``の2番目の引数）。この宣言では、 `` / static``で始まるURLはすべて静的ビューに移動する必要があります。 CSSファイルのような静的なファイルリソースへのパスを構成するために、パスの残りの部分（ `` / foo``、 `` / static / foo``など）が使われます。</p>
-<p>3行目では、：meth： <cite>pyramid.config.Configurator.add_route`メソッドを使ってa：term：</cite> route configuration`を登録します。このメソッドは、URLが `` / <a href="#id1"><span class="problematic" id="id2">``</span></a>のときに使用されます。このルートは `` / <a href="#id3"><span class="problematic" id="id4">``</span></a>と同じ <a href="#id5"><span class="problematic" id="id6">``</span></a>パターン &amp;#39;&amp;#39;を持っているので、URL `` / <a href="#id7"><span class="problematic" id="id8">``</span></a>が訪れたときにマッチするルートです。例えば `` http：// localhost：6543 / `` 。</p>
+<p>2行目では、 「static」（名前）、 「static」（パス）、 「cache_max_age」（a）の3つの引数を持つ <a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_static_view()</span></code></a> を呼び出します。キーワード引数）。</p>
+<p>これは静的リソースビューを登録します。これは「/static」いう接頭辞で始まるURLにマッチします（ 「add_static_view」の最初の引数によって）。これは「tutorial」パッケージの「static」ディレクトリから静的リソースを提供します。この場合、 「 <a class="reference external" href="http://localhost:6543/static/">http://localhost:6543/static/</a> 」以下で「add_static_view」の2番目の引数）。この宣言では、 「/static」で始まるURLはすべて静的ビューに移動する必要があります。 CSSファイルのような静的なファイルリソースへのパスを構成するために、パスの残りの部分（ 「/foo」、 「/static/foo」など）が使われます。</p>
+<p>3行目では、<a class="reference internal" href="../../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a> メソッドを使って <a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> を登録します。このメソッドは、URLが 「/」のときに使用されます。このルートは 「/」と同じ「パターン」を持っているので、URL「/」が訪れたときにマッチするルートです。例えば 「 <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> 　」。</p>
 </div>
 <div class="section" id="view-declarations-via-the-views-package">
-<h2>`` views``パッケージを使って宣言を表示する<a class="headerlink" href="#view-declarations-via-the-views-package" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>「views」パッケージを使って宣言を表示する( View declarations via the <code class="docutils literal notranslate"><span class="pre">views</span></code> package&quot;)<a class="headerlink" href="#view-declarations-via-the-views-package" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Webフレームワークの主な機能は、要求されたURLが対応する：term： <cite>route`と一致するときに実行されるコード（a：term：</cite> view callable`）への各URLパターンのマッピングです。私たちのアプリケーションは：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.view.view_config`デコレータを使ってこのマッピングを行います。</p>
 <p>`` views``パッケージの `` tutorial / views / default.py``を開きます。それはすでに以下を含んでいるはずです：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -684,10 +684,10 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">(機械翻訳)基本レイアウト</a><ul>
-<li><a class="reference internal" href="#application-configuration-with-init-py">`` __init __。py``によるアプリケーション構成</a></li>
-<li><a class="reference internal" href="#route-declarations">ルート宣言</a></li>
-<li><a class="reference internal" href="#view-declarations-via-the-views-package">`` views``パッケージを使って宣言を表示する</a></li>
+<li><a class="reference internal" href="#">基本レイアウト(Basic Layout)</a><ul>
+<li><a class="reference internal" href="#application-configuration-with-init-py">「__init __.py」によるアプリケーション構成（ Application configuration with <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> ）</a></li>
+<li><a class="reference internal" href="#route-declarations">ルート宣言(Route declarations)</a></li>
+<li><a class="reference internal" href="#view-declarations-via-the-views-package">「views」パッケージを使って宣言を表示する( View declarations via the <code class="docutils literal notranslate"><span class="pre">views</span></code> package&quot;)</a></li>
 <li><a class="reference internal" href="#content-models-with-the-models-package">`` models``パッケージによるコンテンツモデル</a></li>
 </ul>
 </li>
@@ -695,7 +695,7 @@
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="installation.html"
-                        title="前の章へ">（機械翻訳）インストール</a></p>
+                        title="前の章へ">インストール(Installation)</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="definingmodels.html"
                         title="次の章へ">(機械翻訳)ドメインモデルの定義</a></p>
@@ -735,7 +735,7 @@
           <a href="definingmodels.html" title="(機械翻訳)ドメインモデルの定義"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="installation.html" title="（機械翻訳）インストール"
+          <a href="installation.html" title="インストール(Installation)"
              >前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
@@ -743,7 +743,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 03, 2018
+      最終更新: 11月 10, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Adding Tests &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>(機械翻訳)テストの追加 &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
-    <link rel="next" title="Distributing Your Application" href="distributing.html" />
-    <link rel="prev" title="Adding authorization" href="authorization.html" />
+    <link rel="next" title="(機械翻訳)アプリケーションの配布" href="distributing.html" />
+    <link rel="prev" title="(機械翻訳)承認を追加する" href="authorization.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -54,13 +54,13 @@
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="distributing.html" title="Distributing Your Application"
+          <a href="distributing.html" title="(機械翻訳)アプリケーションの配布"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="authorization.html" title="Adding authorization"
+          <a href="authorization.html" title="(機械翻訳)承認を追加する"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">ZODB + Traversal Wiki Tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">(機械翻訳)ZODB + Traversal Wikiチュートリアル</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,40 +70,24 @@
           <div class="body" role="main">
             
   <div class="section" id="adding-tests">
-<span id="wiki-adding-tests"></span><h1>Adding Tests<a class="headerlink" href="#adding-tests" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>We will now add tests for the models and the views and a few functional tests
-in <code class="docutils literal notranslate"><span class="pre">tests.py</span></code>.  Tests ensure that an application works, and that it
-continues to work when changes are made in the future.</p>
+<span id="wiki-adding-tests"></span><h1>(機械翻訳)テストの追加<a class="headerlink" href="#adding-tests" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>モデルとビューのテストといくつかの機能テストを `` tests.py``に追加します。テストでは、アプリケーションが正常に動作していることを確認し、将来変更が加えられた場合でも動作し続けます。</p>
 <div class="section" id="test-the-models">
-<h2>Test the models<a class="headerlink" href="#test-the-models" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We write tests for the <code class="docutils literal notranslate"><span class="pre">model</span></code> classes and the <code class="docutils literal notranslate"><span class="pre">appmaker</span></code>.  Changing
-<code class="docutils literal notranslate"><span class="pre">tests.py</span></code>, we'll write a separate test class for each <code class="docutils literal notranslate"><span class="pre">model</span></code> class, and
-we'll write a test class for the <code class="docutils literal notranslate"><span class="pre">appmaker</span></code>.</p>
-<p>To do so, we'll retain the <code class="docutils literal notranslate"><span class="pre">tutorial.tests.ViewTests</span></code> class that was
-generated as part of the <code class="docutils literal notranslate"><span class="pre">zodb</span></code> cookiecutter.  We'll add three test classes: one
-for the <code class="docutils literal notranslate"><span class="pre">Page</span></code> model named <code class="docutils literal notranslate"><span class="pre">PageModelTests</span></code>, one for the <code class="docutils literal notranslate"><span class="pre">Wiki</span></code> model
-named <code class="docutils literal notranslate"><span class="pre">WikiModelTests</span></code>, and one for the appmaker named <code class="docutils literal notranslate"><span class="pre">AppmakerTests</span></code>.</p>
+<h2>モデルをテストする<a class="headerlink" href="#test-the-models" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>モデル <a href="#id3"><span class="problematic" id="id4">``</span></a>クラスと `` appmaker``のテストを書いています。 `` tests.py``を変更すると、 `` model``クラスごとに別々のテストクラスを作成し、 `` appmaker``のテストクラスを作成します。</p>
+<p>そのために、 `` zodb`` cookiecutterの一部として生成された `` tutorial.tests.ViewTests``クラスを保持します。 <cite>PageModelTests`という名前の</cite> <cite>Page``モデル用のクラスと</cite> <cite>WikiModelTests``という名前の</cite> <cite>Wiki``モデル用のクラスと</cite> <cite>AppmakerTests``という名前のappmaker用のクラスの3つのクラスを追加します</cite>。</p>
 </div>
 <div class="section" id="test-the-views">
-<h2>Test the views<a class="headerlink" href="#test-the-views" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We'll modify our <code class="docutils literal notranslate"><span class="pre">tests.py</span></code> file, adding tests for each view function we
-added previously.  As a result, we'll delete the <code class="docutils literal notranslate"><span class="pre">ViewTests</span></code> class that
-the <code class="docutils literal notranslate"><span class="pre">zodb</span></code> cookiecutter provided, and add four other test classes:
-<code class="docutils literal notranslate"><span class="pre">ViewWikiTests</span></code>, <code class="docutils literal notranslate"><span class="pre">ViewPageTests</span></code>, <code class="docutils literal notranslate"><span class="pre">AddPageTests</span></code>, and <code class="docutils literal notranslate"><span class="pre">EditPageTests</span></code>.
-These test the <code class="docutils literal notranslate"><span class="pre">view_wiki</span></code>, <code class="docutils literal notranslate"><span class="pre">view_page</span></code>, <code class="docutils literal notranslate"><span class="pre">add_page</span></code>, and <code class="docutils literal notranslate"><span class="pre">edit_page</span></code>
-views.</p>
+<h2>ビューをテストする<a class="headerlink" href="#test-the-views" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` tests.py``ファイルを修正し、以前に追加した各ビュー関数のテストを追加します。その結果、 `` zodb`` cookiecutterが提供する `` ViewTests``クラスを削除し、 `` ViewWikiTests``、 `` ViewPageTests``、 `` AddPageTests``の4つのテストクラスを追加します。と `` EditPageTests``です。これらは `` view_wiki``、 `` view_page``、 `` add_page``、 `` edit_page``のビューをテストします。</p>
 </div>
 <div class="section" id="functional-tests">
-<h2>Functional tests<a class="headerlink" href="#functional-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We'll test the whole application, covering security aspects that are not
-tested in the unit tests, like logging in, logging out, checking that
-the <code class="docutils literal notranslate"><span class="pre">viewer</span></code> user cannot add or edit pages, but the <code class="docutils literal notranslate"><span class="pre">editor</span></code> user
-can, and so on.</p>
+<h2>機能テスト<a class="headerlink" href="#functional-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ユニットテストでテストされていないセキュリティ面（ログイン、ログアウト、 `` viewer``ユーザがページの追加や編集ができないことを確認しますが、 `` editor``ユーザ缶などがあります。</p>
 </div>
 <div class="section" id="view-the-results-of-all-our-edits-to-tests-py">
-<h2>View the results of all our edits to <code class="docutils literal notranslate"><span class="pre">tests.py</span></code><a class="headerlink" href="#view-the-results-of-all-our-edits-to-tests-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Open the <code class="docutils literal notranslate"><span class="pre">tutorial/tests.py</span></code> module, and edit it such that it appears as
-follows:</p>
+<h2>`` tests.py``へのすべての編集の結果を表示します。<a class="headerlink" href="#view-the-results-of-all-our-edits-to-tests-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>`` tutorial / tests.py``モジュールを開き、次のように編集します：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
@@ -571,20 +555,17 @@ follows:</p>
 </td></tr></table></div>
 </div>
 <div class="section" id="running-the-tests">
-<h2>Running the tests<a class="headerlink" href="#running-the-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>We can run these tests by using <code class="docutils literal notranslate"><span class="pre">py.test</span></code> similarly to how we did in
-<a class="reference internal" href="installation.html#running-tests"><span class="std std-ref">Run the tests</span></a>. Courtesy of the cookiecutter, our testing dependencies have
-already been satisfied and <code class="docutils literal notranslate"><span class="pre">py.test</span></code> and coverage have already been
-configured, so we can jump right to running tests.</p>
-<p>On UNIX:</p>
+<h2>テストの実行<a class="headerlink" href="#running-the-tests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>これらのテストは、ref： <cite>running_tests`と同様に</cite> <cite>py.test``を使って実行できます。 CookiCutterのおかげで、私たちのテストの依存関係はすでに満たされていて、 `</cite> py.test``とカバレッジはすでに設定されているので、テストを実行することができます。</p>
+<p>UNIXの場合：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/py.test -q
 </pre></div>
 </div>
-<p>On Windows:</p>
+<p>Windowsの場合：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">c:\tutorial&gt;</span> <span class="nv">%VENV%</span>\Scripts\py.test -q
 </pre></div>
 </div>
-<p>The expected result should look like the following:</p>
+<p>予想される結果は、次のようになります。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.........................
 25 passed in 6.87 seconds
 </pre></div>
@@ -600,22 +581,22 @@ configured, so we can jump right to running tests.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Adding Tests</a><ul>
-<li><a class="reference internal" href="#test-the-models">Test the models</a></li>
-<li><a class="reference internal" href="#test-the-views">Test the views</a></li>
-<li><a class="reference internal" href="#functional-tests">Functional tests</a></li>
-<li><a class="reference internal" href="#view-the-results-of-all-our-edits-to-tests-py">View the results of all our edits to <code class="docutils literal notranslate"><span class="pre">tests.py</span></code></a></li>
-<li><a class="reference internal" href="#running-the-tests">Running the tests</a></li>
+<li><a class="reference internal" href="#">(機械翻訳)テストの追加</a><ul>
+<li><a class="reference internal" href="#test-the-models">モデルをテストする</a></li>
+<li><a class="reference internal" href="#test-the-views">ビューをテストする</a></li>
+<li><a class="reference internal" href="#functional-tests">機能テスト</a></li>
+<li><a class="reference internal" href="#view-the-results-of-all-our-edits-to-tests-py">`` tests.py``へのすべての編集の結果を表示します。</a></li>
+<li><a class="reference internal" href="#running-the-tests">テストの実行</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="authorization.html"
-                        title="前の章へ">Adding authorization</a></p>
+                        title="前の章へ">(機械翻訳)承認を追加する</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="distributing.html"
-                        title="次の章へ">Distributing Your Application</a></p>
+                        title="次の章へ">(機械翻訳)アプリケーションの配布</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -649,18 +630,18 @@ configured, so we can jump right to running tests.</p>
           <a href="../../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="distributing.html" title="Distributing Your Application"
+          <a href="distributing.html" title="(機械翻訳)アプリケーションの配布"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="authorization.html" title="Adding authorization"
+          <a href="authorization.html" title="(機械翻訳)承認を追加する"
              >前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >ZODB + Traversal Wiki Tutorial</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >(機械翻訳)ZODB + Traversal Wikiチュートリアル</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 03, 2018
+      最終更新: 11月 10, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
