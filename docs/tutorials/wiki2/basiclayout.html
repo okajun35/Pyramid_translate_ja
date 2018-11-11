@@ -74,7 +74,7 @@
 <p>「alchemy」cookiecutterで生成されたスターターファイルは非常に基本的ですがほとんどの <a class="reference internal" href="../../glossary.html#term-url-dispatch"><span class="xref std std-term">URL dispatch</span></a> ベースの:app:<cite>Pyramid</cite> プロジェクトに共通する高水準のパターンに適しています。</p>
 <div class="section" id="application-configuration-with-init-py">
 <h2>「__init __.py」によるアプリケーション構成（ Application configuration with <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> ）<a class="headerlink" href="#application-configuration-with-init-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ディスク上のディレクトリは「__init__.py」ファイルを含むことで、Pythonの :term:<a href="#id1"><span class="problematic" id="id2">`</span></a>package`に変換できます。たとえ空であってもディレクトリをPythonパッケージとしてマークします。「__init__.py」はパッケージのディレクトリを示すマーカーとして、そしてアプリケーションの設定コードを格納するためのマーカーとして使われます。</p>
+<p>ディスク上のディレクトリは「__init__.py」ファイルを含むことで、Pythonの  <a class="reference internal" href="../../glossary.html#term-package"><span class="xref std std-term">package</span></a> に変換できます。たとえ空であってもディレクトリをPythonパッケージとしてマークします。「__init__.py」はパッケージのディレクトリを示すマーカーとして、そしてアプリケーションの設定コードを格納するためのマーカーとして使われます。</p>
 <p>「tutorial/__init__.py」を開きます。それはすでに以下を含んでいるはずです：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -172,12 +172,12 @@
 </td></tr></table></div>
 <p>2行目では、 「static」（名前）、 「static」（パス）、 「cache_max_age」（a）の3つの引数を持つ <a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.add_static_view" title="pyramid.config.Configurator.add_static_view"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_static_view()</span></code></a> を呼び出します。キーワード引数）。</p>
 <p>これは静的リソースビューを登録します。これは「/static」いう接頭辞で始まるURLにマッチします（ 「add_static_view」の最初の引数によって）。これは「tutorial」パッケージの「static」ディレクトリから静的リソースを提供します。この場合、 「 <a class="reference external" href="http://localhost:6543/static/">http://localhost:6543/static/</a> 」以下で「add_static_view」の2番目の引数）。この宣言では、 「/static」で始まるURLはすべて静的ビューに移動する必要があります。 CSSファイルのような静的なファイルリソースへのパスを構成するために、パスの残りの部分（ 「/foo」、 「/static/foo」など）が使われます。</p>
-<p>3行目では、<a class="reference internal" href="../../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a> メソッドを使って <a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> を登録します。このメソッドは、URLが 「/」のときに使用されます。このルートは 「/」と同じ「パターン」を持っているので、URL「/」が訪れたときにマッチするルートです。例えば 「 <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> 　」。</p>
+<p>3行目では、<a class="reference internal" href="../../glossary.html#term-route-configuration"><span class="xref std std-term">route configuration</span></a> メソッドを使って <a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a> を登録します。このメソッドは、URLが 「/」のときに使用されます。このルートは 「/」と同じ「パターン」を持っているので、URL「/」が訪れたときにマッチするルートです。例えば 「 <a class="reference external" href="http://localhost:6543/">http://localhost:6543/</a> 」。</p>
 </div>
 <div class="section" id="view-declarations-via-the-views-package">
-<h2>「views」パッケージを使って宣言を表示する( View declarations via the <code class="docutils literal notranslate"><span class="pre">views</span></code> package&quot;)<a class="headerlink" href="#view-declarations-via-the-views-package" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Webフレームワークの主な機能は、要求されたURLが対応する：term： <cite>route`と一致するときに実行されるコード（a：term：</cite> view callable`）への各URLパターンのマッピングです。私たちのアプリケーションは：meth： <a href="#id1"><span class="problematic" id="id2">`</span></a>pyramid.view.view_config`デコレータを使ってこのマッピングを行います。</p>
-<p>`` views``パッケージの `` tutorial / views / default.py``を開きます。それはすでに以下を含んでいるはずです：</p>
+<h2>「views」パッケージを使って宣言を表示する( View declarations via the <code class="docutils literal notranslate"><span class="pre">views</span></code> package )<a class="headerlink" href="#view-declarations-via-the-views-package" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Webフレームワークの主な機能は、リクエストされたURLが対応する <a class="reference internal" href="../../glossary.html#term-route"><span class="xref std std-term">route</span></a> と一致するときに実行されるコード（ <a class="reference internal" href="../../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> ）への各URLパターンのマッピングです。アプリケーションは <a class="reference internal" href="../../api/view.html#pyramid.view.view_config" title="pyramid.view.view_config"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.view.view_config()</span></code></a> デコレータを使ってこのマッピングを行います。</p>
+<p>「views」パッケージの「tutorial/views/default.py」を開きます。それはすでに以下が含まれています：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -245,22 +245,22 @@
 <span class="s2">&quot;&quot;&quot;</span>
 </pre></div>
 </td></tr></table></div>
-<p>ここで重要な部分は、 `` &#64; view_config``デコレータが、装飾する機能（ `` my_view``）をa：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>view configuration`と関連付けることです。</p>
+<p>ここで重要な部分は、 「&#64;view_config」デコレータが、装飾する関数（「my_view」）を <a class="reference internal" href="../../glossary.html#term-view-configuration"><span class="xref std std-term">view configuration</span></a> と関連付けることです。</p>
 <blockquote>
 <div><ul class="simple">
-<li>`` route_name``（ `` home``）</li>
-<li>`` renderer``はパッケージの `` templates``サブディレクトリからのテンプレートです。</li>
+<li><code class="docutils literal notranslate"><span class="pre">route_name</span></code> (<code class="docutils literal notranslate"><span class="pre">home</span></code>)</li>
+<li>「renderer」はパッケージの 「templates」サブディレクトリからのテンプレートです。</li>
 </ul>
 </div></blockquote>
-<p>`` home``ビューに関連付けられたパターンがリクエスト中にマッチすると、 `` my_view（） <a href="#id1"><span class="problematic" id="id2">``</span></a>が実行されます。 `` my_view（） <a href="#id3"><span class="problematic" id="id4">``</span></a>は辞書を返します。レンダラは `` templates / mytemplate.jinja2``テンプレートを使用して辞書の値に基づいてレスポンスを作成します。</p>
-<p>`` my_view（） <a href="#id1"><span class="problematic" id="id2">``</span></a>は `` request``という単一の引数を受け付けます。これは、ピラミッド：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>view callable`の標準コールシグネチャです。</p>
-<p>：meth： <cite>pyramid.config.Configurator.scan`メソッド</cite> <cite>config.scan（）</cite> <cite>を実行したときの私たちの</cite> <cite>__init __。py``を覚えていますか？スキャンメソッドを呼び出す目的は、この `</cite> &#64; view_config``デコレータを見つけて処理して、アプリケーション内でビュー設定を作成することでした。 <a href="#id1"><span class="problematic" id="id2">``</span></a>スキャン &amp;#39;&amp;#39;で処理されることなく、デコレータは事実上何もしません。 `` &#64; view_config``は：term： <a href="#id3"><span class="problematic" id="id4">`</span></a>scan`で検出されることなく不活性です。</p>
-<p>cookiecutterによって作成されたサンプルの `` my_view（） <a href="#id1"><span class="problematic" id="id2">``</span></a>は `` try： <a href="#id3"><span class="problematic" id="id4">``</span></a>と `` except： <a href="#id5"><span class="problematic" id="id6">``</span></a>節を使って、プロジェクトデータベースへのアクセスに問題があるかどうかを検出し、代替のエラー応答を提供します。その応答には、ファイルの最後に表示されるテキストが含まれます。このテキストは、ブラウザに表示され、問題を解決するために取るべき可能なアクションについてユーザーに通知します。</p>
+<p>「home」ビューに関連付けられたパターンがリクエスト中にマッチすると、 「my_view()」が実行されます。 「my_view()」は辞書を返却します。レンダラは 「templates/mytemplate.jinja2」テンプレートを使用して辞書の値に基づいてレスポンスを作成します。</p>
+<p>「my_view()」は 「request」とい引数のみを受け付けます。これは、Pyramid <a class="reference internal" href="../../glossary.html#term-view-callable"><span class="xref std std-term">view callable</span></a> の標準コールシグネチャです。</p>
+<p><a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.scan" title="pyramid.config.Configurator.scan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.scan()</span></code></a> メソッドの「config.scan（）」を実行したときの私たちの「__init __.py」を覚えていますか？ scanメソッドを呼び出す目的は、 「&#64;view_config」デコレータを見つけて処理して、アプリケーション内でビュー設定を作成することでした。 「scan」で処理されないとデコレータは事実上何もしません。 「&#64;view_config」は <a class="reference internal" href="../../glossary.html#term-scan"><span class="xref std std-term">scan</span></a> で検出されることなく不活性です。</p>
+<p>cookiecutterが作成したサンプルの「my_view（）」は 「try：」と 「except：」節で、プロジェクトのデータベースへのアクセスに問題があるかどうかを検出して、エラーレスポンスを提供します。レスポンスには、ファイルの最後に表示されるテキストが含まれます。このテキストはブラウザに表示され,問題を解決するために取るべき可能なアクションについてユーザーに通知します。</p>
 </div>
 <div class="section" id="content-models-with-the-models-package">
-<h2>`` models``パッケージによるコンテンツモデル<a class="headerlink" href="#content-models-with-the-models-package" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>SQLAlchemyベースのアプリケーションでは、* model <a href="#id1"><span class="problematic" id="id2">*</span></a>オブジェクトは、SQLデータベースを照会して作成されたオブジェクトです。 <code class="docutils literal notranslate"><span class="pre">モデル</span> <span class="pre">``パッケージは、</span> <span class="pre">``</span> <span class="pre">alchemy</span></code> cookiecutterがモデルを実装するクラスを置く場所です。</p>
-<p>最初に、 `` tutorial / models / meta.py``を開きます。これには、すでに以下が含まれています：</p>
+<h2>「models」パッケージによるコンテンツモデル(Content models with the <code class="docutils literal notranslate"><span class="pre">models</span></code> package)<a class="headerlink" href="#content-models-with-the-models-package" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>SQLAlchemyベースのアプリケーションでは、 <em>model</em> オブジェクトは、SQLデータベースを照会して作成されたオブジェクトです。 「model」パッケージは、 「alchemy] cookiecutterがモデルを実装するクラスを置く場所です。</p>
+<p>最初に「tutorial/models/meta.py」を開きます。これには以下がすでに含まれています：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -294,7 +294,7 @@
 <span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>`` meta.py``には、モデルを定義するためのインポートとサポートコードが含まれています。インデックスや制約のようなサポートオブジェクトの一貫した命名のために、辞書 `` NAMING_CONVENTION``を作成します。</p>
+<p>「meta.py」には、モデルを定義するためのインポートとサポートコードが含まれています。インデックスや制約のようなサポートオブジェクトの一貫した命名のために、ディクト型の「NAMING_CONVENTION」を作成します。</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -324,14 +324,14 @@
 
 </pre></div>
 </td></tr></table></div>
-<p>次に、class： <cite>sqlalchemy.schema.MetaData`クラスから</cite> <cite>naming_convention``引数の値として</cite> <cite>NAMING_CONVENTION``を使って</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>metadata``オブジェクトを作成します。</p>
-<p>`` MetaData``オブジェクトは、単一のデータベースのためのテーブルと他のスキーマ定義を表します。また、モデルの基底クラスとして使用する宣言型の `` Base``オブジェクトを作成する必要があります。私たちのモデルは、この `` Base``から継承します。これは、作成した `` metadata``にテーブルを添付し、アプリケーションのデータベーススキーマを定義します。</p>
+<p>次に、<a class="reference external" href="https://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.MetaData" title="(in SQLAlchemy v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.schema.MetaData</span></code></a> クラスの引数「naming_convention」の値を「NAMING_CONVENTION」として「metadata」オブジェクトを作成します。</p>
+<p>「MetaData」オブジェクトは、単一のデータベースのためのテーブルと他のスキーマ定義を表します。また、モデルの基底クラスとして使用する宣言型の 「Base」オブジェクトを作成する必要があります。モデルは、この「Base」から継承します。これは作成した「metadata」にテーブルを添付して、アプリケーションのデータベーススキーマを定義します。</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>15
 16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">MetaData</span><span class="p">(</span><span class="n">naming_convention</span><span class="o">=</span><span class="n">NAMING_CONVENTION</span><span class="p">)</span>
 <span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>次に、 `` tutorial / models / mymodel.py``を開きます。これにはすでに以下が含まれています：</p>
+<p>次に「tutorial/models/mymodel.py」を開きます。これにはすでに以下が含まれています：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -369,7 +369,7 @@
 <span class="n">Index</span><span class="p">(</span><span class="s1">&#39;my_index&#39;</span><span class="p">,</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">mysql_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>別々のモジュールでモデルを定義するのが簡単であるように、 `` models``をパッケージとして定義しました。モデルクラスの簡単な例を与えるために、 `` mymodel.py``に `` MyModel``という名前のクラスを定義しました：</p>
+<p>別々のモジュールでモデルを定義するのが簡単であるように、 「models」をパッケージとして定義しました。モデルクラスの簡単な例のために、 「mymodel.py」に 「MyModel」クラスを定義しました：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
 12
 13
@@ -381,16 +381,16 @@
     <span class="n">value</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>私たちのサンプルモデルは `` __init__``メソッドを必要としません。なぜなら、SQLAlchemyはデフォルトのコンストラクタが存在しない場合、それがマッピングされた属性と同じ名前のキーワード引数を受け入れます。</p>
+<p>サンプルモデルは「__init__」メソッドを必要としません。理由はSQLAlchemyはデフォルトのコンストラクタが存在しない場合、それがマッピングされた属性と同じ名前のキーワード引数を受け入れます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p>MyModelの使用例：</p>
+<p>MyModelの使用例 (Example usage of MyModel)：</p>
 <div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">johnny</span> <span class="o">=</span> <span class="n">MyModel</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>`` MyModel``クラスは `` __tablename__``属性を持っています。これはSQLAlchemyに、このクラスのインスタンスを表すデータの格納に使用するテーブルを通知します。</p>
-<p>最後に、 `` tutorial / models / __ init __。py``を開きます。これにはすでに以下が含まれています：</p>
+<p>「MyModel」クラスは 「__tablename__」アトリビュートを持っています。これはSQLAlchemyに、このクラスのインスタンスを表すデータの格納に使用するテーブルを通知します。</p>
+<p>最後に、「tutorial/models/__init__.py」を開きます。これにはすでに以下が含まれています：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -546,16 +546,16 @@
     <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>私たちの `` models / __ init __。py``モジュールは、アプリケーション内のデータベース接続の設定に使うプライマリAPIを定義しています。</p>
-<p>前述のように、 `` models.meta.metadata``オブジェクトの目的は、データベースのスキーマを記述することです。これは、 `` metadata``オブジェクトに付随する `` Base``オブジェクトから継承するモデルを定義することによって行われます。 Pythonでは、コードがインポートされた場合にのみコードが実行され、 `` mymodel.py &amp;#39;&amp;#39;で定義された `` models``テーブルを `` metadata``に添付するには、インポートする必要があります。このステップをスキップすると、後で：meth： <cite>sqlalchemy.schema.MetaData.create_all`を実行すると、</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>metadata``オブジェクトがそれについて知りませんので、テーブルは作成されません！</p>
-<p>すべてのモデルをインポートするもう1つの重要な理由は、モデル間の関係を定義するときに、SQLAlchemyがそれらの内部マッピングを見つけて構築するために存在する必要があるということです。このため、すべてのモデルをインポートした後、すべてのモデルが定義されていることを確認して接続を作成する前に、関数func： <a href="#id1"><span class="problematic" id="id2">`</span></a>sqlalchemy.orm.configure_mappers`を明示的に実行するのはこのためです。</p>
-<p>次に、データベースに接続するための関数をいくつか定義します。最初のレベルと最低レベルは `` get_engine``関数です。これは、 `` development.ini``ファイルの `` [app：main] <a href="#id1"><span class="problematic" id="id2">``</span></a>の `` sqlalchemy.``接頭辞の設定から：func： <cite>sqlalchemy.engine_from_config`を使って：term：</cite> SQLAlchemy`データベースエンジンを生成します。セクション。この設定はURIです（ `` sqlite：// <a href="#id3"><span class="problematic" id="id4">``</span></a>と似ています）。</p>
+<p>「models/__init__.py」モジュールは、アプリケーション内のデータベース接続の設定に使うプライマリAPIを定義しています。また以下で説明するいくつかの機能が含まれています。</p>
+<p>前述のように、 「models.meta.metadata」オブジェクトの目的は、データベースのスキーマを記述することです。これは「metadata」オブジェクトに付随する「Base」オブジェクトから継承するモデルを定義することによって行われます。 Pythonではコードがインポートされた場合のみコードが実行され、 `` 「mymodel.py」で定義された「models」テーブルを「metadata」に添付するには、インポートする必要があります。このステップをスキップすると、後で <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.MetaData.create_all" title="(in SQLAlchemy v1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sqlalchemy.schema.MetaData.create_all()</span></code></a> を実行すると、「metadata」オブジェクトは「models」テーブルについて知りませんのでテーブルは作成されません！</p>
+<p>すべてのモデルをインポートするもう1つの重要な理由はモデル間の関係を定義するときに、SQLAlchemyがそれらの内部マッピングを見つけて構築するためには存在する必要があるためです。すべてのモデルをインポートした後にすべてのモデルが定義されていることを確認して接続を作成する前に、関数 <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/orm/mapping_api.html#sqlalchemy.orm.configure_mappers" title="(in SQLAlchemy v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.orm.configure_mappers()</span></code></a> を明示的に実行するのはこのためです。</p>
+<p>次にデータベースに接続するための関数をいくつか定義します。最初のレベルと最低レベルは 「get_engine」関数です。””これは「development.ini」ファイルの [app：main] セクションのの 「sqlalchemy」接頭辞の設定から <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/core/engines.html#sqlalchemy.engine_from_config" title="(in SQLAlchemy v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.engine_from_config()</span></code></a>  を使用して、 <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> データベースエンジンを生成します。この設定はURIです（ 「sqlite://」と似ています）。</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>15
 16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_engine</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;sqlalchemy.&#39;</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">engine_from_config</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">prefix</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>`` get_session_factory``関数は：term： <cite>SQLAlchemy`データベースエンジンを受け取り、：term：</cite> SQLAlchemy`クラス：class： <cite>sqlalchemy.orm.session.sessionmaker`から</cite> <cite>session_factory``を生成します。この `</cite> session_factory``は、データベースエンジンにバインドされたセッションの作成に使用されます。</p>
+<p>「get_session_factory」関数は <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> データベースエンジンを受け取り、 <a class="reference internal" href="../../glossary.html#term-sqlalchemy"><span class="xref std std-term">SQLAlchemy</span></a> の class <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/orm/session_api.html#sqlalchemy.orm.session.sessionmaker" title="(in SQLAlchemy v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.orm.session.sessionmaker</span></code></a> クラスから「session_factory」を生成します。この「session_factory」は、データベースエンジンにバインドされたセッションの作成に使用されます。</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>19
 20
 21
@@ -565,7 +565,7 @@
     <span class="k">return</span> <span class="n">factory</span>
 </pre></div>
 </td></tr></table></div>
-<p>関数 `` get_tm_session``は、データベースセッションをトランザクションマネージャに登録し、 `` dbsession``オブジェクトを返します。トランザクションマネージャを使用すると、例外が発生しない限り、アプリケーションはすべてのリクエストの後に自動的にトランザクションコミットを発行します。この場合、トランザクションは中止されます。</p>
+<p>「get_tm_session」関数はデータベースセッションをトランザクションマネージャに登録して、「dbsession」　オブジェクトを返します。トランザクションマネージャを使用すると、例外が発生しない限りはアプリケーションはすべてのリクエストの後に自動的にトランザクションコミットを発行します。例外が発生した場合はトランザクションは中止されます。</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>25
 26
 27
@@ -617,7 +617,7 @@
     <span class="k">return</span> <span class="n">dbsession</span>
 </pre></div>
 </td></tr></table></div>
-<p>最後に、「includeme」関数を定義します。これは：meth： <cite>pyramid.config.Configurator.include`でPyramidアプリケーションアドオンでコードをアクティブにするためのフックです。これは、アプリケーションの `</cite> main``関数で `` config.include（ &amp;#39;。models&amp;#39;） <a href="#id1"><span class="problematic" id="id2">``</span></a>を実行したときに実行されるコードです。この関数は、アプリケーションからの設定を受け取り、エンジンを作成し、アプリケーションへの着信要求に代わって作業を行うために使用できる `` request.dbsession``プロパティを定義します。</p>
+<p>最後に、「includeme」関数を定義します。これは <a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.include" title="pyramid.config.Configurator.include"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.include()</span></code></a> でPyramidアプリケーションアドオンでコードをアクティブにするためのフックです。これは、アプリケーションの「main」関数で 「config.include（.models）」を実行したときに実行されるコードです。この関数はアプリケーションからの設定を受け取り、エンジンを作成してアプリケーションへのリクエスト応答処理に代わって作業を行うために使用できる「request.dbsession」プロパティを定義します。</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>52
 53
 54
@@ -671,8 +671,8 @@
     <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>これは、ストックアプリケーションのモデル、ビュー、および初期化コードに関して、そこにあるすべてです。</p>
-<p>このチュートリアルでは、 `` Index``インポートと `` Index``オブジェクトの作成は `` mymodel.py``では必須ではなく、次のステップで削除されます。</p>
+<p>これは、ストックアプリケーションのモデル、ビュー、および初期化コードに関して、ここにあるすべてです。</p>
+<p>このチュートリアルでは、 「Index」インポートと「Index」オブジェクトの作成は「mymodel.py」では必須ではなく、次のステップで削除されます。</p>
 </div>
 </div>
 
@@ -687,8 +687,8 @@
 <li><a class="reference internal" href="#">基本レイアウト(Basic Layout)</a><ul>
 <li><a class="reference internal" href="#application-configuration-with-init-py">「__init __.py」によるアプリケーション構成（ Application configuration with <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> ）</a></li>
 <li><a class="reference internal" href="#route-declarations">ルート宣言(Route declarations)</a></li>
-<li><a class="reference internal" href="#view-declarations-via-the-views-package">「views」パッケージを使って宣言を表示する( View declarations via the <code class="docutils literal notranslate"><span class="pre">views</span></code> package&quot;)</a></li>
-<li><a class="reference internal" href="#content-models-with-the-models-package">`` models``パッケージによるコンテンツモデル</a></li>
+<li><a class="reference internal" href="#view-declarations-via-the-views-package">「views」パッケージを使って宣言を表示する( View declarations via the <code class="docutils literal notranslate"><span class="pre">views</span></code> package )</a></li>
+<li><a class="reference internal" href="#content-models-with-the-models-package">「models」パッケージによるコンテンツモデル(Content models with the <code class="docutils literal notranslate"><span class="pre">models</span></code> package)</a></li>
 </ul>
 </li>
 </ul>
@@ -743,7 +743,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 10, 2018
+      最終更新: 11月 11, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
