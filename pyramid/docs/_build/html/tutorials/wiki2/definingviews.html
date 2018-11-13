@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>(機械翻訳)ビューの定義 &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>ビューの定義(Defining Views) &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -70,7 +70,7 @@
           <div class="body" role="main">
             
   <div class="section" id="defining-views">
-<span id="wiki2-defining-views"></span><h1>(機械翻訳)ビューの定義<a class="headerlink" href="#defining-views" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="wiki2-defining-views"></span><h1>ビューの定義(Defining Views)<a class="headerlink" href="#defining-views" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>A:term:<cite>view callable</cite> は <span>Pyramid</span> アプリケーションは通常、 <a class="reference internal" href="../../glossary.html#term-request"><span class="xref std std-term">request</span></a> という単一のパラメータを受け入れる単純なPython関数です。ビューcallableは <a class="reference internal" href="../../glossary.html#term-response"><span class="xref std std-term">response</span></a> オブジェクトを返すものとします。</p>
 <p>リクエストオブジェクトには、 `` matchdict`` という属性の辞書があります。 `` matchdict`` は、一致するURLのプレースホルダ `` pattern` <cite>を :term:`request</cite> URLのパスの部分文字列にマップします。たとえば、<a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a>  への呼び出しが <code class="docutils literal notranslate"><span class="pre">/{one}/{two}</span></code> というパターンを持ち、ユーザが <code class="docutils literal notranslate"><span class="pre">http://example.com/foo/foo/bar</span></code> と一致し、 <code class="docutils literal notranslate"><span class="pre">matchdict</span></code>  は  <code class="docutils literal notranslate"><span class="pre">{'one':'foo',</span> <span class="pre">'two':'bar'}</span></code> のようになります。 。</p>
 <div class="section" id="adding-the-docutils-dependency">
@@ -420,7 +420,7 @@
 </pre></div>
 </td></tr></table></div>
 <p><a href="#id1"><span class="problematic" id="id2">``</span></a>view_wiki()``は、wikiのルートURLへのリクエストがあったときに呼び出される <a class="reference internal" href="../../glossary.html#term-default-view"><span class="xref std std-term">default view</span></a> です。常に FrontPage へのパスを表すURLにリダイレクトされます。</p>
-<p>`` view_wiki``ビューcallableは、常に FrontPage という名前のページリソースのURLにリダイレクトします。これを行うには、：class： <cite>pyramid.httpexceptions.HTTPFound</cite> クラスのインスタンスを返します（インスタンスは ：class：<cite>pyramid.interfaces.IResponse</cite> インターフェイスを実装しています：class：<cite>pyramid.response.Response</cite> ）。これは ：meth：<cite>pyramid.request.Request.route_url</cite> APIを使用して <code class="docutils literal notranslate"><span class="pre">FrontPage</span></code> ページ（すなわち` <a href="#id1"><span class="problematic" id="id2">`</span></a><a class="reference external" href="http:/">http:/</a></p>
+<p>`` view_wiki``ビューcallableは、常に FrontPage という名前のページリソースのURLにリダイレクトします。これを行うには、：class： <cite>pyramid.httpexceptions.HTTPFound</cite> クラスのインスタンスを返します（インスタンスは ：class：<cite>pyramid.interfaces.IResponse</cite> インターフェイスを実装しています：class：<cite>pyramid.response.Response</cite> ）。これは ：meth：<cite>pyramid.request.Request.route_url</cite> APIを使用して <code class="docutils literal notranslate"><span class="pre">FrontPage</span></code> ページ（すなわち` <cite>http:// localhost：6543/FrontPage`</cite> ）へのURLを構築し、それをHTTPリダイレクトを形成する `` HTTPFound``応答の&amp;quot;location &amp;quot;を返します。</p>
 </div>
 <div class="section" id="the-view-page-view-function">
 <h3>`` view_page``ビュー関数<a class="headerlink" href="#the-view-page-view-function" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -855,7 +855,7 @@ Editing <span class="p">&lt;</span><span class="nt">strong</span><span class="p"
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">(機械翻訳)ビューの定義</a><ul>
+<li><a class="reference internal" href="#">ビューの定義(Defining Views)</a><ul>
 <li><a class="reference internal" href="#adding-the-docutils-dependency"><code class="docutils literal notranslate"><span class="pre">docutils</span></code> 依存関係の追加</a></li>
 <li><a class="reference internal" href="#static-assets">静的資産</a></li>
 <li><a class="reference internal" href="#adding-routes-to-routes-py"><code class="docutils literal notranslate"><span class="pre">routes.py</span></code> にルートを追加する</a></li>
@@ -928,7 +928,7 @@ Editing <span class="p">&lt;</span><span class="nt">strong</span><span class="p"
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 10, 2018
+      最終更新: 11月 13, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>

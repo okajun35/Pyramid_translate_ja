@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>事前尋問 &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>prequest &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,7 +18,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="著作権" href="../copyright.html" />
-    <link rel="next" title="(機械翻訳) プロイツ" href="proutes.html" />
+    <link rel="next" title="proutes" href="proutes.html" />
     <link rel="prev" title="(機械翻訳) pdistreport" href="pdistreport.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
@@ -54,7 +54,7 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="proutes.html" title="(機械翻訳) プロイツ"
+          <a href="proutes.html" title="proutes"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="pdistreport.html" title="(機械翻訳) pdistreport"
@@ -70,17 +70,17 @@
           <div class="body" role="main">
             
   <div class="section" id="prequest">
-<span id="prequest-script"></span><span id="index-0"></span><h1>事前尋問<a class="headerlink" href="#prequest" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="prequest-script"></span><span id="index-0"></span><h1>prequest<a class="headerlink" href="#prequest" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>WebアプリケーションにHTTPリクエストを送信します。</p>
-<p>このコマンドは、サーバーとアプリケーションにPasteDeploy（.ini）構成ファイルを使用する人工的な要求をWebアプリケーションに送信します。</p>
-<p>&amp;quot;/ path &amp;quot;を要求するには、 &amp;quot;prequest config.ini / path&amp;quot;を使用してください。</p>
-<p>&amp;quot;prequest --method = POST config.ini / path &amp;lt;data &amp;quot;を使用して、指定された要求本体でPOSTを実行します。</p>
-<p>与えられたリクエストボディでPUTを実行するには、&amp;quot;prequest --method = PUT config.ini / path &amp;lt;data &amp;quot;を使用してください。</p>
-<p>指定されたリクエストボディでPATCHを実行するには、&amp;quot;prequest --method = PATCH config.ini / path &amp;lt;data &amp;quot;を使用してください。</p>
-<p>OPTIONS要求を行うには、&amp;quot;prequest --method = OPTIONS config.ini / path &amp;quot;を使用してください。</p>
-<p>PROPFIND要求を行うには、&amp;quot;prequest --method = PROPFIND config.ini / path &amp;quot;を使用してください。</p>
-<p>パスが相対パス（&amp;quot;/ &amp;quot;で始まらない）の場合、パスは/ &amp;quot;/ &amp;quot;との相対パスとして解釈されます。このスクリプトに渡されるパスは、URLで引用される必要があります。パスは、クエリ文字列（例えば、 &amp;#39;/ path？a = 1＆= b2&amp;#39;）で成功させることができます。</p>
-<p>&amp;quot;environ [&amp;#39;paste.command_request&amp;#39;] &amp;quot;変数はリクエストのWSGI環境で&amp;quot;True &amp;quot;に設定されているため、アプリケーションはこれらの呼び出しを通常の要求と区別できます。</p>
+<p>このコマンドは、サーバーとアプリケーションにPasteDeploy（.ini）構成ファイルを使用するリクエストをWebアプリケーションに送信します。</p>
+<p>&quot;/path&quot;　にリクエストするには、&quot;prequest config.ini /　を使用してください。</p>
+<p>&quot;prequest --method=POST config.ini / path &lt; data&quot; を使用して、指定されたリクエストボディでPOSTを実行します。</p>
+<p>与えられたリクエストボディでPUTを実行するには、&quot;prequest --method=PUT config.ini /path &lt; data&quot; を使用してください。</p>
+<p>指定されたリクエストボディでPATCHを実行するには、 &quot;prequest --method=PATCH config.ini /path &lt; data&quot; を使用してください。</p>
+<p>OPTIONSリクエストを行うには、 &quot;prequest --method=OPTIONS config.ini /path&quot; を使用してください。</p>
+<p>PROPFINDリクエストを行うには、 &quot;prequest --method=PROPFIND config.ini /path&quot; を使用してください。</p>
+<p>パスが相対パス（ &quot;/&quot; で始まらない）の場合、パスは &quot;/&quot; との相対パスとして解釈されます。このスクリプトに渡されるパスは、URLで引用される必要があります。パスは、クエリ文字列（例えば、 '/path?a=1&amp;=b2' ）で成功できます。</p>
+<p>&quot;environ['paste.command_request']&quot; 変数はリクエストのWSGI環境 で &quot;True&quot; に設定されているため、アプリケーションはこれらの呼び出しを通常のリクエストと区別できます。</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: prequest [-h] [-n NAME] [--header NAME:VALUE] [-d]</span>
 <span class="go">                [-m {GET,HEAD,POST,PUT,PATCH,DELETE,PROPFIND,OPTIONS}]</span>
 <span class="go">                [-l LOGIN]</span>
@@ -102,7 +102,7 @@
 <dl class="option">
 <dt id="cmdoption-prequest-arg-config-vars">
 <code class="descname">config_vars</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-prequest-arg-config-vars" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>設定ファイルに必要な変数。例えば、 <cite>http_port =％（http_port）s`は</cite> http_port = 8080`がここで渡されることを期待します。</p>
+<dd><p>設定ファイルに必要な変数。例えば、 <cite>http_port=%(http_port)s</cite> は <cite>http_port=8080</cite> がここで渡されることを期待します。</p>
 </dd></dl>
 
 <dl class="option">
@@ -114,7 +114,7 @@
 <dl class="option">
 <dt id="cmdoption-prequest-n">
 <code class="descname">-n</code><code class="descclassname"> &lt;name&gt;</code><code class="descclassname">, </code><code class="descname">--app-name</code><code class="descclassname"> &lt;name&gt;</code><a class="headerlink" href="#cmdoption-prequest-n" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>設定ファイルから名前付きアプリケーションをロードする（デフォルトは &amp;#39;main&amp;#39;）</p>
+<dd><p>設定ファイルから名前付きアプリケーションをロードする（デフォルトは 'main' ）</p>
 </dd></dl>
 
 <dl class="option">
@@ -144,7 +144,7 @@
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
-<p class="last">：ref： <cite>invoking_a_request</cite></p>
+<p class="last"><a class="reference internal" href="../narr/commandline.html#invoking-a-request"><span class="std std-ref">リクエストの呼び出し</span></a></p>
 </div>
 
 
@@ -158,7 +158,7 @@
                         title="前の章へ">(機械翻訳) pdistreport</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="proutes.html"
-                        title="次の章へ">(機械翻訳) プロイツ</a></p>
+                        title="次の章へ">proutes</a></p>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
@@ -192,7 +192,7 @@
           <a href="../py-modindex.html" title="Pythonモジュール索引"
              >モジュール</a> |</li>
         <li class="right" >
-          <a href="proutes.html" title="(機械翻訳) プロイツ"
+          <a href="proutes.html" title="proutes"
              >次へ</a> |</li>
         <li class="right" >
           <a href="pdistreport.html" title="(機械翻訳) pdistreport"
@@ -203,7 +203,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 10, 2018
+      最終更新: 11月 13, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
