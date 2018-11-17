@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>(機械翻訳)ドメインモデルの定義 &#8212; The Pyramid Web Framework v1.9.2</title>
+    <title>ドメインモデルの定義(Defining the Domain Model) &#8212; The Pyramid Web Framework v1.9.2</title>
     <link rel="stylesheet" href="../../_static/pylons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -70,17 +70,17 @@
           <div class="body" role="main">
             
   <div class="section" id="defining-the-domain-model">
-<span id="wiki2-defining-the-domain-model"></span><h1>(機械翻訳)ドメインモデルの定義<a class="headerlink" href="#defining-the-domain-model" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>株式cookiecutterで生成されたアプリケーションの最初の変更は、wikiページ：term： <a href="#id1"><span class="problematic" id="id2">`</span></a>domain model`を定義することです。</p>
+<span id="wiki2-defining-the-domain-model"></span><h1>ドメインモデルの定義(Defining the Domain Model)<a class="headerlink" href="#defining-the-domain-model" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>cookiecutterで生成されたアプリケーションの最初の変更は、wikiページ <a class="reference internal" href="../../glossary.html#term-domain-model"><span class="xref std std-term">domain model</span></a> を定義することです。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">ファイル名 `` user.py``や `` page.py``は、Pythonモジュールであることを除いて特別なことは何もありません。プロジェクトは、コードベース全体に任意の名前のモジュールで多くのモデルを持つことができます。モデルを実装するモジュールは、しばしば名前に `` model``を持つか、 `` models``という名前のアプリケーションパッケージのPythonサブパッケージに入っています（このチュートリアルで行ったように）。要件。</p>
+<p class="last">「user.py」ファイルや「page.py」ファイルは、Pythonモジュールであることを除いて特別なことは何もありません。プロジェクトはコードベース全体に任意の名前のモジュールで多くのモデルを持てます。モデルを実装するモジュールは、しばしば名前に「model」を持つか、 「models」という名前のアプリケーションパッケージのPythonサブパッケージに入っています（このチュートリアルで行ったように）。しかしながらこれは寒冷であり要件です。</p>
 </div>
 <div class="section" id="declaring-dependencies-in-our-setup-py-file">
-<h2>`` setup.py``ファイルの依存関係を宣言しています<a class="headerlink" href="#declaring-dependencies-in-our-setup-py-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>アプリケーションのモデルコードは、オリジナルの &amp;quot;チュートリアル&amp;quot;アプリケーションの依存関係ではないパッケージに依存します。オリジナルの &amp;quot;チュートリアル&amp;quot;アプリケーションは、cookiecutterによって生成されました。カスタムアプリケーションの要件についてはわかりません。</p>
-<p>依存関係を追加する必要があります。 <cite>bcrypt &lt;https://pypi.org/project/bcrypt/&gt; `_パッケージを</cite> <cite>チュートリアル</cite> <cite>パッケージの</cite> <cite>setup.py``ファイルに、</cite> <cite>setup（）</cite> <cite>関数の</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>requires``パラメータにこの依存関係を割り当てます。</p>
-<p>`` tutorial / setup.py``を開き、以下のように編集してください：</p>
+<h2>`` setup.py``ファイルの依存関係を宣言します(Declaring dependencies in our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file)<a class="headerlink" href="#declaring-dependencies-in-our-setup-py-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アプリケーションのモデルのコードは、オリジナルの 「チュートリアル」アプリケーションの依存関係ではないパッケージに依存します。オリジナルの 「チュートリアル」アプリケーションは、cookiecutterによって生成されました。しかしカスタムアプリケーションの要件についてはわかりません。</p>
+<p>依存関係を追加する必要があります。  <a class="reference external" href="https://pypi.org/project/bcrypt/">bcrypt</a> パッケージを「tutorial」パッケージの「setup.py」ファイルに、「setup()」関数の「requires」パラメータにこの依存関係を割り当てます。</p>
+<p>「tutorial/setup.py」を開き、以下のように編集してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -207,13 +207,13 @@
 <p>強調表示された行だけを追加する必要があります。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">PyPIの `` bcrypt``パッケージを使ってパスワードを安全にハッシュしています。 `` bcrypt``があなたのシステム上の問題である場合、パスワード用の他の一方向ハッシュアルゴリズムがあります。これは、パスワードの保存に対して一般的な一方向ハッシュに対して承認されたアルゴリズムであることを確認するだけです。</p>
+<p class="last">PyPIの「bcrypt」パッケージを使ってパスワードを安全にハッシュしています。「bcrypt」がシステム上で問題である場合はパスワード用の他の一方向ハッシュアルゴリズムがあります。これはパスワードの保存に対して一般的な一方向ハッシュに対して承認されたアルゴリズムであることを確認します。</p>
 </div>
 </div>
 <div class="section" id="running-pip-install-e">
-<h2>`` pip install -e .``を実行しています。<a class="headerlink" href="#running-pip-install-e" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>新しいソフトウェア依存関係が追加されたので、 `` tutorial``パッケージのルートの中で `` pip install -e .``を再度実行して、新たに追加された依存関係を取得して登録する必要があります。</p>
-<p>現在の作業ディレクトリがプロジェクトのルート（ `` setup.py``が存在するディレクトリ）であることを確認し、次のコマンドを実行してください。</p>
+<h2>「pip install -e .」を実行しいます。(Running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> )<a class="headerlink" href="#running-pip-install-e" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>新しいソフトウェアの依存関係が追加されたので、 「tutorial」パッケージのルートの中で 「pip install -e .」を再度実行して、新たに追加された依存関係を取得して登録する必要があります。</p>
+<p>現在の作業ディレクトリがプロジェクトのルート（ 「setup.py」が存在するディレクトリ）であることを確認し、次のコマンドを実行してください。</p>
 <p>UNIXの場合：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">$VENV</span>/bin/pip install -e .
 </pre></div>
@@ -228,12 +228,12 @@
 </div>
 </div>
 <div class="section" id="remove-mymodel-py">
-<h2>`` mymodel.py`を削除する<a class="headerlink" href="#remove-mymodel-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ファイル `` tutorial / models / mymodel.py``を削除しましょう。 `` MyModel``クラスは単なるサンプルであり、私たちはそれを使用しません。</p>
+<h2>`` mymodel.py`を削除する( Remove <code class="docutils literal notranslate"><span class="pre">mymodel.py</span></code> )<a class="headerlink" href="#remove-mymodel-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>「tutorial/models/mymodel.py」ファイルを削除しましょう。 「MyModel」クラスは単なるサンプルで使用しません。</p>
 </div>
 <div class="section" id="add-user-py">
-<h2>`` user.py``を追加してください<a class="headerlink" href="#add-user-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>`` tutorial / models / user.py``ファイルを次の内容で作成します：</p>
+<h2>「user.py」を追加してください( Add <code class="docutils literal notranslate"><span class="pre">user.py</span></code> )<a class="headerlink" href="#add-user-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>「tutorial/models/user.py」ファイルを次の内容で作成します：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -291,11 +291,11 @@
         <span class="k">return</span> <span class="bp">False</span>
 </pre></div>
 </td></tr></table></div>
-<p>これは、私たちのwikiで認証できるユーザーのための非常に基本的なモデルです。</p>
-<p>前の章で、私たちのモデルがSQLAlchemy：func： <a href="#id1"><span class="problematic" id="id2">`</span></a>sqlalchemy.ext.declarative.declarative_base`から継承することを簡単に説明しました。モデルをスキーマに添付します。</p>
-<p>ご覧のように、 `` User``クラスにはクラスレベルの属性 `` __tablename__``があります。この属性は文字列 `` users``に相当します。私たちの `` User``クラスには `` id``、 `` name``、 `` password_hash``、 `` role``というクラスレベルの属性もあります（class： <cite>sqlalchemy.schema 。列 `）。これらは `</cite> users``テーブルの列にマップされます。 `` id``属性がテーブルの主キーになります。 `` name``属性はテキスト列になり、各値は列内で一意である必要があります。 `` password_hash``は、安全にハッシュされたパスワードを含むnull可能なテキスト属性です。最後に、 `` role``のテキスト属性がユーザの役割を担います。</p>
-<p>後でユーザーオブジェクトを使用するときに役立つ2つのヘルパーメソッドがあります。最初は `` set_password``です。これは未処理のパスワードをとり、 `` bcrypt``を使って非可逆的な表現に変換します。プロセスは&amp;quot;ハッシング&amp;quot;と呼ばれます。 2番目の方法である `` check_password``では、送信されたパスワードのハッシュ値と、データベースのユーザーレコードに保存されているパスワードのハッシュ値を比較することができます。 2つのハッシュ値が一致すると、送信されたパスワードが有効であり、ユーザーを認証できます。</p>
-<p>私たちはパスワードをハッシュし、解読してアプリケーションで認証することは不可能です。パスワードを平文で愚かに保存した場合、データベースにアクセスできる人は誰でもパスワードを取得して認証することができます。</p>
+<p>これはwikiで認証ユーザーのための非常に基本的なモデルです。</p>
+<p>前の章で、私たちのモデルがSQLAlchemy <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html#sqlalchemy.ext.declarative.declarative_base" title="(in SQLAlchemy v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.declarative_base()</span></code></a> から継承することを簡単に説明しました。モデルをスキーマに添付します。</p>
+<p>ご覧のように「User」クラスにはクラスレベルの「__tablename__」アトリビュートがあります。このアトリビュートは文字列 「users」に相当します。「User」クラスには 「id」、 「name」、 「password_hash」、 「role」というクラスレベルのアトリビュートもあります（すべてのインスタンスの <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Column" title="(in SQLAlchemy v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.schema.Column</span></code></a> ）。これらは「users」テーブルの列にマップされます。 「id」アトリビュートがテーブルの主キーになります。「name」アトリビュートはテキスト列になり、各値は列内で一意である必要があります。 「password_hash」は、安全にハッシュされたパスワードを含むnullを含むテキストアトリビュートです。最後に「role」のテキストアトリビュートがユーザの役割を担います。</p>
+<p>後でユーザーオブジェクトを使用するときに役立つ2つのヘルパーメソッドがあります。最初は「set_password」です。これは未処理のパスワードをとり、「bcrypt」を使って非可逆的な表現に変換します。このプロセスは「hashing」と呼ばれます。 2番目のメソッド「check_password」では、送信されたパスワードのハッシュ値と、データベースのユーザーレコードに保存されているパスワードのハッシュ値を比較できます。 2つのハッシュ値が一致すると送信されたパスワードが有効なのでユーザーを認証できます。</p>
+<p>ハッシュされたパスワードを解読してアプリケーションで認証することは不可能です。パスワードを愚かにも平文で保存した場合は、データベースにアクセスできる人は誰でもパスワードを取得して認証できます。</p>
 </div>
 <div class="section" id="add-page-py">
 <h2>`` page.py``を追加してください<a class="headerlink" href="#add-page-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -344,7 +344,7 @@
 <p>見て分かるように、私たちの `` Page``クラスは、 `` id``、 `` name``、wikiページを含むwikiページに関する情報を格納することに焦点を当てた属性を除けば、上で定義した `` User``と非常に似ています。 「データ」という。ここで紹介した唯一の新しい構文は `` creator_id``カラムで、これは `` users``テーブルを参照する外部キーです。外部キーはスキーマレベルで非常に便利ですが、 `` User``オブジェクトと `` Page``オブジェクトを関連付けるため、 `` creator``属性を2つのORMレベルのマッピングとして定義しますテーブル。 SQLAlchemyは、ユーザーを参照する外部キーを使用してこの値を自動的に設定します。外部キーには `` nullable = False``があるので、 `` page``のインスタンスに対応する `` page.creator``があることが保証されます。これは `` User``インスタンスになります。</p>
 </div>
 <div class="section" id="edit-models-init-py">
-<h2><a href="#id1"><span class="problematic" id="id2">``</span></a>モデル/ __ init __。py``を編集する<a class="headerlink" href="#edit-models-init-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a href="#id1"><span class="problematic" id="id2">``</span></a>models/__init__.py` を編集する<a class="headerlink" href="#edit-models-init-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>モデルにパッケージを使用しているので、 `` __init __。py``ファイルを更新してモデルがメタデータに添付されていることを確認する必要もあります。</p>
 <p>`` tutorial / models / __ init __。py``ファイルを開き、以下のように編集してください：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -700,13 +700,13 @@ CREATE TABLE pages <span class="o">(</span>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">(機械翻訳)ドメインモデルの定義</a><ul>
-<li><a class="reference internal" href="#declaring-dependencies-in-our-setup-py-file">`` setup.py``ファイルの依存関係を宣言しています</a></li>
-<li><a class="reference internal" href="#running-pip-install-e">`` pip install -e .``を実行しています。</a></li>
-<li><a class="reference internal" href="#remove-mymodel-py">`` mymodel.py`を削除する</a></li>
-<li><a class="reference internal" href="#add-user-py">`` user.py``を追加してください</a></li>
+<li><a class="reference internal" href="#">ドメインモデルの定義(Defining the Domain Model)</a><ul>
+<li><a class="reference internal" href="#declaring-dependencies-in-our-setup-py-file">`` setup.py``ファイルの依存関係を宣言します(Declaring dependencies in our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file)</a></li>
+<li><a class="reference internal" href="#running-pip-install-e">「pip install -e .」を実行しいます。(Running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> )</a></li>
+<li><a class="reference internal" href="#remove-mymodel-py">`` mymodel.py`を削除する( Remove <code class="docutils literal notranslate"><span class="pre">mymodel.py</span></code> )</a></li>
+<li><a class="reference internal" href="#add-user-py">「user.py」を追加してください( Add <code class="docutils literal notranslate"><span class="pre">user.py</span></code> )</a></li>
 <li><a class="reference internal" href="#add-page-py">`` page.py``を追加してください</a></li>
-<li><a class="reference internal" href="#edit-models-init-py">``モデル/ __ init __。py``を編集する</a></li>
+<li><a class="reference internal" href="#edit-models-init-py">``models/__init__.py` を編集する</a></li>
 <li><a class="reference internal" href="#edit-scripts-initializedb-py">`` scripts / initializedb.py``を編集する</a></li>
 <li><a class="reference internal" href="#installing-the-project-and-re-initializing-the-database">プロジェクトのインストールとデータベースの再初期化</a></li>
 <li><a class="reference internal" href="#view-the-application-in-a-browser">ブラウザでアプリケーションを表示する</a></li>
@@ -764,7 +764,7 @@ CREATE TABLE pages <span class="o">(</span>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 13, 2018
+      最終更新: 11月 17, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
