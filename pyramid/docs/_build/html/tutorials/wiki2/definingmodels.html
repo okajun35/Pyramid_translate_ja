@@ -77,7 +77,7 @@
 <p class="last">「user.py」ファイルや「page.py」ファイルは、Pythonモジュールであることを除いて特別なことは何もありません。プロジェクトはコードベース全体に任意の名前のモジュールで多くのモデルを持てます。モデルを実装するモジュールは、しばしば名前に「model」を持つか、 「models」という名前のアプリケーションパッケージのPythonサブパッケージに入っています（このチュートリアルで行ったように）。しかしながらこれは寒冷であり要件です。</p>
 </div>
 <div class="section" id="declaring-dependencies-in-our-setup-py-file">
-<h2>`` setup.py``ファイルの依存関係を宣言します(Declaring dependencies in our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file)<a class="headerlink" href="#declaring-dependencies-in-our-setup-py-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>「setup.py」ファイルの依存関係を宣言します(Declaring dependencies in our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file)<a class="headerlink" href="#declaring-dependencies-in-our-setup-py-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>アプリケーションのモデルのコードは、オリジナルの 「チュートリアル」アプリケーションの依存関係ではないパッケージに依存します。オリジナルの 「チュートリアル」アプリケーションは、cookiecutterによって生成されました。しかしカスタムアプリケーションの要件についてはわかりません。</p>
 <p>依存関係を追加する必要があります。  <a class="reference external" href="https://pypi.org/project/bcrypt/">bcrypt</a> パッケージを「tutorial」パッケージの「setup.py」ファイルに、「setup()」関数の「requires」パラメータにこの依存関係を割り当てます。</p>
 <p>「tutorial/setup.py」を開き、以下のように編集してください：</p>
@@ -228,7 +228,7 @@
 </div>
 </div>
 <div class="section" id="remove-mymodel-py">
-<h2>`` mymodel.py`を削除する( Remove <code class="docutils literal notranslate"><span class="pre">mymodel.py</span></code> )<a class="headerlink" href="#remove-mymodel-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>「mymodel.py」を削除する( Remove <code class="docutils literal notranslate"><span class="pre">mymodel.py</span></code> )<a class="headerlink" href="#remove-mymodel-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>「tutorial/models/mymodel.py」ファイルを削除しましょう。 「MyModel」クラスは単なるサンプルで使用しません。</p>
 </div>
 <div class="section" id="add-user-py">
@@ -298,7 +298,7 @@
 <p>ハッシュされたパスワードを解読してアプリケーションで認証することは不可能です。パスワードを愚かにも平文で保存した場合は、データベースにアクセスできる人は誰でもパスワードを取得して認証できます。</p>
 </div>
 <div class="section" id="add-page-py">
-<h2>「page.py」を追加してください<a class="headerlink" href="#add-page-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>「page.py」を追加してください (Add <code class="docutils literal notranslate"><span class="pre">page.py</span></code>)<a class="headerlink" href="#add-page-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>「tutorial/models/page.py」ファイルを次の内容で作成します：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -344,7 +344,7 @@
 <p>見て分かるように、「Page」クラスは、 「id」、 「name」、「data」とwikiページに関する情報を格納することに焦点を当てた属性を除けば、上で定義した「User」とよく似ています。 ここで紹介した唯一の新しいものは「creator_id」カラムで、これは「users」テーブルを参照する外部キーです。外部キーはスキーマレベルで非常に便利ですが、 「User」オブジェクトと「Page」オブジェクトを関連付けるため、 「creator」属性を2つのORMレベルのマッピングとして定義します。SQLAlchemyはUserを参照する外部キーを使用してこの値を自動的に設定します。外部キーには 「nullable = False」があるので、 「page」のインスタンスに対応する「page.creator」があることが保証されます。これは「User」インスタンスになります。</p>
 </div>
 <div class="section" id="edit-models-init-py">
-<h2>「models/__init__.py」を編集する「Edit <code class="docutils literal notranslate"><span class="pre">models/__init__.py</span></code>」<a class="headerlink" href="#edit-models-init-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>「models/__init__.py」を編集する(Edit <code class="docutils literal notranslate"><span class="pre">models/__init__.py</span></code>)<a class="headerlink" href="#edit-models-init-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>モデルにパッケージを使用しているので、 「__init __.py」ファイルを更新してモデルがメタデータに添付されていることを確認する必要もあります。</p>
 <p>「tutorial/models/__init__.py」ファイルを開き以下のように編集してください：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -701,12 +701,12 @@ CREATE TABLE pages <span class="o">(</span>
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ドメインモデルの定義(Defining the Domain Model)</a><ul>
-<li><a class="reference internal" href="#declaring-dependencies-in-our-setup-py-file">`` setup.py``ファイルの依存関係を宣言します(Declaring dependencies in our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file)</a></li>
+<li><a class="reference internal" href="#declaring-dependencies-in-our-setup-py-file">「setup.py」ファイルの依存関係を宣言します(Declaring dependencies in our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file)</a></li>
 <li><a class="reference internal" href="#running-pip-install-e">「pip install -e .」を実行しいます。(Running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> )</a></li>
-<li><a class="reference internal" href="#remove-mymodel-py">`` mymodel.py`を削除する( Remove <code class="docutils literal notranslate"><span class="pre">mymodel.py</span></code> )</a></li>
+<li><a class="reference internal" href="#remove-mymodel-py">「mymodel.py」を削除する( Remove <code class="docutils literal notranslate"><span class="pre">mymodel.py</span></code> )</a></li>
 <li><a class="reference internal" href="#add-user-py">「user.py」を追加してください( Add <code class="docutils literal notranslate"><span class="pre">user.py</span></code> )</a></li>
-<li><a class="reference internal" href="#add-page-py">「page.py」を追加してください</a></li>
-<li><a class="reference internal" href="#edit-models-init-py">「models/__init__.py」を編集する「Edit <code class="docutils literal notranslate"><span class="pre">models/__init__.py</span></code>」</a></li>
+<li><a class="reference internal" href="#add-page-py">「page.py」を追加してください (Add <code class="docutils literal notranslate"><span class="pre">page.py</span></code>)</a></li>
+<li><a class="reference internal" href="#edit-models-init-py">「models/__init__.py」を編集する(Edit <code class="docutils literal notranslate"><span class="pre">models/__init__.py</span></code>)</a></li>
 <li><a class="reference internal" href="#edit-scripts-initializedb-py">「scripts/initializedb.py」を編集する（ Edit <code class="docutils literal notranslate"><span class="pre">scripts/initializedb.py</span></code> ）</a></li>
 <li><a class="reference internal" href="#installing-the-project-and-re-initializing-the-database">プロジェクトのインストールとデータベースの再初期化（Installing the project and re-initializing the database）</a></li>
 <li><a class="reference internal" href="#view-the-application-in-a-browser">ブラウザでアプリケーションを表示する(View the application in a browser)</a></li>
