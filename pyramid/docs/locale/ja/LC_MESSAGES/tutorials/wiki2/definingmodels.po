@@ -213,11 +213,11 @@ msgstr ""
 
 #: ../../tutorials/wiki2/definingmodels.rst:123
 msgid "Add ``page.py``"
-msgstr "`` page.py``を追加してください"
+msgstr "「page.py」を追加してください"
 
 #: ../../tutorials/wiki2/definingmodels.rst:125
 msgid "Create a new file ``tutorial/models/page.py`` with the following contents:"
-msgstr "`` tutorial / models / page.py``ファイルを次の内容で作成します："
+msgstr "「tutorial/models/page.py」ファイルを次の内容で作成します："
 
 #: ../../tutorials/wiki2/definingmodels.rst:131
 msgid ""
@@ -233,34 +233,44 @@ msgid ""
 "key has ``nullable=False``, we are guaranteed that an instance of "
 "``page`` will have a corresponding ``page.creator``, which will be a "
 "``User`` instance."
-msgstr "見て分かるように、私たちの `` Page``クラスは、 `` id``、 `` name``、wikiページを含むwikiページに関する情報を格納することに焦点を当てた属性を除けば、上で定義した `` User``と非常に似ています。 「データ」という。ここで紹介した唯一の新しい構文は `` creator_id``カラムで、これは `` users``テーブルを参照する外部キーです。外部キーはスキーマレベルで非常に便利ですが、 `` User``オブジェクトと `` Page``オブジェクトを関連付けるため、 `` creator``属性を2つのORMレベルのマッピングとして定義しますテーブル。 SQLAlchemyは、ユーザーを参照する外部キーを使用してこの値を自動的に設定します。外部キーには `` nullable = False``があるので、 `` page``のインスタンスに対応する `` page.creator``があることが保証されます。これは `` User``インスタンスになります。"
+msgstr ""
+"見て分かるように、「Page」クラスは、 「id」、 「name」、「data」とwikiページに"
+"関する情報を格納することに焦点を当てた属性を除けば、上で定義した「User」"
+"とよく似ています。 ここで紹介した唯一の新しいものは「creator_id」カラムで、"
+"これは「users」テーブルを参照する外部キーです。"
+"外部キーはスキーマレベルで非常に便利ですが、 「User」オブジェクトと「Page」オブ"
+"ジェクトを関連付けるため、 「creator」属性を2つのORMレベルのマッピングとして定義します。"
+"SQLAlchemyはUserを参照する外部キーを使用してこの値を自動的に設定します。"
+"外部キーには 「nullable = False」があるので、 「page」のインスタンスに対応する"
+"「page.creator」があることが保証されます。これは「User」インスタンスになります。"
 
 #: ../../tutorials/wiki2/definingmodels.rst:145
 msgid "Edit ``models/__init__.py``"
-msgstr "``models/__init__.py` を編集する"
+msgstr "「models/__init__.py」を編集する「Edit ``models/__init__.py``」"
 
 #: ../../tutorials/wiki2/definingmodels.rst:147
 msgid ""
 "Since we are using a package for our models, we also need to update our "
 "``__init__.py`` file to ensure that the models are attached to the "
 "metadata."
-msgstr "モデルにパッケージを使用しているので、 `` __init __。py``ファイルを更新してモデルがメタデータに添付されていることを確認する必要もあります。"
+msgstr "モデルにパッケージを使用しているので、 「__init __.py」ファイル"
+"を更新してモデルがメタデータに添付されていることを確認する必要もあります。"
 
 #: ../../tutorials/wiki2/definingmodels.rst:150
 msgid ""
 "Open the ``tutorial/models/__init__.py`` file and edit it to look like "
 "the following:"
-msgstr "`` tutorial / models / __ init __。py``ファイルを開き、以下のように編集してください："
+msgstr "「tutorial/models/__init__.py」ファイルを開き以下のように編集してください："
 
 #: ../../tutorials/wiki2/definingmodels.rst:158
 msgid ""
 "Here we align our imports with the names of the models, ``Page`` and "
 "``User``."
-msgstr "ここでは、インポートとモデルの名前、 `` Page``、 `` User``を合わせています。"
+msgstr "ここでは、インポートとモデルの名前、 「Page」と「User」を合わせています。"
 
 #: ../../tutorials/wiki2/definingmodels.rst:162
 msgid "Edit ``scripts/initializedb.py``"
-msgstr "`` scripts / initializedb.py``を編集する"
+msgstr "「scripts/initializedb.py」を編集する（ Edit ``scripts/initializedb.py`` ）"
 
 #: ../../tutorials/wiki2/definingmodels.rst:164
 msgid ""
@@ -269,14 +279,21 @@ msgid ""
 "``initializedb.py``. Code in this file is executed whenever we run the "
 "``initialize_tutorial_db`` command, as we did in the installation step of"
 " this tutorial."
-msgstr "このファイルの詳細はまだ見ていませんが、チュートリアルパッケージの `` scripts``ディレクトリに `` initializedb.py``という名前のファイルがあります。このファイルのコードは、このチュートリアルのインストール手順で行ったように、 `` initialize_tutorial_db``コマンドを実行するたびに実行されます。"
+msgstr ""
+"ファイルの詳細はまだ見ていませんが、チュートリアルパッケージの「scripts」ディレ"
+"クトリに「initializedb.py」という名前のファイルがあります。"
+"このファイルのコードはチュートリアルのインストール手順で行ったように、"
+"「initialize_tutorial_db」コマンドを実行するたびに実行されます。"
 
 #: ../../tutorials/wiki2/definingmodels.rst:171
 msgid ""
 "The command is named ``initialize_tutorial_db`` because of the mapping "
 "defined in the ``[console_scripts]`` entry point of our project's "
 "``setup.py`` file."
-msgstr "このコマンドは、プロジェクトの `` setup.py``ファイルの `` [console_scripts] ``エントリポイントで定義されたマッピングのため、 `` initialize_tutorial_db``という名前です。"
+msgstr ""
+"このコマンドは、プロジェクトの 「setup.py」ファイルの "
+"[console_scripts] エントリポイントで定義されたマッピングのため、"
+"「initialize_tutorial_db」という名前です。"
 
 #: ../../tutorials/wiki2/definingmodels.rst:173
 msgid ""
@@ -286,21 +303,27 @@ msgid ""
 "very end of the script to create two ``User`` objects (``basic`` and "
 "``editor``) as well as a ``Page``, rather than a ``MyModel``, and add "
 "them to our ``dbsession``."
-msgstr "モデルを変更したので、 `` initializedb.py``スクリプトを変更する必要があります。具体的には、MyModelのインポートを `` User``と `` Page``のものに置き換えます。また、スクリプトの最後を &quot;MyModel&quot;ではなく &quot;User&quot;オブジェクト（ `` basic``と `` editor``）と `` Page``を作成するように変更します。 `を` `dbsession``に追加します。"
+msgstr ""
+"モデルを変更したので、「initializedb.py」スクリプトを変更する必要があります。"
+"具体的には、MyModelのインポートを「User」と「Page」のものに置き換えます。"
+"また、スクリプトの最後を「MyMode」ではなく「User」オブジェクト"
+"（「basic」と「editor」）と「Page」を作成するように変更します。"
+"「dbsession」に追加するようにスクリプトを変更します。"
 
 #: ../../tutorials/wiki2/definingmodels.rst:179
 msgid ""
 "Open ``tutorial/scripts/initializedb.py`` and edit it to look like the "
 "following:"
-msgstr "`` tutorial / scripts / initializedb.py``を開き、以下のように編集してください："
+msgstr "「tutorial/scripts/initializedb.py」を開き、以下のように編集してください："
 
 #: ../../tutorials/wiki2/definingmodels.rst:187
 msgid "Only the highlighted lines need to be changed."
-msgstr "強調表示されている行だけを変更する必要があります。"
+msgstr ""
+"ハイライト表示されている行だけを変更する必要があります。※翻訳の注意。最新版ではこの次にAlembicを使用したDBのマイグレーションの項目がある"
 
 #: ../../tutorials/wiki2/definingmodels.rst:191
 msgid "Installing the project and re-initializing the database"
-msgstr "プロジェクトのインストールとデータベースの再初期化"
+msgstr "プロジェクトのインストールとデータベースの再初期化（Installing the project and re-initializing the database）"
 
 #: ../../tutorials/wiki2/definingmodels.rst:193
 msgid ""
@@ -308,15 +331,19 @@ msgid ""
 " we need to rerun the ``initialize_tutorial_db`` command to pick up the "
 "changes we've made to both the models.py file and to the initializedb.py "
 "file. See :ref:`initialize_db_wiki2` for instructions."
-msgstr "私たちのモデルは変更されており、データベースを再初期化するためには、 `` initialize_tutorial_db``コマンドを再実行して、models.pyファイルとinitializedb.pyファイルの両方の変更を取り上げる必要があります。指示については：ref： `initialize_db_wiki2`を参照してください。"
+msgstr ""
+"私たちのモデルは変更されており、データベースを再初期化するためには、"
+"「initialize_tutorial_db」コマンドを再実行して、"
+"models.pyファイルとinitializedb.pyファイルの両方の変更を取り上げる必要があります。"
+"内容については :ref:`initialize_db_wiki2` を参照してください。"
 
 #: ../../tutorials/wiki2/definingmodels.rst:198
 msgid "Success will look something like this:"
-msgstr "成功は次のようになります。"
+msgstr "成功すると次のようになります。"
 
 #: ../../tutorials/wiki2/definingmodels.rst:248
 msgid "View the application in a browser"
-msgstr "ブラウザでアプリケーションを表示する"
+msgstr "ブラウザでアプリケーションを表示する(View the application in a browser)"
 
 #: ../../tutorials/wiki2/definingmodels.rst:250
 msgid ""
@@ -325,9 +352,12 @@ msgid ""
 " start the application successfully.  If you try to start the application"
 " (see :ref:`wiki2-start-the-application`), you'll wind up with a Python "
 "traceback on your console that ends with this exception:"
-msgstr "私たちはできません。この時点で、私たちのシステムは\ &quot;実行不可能な\&quot;状態にあります。次の章のビュー関連のファイルを変更して、アプリケーションを正常に起動できるようにする必要があります。アプリケーションを起動しようとすると（：ref： `wiki2-start-the-application`参照）、この例外で終わるコンソールにPythonのトレースバックが表示されます："
+msgstr "できません。この時点で、私たちのシステムは「実行不可能」な状態にあります。"
+"次の章のビュー関連のファイルを変更して、アプリケーションを正常に起動できるようにします。"
+"アプリケーションを起動しようとすると（ :ref:`wiki2-start-the-application` 参照）、"
+"コンソールに例外で終わる Pythonのトレースバックが表示されます："
 
 #: ../../tutorials/wiki2/definingmodels.rst:260
 msgid "This will also happen if you attempt to run the tests."
-msgstr "これは、テストを実行しようとした場合にも発生します。"
+msgstr "実行不能な現象はテストを実行しようとした場合にも発生します。"
 

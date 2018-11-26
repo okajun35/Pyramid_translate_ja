@@ -292,14 +292,14 @@
 </pre></div>
 </td></tr></table></div>
 <p>これはwikiで認証ユーザーのための非常に基本的なモデルです。</p>
-<p>前の章で、私たちのモデルがSQLAlchemy <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html#sqlalchemy.ext.declarative.declarative_base" title="(in SQLAlchemy v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.declarative_base()</span></code></a> から継承することを簡単に説明しました。モデルをスキーマに添付します。</p>
-<p>ご覧のように「User」クラスにはクラスレベルの「__tablename__」アトリビュートがあります。このアトリビュートは文字列 「users」に相当します。「User」クラスには 「id」、 「name」、 「password_hash」、 「role」というクラスレベルのアトリビュートもあります（すべてのインスタンスの <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Column" title="(in SQLAlchemy v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.schema.Column</span></code></a> ）。これらは「users」テーブルの列にマップされます。 「id」アトリビュートがテーブルの主キーになります。「name」アトリビュートはテキスト列になり、各値は列内で一意である必要があります。 「password_hash」は、安全にハッシュされたパスワードを含むnullを含むテキストアトリビュートです。最後に「role」のテキストアトリビュートがユーザの役割を担います。</p>
+<p>前の章で、私たちのモデルがSQLAlchemy <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html#sqlalchemy.ext.declarative.declarative_base" title="(in SQLAlchemy v1.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.declarative_base()</span></code></a> から継承することを簡単に説明しました。モデルをスキーマに添付します。</p>
+<p>ご覧のように「User」クラスにはクラスレベルの「__tablename__」アトリビュートがあります。このアトリビュートは文字列 「users」に相当します。「User」クラスには 「id」、 「name」、 「password_hash」、 「role」というクラスレベルのアトリビュートもあります（すべてのインスタンスの <a class="reference external" href="https://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Column" title="(in SQLAlchemy v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.schema.Column</span></code></a> ）。これらは「users」テーブルの列にマップされます。 「id」アトリビュートがテーブルの主キーになります。「name」アトリビュートはテキスト列になり、各値は列内で一意である必要があります。 「password_hash」は、安全にハッシュされたパスワードを含むnullを含むテキストアトリビュートです。最後に「role」のテキストアトリビュートがユーザの役割を担います。</p>
 <p>後でユーザーオブジェクトを使用するときに役立つ2つのヘルパーメソッドがあります。最初は「set_password」です。これは未処理のパスワードをとり、「bcrypt」を使って非可逆的な表現に変換します。このプロセスは「hashing」と呼ばれます。 2番目のメソッド「check_password」では、送信されたパスワードのハッシュ値と、データベースのユーザーレコードに保存されているパスワードのハッシュ値を比較できます。 2つのハッシュ値が一致すると送信されたパスワードが有効なのでユーザーを認証できます。</p>
 <p>ハッシュされたパスワードを解読してアプリケーションで認証することは不可能です。パスワードを愚かにも平文で保存した場合は、データベースにアクセスできる人は誰でもパスワードを取得して認証できます。</p>
 </div>
 <div class="section" id="add-page-py">
-<h2>`` page.py``を追加してください<a class="headerlink" href="#add-page-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>`` tutorial / models / page.py``ファイルを次の内容で作成します：</p>
+<h2>「page.py」を追加してください<a class="headerlink" href="#add-page-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>「tutorial/models/page.py」ファイルを次の内容で作成します：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -341,12 +341,12 @@
     <span class="n">creator</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="s1">&#39;created_pages&#39;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>見て分かるように、私たちの `` Page``クラスは、 `` id``、 `` name``、wikiページを含むwikiページに関する情報を格納することに焦点を当てた属性を除けば、上で定義した `` User``と非常に似ています。 「データ」という。ここで紹介した唯一の新しい構文は `` creator_id``カラムで、これは `` users``テーブルを参照する外部キーです。外部キーはスキーマレベルで非常に便利ですが、 `` User``オブジェクトと `` Page``オブジェクトを関連付けるため、 `` creator``属性を2つのORMレベルのマッピングとして定義しますテーブル。 SQLAlchemyは、ユーザーを参照する外部キーを使用してこの値を自動的に設定します。外部キーには `` nullable = False``があるので、 `` page``のインスタンスに対応する `` page.creator``があることが保証されます。これは `` User``インスタンスになります。</p>
+<p>見て分かるように、「Page」クラスは、 「id」、 「name」、「data」とwikiページに関する情報を格納することに焦点を当てた属性を除けば、上で定義した「User」とよく似ています。 ここで紹介した唯一の新しいものは「creator_id」カラムで、これは「users」テーブルを参照する外部キーです。外部キーはスキーマレベルで非常に便利ですが、 「User」オブジェクトと「Page」オブジェクトを関連付けるため、 「creator」属性を2つのORMレベルのマッピングとして定義します。SQLAlchemyはUserを参照する外部キーを使用してこの値を自動的に設定します。外部キーには 「nullable = False」があるので、 「page」のインスタンスに対応する「page.creator」があることが保証されます。これは「User」インスタンスになります。</p>
 </div>
 <div class="section" id="edit-models-init-py">
-<h2><a href="#id1"><span class="problematic" id="id2">``</span></a>models/__init__.py` を編集する<a class="headerlink" href="#edit-models-init-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>モデルにパッケージを使用しているので、 `` __init __。py``ファイルを更新してモデルがメタデータに添付されていることを確認する必要もあります。</p>
-<p>`` tutorial / models / __ init __。py``ファイルを開き、以下のように編集してください：</p>
+<h2>「models/__init__.py」を編集する「Edit <code class="docutils literal notranslate"><span class="pre">models/__init__.py</span></code>」<a class="headerlink" href="#edit-models-init-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>モデルにパッケージを使用しているので、 「__init __.py」ファイルを更新してモデルがメタデータに添付されていることを確認する必要もあります。</p>
+<p>「tutorial/models/__init__.py」ファイルを開き以下のように編集してください：</p>
 <div class="highlight-py notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -504,17 +504,17 @@
     <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>ここでは、インポートとモデルの名前、 `` Page``、 `` User``を合わせています。</p>
+<p>ここでは、インポートとモデルの名前、 「Page」と「User」を合わせています。</p>
 </div>
 <div class="section" id="edit-scripts-initializedb-py">
-<h2>`` scripts / initializedb.py``を編集する<a class="headerlink" href="#edit-scripts-initializedb-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>このファイルの詳細はまだ見ていませんが、チュートリアルパッケージの `` scripts``ディレクトリに `` initializedb.py``という名前のファイルがあります。このファイルのコードは、このチュートリアルのインストール手順で行ったように、 `` initialize_tutorial_db``コマンドを実行するたびに実行されます。</p>
+<h2>「scripts/initializedb.py」を編集する（ Edit <code class="docutils literal notranslate"><span class="pre">scripts/initializedb.py</span></code> ）<a class="headerlink" href="#edit-scripts-initializedb-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ファイルの詳細はまだ見ていませんが、チュートリアルパッケージの「scripts」ディレクトリに「initializedb.py」という名前のファイルがあります。このファイルのコードはチュートリアルのインストール手順で行ったように、「initialize_tutorial_db」コマンドを実行するたびに実行されます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">このコマンドは、プロジェクトの `` setup.py``ファイルの `` [console_scripts] <a href="#id1"><span class="problematic" id="id2">``</span></a>エントリポイントで定義されたマッピングのため、 `` initialize_tutorial_db``という名前です。</p>
+<p class="last">このコマンドは、プロジェクトの 「setup.py」ファイルの [console_scripts] エントリポイントで定義されたマッピングのため、「initialize_tutorial_db」という名前です。</p>
 </div>
-<p>モデルを変更したので、 `` initializedb.py``スクリプトを変更する必要があります。具体的には、MyModelのインポートを `` User``と `` Page``のものに置き換えます。また、スクリプトの最後を &amp;quot;MyModel&amp;quot;ではなく &amp;quot;User&amp;quot;オブジェクト（ `` basic``と `` editor``）と `` Page``を作成するように変更します。 <cite>を</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>dbsession``に追加します。</p>
-<p>`` tutorial / scripts / initializedb.py``を開き、以下のように編集してください：</p>
+<p>モデルを変更したので、「initializedb.py」スクリプトを変更する必要があります。具体的には、MyModelのインポートを「User」と「Page」のものに置き換えます。また、スクリプトの最後を「MyMode」ではなく「User」オブジェクト（「basic」と「editor」）と「Page」を作成するように変更します。「dbsession」に追加するようにスクリプトを変更します。</p>
+<p>「tutorial/scripts/initializedb.py」を開き、以下のように編集してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -630,12 +630,12 @@
 </span><span class="hll">        <span class="n">dbsession</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
 </span></pre></div>
 </td></tr></table></div>
-<p>強調表示されている行だけを変更する必要があります。</p>
+<p>ハイライト表示されている行だけを変更する必要があります。※翻訳の注意。最新版ではこの次にAlembicを使用したDBのマイグレーションの項目がある</p>
 </div>
 <div class="section" id="installing-the-project-and-re-initializing-the-database">
-<h2>プロジェクトのインストールとデータベースの再初期化<a class="headerlink" href="#installing-the-project-and-re-initializing-the-database" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>私たちのモデルは変更されており、データベースを再初期化するためには、 `` initialize_tutorial_db``コマンドを再実行して、models.pyファイルとinitializedb.pyファイルの両方の変更を取り上げる必要があります。指示については：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>initialize_db_wiki2`を参照してください。</p>
-<p>成功は次のようになります。</p>
+<h2>プロジェクトのインストールとデータベースの再初期化（Installing the project and re-initializing the database）<a class="headerlink" href="#installing-the-project-and-re-initializing-the-database" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>私たちのモデルは変更されており、データベースを再初期化するためには、「initialize_tutorial_db」コマンドを再実行して、models.pyファイルとinitializedb.pyファイルの両方の変更を取り上げる必要があります。内容については <a class="reference internal" href="installation.html#initialize-db-wiki2"><span class="std std-ref">データベースの初期化(Initializing the database)</span></a> を参照してください。</p>
+<p>成功すると次のようになります。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">2016</span>-12-20 <span class="m">02</span>:51:11,195 INFO  <span class="o">[</span>sqlalchemy.engine.base.Engine:1235<span class="o">][</span>MainThread<span class="o">]</span> SELECT CAST<span class="o">(</span><span class="s1">&#39;test plain returns&#39;</span> AS VARCHAR<span class="o">(</span><span class="m">60</span><span class="o">))</span> AS anon_1
 <span class="m">2016</span>-12-20 <span class="m">02</span>:51:11,195 INFO  <span class="o">[</span>sqlalchemy.engine.base.Engine:1236<span class="o">][</span>MainThread<span class="o">]</span> <span class="o">()</span>
 <span class="m">2016</span>-12-20 <span class="m">02</span>:51:11,195 INFO  <span class="o">[</span>sqlalchemy.engine.base.Engine:1235<span class="o">][</span>MainThread<span class="o">]</span> SELECT CAST<span class="o">(</span><span class="s1">&#39;test unicode returns&#39;</span> AS VARCHAR<span class="o">(</span><span class="m">60</span><span class="o">))</span> AS anon_1
@@ -683,12 +683,12 @@ CREATE TABLE pages <span class="o">(</span>
 </div>
 </div>
 <div class="section" id="view-the-application-in-a-browser">
-<h2>ブラウザでアプリケーションを表示する<a class="headerlink" href="#view-the-application-in-a-browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>私たちはできません。この時点で、私たちのシステムは&amp;quot;実行不可能な&amp;quot;状態にあります。次の章のビュー関連のファイルを変更して、アプリケーションを正常に起動できるようにする必要があります。アプリケーションを起動しようとすると（：ref： <a href="#id1"><span class="problematic" id="id2">`</span></a>wiki2-start-the-application`参照）、この例外で終わるコンソールにPythonのトレースバックが表示されます：</p>
+<h2>ブラウザでアプリケーションを表示する(View the application in a browser)<a class="headerlink" href="#view-the-application-in-a-browser" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>できません。この時点で、私たちのシステムは「実行不可能」な状態にあります。次の章のビュー関連のファイルを変更して、アプリケーションを正常に起動できるようにします。アプリケーションを起動しようとすると（ <a class="reference internal" href="installation.html#wiki2-start-the-application"><span class="std std-ref">アプリケーションを起動する(Start the application)</span></a> 参照）、コンソールに例外で終わる Pythonのトレースバックが表示されます：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ImportError: cannot import name MyModel
 </pre></div>
 </div>
-<p>これは、テストを実行しようとした場合にも発生します。</p>
+<p>実行不能な現象はテストを実行しようとした場合にも発生します。</p>
 </div>
 </div>
 
@@ -705,11 +705,11 @@ CREATE TABLE pages <span class="o">(</span>
 <li><a class="reference internal" href="#running-pip-install-e">「pip install -e .」を実行しいます。(Running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> )</a></li>
 <li><a class="reference internal" href="#remove-mymodel-py">`` mymodel.py`を削除する( Remove <code class="docutils literal notranslate"><span class="pre">mymodel.py</span></code> )</a></li>
 <li><a class="reference internal" href="#add-user-py">「user.py」を追加してください( Add <code class="docutils literal notranslate"><span class="pre">user.py</span></code> )</a></li>
-<li><a class="reference internal" href="#add-page-py">`` page.py``を追加してください</a></li>
-<li><a class="reference internal" href="#edit-models-init-py">``models/__init__.py` を編集する</a></li>
-<li><a class="reference internal" href="#edit-scripts-initializedb-py">`` scripts / initializedb.py``を編集する</a></li>
-<li><a class="reference internal" href="#installing-the-project-and-re-initializing-the-database">プロジェクトのインストールとデータベースの再初期化</a></li>
-<li><a class="reference internal" href="#view-the-application-in-a-browser">ブラウザでアプリケーションを表示する</a></li>
+<li><a class="reference internal" href="#add-page-py">「page.py」を追加してください</a></li>
+<li><a class="reference internal" href="#edit-models-init-py">「models/__init__.py」を編集する「Edit <code class="docutils literal notranslate"><span class="pre">models/__init__.py</span></code>」</a></li>
+<li><a class="reference internal" href="#edit-scripts-initializedb-py">「scripts/initializedb.py」を編集する（ Edit <code class="docutils literal notranslate"><span class="pre">scripts/initializedb.py</span></code> ）</a></li>
+<li><a class="reference internal" href="#installing-the-project-and-re-initializing-the-database">プロジェクトのインストールとデータベースの再初期化（Installing the project and re-initializing the database）</a></li>
+<li><a class="reference internal" href="#view-the-application-in-a-browser">ブラウザでアプリケーションを表示する(View the application in a browser)</a></li>
 </ul>
 </li>
 </ul>
@@ -764,7 +764,7 @@ CREATE TABLE pages <span class="o">(</span>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 17, 2018
+      最終更新: 11月 27, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
