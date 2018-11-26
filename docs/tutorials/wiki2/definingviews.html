@@ -19,7 +19,7 @@
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="copyright" title="著作権" href="../../copyright.html" />
     <link rel="next" title="(機械翻訳)認証の追加" href="authentication.html" />
-    <link rel="prev" title="(機械翻訳)ドメインモデルの定義" href="definingmodels.html" />
+    <link rel="prev" title="ドメインモデルの定義(Defining the Domain Model)" href="definingmodels.html" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/nobile/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="//static.pylonsproject.org/fonts/neuton/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
 <!--[if lte IE 6]>
@@ -57,7 +57,7 @@
           <a href="authentication.html" title="(機械翻訳)認証の追加"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="definingmodels.html" title="(機械翻訳)ドメインモデルの定義"
+          <a href="definingmodels.html" title="ドメインモデルの定義(Defining the Domain Model)"
              accesskey="P">前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
@@ -71,13 +71,13 @@
             
   <div class="section" id="defining-views">
 <span id="wiki2-defining-views"></span><h1>ビューの定義(Defining Views)<a class="headerlink" href="#defining-views" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>A:term:<cite>view callable</cite> は <span>Pyramid</span> アプリケーションは通常、 <a class="reference internal" href="../../glossary.html#term-request"><span class="xref std std-term">request</span></a> という単一のパラメータを受け入れる単純なPython関数です。ビューcallableは <a class="reference internal" href="../../glossary.html#term-response"><span class="xref std std-term">response</span></a> オブジェクトを返すものとします。</p>
-<p>リクエストオブジェクトには、 `` matchdict`` という属性の辞書があります。 `` matchdict`` は、一致するURLのプレースホルダ `` pattern` <cite>を :term:`request</cite> URLのパスの部分文字列にマップします。たとえば、<a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a>  への呼び出しが <code class="docutils literal notranslate"><span class="pre">/{one}/{two}</span></code> というパターンを持ち、ユーザが <code class="docutils literal notranslate"><span class="pre">http://example.com/foo/foo/bar</span></code> と一致し、 <code class="docutils literal notranslate"><span class="pre">matchdict</span></code>  は  <code class="docutils literal notranslate"><span class="pre">{'one':'foo',</span> <span class="pre">'two':'bar'}</span></code> のようになります。 。</p>
+<p>A:term:<cite>view callable</cite> は <span>Pyramid</span> アプリケーションは通常、 <a class="reference internal" href="../../glossary.html#term-request"><span class="xref std std-term">request</span></a> という単一のパラメータを受け入れる単純なPython関数です。callableビューは <a class="reference internal" href="../../glossary.html#term-response"><span class="xref std std-term">response</span></a> オブジェクトを返すものとします。</p>
+<p>リクエストオブジェクトには、 「matchdict」という属性の辞書があります。 「matchdict」 は、一致するURLのプレースホルダ 「pattern」を <a class="reference internal" href="../../glossary.html#term-request"><span class="xref std std-term">request</span></a> URL のパスの部分文字列にマッピングします。たとえば、<a class="reference internal" href="../../api/config.html#pyramid.config.Configurator.add_route" title="pyramid.config.Configurator.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyramid.config.Configurator.add_route()</span></code></a>  への呼び出しに「/{one}/{two}」 というパターンを持ち、ユーザが 「<a class="reference external" href="http://example.com/foo/foo/bar">http://example.com/foo/foo/bar</a>」にアクセスするとパタンはと一致します。　「/foo/bar」となり「matchdict」  は  「{'one':'foo', 'two':'bar'}」 のようになります。 。</p>
 <div class="section" id="adding-the-docutils-dependency">
-<h2><code class="docutils literal notranslate"><span class="pre">docutils</span></code> 依存関係の追加<a class="headerlink" href="#adding-the-docutils-dependency" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>前の章では、 <code class="docutils literal notranslate"><span class="pre">bcrypt</span></code>  パッケージの新しい依存性を追加しました。ここでも、アプリケーションのビューコードは、オリジナルの &quot;tutorial&quot; アプリケーションの依存関係ではないパッケージに依存します。</p>
-<p><code class="docutils literal notranslate"><span class="pre">docutils</span></code> パッケージの依存関係を <code class="docutils literal notranslate"><span class="pre">tutorial</span></code> パッケージの <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> ファイルに追加する必要があります。この依存関係は ``  <code class="docutils literal notranslate"><span class="pre">setup()</span></code> 関数の <code class="docutils literal notranslate"><span class="pre">requires</span></code> パラメータに割り当てます。</p>
-<p>`` tutorial/setup.py`` を開き、以下のように編集してください：</p>
+<h2>依存関係「docutils」 の追加( Adding the <code class="docutils literal notranslate"><span class="pre">docutils</span></code> dependency )<a class="headerlink" href="#adding-the-docutils-dependency" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>前の章では、新しい依存パッケージ「bcrypt」を追加しました。ここでも、アプリケーションのビューのコードは、オリジナルの 「tutorial」アプリケーションの依存関係ではないパッケージに依存します。</p>
+<p>この依存関係を「setup()」関数の「requires」パラメータに割り当てることによって、チュートリアルパッケージの「setup.py」ファイルに「docutils」パッケージへの依存関係を追加する必要があります。</p>
+<p>「tutorial/setup.py」を開き、以下のように編集してください：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -203,13 +203,13 @@
 <span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>強調表示された行だけを追加する必要があります。</p>
-<p>ここでも、前の章で行ったように依存関係をインストールする必要がありますので、 <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">VENV/bin/pip</span> <span class="pre">install</span> <span class="pre">-e.</span></code> コマンドを再実行してください。</p>
+<p>ハイライト表示された行だけを追加します。</p>
+<p>ここでも、前の章で行ったように依存関係をインストールする必要がありますので、「$VENV/bin/pip install -e .」 コマンドを再実行してください。</p>
 </div>
 <div class="section" id="static-assets">
-<h2>静的資産<a class="headerlink" href="#static-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>テンプレートには、CSSや画像などの静的資産の名前が付けられます。これらのファイルは、プロジェクトの作成時に提供されたものであるため、パッケージの <code class="docutils literal notranslate"><span class="pre">static</span></code> ディレクトリ内に作成する必要はありません。</p>
-<p>たとえば、 `` <a class="reference external" href="http://localhost:6543/static/theme">http://localhost:6543/static/theme</a>.css`` を経由してCSSファイルにアクセスするには、 <code class="docutils literal notranslate"><span class="pre">add_static_view</span></code> ディレクティブを呼び出してください  <code class="docutils literal notranslate"><span class="pre">routes.py</span></code> ファイル。任意の数とタイプの静的アセットをこのディレクトリ（またはサブディレクトリ）に配置することができ、単にURLで、または <code class="docutils literal notranslate"><span class="pre">static_url</span></code> という便利なメソッドを使用するだけです。たとえば、<code class="docutils literal notranslate"><span class="pre">request.static_url('&lt;package&gt;:static/foo.css')</span></code> テンプレート内にあります。</p>
+<h2>静的資産(Static assets)<a class="headerlink" href="#static-assets" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>テンプレートには、CSSや画像などの静的資産の名前が付けられます。このファイルはプロジェクトの作成時に提供されるため、パッケージの 「static」ディレクトリ内に作成する必要はありません。</p>
+<p>たとえば、「<a class="reference external" href="http://localhost:6543/static/theme.css">http://localhost:6543/static/theme.css</a>」を経由してCSSファイルにアクセスするには「routes.py」ファイルの「add_static_view」ディレクティブを呼び出してください 。任意の数とタイプの静的アセットをこのディレクトリ（またはサブディレクトリ）に配置できて、単にURLを参照するか、または「static_url」という便利なメソッドを使用するだけです。たとえば「request.static_url('&lt;package&gt;:static/foo.css')」テンプレート内にあります。</p>
 </div>
 <div class="section" id="adding-routes-to-routes-py">
 <h2><code class="docutils literal notranslate"><span class="pre">routes.py</span></code> にルートを追加する<a class="headerlink" href="#adding-routes-to-routes-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -856,8 +856,8 @@ Editing <span class="p">&lt;</span><span class="nt">strong</span><span class="p"
   <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ビューの定義(Defining Views)</a><ul>
-<li><a class="reference internal" href="#adding-the-docutils-dependency"><code class="docutils literal notranslate"><span class="pre">docutils</span></code> 依存関係の追加</a></li>
-<li><a class="reference internal" href="#static-assets">静的資産</a></li>
+<li><a class="reference internal" href="#adding-the-docutils-dependency">依存関係「docutils」 の追加( Adding the <code class="docutils literal notranslate"><span class="pre">docutils</span></code> dependency )</a></li>
+<li><a class="reference internal" href="#static-assets">静的資産(Static assets)</a></li>
 <li><a class="reference internal" href="#adding-routes-to-routes-py"><code class="docutils literal notranslate"><span class="pre">routes.py</span></code> にルートを追加する</a></li>
 <li><a class="reference internal" href="#adding-view-functions-in-views-default-py"><code class="docutils literal notranslate"><span class="pre">views/default.py</span></code> にビュー関数を追加する</a><ul>
 <li><a class="reference internal" href="#the-view-wiki-view-function">`` view_wiki``ビュー関数</a></li>
@@ -880,7 +880,7 @@ Editing <span class="p">&lt;</span><span class="nt">strong</span><span class="p"
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="definingmodels.html"
-                        title="前の章へ">(機械翻訳)ドメインモデルの定義</a></p>
+                        title="前の章へ">ドメインモデルの定義(Defining the Domain Model)</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="authentication.html"
                         title="次の章へ">(機械翻訳)認証の追加</a></p>
@@ -920,7 +920,7 @@ Editing <span class="p">&lt;</span><span class="nt">strong</span><span class="p"
           <a href="authentication.html" title="(機械翻訳)認証の追加"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="definingmodels.html" title="(機械翻訳)ドメインモデルの定義"
+          <a href="definingmodels.html" title="ドメインモデルの定義(Defining the Domain Model)"
              >前へ</a> |</li>
     	<li><a href="../../index.html">The Pyramid Web Framework v1.9.2</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >SQLAlchemy + URL dispatch wiki tutorial(翻訳中)</a> &#187;</li> 
@@ -928,7 +928,7 @@ Editing <span class="p">&lt;</span><span class="nt">strong</span><span class="p"
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../../copyright.html">Copyright</a> 2008-2018, Agendaless Consulting.
-      最終更新: 11月 13, 2018
+      最終更新: 11月 27, 2018
       このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1 で生成しました。
     </div>
   </body>
